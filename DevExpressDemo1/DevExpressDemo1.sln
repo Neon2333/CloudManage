@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressDemo1", "DevExpressDemo1\DevExpressDemo1.csproj", "{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
