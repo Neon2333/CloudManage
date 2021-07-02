@@ -61,12 +61,52 @@ namespace DevExpressDemo1.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap img01 {
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1down {
             get {
-                object obj = ResourceManager.GetObject("img01", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("actions_arrow1down", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1left {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1left", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1right {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1right", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1up {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1up", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_send {
+            get {
+                object obj = ResourceManager.GetObject("actions_send", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
     }

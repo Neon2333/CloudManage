@@ -23,5 +23,11 @@ namespace DevExpressDemo1
             FormSimpleButton formSimpleButton = new FormSimpleButton();
             formSimpleButton.Show();
         }
+
+        private void textEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTextEdit formTextEdit = new FormTextEdit();
+            formTextEdit.Show();
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.menuControls = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemOftenControls = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSimpleButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.textEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // toolStripMenuItemOftenControls
             // 
             this.toolStripMenuItemOftenControls.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemSimpleButton});
+            this.toolStripMenuItemSimpleButton,
+            this.textEditToolStripMenuItem});
             this.toolStripMenuItemOftenControls.Name = "toolStripMenuItemOftenControls";
             this.toolStripMenuItemOftenControls.Size = new System.Drawing.Size(68, 21);
             this.toolStripMenuItemOftenControls.Text = "常用控件";
@@ -58,6 +60,13 @@
             this.toolStripMenuItemSimpleButton.Size = new System.Drawing.Size(153, 22);
             this.toolStripMenuItemSimpleButton.Text = "SimpleButton";
             this.toolStripMenuItemSimpleButton.Click += new System.EventHandler(this.toolStripMenuItemSimpleButton_Click);
+            // 
+            // textEditToolStripMenuItem
+            // 
+            this.textEditToolStripMenuItem.Name = "textEditToolStripMenuItem";
+            this.textEditToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.textEditToolStripMenuItem.Text = "TextEdit";
+            this.textEditToolStripMenuItem.Click += new System.EventHandler(this.textEditToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -79,6 +88,7 @@
         private System.Windows.Forms.MenuStrip menuControls;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOftenControls;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSimpleButton;
+        private System.Windows.Forms.ToolStripMenuItem textEditToolStripMenuItem;
     }
 }
 
