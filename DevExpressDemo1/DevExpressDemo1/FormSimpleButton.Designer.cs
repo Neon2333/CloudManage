@@ -74,14 +74,15 @@
             this.simpleButton1.Appearance.BackColor = System.Drawing.Color.White;
             this.simpleButton1.Appearance.BackColor2 = System.Drawing.Color.White;
             this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.Transparent;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("宋体", 25.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleButton1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            this.simpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseBorderColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.Appearance.Options.UseTextOptions = true;
+            this.simpleButton1.Appearance.TextOptions.Trimming = DevExpress.Utils.Trimming.Word;
+            this.simpleButton1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.simpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.simpleButton1.AppearancePressed.BackColor = System.Drawing.Color.Aqua;
             this.simpleButton1.AppearancePressed.BackColor2 = System.Drawing.Color.Black;
@@ -101,7 +102,8 @@
             this.simpleButton1.LookAndFeel.SkinName = "Office 2019 Colorful";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(110, 50);
+            this.simpleButton1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.True;
+            this.simpleButton1.Size = new System.Drawing.Size(406, 50);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "按钮1";
             // 
