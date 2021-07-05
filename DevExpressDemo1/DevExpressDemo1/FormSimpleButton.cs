@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DevExpressDemo1
 {
-    public partial class FormSimpleButton : Form
+    public partial class FormSimpleButton : DevExpress.XtraEditors.XtraForm
     {
         int indexSimpleButton20ImageChanged = 0;
         int indexSimpleButton21SvgImageChanged = 0;

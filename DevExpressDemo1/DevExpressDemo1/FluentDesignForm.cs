@@ -1,19 +1,18 @@
-﻿using System;
+﻿using DevExpress.XtraBars;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class FormTextEdit : DevExpress.XtraEditors.XtraForm
+    public partial class FluentDesignForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public FormTextEdit()
+        public FluentDesignForm()
         {
             InitializeComponent();
         }

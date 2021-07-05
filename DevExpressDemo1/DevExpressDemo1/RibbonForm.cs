@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Ribbon;
 namespace DevExpressDemo1
 {
-    public partial class FormTextEdit : DevExpress.XtraEditors.XtraForm
+    public partial class RibbonForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FormTextEdit()
+        public RibbonForm()
         {
             InitializeComponent();
+            
         }
     }
 }
