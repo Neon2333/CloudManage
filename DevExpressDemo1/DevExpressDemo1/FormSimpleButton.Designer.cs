@@ -147,7 +147,7 @@
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1160, 707);
+            this.tabPage3.Size = new System.Drawing.Size(1146, 686);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "使用skin";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -842,7 +842,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1160, 707);
+            this.tabPage2.Size = new System.Drawing.Size(1146, 686);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "使用skin";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2117,6 +2117,7 @@
             this.LookAndFeel.SkinName = "Visual Studio 2013 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "FormSimpleButton";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSimpleButton";
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);

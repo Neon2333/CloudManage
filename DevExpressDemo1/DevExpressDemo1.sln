@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressDemo1", "DevExpressDemo1\DevExpressDemo1.csproj", "{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressDemo1.0", "DevExpressDemo1\DevExpressDemo1.0.csproj", "{A03A48CD-64EF-4E68-95E8-D82D87E05CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

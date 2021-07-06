@@ -72,7 +72,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1125, 762);
+            this.tabPage2.Size = new System.Drawing.Size(1111, 741);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -90,6 +90,7 @@
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "FormTextEdit";
             this.Opacity = 0.8D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTextEdit";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
