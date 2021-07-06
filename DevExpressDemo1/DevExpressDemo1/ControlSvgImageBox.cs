@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class SvgImageBox : DevExpress.XtraEditors.XtraForm
+    public partial class ControlSvgImageBox : DevExpress.XtraEditors.XtraForm
     {
-        public SvgImageBox()
+        public ControlSvgImageBox()
         {
             InitializeComponent();
         }

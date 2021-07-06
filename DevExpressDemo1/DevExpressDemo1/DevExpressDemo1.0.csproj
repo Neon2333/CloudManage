@@ -58,11 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FluentDesignForm.cs">
+    <Compile Include="FormFluentDesign.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FluentDesignForm.Designer.cs">
-      <DependentUpon>FluentDesignForm.cs</DependentUpon>
+    <Compile Include="FormFluentDesign.Designer.cs">
+      <DependentUpon>FormFluentDesign.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -70,49 +70,49 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSimpleButton.cs">
+    <Compile Include="ControlSimpleButton.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSimpleButton.Designer.cs">
-      <DependentUpon>FormSimpleButton.cs</DependentUpon>
+    <Compile Include="ControlSimpleButton.Designer.cs">
+      <DependentUpon>ControlSimpleButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTextEdit.cs">
+    <Compile Include="ControlTextEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTextEdit.Designer.cs">
-      <DependentUpon>FormTextEdit.cs</DependentUpon>
+    <Compile Include="ControlTextEdit.Designer.cs">
+      <DependentUpon>ControlTextEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RibbonForm.cs">
+    <Compile Include="FormRibbon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RibbonForm.Designer.cs">
-      <DependentUpon>RibbonForm.cs</DependentUpon>
+    <Compile Include="FormRibbon.Designer.cs">
+      <DependentUpon>FormRibbon.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolbarForm.cs">
+    <Compile Include="FormToolBar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToolbarForm.Designer.cs">
-      <DependentUpon>ToolbarForm.cs</DependentUpon>
+    <Compile Include="FormToolBar.Designer.cs">
+      <DependentUpon>FormToolBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="SvgImageBox.cs">
+    <Compile Include="ControlSvgImageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SvgImageBox.Designer.cs">
-      <DependentUpon>SvgImageBox.cs</DependentUpon>
+    <Compile Include="ControlSvgImageBox.Designer.cs">
+      <DependentUpon>ControlSvgImageBox.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FluentDesignForm.resx">
-      <DependentUpon>FluentDesignForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormFluentDesign.resx">
+      <DependentUpon>FormFluentDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSimpleButton.resx">
-      <DependentUpon>FormSimpleButton.cs</DependentUpon>
+    <EmbeddedResource Include="ControlSimpleButton.resx">
+      <DependentUpon>ControlSimpleButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTextEdit.resx">
-      <DependentUpon>FormTextEdit.cs</DependentUpon>
+    <EmbeddedResource Include="ControlTextEdit.resx">
+      <DependentUpon>ControlTextEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,14 +125,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RibbonForm.resx">
-      <DependentUpon>RibbonForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormRibbon.resx">
+      <DependentUpon>FormRibbon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolbarForm.resx">
-      <DependentUpon>ToolbarForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormToolBar.resx">
+      <DependentUpon>FormToolBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SvgImageBox.resx">
-      <DependentUpon>SvgImageBox.cs</DependentUpon>
+    <EmbeddedResource Include="ControlSvgImageBox.resx">
+      <DependentUpon>ControlSvgImageBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -161,6 +161,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\actions_arrow1left.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f2d7c2a55ecf9e4a9ac5eda02e3a7cc86c78bd3e9fae84f3af5e81972caf469a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d4e570b576a4f19d35ddc58a2c68727e913f51194d62355914414f5ed8d016b4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f %284%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f %283%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

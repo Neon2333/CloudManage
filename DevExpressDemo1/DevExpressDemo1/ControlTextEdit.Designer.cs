@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class FormTextEdit
+    partial class ControlTextEdit
     {
         /// <summary>
         /// Required designer variable.

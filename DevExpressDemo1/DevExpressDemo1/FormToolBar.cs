@@ -8,15 +8,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-using DevExpress.XtraBars.Ribbon;
+
 namespace DevExpressDemo1
 {
-    public partial class RibbonForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FormToolBar : DevExpress.XtraEditors.XtraForm
     {
-        public RibbonForm()
+        public FormToolBar()
         {
             InitializeComponent();
-            
         }
     }
 }

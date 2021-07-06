@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class FluentDesignForm
+    partial class FormFluentDesign
     {
         /// <summary>
         /// Required designer variable.
@@ -70,9 +70,9 @@
             // 
             this.fluentDesignFormContainer1.Controls.Add(this.navBarControl1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(166, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(761, 614);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(855, 614);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navBarControl1
@@ -161,7 +161,7 @@
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(260, 614);
+            this.accordionControl1.Size = new System.Drawing.Size(166, 614);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
