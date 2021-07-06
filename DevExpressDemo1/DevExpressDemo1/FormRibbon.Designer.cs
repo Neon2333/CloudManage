@@ -197,6 +197,7 @@
             this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
             this.backstageViewControl1.Controls.Add(this.backstageViewClientControl2);
             this.backstageViewControl1.Controls.Add(this.backstageViewClientControl3);
+            this.backstageViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
             this.backstageViewControl1.Items.Add(this.backstageViewTabItem2);
             this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator1);
@@ -205,11 +206,11 @@
             this.backstageViewControl1.Items.Add(this.backstageViewTabItem3);
             this.backstageViewControl1.Items.Add(this.backstageViewButtonItem3);
             this.backstageViewControl1.Items.Add(this.backstageViewItemSeparator2);
-            this.backstageViewControl1.Location = new System.Drawing.Point(0, 156);
+            this.backstageViewControl1.Location = new System.Drawing.Point(0, 150);
             this.backstageViewControl1.Name = "backstageViewControl1";
-            this.backstageViewControl1.SelectedTab = this.backstageViewTabItem3;
-            this.backstageViewControl1.SelectedTabIndex = 5;
-            this.backstageViewControl1.Size = new System.Drawing.Size(985, 494);
+            this.backstageViewControl1.SelectedTab = this.backstageViewTabItem1;
+            this.backstageViewControl1.SelectedTabIndex = 0;
+            this.backstageViewControl1.Size = new System.Drawing.Size(985, 491);
             this.backstageViewControl1.Style = DevExpress.XtraBars.Ribbon.BackstageViewStyle.Office2013;
             this.backstageViewControl1.TabIndex = 2;
             this.backstageViewControl1.Text = "backstageViewControl1";
@@ -219,7 +220,7 @@
             // 
             this.backstageViewClientControl1.Location = new System.Drawing.Point(214, 63);
             this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-            this.backstageViewClientControl1.Size = new System.Drawing.Size(683, 374);
+            this.backstageViewClientControl1.Size = new System.Drawing.Size(770, 427);
             this.backstageViewClientControl1.TabIndex = 1;
             // 
             // backstageViewClientControl2
@@ -241,6 +242,7 @@
             this.backstageViewTabItem1.Caption = "backstageViewTabItem1";
             this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
             this.backstageViewTabItem1.Name = "backstageViewTabItem1";
+            this.backstageViewTabItem1.Selected = true;
             // 
             // backstageViewTabItem2
             // 
@@ -267,7 +269,6 @@
             this.backstageViewTabItem3.Caption = "backstageViewTabItem3";
             this.backstageViewTabItem3.ContentControl = this.backstageViewClientControl3;
             this.backstageViewTabItem3.Name = "backstageViewTabItem3";
-            this.backstageViewTabItem3.Selected = true;
             // 
             // backstageViewButtonItem3
             // 
@@ -289,7 +290,7 @@
             this.defaultBarAndDockingController1.Controller.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.defaultBarAndDockingController1.Controller.LookAndFeel.UseDefaultLookAndFeel = false;
             // 
-            // RibbonForm
+            // FormRibbon
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -297,8 +298,8 @@
             this.Controls.Add(this.backstageViewControl1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("RibbonForm.IconOptions.SvgImage")));
-            this.Name = "RibbonForm";
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("FormRibbon.IconOptions.SvgImage")));
+            this.Name = "FormRibbon";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
