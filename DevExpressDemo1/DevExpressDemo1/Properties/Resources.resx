@@ -118,31 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="actions_arrow1down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_arrow1down.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="actions_arrow1right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_arrow1right.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="actions_send" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_send.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="actions_arrow1left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\actions_arrow1left.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="actions_arrow1right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_arrow1right.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="f2d7c2a55ecf9e4a9ac5eda02e3a7cc86c78bd3e9fae84f3af5e81972caf469a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f2d7c2a55ecf9e4a9ac5eda02e3a7cc86c78bd3e9fae84f3af5e81972caf469a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="actions_arrow1up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\actions_arrow1up.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="f2d7c2a55ecf9e4a9ac5eda02e3a7cc86c78bd3e9fae84f3af5e81972caf469a" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\f2d7c2a55ecf9e4a9ac5eda02e3a7cc86c78bd3e9fae84f3af5e81972caf469a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actions_arrow1down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_arrow1down.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="d4e570b576a4f19d35ddc58a2c68727e913f51194d62355914414f5ed8d016b4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d4e570b576a4f19d35ddc58a2c68727e913f51194d62355914414f5ed8d016b4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (4).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actions_send" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_send.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cinemahall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cinemahall.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

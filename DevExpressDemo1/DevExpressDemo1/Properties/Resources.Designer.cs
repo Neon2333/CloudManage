@@ -19,7 +19,7 @@ namespace DevExpressDemo1.Properties {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -47,8 +47,8 @@ namespace DevExpressDemo1.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性，对
-        ///   使用此强类型资源类的所有资源查找执行重写。
+        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -111,11 +111,21 @@ namespace DevExpressDemo1.Properties {
         }
         
         /// <summary>
+        ///   查找 DevExpress.Utils.Svg.SvgImage 类型的本地化资源。
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage cinemahall {
+            get {
+                object obj = ResourceManager.GetObject("cinemahall", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f__3_ {
+        internal static System.Drawing.Bitmap d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f {
             get {
-                object obj = ResourceManager.GetObject("d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (3)", resourceCulture);
+                object obj = ResourceManager.GetObject("d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace DevExpressDemo1.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f__4_ {
+        internal static System.Drawing.Bitmap d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f4 {
             get {
-                object obj = ResourceManager.GetObject("d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f (4)", resourceCulture);
+                object obj = ResourceManager.GetObject("d099da612692515054122bd91c27ecd77c91f1efa06f8c3c3962674014f08d5f4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
