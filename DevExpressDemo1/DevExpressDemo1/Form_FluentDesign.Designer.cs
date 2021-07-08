@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class FormFluentDesign
+    partial class Form_FluentDesign
     {
         /// <summary>
         /// Required designer variable.

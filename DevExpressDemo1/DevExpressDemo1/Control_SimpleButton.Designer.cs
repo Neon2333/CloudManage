@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class ControlSimpleButton
+    partial class Control_SimpleButton
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlSimpleButton));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control_SimpleButton));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();

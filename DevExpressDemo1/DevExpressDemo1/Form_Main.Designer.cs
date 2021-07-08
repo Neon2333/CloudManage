@@ -1,7 +1,7 @@
 ﻿
 namespace DevExpressDemo1
 {
-    partial class FormMain
+    partial class Form_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -79,6 +79,19 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_CalendarControl = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_ImageSlider = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_PdfViewer = new System.Windows.Forms.ToolStripMenuItem();
+            this.文本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richEditControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.svgImageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_LookUpEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.navigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.layoutControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageListBoxControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +100,11 @@ namespace DevExpressDemo1
             this.menuControls.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemOftenControls,
             this.formToolStripMenuItem,
-            this.commonControlsToolStripMenuItem});
+            this.commonControlsToolStripMenuItem,
+            this.文本ToolStripMenuItem,
+            this.图片ToolStripMenuItem,
+            this.dateAnalysisToolStripMenuItem,
+            this.navigationToolStripMenuItem});
             this.menuControls.Location = new System.Drawing.Point(0, 0);
             this.menuControls.Name = "menuControls";
             this.menuControls.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -109,14 +126,14 @@ namespace DevExpressDemo1
             // toolStripMenuItemSimpleButton
             // 
             this.toolStripMenuItemSimpleButton.Name = "toolStripMenuItemSimpleButton";
-            this.toolStripMenuItemSimpleButton.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemSimpleButton.Size = new System.Drawing.Size(175, 22);
             this.toolStripMenuItemSimpleButton.Text = "SimpleButton";
             this.toolStripMenuItemSimpleButton.Click += new System.EventHandler(this.toolStripMenuItemSimpleButton_Click);
             // 
             // toolStripMenuItem_textEditToolStripMenuItem
             // 
             this.toolStripMenuItem_textEditToolStripMenuItem.Name = "toolStripMenuItem_textEditToolStripMenuItem";
-            this.toolStripMenuItem_textEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_textEditToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.toolStripMenuItem_textEditToolStripMenuItem.Text = "TextEdit";
             this.toolStripMenuItem_textEditToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_textEditToolStripMenuItem_Click);
             // 
@@ -126,7 +143,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.toolStripMenuItem_XtraMessageBox.Name = "toolStripMenuItem_XtraMessageBox";
-            this.toolStripMenuItem_XtraMessageBox.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_XtraMessageBox.Size = new System.Drawing.Size(175, 22);
             this.toolStripMenuItem_XtraMessageBox.Text = "XtraMessageBox";
             // 
             // toolStripMenuItem2
@@ -146,7 +163,7 @@ namespace DevExpressDemo1
             // toolStripMenuItem_inputBox
             // 
             this.toolStripMenuItem_inputBox.Name = "toolStripMenuItem_inputBox";
-            this.toolStripMenuItem_inputBox.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_inputBox.Size = new System.Drawing.Size(175, 22);
             this.toolStripMenuItem_inputBox.Text = "inputBox";
             // 
             // formToolStripMenuItem
@@ -197,6 +214,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_ListBoxControl,
             this.toolStripMenuItem_MemoEdit,
             this.toolStripMenuItem_PictureEdit,
+            this.toolStripMenuItem_LookUpEdit,
             this.toolStripMenuItem_CalcEdit,
             this.toolStripMenuItem_CheckedComboBoxEdit,
             this.toolStripMenuItem_ColorPickEdit,
@@ -248,6 +266,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_SimpleButton.Name = "toolStripMenuItem_SimpleButton";
             this.toolStripMenuItem_SimpleButton.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_SimpleButton.Text = "SimpleButton";
+            this.toolStripMenuItem_SimpleButton.Click += new System.EventHandler(this.toolStripMenuItem_SimpleButton_Click);
             // 
             // toolStripMenuItem_CheckButton
             // 
@@ -278,6 +297,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_LabelControl.Name = "toolStripMenuItem_LabelControl";
             this.toolStripMenuItem_LabelControl.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_LabelControl.Text = "LabelControl";
+            this.toolStripMenuItem_LabelControl.Click += new System.EventHandler(this.toolStripMenuItem_LabelControl_Click);
             // 
             // toolStripMenuItem_CheckListBoxControl
             // 
@@ -308,6 +328,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_PictureEdit.Name = "toolStripMenuItem_PictureEdit";
             this.toolStripMenuItem_PictureEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_PictureEdit.Text = "PictureEdit";
+            this.toolStripMenuItem_PictureEdit.Click += new System.EventHandler(this.toolStripMenuItem_PictureEdit_Click);
             // 
             // toolStripMenuItem_CalcEdit
             // 
@@ -398,6 +419,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_TextEdit.Name = "toolStripMenuItem_TextEdit";
             this.toolStripMenuItem_TextEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_TextEdit.Text = "TextEdit";
+            this.toolStripMenuItem_TextEdit.Click += new System.EventHandler(this.toolStripMenuItem_TextEdit_Click);
             // 
             // toolStripMenuItem_TimeEdit
             // 
@@ -447,13 +469,103 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_PdfViewer.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_PdfViewer.Text = "PdfViewer";
             // 
-            // FormMain
+            // 文本ToolStripMenuItem
+            // 
+            this.文本ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelControlToolStripMenuItem,
+            this.textEditToolStripMenuItem,
+            this.richEditControlToolStripMenuItem});
+            this.文本ToolStripMenuItem.Name = "文本ToolStripMenuItem";
+            this.文本ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文本ToolStripMenuItem.Text = "文本";
+            // 
+            // 图片ToolStripMenuItem
+            // 
+            this.图片ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.svgImageBoxToolStripMenuItem,
+            this.pictureEditToolStripMenuItem,
+            this.imageListBoxControlToolStripMenuItem});
+            this.图片ToolStripMenuItem.Name = "图片ToolStripMenuItem";
+            this.图片ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.图片ToolStripMenuItem.Text = "图片";
+            // 
+            // labelControlToolStripMenuItem
+            // 
+            this.labelControlToolStripMenuItem.Name = "labelControlToolStripMenuItem";
+            this.labelControlToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.labelControlToolStripMenuItem.Text = "LabelControl";
+            // 
+            // textEditToolStripMenuItem
+            // 
+            this.textEditToolStripMenuItem.Name = "textEditToolStripMenuItem";
+            this.textEditToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.textEditToolStripMenuItem.Text = "TextEdit";
+            // 
+            // richEditControlToolStripMenuItem
+            // 
+            this.richEditControlToolStripMenuItem.Name = "richEditControlToolStripMenuItem";
+            this.richEditControlToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.richEditControlToolStripMenuItem.Text = "RichEditControl";
+            // 
+            // svgImageBoxToolStripMenuItem
+            // 
+            this.svgImageBoxToolStripMenuItem.Name = "svgImageBoxToolStripMenuItem";
+            this.svgImageBoxToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.svgImageBoxToolStripMenuItem.Text = "SvgImageBox";
+            // 
+            // pictureEditToolStripMenuItem
+            // 
+            this.pictureEditToolStripMenuItem.Name = "pictureEditToolStripMenuItem";
+            this.pictureEditToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.pictureEditToolStripMenuItem.Text = "PictureEdit";
+            // 
+            // dateAnalysisToolStripMenuItem
+            // 
+            this.dateAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gridControlToolStripMenuItem});
+            this.dateAnalysisToolStripMenuItem.Name = "dateAnalysisToolStripMenuItem";
+            this.dateAnalysisToolStripMenuItem.Size = new System.Drawing.Size(105, 21);
+            this.dateAnalysisToolStripMenuItem.Text = "Date & Analytics";
+            // 
+            // gridControlToolStripMenuItem
+            // 
+            this.gridControlToolStripMenuItem.Name = "gridControlToolStripMenuItem";
+            this.gridControlToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gridControlToolStripMenuItem.Text = "GridControl";
+            // 
+            // toolStripMenuItem_LookUpEdit
+            // 
+            this.toolStripMenuItem_LookUpEdit.Name = "toolStripMenuItem_LookUpEdit";
+            this.toolStripMenuItem_LookUpEdit.Size = new System.Drawing.Size(239, 22);
+            this.toolStripMenuItem_LookUpEdit.Text = "LookUpEdit";
+            // 
+            // navigationToolStripMenuItem
+            // 
+            this.navigationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.layoutControlToolStripMenuItem});
+            this.navigationToolStripMenuItem.Name = "navigationToolStripMenuItem";
+            this.navigationToolStripMenuItem.Size = new System.Drawing.Size(129, 21);
+            this.navigationToolStripMenuItem.Text = "Navigation & Layout";
+            // 
+            // layoutControlToolStripMenuItem
+            // 
+            this.layoutControlToolStripMenuItem.Name = "layoutControlToolStripMenuItem";
+            this.layoutControlToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.layoutControlToolStripMenuItem.Text = "LayoutControl";
+            // 
+            // imageListBoxControlToolStripMenuItem
+            // 
+            this.imageListBoxControlToolStripMenuItem.Name = "imageListBoxControlToolStripMenuItem";
+            this.imageListBoxControlToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.imageListBoxControlToolStripMenuItem.Text = "ImageListBoxControl";
+            // 
+            // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 744);
             this.Controls.Add(this.menuControls);
-            this.Name = "FormMain";
+            this.Name = "Form_Main";
             this.Text = "Form1";
             this.menuControls.ResumeLayout(false);
             this.menuControls.PerformLayout();
@@ -514,5 +626,18 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_CalendarControl;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ImageSlider;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_PdfViewer;
+        private System.Windows.Forms.ToolStripMenuItem 文本ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textEditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem richEditControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 图片ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem svgImageBoxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pictureEditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_LookUpEdit;
+        private System.Windows.Forms.ToolStripMenuItem dateAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gridControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem navigationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem layoutControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageListBoxControlToolStripMenuItem;
     }
 }

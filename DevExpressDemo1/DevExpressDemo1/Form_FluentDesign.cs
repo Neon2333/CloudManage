@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DevExpressDemo1
 {
-    public partial class FormFluentDesign : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class Form_FluentDesign : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public FormFluentDesign()
+        public Form_FluentDesign()
         {
             InitializeComponent();
         }

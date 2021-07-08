@@ -11,9 +11,9 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 namespace DevExpressDemo1
 {
-    public partial class FormRibbon : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class Form_Ribbon : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FormRibbon()
+        public Form_Ribbon()
         {
             InitializeComponent();
             

@@ -12,9 +12,9 @@ using DevExpress;
 
 namespace DevExpressDemo1
 {
-    public partial class ControlSvgImageBox : DevExpress.XtraEditors.XtraForm
+    public partial class Control_SvgImageBox : DevExpress.XtraEditors.XtraForm
     {
-        public ControlSvgImageBox()
+        public Control_SvgImageBox()
         {
             InitializeComponent();
 
@@ -75,12 +75,22 @@ namespace DevExpressDemo1
             //MessageBox.Show("mouse cursor enter");
         }
 
+
+        //================================================================================================
+        /**
+        *svgImageBox7.Selection出现奇怪的现象。点击空白非seat区域时，Selection会变为Empty，Selection.Count变为0
+        *导致点击空白区域时会发生ListBox清空的情况
+        */
+
+        //鼠标移入图形时触发
         private void svgImageBox7_QueryHoveredItem(object sender, SvgImageQueryHoveredItemEventArgs e)
         {
             if (e.HoveredItem != null && !CheckSeatId(e.HoveredItem))
                 e.HoveredItem = e.HoveredItem.FindAncestors(a => CheckSeatId(a)).FirstOrDefault();
         }
 
+
+        //检查鼠标点击的位置是否是seat
         bool CheckSeatId(SvgImageItem svgImageItem)
         {
             return svgImageItem.Id != null && svgImageItem.Id.StartsWith("seat");
@@ -88,21 +98,94 @@ namespace DevExpressDemo1
 
         private void svgImageBox7_SelectionChanged(object sender, EventArgs e)
         {
-            listBox_chosenChair.Items.Clear();
-            foreach (var item in svgImageBox7.Selection)
-            {
-                if (item.Id.Contains("seat"))
-                {
-                    string seatName = "seat num: " + item.Id;
-                    listBox_chosenChair.Items.Add(seatName);
-                }
-                
-            }
-        }
+            //bug：点击空白处会清空ListBox
+            //原因：无条件清空ListBox,点击空白处ListBox被清空但Selection为Empty
+            //listBox_chosenChair.Items.Clear();
+            //foreach (var item in svgImageBox7.Selection)
+            //{
+            //    if (item.Id.Contains("seat"))
+            //    {
+            //        string seatName = "seat num: " + item.Id;
+            //        listBox_chosenChair.Items.Add(seatName);
+            //    }
 
+            //}
+
+
+            if (svgImageBox7.Selection.Count!=0)
+            {
+                //Unselect某个seat时ListBox无法去掉某个seat
+                //int len = svgImageBox7.Selection.Count;
+                //string seatName = "seat num: " + svgImageBox7.Selection.ElementAt(len - 1).Id;
+                //listBox_chosenChair.Items.Add(seatName);
+
+                listBox_chosenChair.Items.Clear();
+                foreach (var item in svgImageBox7.Selection)
+                {
+                    if (item.Id.Contains("seat"))
+                    {
+                        string seatName = "seat num: " + item.Id;
+                        listBox_chosenChair.Items.Add(seatName);
+                    }
+                }
+            }
+
+        }
         private void simpleButton_clear_Click(object sender, EventArgs e)
         {
             listBox_chosenChair.Items.Clear();
+            if (svgImageBox7.Selection.Count != 0)
+            {
+                foreach (var item in svgImageBox7.Selection)
+                {
+                    svgImageBox7.Unselect(item);
+                }
+            }
+        }
+
+        private void svgImageBox1_MouseEnter(object sender, EventArgs e)
+        {
+            svgImageBox1.SizeMode = SvgImageSizeMode.Zoom;
+        }
+
+        private void svgImageBox1_MouseLeave(object sender, EventArgs e)
+        {
+            svgImageBox1.SizeMode = SvgImageSizeMode.Clip;
+        }
+
+        private void svgImageBox2_MouseEnter(object sender, EventArgs e)
+        {
+            svgImageBox2.SizeMode = SvgImageSizeMode.Zoom;
+
+        }
+
+        private void svgImageBox2_MouseLeave(object sender, EventArgs e)
+        {
+            svgImageBox2.SizeMode = SvgImageSizeMode.Clip;
+
+        }
+
+        private void svgImageBox3_MouseEnter(object sender, EventArgs e)
+        {
+            svgImageBox3.SizeMode = SvgImageSizeMode.Zoom;
+
+        }
+
+        private void svgImageBox3_MouseLeave(object sender, EventArgs e)
+        {
+            svgImageBox3.SizeMode = SvgImageSizeMode.Clip;
+
+        }
+
+        private void svgImageBox4_MouseEnter(object sender, EventArgs e)
+        {
+            svgImageBox4.SizeMode = SvgImageSizeMode.Zoom;
+
+        }
+
+        private void svgImageBox4_MouseLeave(object sender, EventArgs e)
+        {
+            svgImageBox4.SizeMode = SvgImageSizeMode.Clip;
 
         }
     }

@@ -13,22 +13,22 @@ using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class FormMain : Form
+    public partial class Form_Main : Form
     {
-        public FormMain()
+        public Form_Main()
         {
             InitializeComponent();
         }
 
         private void toolStripMenuItemSimpleButton_Click(object sender, EventArgs e)
         {
-            ControlSimpleButton formsimplebutton = new ControlSimpleButton();
+            Control_SimpleButton formsimplebutton = new Control_SimpleButton();
             formsimplebutton.Show();
         }
 
         private void toolStripMenuItem_textEditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControlTextEdit formtextEdit = new ControlTextEdit();
+            Control_TextEdit formtextEdit = new Control_TextEdit();
             formtextEdit.Show();
         }
 
@@ -50,26 +50,50 @@ namespace DevExpressDemo1
 
         private void FluentDesignForm_Click(object sender, EventArgs e)
         {
-            FormFluentDesign fluentDesignForm = new FormFluentDesign();
+            Form_FluentDesign fluentDesignForm = new Form_FluentDesign();
             fluentDesignForm.Show();
         }
 
         private void RibbonForm_Click(object sender, EventArgs e)
         {
-            FormRibbon ribbonform = new FormRibbon();
+            Form_Ribbon ribbonform = new Form_Ribbon();
             ribbonform.Show();
         }
 
         private void toolStripMenuItem_ToolbarForm_Click(object sender, EventArgs e)
         {
-            FormToolBar toolBarForm = new FormToolBar();
+            Form_ToolBar toolBarForm = new Form_ToolBar();
             toolBarForm.Show();
         }
 
         private void toolStripMenuItem_SvgImageBox_Click(object sender, EventArgs e)
         {
-            ControlSvgImageBox svgImageBoxForm = new ControlSvgImageBox();
+            Control_SvgImageBox svgImageBoxForm = new Control_SvgImageBox();
             svgImageBoxForm.Show();
+        }
+
+        private void toolStripMenuItem_SimpleButton_Click(object sender, EventArgs e)
+        {
+            Control_SimpleButton formsimplebutton = new Control_SimpleButton();
+            formsimplebutton.Show();
+        }
+
+        private void toolStripMenuItem_LabelControl_Click(object sender, EventArgs e)
+        {
+            Control_LabelControl labelForm = new Control_LabelControl();
+            labelForm.Show();
+        }
+
+        private void toolStripMenuItem_TextEdit_Click(object sender, EventArgs e)
+        {
+            Control_TextEdit formtextEdit = new Control_TextEdit();
+            formtextEdit.Show();
+        }
+
+        private void toolStripMenuItem_PictureEdit_Click(object sender, EventArgs e)
+        {
+            Control_PictureEdit pictureEdit = new Control_PictureEdit();
+            pictureEdit.Show();
         }
     }
 }
