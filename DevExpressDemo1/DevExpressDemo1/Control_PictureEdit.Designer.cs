@@ -56,13 +56,14 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(831, 468);
-            this.simpleButton1.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.simpleButton1.Location = new System.Drawing.Point(831, 462);
+            this.simpleButton1.LookAndFeel.SkinName = "Glass Oceans";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(126, 112);
+            this.simpleButton1.Size = new System.Drawing.Size(149, 118);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "拍照";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // Control_PictureEdit
             // 

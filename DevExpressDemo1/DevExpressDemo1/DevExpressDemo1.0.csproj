@@ -59,11 +59,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control_CheckedListBoxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_CheckedListBoxControl.Designer.cs">
+      <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control_ImageListBoxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_ImageListBoxControl.Designer.cs">
+      <DependentUpon>Control_ImageListBoxControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_LabelControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Control_LabelControl.Designer.cs">
       <DependentUpon>Control_LabelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control_ListBoxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_ListBoxControl.Designer.cs">
+      <DependentUpon>Control_ListBoxControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Control_PictureEdit.cs">
       <SubType>Form</SubType>
@@ -115,8 +133,17 @@
     <Compile Include="Control_SvgImageBox.Designer.cs">
       <DependentUpon>Control_SvgImageBox.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Control_CheckedListBoxControl.resx">
+      <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_ImageListBoxControl.resx">
+      <DependentUpon>Control_ImageListBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control_LabelControl.resx">
       <DependentUpon>Control_LabelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_ListBoxControl.resx">
+      <DependentUpon>Control_ListBoxControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control_PictureEdit.resx">
       <DependentUpon>Control_PictureEdit.cs</DependentUpon>

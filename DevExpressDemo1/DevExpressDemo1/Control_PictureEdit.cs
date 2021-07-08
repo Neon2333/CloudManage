@@ -47,5 +47,10 @@ namespace DevExpressDemo1
             MessageBox.Show("image editor closed");
 
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            pictureEdit1.ShowTakePictureDialog();   //调用摄像头拍照
+        }
     }
 }

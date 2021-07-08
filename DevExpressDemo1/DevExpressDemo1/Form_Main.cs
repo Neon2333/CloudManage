@@ -26,12 +26,6 @@ namespace DevExpressDemo1
             formsimplebutton.Show();
         }
 
-        private void toolStripMenuItem_textEditToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Control_TextEdit formtextEdit = new Control_TextEdit();
-            formtextEdit.Show();
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             DialogResult r = XtraMessageBox.Show("Do you want to quit the application?", "Confirmation", MessageBoxButtons.YesNo);
@@ -94,6 +88,24 @@ namespace DevExpressDemo1
         {
             Control_PictureEdit pictureEdit = new Control_PictureEdit();
             pictureEdit.Show();
+        }
+
+        private void toolStripMenuItem_CheckListBoxControl_Click(object sender, EventArgs e)
+        {
+            Control_CheckedListBoxControl checkedListBoxControl = new Control_CheckedListBoxControl();
+            checkedListBoxControl.Show();
+        }
+
+        private void toolStripMenuItem_ListBoxControl_Click(object sender, EventArgs e)
+        {
+            Control_ListBoxControl listBoxControl = new Control_ListBoxControl();
+            listBoxControl.Show();
+        }
+
+        private void toolStripMenuItem_ImageListBoxControl_Click(object sender, EventArgs e)
+        {
+            Control_ImageListBoxControl imageListBoxContrl = new Control_ImageListBoxControl();
+            imageListBoxContrl.Show();
         }
     }
 }
