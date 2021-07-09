@@ -29,7 +29,6 @@ namespace DevExpressDemo1
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuControls = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemOftenControls = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSimpleButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_textEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,29 +87,14 @@ namespace DevExpressDemo1
             this.svgImageBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageListBoxControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageSliderControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.navigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuControls = new System.Windows.Forms.MenuStrip();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuControls
-            // 
-            this.menuControls.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemOftenControls,
-            this.formToolStripMenuItem,
-            this.commonControlsToolStripMenuItem,
-            this.文本ToolStripMenuItem,
-            this.图片ToolStripMenuItem,
-            this.dateAnalysisToolStripMenuItem,
-            this.navigationToolStripMenuItem});
-            this.menuControls.Location = new System.Drawing.Point(0, 0);
-            this.menuControls.Name = "menuControls";
-            this.menuControls.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuControls.Size = new System.Drawing.Size(1131, 25);
-            this.menuControls.TabIndex = 1;
-            this.menuControls.Text = "控件";
             // 
             // toolStripMenuItemOftenControls
             // 
@@ -416,6 +400,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_SearchControl.Name = "toolStripMenuItem_SearchControl";
             this.toolStripMenuItem_SearchControl.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_SearchControl.Text = "SearchControl";
+            this.toolStripMenuItem_SearchControl.Click += new System.EventHandler(this.toolStripMenuItem_SearchControl_Click);
             // 
             // toolStripMenuItem_SpinEdit
             // 
@@ -471,6 +456,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_ImageSlider.Name = "toolStripMenuItem_ImageSlider";
             this.toolStripMenuItem_ImageSlider.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_ImageSlider.Text = "ImageSlider";
+            this.toolStripMenuItem_ImageSlider.Click += new System.EventHandler(this.toolStripMenuItem_ImageSlider_Click);
             // 
             // toolStripMenuItem_PdfViewer
             // 
@@ -511,7 +497,8 @@ namespace DevExpressDemo1
             this.图片ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.svgImageBoxToolStripMenuItem,
             this.pictureEditToolStripMenuItem,
-            this.imageListBoxControlToolStripMenuItem});
+            this.imageListBoxControlToolStripMenuItem,
+            this.imageSliderControlToolStripMenuItem});
             this.图片ToolStripMenuItem.Name = "图片ToolStripMenuItem";
             this.图片ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.图片ToolStripMenuItem.Text = "图片";
@@ -533,6 +520,12 @@ namespace DevExpressDemo1
             this.imageListBoxControlToolStripMenuItem.Name = "imageListBoxControlToolStripMenuItem";
             this.imageListBoxControlToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.imageListBoxControlToolStripMenuItem.Text = "ImageListBoxControl";
+            // 
+            // imageSliderControlToolStripMenuItem
+            // 
+            this.imageSliderControlToolStripMenuItem.Name = "imageSliderControlToolStripMenuItem";
+            this.imageSliderControlToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.imageSliderControlToolStripMenuItem.Text = "ImageSliderControl";
             // 
             // dateAnalysisToolStripMenuItem
             // 
@@ -562,6 +555,23 @@ namespace DevExpressDemo1
             this.layoutControlToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.layoutControlToolStripMenuItem.Text = "LayoutControl";
             // 
+            // menuControls
+            // 
+            this.menuControls.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemOftenControls,
+            this.formToolStripMenuItem,
+            this.commonControlsToolStripMenuItem,
+            this.文本ToolStripMenuItem,
+            this.图片ToolStripMenuItem,
+            this.dateAnalysisToolStripMenuItem,
+            this.navigationToolStripMenuItem});
+            this.menuControls.Location = new System.Drawing.Point(0, 0);
+            this.menuControls.Name = "menuControls";
+            this.menuControls.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuControls.Size = new System.Drawing.Size(1131, 25);
+            this.menuControls.TabIndex = 1;
+            this.menuControls.Text = "控件";
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -580,7 +590,6 @@ namespace DevExpressDemo1
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuControls;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOftenControls;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSimpleButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_textEditToolStripMenuItem;
@@ -607,6 +616,7 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ListBoxControl;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_MemoEdit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_PictureEdit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_LookUpEdit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_CalcEdit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_CheckedComboBoxEdit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ColorPickEdit;
@@ -637,11 +647,12 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem 图片ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem svgImageBoxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pictureEditToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_LookUpEdit;
+        private System.Windows.Forms.ToolStripMenuItem imageListBoxControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageSliderControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dateAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem navigationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem layoutControlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageListBoxControlToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuControls;
     }
 }

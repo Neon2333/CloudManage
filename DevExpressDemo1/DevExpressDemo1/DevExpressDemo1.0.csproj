@@ -71,6 +71,12 @@
     <Compile Include="Control_ImageListBoxControl.Designer.cs">
       <DependentUpon>Control_ImageListBoxControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control_ImageSlider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_ImageSlider.Designer.cs">
+      <DependentUpon>Control_ImageSlider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_LabelControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     </Compile>
     <Compile Include="Control_PictureEdit.Designer.cs">
       <DependentUpon>Control_PictureEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control_SearchControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_SearchControl.Designer.cs">
+      <DependentUpon>Control_SearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_FluentDesign.cs">
       <SubType>Form</SubType>
@@ -132,6 +144,11 @@
     </Compile>
     <Compile Include="Control_SvgImageBox.Designer.cs">
       <DependentUpon>Control_SvgImageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_111DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_111DataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Control_CheckedListBoxControl.resx">
       <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
@@ -189,6 +206,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_111DataSet.xsc">
+      <DependentUpon>_111DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_111DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_111DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_111DataSet.xss">
+      <DependentUpon>_111DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -222,6 +250,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cinemahall.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="111.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

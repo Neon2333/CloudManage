@@ -107,5 +107,17 @@ namespace DevExpressDemo1
             Control_ImageListBoxControl imageListBoxContrl = new Control_ImageListBoxControl();
             imageListBoxContrl.Show();
         }
+
+        private void toolStripMenuItem_SearchControl_Click(object sender, EventArgs e)
+        {
+            Control_SearchControl searchControl = new Control_SearchControl();
+            searchControl.Show();
+        }
+
+        private void toolStripMenuItem_ImageSlider_Click(object sender, EventArgs e)
+        {
+            Control_ImageSlider imageSlider = new Control_ImageSlider();
+            imageSlider.Show();
+        }
     }
 }

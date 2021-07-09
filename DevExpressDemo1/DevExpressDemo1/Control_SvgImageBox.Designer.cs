@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control_SvgImageBox));
             DevExpress.XtraEditors.SvgImageItem svgImageItem1 = new DevExpress.XtraEditors.SvgImageItem("1/0");
             DevExpress.XtraEditors.SvgImageItem svgImageItem2 = new DevExpress.XtraEditors.SvgImageItem("1/1");
             DevExpress.XtraEditors.SvgImageItem svgImageItem3 = new DevExpress.XtraEditors.SvgImageItem("1/2");
@@ -36,9 +37,9 @@
             DevExpress.XtraEditors.SvgImageItem svgImageItem5 = new DevExpress.XtraEditors.SvgImageItem("1/4");
             DevExpress.XtraEditors.SvgImageItem svgImageItem6 = new DevExpress.XtraEditors.SvgImageItem("1/6");
             DevExpress.XtraEditors.SvgImageItem svgImageItem7 = new DevExpress.XtraEditors.SvgImageItem("84");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control_SvgImageBox));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.svgImageBox8 = new DevExpress.XtraEditors.SvgImageBox();
             this.svgImageBox6 = new DevExpress.XtraEditors.SvgImageBox();
             this.svgImageBox5 = new DevExpress.XtraEditors.SvgImageBox();
             this.svgImageBox4 = new DevExpress.XtraEditors.SvgImageBox();
@@ -50,9 +51,9 @@
             this.listBox_chosenChair = new System.Windows.Forms.ListBox();
             this.svgImageBox7 = new DevExpress.XtraEditors.SvgImageBox();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.svgImageBox8 = new DevExpress.XtraEditors.SvgImageBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox4)).BeginInit();
@@ -61,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -72,7 +72,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1078, 671);
+            this.tabControl1.Size = new System.Drawing.Size(1078, 676);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -91,6 +91,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // svgImageBox8
+            // 
+            this.svgImageBox8.BackColor = System.Drawing.Color.White;
+            this.svgImageBox8.Location = new System.Drawing.Point(338, 172);
+            this.svgImageBox8.Name = "svgImageBox8";
+            this.svgImageBox8.Size = new System.Drawing.Size(133, 120);
+            this.svgImageBox8.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
+            this.svgImageBox8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox8.SvgImage")));
+            this.svgImageBox8.TabIndex = 12;
+            this.svgImageBox8.Text = "svgImageBox8";
             // 
             // svgImageBox6
             // 
@@ -193,7 +204,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1070, 644);
+            this.tabPage2.Size = new System.Drawing.Size(1070, 649);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -238,30 +249,20 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "McSkin";
             // 
-            // svgImageBox8
-            // 
-            this.svgImageBox8.BackColor = System.Drawing.Color.White;
-            this.svgImageBox8.Location = new System.Drawing.Point(338, 172);
-            this.svgImageBox8.Name = "svgImageBox8";
-            this.svgImageBox8.Size = new System.Drawing.Size(133, 120);
-            this.svgImageBox8.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
-            this.svgImageBox8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox8.SvgImage")));
-            this.svgImageBox8.TabIndex = 12;
-            this.svgImageBox8.Text = "svgImageBox8";
-            // 
-            // ControlSvgImageBox
+            // Control_SvgImageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 671);
+            this.ClientSize = new System.Drawing.Size(1078, 676);
             this.Controls.Add(this.tabControl1);
-            this.Name = "ControlSvgImageBox";
+            this.Name = "Control_SvgImageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XtraForm1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox4)).EndInit();
@@ -270,7 +271,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
