@@ -17,8 +17,6 @@ namespace DevExpressDemo1
         {
             InitializeComponent();
 
-            CreateCheckEditors();
-
             this.checkEdit2.Checked = true;
         }
 
@@ -38,19 +36,18 @@ namespace DevExpressDemo1
       
 private void CreateCheckEditors()
     {
-        // creating and initializing the first check editor
-        checkEdit42.Properties.Caption = "hide button";
-        // setting the editor's check state depending upon the button's visibility
-        if (!(this.simpleButton1.Visible)) checkEdit42.Checked = true;
-        // assigning a handler for the CheckChanged event of the first check editor
-        checkEdit42.CheckedChanged += new EventHandler(CheckedChanged);
+            // creating and initializing the first check editor
+            // setting the editor's check state depending upon the button's visibility
+            if (!(this.simpleButton1.Visible))
+                checkEdit42.Checked = true;
+            // assigning a handler for the CheckChanged event of the first check editor
+            checkEdit42.CheckedChanged += new EventHandler(CheckedChanged);
         this.Controls.Add((Control)checkEdit42);
 
         // creating and initializing the second check editor
-        checkEdit44.Properties.Caption = "disable button";
         // setting the editor's check state depending upon the button's availability
-        if (!(this.simpleButton1.Enabled)) checkEdit44.Checked = true;
-        if (!(this.simpleButton1.Visible)) checkEdit44.Enabled = false;
+        //if (!(this.simpleButton1.Enabled)) checkEdit44.Checked = true;
+        //if (!(this.simpleButton1.Visible)) checkEdit44.Enabled = false;
          // assigning a handler for the CheckChanged event of the second check editor
          checkEdit44.CheckedChanged += new EventHandler(CheckedChanged);
         this.Controls.Add((Control)checkEdit44);
@@ -102,5 +99,10 @@ private void CreateCheckEditors()
         return null;
     }
 
-}
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CreateCheckEditors();
+
+        }
+    }
 }

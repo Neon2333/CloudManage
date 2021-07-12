@@ -31,7 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control_CheckEdit));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.checkEdit43 = new DevExpress.XtraEditors.CheckEdit();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkEdit40 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit39 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit41 = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.checkEdit21 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit22 = new DevExpress.XtraEditors.CheckEdit();
@@ -72,18 +77,19 @@
             this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.checkEdit41 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit39 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit40 = new DevExpress.XtraEditors.CheckEdit();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.checkEdit43 = new DevExpress.XtraEditors.CheckEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit42 = new DevExpress.XtraEditors.CheckEdit();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkEdit44 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit42 = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit43.Properties)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit40.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit39.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit41.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit21.Properties)).BeginInit();
@@ -125,14 +131,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit41.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit39.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit40.Properties)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit43.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit42.Properties)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit44.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit42.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -162,18 +163,63 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // panel3
             // 
-            this.tabPage2.Controls.Add(this.checkEdit44);
-            this.tabPage2.Controls.Add(this.checkEdit42);
-            this.tabPage2.Controls.Add(this.simpleButton1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1179, 618);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.panel3.Controls.Add(this.checkEdit43);
+            this.panel3.Location = new System.Drawing.Point(6, 334);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(174, 252);
+            this.panel3.TabIndex = 11;
+            // 
+            // checkEdit43
+            // 
+            this.checkEdit43.Location = new System.Drawing.Point(5, 25);
+            this.checkEdit43.Name = "checkEdit43";
+            this.checkEdit43.Properties.Caption = "SvgFlag1";
+            this.checkEdit43.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgThumb1;
+            this.checkEdit43.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            this.checkEdit43.Properties.CheckBoxOptions.SvgColorGrayed = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Warning;
+            this.checkEdit43.Properties.CheckBoxOptions.SvgColorUnchecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
+            this.checkEdit43.Size = new System.Drawing.Size(148, 22);
+            this.checkEdit43.TabIndex = 11;
+            this.checkEdit43.CheckStateChanged += new System.EventHandler(this.checkEdit43_CheckStateChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.checkEdit40);
+            this.panel2.Controls.Add(this.checkEdit39);
+            this.panel2.Controls.Add(this.checkEdit41);
+            this.panel2.Location = new System.Drawing.Point(6, 126);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(174, 180);
+            this.panel2.TabIndex = 10;
+            // 
+            // checkEdit40
+            // 
+            this.checkEdit40.Location = new System.Drawing.Point(3, 21);
+            this.checkEdit40.Name = "checkEdit40";
+            this.checkEdit40.Properties.Caption = "GlyphAlignment_Near";
+            this.checkEdit40.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.checkEdit40.Size = new System.Drawing.Size(150, 19);
+            this.checkEdit40.TabIndex = 13;
+            // 
+            // checkEdit39
+            // 
+            this.checkEdit39.Location = new System.Drawing.Point(3, 68);
+            this.checkEdit39.Name = "checkEdit39";
+            this.checkEdit39.Properties.Caption = "GlyphAlignment_Center";
+            this.checkEdit39.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.checkEdit39.Size = new System.Drawing.Size(150, 19);
+            this.checkEdit39.TabIndex = 12;
+            // 
+            // checkEdit41
+            // 
+            this.checkEdit41.Location = new System.Drawing.Point(3, 113);
+            this.checkEdit41.Name = "checkEdit41";
+            this.checkEdit41.Properties.Caption = "GlyphAlignment_Far";
+            this.checkEdit41.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit41.Size = new System.Drawing.Size(150, 19);
+            this.checkEdit41.TabIndex = 11;
             // 
             // panelControl1
             // 
@@ -577,71 +623,27 @@
             this.checkEdit1.Size = new System.Drawing.Size(93, 19);
             this.checkEdit1.TabIndex = 5;
             // 
-            // panel2
+            // tabPage2
             // 
-            this.panel2.Controls.Add(this.checkEdit40);
-            this.panel2.Controls.Add(this.checkEdit39);
-            this.panel2.Controls.Add(this.checkEdit41);
-            this.panel2.Location = new System.Drawing.Point(6, 126);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(174, 180);
-            this.panel2.TabIndex = 10;
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.simpleButton1);
+            this.tabPage2.Controls.Add(this.checkEdit44);
+            this.tabPage2.Controls.Add(this.checkEdit42);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1179, 618);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkEdit41
+            // checkEdit44
             // 
-            this.checkEdit41.Location = new System.Drawing.Point(3, 113);
-            this.checkEdit41.Name = "checkEdit41";
-            this.checkEdit41.Properties.Caption = "GlyphAlignment_Far";
-            this.checkEdit41.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.checkEdit41.Size = new System.Drawing.Size(150, 19);
-            this.checkEdit41.TabIndex = 11;
-            // 
-            // checkEdit39
-            // 
-            this.checkEdit39.Location = new System.Drawing.Point(3, 68);
-            this.checkEdit39.Name = "checkEdit39";
-            this.checkEdit39.Properties.Caption = "GlyphAlignment_Center";
-            this.checkEdit39.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.checkEdit39.Size = new System.Drawing.Size(150, 19);
-            this.checkEdit39.TabIndex = 12;
-            // 
-            // checkEdit40
-            // 
-            this.checkEdit40.Location = new System.Drawing.Point(3, 21);
-            this.checkEdit40.Name = "checkEdit40";
-            this.checkEdit40.Properties.Caption = "GlyphAlignment_Near";
-            this.checkEdit40.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.checkEdit40.Size = new System.Drawing.Size(150, 19);
-            this.checkEdit40.TabIndex = 13;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.checkEdit43);
-            this.panel3.Location = new System.Drawing.Point(6, 334);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(174, 252);
-            this.panel3.TabIndex = 11;
-            // 
-            // checkEdit43
-            // 
-            this.checkEdit43.Location = new System.Drawing.Point(5, 25);
-            this.checkEdit43.Name = "checkEdit43";
-            this.checkEdit43.Properties.Caption = "SvgFlag1";
-            this.checkEdit43.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgThumb1;
-            this.checkEdit43.Properties.CheckBoxOptions.SvgColorChecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
-            this.checkEdit43.Properties.CheckBoxOptions.SvgColorGrayed = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Warning;
-            this.checkEdit43.Properties.CheckBoxOptions.SvgColorUnchecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
-            this.checkEdit43.Size = new System.Drawing.Size(148, 22);
-            this.checkEdit43.TabIndex = 11;
-            this.checkEdit43.CheckStateChanged += new System.EventHandler(this.checkEdit43_CheckStateChanged);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(401, 73);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(198, 121);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "simpleButton1";
+            this.checkEdit44.Location = new System.Drawing.Point(505, 234);
+            this.checkEdit44.Name = "checkEdit44";
+            this.checkEdit44.Properties.Caption = "disable button";
+            this.checkEdit44.Size = new System.Drawing.Size(104, 19);
+            this.checkEdit44.TabIndex = 2;
             // 
             // checkEdit42
             // 
@@ -651,13 +653,24 @@
             this.checkEdit42.Size = new System.Drawing.Size(106, 19);
             this.checkEdit42.TabIndex = 1;
             // 
-            // checkEdit44
+            // simpleButton1
             // 
-            this.checkEdit44.Location = new System.Drawing.Point(505, 234);
-            this.checkEdit44.Name = "checkEdit44";
-            this.checkEdit44.Properties.Caption = "disable button";
-            this.checkEdit44.Size = new System.Drawing.Size(104, 19);
-            this.checkEdit44.TabIndex = 2;
+            this.simpleButton1.Location = new System.Drawing.Point(401, 110);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(208, 103);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "button1";
+            this.simpleButton1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(91, 282);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 103);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Control_CheckEdit
             // 
@@ -670,7 +683,12 @@
             this.Text = "Control_CheckEdit";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit43.Properties)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit40.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit39.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit41.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit21.Properties)).EndInit();
@@ -712,14 +730,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit41.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit39.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit40.Properties)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit43.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit42.Properties)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit44.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit42.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -775,8 +788,9 @@
         private DevExpress.XtraEditors.CheckEdit checkEdit41;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.CheckEdit checkEdit43;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.CheckEdit checkEdit44;
         private DevExpress.XtraEditors.CheckEdit checkEdit42;
+        private System.Windows.Forms.Button simpleButton1;
+        private System.Windows.Forms.Button button2;
     }
 }
