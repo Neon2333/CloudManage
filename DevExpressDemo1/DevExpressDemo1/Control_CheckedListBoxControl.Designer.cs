@@ -29,13 +29,23 @@ namespace DevExpressDemo1
         /// </summary>
         private void InitializeComponent()
         {
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(87, 48);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(376, 191);
+            this.checkedListBox1.TabIndex = 0;
             // 
             // Control_CheckedListBoxControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 645);
+            this.ClientSize = new System.Drawing.Size(1004, 654);
+            this.Controls.Add(this.checkedListBox1);
             this.Name = "Control_CheckedListBoxControl";
             this.Text = "Control_CheckedListBoxControl";
             this.ResumeLayout(false);
@@ -43,5 +53,7 @@ namespace DevExpressDemo1
         }
 
         #endregion
+
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

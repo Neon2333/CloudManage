@@ -275,6 +275,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_CheckEdit.Name = "toolStripMenuItem_CheckEdit";
             this.toolStripMenuItem_CheckEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_CheckEdit.Text = "CheckEdit";
+            this.toolStripMenuItem_CheckEdit.Click += new System.EventHandler(this.toolStripMenuItem_CheckEdit_Click);
             // 
             // toolStripMenuItem_LabelControl
             // 

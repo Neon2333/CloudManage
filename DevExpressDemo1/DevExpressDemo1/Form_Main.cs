@@ -119,5 +119,11 @@ namespace DevExpressDemo1
             Control_ImageSlider imageSlider = new Control_ImageSlider();
             imageSlider.Show();
         }
+
+        private void toolStripMenuItem_CheckEdit_Click(object sender, EventArgs e)
+        {
+            Control_CheckEdit checkEdit = new Control_CheckEdit();
+            checkEdit.Show();
+        }
     }
 }

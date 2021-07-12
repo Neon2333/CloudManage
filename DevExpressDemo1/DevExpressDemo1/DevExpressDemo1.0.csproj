@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control_CheckEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_CheckEdit.Designer.cs">
+      <DependentUpon>Control_CheckEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_CheckedListBoxControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_111DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Control_CheckEdit.resx">
+      <DependentUpon>Control_CheckEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control_CheckedListBoxControl.resx">
       <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control_PictureEdit.resx">
       <DependentUpon>Control_PictureEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_SearchControl.resx">
+      <DependentUpon>Control_SearchControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_FluentDesign.resx">
       <DependentUpon>Form_FluentDesign.cs</DependentUpon>
