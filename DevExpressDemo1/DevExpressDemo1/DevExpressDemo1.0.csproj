@@ -71,6 +71,18 @@
     <Compile Include="Control_CheckedListBoxControl.Designer.cs">
       <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control_ComboBoxEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_ComboBoxEditor.Designer.cs">
+      <DependentUpon>Control_ComboBoxEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control_ImageComboBoxEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_ImageComboBoxEdit.Designer.cs">
+      <DependentUpon>Control_ImageComboBoxEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_ImageListBoxControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +118,12 @@
     </Compile>
     <Compile Include="Control_SearchControl.Designer.cs">
       <DependentUpon>Control_SearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control_TimeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_TimeEdit.Designer.cs">
+      <DependentUpon>Control_TimeEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_FluentDesign.cs">
       <SubType>Form</SubType>
@@ -156,14 +174,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_111DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_222DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_222DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Control_CheckEdit.resx">
       <DependentUpon>Control_CheckEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control_CheckedListBoxControl.resx">
       <DependentUpon>Control_CheckedListBoxControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control_ComboBoxEditor.resx">
+      <DependentUpon>Control_ComboBoxEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_ImageComboBoxEdit.resx">
+      <DependentUpon>Control_ImageComboBoxEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control_ImageListBoxControl.resx">
       <DependentUpon>Control_ImageListBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_ImageSlider.resx">
+      <DependentUpon>Control_ImageSlider.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control_LabelControl.resx">
       <DependentUpon>Control_LabelControl.cs</DependentUpon>
@@ -176,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control_SearchControl.resx">
       <DependentUpon>Control_SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control_TimeEdit.resx">
+      <DependentUpon>Control_TimeEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_FluentDesign.resx">
       <DependentUpon>Form_FluentDesign.cs</DependentUpon>
@@ -229,6 +264,17 @@
     <None Include="_111DataSet.xss">
       <DependentUpon>_111DataSet.xsd</DependentUpon>
     </None>
+    <None Include="_222DataSet.xsc">
+      <DependentUpon>_222DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_222DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_222DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_222DataSet.xss">
+      <DependentUpon>_222DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -265,6 +311,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="111.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="222.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

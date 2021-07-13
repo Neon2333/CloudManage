@@ -17,5 +17,12 @@ namespace DevExpressDemo1
         {
             InitializeComponent();
         }
+
+        private void Control_CheckedListBoxControl_Load(object sender, EventArgs e)
+        {
+            // TODO: 这行代码将数据加载到表“_222DataSet.employee”中。您可以根据需要移动或删除它。
+            this.employeeTableAdapter.Fill(this._222DataSet.employee);
+
+        }
     }
 }

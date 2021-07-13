@@ -347,6 +347,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_ComboBoxEdit.Name = "toolStripMenuItem_ComboBoxEdit";
             this.toolStripMenuItem_ComboBoxEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_ComboBoxEdit.Text = "ComboBoxEdit";
+            this.toolStripMenuItem_ComboBoxEdit.Click += new System.EventHandler(this.toolStripMenuItem_ComboBoxEdit_Click);
             // 
             // toolStripMenuItem_DateEdit
             // 
@@ -365,6 +366,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_ImageComboBoxEdit.Name = "toolStripMenuItem_ImageComboBoxEdit";
             this.toolStripMenuItem_ImageComboBoxEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_ImageComboBoxEdit.Text = "ImageComboBoxEdit";
+            this.toolStripMenuItem_ImageComboBoxEdit.Click += new System.EventHandler(this.toolStripMenuItem_ImageComboBoxEdit_Click);
             // 
             // toolStripMenuItem_ImageEdit
             // 
@@ -421,6 +423,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_TimeEdit.Name = "toolStripMenuItem_TimeEdit";
             this.toolStripMenuItem_TimeEdit.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_TimeEdit.Text = "TimeEdit";
+            this.toolStripMenuItem_TimeEdit.Click += new System.EventHandler(this.toolStripMenuItem_TimeEdit_Click);
             // 
             // toolStripMenuItem_ToggleSwitch
             // 

@@ -32,5 +32,15 @@ namespace DevExpressDemo1.Properties {
                 return ((string)(this["_111ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\222.accdb")]
+        public string _222ConnectionString {
+            get {
+                return ((string)(this["_222ConnectionString"]));
+            }
+        }
     }
 }

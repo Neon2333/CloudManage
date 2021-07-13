@@ -125,5 +125,23 @@ namespace DevExpressDemo1
             Control_CheckEdit checkEdit = new Control_CheckEdit();
             checkEdit.Show();
         }
+
+        private void toolStripMenuItem_TimeEdit_Click(object sender, EventArgs e)
+        {
+            Control_TimeEdit timeEdit = new Control_TimeEdit();
+            timeEdit.Show();
+        }
+
+        private void toolStripMenuItem_ComboBoxEdit_Click(object sender, EventArgs e)
+        {
+            Control_ComboBoxEditor comboBoxEditor = new Control_ComboBoxEditor();
+            comboBoxEditor.Show();
+        }
+
+        private void toolStripMenuItem_ImageComboBoxEdit_Click(object sender, EventArgs e)
+        {
+            Control_ImageComboBoxEdit imageComboBoxEdit = new Control_ImageComboBoxEdit();
+            imageComboBoxEdit.Show();
+        }
     }
 }

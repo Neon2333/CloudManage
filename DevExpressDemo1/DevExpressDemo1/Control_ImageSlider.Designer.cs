@@ -28,11 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // imageSlider1
+            // 
+            this.imageSlider1.Location = new System.Drawing.Point(70, 29);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(663, 465);
+            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.Text = "imageSlider1";
+            // 
+            // Control_ImageSlider
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1157, 815);
+            this.Controls.Add(this.imageSlider1);
+            this.Name = "Control_ImageSlider";
             this.Text = "Control_ImageSlider";
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
     }
 }
