@@ -72,7 +72,7 @@
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fluentDesignFormContainer1.Location = new System.Drawing.Point(166, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(855, 614);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1079, 710);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // navBarControl1
@@ -88,7 +88,7 @@
             this.navBarItem3,
             this.navBarItem4,
             this.navBarSeparatorItem1});
-            this.navBarControl1.Location = new System.Drawing.Point(597, 6);
+            this.navBarControl1.Location = new System.Drawing.Point(927, 6);
             this.navBarControl1.LookAndFeel.SkinName = "VS2010";
             this.navBarControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.navBarControl1.Name = "navBarControl1";
@@ -100,6 +100,7 @@
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "navBarGroup1";
+            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarGroup2
@@ -161,7 +162,7 @@
             this.accordionControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(166, 614);
+            this.accordionControl1.Size = new System.Drawing.Size(166, 710);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -246,7 +247,7 @@
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1021, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1245, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             this.fluentDesignFormControl1.TitleItemLinks.Add(this.barSubItem1);
@@ -296,11 +297,11 @@
             this.barToolbarsListItem1});
             this.fluentFormDefaultManager1.MaxItemId = 5;
             // 
-            // FluentDesignForm
+            // Form_FluentDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 645);
+            this.ClientSize = new System.Drawing.Size(1245, 741);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
@@ -308,7 +309,7 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.LookAndFeel.SkinName = "Office 2016 Colorful";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.Name = "FluentDesignForm";
+            this.Name = "Form_FluentDesign";
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FluentDesignForm测试";

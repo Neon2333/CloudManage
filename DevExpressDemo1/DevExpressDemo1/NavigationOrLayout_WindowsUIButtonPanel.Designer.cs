@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class Control_ImageSlider
+    partial class NavigationOrLayout_WindowsUIButtonPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // imageSlider1
-            // 
-            this.imageSlider1.Location = new System.Drawing.Point(70, 29);
-            this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(663, 465);
-            this.imageSlider1.TabIndex = 0;
-            this.imageSlider1.Text = "imageSlider1";
-            // 
-            // Control_ImageSlider
+            // NavigationOrLayout_WindowsUIButtonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 828);
-            this.Controls.Add(this.imageSlider1);
-            this.Name = "Control_ImageSlider";
-            this.Text = "Control_ImageSlider";
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(886, 614);
+            this.Name = "NavigationOrLayout_WindowsUIButtonPanel";
+            this.Text = "NavigationOrLayout_WindowsUIButtonPanel";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
     }
 }

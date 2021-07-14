@@ -143,5 +143,23 @@ namespace DevExpressDemo1
             Control_ImageComboBoxEdit imageComboBoxEdit = new Control_ImageComboBoxEdit();
             imageComboBoxEdit.Show();
         }
+
+        private void toolStripMenuItem_RadioGroup_Click(object sender, EventArgs e)
+        {
+            Control_RadioGroup radioGroup = new Control_RadioGroup();
+            radioGroup.Show();
+        }
+
+        private void windowsUIButtonPanelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationOrLayout_WindowsUIButtonPanel windowsUIButtonPanel = new NavigationOrLayout_WindowsUIButtonPanel();
+            windowsUIButtonPanel.Show();
+        }
+
+        private void tileBarGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationOrLayout_tileBar tileBarGroup = new NavigationOrLayout_tileBar();
+            tileBarGroup.Show();
+        }
     }
 }

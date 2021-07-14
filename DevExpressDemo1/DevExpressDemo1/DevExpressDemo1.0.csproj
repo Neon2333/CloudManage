@@ -113,6 +113,12 @@
     <Compile Include="Control_PictureEdit.Designer.cs">
       <DependentUpon>Control_PictureEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control_RadioGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control_RadioGroup.Designer.cs">
+      <DependentUpon>Control_RadioGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_SearchControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,18 @@
     </Compile>
     <Compile Include="Control_TextEdit.Designer.cs">
       <DependentUpon>Control_TextEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationOrLayout_tileBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationOrLayout_tileBar.Designer.cs">
+      <DependentUpon>NavigationOrLayout_tileBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationOrLayout_WindowsUIButtonPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationOrLayout_WindowsUIButtonPanel.Designer.cs">
+      <DependentUpon>NavigationOrLayout_WindowsUIButtonPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +224,9 @@
     <EmbeddedResource Include="Control_PictureEdit.resx">
       <DependentUpon>Control_PictureEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control_RadioGroup.resx">
+      <DependentUpon>Control_RadioGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control_SearchControl.resx">
       <DependentUpon>Control_SearchControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control_TextEdit.resx">
       <DependentUpon>Control_TextEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationOrLayout_tileBar.resx">
+      <DependentUpon>NavigationOrLayout_tileBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationOrLayout_WindowsUIButtonPanel.resx">
+      <DependentUpon>NavigationOrLayout_WindowsUIButtonPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

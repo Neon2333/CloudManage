@@ -92,7 +92,9 @@ namespace DevExpressDemo1
             this.gridControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.navigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsUIButtonPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls = new System.Windows.Forms.MenuStrip();
+            this.tileBarGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -391,6 +393,7 @@ namespace DevExpressDemo1
             this.toolStripMenuItem_RadioGroup.Name = "toolStripMenuItem_RadioGroup";
             this.toolStripMenuItem_RadioGroup.Size = new System.Drawing.Size(239, 22);
             this.toolStripMenuItem_RadioGroup.Text = "RadioGroup";
+            this.toolStripMenuItem_RadioGroup.Click += new System.EventHandler(this.toolStripMenuItem_RadioGroup_Click);
             // 
             // toolStripMenuItem_RangeGroup
             // 
@@ -548,7 +551,9 @@ namespace DevExpressDemo1
             // navigationToolStripMenuItem
             // 
             this.navigationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.layoutControlToolStripMenuItem});
+            this.layoutControlToolStripMenuItem,
+            this.windowsUIButtonPanelToolStripMenuItem,
+            this.tileBarGroupToolStripMenuItem});
             this.navigationToolStripMenuItem.Name = "navigationToolStripMenuItem";
             this.navigationToolStripMenuItem.Size = new System.Drawing.Size(129, 21);
             this.navigationToolStripMenuItem.Text = "Navigation & Layout";
@@ -556,8 +561,15 @@ namespace DevExpressDemo1
             // layoutControlToolStripMenuItem
             // 
             this.layoutControlToolStripMenuItem.Name = "layoutControlToolStripMenuItem";
-            this.layoutControlToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.layoutControlToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.layoutControlToolStripMenuItem.Text = "LayoutControl";
+            // 
+            // windowsUIButtonPanelToolStripMenuItem
+            // 
+            this.windowsUIButtonPanelToolStripMenuItem.Name = "windowsUIButtonPanelToolStripMenuItem";
+            this.windowsUIButtonPanelToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.windowsUIButtonPanelToolStripMenuItem.Text = "WindowsUIButtonPanel ";
+            this.windowsUIButtonPanelToolStripMenuItem.Click += new System.EventHandler(this.windowsUIButtonPanelToolStripMenuItem_Click);
             // 
             // menuControls
             // 
@@ -575,6 +587,13 @@ namespace DevExpressDemo1
             this.menuControls.Size = new System.Drawing.Size(1131, 25);
             this.menuControls.TabIndex = 1;
             this.menuControls.Text = "控件";
+            // 
+            // tileBarGroupToolStripMenuItem
+            // 
+            this.tileBarGroupToolStripMenuItem.Name = "tileBarGroupToolStripMenuItem";
+            this.tileBarGroupToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.tileBarGroupToolStripMenuItem.Text = "tileBarGroup";
+            this.tileBarGroupToolStripMenuItem.Click += new System.EventHandler(this.tileBarGroupToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -658,5 +677,7 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem navigationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem layoutControlToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuControls;
+        private System.Windows.Forms.ToolStripMenuItem windowsUIButtonPanelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileBarGroupToolStripMenuItem;
     }
 }
