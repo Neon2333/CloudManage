@@ -161,5 +161,11 @@ namespace DevExpressDemo1
             NavigationOrLayout_tileBar tileBarGroup = new NavigationOrLayout_tileBar();
             tileBarGroup.Show();
         }
+
+        private void pageNavigationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PageNavigation pageNavigation = new PageNavigation();
+            pageNavigation.Show();
+        }
     }
 }

@@ -28,20 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationOrLayout_tileBar));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NavigationOrLayout_tileBar));
             DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tileBar1 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarDropDownContainer1 = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
             this.tileBar2 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup3 = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -50,13 +56,7 @@
             this.tileBarItem8 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem9 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBar1 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem4 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem5 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarDropDownContainer2 = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
             this.tileBar3 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup1 = new DevExpress.XtraBars.Navigation.TileBarGroup();
@@ -65,21 +65,104 @@
             this.tileBarItem12 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarGroup5 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem13 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem4 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem5 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).BeginInit();
             this.tileBarDropDownContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer2)).BeginInit();
             this.tileBarDropDownContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1192, 660);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tileBar1);
+            this.tabPage1.Controls.Add(this.tileBarDropDownContainer1);
+            this.tabPage1.Controls.Add(this.tileBarDropDownContainer2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1184, 633);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 73);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tileBar1
+            // 
+            this.tileBar1.AllowSelectedItem = true;
+            this.tileBar1.BackColor = System.Drawing.Color.White;
+            this.tileBar1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar1.Groups.Add(this.tileBarGroup2);
+            this.tileBar1.Location = new System.Drawing.Point(149, 31);
+            this.tileBar1.MaxId = 6;
+            this.tileBar1.Name = "tileBar1";
+            this.tileBar1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar1.Size = new System.Drawing.Size(775, 150);
+            this.tileBar1.TabIndex = 9;
+            this.tileBar1.Text = "tileBar1";
+            // 
+            // tileBarGroup2
+            // 
+            this.tileBarGroup2.Items.Add(this.tileBarItem1);
+            this.tileBarGroup2.Items.Add(this.tileBarItem2);
+            this.tileBarGroup2.Items.Add(this.tileBarItem3);
+            this.tileBarGroup2.Items.Add(this.tileBarItem4);
+            this.tileBarGroup2.Items.Add(this.tileBarItem5);
+            this.tileBarGroup2.Name = "tileBarGroup2";
+            this.tileBarGroup2.Text = "菜单";
+            // 
+            // tileBarItem1
+            // 
+            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem1.DropDownControl = this.tileBarDropDownContainer1;
+            this.tileBarItem1.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement5.Text = "系统";
+            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem1.Elements.Add(tileItemElement5);
+            this.tileBarItem1.Id = 1;
+            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem1.Name = "tileBarItem1";
+            this.tileBarItem1.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
             // tileBarDropDownContainer1
             // 
             this.tileBarDropDownContainer1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tileBarDropDownContainer1.Appearance.Options.UseBackColor = true;
             this.tileBarDropDownContainer1.Controls.Add(this.tileBar2);
-            this.tileBarDropDownContainer1.Location = new System.Drawing.Point(125, 217);
+            this.tileBarDropDownContainer1.Location = new System.Drawing.Point(131, 49);
             this.tileBarDropDownContainer1.Name = "tileBarDropDownContainer1";
             this.tileBarDropDownContainer1.Size = new System.Drawing.Size(884, 169);
-            this.tileBarDropDownContainer1.TabIndex = 7;
+            this.tileBarDropDownContainer1.TabIndex = 10;
             // 
             // tileBar2
             // 
@@ -220,50 +303,6 @@
             this.tileBarItem9.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem9.Name = "tileBarItem9";
             // 
-            // tileBar1
-            // 
-            this.tileBar1.AllowSelectedItem = true;
-            this.tileBar1.BackColor = System.Drawing.Color.White;
-            this.tileBar1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar1.Groups.Add(this.tileBarGroup2);
-            this.tileBar1.Location = new System.Drawing.Point(125, 45);
-            this.tileBar1.MaxId = 6;
-            this.tileBar1.Name = "tileBar1";
-            this.tileBar1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
-            this.tileBar1.Size = new System.Drawing.Size(1011, 150);
-            this.tileBar1.TabIndex = 6;
-            this.tileBar1.Text = "tileBar1";
-            // 
-            // tileBarGroup2
-            // 
-            this.tileBarGroup2.Items.Add(this.tileBarItem1);
-            this.tileBarGroup2.Items.Add(this.tileBarItem2);
-            this.tileBarGroup2.Items.Add(this.tileBarItem3);
-            this.tileBarGroup2.Items.Add(this.tileBarItem4);
-            this.tileBarGroup2.Items.Add(this.tileBarItem5);
-            this.tileBarGroup2.Name = "tileBarGroup2";
-            this.tileBarGroup2.Text = "菜单";
-            // 
-            // tileBarItem1
-            // 
-            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem1.DropDownControl = this.tileBarDropDownContainer1;
-            this.tileBarItem1.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement5.Text = "系统";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem1.Elements.Add(tileItemElement5);
-            this.tileBarItem1.Id = 1;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
-            this.tileBarItem1.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
             // tileBarItem2
             // 
             this.tileBarItem2.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -285,56 +324,15 @@
             this.tileBarItem2.Name = "tileBarItem2";
             this.tileBarItem2.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // tileBarItem3
-            // 
-            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement11.Text = "监测";
-            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem3.Elements.Add(tileItemElement11);
-            this.tileBarItem3.Id = 3;
-            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem3.Name = "tileBarItem3";
-            this.tileBarItem3.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem4
-            // 
-            this.tileBarItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem4.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            tileItemElement12.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement12.Text = "tileBarItem4";
-            tileItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem4.Elements.Add(tileItemElement12);
-            this.tileBarItem4.Id = 4;
-            this.tileBarItem4.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem4.Name = "tileBarItem4";
-            // 
-            // tileBarItem5
-            // 
-            this.tileBarItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem5.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem5.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.Text = "tileBarItem4";
-            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem5.Elements.Add(tileItemElement13);
-            this.tileBarItem5.Id = 5;
-            this.tileBarItem5.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem5.Name = "tileBarItem5";
-            // 
             // tileBarDropDownContainer2
             // 
             this.tileBarDropDownContainer2.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tileBarDropDownContainer2.Appearance.Options.UseBackColor = true;
             this.tileBarDropDownContainer2.Controls.Add(this.tileBar3);
-            this.tileBarDropDownContainer2.Location = new System.Drawing.Point(125, 410);
+            this.tileBarDropDownContainer2.Location = new System.Drawing.Point(113, 66);
             this.tileBarDropDownContainer2.Name = "tileBarDropDownContainer2";
             this.tileBarDropDownContainer2.Size = new System.Drawing.Size(884, 169);
-            this.tileBarDropDownContainer2.TabIndex = 8;
+            this.tileBarDropDownContainer2.TabIndex = 11;
             // 
             // tileBar3
             // 
@@ -473,17 +471,58 @@
             this.tileBarItem13.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem13.Name = "tileBarItem13";
             // 
+            // tileBarItem3
+            // 
+            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem3.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement11.Text = "监测";
+            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem3.Elements.Add(tileItemElement11);
+            this.tileBarItem3.Id = 3;
+            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem3.Name = "tileBarItem3";
+            this.tileBarItem3.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem4
+            // 
+            this.tileBarItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem4.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            tileItemElement12.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement12.Text = "tileBarItem4";
+            tileItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem4.Elements.Add(tileItemElement12);
+            this.tileBarItem4.Id = 4;
+            this.tileBarItem4.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem4.Name = "tileBarItem4";
+            // 
+            // tileBarItem5
+            // 
+            this.tileBarItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem5.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem5.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement13.Text = "tileBarItem4";
+            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem5.Elements.Add(tileItemElement13);
+            this.tileBarItem5.Id = 5;
+            this.tileBarItem5.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem5.Name = "tileBarItem5";
+            // 
             // NavigationOrLayout_tileBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 660);
-            this.Controls.Add(this.tileBarDropDownContainer2);
-            this.Controls.Add(this.tileBarDropDownContainer1);
-            this.Controls.Add(this.tileBar1);
+            this.Controls.Add(this.tabControl1);
             this.Name = "NavigationOrLayout_tileBar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NavigationOrLayout_tileBar";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer1)).EndInit();
             this.tileBarDropDownContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer2)).EndInit();
@@ -494,6 +533,11 @@
 
         #endregion
 
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private DevExpress.XtraBars.Navigation.TileBar tileBar1;
+        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
         private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer1;
         private DevExpress.XtraBars.Navigation.TileBar tileBar2;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup3;
@@ -502,13 +546,7 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem8;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup4;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem9;
-        private DevExpress.XtraBars.Navigation.TileBar tileBar1;
-        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem2;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem4;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem5;
         private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer2;
         private DevExpress.XtraBars.Navigation.TileBar tileBar3;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup1;
@@ -517,5 +555,9 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem12;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup5;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem13;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem3;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem4;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem5;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

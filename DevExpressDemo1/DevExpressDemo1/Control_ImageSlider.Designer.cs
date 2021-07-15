@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Control_ImageSlider));
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageSlider1
             // 
-            this.imageSlider1.Location = new System.Drawing.Point(70, 29);
+            this.imageSlider1.CurrentImageIndex = 0;
+            this.imageSlider1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images"))));
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images1"))));
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images2"))));
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images3"))));
+            this.imageSlider1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider1.Location = new System.Drawing.Point(0, 0);
             this.imageSlider1.Name = "imageSlider1";
-            this.imageSlider1.Size = new System.Drawing.Size(663, 465);
+            this.imageSlider1.Size = new System.Drawing.Size(1171, 828);
             this.imageSlider1.TabIndex = 0;
             this.imageSlider1.Text = "imageSlider1";
             // 
@@ -47,6 +55,7 @@
             this.ClientSize = new System.Drawing.Size(1171, 828);
             this.Controls.Add(this.imageSlider1);
             this.Name = "Control_ImageSlider";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control_ImageSlider";
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);

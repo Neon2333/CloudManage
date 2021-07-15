@@ -93,8 +93,9 @@ namespace DevExpressDemo1
             this.navigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsUIButtonPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuControls = new System.Windows.Forms.MenuStrip();
             this.tileBarGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuControls = new System.Windows.Forms.MenuStrip();
+            this.pageNavigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -571,6 +572,13 @@ namespace DevExpressDemo1
             this.windowsUIButtonPanelToolStripMenuItem.Text = "WindowsUIButtonPanel ";
             this.windowsUIButtonPanelToolStripMenuItem.Click += new System.EventHandler(this.windowsUIButtonPanelToolStripMenuItem_Click);
             // 
+            // tileBarGroupToolStripMenuItem
+            // 
+            this.tileBarGroupToolStripMenuItem.Name = "tileBarGroupToolStripMenuItem";
+            this.tileBarGroupToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.tileBarGroupToolStripMenuItem.Text = "tileBar";
+            this.tileBarGroupToolStripMenuItem.Click += new System.EventHandler(this.tileBarGroupToolStripMenuItem_Click);
+            // 
             // menuControls
             // 
             this.menuControls.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -580,7 +588,8 @@ namespace DevExpressDemo1
             this.文本ToolStripMenuItem,
             this.图片ToolStripMenuItem,
             this.dateAnalysisToolStripMenuItem,
-            this.navigationToolStripMenuItem});
+            this.navigationToolStripMenuItem,
+            this.pageNavigationToolStripMenuItem});
             this.menuControls.Location = new System.Drawing.Point(0, 0);
             this.menuControls.Name = "menuControls";
             this.menuControls.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -588,12 +597,12 @@ namespace DevExpressDemo1
             this.menuControls.TabIndex = 1;
             this.menuControls.Text = "控件";
             // 
-            // tileBarGroupToolStripMenuItem
+            // pageNavigationToolStripMenuItem
             // 
-            this.tileBarGroupToolStripMenuItem.Name = "tileBarGroupToolStripMenuItem";
-            this.tileBarGroupToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.tileBarGroupToolStripMenuItem.Text = "tileBarGroup";
-            this.tileBarGroupToolStripMenuItem.Click += new System.EventHandler(this.tileBarGroupToolStripMenuItem_Click);
+            this.pageNavigationToolStripMenuItem.Name = "pageNavigationToolStripMenuItem";
+            this.pageNavigationToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
+            this.pageNavigationToolStripMenuItem.Text = "PageNavigation";
+            this.pageNavigationToolStripMenuItem.Click += new System.EventHandler(this.pageNavigationToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -679,5 +688,6 @@ namespace DevExpressDemo1
         private System.Windows.Forms.MenuStrip menuControls;
         private System.Windows.Forms.ToolStripMenuItem windowsUIButtonPanelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tileBarGroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageNavigationToolStripMenuItem;
     }
 }

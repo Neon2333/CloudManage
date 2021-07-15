@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraBars.Docking2010;
 
 namespace DevExpressDemo1
 {
@@ -17,5 +18,32 @@ namespace DevExpressDemo1
         {
             InitializeComponent();
         }
+
+        private void windowsUIButtonPanel2_ButtonChecked(object sender, ButtonEventArgs e)
+        {
+            string tag = ((WindowsUIButton)e.Button).Tag.ToString();
+            switch (tag)
+            {
+                case "1":
+                    /* Navigate to page A */
+                    MessageBox.Show("1 checked");
+                    break;
+                case "2":
+                    /* Navigate to page B */
+                    MessageBox.Show("2 checked");
+                    break;
+                case "3":
+                    /* Navigate to page C*/
+                    MessageBox.Show("3 checked");
+                    break;
+                case "4":
+                    /* Navigate to page C*/
+                    MessageBox.Show("4 checked");
+                    break;
+            }
+        }
+
+
+
     }
 }
