@@ -167,5 +167,11 @@ namespace DevExpressDemo1
             PageNavigation pageNavigation = new PageNavigation();
             pageNavigation.Show();
         }
+
+        private void navPaneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationOrLayout_tileNavPane tileNavPane = new NavigationOrLayout_tileNavPane();
+            tileNavPane.Show();
+        }
     }
 }

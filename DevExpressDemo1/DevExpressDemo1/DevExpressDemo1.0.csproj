@@ -161,6 +161,12 @@
     <Compile Include="NavigationOrLayout_tileBar.Designer.cs">
       <DependentUpon>NavigationOrLayout_tileBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="NavigationOrLayout_tileNavPane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationOrLayout_tileNavPane.Designer.cs">
+      <DependentUpon>NavigationOrLayout_tileNavPane.cs</DependentUpon>
+    </Compile>
     <Compile Include="NavigationOrLayout_WindowsUIButtonPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NavigationOrLayout_tileBar.resx">
       <DependentUpon>NavigationOrLayout_tileBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationOrLayout_tileNavPane.resx">
+      <DependentUpon>NavigationOrLayout_tileNavPane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NavigationOrLayout_WindowsUIButtonPanel.resx">
       <DependentUpon>NavigationOrLayout_WindowsUIButtonPanel.cs</DependentUpon>

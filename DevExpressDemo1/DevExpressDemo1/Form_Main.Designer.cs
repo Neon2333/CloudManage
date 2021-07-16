@@ -96,6 +96,7 @@ namespace DevExpressDemo1
             this.tileBarGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls = new System.Windows.Forms.MenuStrip();
             this.pageNavigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -554,7 +555,8 @@ namespace DevExpressDemo1
             this.navigationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.layoutControlToolStripMenuItem,
             this.windowsUIButtonPanelToolStripMenuItem,
-            this.tileBarGroupToolStripMenuItem});
+            this.tileBarGroupToolStripMenuItem,
+            this.navPaneToolStripMenuItem});
             this.navigationToolStripMenuItem.Name = "navigationToolStripMenuItem";
             this.navigationToolStripMenuItem.Size = new System.Drawing.Size(129, 21);
             this.navigationToolStripMenuItem.Text = "Navigation & Layout";
@@ -603,6 +605,13 @@ namespace DevExpressDemo1
             this.pageNavigationToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
             this.pageNavigationToolStripMenuItem.Text = "PageNavigation";
             this.pageNavigationToolStripMenuItem.Click += new System.EventHandler(this.pageNavigationToolStripMenuItem_Click);
+            // 
+            // navPaneToolStripMenuItem
+            // 
+            this.navPaneToolStripMenuItem.Name = "navPaneToolStripMenuItem";
+            this.navPaneToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.navPaneToolStripMenuItem.Text = "tileNavPane";
+            this.navPaneToolStripMenuItem.Click += new System.EventHandler(this.navPaneToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
@@ -689,5 +698,6 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem windowsUIButtonPanelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tileBarGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pageNavigationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem navPaneToolStripMenuItem;
     }
 }
