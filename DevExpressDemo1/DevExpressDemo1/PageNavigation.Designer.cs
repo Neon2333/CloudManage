@@ -29,29 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PageNavigation));
-            DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraEditors.TileItemElement tileItemElement16 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement17 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement19 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement20 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase1 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -72,11 +75,8 @@
             DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement8 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition5 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TileItemElement tileItemElement16 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement17 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement19 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement20 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraEditors.TileItemElement tileItemElement21 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement22 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement23 = new DevExpress.XtraEditors.TileItemElement();
@@ -106,36 +106,6 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions10 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraEditors.TileItemElement tileItemElement61 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement62 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement63 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement64 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement65 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase19 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition37 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition38 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement73 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement74 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement75 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement76 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition46 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition47 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition48 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan10 = new DevExpress.XtraEditors.TableLayout.TableSpan();
-            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase20 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition39 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition40 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement77 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement78 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement79 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement80 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition49 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition50 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TileItemElement tileItemElement66 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement67 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement68 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement69 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement70 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement26 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement27 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement28 = new DevExpress.XtraEditors.TileItemElement();
@@ -339,49 +309,76 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions37 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions38 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions39 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraEditors.TileItemElement tileItemElement61 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement62 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement63 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement64 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement65 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase19 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition37 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition38 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement73 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement74 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement75 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement76 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition46 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition47 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition48 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan10 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.ItemTemplateBase itemTemplateBase20 = new DevExpress.XtraEditors.TableLayout.ItemTemplateBase();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition39 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition40 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement77 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement78 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement79 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TemplatedItemElement templatedItemElement80 = new DevExpress.XtraEditors.TableLayout.TemplatedItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition49 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition50 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TileItemElement tileItemElement66 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement67 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement68 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement69 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement70 = new DevExpress.XtraEditors.TileItemElement();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.navigationPage4 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBar2 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBar4 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem20 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem19 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem18 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem17 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem16 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.radioGroup2 = new DevExpress.XtraEditors.RadioGroup();
-            this.imageSlider2 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar3 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup3 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem15 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem14 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem13 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem12 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem11 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.tileBarItem12 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem13 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem14 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem15 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.imageSlider2 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.radioGroup2 = new DevExpress.XtraEditors.RadioGroup();
+            this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileBar4 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup4 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem16 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem17 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem18 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem19 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem20 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.tileBar1 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem5 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem4 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.windowsUIButtonPanel2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tileBarItem2 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem4 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem5 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.navigationPage4 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileBar2 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.windowsUIButtonPanel2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.windowsUIButtonPanel3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.navigationFrame_Push = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage5 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPage6 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.listBoxControl6 = new DevExpress.XtraEditors.ListBoxControl();
             this.tileBar5 = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup1 = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem6 = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -389,13 +386,10 @@
             this.tileBarItem8 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem9 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem10 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.navigationPage6 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.listBoxControl6 = new DevExpress.XtraEditors.ListBoxControl();
+            this.windowsUIButtonPanel3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Shape = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage7 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar8 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -408,27 +402,7 @@
             this.navigationPage8 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.navigationPage13 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBar11 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup10 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem46 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem47 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem48 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem49 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem50 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.navigationPage14 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.listBoxControl2 = new DevExpress.XtraEditors.ListBoxControl();
-            this.navigationPage15 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBar12 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup11 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem51 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem52 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem53 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem54 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem55 = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.navigationPage16 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBar13 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.navigationFrame4 = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Fade = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage9 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar14 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -441,6 +415,7 @@
             this.navigationPage10 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl3 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Clock = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage11 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar17 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -453,6 +428,7 @@
             this.navigationPage12 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl4 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Dissolve = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage25 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar20 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -465,6 +441,7 @@
             this.navigationPage26 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl5 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Cover = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage29 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar23 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -477,6 +454,7 @@
             this.navigationPage30 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl7 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.navigationFrame_Comb = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage17 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar26 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -489,6 +467,7 @@
             this.navigationPage18 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl8 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.navigationFrame_PushFade = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage20 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.tileBar29 = new DevExpress.XtraBars.Navigation.TileBar();
@@ -514,18 +493,39 @@
             this.navigationPage22 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.listBoxControl10 = new DevExpress.XtraEditors.ListBoxControl();
             this.windowsUIButtonPanel11 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.navigationPage13 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileBar11 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup10 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem46 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem47 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem48 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem49 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem50 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.navigationPage14 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.listBoxControl2 = new DevExpress.XtraEditors.ListBoxControl();
+            this.navigationPage15 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileBar12 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup11 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem51 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem52 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem53 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem54 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem55 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.navigationPage16 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.tileBar13 = new DevExpress.XtraBars.Navigation.TileBar();
+            this.navigationFrame4 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
-            this.navigationPage3.SuspendLayout();
-            this.navigationPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).BeginInit();
             this.navigationPage1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            this.navigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
+            this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Push)).BeginInit();
@@ -534,48 +534,42 @@
             this.navigationPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl6)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Shape)).BeginInit();
             this.navigationFrame_Shape.SuspendLayout();
             this.navigationPage7.SuspendLayout();
             this.navigationPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
-            this.navigationPage13.SuspendLayout();
-            this.navigationPage14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).BeginInit();
-            this.navigationPage15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame4)).BeginInit();
-            this.navigationFrame4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Fade)).BeginInit();
             this.navigationFrame_Fade.SuspendLayout();
             this.navigationPage9.SuspendLayout();
             this.navigationPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl3)).BeginInit();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Clock)).BeginInit();
             this.navigationFrame_Clock.SuspendLayout();
             this.navigationPage11.SuspendLayout();
             this.navigationPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl4)).BeginInit();
+            this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Dissolve)).BeginInit();
             this.navigationFrame_Dissolve.SuspendLayout();
             this.navigationPage25.SuspendLayout();
             this.navigationPage26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl5)).BeginInit();
+            this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Cover)).BeginInit();
             this.navigationFrame_Cover.SuspendLayout();
             this.navigationPage29.SuspendLayout();
             this.navigationPage30.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl7)).BeginInit();
+            this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Comb)).BeginInit();
             this.navigationFrame_Comb.SuspendLayout();
             this.navigationPage17.SuspendLayout();
             this.navigationPage18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl8)).BeginInit();
+            this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_PushFade)).BeginInit();
             this.navigationFrame_PushFade.SuspendLayout();
             this.navigationPage20.SuspendLayout();
@@ -587,36 +581,13 @@
             this.navigationPage21.SuspendLayout();
             this.navigationPage22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl10)).BeginInit();
+            this.navigationPage13.SuspendLayout();
+            this.navigationPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).BeginInit();
+            this.navigationPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame4)).BeginInit();
+            this.navigationFrame4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // navigationPage4
-            // 
-            this.navigationPage4.Caption = "navigationPage4";
-            this.navigationPage4.Name = "navigationPage4";
-            this.navigationPage4.Size = new System.Drawing.Size(200, 100);
-            // 
-            // tileBar2
-            // 
-            this.tileBar2.AllowSelectedItem = true;
-            this.tileBar2.BackColor = System.Drawing.Color.White;
-            this.tileBar2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar2.Location = new System.Drawing.Point(0, 0);
-            this.tileBar2.Name = "tileBar2";
-            this.tileBar2.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.tileBar2.Size = new System.Drawing.Size(240, 150);
-            this.tileBar2.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.navigationFrame1);
-            this.tabPage2.Controls.Add(this.windowsUIButtonPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "NavigationFrame";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // navigationFrame1
             // 
@@ -637,153 +608,6 @@
             this.navigationFrame1.Size = new System.Drawing.Size(1258, 551);
             this.navigationFrame1.TabIndex = 10;
             this.navigationFrame1.Text = "navigationFrame1";
-            // 
-            // navigationPage3
-            // 
-            this.navigationPage3.Controls.Add(this.tileBar4);
-            this.navigationPage3.Name = "navigationPage3";
-            this.navigationPage3.Size = new System.Drawing.Size(1258, 551);
-            // 
-            // tileBar4
-            // 
-            this.tileBar4.AllowSelectedItem = true;
-            this.tileBar4.BackColor = System.Drawing.Color.White;
-            this.tileBar4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar4.Groups.Add(this.tileBarGroup4);
-            this.tileBar4.Location = new System.Drawing.Point(54, 132);
-            this.tileBar4.MaxId = 6;
-            this.tileBar4.Name = "tileBar4";
-            this.tileBar4.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar4.Size = new System.Drawing.Size(775, 150);
-            this.tileBar4.TabIndex = 10;
-            this.tileBar4.Text = "tileBar4";
-            // 
-            // tileBarGroup4
-            // 
-            this.tileBarGroup4.Items.Add(this.tileBarItem16);
-            this.tileBarGroup4.Items.Add(this.tileBarItem17);
-            this.tileBarGroup4.Items.Add(this.tileBarItem18);
-            this.tileBarGroup4.Items.Add(this.tileBarItem19);
-            this.tileBarGroup4.Items.Add(this.tileBarItem20);
-            this.tileBarGroup4.Name = "tileBarGroup4";
-            this.tileBarGroup4.Text = "菜单";
-            // 
-            // tileBarItem20
-            // 
-            this.tileBarItem20.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem20.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem20.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement10.Text = "tileBarItem4";
-            tileItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem20.Elements.Add(tileItemElement10);
-            this.tileBarItem20.Id = 5;
-            this.tileBarItem20.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem20.Name = "tileBarItem20";
-            // 
-            // tileBarItem19
-            // 
-            this.tileBarItem19.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem19.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem19.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            tileItemElement9.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement9.Text = "tileBarItem4";
-            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem19.Elements.Add(tileItemElement9);
-            this.tileBarItem19.Id = 4;
-            this.tileBarItem19.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem19.Name = "tileBarItem19";
-            // 
-            // tileBarItem18
-            // 
-            this.tileBarItem18.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem18.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem18.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem18.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem18.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement8.Text = "监测";
-            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem18.Elements.Add(tileItemElement8);
-            this.tileBarItem18.Id = 3;
-            this.tileBarItem18.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem18.Name = "tileBarItem18";
-            this.tileBarItem18.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem17
-            // 
-            this.tileBarItem17.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem17.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem17.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem17.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem17.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem17.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem17.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem17.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            tileItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement7.Text = "状态";
-            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem17.Elements.Add(tileItemElement7);
-            this.tileBarItem17.Id = 2;
-            this.tileBarItem17.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem17.Name = "tileBarItem17";
-            this.tileBarItem17.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem16
-            // 
-            this.tileBarItem16.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem16.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem16.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem16.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem16.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem16.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem16.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement6.Text = "系统";
-            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem16.Elements.Add(tileItemElement6);
-            this.tileBarItem16.Id = 1;
-            this.tileBarItem16.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem16.Name = "tileBarItem16";
-            this.tileBarItem16.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // navigationPage2
-            // 
-            this.navigationPage2.Caption = "navigationPage2";
-            this.navigationPage2.Controls.Add(this.imageSlider2);
-            this.navigationPage2.Controls.Add(this.radioGroup2);
-            this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(1258, 551);
-            // 
-            // radioGroup2
-            // 
-            this.radioGroup2.Location = new System.Drawing.Point(376, 407);
-            this.radioGroup2.Name = "radioGroup2";
-            this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem()});
-            this.radioGroup2.Size = new System.Drawing.Size(417, 38);
-            this.radioGroup2.TabIndex = 11;
-            // 
-            // imageSlider2
-            // 
-            this.behaviorManager1.SetBehaviors(this.imageSlider2, new DevExpress.Utils.Behaviors.Behavior[] {
-            ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraEditors.Behaviors.PagerBehaviorSourceForImageSlider), new object[] {
-                        ((object)(this.radioGroup2))})))))});
-            this.imageSlider2.CurrentImageIndex = 0;
-            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images"))));
-            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images1"))));
-            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images2"))));
-            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images3"))));
-            this.imageSlider2.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
-            this.imageSlider2.Location = new System.Drawing.Point(376, 33);
-            this.imageSlider2.Name = "imageSlider2";
-            this.imageSlider2.Size = new System.Drawing.Size(417, 354);
-            this.imageSlider2.TabIndex = 12;
-            this.imageSlider2.Text = "imageSlider2";
             // 
             // navigationPage1
             // 
@@ -815,46 +639,24 @@
             this.tileBarGroup3.Name = "tileBarGroup3";
             this.tileBarGroup3.Text = "菜单";
             // 
-            // tileBarItem15
+            // tileBarItem11
             // 
-            this.tileBarItem15.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem15.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem15.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.Text = "tileBarItem4";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem15.Elements.Add(tileItemElement5);
-            this.tileBarItem15.Id = 5;
-            this.tileBarItem15.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem15.Name = "tileBarItem15";
-            // 
-            // tileBarItem14
-            // 
-            this.tileBarItem14.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem14.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem14.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement4.Text = "tileBarItem4";
-            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem14.Elements.Add(tileItemElement4);
-            this.tileBarItem14.Id = 4;
-            this.tileBarItem14.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem14.Name = "tileBarItem14";
-            // 
-            // tileBarItem13
-            // 
-            this.tileBarItem13.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem13.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem13.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem13.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem13.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement3.Text = "监测";
-            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem13.Elements.Add(tileItemElement3);
-            this.tileBarItem13.Id = 3;
-            this.tileBarItem13.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem13.Name = "tileBarItem13";
-            this.tileBarItem13.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem11.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem11.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem11.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem11.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem11.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem11.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem11.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement1.Text = "系统";
+            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem11.Elements.Add(tileItemElement1);
+            this.tileBarItem11.Id = 1;
+            this.tileBarItem11.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem11.Name = "tileBarItem11";
+            this.tileBarItem11.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
             // tileBarItem12
             // 
@@ -876,50 +678,194 @@
             this.tileBarItem12.Name = "tileBarItem12";
             this.tileBarItem12.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // tileBarItem11
+            // tileBarItem13
             // 
-            this.tileBarItem11.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem11.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem11.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem11.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem11.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem11.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem11.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement1.Text = "系统";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem11.Elements.Add(tileItemElement1);
-            this.tileBarItem11.Id = 1;
-            this.tileBarItem11.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem11.Name = "tileBarItem11";
-            this.tileBarItem11.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem13.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem13.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem13.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem13.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem13.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement3.Text = "监测";
+            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem13.Elements.Add(tileItemElement3);
+            this.tileBarItem13.Id = 3;
+            this.tileBarItem13.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem13.Name = "tileBarItem13";
+            this.tileBarItem13.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // tabPage1
+            // tileBarItem14
             // 
-            this.tabPage1.Controls.Add(this.tileBar1);
-            this.tabPage1.Controls.Add(this.imageSlider1);
-            this.tabPage1.Controls.Add(this.radioGroup1);
-            this.tabPage1.Controls.Add(this.windowsUIButtonPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 23);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1199, 629);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ImageSlider&tileBar";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tileBarItem14.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem14.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem14.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement4.Text = "tileBarItem4";
+            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem14.Elements.Add(tileItemElement4);
+            this.tileBarItem14.Id = 4;
+            this.tileBarItem14.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem14.Name = "tileBarItem14";
             // 
-            // radioGroup1
+            // tileBarItem15
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(33, 488);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.tileBarItem15.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem15.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem15.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.Text = "tileBarItem4";
+            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem15.Elements.Add(tileItemElement5);
+            this.tileBarItem15.Id = 5;
+            this.tileBarItem15.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem15.Name = "tileBarItem15";
+            // 
+            // navigationPage2
+            // 
+            this.navigationPage2.Caption = "navigationPage2";
+            this.navigationPage2.Controls.Add(this.imageSlider2);
+            this.navigationPage2.Controls.Add(this.radioGroup2);
+            this.navigationPage2.Name = "navigationPage2";
+            this.navigationPage2.Size = new System.Drawing.Size(1258, 551);
+            // 
+            // imageSlider2
+            // 
+            this.behaviorManager1.SetBehaviors(this.imageSlider2, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(((DevExpress.Utils.Behaviors.Common.PagerBehavior)(DevExpress.Utils.Behaviors.Behavior.Create(typeof(DevExpress.Utils.Behaviors.Common.PagerBehavior), typeof(DevExpress.XtraEditors.Behaviors.PagerBehaviorSourceForImageSlider), new object[] {
+                        ((object)(this.radioGroup2))})))))});
+            this.imageSlider2.CurrentImageIndex = 0;
+            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images"))));
+            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images1"))));
+            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images2"))));
+            this.imageSlider2.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider2.Images3"))));
+            this.imageSlider2.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.imageSlider2.Location = new System.Drawing.Point(376, 33);
+            this.imageSlider2.Name = "imageSlider2";
+            this.imageSlider2.Size = new System.Drawing.Size(417, 354);
+            this.imageSlider2.TabIndex = 12;
+            this.imageSlider2.Text = "imageSlider2";
+            // 
+            // radioGroup2
+            // 
+            this.radioGroup2.Location = new System.Drawing.Point(376, 407);
+            this.radioGroup2.Name = "radioGroup2";
+            this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(),
             new DevExpress.XtraEditors.Controls.RadioGroupItem()});
-            this.radioGroup1.Size = new System.Drawing.Size(499, 38);
-            this.radioGroup1.TabIndex = 9;
+            this.radioGroup2.Size = new System.Drawing.Size(417, 38);
+            this.radioGroup2.TabIndex = 11;
+            // 
+            // navigationPage3
+            // 
+            this.navigationPage3.Caption = "navigationPage3";
+            this.navigationPage3.Controls.Add(this.tileBar4);
+            this.navigationPage3.Name = "navigationPage3";
+            this.navigationPage3.Size = new System.Drawing.Size(1258, 551);
+            // 
+            // tileBar4
+            // 
+            this.tileBar4.AllowSelectedItem = true;
+            this.tileBar4.BackColor = System.Drawing.Color.White;
+            this.tileBar4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar4.Groups.Add(this.tileBarGroup4);
+            this.tileBar4.Location = new System.Drawing.Point(54, 132);
+            this.tileBar4.MaxId = 6;
+            this.tileBar4.Name = "tileBar4";
+            this.tileBar4.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar4.Size = new System.Drawing.Size(775, 150);
+            this.tileBar4.TabIndex = 10;
+            this.tileBar4.Text = "tileBar4";
+            // 
+            // tileBarGroup4
+            // 
+            this.tileBarGroup4.Items.Add(this.tileBarItem16);
+            this.tileBarGroup4.Items.Add(this.tileBarItem17);
+            this.tileBarGroup4.Items.Add(this.tileBarItem18);
+            this.tileBarGroup4.Items.Add(this.tileBarItem19);
+            this.tileBarGroup4.Items.Add(this.tileBarItem20);
+            this.tileBarGroup4.Name = "tileBarGroup4";
+            this.tileBarGroup4.Text = "菜单";
+            // 
+            // tileBarItem16
+            // 
+            this.tileBarItem16.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem16.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem16.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem16.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem16.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem16.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem16.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement6.Text = "系统";
+            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem16.Elements.Add(tileItemElement6);
+            this.tileBarItem16.Id = 1;
+            this.tileBarItem16.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem16.Name = "tileBarItem16";
+            this.tileBarItem16.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem17
+            // 
+            this.tileBarItem17.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem17.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem17.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem17.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem17.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem17.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem17.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem17.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            tileItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement7.Text = "状态";
+            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem17.Elements.Add(tileItemElement7);
+            this.tileBarItem17.Id = 2;
+            this.tileBarItem17.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem17.Name = "tileBarItem17";
+            this.tileBarItem17.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem18
+            // 
+            this.tileBarItem18.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem18.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem18.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem18.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem18.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement8.Text = "监测";
+            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem18.Elements.Add(tileItemElement8);
+            this.tileBarItem18.Id = 3;
+            this.tileBarItem18.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem18.Name = "tileBarItem18";
+            this.tileBarItem18.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem19
+            // 
+            this.tileBarItem19.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem19.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem19.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            tileItemElement9.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement9.Text = "tileBarItem4";
+            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem19.Elements.Add(tileItemElement9);
+            this.tileBarItem19.Id = 4;
+            this.tileBarItem19.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem19.Name = "tileBarItem19";
+            // 
+            // tileBarItem20
+            // 
+            this.tileBarItem20.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem20.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem20.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement10.Text = "tileBarItem4";
+            tileItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem20.Elements.Add(tileItemElement10);
+            this.tileBarItem20.Id = 5;
+            this.tileBarItem20.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem20.Name = "tileBarItem20";
             // 
             // imageSlider1
             // 
@@ -937,6 +883,18 @@
             this.imageSlider1.Size = new System.Drawing.Size(499, 449);
             this.imageSlider1.TabIndex = 10;
             this.imageSlider1.Text = "imageSlider1";
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(33, 488);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem()});
+            this.radioGroup1.Size = new System.Drawing.Size(499, 38);
+            this.radioGroup1.TabIndex = 9;
             // 
             // tileBar1
             // 
@@ -965,46 +923,24 @@
             this.tileBarGroup2.Name = "tileBarGroup2";
             this.tileBarGroup2.Text = "菜单";
             // 
-            // tileBarItem5
+            // tileBarItem1
             // 
-            this.tileBarItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem5.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem5.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement15.Text = "tileBarItem4";
-            tileItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem5.Elements.Add(tileItemElement15);
-            this.tileBarItem5.Id = 5;
-            this.tileBarItem5.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem5.Name = "tileBarItem5";
-            // 
-            // tileBarItem4
-            // 
-            this.tileBarItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem4.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement14.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-            tileItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement14.Text = "tileBarItem4";
-            tileItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem4.Elements.Add(tileItemElement14);
-            this.tileBarItem4.Id = 4;
-            this.tileBarItem4.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem4.Name = "tileBarItem4";
-            // 
-            // tileBarItem3
-            // 
-            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem3.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.Text = "监测";
-            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem3.Elements.Add(tileItemElement13);
-            this.tileBarItem3.Id = 3;
-            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem3.Name = "tileBarItem3";
-            this.tileBarItem3.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem1.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            tileItemElement11.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement11.Text = "系统";
+            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem1.Elements.Add(tileItemElement11);
+            this.tileBarItem1.Id = 1;
+            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem1.Name = "tileBarItem1";
+            this.tileBarItem1.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
             // tileBarItem2
             // 
@@ -1026,24 +962,126 @@
             this.tileBarItem2.Name = "tileBarItem2";
             this.tileBarItem2.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             // 
-            // tileBarItem1
+            // tileBarItem3
             // 
-            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem1.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            tileItemElement11.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement11.Text = "系统";
-            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem1.Elements.Add(tileItemElement11);
-            this.tileBarItem1.Id = 1;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
-            this.tileBarItem1.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem3.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem3.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem3.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem3.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement13.Text = "监测";
+            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem3.Elements.Add(tileItemElement13);
+            this.tileBarItem3.Id = 3;
+            this.tileBarItem3.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem3.Name = "tileBarItem3";
+            this.tileBarItem3.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem4
+            // 
+            this.tileBarItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem4.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement14.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+            tileItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement14.Text = "tileBarItem4";
+            tileItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem4.Elements.Add(tileItemElement14);
+            this.tileBarItem4.Id = 4;
+            this.tileBarItem4.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem4.Name = "tileBarItem4";
+            // 
+            // tileBarItem5
+            // 
+            this.tileBarItem5.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem5.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem5.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement15.Text = "tileBarItem4";
+            tileItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem5.Elements.Add(tileItemElement15);
+            this.tileBarItem5.Id = 5;
+            this.tileBarItem5.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem5.Name = "tileBarItem5";
+            // 
+            // windowsUIButtonPanel1
+            // 
+            this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(557, 185);
+            this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(602, 71);
+            this.windowsUIButtonPanel1.TabIndex = 8;
+            this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
+            // 
+            // navigationPage4
+            // 
+            this.navigationPage4.Caption = "navigationPage4";
+            this.navigationPage4.Name = "navigationPage4";
+            this.navigationPage4.Size = new System.Drawing.Size(200, 100);
+            // 
+            // tileBar2
+            // 
+            this.tileBar2.AllowSelectedItem = true;
+            this.tileBar2.BackColor = System.Drawing.Color.White;
+            this.tileBar2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar2.Location = new System.Drawing.Point(0, 0);
+            this.tileBar2.Name = "tileBar2";
+            this.tileBar2.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tileBar2.Size = new System.Drawing.Size(240, 150);
+            this.tileBar2.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.navigationFrame1);
+            this.tabPage2.Controls.Add(this.windowsUIButtonPanel2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "NavigationFrame";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // windowsUIButtonPanel2
+            // 
+            this.windowsUIButtonPanel2.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel2.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel2.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel2.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel2.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel2.ButtonInterval = 40;
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
+            windowsUIButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions5.SvgImage")));
+            this.windowsUIButtonPanel2.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Contacts", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Contacts", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Calendar", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Calendar", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Mail", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Mail", 1, false)});
+            this.windowsUIButtonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel2.Location = new System.Drawing.Point(3, 554);
+            this.windowsUIButtonPanel2.Name = "windowsUIButtonPanel2";
+            this.windowsUIButtonPanel2.Size = new System.Drawing.Size(1258, 128);
+            this.windowsUIButtonPanel2.TabIndex = 9;
+            this.windowsUIButtonPanel2.Text = "windowsUIButtonPanel2";
+            this.windowsUIButtonPanel2.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel2.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel2_ButtonChecked);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tileBar1);
+            this.tabPage1.Controls.Add(this.imageSlider1);
+            this.tabPage1.Controls.Add(this.radioGroup1);
+            this.tabPage1.Controls.Add(this.windowsUIButtonPanel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "ImageSlider&tileBar";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -1065,43 +1103,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1272, 712);
             this.tabControl1.TabIndex = 0;
             // 
-            // windowsUIButtonPanel2
-            // 
-            this.windowsUIButtonPanel2.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel2.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel2.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel2.ButtonInterval = 40;
-            windowsUIButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions1.SvgImage")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
-            this.windowsUIButtonPanel2.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Contacts", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Contacts", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Calendar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Calendar", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Mail", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Mail", 1, false)});
-            this.windowsUIButtonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel2.Location = new System.Drawing.Point(3, 554);
-            this.windowsUIButtonPanel2.Name = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.Size = new System.Drawing.Size(1258, 128);
-            this.windowsUIButtonPanel2.TabIndex = 9;
-            this.windowsUIButtonPanel2.Text = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel2.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel2_ButtonChecked);
-            // 
-            // windowsUIButtonPanel1
-            // 
-            this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(557, 185);
-            this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(602, 71);
-            this.windowsUIButtonPanel1.TabIndex = 8;
-            this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.navigationFrame_Push);
@@ -1113,30 +1114,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TransitionType=Push";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // windowsUIButtonPanel3
-            // 
-            this.windowsUIButtonPanel3.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel3.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel3.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel3.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel3.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel3.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel3.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel3.ButtonInterval = 40;
-            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
-            windowsUIButtonImageOptions7.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions7.SvgImage")));
-            this.windowsUIButtonPanel3.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false)});
-            this.windowsUIButtonPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel3.Location = new System.Drawing.Point(3, 554);
-            this.windowsUIButtonPanel3.Name = "windowsUIButtonPanel3";
-            this.windowsUIButtonPanel3.Size = new System.Drawing.Size(1258, 128);
-            this.windowsUIButtonPanel3.TabIndex = 10;
-            this.windowsUIButtonPanel3.Text = "windowsUIButtonPanel3";
-            this.windowsUIButtonPanel3.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel3.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel3_ButtonChecked);
             // 
             // navigationFrame_Push
             // 
@@ -1155,114 +1132,10 @@
             // 
             // navigationPage5
             // 
+            this.navigationPage5.Caption = "navigationPage5";
             this.navigationPage5.Controls.Add(this.tileBar5);
             this.navigationPage5.Name = "navigationPage5";
             this.navigationPage5.Size = new System.Drawing.Size(674, 332);
-            // 
-            // navigationPage6
-            // 
-            this.navigationPage6.Controls.Add(this.listBoxControl6);
-            this.navigationPage6.Name = "navigationPage6";
-            this.navigationPage6.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl6
-            // 
-            this.listBoxControl6.ItemHeight = 166;
-            this.listBoxControl6.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl6.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl6.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl6.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl6.Name = "listBoxControl6";
-            this.listBoxControl6.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl6.TabIndex = 11;
-            itemTemplateBase1.Columns.Add(tableColumnDefinition1);
-            itemTemplateBase1.Columns.Add(tableColumnDefinition2);
-            templatedItemElement1.ColumnIndex = 1;
-            templatedItemElement1.FieldName = "DisplayMember";
-            templatedItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement1.RowIndex = 1;
-            templatedItemElement1.Text = "DisplayMember";
-            templatedItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement2.FieldName = "DisplayMember";
-            templatedItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement2.RowIndex = 1;
-            templatedItemElement2.Text = "DisplayMember";
-            templatedItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement3.ColumnIndex = 1;
-            templatedItemElement3.FieldName = "DisplayMember";
-            templatedItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement3.RowIndex = 2;
-            templatedItemElement3.Text = "DisplayMember";
-            templatedItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement4.ColumnIndex = 1;
-            templatedItemElement4.FieldName = "DisplayMember";
-            templatedItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement4.Text = "DisplayMember";
-            templatedItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase1.Elements.Add(templatedItemElement1);
-            itemTemplateBase1.Elements.Add(templatedItemElement2);
-            itemTemplateBase1.Elements.Add(templatedItemElement3);
-            itemTemplateBase1.Elements.Add(templatedItemElement4);
-            itemTemplateBase1.Name = "template1";
-            tableRowDefinition1.Length.Value = 51D;
-            tableRowDefinition2.Length.Value = 52D;
-            tableRowDefinition3.Length.Value = 59D;
-            itemTemplateBase1.Rows.Add(tableRowDefinition1);
-            itemTemplateBase1.Rows.Add(tableRowDefinition2);
-            itemTemplateBase1.Rows.Add(tableRowDefinition3);
-            tableSpan1.RowSpan = 3;
-            itemTemplateBase1.Spans.Add(tableSpan1);
-            itemTemplateBase2.Columns.Add(tableColumnDefinition3);
-            itemTemplateBase2.Columns.Add(tableColumnDefinition4);
-            templatedItemElement5.FieldName = "DisplayMember";
-            templatedItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement5.Text = "DisplayMember";
-            templatedItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement6.FieldName = "DisplayMember";
-            templatedItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement6.RowIndex = 1;
-            templatedItemElement6.Text = "DisplayMember";
-            templatedItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement7.ColumnIndex = 1;
-            templatedItemElement7.FieldName = "DisplayMember";
-            templatedItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement7.Text = "DisplayMember";
-            templatedItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement8.ColumnIndex = 1;
-            templatedItemElement8.FieldName = "DisplayMember";
-            templatedItemElement8.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement8.RowIndex = 1;
-            templatedItemElement8.Text = "DisplayMember";
-            templatedItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase2.Elements.Add(templatedItemElement5);
-            itemTemplateBase2.Elements.Add(templatedItemElement6);
-            itemTemplateBase2.Elements.Add(templatedItemElement7);
-            itemTemplateBase2.Elements.Add(templatedItemElement8);
-            itemTemplateBase2.Name = "template2";
-            tableRowDefinition4.Length.Value = 13D;
-            tableRowDefinition5.Length.Value = 13D;
-            itemTemplateBase2.Rows.Add(tableRowDefinition4);
-            itemTemplateBase2.Rows.Add(tableRowDefinition5);
-            this.listBoxControl6.Templates.Add(itemTemplateBase1);
-            this.listBoxControl6.Templates.Add(itemTemplateBase2);
             // 
             // tileBar5
             // 
@@ -1368,6 +1241,136 @@
             this.tileBarItem10.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem10.Name = "tileBarItem10";
             // 
+            // navigationPage6
+            // 
+            this.navigationPage6.Caption = "navigationPage6";
+            this.navigationPage6.Controls.Add(this.listBoxControl6);
+            this.navigationPage6.Name = "navigationPage6";
+            this.navigationPage6.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl6
+            // 
+            this.listBoxControl6.ItemHeight = 166;
+            this.listBoxControl6.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl6.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl6.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl6.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl6.Name = "listBoxControl6";
+            this.listBoxControl6.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl6.TabIndex = 11;
+            itemTemplateBase1.Columns.Add(tableColumnDefinition1);
+            itemTemplateBase1.Columns.Add(tableColumnDefinition2);
+            templatedItemElement1.ColumnIndex = 1;
+            templatedItemElement1.FieldName = "DisplayMember";
+            templatedItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement1.RowIndex = 1;
+            templatedItemElement1.Text = "DisplayMember";
+            templatedItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement2.FieldName = "DisplayMember";
+            templatedItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement2.RowIndex = 1;
+            templatedItemElement2.Text = "DisplayMember";
+            templatedItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement3.ColumnIndex = 1;
+            templatedItemElement3.FieldName = "DisplayMember";
+            templatedItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement3.RowIndex = 2;
+            templatedItemElement3.Text = "DisplayMember";
+            templatedItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement4.ColumnIndex = 1;
+            templatedItemElement4.FieldName = "DisplayMember";
+            templatedItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement4.Text = "DisplayMember";
+            templatedItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase1.Elements.Add(templatedItemElement1);
+            itemTemplateBase1.Elements.Add(templatedItemElement2);
+            itemTemplateBase1.Elements.Add(templatedItemElement3);
+            itemTemplateBase1.Elements.Add(templatedItemElement4);
+            itemTemplateBase1.Name = "template1";
+            tableRowDefinition1.Length.Value = 51D;
+            tableRowDefinition2.Length.Value = 52D;
+            tableRowDefinition3.Length.Value = 59D;
+            itemTemplateBase1.Rows.Add(tableRowDefinition1);
+            itemTemplateBase1.Rows.Add(tableRowDefinition2);
+            itemTemplateBase1.Rows.Add(tableRowDefinition3);
+            tableSpan1.RowSpan = 3;
+            itemTemplateBase1.Spans.Add(tableSpan1);
+            itemTemplateBase2.Columns.Add(tableColumnDefinition3);
+            itemTemplateBase2.Columns.Add(tableColumnDefinition4);
+            templatedItemElement5.FieldName = "DisplayMember";
+            templatedItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement5.Text = "DisplayMember";
+            templatedItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement6.FieldName = "DisplayMember";
+            templatedItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement6.RowIndex = 1;
+            templatedItemElement6.Text = "DisplayMember";
+            templatedItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement7.ColumnIndex = 1;
+            templatedItemElement7.FieldName = "DisplayMember";
+            templatedItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement7.Text = "DisplayMember";
+            templatedItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement8.ColumnIndex = 1;
+            templatedItemElement8.FieldName = "DisplayMember";
+            templatedItemElement8.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement8.RowIndex = 1;
+            templatedItemElement8.Text = "DisplayMember";
+            templatedItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase2.Elements.Add(templatedItemElement5);
+            itemTemplateBase2.Elements.Add(templatedItemElement6);
+            itemTemplateBase2.Elements.Add(templatedItemElement7);
+            itemTemplateBase2.Elements.Add(templatedItemElement8);
+            itemTemplateBase2.Name = "template2";
+            tableRowDefinition4.Length.Value = 13D;
+            tableRowDefinition5.Length.Value = 13D;
+            itemTemplateBase2.Rows.Add(tableRowDefinition4);
+            itemTemplateBase2.Rows.Add(tableRowDefinition5);
+            this.listBoxControl6.Templates.Add(itemTemplateBase1);
+            this.listBoxControl6.Templates.Add(itemTemplateBase2);
+            // 
+            // windowsUIButtonPanel3
+            // 
+            this.windowsUIButtonPanel3.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel3.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel3.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel3.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel3.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel3.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel3.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel3.ButtonInterval = 40;
+            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
+            windowsUIButtonImageOptions7.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions7.SvgImage")));
+            this.windowsUIButtonPanel3.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false)});
+            this.windowsUIButtonPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel3.Location = new System.Drawing.Point(3, 554);
+            this.windowsUIButtonPanel3.Name = "windowsUIButtonPanel3";
+            this.windowsUIButtonPanel3.Size = new System.Drawing.Size(1258, 128);
+            this.windowsUIButtonPanel3.TabIndex = 10;
+            this.windowsUIButtonPanel3.Text = "windowsUIButtonPanel3";
+            this.windowsUIButtonPanel3.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel3.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel3_ButtonChecked);
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.navigationFrame_Shape);
@@ -1378,72 +1381,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "TransitionType=Shape";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.navigationFrame_Fade);
-            this.tabPage5.Controls.Add(this.windowsUIButtonPanel5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 23);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "TransitionType=Fade";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.navigationFrame_Clock);
-            this.tabPage6.Controls.Add(this.windowsUIButtonPanel6);
-            this.tabPage6.Location = new System.Drawing.Point(4, 23);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "TransitionType=Clock";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.navigationFrame_Dissolve);
-            this.tabPage7.Controls.Add(this.windowsUIButtonPanel7);
-            this.tabPage7.Location = new System.Drawing.Point(4, 23);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "TransitionType=Dissolve";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.navigationFrame_Cover);
-            this.tabPage8.Controls.Add(this.windowsUIButtonPanel8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 23);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "TransitionType=Cover";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.navigationFrame_Comb);
-            this.tabPage9.Controls.Add(this.windowsUIButtonPanel9);
-            this.tabPage9.Location = new System.Drawing.Point(4, 23);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "TransitionType=Comb";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Controls.Add(this.navigationFrame_PushFade);
-            this.tabPage10.Controls.Add(this.windowsUIButtonPanel10);
-            this.tabPage10.Location = new System.Drawing.Point(4, 23);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "TransitionType=PushFade";
-            this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // navigationFrame_Shape
             // 
@@ -1462,6 +1399,7 @@
             // 
             // navigationPage7
             // 
+            this.navigationPage7.Caption = "navigationPage7";
             this.navigationPage7.Controls.Add(this.tileBar8);
             this.navigationPage7.Name = "navigationPage7";
             this.navigationPage7.Size = new System.Drawing.Size(674, 332);
@@ -1572,6 +1510,7 @@
             // 
             // navigationPage8
             // 
+            this.navigationPage8.Caption = "navigationPage8";
             this.navigationPage8.Controls.Add(this.listBoxControl1);
             this.navigationPage8.Name = "navigationPage8";
             this.navigationPage8.Size = new System.Drawing.Size(674, 332);
@@ -1702,6 +1641,1904 @@
             this.windowsUIButtonPanel4.Text = "windowsUIButtonPanel4";
             this.windowsUIButtonPanel4.UseButtonBackgroundImages = false;
             this.windowsUIButtonPanel4.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel4_ButtonChecked);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.navigationFrame_Fade);
+            this.tabPage5.Controls.Add(this.windowsUIButtonPanel5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 23);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "TransitionType=Fade";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Fade
+            // 
+            this.navigationFrame_Fade.Controls.Add(this.navigationPage9);
+            this.navigationFrame_Fade.Controls.Add(this.navigationPage10);
+            this.navigationFrame_Fade.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_Fade.Name = "navigationFrame_Fade";
+            this.navigationFrame_Fade.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage9,
+            this.navigationPage10});
+            this.navigationFrame_Fade.SelectedPage = this.navigationPage10;
+            this.navigationFrame_Fade.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Fade.TabIndex = 15;
+            this.navigationFrame_Fade.Text = "navigationFrame5";
+            this.navigationFrame_Fade.TransitionType = DevExpress.Utils.Animation.Transitions.Fade;
+            // 
+            // navigationPage9
+            // 
+            this.navigationPage9.Caption = "navigationPage9";
+            this.navigationPage9.Controls.Add(this.tileBar14);
+            this.navigationPage9.Name = "navigationPage9";
+            this.navigationPage9.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar14
+            // 
+            this.tileBar14.AllowSelectedItem = true;
+            this.tileBar14.BackColor = System.Drawing.Color.White;
+            this.tileBar14.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar14.Groups.Add(this.tileBarGroup12);
+            this.tileBar14.Location = new System.Drawing.Point(22, 82);
+            this.tileBar14.MaxId = 6;
+            this.tileBar14.Name = "tileBar14";
+            this.tileBar14.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar14.Size = new System.Drawing.Size(631, 150);
+            this.tileBar14.TabIndex = 11;
+            this.tileBar14.Text = "tileBar14";
+            // 
+            // tileBarGroup12
+            // 
+            this.tileBarGroup12.Items.Add(this.tileBarItem56);
+            this.tileBarGroup12.Items.Add(this.tileBarItem57);
+            this.tileBarGroup12.Items.Add(this.tileBarItem58);
+            this.tileBarGroup12.Items.Add(this.tileBarItem59);
+            this.tileBarGroup12.Items.Add(this.tileBarItem60);
+            this.tileBarGroup12.Name = "tileBarGroup12";
+            this.tileBarGroup12.Text = "菜单";
+            // 
+            // tileBarItem56
+            // 
+            this.tileBarItem56.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem56.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem56.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem56.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem56.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem56.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem56.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement26.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
+            tileItemElement26.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement26.Text = "系统";
+            tileItemElement26.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem56.Elements.Add(tileItemElement26);
+            this.tileBarItem56.Id = 1;
+            this.tileBarItem56.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem56.Name = "tileBarItem56";
+            this.tileBarItem56.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem57
+            // 
+            this.tileBarItem57.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem57.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem57.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem57.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem57.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem57.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem57.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem57.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
+            tileItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement27.Text = "状态";
+            tileItemElement27.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem57.Elements.Add(tileItemElement27);
+            this.tileBarItem57.Id = 2;
+            this.tileBarItem57.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem57.Name = "tileBarItem57";
+            this.tileBarItem57.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem58
+            // 
+            this.tileBarItem58.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem58.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem58.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem58.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem58.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement28.Text = "监测";
+            tileItemElement28.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem58.Elements.Add(tileItemElement28);
+            this.tileBarItem58.Id = 3;
+            this.tileBarItem58.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem58.Name = "tileBarItem58";
+            this.tileBarItem58.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem59
+            // 
+            this.tileBarItem59.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem59.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem59.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement29.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
+            tileItemElement29.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement29.Text = "tileBarItem4";
+            tileItemElement29.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem59.Elements.Add(tileItemElement29);
+            this.tileBarItem59.Id = 4;
+            this.tileBarItem59.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem59.Name = "tileBarItem59";
+            // 
+            // tileBarItem60
+            // 
+            this.tileBarItem60.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem60.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem60.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement30.Text = "tileBarItem4";
+            tileItemElement30.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem60.Elements.Add(tileItemElement30);
+            this.tileBarItem60.Id = 5;
+            this.tileBarItem60.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem60.Name = "tileBarItem60";
+            // 
+            // navigationPage10
+            // 
+            this.navigationPage10.Caption = "navigationPage10";
+            this.navigationPage10.Controls.Add(this.listBoxControl3);
+            this.navigationPage10.Name = "navigationPage10";
+            this.navigationPage10.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl3
+            // 
+            this.listBoxControl3.ItemHeight = 166;
+            this.listBoxControl3.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl3.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl3.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl3.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl3.Name = "listBoxControl3";
+            this.listBoxControl3.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl3.TabIndex = 11;
+            itemTemplateBase5.Columns.Add(tableColumnDefinition9);
+            itemTemplateBase5.Columns.Add(tableColumnDefinition10);
+            templatedItemElement17.ColumnIndex = 1;
+            templatedItemElement17.FieldName = "DisplayMember";
+            templatedItemElement17.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement17.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement17.RowIndex = 1;
+            templatedItemElement17.Text = "DisplayMember";
+            templatedItemElement17.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement18.FieldName = "DisplayMember";
+            templatedItemElement18.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement18.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement18.RowIndex = 1;
+            templatedItemElement18.Text = "DisplayMember";
+            templatedItemElement18.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement19.ColumnIndex = 1;
+            templatedItemElement19.FieldName = "DisplayMember";
+            templatedItemElement19.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement19.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement19.RowIndex = 2;
+            templatedItemElement19.Text = "DisplayMember";
+            templatedItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement20.ColumnIndex = 1;
+            templatedItemElement20.FieldName = "DisplayMember";
+            templatedItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement20.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement20.Text = "DisplayMember";
+            templatedItemElement20.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase5.Elements.Add(templatedItemElement17);
+            itemTemplateBase5.Elements.Add(templatedItemElement18);
+            itemTemplateBase5.Elements.Add(templatedItemElement19);
+            itemTemplateBase5.Elements.Add(templatedItemElement20);
+            itemTemplateBase5.Name = "template1";
+            tableRowDefinition11.Length.Value = 51D;
+            tableRowDefinition12.Length.Value = 52D;
+            tableRowDefinition13.Length.Value = 59D;
+            itemTemplateBase5.Rows.Add(tableRowDefinition11);
+            itemTemplateBase5.Rows.Add(tableRowDefinition12);
+            itemTemplateBase5.Rows.Add(tableRowDefinition13);
+            tableSpan3.RowSpan = 3;
+            itemTemplateBase5.Spans.Add(tableSpan3);
+            itemTemplateBase6.Columns.Add(tableColumnDefinition11);
+            itemTemplateBase6.Columns.Add(tableColumnDefinition12);
+            templatedItemElement21.FieldName = "DisplayMember";
+            templatedItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement21.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement21.Text = "DisplayMember";
+            templatedItemElement21.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement22.FieldName = "DisplayMember";
+            templatedItemElement22.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement22.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement22.RowIndex = 1;
+            templatedItemElement22.Text = "DisplayMember";
+            templatedItemElement22.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement23.ColumnIndex = 1;
+            templatedItemElement23.FieldName = "DisplayMember";
+            templatedItemElement23.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement23.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement23.Text = "DisplayMember";
+            templatedItemElement23.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement24.ColumnIndex = 1;
+            templatedItemElement24.FieldName = "DisplayMember";
+            templatedItemElement24.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement24.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement24.RowIndex = 1;
+            templatedItemElement24.Text = "DisplayMember";
+            templatedItemElement24.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase6.Elements.Add(templatedItemElement21);
+            itemTemplateBase6.Elements.Add(templatedItemElement22);
+            itemTemplateBase6.Elements.Add(templatedItemElement23);
+            itemTemplateBase6.Elements.Add(templatedItemElement24);
+            itemTemplateBase6.Name = "template2";
+            tableRowDefinition14.Length.Value = 13D;
+            tableRowDefinition15.Length.Value = 13D;
+            itemTemplateBase6.Rows.Add(tableRowDefinition14);
+            itemTemplateBase6.Rows.Add(tableRowDefinition15);
+            this.listBoxControl3.Templates.Add(itemTemplateBase5);
+            this.listBoxControl3.Templates.Add(itemTemplateBase6);
+            // 
+            // windowsUIButtonPanel5
+            // 
+            this.windowsUIButtonPanel5.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel5.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel5.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel5.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel5.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel5.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel5.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel5.ButtonInterval = 40;
+            windowsUIButtonImageOptions12.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions12.SvgImage")));
+            windowsUIButtonImageOptions13.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions13.SvgImage")));
+            windowsUIButtonImageOptions14.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions14.SvgImage")));
+            windowsUIButtonImageOptions15.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions15.SvgImage")));
+            this.windowsUIButtonPanel5.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel5.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel5.Name = "windowsUIButtonPanel5";
+            this.windowsUIButtonPanel5.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel5.TabIndex = 14;
+            this.windowsUIButtonPanel5.Text = "windowsUIButtonPanel5";
+            this.windowsUIButtonPanel5.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel5.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel5_ButtonChecked);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.navigationFrame_Clock);
+            this.tabPage6.Controls.Add(this.windowsUIButtonPanel6);
+            this.tabPage6.Location = new System.Drawing.Point(4, 23);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "TransitionType=Clock";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Clock
+            // 
+            this.navigationFrame_Clock.Controls.Add(this.navigationPage11);
+            this.navigationFrame_Clock.Controls.Add(this.navigationPage12);
+            this.navigationFrame_Clock.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_Clock.Name = "navigationFrame_Clock";
+            this.navigationFrame_Clock.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage11,
+            this.navigationPage12});
+            this.navigationFrame_Clock.SelectedPage = this.navigationPage12;
+            this.navigationFrame_Clock.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Clock.TabIndex = 15;
+            this.navigationFrame_Clock.Text = "navigationFrame6";
+            this.navigationFrame_Clock.TransitionType = DevExpress.Utils.Animation.Transitions.Clock;
+            // 
+            // navigationPage11
+            // 
+            this.navigationPage11.Caption = "navigationPage11";
+            this.navigationPage11.Controls.Add(this.tileBar17);
+            this.navigationPage11.Name = "navigationPage11";
+            this.navigationPage11.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar17
+            // 
+            this.tileBar17.AllowSelectedItem = true;
+            this.tileBar17.BackColor = System.Drawing.Color.White;
+            this.tileBar17.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar17.Groups.Add(this.tileBarGroup15);
+            this.tileBar17.Location = new System.Drawing.Point(22, 82);
+            this.tileBar17.MaxId = 6;
+            this.tileBar17.Name = "tileBar17";
+            this.tileBar17.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar17.Size = new System.Drawing.Size(631, 150);
+            this.tileBar17.TabIndex = 11;
+            this.tileBar17.Text = "tileBar17";
+            // 
+            // tileBarGroup15
+            // 
+            this.tileBarGroup15.Items.Add(this.tileBarItem71);
+            this.tileBarGroup15.Items.Add(this.tileBarItem72);
+            this.tileBarGroup15.Items.Add(this.tileBarItem73);
+            this.tileBarGroup15.Items.Add(this.tileBarItem74);
+            this.tileBarGroup15.Items.Add(this.tileBarItem75);
+            this.tileBarGroup15.Name = "tileBarGroup15";
+            this.tileBarGroup15.Text = "菜单";
+            // 
+            // tileBarItem71
+            // 
+            this.tileBarItem71.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem71.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem71.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem71.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem71.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem71.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem71.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement31.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
+            tileItemElement31.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement31.Text = "系统";
+            tileItemElement31.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem71.Elements.Add(tileItemElement31);
+            this.tileBarItem71.Id = 1;
+            this.tileBarItem71.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem71.Name = "tileBarItem71";
+            this.tileBarItem71.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem72
+            // 
+            this.tileBarItem72.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem72.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem72.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem72.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem72.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem72.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem72.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem72.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement32.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image19")));
+            tileItemElement32.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement32.Text = "状态";
+            tileItemElement32.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem72.Elements.Add(tileItemElement32);
+            this.tileBarItem72.Id = 2;
+            this.tileBarItem72.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem72.Name = "tileBarItem72";
+            this.tileBarItem72.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem73
+            // 
+            this.tileBarItem73.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem73.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem73.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem73.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem73.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement33.Text = "监测";
+            tileItemElement33.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem73.Elements.Add(tileItemElement33);
+            this.tileBarItem73.Id = 3;
+            this.tileBarItem73.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem73.Name = "tileBarItem73";
+            this.tileBarItem73.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem74
+            // 
+            this.tileBarItem74.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem74.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem74.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement34.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image20")));
+            tileItemElement34.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement34.Text = "tileBarItem4";
+            tileItemElement34.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem74.Elements.Add(tileItemElement34);
+            this.tileBarItem74.Id = 4;
+            this.tileBarItem74.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem74.Name = "tileBarItem74";
+            // 
+            // tileBarItem75
+            // 
+            this.tileBarItem75.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem75.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem75.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement35.Text = "tileBarItem4";
+            tileItemElement35.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem75.Elements.Add(tileItemElement35);
+            this.tileBarItem75.Id = 5;
+            this.tileBarItem75.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem75.Name = "tileBarItem75";
+            // 
+            // navigationPage12
+            // 
+            this.navigationPage12.Caption = "navigationPage12";
+            this.navigationPage12.Controls.Add(this.listBoxControl4);
+            this.navigationPage12.Name = "navigationPage12";
+            this.navigationPage12.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl4
+            // 
+            this.listBoxControl4.ItemHeight = 166;
+            this.listBoxControl4.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl4.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl4.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl4.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl4.Name = "listBoxControl4";
+            this.listBoxControl4.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl4.TabIndex = 11;
+            itemTemplateBase7.Columns.Add(tableColumnDefinition13);
+            itemTemplateBase7.Columns.Add(tableColumnDefinition14);
+            templatedItemElement25.ColumnIndex = 1;
+            templatedItemElement25.FieldName = "DisplayMember";
+            templatedItemElement25.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement25.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement25.RowIndex = 1;
+            templatedItemElement25.Text = "DisplayMember";
+            templatedItemElement25.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement26.FieldName = "DisplayMember";
+            templatedItemElement26.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement26.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement26.RowIndex = 1;
+            templatedItemElement26.Text = "DisplayMember";
+            templatedItemElement26.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement27.ColumnIndex = 1;
+            templatedItemElement27.FieldName = "DisplayMember";
+            templatedItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement27.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement27.RowIndex = 2;
+            templatedItemElement27.Text = "DisplayMember";
+            templatedItemElement27.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement28.ColumnIndex = 1;
+            templatedItemElement28.FieldName = "DisplayMember";
+            templatedItemElement28.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement28.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement28.Text = "DisplayMember";
+            templatedItemElement28.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase7.Elements.Add(templatedItemElement25);
+            itemTemplateBase7.Elements.Add(templatedItemElement26);
+            itemTemplateBase7.Elements.Add(templatedItemElement27);
+            itemTemplateBase7.Elements.Add(templatedItemElement28);
+            itemTemplateBase7.Name = "template1";
+            tableRowDefinition16.Length.Value = 51D;
+            tableRowDefinition17.Length.Value = 52D;
+            tableRowDefinition18.Length.Value = 59D;
+            itemTemplateBase7.Rows.Add(tableRowDefinition16);
+            itemTemplateBase7.Rows.Add(tableRowDefinition17);
+            itemTemplateBase7.Rows.Add(tableRowDefinition18);
+            tableSpan4.RowSpan = 3;
+            itemTemplateBase7.Spans.Add(tableSpan4);
+            itemTemplateBase8.Columns.Add(tableColumnDefinition15);
+            itemTemplateBase8.Columns.Add(tableColumnDefinition16);
+            templatedItemElement29.FieldName = "DisplayMember";
+            templatedItemElement29.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement29.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement29.Text = "DisplayMember";
+            templatedItemElement29.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement30.FieldName = "DisplayMember";
+            templatedItemElement30.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement30.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement30.RowIndex = 1;
+            templatedItemElement30.Text = "DisplayMember";
+            templatedItemElement30.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement31.ColumnIndex = 1;
+            templatedItemElement31.FieldName = "DisplayMember";
+            templatedItemElement31.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement31.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement31.Text = "DisplayMember";
+            templatedItemElement31.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement32.ColumnIndex = 1;
+            templatedItemElement32.FieldName = "DisplayMember";
+            templatedItemElement32.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement32.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement32.RowIndex = 1;
+            templatedItemElement32.Text = "DisplayMember";
+            templatedItemElement32.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase8.Elements.Add(templatedItemElement29);
+            itemTemplateBase8.Elements.Add(templatedItemElement30);
+            itemTemplateBase8.Elements.Add(templatedItemElement31);
+            itemTemplateBase8.Elements.Add(templatedItemElement32);
+            itemTemplateBase8.Name = "template2";
+            tableRowDefinition19.Length.Value = 13D;
+            tableRowDefinition20.Length.Value = 13D;
+            itemTemplateBase8.Rows.Add(tableRowDefinition19);
+            itemTemplateBase8.Rows.Add(tableRowDefinition20);
+            this.listBoxControl4.Templates.Add(itemTemplateBase7);
+            this.listBoxControl4.Templates.Add(itemTemplateBase8);
+            // 
+            // windowsUIButtonPanel6
+            // 
+            this.windowsUIButtonPanel6.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel6.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel6.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel6.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel6.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel6.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel6.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel6.ButtonInterval = 40;
+            windowsUIButtonImageOptions16.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions16.SvgImage")));
+            windowsUIButtonImageOptions17.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions17.SvgImage")));
+            windowsUIButtonImageOptions18.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions18.SvgImage")));
+            windowsUIButtonImageOptions19.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions19.SvgImage")));
+            this.windowsUIButtonPanel6.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions16, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions17, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions18, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions19, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel6.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel6.Name = "windowsUIButtonPanel6";
+            this.windowsUIButtonPanel6.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel6.TabIndex = 14;
+            this.windowsUIButtonPanel6.Text = "windowsUIButtonPanel6";
+            this.windowsUIButtonPanel6.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel6.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel6_ButtonChecked);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.navigationFrame_Dissolve);
+            this.tabPage7.Controls.Add(this.windowsUIButtonPanel7);
+            this.tabPage7.Location = new System.Drawing.Point(4, 23);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "TransitionType=Dissolve";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Dissolve
+            // 
+            this.navigationFrame_Dissolve.Controls.Add(this.navigationPage25);
+            this.navigationFrame_Dissolve.Controls.Add(this.navigationPage26);
+            this.navigationFrame_Dissolve.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_Dissolve.Name = "navigationFrame_Dissolve";
+            this.navigationFrame_Dissolve.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage25,
+            this.navigationPage26});
+            this.navigationFrame_Dissolve.SelectedPage = this.navigationPage26;
+            this.navigationFrame_Dissolve.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Dissolve.TabIndex = 15;
+            this.navigationFrame_Dissolve.Text = "navigationFrame7";
+            this.navigationFrame_Dissolve.TransitionType = DevExpress.Utils.Animation.Transitions.Dissolve;
+            // 
+            // navigationPage25
+            // 
+            this.navigationPage25.Caption = "navigationPage25";
+            this.navigationPage25.Controls.Add(this.tileBar20);
+            this.navigationPage25.Name = "navigationPage25";
+            this.navigationPage25.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar20
+            // 
+            this.tileBar20.AllowSelectedItem = true;
+            this.tileBar20.BackColor = System.Drawing.Color.White;
+            this.tileBar20.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar20.Groups.Add(this.tileBarGroup18);
+            this.tileBar20.Location = new System.Drawing.Point(22, 82);
+            this.tileBar20.MaxId = 6;
+            this.tileBar20.Name = "tileBar20";
+            this.tileBar20.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar20.Size = new System.Drawing.Size(631, 150);
+            this.tileBar20.TabIndex = 11;
+            this.tileBar20.Text = "tileBar20";
+            // 
+            // tileBarGroup18
+            // 
+            this.tileBarGroup18.Items.Add(this.tileBarItem86);
+            this.tileBarGroup18.Items.Add(this.tileBarItem87);
+            this.tileBarGroup18.Items.Add(this.tileBarItem88);
+            this.tileBarGroup18.Items.Add(this.tileBarItem89);
+            this.tileBarGroup18.Items.Add(this.tileBarItem90);
+            this.tileBarGroup18.Name = "tileBarGroup18";
+            this.tileBarGroup18.Text = "菜单";
+            // 
+            // tileBarItem86
+            // 
+            this.tileBarItem86.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem86.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem86.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem86.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem86.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem86.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem86.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement36.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image21")));
+            tileItemElement36.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement36.Text = "系统";
+            tileItemElement36.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem86.Elements.Add(tileItemElement36);
+            this.tileBarItem86.Id = 1;
+            this.tileBarItem86.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem86.Name = "tileBarItem86";
+            this.tileBarItem86.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem87
+            // 
+            this.tileBarItem87.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem87.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem87.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem87.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem87.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem87.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem87.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem87.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement37.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image22")));
+            tileItemElement37.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement37.Text = "状态";
+            tileItemElement37.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem87.Elements.Add(tileItemElement37);
+            this.tileBarItem87.Id = 2;
+            this.tileBarItem87.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem87.Name = "tileBarItem87";
+            this.tileBarItem87.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem88
+            // 
+            this.tileBarItem88.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem88.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem88.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem88.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem88.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement38.Text = "监测";
+            tileItemElement38.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem88.Elements.Add(tileItemElement38);
+            this.tileBarItem88.Id = 3;
+            this.tileBarItem88.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem88.Name = "tileBarItem88";
+            this.tileBarItem88.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem89
+            // 
+            this.tileBarItem89.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem89.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem89.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement39.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image23")));
+            tileItemElement39.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement39.Text = "tileBarItem4";
+            tileItemElement39.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem89.Elements.Add(tileItemElement39);
+            this.tileBarItem89.Id = 4;
+            this.tileBarItem89.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem89.Name = "tileBarItem89";
+            // 
+            // tileBarItem90
+            // 
+            this.tileBarItem90.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem90.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem90.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement40.Text = "tileBarItem4";
+            tileItemElement40.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem90.Elements.Add(tileItemElement40);
+            this.tileBarItem90.Id = 5;
+            this.tileBarItem90.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem90.Name = "tileBarItem90";
+            // 
+            // navigationPage26
+            // 
+            this.navigationPage26.Caption = "navigationPage26";
+            this.navigationPage26.Controls.Add(this.listBoxControl5);
+            this.navigationPage26.Name = "navigationPage26";
+            this.navigationPage26.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl5
+            // 
+            this.listBoxControl5.ItemHeight = 166;
+            this.listBoxControl5.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl5.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl5.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl5.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl5.Name = "listBoxControl5";
+            this.listBoxControl5.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl5.TabIndex = 11;
+            itemTemplateBase9.Columns.Add(tableColumnDefinition17);
+            itemTemplateBase9.Columns.Add(tableColumnDefinition18);
+            templatedItemElement33.ColumnIndex = 1;
+            templatedItemElement33.FieldName = "DisplayMember";
+            templatedItemElement33.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement33.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement33.RowIndex = 1;
+            templatedItemElement33.Text = "DisplayMember";
+            templatedItemElement33.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement34.FieldName = "DisplayMember";
+            templatedItemElement34.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement34.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement34.RowIndex = 1;
+            templatedItemElement34.Text = "DisplayMember";
+            templatedItemElement34.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement35.ColumnIndex = 1;
+            templatedItemElement35.FieldName = "DisplayMember";
+            templatedItemElement35.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement35.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement35.RowIndex = 2;
+            templatedItemElement35.Text = "DisplayMember";
+            templatedItemElement35.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement36.ColumnIndex = 1;
+            templatedItemElement36.FieldName = "DisplayMember";
+            templatedItemElement36.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement36.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement36.Text = "DisplayMember";
+            templatedItemElement36.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase9.Elements.Add(templatedItemElement33);
+            itemTemplateBase9.Elements.Add(templatedItemElement34);
+            itemTemplateBase9.Elements.Add(templatedItemElement35);
+            itemTemplateBase9.Elements.Add(templatedItemElement36);
+            itemTemplateBase9.Name = "template1";
+            tableRowDefinition21.Length.Value = 51D;
+            tableRowDefinition22.Length.Value = 52D;
+            tableRowDefinition23.Length.Value = 59D;
+            itemTemplateBase9.Rows.Add(tableRowDefinition21);
+            itemTemplateBase9.Rows.Add(tableRowDefinition22);
+            itemTemplateBase9.Rows.Add(tableRowDefinition23);
+            tableSpan5.RowSpan = 3;
+            itemTemplateBase9.Spans.Add(tableSpan5);
+            itemTemplateBase10.Columns.Add(tableColumnDefinition19);
+            itemTemplateBase10.Columns.Add(tableColumnDefinition20);
+            templatedItemElement37.FieldName = "DisplayMember";
+            templatedItemElement37.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement37.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement37.Text = "DisplayMember";
+            templatedItemElement37.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement38.FieldName = "DisplayMember";
+            templatedItemElement38.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement38.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement38.RowIndex = 1;
+            templatedItemElement38.Text = "DisplayMember";
+            templatedItemElement38.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement39.ColumnIndex = 1;
+            templatedItemElement39.FieldName = "DisplayMember";
+            templatedItemElement39.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement39.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement39.Text = "DisplayMember";
+            templatedItemElement39.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement40.ColumnIndex = 1;
+            templatedItemElement40.FieldName = "DisplayMember";
+            templatedItemElement40.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement40.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement40.RowIndex = 1;
+            templatedItemElement40.Text = "DisplayMember";
+            templatedItemElement40.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase10.Elements.Add(templatedItemElement37);
+            itemTemplateBase10.Elements.Add(templatedItemElement38);
+            itemTemplateBase10.Elements.Add(templatedItemElement39);
+            itemTemplateBase10.Elements.Add(templatedItemElement40);
+            itemTemplateBase10.Name = "template2";
+            tableRowDefinition24.Length.Value = 13D;
+            tableRowDefinition25.Length.Value = 13D;
+            itemTemplateBase10.Rows.Add(tableRowDefinition24);
+            itemTemplateBase10.Rows.Add(tableRowDefinition25);
+            this.listBoxControl5.Templates.Add(itemTemplateBase9);
+            this.listBoxControl5.Templates.Add(itemTemplateBase10);
+            // 
+            // windowsUIButtonPanel7
+            // 
+            this.windowsUIButtonPanel7.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel7.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel7.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel7.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel7.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel7.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel7.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel7.ButtonInterval = 40;
+            windowsUIButtonImageOptions20.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions20.SvgImage")));
+            windowsUIButtonImageOptions21.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions21.SvgImage")));
+            windowsUIButtonImageOptions22.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions22.SvgImage")));
+            windowsUIButtonImageOptions23.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions23.SvgImage")));
+            this.windowsUIButtonPanel7.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions20, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions21, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions22, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions23, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel7.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel7.Name = "windowsUIButtonPanel7";
+            this.windowsUIButtonPanel7.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel7.TabIndex = 14;
+            this.windowsUIButtonPanel7.Text = "windowsUIButtonPanel7";
+            this.windowsUIButtonPanel7.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel7.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel7_ButtonChecked);
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.navigationFrame_Cover);
+            this.tabPage8.Controls.Add(this.windowsUIButtonPanel8);
+            this.tabPage8.Location = new System.Drawing.Point(4, 23);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "TransitionType=Cover";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Cover
+            // 
+            this.navigationFrame_Cover.Controls.Add(this.navigationPage29);
+            this.navigationFrame_Cover.Controls.Add(this.navigationPage30);
+            this.navigationFrame_Cover.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_Cover.Name = "navigationFrame_Cover";
+            this.navigationFrame_Cover.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage29,
+            this.navigationPage30});
+            this.navigationFrame_Cover.SelectedPage = this.navigationPage30;
+            this.navigationFrame_Cover.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Cover.TabIndex = 15;
+            this.navigationFrame_Cover.Text = "navigationFrame8";
+            this.navigationFrame_Cover.TransitionType = DevExpress.Utils.Animation.Transitions.Cover;
+            // 
+            // navigationPage29
+            // 
+            this.navigationPage29.Caption = "navigationPage29";
+            this.navigationPage29.Controls.Add(this.tileBar23);
+            this.navigationPage29.Name = "navigationPage29";
+            this.navigationPage29.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar23
+            // 
+            this.tileBar23.AllowSelectedItem = true;
+            this.tileBar23.BackColor = System.Drawing.Color.White;
+            this.tileBar23.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar23.Groups.Add(this.tileBarGroup21);
+            this.tileBar23.Location = new System.Drawing.Point(22, 82);
+            this.tileBar23.MaxId = 6;
+            this.tileBar23.Name = "tileBar23";
+            this.tileBar23.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar23.Size = new System.Drawing.Size(631, 150);
+            this.tileBar23.TabIndex = 11;
+            this.tileBar23.Text = "tileBar23";
+            // 
+            // tileBarGroup21
+            // 
+            this.tileBarGroup21.Items.Add(this.tileBarItem101);
+            this.tileBarGroup21.Items.Add(this.tileBarItem102);
+            this.tileBarGroup21.Items.Add(this.tileBarItem103);
+            this.tileBarGroup21.Items.Add(this.tileBarItem104);
+            this.tileBarGroup21.Items.Add(this.tileBarItem105);
+            this.tileBarGroup21.Name = "tileBarGroup21";
+            this.tileBarGroup21.Text = "菜单";
+            // 
+            // tileBarItem101
+            // 
+            this.tileBarItem101.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem101.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem101.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem101.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem101.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem101.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem101.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement41.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image24")));
+            tileItemElement41.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement41.Text = "系统";
+            tileItemElement41.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem101.Elements.Add(tileItemElement41);
+            this.tileBarItem101.Id = 1;
+            this.tileBarItem101.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem101.Name = "tileBarItem101";
+            this.tileBarItem101.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem102
+            // 
+            this.tileBarItem102.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem102.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem102.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem102.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem102.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem102.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem102.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem102.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement42.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image25")));
+            tileItemElement42.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement42.Text = "状态";
+            tileItemElement42.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem102.Elements.Add(tileItemElement42);
+            this.tileBarItem102.Id = 2;
+            this.tileBarItem102.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem102.Name = "tileBarItem102";
+            this.tileBarItem102.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem103
+            // 
+            this.tileBarItem103.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem103.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem103.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem103.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem103.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement43.Text = "监测";
+            tileItemElement43.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem103.Elements.Add(tileItemElement43);
+            this.tileBarItem103.Id = 3;
+            this.tileBarItem103.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem103.Name = "tileBarItem103";
+            this.tileBarItem103.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem104
+            // 
+            this.tileBarItem104.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem104.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem104.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement44.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image26")));
+            tileItemElement44.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement44.Text = "tileBarItem4";
+            tileItemElement44.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem104.Elements.Add(tileItemElement44);
+            this.tileBarItem104.Id = 4;
+            this.tileBarItem104.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem104.Name = "tileBarItem104";
+            // 
+            // tileBarItem105
+            // 
+            this.tileBarItem105.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem105.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem105.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement45.Text = "tileBarItem4";
+            tileItemElement45.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem105.Elements.Add(tileItemElement45);
+            this.tileBarItem105.Id = 5;
+            this.tileBarItem105.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem105.Name = "tileBarItem105";
+            // 
+            // navigationPage30
+            // 
+            this.navigationPage30.Caption = "navigationPage30";
+            this.navigationPage30.Controls.Add(this.listBoxControl7);
+            this.navigationPage30.Name = "navigationPage30";
+            this.navigationPage30.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl7
+            // 
+            this.listBoxControl7.ItemHeight = 166;
+            this.listBoxControl7.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl7.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl7.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl7.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl7.Name = "listBoxControl7";
+            this.listBoxControl7.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl7.TabIndex = 11;
+            itemTemplateBase11.Columns.Add(tableColumnDefinition21);
+            itemTemplateBase11.Columns.Add(tableColumnDefinition22);
+            templatedItemElement41.ColumnIndex = 1;
+            templatedItemElement41.FieldName = "DisplayMember";
+            templatedItemElement41.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement41.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement41.RowIndex = 1;
+            templatedItemElement41.Text = "DisplayMember";
+            templatedItemElement41.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement42.FieldName = "DisplayMember";
+            templatedItemElement42.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement42.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement42.RowIndex = 1;
+            templatedItemElement42.Text = "DisplayMember";
+            templatedItemElement42.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement43.ColumnIndex = 1;
+            templatedItemElement43.FieldName = "DisplayMember";
+            templatedItemElement43.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement43.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement43.RowIndex = 2;
+            templatedItemElement43.Text = "DisplayMember";
+            templatedItemElement43.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement44.ColumnIndex = 1;
+            templatedItemElement44.FieldName = "DisplayMember";
+            templatedItemElement44.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement44.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement44.Text = "DisplayMember";
+            templatedItemElement44.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase11.Elements.Add(templatedItemElement41);
+            itemTemplateBase11.Elements.Add(templatedItemElement42);
+            itemTemplateBase11.Elements.Add(templatedItemElement43);
+            itemTemplateBase11.Elements.Add(templatedItemElement44);
+            itemTemplateBase11.Name = "template1";
+            tableRowDefinition26.Length.Value = 51D;
+            tableRowDefinition27.Length.Value = 52D;
+            tableRowDefinition28.Length.Value = 59D;
+            itemTemplateBase11.Rows.Add(tableRowDefinition26);
+            itemTemplateBase11.Rows.Add(tableRowDefinition27);
+            itemTemplateBase11.Rows.Add(tableRowDefinition28);
+            tableSpan6.RowSpan = 3;
+            itemTemplateBase11.Spans.Add(tableSpan6);
+            itemTemplateBase12.Columns.Add(tableColumnDefinition23);
+            itemTemplateBase12.Columns.Add(tableColumnDefinition24);
+            templatedItemElement45.FieldName = "DisplayMember";
+            templatedItemElement45.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement45.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement45.Text = "DisplayMember";
+            templatedItemElement45.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement46.FieldName = "DisplayMember";
+            templatedItemElement46.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement46.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement46.RowIndex = 1;
+            templatedItemElement46.Text = "DisplayMember";
+            templatedItemElement46.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement47.ColumnIndex = 1;
+            templatedItemElement47.FieldName = "DisplayMember";
+            templatedItemElement47.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement47.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement47.Text = "DisplayMember";
+            templatedItemElement47.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement48.ColumnIndex = 1;
+            templatedItemElement48.FieldName = "DisplayMember";
+            templatedItemElement48.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement48.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement48.RowIndex = 1;
+            templatedItemElement48.Text = "DisplayMember";
+            templatedItemElement48.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase12.Elements.Add(templatedItemElement45);
+            itemTemplateBase12.Elements.Add(templatedItemElement46);
+            itemTemplateBase12.Elements.Add(templatedItemElement47);
+            itemTemplateBase12.Elements.Add(templatedItemElement48);
+            itemTemplateBase12.Name = "template2";
+            tableRowDefinition29.Length.Value = 13D;
+            tableRowDefinition30.Length.Value = 13D;
+            itemTemplateBase12.Rows.Add(tableRowDefinition29);
+            itemTemplateBase12.Rows.Add(tableRowDefinition30);
+            this.listBoxControl7.Templates.Add(itemTemplateBase11);
+            this.listBoxControl7.Templates.Add(itemTemplateBase12);
+            // 
+            // windowsUIButtonPanel8
+            // 
+            this.windowsUIButtonPanel8.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel8.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel8.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel8.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel8.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel8.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel8.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel8.ButtonInterval = 40;
+            windowsUIButtonImageOptions24.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions24.SvgImage")));
+            windowsUIButtonImageOptions25.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions25.SvgImage")));
+            windowsUIButtonImageOptions26.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions26.SvgImage")));
+            windowsUIButtonImageOptions27.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions27.SvgImage")));
+            this.windowsUIButtonPanel8.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions24, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions25, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions26, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions27, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel8.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel8.Name = "windowsUIButtonPanel8";
+            this.windowsUIButtonPanel8.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel8.TabIndex = 14;
+            this.windowsUIButtonPanel8.Text = "windowsUIButtonPanel8";
+            this.windowsUIButtonPanel8.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel8.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel8_ButtonChecked);
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.navigationFrame_Comb);
+            this.tabPage9.Controls.Add(this.windowsUIButtonPanel9);
+            this.tabPage9.Location = new System.Drawing.Point(4, 23);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "TransitionType=Comb";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Comb
+            // 
+            this.navigationFrame_Comb.Controls.Add(this.navigationPage17);
+            this.navigationFrame_Comb.Controls.Add(this.navigationPage18);
+            this.navigationFrame_Comb.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_Comb.Name = "navigationFrame_Comb";
+            this.navigationFrame_Comb.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage17,
+            this.navigationPage18});
+            this.navigationFrame_Comb.SelectedPage = this.navigationPage18;
+            this.navigationFrame_Comb.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Comb.TabIndex = 15;
+            this.navigationFrame_Comb.Text = "navigationFrame9";
+            this.navigationFrame_Comb.TransitionType = DevExpress.Utils.Animation.Transitions.Comb;
+            // 
+            // navigationPage17
+            // 
+            this.navigationPage17.Caption = "navigationPage17";
+            this.navigationPage17.Controls.Add(this.tileBar26);
+            this.navigationPage17.Name = "navigationPage17";
+            this.navigationPage17.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar26
+            // 
+            this.tileBar26.AllowSelectedItem = true;
+            this.tileBar26.BackColor = System.Drawing.Color.White;
+            this.tileBar26.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar26.Groups.Add(this.tileBarGroup24);
+            this.tileBar26.Location = new System.Drawing.Point(22, 82);
+            this.tileBar26.MaxId = 6;
+            this.tileBar26.Name = "tileBar26";
+            this.tileBar26.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar26.Size = new System.Drawing.Size(631, 150);
+            this.tileBar26.TabIndex = 11;
+            this.tileBar26.Text = "tileBar26";
+            // 
+            // tileBarGroup24
+            // 
+            this.tileBarGroup24.Items.Add(this.tileBarItem116);
+            this.tileBarGroup24.Items.Add(this.tileBarItem117);
+            this.tileBarGroup24.Items.Add(this.tileBarItem118);
+            this.tileBarGroup24.Items.Add(this.tileBarItem119);
+            this.tileBarGroup24.Items.Add(this.tileBarItem120);
+            this.tileBarGroup24.Name = "tileBarGroup24";
+            this.tileBarGroup24.Text = "菜单";
+            // 
+            // tileBarItem116
+            // 
+            this.tileBarItem116.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem116.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem116.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem116.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem116.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem116.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem116.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement46.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image27")));
+            tileItemElement46.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement46.Text = "系统";
+            tileItemElement46.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem116.Elements.Add(tileItemElement46);
+            this.tileBarItem116.Id = 1;
+            this.tileBarItem116.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem116.Name = "tileBarItem116";
+            this.tileBarItem116.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem117
+            // 
+            this.tileBarItem117.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem117.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem117.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem117.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem117.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem117.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem117.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem117.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement47.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image28")));
+            tileItemElement47.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement47.Text = "状态";
+            tileItemElement47.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem117.Elements.Add(tileItemElement47);
+            this.tileBarItem117.Id = 2;
+            this.tileBarItem117.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem117.Name = "tileBarItem117";
+            this.tileBarItem117.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem118
+            // 
+            this.tileBarItem118.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem118.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem118.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem118.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem118.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement48.Text = "监测";
+            tileItemElement48.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem118.Elements.Add(tileItemElement48);
+            this.tileBarItem118.Id = 3;
+            this.tileBarItem118.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem118.Name = "tileBarItem118";
+            this.tileBarItem118.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem119
+            // 
+            this.tileBarItem119.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem119.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem119.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement49.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image29")));
+            tileItemElement49.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement49.Text = "tileBarItem4";
+            tileItemElement49.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem119.Elements.Add(tileItemElement49);
+            this.tileBarItem119.Id = 4;
+            this.tileBarItem119.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem119.Name = "tileBarItem119";
+            // 
+            // tileBarItem120
+            // 
+            this.tileBarItem120.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem120.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem120.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement50.Text = "tileBarItem4";
+            tileItemElement50.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem120.Elements.Add(tileItemElement50);
+            this.tileBarItem120.Id = 5;
+            this.tileBarItem120.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem120.Name = "tileBarItem120";
+            // 
+            // navigationPage18
+            // 
+            this.navigationPage18.Caption = "navigationPage18";
+            this.navigationPage18.Controls.Add(this.listBoxControl8);
+            this.navigationPage18.Name = "navigationPage18";
+            this.navigationPage18.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl8
+            // 
+            this.listBoxControl8.ItemHeight = 166;
+            this.listBoxControl8.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl8.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl8.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl8.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl8.Name = "listBoxControl8";
+            this.listBoxControl8.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl8.TabIndex = 11;
+            itemTemplateBase13.Columns.Add(tableColumnDefinition25);
+            itemTemplateBase13.Columns.Add(tableColumnDefinition26);
+            templatedItemElement49.ColumnIndex = 1;
+            templatedItemElement49.FieldName = "DisplayMember";
+            templatedItemElement49.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement49.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement49.RowIndex = 1;
+            templatedItemElement49.Text = "DisplayMember";
+            templatedItemElement49.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement50.FieldName = "DisplayMember";
+            templatedItemElement50.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement50.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement50.RowIndex = 1;
+            templatedItemElement50.Text = "DisplayMember";
+            templatedItemElement50.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement51.ColumnIndex = 1;
+            templatedItemElement51.FieldName = "DisplayMember";
+            templatedItemElement51.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement51.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement51.RowIndex = 2;
+            templatedItemElement51.Text = "DisplayMember";
+            templatedItemElement51.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement52.ColumnIndex = 1;
+            templatedItemElement52.FieldName = "DisplayMember";
+            templatedItemElement52.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement52.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement52.Text = "DisplayMember";
+            templatedItemElement52.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase13.Elements.Add(templatedItemElement49);
+            itemTemplateBase13.Elements.Add(templatedItemElement50);
+            itemTemplateBase13.Elements.Add(templatedItemElement51);
+            itemTemplateBase13.Elements.Add(templatedItemElement52);
+            itemTemplateBase13.Name = "template1";
+            tableRowDefinition31.Length.Value = 51D;
+            tableRowDefinition32.Length.Value = 52D;
+            tableRowDefinition33.Length.Value = 59D;
+            itemTemplateBase13.Rows.Add(tableRowDefinition31);
+            itemTemplateBase13.Rows.Add(tableRowDefinition32);
+            itemTemplateBase13.Rows.Add(tableRowDefinition33);
+            tableSpan7.RowSpan = 3;
+            itemTemplateBase13.Spans.Add(tableSpan7);
+            itemTemplateBase14.Columns.Add(tableColumnDefinition27);
+            itemTemplateBase14.Columns.Add(tableColumnDefinition28);
+            templatedItemElement53.FieldName = "DisplayMember";
+            templatedItemElement53.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement53.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement53.Text = "DisplayMember";
+            templatedItemElement53.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement54.FieldName = "DisplayMember";
+            templatedItemElement54.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement54.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement54.RowIndex = 1;
+            templatedItemElement54.Text = "DisplayMember";
+            templatedItemElement54.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement55.ColumnIndex = 1;
+            templatedItemElement55.FieldName = "DisplayMember";
+            templatedItemElement55.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement55.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement55.Text = "DisplayMember";
+            templatedItemElement55.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement56.ColumnIndex = 1;
+            templatedItemElement56.FieldName = "DisplayMember";
+            templatedItemElement56.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement56.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement56.RowIndex = 1;
+            templatedItemElement56.Text = "DisplayMember";
+            templatedItemElement56.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase14.Elements.Add(templatedItemElement53);
+            itemTemplateBase14.Elements.Add(templatedItemElement54);
+            itemTemplateBase14.Elements.Add(templatedItemElement55);
+            itemTemplateBase14.Elements.Add(templatedItemElement56);
+            itemTemplateBase14.Name = "template2";
+            tableRowDefinition34.Length.Value = 13D;
+            tableRowDefinition35.Length.Value = 13D;
+            itemTemplateBase14.Rows.Add(tableRowDefinition34);
+            itemTemplateBase14.Rows.Add(tableRowDefinition35);
+            this.listBoxControl8.Templates.Add(itemTemplateBase13);
+            this.listBoxControl8.Templates.Add(itemTemplateBase14);
+            // 
+            // windowsUIButtonPanel9
+            // 
+            this.windowsUIButtonPanel9.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel9.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel9.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel9.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel9.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel9.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel9.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel9.ButtonInterval = 40;
+            windowsUIButtonImageOptions28.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions28.SvgImage")));
+            windowsUIButtonImageOptions29.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions29.SvgImage")));
+            windowsUIButtonImageOptions30.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions30.SvgImage")));
+            windowsUIButtonImageOptions31.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions31.SvgImage")));
+            this.windowsUIButtonPanel9.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions28, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions29, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions30, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions31, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel9.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel9.Name = "windowsUIButtonPanel9";
+            this.windowsUIButtonPanel9.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel9.TabIndex = 14;
+            this.windowsUIButtonPanel9.Text = "windowsUIButtonPanel9";
+            this.windowsUIButtonPanel9.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel9.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel9_ButtonChecked);
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.navigationFrame_PushFade);
+            this.tabPage10.Controls.Add(this.windowsUIButtonPanel10);
+            this.tabPage10.Location = new System.Drawing.Point(4, 23);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "TransitionType=PushFade";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_PushFade
+            // 
+            this.navigationFrame_PushFade.Controls.Add(this.navigationPage20);
+            this.navigationFrame_PushFade.Controls.Add(this.navigationPage19);
+            this.navigationFrame_PushFade.Location = new System.Drawing.Point(217, 17);
+            this.navigationFrame_PushFade.Name = "navigationFrame_PushFade";
+            this.navigationFrame_PushFade.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage20,
+            this.navigationPage19});
+            this.navigationFrame_PushFade.SelectedPage = this.navigationPage19;
+            this.navigationFrame_PushFade.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_PushFade.TabIndex = 15;
+            this.navigationFrame_PushFade.Text = "navigationFrame10";
+            this.navigationFrame_PushFade.TransitionType = DevExpress.Utils.Animation.Transitions.PushFade;
+            // 
+            // navigationPage20
+            // 
+            this.navigationPage20.Caption = "navigationPage20";
+            this.navigationPage20.Controls.Add(this.tileBar29);
+            this.navigationPage20.Name = "navigationPage20";
+            this.navigationPage20.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar29
+            // 
+            this.tileBar29.AllowSelectedItem = true;
+            this.tileBar29.BackColor = System.Drawing.Color.White;
+            this.tileBar29.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar29.Groups.Add(this.tileBarGroup27);
+            this.tileBar29.Location = new System.Drawing.Point(22, 82);
+            this.tileBar29.MaxId = 6;
+            this.tileBar29.Name = "tileBar29";
+            this.tileBar29.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar29.Size = new System.Drawing.Size(631, 150);
+            this.tileBar29.TabIndex = 11;
+            this.tileBar29.Text = "tileBar29";
+            // 
+            // tileBarGroup27
+            // 
+            this.tileBarGroup27.Items.Add(this.tileBarItem131);
+            this.tileBarGroup27.Items.Add(this.tileBarItem132);
+            this.tileBarGroup27.Items.Add(this.tileBarItem133);
+            this.tileBarGroup27.Items.Add(this.tileBarItem134);
+            this.tileBarGroup27.Items.Add(this.tileBarItem135);
+            this.tileBarGroup27.Name = "tileBarGroup27";
+            this.tileBarGroup27.Text = "菜单";
+            // 
+            // tileBarItem131
+            // 
+            this.tileBarItem131.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem131.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem131.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem131.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem131.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem131.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem131.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement51.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image30")));
+            tileItemElement51.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement51.Text = "系统";
+            tileItemElement51.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem131.Elements.Add(tileItemElement51);
+            this.tileBarItem131.Id = 1;
+            this.tileBarItem131.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem131.Name = "tileBarItem131";
+            this.tileBarItem131.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem132
+            // 
+            this.tileBarItem132.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem132.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem132.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem132.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem132.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem132.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem132.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem132.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement52.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image31")));
+            tileItemElement52.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement52.Text = "状态";
+            tileItemElement52.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem132.Elements.Add(tileItemElement52);
+            this.tileBarItem132.Id = 2;
+            this.tileBarItem132.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem132.Name = "tileBarItem132";
+            this.tileBarItem132.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem133
+            // 
+            this.tileBarItem133.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem133.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem133.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem133.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem133.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement53.Text = "监测";
+            tileItemElement53.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem133.Elements.Add(tileItemElement53);
+            this.tileBarItem133.Id = 3;
+            this.tileBarItem133.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem133.Name = "tileBarItem133";
+            this.tileBarItem133.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem134
+            // 
+            this.tileBarItem134.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem134.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem134.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement54.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image32")));
+            tileItemElement54.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement54.Text = "tileBarItem4";
+            tileItemElement54.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem134.Elements.Add(tileItemElement54);
+            this.tileBarItem134.Id = 4;
+            this.tileBarItem134.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem134.Name = "tileBarItem134";
+            // 
+            // tileBarItem135
+            // 
+            this.tileBarItem135.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem135.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem135.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement55.Text = "tileBarItem4";
+            tileItemElement55.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem135.Elements.Add(tileItemElement55);
+            this.tileBarItem135.Id = 5;
+            this.tileBarItem135.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem135.Name = "tileBarItem135";
+            // 
+            // navigationPage19
+            // 
+            this.navigationPage19.Caption = "navigationPage19";
+            this.navigationPage19.Controls.Add(this.listBoxControl9);
+            this.navigationPage19.Name = "navigationPage19";
+            this.navigationPage19.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl9
+            // 
+            this.listBoxControl9.ItemHeight = 166;
+            this.listBoxControl9.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl9.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl9.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl9.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl9.Name = "listBoxControl9";
+            this.listBoxControl9.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl9.TabIndex = 11;
+            itemTemplateBase15.Columns.Add(tableColumnDefinition29);
+            itemTemplateBase15.Columns.Add(tableColumnDefinition30);
+            templatedItemElement57.ColumnIndex = 1;
+            templatedItemElement57.FieldName = "DisplayMember";
+            templatedItemElement57.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement57.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement57.RowIndex = 1;
+            templatedItemElement57.Text = "DisplayMember";
+            templatedItemElement57.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement58.FieldName = "DisplayMember";
+            templatedItemElement58.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement58.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement58.RowIndex = 1;
+            templatedItemElement58.Text = "DisplayMember";
+            templatedItemElement58.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement59.ColumnIndex = 1;
+            templatedItemElement59.FieldName = "DisplayMember";
+            templatedItemElement59.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement59.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement59.RowIndex = 2;
+            templatedItemElement59.Text = "DisplayMember";
+            templatedItemElement59.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement60.ColumnIndex = 1;
+            templatedItemElement60.FieldName = "DisplayMember";
+            templatedItemElement60.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement60.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement60.Text = "DisplayMember";
+            templatedItemElement60.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase15.Elements.Add(templatedItemElement57);
+            itemTemplateBase15.Elements.Add(templatedItemElement58);
+            itemTemplateBase15.Elements.Add(templatedItemElement59);
+            itemTemplateBase15.Elements.Add(templatedItemElement60);
+            itemTemplateBase15.Name = "template1";
+            tableRowDefinition36.Length.Value = 51D;
+            tableRowDefinition37.Length.Value = 52D;
+            tableRowDefinition38.Length.Value = 59D;
+            itemTemplateBase15.Rows.Add(tableRowDefinition36);
+            itemTemplateBase15.Rows.Add(tableRowDefinition37);
+            itemTemplateBase15.Rows.Add(tableRowDefinition38);
+            tableSpan8.RowSpan = 3;
+            itemTemplateBase15.Spans.Add(tableSpan8);
+            itemTemplateBase16.Columns.Add(tableColumnDefinition31);
+            itemTemplateBase16.Columns.Add(tableColumnDefinition32);
+            templatedItemElement61.FieldName = "DisplayMember";
+            templatedItemElement61.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement61.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement61.Text = "DisplayMember";
+            templatedItemElement61.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement62.FieldName = "DisplayMember";
+            templatedItemElement62.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement62.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement62.RowIndex = 1;
+            templatedItemElement62.Text = "DisplayMember";
+            templatedItemElement62.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement63.ColumnIndex = 1;
+            templatedItemElement63.FieldName = "DisplayMember";
+            templatedItemElement63.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement63.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement63.Text = "DisplayMember";
+            templatedItemElement63.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement64.ColumnIndex = 1;
+            templatedItemElement64.FieldName = "DisplayMember";
+            templatedItemElement64.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement64.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement64.RowIndex = 1;
+            templatedItemElement64.Text = "DisplayMember";
+            templatedItemElement64.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase16.Elements.Add(templatedItemElement61);
+            itemTemplateBase16.Elements.Add(templatedItemElement62);
+            itemTemplateBase16.Elements.Add(templatedItemElement63);
+            itemTemplateBase16.Elements.Add(templatedItemElement64);
+            itemTemplateBase16.Name = "template2";
+            tableRowDefinition39.Length.Value = 13D;
+            tableRowDefinition40.Length.Value = 13D;
+            itemTemplateBase16.Rows.Add(tableRowDefinition39);
+            itemTemplateBase16.Rows.Add(tableRowDefinition40);
+            this.listBoxControl9.Templates.Add(itemTemplateBase15);
+            this.listBoxControl9.Templates.Add(itemTemplateBase16);
+            // 
+            // windowsUIButtonPanel10
+            // 
+            this.windowsUIButtonPanel10.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel10.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel10.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel10.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel10.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel10.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel10.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel10.ButtonInterval = 40;
+            windowsUIButtonImageOptions32.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions32.SvgImage")));
+            windowsUIButtonImageOptions33.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions33.SvgImage")));
+            windowsUIButtonImageOptions34.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions34.SvgImage")));
+            windowsUIButtonImageOptions35.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions35.SvgImage")));
+            this.windowsUIButtonPanel10.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions32, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions33, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions34, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions35, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel10.Location = new System.Drawing.Point(0, 557);
+            this.windowsUIButtonPanel10.Name = "windowsUIButtonPanel10";
+            this.windowsUIButtonPanel10.Size = new System.Drawing.Size(1264, 128);
+            this.windowsUIButtonPanel10.TabIndex = 14;
+            this.windowsUIButtonPanel10.Text = "windowsUIButtonPanel10";
+            this.windowsUIButtonPanel10.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel10.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel10_ButtonChecked);
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.navigationFrame_Zoom);
+            this.tabPage11.Controls.Add(this.windowsUIButtonPanel11);
+            this.tabPage11.Location = new System.Drawing.Point(4, 23);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(1264, 685);
+            this.tabPage11.TabIndex = 10;
+            this.tabPage11.Text = "TransitionType=Zoom";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // navigationFrame_Zoom
+            // 
+            this.navigationFrame_Zoom.Controls.Add(this.navigationPage21);
+            this.navigationFrame_Zoom.Controls.Add(this.navigationPage22);
+            this.navigationFrame_Zoom.Location = new System.Drawing.Point(217, 10);
+            this.navigationFrame_Zoom.Name = "navigationFrame_Zoom";
+            this.navigationFrame_Zoom.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage21,
+            this.navigationPage22});
+            this.navigationFrame_Zoom.SelectedPage = this.navigationPage22;
+            this.navigationFrame_Zoom.Size = new System.Drawing.Size(674, 332);
+            this.navigationFrame_Zoom.TabIndex = 17;
+            this.navigationFrame_Zoom.Text = "navigationFrame11";
+            this.navigationFrame_Zoom.TransitionType = DevExpress.Utils.Animation.Transitions.Zoom;
+            // 
+            // navigationPage21
+            // 
+            this.navigationPage21.Caption = "navigationPage21";
+            this.navigationPage21.Controls.Add(this.tileBar32);
+            this.navigationPage21.Name = "navigationPage21";
+            this.navigationPage21.Size = new System.Drawing.Size(674, 332);
+            // 
+            // tileBar32
+            // 
+            this.tileBar32.AllowSelectedItem = true;
+            this.tileBar32.BackColor = System.Drawing.Color.White;
+            this.tileBar32.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar32.Groups.Add(this.tileBarGroup30);
+            this.tileBar32.Location = new System.Drawing.Point(22, 82);
+            this.tileBar32.MaxId = 6;
+            this.tileBar32.Name = "tileBar32";
+            this.tileBar32.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar32.Size = new System.Drawing.Size(631, 150);
+            this.tileBar32.TabIndex = 11;
+            this.tileBar32.Text = "tileBar32";
+            // 
+            // tileBarGroup30
+            // 
+            this.tileBarGroup30.Items.Add(this.tileBarItem146);
+            this.tileBarGroup30.Items.Add(this.tileBarItem147);
+            this.tileBarGroup30.Items.Add(this.tileBarItem148);
+            this.tileBarGroup30.Items.Add(this.tileBarItem149);
+            this.tileBarGroup30.Items.Add(this.tileBarItem150);
+            this.tileBarGroup30.Name = "tileBarGroup30";
+            this.tileBarGroup30.Text = "菜单";
+            // 
+            // tileBarItem146
+            // 
+            this.tileBarItem146.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.tileBarItem146.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem146.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem146.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem146.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem146.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem146.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement56.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image33")));
+            tileItemElement56.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement56.Text = "系统";
+            tileItemElement56.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem146.Elements.Add(tileItemElement56);
+            this.tileBarItem146.Id = 1;
+            this.tileBarItem146.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem146.Name = "tileBarItem146";
+            this.tileBarItem146.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem147
+            // 
+            this.tileBarItem147.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tileBarItem147.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tileBarItem147.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem147.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem147.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem147.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem147.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBarItem147.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement57.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image34")));
+            tileItemElement57.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement57.Text = "状态";
+            tileItemElement57.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem147.Elements.Add(tileItemElement57);
+            this.tileBarItem147.Id = 2;
+            this.tileBarItem147.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem147.Name = "tileBarItem147";
+            this.tileBarItem147.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem148
+            // 
+            this.tileBarItem148.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
+            this.tileBarItem148.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem148.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem148.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem148.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement58.Text = "监测";
+            tileItemElement58.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem148.Elements.Add(tileItemElement58);
+            this.tileBarItem148.Id = 3;
+            this.tileBarItem148.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem148.Name = "tileBarItem148";
+            this.tileBarItem148.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // tileBarItem149
+            // 
+            this.tileBarItem149.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
+            this.tileBarItem149.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem149.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement59.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image35")));
+            tileItemElement59.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement59.Text = "tileBarItem4";
+            tileItemElement59.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            this.tileBarItem149.Elements.Add(tileItemElement59);
+            this.tileBarItem149.Id = 4;
+            this.tileBarItem149.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem149.Name = "tileBarItem149";
+            // 
+            // tileBarItem150
+            // 
+            this.tileBarItem150.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
+            this.tileBarItem150.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem150.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement60.Text = "tileBarItem4";
+            tileItemElement60.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem150.Elements.Add(tileItemElement60);
+            this.tileBarItem150.Id = 5;
+            this.tileBarItem150.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem150.Name = "tileBarItem150";
+            // 
+            // navigationPage22
+            // 
+            this.navigationPage22.Caption = "navigationPage22";
+            this.navigationPage22.Controls.Add(this.listBoxControl10);
+            this.navigationPage22.Name = "navigationPage22";
+            this.navigationPage22.Size = new System.Drawing.Size(674, 332);
+            // 
+            // listBoxControl10
+            // 
+            this.listBoxControl10.ItemHeight = 166;
+            this.listBoxControl10.Items.AddRange(new object[] {
+            "张三",
+            "李四",
+            "王五",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.listBoxControl10.Location = new System.Drawing.Point(101, 50);
+            this.listBoxControl10.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.listBoxControl10.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.listBoxControl10.Name = "listBoxControl10";
+            this.listBoxControl10.Size = new System.Drawing.Size(353, 237);
+            this.listBoxControl10.TabIndex = 11;
+            itemTemplateBase17.Columns.Add(tableColumnDefinition33);
+            itemTemplateBase17.Columns.Add(tableColumnDefinition34);
+            templatedItemElement65.ColumnIndex = 1;
+            templatedItemElement65.FieldName = "DisplayMember";
+            templatedItemElement65.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement65.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement65.RowIndex = 1;
+            templatedItemElement65.Text = "DisplayMember";
+            templatedItemElement65.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement66.FieldName = "DisplayMember";
+            templatedItemElement66.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement66.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement66.RowIndex = 1;
+            templatedItemElement66.Text = "DisplayMember";
+            templatedItemElement66.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement67.ColumnIndex = 1;
+            templatedItemElement67.FieldName = "DisplayMember";
+            templatedItemElement67.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement67.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement67.RowIndex = 2;
+            templatedItemElement67.Text = "DisplayMember";
+            templatedItemElement67.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement68.ColumnIndex = 1;
+            templatedItemElement68.FieldName = "DisplayMember";
+            templatedItemElement68.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement68.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement68.Text = "DisplayMember";
+            templatedItemElement68.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase17.Elements.Add(templatedItemElement65);
+            itemTemplateBase17.Elements.Add(templatedItemElement66);
+            itemTemplateBase17.Elements.Add(templatedItemElement67);
+            itemTemplateBase17.Elements.Add(templatedItemElement68);
+            itemTemplateBase17.Name = "template1";
+            tableRowDefinition41.Length.Value = 51D;
+            tableRowDefinition42.Length.Value = 52D;
+            tableRowDefinition43.Length.Value = 59D;
+            itemTemplateBase17.Rows.Add(tableRowDefinition41);
+            itemTemplateBase17.Rows.Add(tableRowDefinition42);
+            itemTemplateBase17.Rows.Add(tableRowDefinition43);
+            tableSpan9.RowSpan = 3;
+            itemTemplateBase17.Spans.Add(tableSpan9);
+            itemTemplateBase18.Columns.Add(tableColumnDefinition35);
+            itemTemplateBase18.Columns.Add(tableColumnDefinition36);
+            templatedItemElement69.FieldName = "DisplayMember";
+            templatedItemElement69.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement69.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement69.Text = "DisplayMember";
+            templatedItemElement69.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement70.FieldName = "DisplayMember";
+            templatedItemElement70.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement70.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement70.RowIndex = 1;
+            templatedItemElement70.Text = "DisplayMember";
+            templatedItemElement70.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement71.ColumnIndex = 1;
+            templatedItemElement71.FieldName = "DisplayMember";
+            templatedItemElement71.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement71.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement71.Text = "DisplayMember";
+            templatedItemElement71.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement72.ColumnIndex = 1;
+            templatedItemElement72.FieldName = "DisplayMember";
+            templatedItemElement72.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            templatedItemElement72.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            templatedItemElement72.RowIndex = 1;
+            templatedItemElement72.Text = "DisplayMember";
+            templatedItemElement72.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            itemTemplateBase18.Elements.Add(templatedItemElement69);
+            itemTemplateBase18.Elements.Add(templatedItemElement70);
+            itemTemplateBase18.Elements.Add(templatedItemElement71);
+            itemTemplateBase18.Elements.Add(templatedItemElement72);
+            itemTemplateBase18.Name = "template2";
+            tableRowDefinition44.Length.Value = 13D;
+            tableRowDefinition45.Length.Value = 13D;
+            itemTemplateBase18.Rows.Add(tableRowDefinition44);
+            itemTemplateBase18.Rows.Add(tableRowDefinition45);
+            this.listBoxControl10.Templates.Add(itemTemplateBase17);
+            this.listBoxControl10.Templates.Add(itemTemplateBase18);
+            // 
+            // windowsUIButtonPanel11
+            // 
+            this.windowsUIButtonPanel11.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel11.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel11.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel11.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel11.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel11.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel11.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel11.ButtonInterval = 40;
+            windowsUIButtonImageOptions36.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions36.SvgImage")));
+            windowsUIButtonImageOptions37.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions37.SvgImage")));
+            windowsUIButtonImageOptions38.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions38.SvgImage")));
+            windowsUIButtonImageOptions39.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions39.SvgImage")));
+            this.windowsUIButtonPanel11.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions36, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions37, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions38, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions39, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
+            this.windowsUIButtonPanel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel11.Location = new System.Drawing.Point(3, 554);
+            this.windowsUIButtonPanel11.Name = "windowsUIButtonPanel11";
+            this.windowsUIButtonPanel11.Size = new System.Drawing.Size(1258, 128);
+            this.windowsUIButtonPanel11.TabIndex = 16;
+            this.windowsUIButtonPanel11.Text = "windowsUIButtonPanel11";
+            this.windowsUIButtonPanel11.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel11.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel11_ButtonChecked);
             // 
             // navigationPage13
             // 
@@ -2059,1824 +3896,6 @@
             this.navigationFrame4.Size = new System.Drawing.Size(0, 0);
             this.navigationFrame4.TabIndex = 0;
             // 
-            // navigationFrame_Fade
-            // 
-            this.navigationFrame_Fade.Controls.Add(this.navigationPage9);
-            this.navigationFrame_Fade.Controls.Add(this.navigationPage10);
-            this.navigationFrame_Fade.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_Fade.Name = "navigationFrame_Fade";
-            this.navigationFrame_Fade.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage9,
-            this.navigationPage10});
-            this.navigationFrame_Fade.SelectedPage = this.navigationPage10;
-            this.navigationFrame_Fade.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Fade.TabIndex = 15;
-            this.navigationFrame_Fade.Text = "navigationFrame5";
-            this.navigationFrame_Fade.TransitionType = DevExpress.Utils.Animation.Transitions.Fade;
-            // 
-            // navigationPage9
-            // 
-            this.navigationPage9.Controls.Add(this.tileBar14);
-            this.navigationPage9.Name = "navigationPage9";
-            this.navigationPage9.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar14
-            // 
-            this.tileBar14.AllowSelectedItem = true;
-            this.tileBar14.BackColor = System.Drawing.Color.White;
-            this.tileBar14.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar14.Groups.Add(this.tileBarGroup12);
-            this.tileBar14.Location = new System.Drawing.Point(22, 82);
-            this.tileBar14.MaxId = 6;
-            this.tileBar14.Name = "tileBar14";
-            this.tileBar14.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar14.Size = new System.Drawing.Size(631, 150);
-            this.tileBar14.TabIndex = 11;
-            this.tileBar14.Text = "tileBar14";
-            // 
-            // tileBarGroup12
-            // 
-            this.tileBarGroup12.Items.Add(this.tileBarItem56);
-            this.tileBarGroup12.Items.Add(this.tileBarItem57);
-            this.tileBarGroup12.Items.Add(this.tileBarItem58);
-            this.tileBarGroup12.Items.Add(this.tileBarItem59);
-            this.tileBarGroup12.Items.Add(this.tileBarItem60);
-            this.tileBarGroup12.Name = "tileBarGroup12";
-            this.tileBarGroup12.Text = "菜单";
-            // 
-            // tileBarItem56
-            // 
-            this.tileBarItem56.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem56.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem56.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem56.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem56.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem56.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem56.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement26.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
-            tileItemElement26.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement26.Text = "系统";
-            tileItemElement26.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem56.Elements.Add(tileItemElement26);
-            this.tileBarItem56.Id = 1;
-            this.tileBarItem56.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem56.Name = "tileBarItem56";
-            this.tileBarItem56.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem57
-            // 
-            this.tileBarItem57.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem57.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem57.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem57.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem57.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem57.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem57.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem57.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement27.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
-            tileItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement27.Text = "状态";
-            tileItemElement27.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem57.Elements.Add(tileItemElement27);
-            this.tileBarItem57.Id = 2;
-            this.tileBarItem57.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem57.Name = "tileBarItem57";
-            this.tileBarItem57.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem58
-            // 
-            this.tileBarItem58.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem58.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem58.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem58.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem58.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement28.Text = "监测";
-            tileItemElement28.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem58.Elements.Add(tileItemElement28);
-            this.tileBarItem58.Id = 3;
-            this.tileBarItem58.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem58.Name = "tileBarItem58";
-            this.tileBarItem58.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem59
-            // 
-            this.tileBarItem59.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem59.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem59.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement29.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
-            tileItemElement29.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement29.Text = "tileBarItem4";
-            tileItemElement29.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem59.Elements.Add(tileItemElement29);
-            this.tileBarItem59.Id = 4;
-            this.tileBarItem59.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem59.Name = "tileBarItem59";
-            // 
-            // tileBarItem60
-            // 
-            this.tileBarItem60.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem60.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem60.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement30.Text = "tileBarItem4";
-            tileItemElement30.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem60.Elements.Add(tileItemElement30);
-            this.tileBarItem60.Id = 5;
-            this.tileBarItem60.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem60.Name = "tileBarItem60";
-            // 
-            // navigationPage10
-            // 
-            this.navigationPage10.Controls.Add(this.listBoxControl3);
-            this.navigationPage10.Name = "navigationPage10";
-            this.navigationPage10.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl3
-            // 
-            this.listBoxControl3.ItemHeight = 166;
-            this.listBoxControl3.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl3.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl3.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl3.Name = "listBoxControl3";
-            this.listBoxControl3.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl3.TabIndex = 11;
-            itemTemplateBase5.Columns.Add(tableColumnDefinition9);
-            itemTemplateBase5.Columns.Add(tableColumnDefinition10);
-            templatedItemElement17.ColumnIndex = 1;
-            templatedItemElement17.FieldName = "DisplayMember";
-            templatedItemElement17.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement17.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement17.RowIndex = 1;
-            templatedItemElement17.Text = "DisplayMember";
-            templatedItemElement17.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement18.FieldName = "DisplayMember";
-            templatedItemElement18.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement18.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement18.RowIndex = 1;
-            templatedItemElement18.Text = "DisplayMember";
-            templatedItemElement18.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement19.ColumnIndex = 1;
-            templatedItemElement19.FieldName = "DisplayMember";
-            templatedItemElement19.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement19.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement19.RowIndex = 2;
-            templatedItemElement19.Text = "DisplayMember";
-            templatedItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement20.ColumnIndex = 1;
-            templatedItemElement20.FieldName = "DisplayMember";
-            templatedItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement20.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement20.Text = "DisplayMember";
-            templatedItemElement20.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase5.Elements.Add(templatedItemElement17);
-            itemTemplateBase5.Elements.Add(templatedItemElement18);
-            itemTemplateBase5.Elements.Add(templatedItemElement19);
-            itemTemplateBase5.Elements.Add(templatedItemElement20);
-            itemTemplateBase5.Name = "template1";
-            tableRowDefinition11.Length.Value = 51D;
-            tableRowDefinition12.Length.Value = 52D;
-            tableRowDefinition13.Length.Value = 59D;
-            itemTemplateBase5.Rows.Add(tableRowDefinition11);
-            itemTemplateBase5.Rows.Add(tableRowDefinition12);
-            itemTemplateBase5.Rows.Add(tableRowDefinition13);
-            tableSpan3.RowSpan = 3;
-            itemTemplateBase5.Spans.Add(tableSpan3);
-            itemTemplateBase6.Columns.Add(tableColumnDefinition11);
-            itemTemplateBase6.Columns.Add(tableColumnDefinition12);
-            templatedItemElement21.FieldName = "DisplayMember";
-            templatedItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement21.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement21.Text = "DisplayMember";
-            templatedItemElement21.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement22.FieldName = "DisplayMember";
-            templatedItemElement22.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement22.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement22.RowIndex = 1;
-            templatedItemElement22.Text = "DisplayMember";
-            templatedItemElement22.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement23.ColumnIndex = 1;
-            templatedItemElement23.FieldName = "DisplayMember";
-            templatedItemElement23.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement23.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement23.Text = "DisplayMember";
-            templatedItemElement23.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement24.ColumnIndex = 1;
-            templatedItemElement24.FieldName = "DisplayMember";
-            templatedItemElement24.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement24.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement24.RowIndex = 1;
-            templatedItemElement24.Text = "DisplayMember";
-            templatedItemElement24.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase6.Elements.Add(templatedItemElement21);
-            itemTemplateBase6.Elements.Add(templatedItemElement22);
-            itemTemplateBase6.Elements.Add(templatedItemElement23);
-            itemTemplateBase6.Elements.Add(templatedItemElement24);
-            itemTemplateBase6.Name = "template2";
-            tableRowDefinition14.Length.Value = 13D;
-            tableRowDefinition15.Length.Value = 13D;
-            itemTemplateBase6.Rows.Add(tableRowDefinition14);
-            itemTemplateBase6.Rows.Add(tableRowDefinition15);
-            this.listBoxControl3.Templates.Add(itemTemplateBase5);
-            this.listBoxControl3.Templates.Add(itemTemplateBase6);
-            // 
-            // windowsUIButtonPanel5
-            // 
-            this.windowsUIButtonPanel5.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel5.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel5.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel5.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel5.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel5.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel5.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel5.ButtonInterval = 40;
-            windowsUIButtonImageOptions12.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions12.SvgImage")));
-            windowsUIButtonImageOptions13.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions13.SvgImage")));
-            windowsUIButtonImageOptions14.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions14.SvgImage")));
-            windowsUIButtonImageOptions15.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions15.SvgImage")));
-            this.windowsUIButtonPanel5.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel5.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel5.Name = "windowsUIButtonPanel5";
-            this.windowsUIButtonPanel5.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel5.TabIndex = 14;
-            this.windowsUIButtonPanel5.Text = "windowsUIButtonPanel5";
-            this.windowsUIButtonPanel5.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel5.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel5_ButtonChecked);
-            // 
-            // navigationFrame_Clock
-            // 
-            this.navigationFrame_Clock.Controls.Add(this.navigationPage11);
-            this.navigationFrame_Clock.Controls.Add(this.navigationPage12);
-            this.navigationFrame_Clock.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_Clock.Name = "navigationFrame_Clock";
-            this.navigationFrame_Clock.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage11,
-            this.navigationPage12});
-            this.navigationFrame_Clock.SelectedPage = this.navigationPage12;
-            this.navigationFrame_Clock.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Clock.TabIndex = 15;
-            this.navigationFrame_Clock.Text = "navigationFrame6";
-            this.navigationFrame_Clock.TransitionType = DevExpress.Utils.Animation.Transitions.Clock;
-            // 
-            // navigationPage11
-            // 
-            this.navigationPage11.Controls.Add(this.tileBar17);
-            this.navigationPage11.Name = "navigationPage11";
-            this.navigationPage11.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar17
-            // 
-            this.tileBar17.AllowSelectedItem = true;
-            this.tileBar17.BackColor = System.Drawing.Color.White;
-            this.tileBar17.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar17.Groups.Add(this.tileBarGroup15);
-            this.tileBar17.Location = new System.Drawing.Point(22, 82);
-            this.tileBar17.MaxId = 6;
-            this.tileBar17.Name = "tileBar17";
-            this.tileBar17.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar17.Size = new System.Drawing.Size(631, 150);
-            this.tileBar17.TabIndex = 11;
-            this.tileBar17.Text = "tileBar17";
-            // 
-            // tileBarGroup15
-            // 
-            this.tileBarGroup15.Items.Add(this.tileBarItem71);
-            this.tileBarGroup15.Items.Add(this.tileBarItem72);
-            this.tileBarGroup15.Items.Add(this.tileBarItem73);
-            this.tileBarGroup15.Items.Add(this.tileBarItem74);
-            this.tileBarGroup15.Items.Add(this.tileBarItem75);
-            this.tileBarGroup15.Name = "tileBarGroup15";
-            this.tileBarGroup15.Text = "菜单";
-            // 
-            // tileBarItem71
-            // 
-            this.tileBarItem71.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem71.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem71.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem71.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem71.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem71.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem71.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement31.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
-            tileItemElement31.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement31.Text = "系统";
-            tileItemElement31.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem71.Elements.Add(tileItemElement31);
-            this.tileBarItem71.Id = 1;
-            this.tileBarItem71.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem71.Name = "tileBarItem71";
-            this.tileBarItem71.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem72
-            // 
-            this.tileBarItem72.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem72.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem72.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem72.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem72.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem72.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem72.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem72.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement32.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image19")));
-            tileItemElement32.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement32.Text = "状态";
-            tileItemElement32.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem72.Elements.Add(tileItemElement32);
-            this.tileBarItem72.Id = 2;
-            this.tileBarItem72.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem72.Name = "tileBarItem72";
-            this.tileBarItem72.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem73
-            // 
-            this.tileBarItem73.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem73.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem73.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem73.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem73.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement33.Text = "监测";
-            tileItemElement33.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem73.Elements.Add(tileItemElement33);
-            this.tileBarItem73.Id = 3;
-            this.tileBarItem73.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem73.Name = "tileBarItem73";
-            this.tileBarItem73.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem74
-            // 
-            this.tileBarItem74.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem74.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem74.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement34.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image20")));
-            tileItemElement34.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement34.Text = "tileBarItem4";
-            tileItemElement34.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem74.Elements.Add(tileItemElement34);
-            this.tileBarItem74.Id = 4;
-            this.tileBarItem74.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem74.Name = "tileBarItem74";
-            // 
-            // tileBarItem75
-            // 
-            this.tileBarItem75.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem75.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem75.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement35.Text = "tileBarItem4";
-            tileItemElement35.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem75.Elements.Add(tileItemElement35);
-            this.tileBarItem75.Id = 5;
-            this.tileBarItem75.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem75.Name = "tileBarItem75";
-            // 
-            // navigationPage12
-            // 
-            this.navigationPage12.Controls.Add(this.listBoxControl4);
-            this.navigationPage12.Name = "navigationPage12";
-            this.navigationPage12.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl4
-            // 
-            this.listBoxControl4.ItemHeight = 166;
-            this.listBoxControl4.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl4.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl4.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl4.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl4.Name = "listBoxControl4";
-            this.listBoxControl4.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl4.TabIndex = 11;
-            itemTemplateBase7.Columns.Add(tableColumnDefinition13);
-            itemTemplateBase7.Columns.Add(tableColumnDefinition14);
-            templatedItemElement25.ColumnIndex = 1;
-            templatedItemElement25.FieldName = "DisplayMember";
-            templatedItemElement25.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement25.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement25.RowIndex = 1;
-            templatedItemElement25.Text = "DisplayMember";
-            templatedItemElement25.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement26.FieldName = "DisplayMember";
-            templatedItemElement26.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement26.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement26.RowIndex = 1;
-            templatedItemElement26.Text = "DisplayMember";
-            templatedItemElement26.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement27.ColumnIndex = 1;
-            templatedItemElement27.FieldName = "DisplayMember";
-            templatedItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement27.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement27.RowIndex = 2;
-            templatedItemElement27.Text = "DisplayMember";
-            templatedItemElement27.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement28.ColumnIndex = 1;
-            templatedItemElement28.FieldName = "DisplayMember";
-            templatedItemElement28.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement28.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement28.Text = "DisplayMember";
-            templatedItemElement28.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase7.Elements.Add(templatedItemElement25);
-            itemTemplateBase7.Elements.Add(templatedItemElement26);
-            itemTemplateBase7.Elements.Add(templatedItemElement27);
-            itemTemplateBase7.Elements.Add(templatedItemElement28);
-            itemTemplateBase7.Name = "template1";
-            tableRowDefinition16.Length.Value = 51D;
-            tableRowDefinition17.Length.Value = 52D;
-            tableRowDefinition18.Length.Value = 59D;
-            itemTemplateBase7.Rows.Add(tableRowDefinition16);
-            itemTemplateBase7.Rows.Add(tableRowDefinition17);
-            itemTemplateBase7.Rows.Add(tableRowDefinition18);
-            tableSpan4.RowSpan = 3;
-            itemTemplateBase7.Spans.Add(tableSpan4);
-            itemTemplateBase8.Columns.Add(tableColumnDefinition15);
-            itemTemplateBase8.Columns.Add(tableColumnDefinition16);
-            templatedItemElement29.FieldName = "DisplayMember";
-            templatedItemElement29.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement29.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement29.Text = "DisplayMember";
-            templatedItemElement29.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement30.FieldName = "DisplayMember";
-            templatedItemElement30.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement30.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement30.RowIndex = 1;
-            templatedItemElement30.Text = "DisplayMember";
-            templatedItemElement30.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement31.ColumnIndex = 1;
-            templatedItemElement31.FieldName = "DisplayMember";
-            templatedItemElement31.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement31.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement31.Text = "DisplayMember";
-            templatedItemElement31.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement32.ColumnIndex = 1;
-            templatedItemElement32.FieldName = "DisplayMember";
-            templatedItemElement32.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement32.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement32.RowIndex = 1;
-            templatedItemElement32.Text = "DisplayMember";
-            templatedItemElement32.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase8.Elements.Add(templatedItemElement29);
-            itemTemplateBase8.Elements.Add(templatedItemElement30);
-            itemTemplateBase8.Elements.Add(templatedItemElement31);
-            itemTemplateBase8.Elements.Add(templatedItemElement32);
-            itemTemplateBase8.Name = "template2";
-            tableRowDefinition19.Length.Value = 13D;
-            tableRowDefinition20.Length.Value = 13D;
-            itemTemplateBase8.Rows.Add(tableRowDefinition19);
-            itemTemplateBase8.Rows.Add(tableRowDefinition20);
-            this.listBoxControl4.Templates.Add(itemTemplateBase7);
-            this.listBoxControl4.Templates.Add(itemTemplateBase8);
-            // 
-            // windowsUIButtonPanel6
-            // 
-            this.windowsUIButtonPanel6.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel6.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel6.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel6.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel6.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel6.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel6.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel6.ButtonInterval = 40;
-            windowsUIButtonImageOptions16.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions16.SvgImage")));
-            windowsUIButtonImageOptions17.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions17.SvgImage")));
-            windowsUIButtonImageOptions18.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions18.SvgImage")));
-            windowsUIButtonImageOptions19.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions19.SvgImage")));
-            this.windowsUIButtonPanel6.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions16, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions17, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions18, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions19, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel6.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel6.Name = "windowsUIButtonPanel6";
-            this.windowsUIButtonPanel6.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel6.TabIndex = 14;
-            this.windowsUIButtonPanel6.Text = "windowsUIButtonPanel6";
-            this.windowsUIButtonPanel6.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel6.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel6_ButtonChecked);
-            // 
-            // navigationFrame_Dissolve
-            // 
-            this.navigationFrame_Dissolve.Controls.Add(this.navigationPage25);
-            this.navigationFrame_Dissolve.Controls.Add(this.navigationPage26);
-            this.navigationFrame_Dissolve.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_Dissolve.Name = "navigationFrame_Dissolve";
-            this.navigationFrame_Dissolve.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage25,
-            this.navigationPage26});
-            this.navigationFrame_Dissolve.SelectedPage = this.navigationPage26;
-            this.navigationFrame_Dissolve.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Dissolve.TabIndex = 15;
-            this.navigationFrame_Dissolve.Text = "navigationFrame7";
-            this.navigationFrame_Dissolve.TransitionType = DevExpress.Utils.Animation.Transitions.Dissolve;
-            // 
-            // navigationPage25
-            // 
-            this.navigationPage25.Controls.Add(this.tileBar20);
-            this.navigationPage25.Name = "navigationPage25";
-            this.navigationPage25.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar20
-            // 
-            this.tileBar20.AllowSelectedItem = true;
-            this.tileBar20.BackColor = System.Drawing.Color.White;
-            this.tileBar20.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar20.Groups.Add(this.tileBarGroup18);
-            this.tileBar20.Location = new System.Drawing.Point(22, 82);
-            this.tileBar20.MaxId = 6;
-            this.tileBar20.Name = "tileBar20";
-            this.tileBar20.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar20.Size = new System.Drawing.Size(631, 150);
-            this.tileBar20.TabIndex = 11;
-            this.tileBar20.Text = "tileBar20";
-            // 
-            // tileBarGroup18
-            // 
-            this.tileBarGroup18.Items.Add(this.tileBarItem86);
-            this.tileBarGroup18.Items.Add(this.tileBarItem87);
-            this.tileBarGroup18.Items.Add(this.tileBarItem88);
-            this.tileBarGroup18.Items.Add(this.tileBarItem89);
-            this.tileBarGroup18.Items.Add(this.tileBarItem90);
-            this.tileBarGroup18.Name = "tileBarGroup18";
-            this.tileBarGroup18.Text = "菜单";
-            // 
-            // tileBarItem86
-            // 
-            this.tileBarItem86.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem86.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem86.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem86.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem86.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem86.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem86.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement36.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image21")));
-            tileItemElement36.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement36.Text = "系统";
-            tileItemElement36.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem86.Elements.Add(tileItemElement36);
-            this.tileBarItem86.Id = 1;
-            this.tileBarItem86.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem86.Name = "tileBarItem86";
-            this.tileBarItem86.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem87
-            // 
-            this.tileBarItem87.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem87.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem87.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem87.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem87.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem87.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem87.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem87.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement37.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image22")));
-            tileItemElement37.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement37.Text = "状态";
-            tileItemElement37.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem87.Elements.Add(tileItemElement37);
-            this.tileBarItem87.Id = 2;
-            this.tileBarItem87.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem87.Name = "tileBarItem87";
-            this.tileBarItem87.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem88
-            // 
-            this.tileBarItem88.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem88.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem88.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem88.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem88.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement38.Text = "监测";
-            tileItemElement38.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem88.Elements.Add(tileItemElement38);
-            this.tileBarItem88.Id = 3;
-            this.tileBarItem88.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem88.Name = "tileBarItem88";
-            this.tileBarItem88.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem89
-            // 
-            this.tileBarItem89.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem89.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem89.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement39.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image23")));
-            tileItemElement39.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement39.Text = "tileBarItem4";
-            tileItemElement39.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem89.Elements.Add(tileItemElement39);
-            this.tileBarItem89.Id = 4;
-            this.tileBarItem89.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem89.Name = "tileBarItem89";
-            // 
-            // tileBarItem90
-            // 
-            this.tileBarItem90.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem90.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem90.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement40.Text = "tileBarItem4";
-            tileItemElement40.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem90.Elements.Add(tileItemElement40);
-            this.tileBarItem90.Id = 5;
-            this.tileBarItem90.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem90.Name = "tileBarItem90";
-            // 
-            // navigationPage26
-            // 
-            this.navigationPage26.Controls.Add(this.listBoxControl5);
-            this.navigationPage26.Name = "navigationPage26";
-            this.navigationPage26.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl5
-            // 
-            this.listBoxControl5.ItemHeight = 166;
-            this.listBoxControl5.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl5.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl5.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl5.Name = "listBoxControl5";
-            this.listBoxControl5.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl5.TabIndex = 11;
-            itemTemplateBase9.Columns.Add(tableColumnDefinition17);
-            itemTemplateBase9.Columns.Add(tableColumnDefinition18);
-            templatedItemElement33.ColumnIndex = 1;
-            templatedItemElement33.FieldName = "DisplayMember";
-            templatedItemElement33.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement33.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement33.RowIndex = 1;
-            templatedItemElement33.Text = "DisplayMember";
-            templatedItemElement33.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement34.FieldName = "DisplayMember";
-            templatedItemElement34.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement34.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement34.RowIndex = 1;
-            templatedItemElement34.Text = "DisplayMember";
-            templatedItemElement34.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement35.ColumnIndex = 1;
-            templatedItemElement35.FieldName = "DisplayMember";
-            templatedItemElement35.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement35.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement35.RowIndex = 2;
-            templatedItemElement35.Text = "DisplayMember";
-            templatedItemElement35.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement36.ColumnIndex = 1;
-            templatedItemElement36.FieldName = "DisplayMember";
-            templatedItemElement36.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement36.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement36.Text = "DisplayMember";
-            templatedItemElement36.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase9.Elements.Add(templatedItemElement33);
-            itemTemplateBase9.Elements.Add(templatedItemElement34);
-            itemTemplateBase9.Elements.Add(templatedItemElement35);
-            itemTemplateBase9.Elements.Add(templatedItemElement36);
-            itemTemplateBase9.Name = "template1";
-            tableRowDefinition21.Length.Value = 51D;
-            tableRowDefinition22.Length.Value = 52D;
-            tableRowDefinition23.Length.Value = 59D;
-            itemTemplateBase9.Rows.Add(tableRowDefinition21);
-            itemTemplateBase9.Rows.Add(tableRowDefinition22);
-            itemTemplateBase9.Rows.Add(tableRowDefinition23);
-            tableSpan5.RowSpan = 3;
-            itemTemplateBase9.Spans.Add(tableSpan5);
-            itemTemplateBase10.Columns.Add(tableColumnDefinition19);
-            itemTemplateBase10.Columns.Add(tableColumnDefinition20);
-            templatedItemElement37.FieldName = "DisplayMember";
-            templatedItemElement37.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement37.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement37.Text = "DisplayMember";
-            templatedItemElement37.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement38.FieldName = "DisplayMember";
-            templatedItemElement38.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement38.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement38.RowIndex = 1;
-            templatedItemElement38.Text = "DisplayMember";
-            templatedItemElement38.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement39.ColumnIndex = 1;
-            templatedItemElement39.FieldName = "DisplayMember";
-            templatedItemElement39.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement39.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement39.Text = "DisplayMember";
-            templatedItemElement39.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement40.ColumnIndex = 1;
-            templatedItemElement40.FieldName = "DisplayMember";
-            templatedItemElement40.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement40.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement40.RowIndex = 1;
-            templatedItemElement40.Text = "DisplayMember";
-            templatedItemElement40.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase10.Elements.Add(templatedItemElement37);
-            itemTemplateBase10.Elements.Add(templatedItemElement38);
-            itemTemplateBase10.Elements.Add(templatedItemElement39);
-            itemTemplateBase10.Elements.Add(templatedItemElement40);
-            itemTemplateBase10.Name = "template2";
-            tableRowDefinition24.Length.Value = 13D;
-            tableRowDefinition25.Length.Value = 13D;
-            itemTemplateBase10.Rows.Add(tableRowDefinition24);
-            itemTemplateBase10.Rows.Add(tableRowDefinition25);
-            this.listBoxControl5.Templates.Add(itemTemplateBase9);
-            this.listBoxControl5.Templates.Add(itemTemplateBase10);
-            // 
-            // windowsUIButtonPanel7
-            // 
-            this.windowsUIButtonPanel7.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel7.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel7.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel7.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel7.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel7.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel7.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel7.ButtonInterval = 40;
-            windowsUIButtonImageOptions20.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions20.SvgImage")));
-            windowsUIButtonImageOptions21.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions21.SvgImage")));
-            windowsUIButtonImageOptions22.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions22.SvgImage")));
-            windowsUIButtonImageOptions23.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions23.SvgImage")));
-            this.windowsUIButtonPanel7.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions20, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions21, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions22, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions23, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel7.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel7.Name = "windowsUIButtonPanel7";
-            this.windowsUIButtonPanel7.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel7.TabIndex = 14;
-            this.windowsUIButtonPanel7.Text = "windowsUIButtonPanel7";
-            this.windowsUIButtonPanel7.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel7.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel7_ButtonChecked);
-            // 
-            // navigationFrame_Cover
-            // 
-            this.navigationFrame_Cover.Controls.Add(this.navigationPage29);
-            this.navigationFrame_Cover.Controls.Add(this.navigationPage30);
-            this.navigationFrame_Cover.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_Cover.Name = "navigationFrame_Cover";
-            this.navigationFrame_Cover.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage29,
-            this.navigationPage30});
-            this.navigationFrame_Cover.SelectedPage = this.navigationPage30;
-            this.navigationFrame_Cover.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Cover.TabIndex = 15;
-            this.navigationFrame_Cover.Text = "navigationFrame8";
-            this.navigationFrame_Cover.TransitionType = DevExpress.Utils.Animation.Transitions.Cover;
-            // 
-            // navigationPage29
-            // 
-            this.navigationPage29.Controls.Add(this.tileBar23);
-            this.navigationPage29.Name = "navigationPage29";
-            this.navigationPage29.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar23
-            // 
-            this.tileBar23.AllowSelectedItem = true;
-            this.tileBar23.BackColor = System.Drawing.Color.White;
-            this.tileBar23.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar23.Groups.Add(this.tileBarGroup21);
-            this.tileBar23.Location = new System.Drawing.Point(22, 82);
-            this.tileBar23.MaxId = 6;
-            this.tileBar23.Name = "tileBar23";
-            this.tileBar23.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar23.Size = new System.Drawing.Size(631, 150);
-            this.tileBar23.TabIndex = 11;
-            this.tileBar23.Text = "tileBar23";
-            // 
-            // tileBarGroup21
-            // 
-            this.tileBarGroup21.Items.Add(this.tileBarItem101);
-            this.tileBarGroup21.Items.Add(this.tileBarItem102);
-            this.tileBarGroup21.Items.Add(this.tileBarItem103);
-            this.tileBarGroup21.Items.Add(this.tileBarItem104);
-            this.tileBarGroup21.Items.Add(this.tileBarItem105);
-            this.tileBarGroup21.Name = "tileBarGroup21";
-            this.tileBarGroup21.Text = "菜单";
-            // 
-            // tileBarItem101
-            // 
-            this.tileBarItem101.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem101.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem101.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem101.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem101.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem101.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem101.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement41.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image24")));
-            tileItemElement41.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement41.Text = "系统";
-            tileItemElement41.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem101.Elements.Add(tileItemElement41);
-            this.tileBarItem101.Id = 1;
-            this.tileBarItem101.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem101.Name = "tileBarItem101";
-            this.tileBarItem101.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem102
-            // 
-            this.tileBarItem102.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem102.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem102.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem102.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem102.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem102.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem102.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem102.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement42.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image25")));
-            tileItemElement42.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement42.Text = "状态";
-            tileItemElement42.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem102.Elements.Add(tileItemElement42);
-            this.tileBarItem102.Id = 2;
-            this.tileBarItem102.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem102.Name = "tileBarItem102";
-            this.tileBarItem102.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem103
-            // 
-            this.tileBarItem103.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem103.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem103.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem103.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem103.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement43.Text = "监测";
-            tileItemElement43.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem103.Elements.Add(tileItemElement43);
-            this.tileBarItem103.Id = 3;
-            this.tileBarItem103.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem103.Name = "tileBarItem103";
-            this.tileBarItem103.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem104
-            // 
-            this.tileBarItem104.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem104.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem104.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement44.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image26")));
-            tileItemElement44.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement44.Text = "tileBarItem4";
-            tileItemElement44.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem104.Elements.Add(tileItemElement44);
-            this.tileBarItem104.Id = 4;
-            this.tileBarItem104.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem104.Name = "tileBarItem104";
-            // 
-            // tileBarItem105
-            // 
-            this.tileBarItem105.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem105.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem105.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement45.Text = "tileBarItem4";
-            tileItemElement45.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem105.Elements.Add(tileItemElement45);
-            this.tileBarItem105.Id = 5;
-            this.tileBarItem105.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem105.Name = "tileBarItem105";
-            // 
-            // navigationPage30
-            // 
-            this.navigationPage30.Controls.Add(this.listBoxControl7);
-            this.navigationPage30.Name = "navigationPage30";
-            this.navigationPage30.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl7
-            // 
-            this.listBoxControl7.ItemHeight = 166;
-            this.listBoxControl7.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl7.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl7.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl7.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl7.Name = "listBoxControl7";
-            this.listBoxControl7.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl7.TabIndex = 11;
-            itemTemplateBase11.Columns.Add(tableColumnDefinition21);
-            itemTemplateBase11.Columns.Add(tableColumnDefinition22);
-            templatedItemElement41.ColumnIndex = 1;
-            templatedItemElement41.FieldName = "DisplayMember";
-            templatedItemElement41.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement41.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement41.RowIndex = 1;
-            templatedItemElement41.Text = "DisplayMember";
-            templatedItemElement41.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement42.FieldName = "DisplayMember";
-            templatedItemElement42.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement42.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement42.RowIndex = 1;
-            templatedItemElement42.Text = "DisplayMember";
-            templatedItemElement42.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement43.ColumnIndex = 1;
-            templatedItemElement43.FieldName = "DisplayMember";
-            templatedItemElement43.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement43.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement43.RowIndex = 2;
-            templatedItemElement43.Text = "DisplayMember";
-            templatedItemElement43.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement44.ColumnIndex = 1;
-            templatedItemElement44.FieldName = "DisplayMember";
-            templatedItemElement44.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement44.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement44.Text = "DisplayMember";
-            templatedItemElement44.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase11.Elements.Add(templatedItemElement41);
-            itemTemplateBase11.Elements.Add(templatedItemElement42);
-            itemTemplateBase11.Elements.Add(templatedItemElement43);
-            itemTemplateBase11.Elements.Add(templatedItemElement44);
-            itemTemplateBase11.Name = "template1";
-            tableRowDefinition26.Length.Value = 51D;
-            tableRowDefinition27.Length.Value = 52D;
-            tableRowDefinition28.Length.Value = 59D;
-            itemTemplateBase11.Rows.Add(tableRowDefinition26);
-            itemTemplateBase11.Rows.Add(tableRowDefinition27);
-            itemTemplateBase11.Rows.Add(tableRowDefinition28);
-            tableSpan6.RowSpan = 3;
-            itemTemplateBase11.Spans.Add(tableSpan6);
-            itemTemplateBase12.Columns.Add(tableColumnDefinition23);
-            itemTemplateBase12.Columns.Add(tableColumnDefinition24);
-            templatedItemElement45.FieldName = "DisplayMember";
-            templatedItemElement45.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement45.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement45.Text = "DisplayMember";
-            templatedItemElement45.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement46.FieldName = "DisplayMember";
-            templatedItemElement46.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement46.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement46.RowIndex = 1;
-            templatedItemElement46.Text = "DisplayMember";
-            templatedItemElement46.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement47.ColumnIndex = 1;
-            templatedItemElement47.FieldName = "DisplayMember";
-            templatedItemElement47.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement47.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement47.Text = "DisplayMember";
-            templatedItemElement47.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement48.ColumnIndex = 1;
-            templatedItemElement48.FieldName = "DisplayMember";
-            templatedItemElement48.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement48.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement48.RowIndex = 1;
-            templatedItemElement48.Text = "DisplayMember";
-            templatedItemElement48.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase12.Elements.Add(templatedItemElement45);
-            itemTemplateBase12.Elements.Add(templatedItemElement46);
-            itemTemplateBase12.Elements.Add(templatedItemElement47);
-            itemTemplateBase12.Elements.Add(templatedItemElement48);
-            itemTemplateBase12.Name = "template2";
-            tableRowDefinition29.Length.Value = 13D;
-            tableRowDefinition30.Length.Value = 13D;
-            itemTemplateBase12.Rows.Add(tableRowDefinition29);
-            itemTemplateBase12.Rows.Add(tableRowDefinition30);
-            this.listBoxControl7.Templates.Add(itemTemplateBase11);
-            this.listBoxControl7.Templates.Add(itemTemplateBase12);
-            // 
-            // windowsUIButtonPanel8
-            // 
-            this.windowsUIButtonPanel8.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel8.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel8.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel8.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel8.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel8.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel8.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel8.ButtonInterval = 40;
-            windowsUIButtonImageOptions24.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions24.SvgImage")));
-            windowsUIButtonImageOptions25.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions25.SvgImage")));
-            windowsUIButtonImageOptions26.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions26.SvgImage")));
-            windowsUIButtonImageOptions27.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions27.SvgImage")));
-            this.windowsUIButtonPanel8.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions24, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions25, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions26, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions27, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel8.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel8.Name = "windowsUIButtonPanel8";
-            this.windowsUIButtonPanel8.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel8.TabIndex = 14;
-            this.windowsUIButtonPanel8.Text = "windowsUIButtonPanel8";
-            this.windowsUIButtonPanel8.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel8.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel8_ButtonChecked);
-            // 
-            // navigationFrame_Comb
-            // 
-            this.navigationFrame_Comb.Controls.Add(this.navigationPage17);
-            this.navigationFrame_Comb.Controls.Add(this.navigationPage18);
-            this.navigationFrame_Comb.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_Comb.Name = "navigationFrame_Comb";
-            this.navigationFrame_Comb.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage17,
-            this.navigationPage18});
-            this.navigationFrame_Comb.SelectedPage = this.navigationPage18;
-            this.navigationFrame_Comb.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Comb.TabIndex = 15;
-            this.navigationFrame_Comb.Text = "navigationFrame9";
-            this.navigationFrame_Comb.TransitionType = DevExpress.Utils.Animation.Transitions.Comb;
-            // 
-            // navigationPage17
-            // 
-            this.navigationPage17.Controls.Add(this.tileBar26);
-            this.navigationPage17.Name = "navigationPage17";
-            this.navigationPage17.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar26
-            // 
-            this.tileBar26.AllowSelectedItem = true;
-            this.tileBar26.BackColor = System.Drawing.Color.White;
-            this.tileBar26.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar26.Groups.Add(this.tileBarGroup24);
-            this.tileBar26.Location = new System.Drawing.Point(22, 82);
-            this.tileBar26.MaxId = 6;
-            this.tileBar26.Name = "tileBar26";
-            this.tileBar26.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar26.Size = new System.Drawing.Size(631, 150);
-            this.tileBar26.TabIndex = 11;
-            this.tileBar26.Text = "tileBar26";
-            // 
-            // tileBarGroup24
-            // 
-            this.tileBarGroup24.Items.Add(this.tileBarItem116);
-            this.tileBarGroup24.Items.Add(this.tileBarItem117);
-            this.tileBarGroup24.Items.Add(this.tileBarItem118);
-            this.tileBarGroup24.Items.Add(this.tileBarItem119);
-            this.tileBarGroup24.Items.Add(this.tileBarItem120);
-            this.tileBarGroup24.Name = "tileBarGroup24";
-            this.tileBarGroup24.Text = "菜单";
-            // 
-            // tileBarItem116
-            // 
-            this.tileBarItem116.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem116.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem116.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem116.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem116.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem116.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem116.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement46.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image27")));
-            tileItemElement46.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement46.Text = "系统";
-            tileItemElement46.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem116.Elements.Add(tileItemElement46);
-            this.tileBarItem116.Id = 1;
-            this.tileBarItem116.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem116.Name = "tileBarItem116";
-            this.tileBarItem116.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem117
-            // 
-            this.tileBarItem117.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem117.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem117.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem117.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem117.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem117.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem117.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem117.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement47.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image28")));
-            tileItemElement47.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement47.Text = "状态";
-            tileItemElement47.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem117.Elements.Add(tileItemElement47);
-            this.tileBarItem117.Id = 2;
-            this.tileBarItem117.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem117.Name = "tileBarItem117";
-            this.tileBarItem117.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem118
-            // 
-            this.tileBarItem118.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem118.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem118.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem118.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem118.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement48.Text = "监测";
-            tileItemElement48.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem118.Elements.Add(tileItemElement48);
-            this.tileBarItem118.Id = 3;
-            this.tileBarItem118.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem118.Name = "tileBarItem118";
-            this.tileBarItem118.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem119
-            // 
-            this.tileBarItem119.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem119.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem119.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement49.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image29")));
-            tileItemElement49.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement49.Text = "tileBarItem4";
-            tileItemElement49.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem119.Elements.Add(tileItemElement49);
-            this.tileBarItem119.Id = 4;
-            this.tileBarItem119.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem119.Name = "tileBarItem119";
-            // 
-            // tileBarItem120
-            // 
-            this.tileBarItem120.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem120.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem120.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement50.Text = "tileBarItem4";
-            tileItemElement50.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem120.Elements.Add(tileItemElement50);
-            this.tileBarItem120.Id = 5;
-            this.tileBarItem120.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem120.Name = "tileBarItem120";
-            // 
-            // navigationPage18
-            // 
-            this.navigationPage18.Controls.Add(this.listBoxControl8);
-            this.navigationPage18.Name = "navigationPage18";
-            this.navigationPage18.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl8
-            // 
-            this.listBoxControl8.ItemHeight = 166;
-            this.listBoxControl8.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl8.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl8.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl8.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl8.Name = "listBoxControl8";
-            this.listBoxControl8.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl8.TabIndex = 11;
-            itemTemplateBase13.Columns.Add(tableColumnDefinition25);
-            itemTemplateBase13.Columns.Add(tableColumnDefinition26);
-            templatedItemElement49.ColumnIndex = 1;
-            templatedItemElement49.FieldName = "DisplayMember";
-            templatedItemElement49.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement49.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement49.RowIndex = 1;
-            templatedItemElement49.Text = "DisplayMember";
-            templatedItemElement49.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement50.FieldName = "DisplayMember";
-            templatedItemElement50.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement50.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement50.RowIndex = 1;
-            templatedItemElement50.Text = "DisplayMember";
-            templatedItemElement50.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement51.ColumnIndex = 1;
-            templatedItemElement51.FieldName = "DisplayMember";
-            templatedItemElement51.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement51.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement51.RowIndex = 2;
-            templatedItemElement51.Text = "DisplayMember";
-            templatedItemElement51.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement52.ColumnIndex = 1;
-            templatedItemElement52.FieldName = "DisplayMember";
-            templatedItemElement52.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement52.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement52.Text = "DisplayMember";
-            templatedItemElement52.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase13.Elements.Add(templatedItemElement49);
-            itemTemplateBase13.Elements.Add(templatedItemElement50);
-            itemTemplateBase13.Elements.Add(templatedItemElement51);
-            itemTemplateBase13.Elements.Add(templatedItemElement52);
-            itemTemplateBase13.Name = "template1";
-            tableRowDefinition31.Length.Value = 51D;
-            tableRowDefinition32.Length.Value = 52D;
-            tableRowDefinition33.Length.Value = 59D;
-            itemTemplateBase13.Rows.Add(tableRowDefinition31);
-            itemTemplateBase13.Rows.Add(tableRowDefinition32);
-            itemTemplateBase13.Rows.Add(tableRowDefinition33);
-            tableSpan7.RowSpan = 3;
-            itemTemplateBase13.Spans.Add(tableSpan7);
-            itemTemplateBase14.Columns.Add(tableColumnDefinition27);
-            itemTemplateBase14.Columns.Add(tableColumnDefinition28);
-            templatedItemElement53.FieldName = "DisplayMember";
-            templatedItemElement53.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement53.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement53.Text = "DisplayMember";
-            templatedItemElement53.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement54.FieldName = "DisplayMember";
-            templatedItemElement54.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement54.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement54.RowIndex = 1;
-            templatedItemElement54.Text = "DisplayMember";
-            templatedItemElement54.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement55.ColumnIndex = 1;
-            templatedItemElement55.FieldName = "DisplayMember";
-            templatedItemElement55.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement55.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement55.Text = "DisplayMember";
-            templatedItemElement55.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement56.ColumnIndex = 1;
-            templatedItemElement56.FieldName = "DisplayMember";
-            templatedItemElement56.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement56.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement56.RowIndex = 1;
-            templatedItemElement56.Text = "DisplayMember";
-            templatedItemElement56.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase14.Elements.Add(templatedItemElement53);
-            itemTemplateBase14.Elements.Add(templatedItemElement54);
-            itemTemplateBase14.Elements.Add(templatedItemElement55);
-            itemTemplateBase14.Elements.Add(templatedItemElement56);
-            itemTemplateBase14.Name = "template2";
-            tableRowDefinition34.Length.Value = 13D;
-            tableRowDefinition35.Length.Value = 13D;
-            itemTemplateBase14.Rows.Add(tableRowDefinition34);
-            itemTemplateBase14.Rows.Add(tableRowDefinition35);
-            this.listBoxControl8.Templates.Add(itemTemplateBase13);
-            this.listBoxControl8.Templates.Add(itemTemplateBase14);
-            // 
-            // windowsUIButtonPanel9
-            // 
-            this.windowsUIButtonPanel9.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel9.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel9.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel9.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel9.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel9.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel9.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel9.ButtonInterval = 40;
-            windowsUIButtonImageOptions28.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions28.SvgImage")));
-            windowsUIButtonImageOptions29.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions29.SvgImage")));
-            windowsUIButtonImageOptions30.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions30.SvgImage")));
-            windowsUIButtonImageOptions31.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions31.SvgImage")));
-            this.windowsUIButtonPanel9.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions28, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions29, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions30, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions31, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel9.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel9.Name = "windowsUIButtonPanel9";
-            this.windowsUIButtonPanel9.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel9.TabIndex = 14;
-            this.windowsUIButtonPanel9.Text = "windowsUIButtonPanel9";
-            this.windowsUIButtonPanel9.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel9.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel9_ButtonChecked);
-            // 
-            // navigationFrame_PushFade
-            // 
-            this.navigationFrame_PushFade.Controls.Add(this.navigationPage20);
-            this.navigationFrame_PushFade.Controls.Add(this.navigationPage19);
-            this.navigationFrame_PushFade.Location = new System.Drawing.Point(217, 17);
-            this.navigationFrame_PushFade.Name = "navigationFrame_PushFade";
-            this.navigationFrame_PushFade.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage20,
-            this.navigationPage19});
-            this.navigationFrame_PushFade.SelectedPage = this.navigationPage19;
-            this.navigationFrame_PushFade.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_PushFade.TabIndex = 15;
-            this.navigationFrame_PushFade.Text = "navigationFrame10";
-            this.navigationFrame_PushFade.TransitionType = DevExpress.Utils.Animation.Transitions.PushFade;
-            // 
-            // navigationPage20
-            // 
-            this.navigationPage20.Controls.Add(this.tileBar29);
-            this.navigationPage20.Name = "navigationPage20";
-            this.navigationPage20.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar29
-            // 
-            this.tileBar29.AllowSelectedItem = true;
-            this.tileBar29.BackColor = System.Drawing.Color.White;
-            this.tileBar29.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar29.Groups.Add(this.tileBarGroup27);
-            this.tileBar29.Location = new System.Drawing.Point(22, 82);
-            this.tileBar29.MaxId = 6;
-            this.tileBar29.Name = "tileBar29";
-            this.tileBar29.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar29.Size = new System.Drawing.Size(631, 150);
-            this.tileBar29.TabIndex = 11;
-            this.tileBar29.Text = "tileBar29";
-            // 
-            // tileBarGroup27
-            // 
-            this.tileBarGroup27.Items.Add(this.tileBarItem131);
-            this.tileBarGroup27.Items.Add(this.tileBarItem132);
-            this.tileBarGroup27.Items.Add(this.tileBarItem133);
-            this.tileBarGroup27.Items.Add(this.tileBarItem134);
-            this.tileBarGroup27.Items.Add(this.tileBarItem135);
-            this.tileBarGroup27.Name = "tileBarGroup27";
-            this.tileBarGroup27.Text = "菜单";
-            // 
-            // tileBarItem131
-            // 
-            this.tileBarItem131.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem131.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem131.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem131.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem131.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem131.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem131.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement51.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image30")));
-            tileItemElement51.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement51.Text = "系统";
-            tileItemElement51.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem131.Elements.Add(tileItemElement51);
-            this.tileBarItem131.Id = 1;
-            this.tileBarItem131.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem131.Name = "tileBarItem131";
-            this.tileBarItem131.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem132
-            // 
-            this.tileBarItem132.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem132.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem132.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem132.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem132.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem132.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem132.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem132.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement52.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image31")));
-            tileItemElement52.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement52.Text = "状态";
-            tileItemElement52.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem132.Elements.Add(tileItemElement52);
-            this.tileBarItem132.Id = 2;
-            this.tileBarItem132.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem132.Name = "tileBarItem132";
-            this.tileBarItem132.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem133
-            // 
-            this.tileBarItem133.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem133.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem133.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem133.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem133.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement53.Text = "监测";
-            tileItemElement53.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem133.Elements.Add(tileItemElement53);
-            this.tileBarItem133.Id = 3;
-            this.tileBarItem133.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem133.Name = "tileBarItem133";
-            this.tileBarItem133.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem134
-            // 
-            this.tileBarItem134.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem134.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem134.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement54.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image32")));
-            tileItemElement54.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement54.Text = "tileBarItem4";
-            tileItemElement54.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem134.Elements.Add(tileItemElement54);
-            this.tileBarItem134.Id = 4;
-            this.tileBarItem134.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem134.Name = "tileBarItem134";
-            // 
-            // tileBarItem135
-            // 
-            this.tileBarItem135.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem135.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem135.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement55.Text = "tileBarItem4";
-            tileItemElement55.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem135.Elements.Add(tileItemElement55);
-            this.tileBarItem135.Id = 5;
-            this.tileBarItem135.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem135.Name = "tileBarItem135";
-            // 
-            // navigationPage19
-            // 
-            this.navigationPage19.Controls.Add(this.listBoxControl9);
-            this.navigationPage19.Name = "navigationPage19";
-            this.navigationPage19.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl9
-            // 
-            this.listBoxControl9.ItemHeight = 166;
-            this.listBoxControl9.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl9.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl9.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl9.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl9.Name = "listBoxControl9";
-            this.listBoxControl9.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl9.TabIndex = 11;
-            itemTemplateBase15.Columns.Add(tableColumnDefinition29);
-            itemTemplateBase15.Columns.Add(tableColumnDefinition30);
-            templatedItemElement57.ColumnIndex = 1;
-            templatedItemElement57.FieldName = "DisplayMember";
-            templatedItemElement57.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement57.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement57.RowIndex = 1;
-            templatedItemElement57.Text = "DisplayMember";
-            templatedItemElement57.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement58.FieldName = "DisplayMember";
-            templatedItemElement58.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement58.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement58.RowIndex = 1;
-            templatedItemElement58.Text = "DisplayMember";
-            templatedItemElement58.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement59.ColumnIndex = 1;
-            templatedItemElement59.FieldName = "DisplayMember";
-            templatedItemElement59.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement59.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement59.RowIndex = 2;
-            templatedItemElement59.Text = "DisplayMember";
-            templatedItemElement59.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement60.ColumnIndex = 1;
-            templatedItemElement60.FieldName = "DisplayMember";
-            templatedItemElement60.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement60.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement60.Text = "DisplayMember";
-            templatedItemElement60.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase15.Elements.Add(templatedItemElement57);
-            itemTemplateBase15.Elements.Add(templatedItemElement58);
-            itemTemplateBase15.Elements.Add(templatedItemElement59);
-            itemTemplateBase15.Elements.Add(templatedItemElement60);
-            itemTemplateBase15.Name = "template1";
-            tableRowDefinition36.Length.Value = 51D;
-            tableRowDefinition37.Length.Value = 52D;
-            tableRowDefinition38.Length.Value = 59D;
-            itemTemplateBase15.Rows.Add(tableRowDefinition36);
-            itemTemplateBase15.Rows.Add(tableRowDefinition37);
-            itemTemplateBase15.Rows.Add(tableRowDefinition38);
-            tableSpan8.RowSpan = 3;
-            itemTemplateBase15.Spans.Add(tableSpan8);
-            itemTemplateBase16.Columns.Add(tableColumnDefinition31);
-            itemTemplateBase16.Columns.Add(tableColumnDefinition32);
-            templatedItemElement61.FieldName = "DisplayMember";
-            templatedItemElement61.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement61.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement61.Text = "DisplayMember";
-            templatedItemElement61.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement62.FieldName = "DisplayMember";
-            templatedItemElement62.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement62.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement62.RowIndex = 1;
-            templatedItemElement62.Text = "DisplayMember";
-            templatedItemElement62.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement63.ColumnIndex = 1;
-            templatedItemElement63.FieldName = "DisplayMember";
-            templatedItemElement63.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement63.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement63.Text = "DisplayMember";
-            templatedItemElement63.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement64.ColumnIndex = 1;
-            templatedItemElement64.FieldName = "DisplayMember";
-            templatedItemElement64.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement64.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement64.RowIndex = 1;
-            templatedItemElement64.Text = "DisplayMember";
-            templatedItemElement64.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase16.Elements.Add(templatedItemElement61);
-            itemTemplateBase16.Elements.Add(templatedItemElement62);
-            itemTemplateBase16.Elements.Add(templatedItemElement63);
-            itemTemplateBase16.Elements.Add(templatedItemElement64);
-            itemTemplateBase16.Name = "template2";
-            tableRowDefinition39.Length.Value = 13D;
-            tableRowDefinition40.Length.Value = 13D;
-            itemTemplateBase16.Rows.Add(tableRowDefinition39);
-            itemTemplateBase16.Rows.Add(tableRowDefinition40);
-            this.listBoxControl9.Templates.Add(itemTemplateBase15);
-            this.listBoxControl9.Templates.Add(itemTemplateBase16);
-            // 
-            // windowsUIButtonPanel10
-            // 
-            this.windowsUIButtonPanel10.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel10.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel10.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel10.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel10.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel10.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel10.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel10.ButtonInterval = 40;
-            windowsUIButtonImageOptions32.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions32.SvgImage")));
-            windowsUIButtonImageOptions33.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions33.SvgImage")));
-            windowsUIButtonImageOptions34.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions34.SvgImage")));
-            windowsUIButtonImageOptions35.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions35.SvgImage")));
-            this.windowsUIButtonPanel10.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions32, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions33, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions34, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions35, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel10.Location = new System.Drawing.Point(0, 557);
-            this.windowsUIButtonPanel10.Name = "windowsUIButtonPanel10";
-            this.windowsUIButtonPanel10.Size = new System.Drawing.Size(1264, 128);
-            this.windowsUIButtonPanel10.TabIndex = 14;
-            this.windowsUIButtonPanel10.Text = "windowsUIButtonPanel10";
-            this.windowsUIButtonPanel10.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel10.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel10_ButtonChecked);
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Controls.Add(this.navigationFrame_Zoom);
-            this.tabPage11.Controls.Add(this.windowsUIButtonPanel11);
-            this.tabPage11.Location = new System.Drawing.Point(4, 23);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1264, 685);
-            this.tabPage11.TabIndex = 10;
-            this.tabPage11.Text = "TransitionType=Zoom";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // navigationFrame_Zoom
-            // 
-            this.navigationFrame_Zoom.Controls.Add(this.navigationPage21);
-            this.navigationFrame_Zoom.Controls.Add(this.navigationPage22);
-            this.navigationFrame_Zoom.Location = new System.Drawing.Point(217, 10);
-            this.navigationFrame_Zoom.Name = "navigationFrame_Zoom";
-            this.navigationFrame_Zoom.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage21,
-            this.navigationPage22});
-            this.navigationFrame_Zoom.SelectedPage = this.navigationPage22;
-            this.navigationFrame_Zoom.Size = new System.Drawing.Size(674, 332);
-            this.navigationFrame_Zoom.TabIndex = 17;
-            this.navigationFrame_Zoom.Text = "navigationFrame11";
-            this.navigationFrame_Zoom.TransitionType = DevExpress.Utils.Animation.Transitions.Zoom;
-            // 
-            // navigationPage21
-            // 
-            this.navigationPage21.Controls.Add(this.tileBar32);
-            this.navigationPage21.Name = "navigationPage21";
-            this.navigationPage21.Size = new System.Drawing.Size(674, 332);
-            // 
-            // tileBar32
-            // 
-            this.tileBar32.AllowSelectedItem = true;
-            this.tileBar32.BackColor = System.Drawing.Color.White;
-            this.tileBar32.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar32.Groups.Add(this.tileBarGroup30);
-            this.tileBar32.Location = new System.Drawing.Point(22, 82);
-            this.tileBar32.MaxId = 6;
-            this.tileBar32.Name = "tileBar32";
-            this.tileBar32.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar32.Size = new System.Drawing.Size(631, 150);
-            this.tileBar32.TabIndex = 11;
-            this.tileBar32.Text = "tileBar32";
-            // 
-            // tileBarGroup30
-            // 
-            this.tileBarGroup30.Items.Add(this.tileBarItem146);
-            this.tileBarGroup30.Items.Add(this.tileBarItem147);
-            this.tileBarGroup30.Items.Add(this.tileBarItem148);
-            this.tileBarGroup30.Items.Add(this.tileBarItem149);
-            this.tileBarGroup30.Items.Add(this.tileBarItem150);
-            this.tileBarGroup30.Name = "tileBarGroup30";
-            this.tileBarGroup30.Text = "菜单";
-            // 
-            // tileBarItem146
-            // 
-            this.tileBarItem146.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.Highlight;
-            this.tileBarItem146.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem146.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem146.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem146.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem146.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem146.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement56.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image33")));
-            tileItemElement56.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement56.Text = "系统";
-            tileItemElement56.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem146.Elements.Add(tileItemElement56);
-            this.tileBarItem146.Id = 1;
-            this.tileBarItem146.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem146.Name = "tileBarItem146";
-            this.tileBarItem146.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem147
-            // 
-            this.tileBarItem147.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.tileBarItem147.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tileBarItem147.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem147.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem147.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem147.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem147.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
-            this.tileBarItem147.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement57.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image34")));
-            tileItemElement57.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement57.Text = "状态";
-            tileItemElement57.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem147.Elements.Add(tileItemElement57);
-            this.tileBarItem147.Id = 2;
-            this.tileBarItem147.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem147.Name = "tileBarItem147";
-            this.tileBarItem147.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem148
-            // 
-            this.tileBarItem148.AppearanceItem.Normal.BackColor = System.Drawing.Color.Green;
-            this.tileBarItem148.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileBarItem148.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem148.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem148.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement58.Text = "监测";
-            tileItemElement58.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem148.Elements.Add(tileItemElement58);
-            this.tileBarItem148.Id = 3;
-            this.tileBarItem148.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem148.Name = "tileBarItem148";
-            this.tileBarItem148.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // tileBarItem149
-            // 
-            this.tileBarItem149.AppearanceItem.Normal.BackColor = System.Drawing.Color.Chocolate;
-            this.tileBarItem149.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem149.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement59.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image35")));
-            tileItemElement59.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement59.Text = "tileBarItem4";
-            tileItemElement59.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            this.tileBarItem149.Elements.Add(tileItemElement59);
-            this.tileBarItem149.Id = 4;
-            this.tileBarItem149.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem149.Name = "tileBarItem149";
-            // 
-            // tileBarItem150
-            // 
-            this.tileBarItem150.AppearanceItem.Normal.BackColor = System.Drawing.Color.Black;
-            this.tileBarItem150.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem150.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement60.Text = "tileBarItem4";
-            tileItemElement60.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem150.Elements.Add(tileItemElement60);
-            this.tileBarItem150.Id = 5;
-            this.tileBarItem150.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem150.Name = "tileBarItem150";
-            // 
-            // navigationPage22
-            // 
-            this.navigationPage22.Controls.Add(this.listBoxControl10);
-            this.navigationPage22.Name = "navigationPage22";
-            this.navigationPage22.Size = new System.Drawing.Size(674, 332);
-            // 
-            // listBoxControl10
-            // 
-            this.listBoxControl10.ItemHeight = 166;
-            this.listBoxControl10.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl10.Location = new System.Drawing.Point(101, 50);
-            this.listBoxControl10.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl10.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl10.Name = "listBoxControl10";
-            this.listBoxControl10.Size = new System.Drawing.Size(353, 237);
-            this.listBoxControl10.TabIndex = 11;
-            itemTemplateBase17.Columns.Add(tableColumnDefinition33);
-            itemTemplateBase17.Columns.Add(tableColumnDefinition34);
-            templatedItemElement65.ColumnIndex = 1;
-            templatedItemElement65.FieldName = "DisplayMember";
-            templatedItemElement65.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement65.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement65.RowIndex = 1;
-            templatedItemElement65.Text = "DisplayMember";
-            templatedItemElement65.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement66.FieldName = "DisplayMember";
-            templatedItemElement66.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement66.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement66.RowIndex = 1;
-            templatedItemElement66.Text = "DisplayMember";
-            templatedItemElement66.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement67.ColumnIndex = 1;
-            templatedItemElement67.FieldName = "DisplayMember";
-            templatedItemElement67.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement67.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement67.RowIndex = 2;
-            templatedItemElement67.Text = "DisplayMember";
-            templatedItemElement67.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement68.ColumnIndex = 1;
-            templatedItemElement68.FieldName = "DisplayMember";
-            templatedItemElement68.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement68.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement68.Text = "DisplayMember";
-            templatedItemElement68.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase17.Elements.Add(templatedItemElement65);
-            itemTemplateBase17.Elements.Add(templatedItemElement66);
-            itemTemplateBase17.Elements.Add(templatedItemElement67);
-            itemTemplateBase17.Elements.Add(templatedItemElement68);
-            itemTemplateBase17.Name = "template1";
-            tableRowDefinition41.Length.Value = 51D;
-            tableRowDefinition42.Length.Value = 52D;
-            tableRowDefinition43.Length.Value = 59D;
-            itemTemplateBase17.Rows.Add(tableRowDefinition41);
-            itemTemplateBase17.Rows.Add(tableRowDefinition42);
-            itemTemplateBase17.Rows.Add(tableRowDefinition43);
-            tableSpan9.RowSpan = 3;
-            itemTemplateBase17.Spans.Add(tableSpan9);
-            itemTemplateBase18.Columns.Add(tableColumnDefinition35);
-            itemTemplateBase18.Columns.Add(tableColumnDefinition36);
-            templatedItemElement69.FieldName = "DisplayMember";
-            templatedItemElement69.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement69.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement69.Text = "DisplayMember";
-            templatedItemElement69.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement70.FieldName = "DisplayMember";
-            templatedItemElement70.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement70.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement70.RowIndex = 1;
-            templatedItemElement70.Text = "DisplayMember";
-            templatedItemElement70.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement71.ColumnIndex = 1;
-            templatedItemElement71.FieldName = "DisplayMember";
-            templatedItemElement71.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement71.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement71.Text = "DisplayMember";
-            templatedItemElement71.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement72.ColumnIndex = 1;
-            templatedItemElement72.FieldName = "DisplayMember";
-            templatedItemElement72.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            templatedItemElement72.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            templatedItemElement72.RowIndex = 1;
-            templatedItemElement72.Text = "DisplayMember";
-            templatedItemElement72.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            itemTemplateBase18.Elements.Add(templatedItemElement69);
-            itemTemplateBase18.Elements.Add(templatedItemElement70);
-            itemTemplateBase18.Elements.Add(templatedItemElement71);
-            itemTemplateBase18.Elements.Add(templatedItemElement72);
-            itemTemplateBase18.Name = "template2";
-            tableRowDefinition44.Length.Value = 13D;
-            tableRowDefinition45.Length.Value = 13D;
-            itemTemplateBase18.Rows.Add(tableRowDefinition44);
-            itemTemplateBase18.Rows.Add(tableRowDefinition45);
-            this.listBoxControl10.Templates.Add(itemTemplateBase17);
-            this.listBoxControl10.Templates.Add(itemTemplateBase18);
-            // 
-            // windowsUIButtonPanel11
-            // 
-            this.windowsUIButtonPanel11.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel11.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel11.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel11.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel11.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel11.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel11.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel11.ButtonInterval = 40;
-            windowsUIButtonImageOptions36.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions36.SvgImage")));
-            windowsUIButtonImageOptions37.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions37.SvgImage")));
-            windowsUIButtonImageOptions38.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions38.SvgImage")));
-            windowsUIButtonImageOptions39.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions39.SvgImage")));
-            this.windowsUIButtonPanel11.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page1", true, windowsUIButtonImageOptions36, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page1", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page2", true, windowsUIButtonImageOptions37, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page2", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page3", true, windowsUIButtonImageOptions38, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page3", 1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Page4", true, windowsUIButtonImageOptions39, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Page4", 1, false)});
-            this.windowsUIButtonPanel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel11.Location = new System.Drawing.Point(3, 554);
-            this.windowsUIButtonPanel11.Name = "windowsUIButtonPanel11";
-            this.windowsUIButtonPanel11.Size = new System.Drawing.Size(1258, 128);
-            this.windowsUIButtonPanel11.TabIndex = 16;
-            this.windowsUIButtonPanel11.Text = "windowsUIButtonPanel11";
-            this.windowsUIButtonPanel11.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel11.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel11_ButtonChecked);
-            // 
             // PageNavigation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3887,17 +3906,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PageNavigation";
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
-            this.navigationPage3.ResumeLayout(false);
-            this.navigationPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).EndInit();
             this.navigationPage1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            this.navigationPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
+            this.navigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Push)).EndInit();
@@ -3906,48 +3925,42 @@
             this.navigationPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl6)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Shape)).EndInit();
             this.navigationFrame_Shape.ResumeLayout(false);
             this.navigationPage7.ResumeLayout(false);
             this.navigationPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
-            this.navigationPage13.ResumeLayout(false);
-            this.navigationPage14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).EndInit();
-            this.navigationPage15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame4)).EndInit();
-            this.navigationFrame4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Fade)).EndInit();
             this.navigationFrame_Fade.ResumeLayout(false);
             this.navigationPage9.ResumeLayout(false);
             this.navigationPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl3)).EndInit();
+            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Clock)).EndInit();
             this.navigationFrame_Clock.ResumeLayout(false);
             this.navigationPage11.ResumeLayout(false);
             this.navigationPage12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl4)).EndInit();
+            this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Dissolve)).EndInit();
             this.navigationFrame_Dissolve.ResumeLayout(false);
             this.navigationPage25.ResumeLayout(false);
             this.navigationPage26.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl5)).EndInit();
+            this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Cover)).EndInit();
             this.navigationFrame_Cover.ResumeLayout(false);
             this.navigationPage29.ResumeLayout(false);
             this.navigationPage30.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl7)).EndInit();
+            this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Comb)).EndInit();
             this.navigationFrame_Comb.ResumeLayout(false);
             this.navigationPage17.ResumeLayout(false);
             this.navigationPage18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl8)).EndInit();
+            this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_PushFade)).EndInit();
             this.navigationFrame_PushFade.ResumeLayout(false);
             this.navigationPage20.ResumeLayout(false);
@@ -3959,6 +3972,12 @@
             this.navigationPage21.ResumeLayout(false);
             this.navigationPage22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl10)).EndInit();
+            this.navigationPage13.ResumeLayout(false);
+            this.navigationPage14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl2)).EndInit();
+            this.navigationPage15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame4)).EndInit();
+            this.navigationFrame4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

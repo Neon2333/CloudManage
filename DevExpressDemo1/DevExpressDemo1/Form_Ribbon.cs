@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-using DevExpress.XtraBars.Ribbon;
+
 namespace DevExpressDemo1
 {
     public partial class Form_Ribbon : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -16,7 +16,6 @@ namespace DevExpressDemo1
         public Form_Ribbon()
         {
             InitializeComponent();
-            
         }
     }
 }
