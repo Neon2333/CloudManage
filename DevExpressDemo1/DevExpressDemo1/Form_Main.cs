@@ -173,5 +173,11 @@ namespace DevExpressDemo1
             NavigationOrLayout_tileNavPane tileNavPane = new NavigationOrLayout_tileNavPane();
             tileNavPane.Show();
         }
+
+        private void layoutControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationOrLayout_layoutControl layoutControl = new NavigationOrLayout_layoutControl();
+            layoutControl.Show();
+        }
     }
 }

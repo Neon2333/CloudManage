@@ -94,9 +94,9 @@ namespace DevExpressDemo1
             this.layoutControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsUIButtonPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileBarGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls = new System.Windows.Forms.MenuStrip();
             this.pageNavigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.navPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -566,6 +566,7 @@ namespace DevExpressDemo1
             this.layoutControlToolStripMenuItem.Name = "layoutControlToolStripMenuItem";
             this.layoutControlToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.layoutControlToolStripMenuItem.Text = "LayoutControl";
+            this.layoutControlToolStripMenuItem.Click += new System.EventHandler(this.layoutControlToolStripMenuItem_Click);
             // 
             // windowsUIButtonPanelToolStripMenuItem
             // 
@@ -580,6 +581,13 @@ namespace DevExpressDemo1
             this.tileBarGroupToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.tileBarGroupToolStripMenuItem.Text = "tileBar";
             this.tileBarGroupToolStripMenuItem.Click += new System.EventHandler(this.tileBarGroupToolStripMenuItem_Click);
+            // 
+            // navPaneToolStripMenuItem
+            // 
+            this.navPaneToolStripMenuItem.Name = "navPaneToolStripMenuItem";
+            this.navPaneToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.navPaneToolStripMenuItem.Text = "tileNavPane";
+            this.navPaneToolStripMenuItem.Click += new System.EventHandler(this.navPaneToolStripMenuItem_Click);
             // 
             // menuControls
             // 
@@ -605,13 +613,6 @@ namespace DevExpressDemo1
             this.pageNavigationToolStripMenuItem.Size = new System.Drawing.Size(112, 21);
             this.pageNavigationToolStripMenuItem.Text = "PageNavigation";
             this.pageNavigationToolStripMenuItem.Click += new System.EventHandler(this.pageNavigationToolStripMenuItem_Click);
-            // 
-            // navPaneToolStripMenuItem
-            // 
-            this.navPaneToolStripMenuItem.Name = "navPaneToolStripMenuItem";
-            this.navPaneToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.navPaneToolStripMenuItem.Text = "tileNavPane";
-            this.navPaneToolStripMenuItem.Click += new System.EventHandler(this.navPaneToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
