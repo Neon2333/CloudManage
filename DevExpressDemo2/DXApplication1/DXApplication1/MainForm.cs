@@ -16,55 +16,24 @@ namespace DXApplication1
         public MainForm()
         {
             InitializeComponent();
-        }
 
-        private void windowsUIButtonPanel2_ButtonChecked(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
+            this.tileBar_mainMenu.Size.Width = 
+        }
+            
+
+        private void tileBarItem_system_ItemClick(object sender, TileItemEventArgs e)
         {
-            string tag = ((WindowsUIButton)e.Button).Tag.ToString();	//checkButton时Caption被禁用了
-            switch (tag)
-            {
-                case "Contacts":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage3;
-                    break;
-                case "Calendar":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage4;
-
-                    break;
-                case "Mail":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage5;
-
-                    break;
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage1;
         }
 
-
-        private void tileBarItem1_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_status_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_Level1.SelectedPage = navigationPage1;
-
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage2;
         }
 
-        private void tileBarItem2_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_Level1.SelectedPage = navigationPage2;
+        //this.tileBarItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_status_ItemClick);
 
-        }
 
-        private void tileBarItem6_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_Level2.SelectedPage = navigationPage3;
-        }
 
-        private void tileBarItem8_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_Level2.SelectedPage = navigationPage4;
-
-        }
-
-        private void tileBarItem7_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_Level2.SelectedPage = navigationPage5;
-
-        }
     }
 }
