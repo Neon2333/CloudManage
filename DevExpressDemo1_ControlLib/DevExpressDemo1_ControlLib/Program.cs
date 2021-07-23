@@ -6,7 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 
-namespace DXApplication1
+namespace DevExpressDemo1_ControlLib
 {
     static class Program
     {
@@ -18,7 +18,7 @@ namespace DXApplication1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new test());
+            Application.Run(new Form1());
         }
     }
 }

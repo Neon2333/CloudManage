@@ -1,6 +1,6 @@
 ﻿namespace DevExpressDemo1
 {
-    partial class NavigationOrLayout_layoutControl
+    partial class NavigationAndLayout_layoutControl
     {
         /// <summary>
         /// Required designer variable.

@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class NavigationOrLayout_tileNavPane : DevExpress.XtraEditors.XtraForm
+    public partial class NavigationAndLayout_tileNavPane : DevExpress.XtraEditors.XtraForm
     {
-        public NavigationOrLayout_tileNavPane()
+        public NavigationAndLayout_tileNavPane()
         {
             InitializeComponent();
         }

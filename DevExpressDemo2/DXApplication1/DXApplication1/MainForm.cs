@@ -16,10 +16,11 @@ namespace DXApplication1
         public MainForm()
         {
             InitializeComponent();
+            this.ControlBox = false;    //不显示最小化、关闭、最大化
+            this.ClientSize = new System.Drawing.Size(1364, 736);
 
-            this.tileBar_mainMenu.Size.Width = 
         }
-            
+
 
         private void tileBarItem_system_ItemClick(object sender, TileItemEventArgs e)
         {

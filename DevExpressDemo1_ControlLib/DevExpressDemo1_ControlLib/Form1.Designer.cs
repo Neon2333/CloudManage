@@ -1,6 +1,6 @@
-﻿namespace DXApplication1
+﻿namespace DevExpressDemo1_ControlLib
 {
-    partial class test
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,19 @@
         {
             this.SuspendLayout();
             // 
-            // test
+            // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 736);
-            this.Name = "test";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "test";
+            this.ClientSize = new System.Drawing.Size(632, 278);
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
     }
 }
+

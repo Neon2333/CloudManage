@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class NavigationOrLayout_layoutControl : DevExpress.XtraEditors.XtraForm
+    public partial class DataAndAnalytics_ChartContrl : DevExpress.XtraEditors.XtraForm
     {
-        public NavigationOrLayout_layoutControl()
+        public DataAndAnalytics_ChartContrl()
         {
             InitializeComponent();
         }
