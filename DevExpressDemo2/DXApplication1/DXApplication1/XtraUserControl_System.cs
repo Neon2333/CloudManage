@@ -17,28 +17,28 @@ namespace DXApplication1
         public XtraUserControl_System()
         {
             InitializeComponent();
+
+            this.navigationFrame_Status.Size = new System.Drawing.Size(1366, 768);
+
         }
 
-        private void windowsUIButtonPanel2_ButtonChecked(object sender, ButtonEventArgs e)
+        private void windowsUIButtonPanel_System_ButtonChecked(object sender, ButtonEventArgs e)
         {
             string tag = ((WindowsUIButton)e.Button).Tag.ToString();    //checkButton时Caption被禁用了
             switch (tag)
             {
                 case "Contacts":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage3;
+                    this.navigationFrame_Status.SelectedPage = navigationPage_System_1;
                     break;
                 case "Calendar":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage4;
-
+                    this.navigationFrame_Status.SelectedPage = navigationPage_System_2;
                     break;
                 case "Mail":
-                    this.navigationFrame_Level2.SelectedPage = navigationPage5;
-
+                    this.navigationFrame_Status.SelectedPage = navigationPage_System_3;
                     break;
             }
         }
+
+
     }
-
-
-
 }

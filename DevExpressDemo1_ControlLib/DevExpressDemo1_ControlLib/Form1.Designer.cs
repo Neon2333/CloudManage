@@ -1,7 +1,6 @@
-﻿
-namespace DevExpressDemo1
+﻿namespace DevExpressDemo1_ControlLib
 {
-    partial class Control_ImageListBoxControl
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -31,17 +30,19 @@ namespace DevExpressDemo1
         {
             this.SuspendLayout();
             // 
-            // Control_ImageListBoxControl
+            // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 618);
-            this.Name = "Control_ImageListBoxControl";
-            this.Text = "Control_ImageListBoxControl";
+            this.ClientSize = new System.Drawing.Size(632, 278);
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
     }
 }
+

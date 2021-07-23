@@ -14,9 +14,21 @@ namespace DXApplication1
 {
     public partial class test : DevExpress.XtraEditors.XtraForm
     {
+        //XtraUserControl_System userControlSystem = new XtraUserControl_System();
+
+        //XtraUserControl_Status userControlStatus = new XtraUserControl_Status();
         public test()
         {
             InitializeComponent();
+
+            //this.Controls.Add(userControlSystem);
+            //this.Controls.Add(userControlStatus);
+
+            XtraUserControl_tileBar tileBar = new XtraUserControl_tileBar();
+            this.Controls.Add(tileBar);
+           
         }
+
+
     }
 }

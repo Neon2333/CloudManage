@@ -152,13 +152,13 @@ namespace DevExpressDemo1
 
         private void windowsUIButtonPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationOrLayout_WindowsUIButtonPanel windowsUIButtonPanel = new NavigationOrLayout_WindowsUIButtonPanel();
+            NavigationAndLayout_WindowsUIButtonPanel windowsUIButtonPanel = new NavigationAndLayout_WindowsUIButtonPanel();
             windowsUIButtonPanel.Show();
         }
 
         private void tileBarGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationOrLayout_tileBar tileBarGroup = new NavigationOrLayout_tileBar();
+            NavigationAndLayout_tileBar tileBarGroup = new NavigationAndLayout_tileBar();
             tileBarGroup.Show();
         }
 
@@ -170,13 +170,13 @@ namespace DevExpressDemo1
 
         private void navPaneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationOrLayout_tileNavPane tileNavPane = new NavigationOrLayout_tileNavPane();
+            NavigationAndLayout_tileNavPane tileNavPane = new NavigationAndLayout_tileNavPane();
             tileNavPane.Show();
         }
 
         private void layoutControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationOrLayout_layoutControl layoutControl = new NavigationOrLayout_layoutControl();
+            NavigationAndLayout_layoutControl layoutControl = new NavigationAndLayout_layoutControl();
             layoutControl.Show();
         }
     }

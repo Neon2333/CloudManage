@@ -12,9 +12,9 @@ using DevExpress.XtraBars.Docking2010;
 
 namespace DevExpressDemo1
 {
-    public partial class NavigationOrLayout_WindowsUIButtonPanel : DevExpress.XtraEditors.XtraForm
+    public partial class NavigationAndLayout_WindowsUIButtonPanel : DevExpress.XtraEditors.XtraForm
     {
-        public NavigationOrLayout_WindowsUIButtonPanel()
+        public NavigationAndLayout_WindowsUIButtonPanel()
         {
             InitializeComponent();
         }

@@ -1,7 +1,6 @@
-﻿
-namespace DevExpressDemo1
+﻿namespace DevExpressDemo1
 {
-    partial class Control_ImageListBoxControl
+    partial class NavigationAndLayout_SidePanel
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +28,9 @@ namespace DevExpressDemo1
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Control_ImageListBoxControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 618);
-            this.Name = "Control_ImageListBoxControl";
-            this.Text = "Control_ImageListBoxControl";
-            this.ResumeLayout(false);
-
+            this.Text = "NavigationAndLayout_SearchPanel";
         }
 
         #endregion

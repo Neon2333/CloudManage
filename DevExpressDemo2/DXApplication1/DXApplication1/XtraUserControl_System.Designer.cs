@@ -28,183 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraUserControl_System));
+            DevExpress.XtraCharts.SimpleDiagram3D simpleDiagram3D1 = new DevExpress.XtraCharts.SimpleDiagram3D();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.Pie3DSeriesView pie3DSeriesView1 = new DevExpress.XtraCharts.Pie3DSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraUserControl_System));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            this.navigationFrame_Level2 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.navigationPage4 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.svgImageBox8 = new DevExpress.XtraEditors.SvgImageBox();
-            this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.listBoxControl5 = new DevExpress.XtraEditors.ListBoxControl();
-            this.searchControl2 = new DevExpress.XtraEditors.SearchControl();
-            this.navigationPage5 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.timeEdit5 = new DevExpress.XtraEditors.TimeEdit();
-            this.windowsUIButtonPanel2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Level2)).BeginInit();
-            this.navigationFrame_Level2.SuspendLayout();
-            this.navigationPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).BeginInit();
-            this.navigationPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl2.Properties)).BeginInit();
-            this.navigationPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit5.Properties)).BeginInit();
+            this.navigationFrame_Status = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.navigationPage_System_2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
+            this.navigationPage_System_1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.navigationPage_System_3 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
+            this.windowsUIButtonPanel_System = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Status)).BeginInit();
+            this.navigationFrame_Status.SuspendLayout();
+            this.navigationPage_System_2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).BeginInit();
+            this.navigationPage_System_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            this.navigationPage_System_3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // navigationFrame_Level2
+            // navigationFrame_Status
             // 
-            this.navigationFrame_Level2.Controls.Add(this.navigationPage4);
-            this.navigationFrame_Level2.Controls.Add(this.navigationPage3);
-            this.navigationFrame_Level2.Controls.Add(this.navigationPage5);
-            this.navigationFrame_Level2.Location = new System.Drawing.Point(142, 69);
-            this.navigationFrame_Level2.Name = "navigationFrame_Level2";
-            this.navigationFrame_Level2.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage3,
-            this.navigationPage4,
-            this.navigationPage5});
-            this.navigationFrame_Level2.SelectedPage = this.navigationPage4;
-            this.navigationFrame_Level2.Size = new System.Drawing.Size(924, 564);
-            this.navigationFrame_Level2.TabIndex = 12;
-            this.navigationFrame_Level2.Text = "navigationFrame2";
+            this.navigationFrame_Status.Controls.Add(this.navigationPage_System_2);
+            this.navigationFrame_Status.Controls.Add(this.navigationPage_System_1);
+            this.navigationFrame_Status.Controls.Add(this.navigationPage_System_3);
+            this.navigationFrame_Status.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationFrame_Status.Location = new System.Drawing.Point(0, 0);
+            this.navigationFrame_Status.Name = "navigationFrame_Status";
+            this.navigationFrame_Status.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage_System_1,
+            this.navigationPage_System_2,
+            this.navigationPage_System_3});
+            this.navigationFrame_Status.SelectedPage = this.navigationPage_System_2;
+            this.navigationFrame_Status.Size = new System.Drawing.Size(1163, 617);
+            this.navigationFrame_Status.TabIndex = 12;
+            this.navigationFrame_Status.Text = "navigationFrame2";
             // 
-            // navigationPage4
+            // navigationPage_System_2
             // 
-            this.navigationPage4.Controls.Add(this.svgImageBox8);
-            this.navigationPage4.Name = "navigationPage4";
-            this.navigationPage4.Size = new System.Drawing.Size(924, 564);
+            this.navigationPage_System_2.Caption = "navigationPage_System_2";
+            this.navigationPage_System_2.Controls.Add(this.chartControl2);
+            this.navigationPage_System_2.Name = "navigationPage_System_2";
+            this.navigationPage_System_2.Size = new System.Drawing.Size(1163, 617);
             // 
-            // svgImageBox8
+            // chartControl2
             // 
-            this.svgImageBox8.BackColor = System.Drawing.Color.White;
-            this.svgImageBox8.Location = new System.Drawing.Point(483, 150);
-            this.svgImageBox8.Name = "svgImageBox8";
-            this.svgImageBox8.Size = new System.Drawing.Size(133, 120);
-            this.svgImageBox8.SizeMode = DevExpress.XtraEditors.SvgImageSizeMode.Zoom;
-            this.svgImageBox8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox8.SvgImage")));
-            this.svgImageBox8.TabIndex = 13;
-            this.svgImageBox8.Text = "svgImageBox8";
+            simpleDiagram3D1.RotationMatrixSerializable = "0.114399744820472;-0.549083538171327;0.827900940024995;0;0.992093666061466;0.0198" +
+    "561797594028;-0.123918884299711;0;0.0516028695494133;0.835531567467454;0.5470138" +
+    "42255977;0;0;0;0;1";
+            this.chartControl2.Diagram = simpleDiagram3D1;
+            this.chartControl2.Legend.Name = "Default Legend";
+            this.chartControl2.Location = new System.Drawing.Point(413, 173);
+            this.chartControl2.Name = "chartControl2";
+            series1.Name = "Series 1";
+            series1.View = pie3DSeriesView1;
+            this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl2.Size = new System.Drawing.Size(541, 422);
+            this.chartControl2.TabIndex = 2;
             // 
-            // navigationPage3
+            // navigationPage_System_1
             // 
-            this.navigationPage3.Controls.Add(this.listBoxControl5);
-            this.navigationPage3.Controls.Add(this.searchControl2);
-            this.navigationPage3.Name = "navigationPage3";
-            this.navigationPage3.Size = new System.Drawing.Size(924, 564);
+            this.navigationPage_System_1.Caption = "navigationPage_System_1";
+            this.navigationPage_System_1.Controls.Add(this.chartControl1);
+            this.navigationPage_System_1.Name = "navigationPage_System_1";
+            this.navigationPage_System_1.Size = new System.Drawing.Size(1163, 617);
             // 
-            // listBoxControl5
+            // chartControl1
             // 
-            this.listBoxControl5.Items.AddRange(new object[] {
-            "张三",
-            "李四",
-            "王五",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
-            this.listBoxControl5.Location = new System.Drawing.Point(318, 66);
-            this.listBoxControl5.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.listBoxControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.listBoxControl5.Name = "listBoxControl5";
-            this.listBoxControl5.Size = new System.Drawing.Size(462, 314);
-            this.listBoxControl5.TabIndex = 13;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram1;
+            this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Location = new System.Drawing.Point(413, 173);
+            this.chartControl1.Name = "chartControl1";
+            series2.Name = "Series 1";
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+            this.chartControl1.Size = new System.Drawing.Size(541, 422);
+            this.chartControl1.TabIndex = 2;
             // 
-            // searchControl2
+            // navigationPage_System_3
             // 
-            this.searchControl2.Client = this.listBoxControl5;
-            this.searchControl2.Location = new System.Drawing.Point(318, 40);
-            this.searchControl2.Name = "searchControl2";
-            this.searchControl2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton(),
-            new DevExpress.XtraEditors.Repository.MRUButton()});
-            this.searchControl2.Properties.Client = this.listBoxControl5;
-            this.searchControl2.Properties.FindDelay = 2000;
-            this.searchControl2.Properties.NullValuePrompt = "Please Enter your keywords here..";
-            this.searchControl2.Properties.ShowDefaultButtonsMode = DevExpress.XtraEditors.Repository.ShowDefaultButtonsMode.AutoShowClear;
-            this.searchControl2.Properties.ShowMRUButton = true;
-            this.searchControl2.Size = new System.Drawing.Size(462, 20);
-            this.searchControl2.TabIndex = 12;
+            this.navigationPage_System_3.Caption = "navigationPage_System_3";
+            this.navigationPage_System_3.Controls.Add(this.chartControl3);
+            this.navigationPage_System_3.Name = "navigationPage_System_3";
+            this.navigationPage_System_3.Size = new System.Drawing.Size(1163, 617);
             // 
-            // navigationPage5
+            // chartControl3
             // 
-            this.navigationPage5.Caption = "navigationPage5";
-            this.navigationPage5.Controls.Add(this.timeEdit5);
-            this.navigationPage5.Name = "navigationPage5";
-            this.navigationPage5.Size = new System.Drawing.Size(924, 564);
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl3.Diagram = xyDiagram2;
+            this.chartControl3.Legend.Name = "Default Legend";
+            this.chartControl3.Location = new System.Drawing.Point(413, 173);
+            this.chartControl3.Name = "chartControl3";
+            series3.Name = "Series 1";
+            series3.View = lineSeriesView1;
+            this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series3};
+            this.chartControl3.Size = new System.Drawing.Size(541, 422);
+            this.chartControl3.TabIndex = 2;
             // 
-            // timeEdit5
+            // windowsUIButtonPanel_System
             // 
-            this.timeEdit5.EditValue = new System.DateTime(2021, 7, 13, 0, 0, 0, 0);
-            this.timeEdit5.Location = new System.Drawing.Point(474, 200);
-            this.timeEdit5.Name = "timeEdit5";
-            this.timeEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit5.Properties.Mask.EditMask = "G";
-            this.timeEdit5.Size = new System.Drawing.Size(150, 20);
-            this.timeEdit5.TabIndex = 10;
-            this.timeEdit5.Tag = "设置Mask";
-            // 
-            // windowsUIButtonPanel2
-            // 
-            this.windowsUIButtonPanel2.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
-            this.windowsUIButtonPanel2.AppearanceButton.Hovered.Options.UseForeColor = true;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseBackColor = true;
-            this.windowsUIButtonPanel2.AppearanceButton.Pressed.Options.UseForeColor = true;
-            this.windowsUIButtonPanel2.BackColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel2.ButtonInterval = 40;
+            this.windowsUIButtonPanel_System.AppearanceButton.Hovered.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.windowsUIButtonPanel_System.AppearanceButton.Hovered.Options.UseForeColor = true;
+            this.windowsUIButtonPanel_System.AppearanceButton.Pressed.BackColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel_System.AppearanceButton.Pressed.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.windowsUIButtonPanel_System.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.windowsUIButtonPanel_System.AppearanceButton.Pressed.Options.UseForeColor = true;
+            this.windowsUIButtonPanel_System.BackColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel_System.ButtonInterval = 40;
             windowsUIButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions1.SvgImage")));
             windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
             windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
-            this.windowsUIButtonPanel2.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            this.windowsUIButtonPanel_System.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Contacts", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Contacts", 1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Calendar", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Calendar", 1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Mail", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.CheckButton, "", -1, true, null, true, false, true, "Mail", 1, false)});
-            this.windowsUIButtonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel2.Location = new System.Drawing.Point(0, 700);
-            this.windowsUIButtonPanel2.Name = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.Size = new System.Drawing.Size(1307, 83);
-            this.windowsUIButtonPanel2.TabIndex = 13;
-            this.windowsUIButtonPanel2.Text = "windowsUIButtonPanel2";
-            this.windowsUIButtonPanel2.UseButtonBackgroundImages = false;
-            this.windowsUIButtonPanel2.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel2_ButtonChecked);
+            this.windowsUIButtonPanel_System.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel_System.Location = new System.Drawing.Point(0, 617);
+            this.windowsUIButtonPanel_System.Name = "windowsUIButtonPanel_System";
+            this.windowsUIButtonPanel_System.Size = new System.Drawing.Size(1163, 83);
+            this.windowsUIButtonPanel_System.TabIndex = 13;
+            this.windowsUIButtonPanel_System.Text = "windowsUIButtonPanel2";
+            this.windowsUIButtonPanel_System.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel_System.ButtonChecked += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel_System_ButtonChecked);
             // 
             // XtraUserControl_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.windowsUIButtonPanel2);
-            this.Controls.Add(this.navigationFrame_Level2);
+            this.Controls.Add(this.navigationFrame_Status);
+            this.Controls.Add(this.windowsUIButtonPanel_System);
             this.Name = "XtraUserControl_System";
-            this.Size = new System.Drawing.Size(1307, 783);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Level2)).EndInit();
-            this.navigationFrame_Level2.ResumeLayout(false);
-            this.navigationPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox8)).EndInit();
-            this.navigationPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl2.Properties)).EndInit();
-            this.navigationPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit5.Properties)).EndInit();
+            this.Size = new System.Drawing.Size(1163, 700);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_Status)).EndInit();
+            this.navigationFrame_Status.ResumeLayout(false);
+            this.navigationPage_System_2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram3D1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pie3DSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
+            this.navigationPage_System_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            this.navigationPage_System_3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_Level2;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage4;
-        private DevExpress.XtraEditors.SvgImageBox svgImageBox8;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage3;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl5;
-        private DevExpress.XtraEditors.SearchControl searchControl2;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage5;
-        private DevExpress.XtraEditors.TimeEdit timeEdit5;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel2;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_Status;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_System_2;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_System_1;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_System_3;
+        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraCharts.ChartControl chartControl2;
+        private DevExpress.XtraCharts.ChartControl chartControl3;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_System;
     }
 }

@@ -1,7 +1,6 @@
-﻿
-namespace DevExpressDemo1
+﻿namespace DevExpressDemo1
 {
-    partial class Control_ImageListBoxControl
+    partial class DataAndAnalytics_RealTimeSource
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +28,26 @@ namespace DevExpressDemo1
         /// </summary>
         private void InitializeComponent()
         {
+            this.realTimeSource1 = new DevExpress.Data.RealTimeSource();
             this.SuspendLayout();
             // 
-            // Control_ImageListBoxControl
+            // realTimeSource1
+            // 
+            this.realTimeSource1.DisplayableProperties = null;
+            // 
+            // DataAndAnalytics_RealTimeSource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 618);
-            this.Name = "Control_ImageListBoxControl";
-            this.Text = "Control_ImageListBoxControl";
+            this.ClientSize = new System.Drawing.Size(1117, 606);
+            this.Name = "DataAndAnalytics_RealTimeSource";
+            this.Text = "DataAndAnalytics_RealTimeSource";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private DevExpress.Data.RealTimeSource realTimeSource1;
     }
 }
