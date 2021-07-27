@@ -35,7 +35,7 @@ namespace DevExpressDemo1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 732);
+            this.ClientSize = new System.Drawing.Size(984, 618);
             this.Name = "Control_ImageListBoxControl";
             this.Text = "Control_ImageListBoxControl";
             this.ResumeLayout(false);
