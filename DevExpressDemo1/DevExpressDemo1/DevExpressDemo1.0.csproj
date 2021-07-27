@@ -150,6 +150,12 @@
     <Compile Include="Control_SearchControl.Designer.cs">
       <DependentUpon>Control_SearchControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control_SearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control_SearchPanel.Designer.cs">
+      <DependentUpon>Control_SearchPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control_TimeEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,12 @@
     </Compile>
     <Compile Include="DataAndAnalytics_ChartContrl.Designer.cs">
       <DependentUpon>DataAndAnalytics_ChartContrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAndAnalytics_RealTimeSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAndAnalytics_RealTimeSource.Designer.cs">
+      <DependentUpon>DataAndAnalytics_RealTimeSource.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_FluentDesign.cs">
       <SubType>Form</SubType>
@@ -197,6 +209,12 @@
     </Compile>
     <Compile Include="NavigationAndLayout_layoutControl.Designer.cs">
       <DependentUpon>NavigationAndLayout_layoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationAndLayout_SidePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationAndLayout_SidePanel.Designer.cs">
+      <DependentUpon>NavigationAndLayout_SidePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="NavigationAndLayout_tileBar.cs">
       <SubType>Form</SubType>
@@ -284,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataAndAnalytics_ChartContrl.resx">
       <DependentUpon>DataAndAnalytics_ChartContrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAndAnalytics_RealTimeSource.resx">
+      <DependentUpon>DataAndAnalytics_RealTimeSource.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_FluentDesign.resx">
       <DependentUpon>Form_FluentDesign.cs</DependentUpon>
