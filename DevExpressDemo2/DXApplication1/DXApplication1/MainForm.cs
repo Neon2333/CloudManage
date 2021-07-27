@@ -16,7 +16,7 @@ namespace DXApplication1
         public MainForm()
         {
             InitializeComponent();
-            this.ClientSize = new System.Drawing.Size(1366, 736);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             disableTitle();
             initSidePanel();
             initTilebar_mainMenu();
