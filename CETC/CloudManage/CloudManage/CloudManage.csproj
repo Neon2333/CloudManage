@@ -69,36 +69,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XtraUserControl tileBarSub.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="XtraUserControl tileBarSub.Designer.cs">
-      <DependentUpon>XtraUserControl tileBarSub.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XtraUserControl_Status.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="XtraUserControl_Status.Designer.cs">
-      <DependentUpon>XtraUserControl_Status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XtraUserControl_System.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="XtraUserControl_System.Designer.cs">
-      <DependentUpon>XtraUserControl_System.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XtraUserControl_tileBar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="XtraUserControl_tileBar.Designer.cs">
-      <DependentUpon>XtraUserControl_tileBar.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,18 +83,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="test.resx">
-      <DependentUpon>test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraUserControl_Status.resx">
-      <DependentUpon>XtraUserControl_Status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraUserControl_System.resx">
-      <DependentUpon>XtraUserControl_System.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraUserControl_tileBar.resx">
-      <DependentUpon>XtraUserControl_tileBar.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
