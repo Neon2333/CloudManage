@@ -42,9 +42,16 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement17 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement21 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement22 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement16 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement19 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement20 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar_mainMenu = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_mainMenu = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem_statusMonitoring = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -90,6 +97,19 @@
             this.pictureEdit_CETC = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl_title = new DevExpress.XtraEditors.LabelControl();
             this.timer_datetime = new System.Windows.Forms.Timer(this.components);
+            this.tileBarDropDownContainer_deepLearning = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
+            this.tileBar_deepLearning = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup_deepLearning = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem_dataPreparation = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_modelTraining = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_modelTesting = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_modelUpdate = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarDropDownContainer_deviceManagement = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
+            this.tileBar_deviceManagement = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup2 = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem_deviceAddition = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_deviceDeletion = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_deviceTesting = new DevExpress.XtraBars.Navigation.TileBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_statusMonitoring)).BeginInit();
             this.tileBarDropDownContainer_statusMonitoring.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_dataAnalysis)).BeginInit();
@@ -106,6 +126,10 @@
             this.navigationPage_systemConfig.SuspendLayout();
             this.sidePanel_title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_CETC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_deepLearning)).BeginInit();
+            this.tileBarDropDownContainer_deepLearning.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_deviceManagement)).BeginInit();
+            this.tileBarDropDownContainer_deviceManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // tileBar_mainMenu
@@ -164,7 +188,7 @@
             this.tileBarDropDownContainer_statusMonitoring.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tileBarDropDownContainer_statusMonitoring.Appearance.Options.UseBackColor = true;
             this.tileBarDropDownContainer_statusMonitoring.Controls.Add(this.tileBar_statusMonitoring);
-            this.tileBarDropDownContainer_statusMonitoring.Location = new System.Drawing.Point(0, 209);
+            this.tileBarDropDownContainer_statusMonitoring.Location = new System.Drawing.Point(0, 150);
             this.tileBarDropDownContainer_statusMonitoring.Name = "tileBarDropDownContainer_statusMonitoring";
             this.tileBarDropDownContainer_statusMonitoring.Size = new System.Drawing.Size(1366, 100);
             this.tileBarDropDownContainer_statusMonitoring.TabIndex = 11;
@@ -209,7 +233,7 @@
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_statusMonitoring_state.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_statusMonitoring_state.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_statusMonitoring_state.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -242,7 +266,7 @@
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileBarItem_statusMonitoring_statistics.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
@@ -277,7 +301,7 @@
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_statusMonitoring_historyQuery.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -325,7 +349,7 @@
             this.tileBarDropDownContainer_dataAnalysis.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tileBarDropDownContainer_dataAnalysis.Appearance.Options.UseBackColor = true;
             this.tileBarDropDownContainer_dataAnalysis.Controls.Add(this.tileBar_dataAnalysis);
-            this.tileBarDropDownContainer_dataAnalysis.Location = new System.Drawing.Point(0, 347);
+            this.tileBarDropDownContainer_dataAnalysis.Location = new System.Drawing.Point(0, 250);
             this.tileBarDropDownContainer_dataAnalysis.Name = "tileBarDropDownContainer_dataAnalysis";
             this.tileBarDropDownContainer_dataAnalysis.Size = new System.Drawing.Size(1366, 100);
             this.tileBarDropDownContainer_dataAnalysis.TabIndex = 12;
@@ -370,7 +394,7 @@
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -403,7 +427,7 @@
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileBarItem_dataAnalysis_verticalAnalysis.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
@@ -438,7 +462,7 @@
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_dataAnalysis_paraOptimization.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -484,7 +508,7 @@
             this.tileBarDropDownContainer_twinDetection.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.tileBarDropDownContainer_twinDetection.Appearance.Options.UseBackColor = true;
             this.tileBarDropDownContainer_twinDetection.Controls.Add(this.tileBar_twinDetection);
-            this.tileBarDropDownContainer_twinDetection.Location = new System.Drawing.Point(0, 488);
+            this.tileBarDropDownContainer_twinDetection.Location = new System.Drawing.Point(0, 350);
             this.tileBarDropDownContainer_twinDetection.Name = "tileBarDropDownContainer_twinDetection";
             this.tileBarDropDownContainer_twinDetection.Size = new System.Drawing.Size(1366, 100);
             this.tileBarDropDownContainer_twinDetection.TabIndex = 13;
@@ -529,7 +553,7 @@
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_twinDetection_paraSyn.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -562,7 +586,7 @@
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileBarItem_statusWatch_intelligentReasoning.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
@@ -597,7 +621,7 @@
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Selected.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem_twinDetection_paraUpdate.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -622,16 +646,19 @@
             this.tileBarItem_deepLearning.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
             this.tileBarItem_deepLearning.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_deepLearning.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_deepLearning.DropDownControl = this.tileBarDropDownContainer_deepLearning;
+            this.tileBarItem_deepLearning.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
             this.tileBarItem_deepLearning.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
-            tileItemElement13.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement13.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement13.Text = "深度学习";
-            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem_deepLearning.Elements.Add(tileItemElement13);
+            tileItemElement17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image16")));
+            tileItemElement17.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement17.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement17.Text = "深度学习";
+            tileItemElement17.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_deepLearning.Elements.Add(tileItemElement17);
             this.tileBarItem_deepLearning.Id = 4;
             this.tileBarItem_deepLearning.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_deepLearning.Name = "tileBarItem_deepLearning";
+            this.tileBarItem_deepLearning.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             this.tileBarItem_deepLearning.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_deepLearning_ItemClick);
             // 
             // tileBarItem_deviceManagement
@@ -640,34 +667,38 @@
             this.tileBarItem_deviceManagement.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 14F, System.Drawing.FontStyle.Bold);
             this.tileBarItem_deviceManagement.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_deviceManagement.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_deviceManagement.DropDownControl = this.tileBarDropDownContainer_deviceManagement;
+            this.tileBarItem_deviceManagement.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
             this.tileBarItem_deviceManagement.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement14.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
-            tileItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement14.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement14.Text = "设备管理";
-            tileItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem_deviceManagement.Elements.Add(tileItemElement14);
+            tileItemElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image20")));
+            tileItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement21.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement21.Text = "设备管理";
+            tileItemElement21.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_deviceManagement.Elements.Add(tileItemElement21);
             this.tileBarItem_deviceManagement.Id = 5;
             this.tileBarItem_deviceManagement.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_deviceManagement.Name = "tileBarItem_deviceManagement";
+            this.tileBarItem_deviceManagement.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             this.tileBarItem_deviceManagement.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_deviceManagement_ItemClick);
             // 
             // tileBarItem_systemConfig
             // 
             this.tileBarItem_systemConfig.AppearanceItem.Normal.BackColor = System.Drawing.Color.DimGray;
-            this.tileBarItem_systemConfig.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 14F);
+            this.tileBarItem_systemConfig.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tileBarItem_systemConfig.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_systemConfig.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_systemConfig.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
-            tileItemElement15.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement15.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement15.Text = "系统设置";
-            tileItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem_systemConfig.Elements.Add(tileItemElement15);
+            tileItemElement22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image21")));
+            tileItemElement22.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement22.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement22.Text = "系统设置";
+            tileItemElement22.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_systemConfig.Elements.Add(tileItemElement22);
             this.tileBarItem_systemConfig.Id = 6;
             this.tileBarItem_systemConfig.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_systemConfig.Name = "tileBarItem_systemConfig";
+            this.tileBarItem_systemConfig.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
             this.tileBarItem_systemConfig.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_systemConfig_ItemClick);
             // 
             // tileBarItem10
@@ -683,7 +714,7 @@
             this.navigationFrame_mainMenu.Controls.Add(this.navigationPage_deepLearning);
             this.navigationFrame_mainMenu.Controls.Add(this.navigationPage_deviceManagement);
             this.navigationFrame_mainMenu.Controls.Add(this.navigationPage_systemConfig);
-            this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 150);
+            this.navigationFrame_mainMenu.Location = new System.Drawing.Point(10, 681);
             this.navigationFrame_mainMenu.Name = "navigationFrame_mainMenu";
             this.navigationFrame_mainMenu.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage_statusMonitoring,
@@ -719,6 +750,7 @@
             // 
             // navigationPage_dataAnalysis
             // 
+            this.navigationPage_dataAnalysis.Caption = "navigationPage_dataAnalysis";
             this.navigationPage_dataAnalysis.Controls.Add(this.labelControl2);
             this.navigationPage_dataAnalysis.Name = "navigationPage_dataAnalysis";
             this.navigationPage_dataAnalysis.Size = new System.Drawing.Size(1366, 618);
@@ -879,6 +911,314 @@
             this.timer_datetime.Enabled = true;
             this.timer_datetime.Tick += new System.EventHandler(this.timer_datetime_Tick);
             // 
+            // tileBarDropDownContainer_deepLearning
+            // 
+            this.tileBarDropDownContainer_deepLearning.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tileBarDropDownContainer_deepLearning.Appearance.Options.UseBackColor = true;
+            this.tileBarDropDownContainer_deepLearning.Controls.Add(this.tileBar_deepLearning);
+            this.tileBarDropDownContainer_deepLearning.Location = new System.Drawing.Point(0, 450);
+            this.tileBarDropDownContainer_deepLearning.Name = "tileBarDropDownContainer_deepLearning";
+            this.tileBarDropDownContainer_deepLearning.Size = new System.Drawing.Size(1366, 100);
+            this.tileBarDropDownContainer_deepLearning.TabIndex = 16;
+            // 
+            // tileBar_deepLearning
+            // 
+            this.tileBar_deepLearning.AllowSelectedItem = true;
+            this.tileBar_deepLearning.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBar_deepLearning.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar_deepLearning.Groups.Add(this.tileBarGroup_deepLearning);
+            this.tileBar_deepLearning.IndentBetweenItems = 15;
+            this.tileBar_deepLearning.ItemSize = 50;
+            this.tileBar_deepLearning.Location = new System.Drawing.Point(10, 3);
+            this.tileBar_deepLearning.MaxId = 8;
+            this.tileBar_deepLearning.Name = "tileBar_deepLearning";
+            this.tileBar_deepLearning.Padding = new System.Windows.Forms.Padding(40, 1, 0, 0);
+            this.tileBar_deepLearning.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tileBar_deepLearning.Size = new System.Drawing.Size(1366, 100);
+            this.tileBar_deepLearning.TabIndex = 0;
+            this.tileBar_deepLearning.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.tileBar_deepLearning.WideTileWidth = 160;
+            this.tileBar_deepLearning.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_deepLearning_ItemClick);
+            // 
+            // tileBarGroup_deepLearning
+            // 
+            this.tileBarGroup_deepLearning.Items.Add(this.tileBarItem_dataPreparation);
+            this.tileBarGroup_deepLearning.Items.Add(this.tileBarItem_modelTraining);
+            this.tileBarGroup_deepLearning.Items.Add(this.tileBarItem_modelTesting);
+            this.tileBarGroup_deepLearning.Items.Add(this.tileBarItem_modelUpdate);
+            this.tileBarGroup_deepLearning.Name = "tileBarGroup_deepLearning";
+            // 
+            // tileBarItem_dataPreparation
+            // 
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_dataPreparation.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_dataPreparation.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image12")));
+            tileItemElement13.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement13.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement13.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement13.Text = "数据准备";
+            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_dataPreparation.Elements.Add(tileItemElement13);
+            this.tileBarItem_dataPreparation.Id = 0;
+            this.tileBarItem_dataPreparation.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_dataPreparation.Name = "tileBarItem_dataPreparation";
+            this.tileBarItem_dataPreparation.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_dataPreparation_ItemClick);
+            // 
+            // tileBarItem_modelTraining
+            // 
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.Options.UseFont = true;
+            this.tileBarItem_modelTraining.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_modelTraining.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement14.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
+            tileItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement14.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement14.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement14.Text = "模型训练";
+            tileItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_modelTraining.Elements.Add(tileItemElement14);
+            this.tileBarItem_modelTraining.Id = 2;
+            this.tileBarItem_modelTraining.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_modelTraining.Name = "tileBarItem_modelTraining";
+            this.tileBarItem_modelTraining.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_modelTraining_ItemClick);
+            // 
+            // tileBarItem_modelTesting
+            // 
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_modelTesting.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_modelTesting.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image14")));
+            tileItemElement15.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement15.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement15.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement15.Text = "模型测试";
+            tileItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_modelTesting.Elements.Add(tileItemElement15);
+            this.tileBarItem_modelTesting.Id = 5;
+            this.tileBarItem_modelTesting.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_modelTesting.Name = "tileBarItem_modelTesting";
+            this.tileBarItem_modelTesting.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_modelTesting_ItemClick);
+            // 
+            // tileBarItem_modelUpdate
+            // 
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_modelUpdate.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_modelUpdate.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement16.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image15")));
+            tileItemElement16.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement16.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement16.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement16.Text = "模型更新";
+            tileItemElement16.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_modelUpdate.Elements.Add(tileItemElement16);
+            this.tileBarItem_modelUpdate.Id = 7;
+            this.tileBarItem_modelUpdate.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_modelUpdate.Name = "tileBarItem_modelUpdate";
+            this.tileBarItem_modelUpdate.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_modelUpdate_ItemClick);
+            // 
+            // tileBarDropDownContainer_deviceManagement
+            // 
+            this.tileBarDropDownContainer_deviceManagement.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.tileBarDropDownContainer_deviceManagement.Appearance.Options.UseBackColor = true;
+            this.tileBarDropDownContainer_deviceManagement.Controls.Add(this.tileBar_deviceManagement);
+            this.tileBarDropDownContainer_deviceManagement.Location = new System.Drawing.Point(0, 550);
+            this.tileBarDropDownContainer_deviceManagement.Name = "tileBarDropDownContainer_deviceManagement";
+            this.tileBarDropDownContainer_deviceManagement.Size = new System.Drawing.Size(1366, 100);
+            this.tileBarDropDownContainer_deviceManagement.TabIndex = 17;
+            // 
+            // tileBar_deviceManagement
+            // 
+            this.tileBar_deviceManagement.AllowSelectedItem = true;
+            this.tileBar_deviceManagement.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
+            this.tileBar_deviceManagement.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar_deviceManagement.Groups.Add(this.tileBarGroup2);
+            this.tileBar_deviceManagement.IndentBetweenItems = 15;
+            this.tileBar_deviceManagement.ItemSize = 50;
+            this.tileBar_deviceManagement.Location = new System.Drawing.Point(10, 3);
+            this.tileBar_deviceManagement.MaxId = 6;
+            this.tileBar_deviceManagement.Name = "tileBar_deviceManagement";
+            this.tileBar_deviceManagement.Padding = new System.Windows.Forms.Padding(40, 1, 0, 0);
+            this.tileBar_deviceManagement.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tileBar_deviceManagement.Size = new System.Drawing.Size(1366, 100);
+            this.tileBar_deviceManagement.TabIndex = 0;
+            this.tileBar_deviceManagement.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.tileBar_deviceManagement.WideTileWidth = 160;
+            this.tileBar_deviceManagement.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_deviceManagement_ItemClick);
+            // 
+            // tileBarGroup2
+            // 
+            this.tileBarGroup2.Items.Add(this.tileBarItem_deviceAddition);
+            this.tileBarGroup2.Items.Add(this.tileBarItem_deviceDeletion);
+            this.tileBarGroup2.Items.Add(this.tileBarItem_deviceTesting);
+            this.tileBarGroup2.Name = "tileBarGroup2";
+            // 
+            // tileBarItem_deviceAddition
+            // 
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_deviceAddition.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_deviceAddition.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image17")));
+            tileItemElement18.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement18.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement18.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement18.Text = "设备添加";
+            tileItemElement18.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_deviceAddition.Elements.Add(tileItemElement18);
+            this.tileBarItem_deviceAddition.Id = 0;
+            this.tileBarItem_deviceAddition.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_deviceAddition.Name = "tileBarItem_deviceAddition";
+            this.tileBarItem_deviceAddition.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_deviceAddition_ItemClick);
+            // 
+            // tileBarItem_deviceDeletion
+            // 
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.Options.UseFont = true;
+            this.tileBarItem_deviceDeletion.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_deviceDeletion.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image18")));
+            tileItemElement19.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement19.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement19.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement19.Text = "设备删除";
+            tileItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_deviceDeletion.Elements.Add(tileItemElement19);
+            this.tileBarItem_deviceDeletion.Id = 2;
+            this.tileBarItem_deviceDeletion.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_deviceDeletion.Name = "tileBarItem_deviceDeletion";
+            this.tileBarItem_deviceDeletion.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_deviceDeletion_ItemClick);
+            // 
+            // tileBarItem_deviceTesting
+            // 
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Hovered.Options.UseForeColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.ForeColor = System.Drawing.Color.Black;
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(149)))), ((int)(((byte)(201)))));
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem_deviceTesting.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem_deviceTesting.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image19")));
+            tileItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement20.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement20.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement20.Text = "设备测试";
+            tileItemElement20.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_deviceTesting.Elements.Add(tileItemElement20);
+            this.tileBarItem_deviceTesting.Id = 5;
+            this.tileBarItem_deviceTesting.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_deviceTesting.Name = "tileBarItem_deviceTesting";
+            this.tileBarItem_deviceTesting.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_deviceTesting_ItemClick);
+            // 
             // MainForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -888,6 +1228,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 768);
+            this.Controls.Add(this.tileBarDropDownContainer_deviceManagement);
+            this.Controls.Add(this.tileBarDropDownContainer_deepLearning);
             this.Controls.Add(this.tileBar_mainMenu);
             this.Controls.Add(this.navigationFrame_mainMenu);
             this.Controls.Add(this.sidePanel_title);
@@ -917,6 +1259,10 @@
             this.navigationPage_systemConfig.ResumeLayout(false);
             this.sidePanel_title.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_CETC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_deepLearning)).EndInit();
+            this.tileBarDropDownContainer_deepLearning.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_deviceManagement)).EndInit();
+            this.tileBarDropDownContainer_deviceManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -967,6 +1313,19 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_systemConfig;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_systemConfig;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer_deepLearning;
+        private DevExpress.XtraBars.Navigation.TileBar tileBar_deepLearning;
+        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup_deepLearning;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_dataPreparation;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_modelTraining;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_modelTesting;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_modelUpdate;
+        private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer_deviceManagement;
+        private DevExpress.XtraBars.Navigation.TileBar tileBar_deviceManagement;
+        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup2;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceAddition;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceDeletion;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceTesting;
     }
 }
 
