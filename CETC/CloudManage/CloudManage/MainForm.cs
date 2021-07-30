@@ -48,7 +48,7 @@ namespace CloudManage
 
         private void tileBarItem_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.tileBar_mainMenu.ShowDropDown(this.tileBarItem_statusMonitoring);
+            this.tileBar_mainMenu.ShowDropDown(this.tileBarItem_statusMonitor);
         }
 
         private void tileBarItem_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
