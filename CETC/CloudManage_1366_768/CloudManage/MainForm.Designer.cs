@@ -146,6 +146,7 @@
             this.tileBar_mainMenu.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
             this.tileBar_mainMenu.SelectionBorderWidth = 2;
             this.tileBar_mainMenu.SelectionColorMode = DevExpress.XtraBars.Navigation.SelectionColorMode.UseItemBackColor;
+            this.tileBar_mainMenu.ShowGroupText = false;
             this.tileBar_mainMenu.Size = new System.Drawing.Size(1366, 90);
             this.tileBar_mainMenu.TabIndex = 10;
             this.tileBar_mainMenu.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1167,7 +1168,7 @@
             this.sidePanel_title.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel_title.Location = new System.Drawing.Point(0, 0);
             this.sidePanel_title.Name = "sidePanel_title";
-            this.sidePanel_title.Size = new System.Drawing.Size(1364, 60);
+            this.sidePanel_title.Size = new System.Drawing.Size(1366, 60);
             this.sidePanel_title.TabIndex = 15;
             this.sidePanel_title.Text = "sidePanel_title";
             // 
@@ -1228,7 +1229,7 @@
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 768);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.tileBarDropDownContainer_deviceManagement);
             this.Controls.Add(this.tileBarDropDownContainer_deepLearning);
             this.Controls.Add(this.tileBar_mainMenu);
