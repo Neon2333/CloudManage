@@ -28,97 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(test));
-            this.tileBar4 = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup6 = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tileBar4
+            // sideTileBarControl1
             // 
-            this.tileBar4.AllowSelectedItem = true;
-            this.tileBar4.BackColor = System.Drawing.Color.White;
-            this.tileBar4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tileBar4.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar4.Groups.Add(this.tileBarGroup6);
-            this.tileBar4.ItemSize = 95;
-            this.tileBar4.Location = new System.Drawing.Point(0, 0);
-            this.tileBar4.MaxId = 9;
-            this.tileBar4.Name = "tileBar4";
-            this.tileBar4.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileBar4.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
-            this.tileBar4.Size = new System.Drawing.Size(226, 586);
-            this.tileBar4.TabIndex = 11;
-            this.tileBar4.Text = "tileBar4";
-            this.tileBar4.WideTileWidth = 190;
+            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControl1.Name = "sideTileBarControl1";
+            this.sideTileBarControl1.Size = new System.Drawing.Size(250, 1080);
+            this.sideTileBarControl1.TabIndex = 0;
             // 
-            // tileBarGroup6
+            // button1
             // 
-            this.tileBarGroup6.Items.Add(this.tileBarItem1);
-            this.tileBarGroup6.Name = "tileBarGroup6";
-            this.tileBarGroup6.Text = "产线";
+            this.button1.Location = new System.Drawing.Point(526, 123);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "添加按钮";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tileBarItem1
+            // button2
             // 
-            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
-            this.tileBarItem1.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem1.AppearanceItem.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
-            this.tileBarItem1.AppearanceItem.Selected.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBarItem1.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
-            this.tileBarItem1.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseFont = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseForeColor = true;
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement1.Text = "51";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileItemElement2.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            tileItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
-            tileItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileItemElement2.Appearance.Normal.Options.UseForeColor = true;
-            tileItemElement2.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 27.75F);
-            tileItemElement2.Appearance.Selected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            tileItemElement2.Appearance.Selected.Options.UseFont = true;
-            tileItemElement2.Appearance.Selected.Options.UseForeColor = true;
-            tileItemElement2.Text = "总览";
-            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            tileItemElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement3.Text = "";
-            this.tileBarItem1.Elements.Add(tileItemElement1);
-            this.tileBarItem1.Elements.Add(tileItemElement2);
-            this.tileBarItem1.Elements.Add(tileItemElement3);
-            this.tileBarItem1.Id = 1;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
+            this.button2.Location = new System.Drawing.Point(526, 199);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "删除按钮";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(382, 199);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(526, 266);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "设置Num值";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(256, 266);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(382, 266);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 6;
             // 
             // test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 586);
-            this.Controls.Add(this.tileBar4);
+            this.ClientSize = new System.Drawing.Size(1918, 1048);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.sideTileBarControl1);
             this.Name = "test";
             this.Text = "test";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Navigation.TileBar tileBar4;
-        private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup6;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
+        private CommonControl.SideTileBarControl sideTileBarControl1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

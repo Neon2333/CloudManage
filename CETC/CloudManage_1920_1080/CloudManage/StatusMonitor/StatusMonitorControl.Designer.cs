@@ -54,16 +54,19 @@
             // 
             // navigationPage_workState
             // 
+            this.navigationPage_workState.Caption = "navigationPage_workState";
             this.navigationPage_workState.Name = "navigationPage_workState";
             this.navigationPage_workState.Size = new System.Drawing.Size(1366, 618);
             // 
             // navigationPage_realTimeStatistics
             // 
+            this.navigationPage_realTimeStatistics.Caption = "navigationPage_realTimeStatistics";
             this.navigationPage_realTimeStatistics.Name = "navigationPage_realTimeStatistics";
             this.navigationPage_realTimeStatistics.Size = new System.Drawing.Size(1366, 618);
             // 
             // navigationPage_historyQuery
             // 
+            this.navigationPage_historyQuery.Caption = "navigationPage_historyQuery";
             this.navigationPage_historyQuery.Name = "navigationPage_historyQuery";
             this.navigationPage_historyQuery.Size = new System.Drawing.Size(1366, 618);
             // 
@@ -73,7 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.navigationFrame1);
             this.Name = "StatusMonitorControl";
-            this.Size = new System.Drawing.Size(1366, 618);
+            this.Size = new System.Drawing.Size(1920, 1080);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
             this.navigationFrame1.ResumeLayout(false);
             this.ResumeLayout(false);

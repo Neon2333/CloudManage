@@ -121,4 +121,16 @@
   <data name="CETC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CETC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="aboveaverage_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aboveaverage_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="phone_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\phone_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hostMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hostMachine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="auxiliary Machine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\auxiliary Machine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -216,6 +216,12 @@
     <Compile Include="NavigationAndLayout_SidePanel.Designer.cs">
       <DependentUpon>NavigationAndLayout_SidePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="NavigationAndLayout_splitContainerControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigationAndLayout_splitContainerControl.Designer.cs">
+      <DependentUpon>NavigationAndLayout_splitContainerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="NavigationAndLayout_tileBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NavigationAndLayout_layoutControl.resx">
       <DependentUpon>NavigationAndLayout_layoutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigationAndLayout_splitContainerControl.resx">
+      <DependentUpon>NavigationAndLayout_splitContainerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NavigationAndLayout_tileBar.resx">
       <DependentUpon>NavigationAndLayout_tileBar.cs</DependentUpon>
