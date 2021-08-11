@@ -43,7 +43,7 @@ namespace CloudManage
         }
 
         /**
-        **********************************************点击磁贴，显示子菜单***********************************************************
+        **********************************************点击磁贴，显示二级子菜单按钮***********************************************************
         */
 
         private void tileBarItem_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
@@ -78,7 +78,7 @@ namespace CloudManage
 
 
         /**
-        **********************************************点击子菜单按钮后，子菜单隐藏***********************************************************
+        **********************************************点击二级子菜单按钮后，子菜单按钮隐藏***********************************************************
         */
 
         private void tileBar_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
@@ -115,27 +115,30 @@ namespace CloudManage
         }
 
         /**
-        *******************************************************点击子菜单换页***************************************************************
+        *******************************************************二级子菜单显示***************************************************************
         */
 
-        private void tileBarItem_statusMonitoring_state_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = itemIndex[0][0];
+            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+
         }
 
-        private void tileBarItem_statusMonitoring_statistics_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = itemIndex[0][1];
-
+            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = itemIndex[0][2];
-
+            //this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
         }
 
 

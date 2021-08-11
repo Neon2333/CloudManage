@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace CloudManage.CommonControl
+namespace CloudManage
 {
-    public partial class BottomUIButtonControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class RealTimeDataControl : DevExpress.XtraEditors.XtraUserControl
     {
-        public BottomUIButtonControl()
+        public RealTimeDataControl()
         {
             InitializeComponent();
         }

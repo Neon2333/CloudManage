@@ -31,6 +31,7 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SideTileBarControl));
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
@@ -97,8 +98,9 @@
             tileItemElement2.Appearance.Selected.Options.UseForeColor = true;
             tileItemElement2.Text = "总览";
             tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            tileItemElement3.ImageOptions.Image = global::CloudManage.Properties.Resources.aboveaverage_32x32;
             tileItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            tileItemElement3.ImageOptions.SvgImageSize = new System.Drawing.Size(120, 60);
             tileItemElement3.Text = "";
             this.tileBarItem1.Elements.Add(tileItemElement1);
             this.tileBarItem1.Elements.Add(tileItemElement2);
@@ -141,7 +143,7 @@
             tileItemElement5.Appearance.Selected.Options.UseForeColor = true;
             tileItemElement5.Text = "1车";
             tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            tileItemElement6.ImageOptions.Image = global::CloudManage.Properties.Resources.phone_32x32;
+            tileItemElement6.ImageOptions.Image = global::CloudManage.Properties.Resources.hostMachine_120_60;
             tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             tileItemElement6.Text = "";
             this.tileBarItem2.Elements.Add(tileItemElement4);

@@ -28,66 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.navigationFrame_statusMonitor = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_workState = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPage_realTimeStatistics = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.navigationPage_realTimeData = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_historyQuery = new DevExpress.XtraBars.Navigation.NavigationPage();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            this.navigationFrame1.SuspendLayout();
+            this.workStateControl1 = new CloudManage.StatusMonitor.WorkStateControl();
+            this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
+            this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQueryControl();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).BeginInit();
+            this.navigationFrame_statusMonitor.SuspendLayout();
+            this.navigationPage_workState.SuspendLayout();
+            this.navigationPage_realTimeData.SuspendLayout();
+            this.navigationPage_historyQuery.SuspendLayout();
             this.SuspendLayout();
             // 
-            // navigationFrame1
+            // navigationFrame_statusMonitor
             // 
-            this.navigationFrame1.Controls.Add(this.navigationPage_workState);
-            this.navigationFrame1.Controls.Add(this.navigationPage_realTimeStatistics);
-            this.navigationFrame1.Controls.Add(this.navigationPage_historyQuery);
-            this.navigationFrame1.Location = new System.Drawing.Point(51, 73);
-            this.navigationFrame1.Name = "navigationFrame1";
-            this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationFrame_statusMonitor.Controls.Add(this.navigationPage_workState);
+            this.navigationFrame_statusMonitor.Controls.Add(this.navigationPage_realTimeData);
+            this.navigationFrame_statusMonitor.Controls.Add(this.navigationPage_historyQuery);
+            this.navigationFrame_statusMonitor.Location = new System.Drawing.Point(0, 0);
+            this.navigationFrame_statusMonitor.Name = "navigationFrame_statusMonitor";
+            this.navigationFrame_statusMonitor.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage_workState,
-            this.navigationPage_realTimeStatistics,
+            this.navigationPage_realTimeData,
             this.navigationPage_historyQuery});
-            this.navigationFrame1.SelectedPage = this.navigationPage_realTimeStatistics;
-            this.navigationFrame1.Size = new System.Drawing.Size(1366, 618);
-            this.navigationFrame1.TabIndex = 0;
-            this.navigationFrame1.Text = "navigationFrame1";
+            this.navigationFrame_statusMonitor.SelectedPage = this.navigationPage_workState;
+            this.navigationFrame_statusMonitor.Size = new System.Drawing.Size(1920, 880);
+            this.navigationFrame_statusMonitor.TabIndex = 0;
             // 
             // navigationPage_workState
             // 
             this.navigationPage_workState.Caption = "navigationPage_workState";
+            this.navigationPage_workState.Controls.Add(this.workStateControl1);
             this.navigationPage_workState.Name = "navigationPage_workState";
-            this.navigationPage_workState.Size = new System.Drawing.Size(1366, 618);
+            this.navigationPage_workState.Size = new System.Drawing.Size(1920, 880);
             // 
-            // navigationPage_realTimeStatistics
+            // navigationPage_realTimeData
             // 
-            this.navigationPage_realTimeStatistics.Caption = "navigationPage_realTimeStatistics";
-            this.navigationPage_realTimeStatistics.Name = "navigationPage_realTimeStatistics";
-            this.navigationPage_realTimeStatistics.Size = new System.Drawing.Size(1366, 618);
+            this.navigationPage_realTimeData.Caption = "navigationPage_realTimeData";
+            this.navigationPage_realTimeData.Controls.Add(this.realTimeDataControl1);
+            this.navigationPage_realTimeData.Name = "navigationPage_realTimeData";
+            this.navigationPage_realTimeData.Size = new System.Drawing.Size(1920, 880);
             // 
             // navigationPage_historyQuery
             // 
             this.navigationPage_historyQuery.Caption = "navigationPage_historyQuery";
+            this.navigationPage_historyQuery.Controls.Add(this.historyQueryControl1);
             this.navigationPage_historyQuery.Name = "navigationPage_historyQuery";
-            this.navigationPage_historyQuery.Size = new System.Drawing.Size(1366, 618);
+            this.navigationPage_historyQuery.Size = new System.Drawing.Size(1920, 880);
+            // 
+            // workStateControl1
+            // 
+            this.workStateControl1.Location = new System.Drawing.Point(0, 0);
+            this.workStateControl1.Name = "workStateControl1";
+            this.workStateControl1.Size = new System.Drawing.Size(1920, 880);
+            this.workStateControl1.TabIndex = 0;
+            // 
+            // realTimeDataControl1
+            // 
+            this.realTimeDataControl1.Location = new System.Drawing.Point(0, 0);
+            this.realTimeDataControl1.Name = "realTimeDataControl1";
+            this.realTimeDataControl1.Size = new System.Drawing.Size(1920, 880);
+            this.realTimeDataControl1.TabIndex = 0;
+            // 
+            // historyQueryControl1
+            // 
+            this.historyQueryControl1.Location = new System.Drawing.Point(0, 0);
+            this.historyQueryControl1.Name = "historyQueryControl1";
+            this.historyQueryControl1.Size = new System.Drawing.Size(1920, 880);
+            this.historyQueryControl1.TabIndex = 0;
             // 
             // StatusMonitorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.navigationFrame1);
+            this.Controls.Add(this.navigationFrame_statusMonitor);
             this.Name = "StatusMonitorControl";
-            this.Size = new System.Drawing.Size(1920, 1080);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            this.navigationFrame1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1920, 880);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).EndInit();
+            this.navigationFrame_statusMonitor.ResumeLayout(false);
+            this.navigationPage_workState.ResumeLayout(false);
+            this.navigationPage_realTimeData.ResumeLayout(false);
+            this.navigationPage_historyQuery.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_workState;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_realTimeStatistics;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_historyQuery;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_statusMonitor;
+        //private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_workState;
+        //private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_realTimeData;
+        //private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_historyQuery;
+        private WorkStateControl workStateControl1;
+        private RealTimeDataControl realTimeDataControl1;
+        private HistoryQueryControl historyQueryControl1;
     }
 }

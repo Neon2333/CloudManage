@@ -61,12 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonControl\BottomUIButtonControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CommonControl\BottomUIButtonControl.Designer.cs">
-      <DependentUpon>BottomUIButtonControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="CommonControl\SideTileBarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,17 +75,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusMonitor\RealTimeDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusMonitor\RealTimeDataControl.Designer.cs">
+      <DependentUpon>RealTimeDataControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatusMonitor\HistoryQueryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="StatusMonitor\HistoryQueryControl.Designer.cs">
       <DependentUpon>HistoryQueryControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StatusMonitor\RealTimeStatisticsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="StatusMonitor\RealTimeStatisticsControl.Designer.cs">
-      <DependentUpon>RealTimeStatisticsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="StatusMonitor\StatusMonitorControl.cs">
       <SubType>UserControl</SubType>
@@ -120,14 +119,15 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="StatusMonitor\HistoryQueryControl.resx">
+      <DependentUpon>HistoryQueryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusMonitor\RealTimeDataControl.resx">
+      <DependentUpon>RealTimeDataControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StatusMonitor\StatusMonitorControl.resx">
       <DependentUpon>StatusMonitorControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,16 +161,10 @@
     <Folder Include="TwinDetection\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\phone_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\aboveaverage_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hostMachine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\auxiliary Machine.png" />
+    <None Include="Resources\hostMachine_120_60.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
