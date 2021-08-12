@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // NavigationAndLayout_SidePanel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(924, 662);
+            this.Name = "NavigationAndLayout_SidePanel";
             this.Text = "NavigationAndLayout_SearchPanel";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

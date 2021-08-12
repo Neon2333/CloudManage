@@ -94,11 +94,11 @@ namespace CloudManage.CommonControl
                 tileItemElementNum.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
                 tileItemElementNum.Text = num;
                 tileItemElementNum.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-                tileItemElementText.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                tileItemElementText.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
                 tileItemElementText.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
                 tileItemElementText.Appearance.Normal.Options.UseFont = true;
                 tileItemElementText.Appearance.Normal.Options.UseForeColor = true;
-                tileItemElementText.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold);
+                tileItemElementText.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
                 tileItemElementText.Appearance.Selected.ForeColor = System.Drawing.Color.White;
                 tileItemElementText.Appearance.Selected.Options.UseFont = true;
                 tileItemElementText.Appearance.Selected.Options.UseForeColor = true;
