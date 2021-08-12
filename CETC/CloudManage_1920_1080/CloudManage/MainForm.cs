@@ -20,7 +20,7 @@ namespace CloudManage
         public MainForm()
         {
             InitializeComponent();
-            this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 210);
+            this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             _InitItemIndex();
         }
 

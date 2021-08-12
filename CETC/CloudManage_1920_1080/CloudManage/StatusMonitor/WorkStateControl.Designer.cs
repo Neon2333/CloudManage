@@ -34,6 +34,7 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
             this.SuspendLayout();
             // 
             // windowsUIButtonPanel_workState
@@ -67,10 +68,19 @@
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "状态监测";
             // 
+            // sideTileBarControl1
+            // 
+            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControl1.Name = "sideTileBarControl1";
+            this.sideTileBarControl1.showOverview = true;
+            this.sideTileBarControl1.Size = new System.Drawing.Size(250, 800);
+            this.sideTileBarControl1.TabIndex = 3;
+            // 
             // WorkStateControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.sideTileBarControl1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.windowsUIButtonPanel_workState);
             this.Name = "WorkStateControl";
@@ -84,5 +94,6 @@
 
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private CommonControl.SideTileBarControl sideTileBarControl1;
     }
 }

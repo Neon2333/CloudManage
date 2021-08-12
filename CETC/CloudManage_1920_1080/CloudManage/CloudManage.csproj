@@ -169,6 +169,45 @@
   <ItemGroup>
     <None Include="Resources\packagingMachineGroup_120x58.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marqueezoom_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stackedbar2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookup&amp;reference_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gaugestylelinearhorizontal_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gaugestylelinearvertical_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sparkline_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\publish_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\design_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextcomment_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previouscomment_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
