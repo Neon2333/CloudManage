@@ -83,6 +83,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap bottom10items_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("bottom10items_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CETC {
             get {
                 object obj = ResourceManager.GetObject("CETC", resourceCulture);
@@ -96,6 +106,16 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap design_32x32 {
             get {
                 object obj = ResourceManager.GetObject("design_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap exponential_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("exponential_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,6 +223,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap recurrence_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("recurrence_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap remove_32x32 {
             get {
                 object obj = ResourceManager.GetObject("remove_32x32", resourceCulture);
@@ -226,6 +256,16 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap stackedbar2_32x32 {
             get {
                 object obj = ResourceManager.GetObject("stackedbar2_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap technology_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("technology_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
