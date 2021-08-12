@@ -35,6 +35,7 @@
             this.workStateControl1 = new CloudManage.StatusMonitor.WorkStateControl();
             this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
             this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQueryControl();
+            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).BeginInit();
             this.navigationFrame_statusMonitor.SuspendLayout();
             this.navigationPage_workState.SuspendLayout();
@@ -60,6 +61,7 @@
             // navigationPage_workState
             // 
             this.navigationPage_workState.Caption = "navigationPage_workState";
+            this.navigationPage_workState.Controls.Add(this.sideTileBarControl1);
             this.navigationPage_workState.Controls.Add(this.workStateControl1);
             this.navigationPage_workState.Name = "navigationPage_workState";
             this.navigationPage_workState.Size = new System.Drawing.Size(1920, 880);
@@ -99,6 +101,14 @@
             this.historyQueryControl1.Size = new System.Drawing.Size(1920, 880);
             this.historyQueryControl1.TabIndex = 0;
             // 
+            // sideTileBarControl1
+            // 
+            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControl1.Name = "sideTileBarControl1";
+            this.sideTileBarControl1.showOverview = true;
+            this.sideTileBarControl1.Size = new System.Drawing.Size(250, 800);
+            this.sideTileBarControl1.TabIndex = 1;
+            // 
             // StatusMonitorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -124,5 +134,6 @@
         private WorkStateControl workStateControl1;
         private RealTimeDataControl realTimeDataControl1;
         private HistoryQueryControl historyQueryControl1;
+        private CommonControl.SideTileBarControl sideTileBarControl1;
     }
 }

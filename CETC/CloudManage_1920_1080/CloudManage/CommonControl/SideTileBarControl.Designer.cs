@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SideTileBarControl));
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement14 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement15 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement16 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement17 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar_sideTileBarControl = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_sideTileBarControl = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -43,9 +42,9 @@
             // 
             // tileBar_sideTileBarControl
             // 
+            this.tileBar_sideTileBarControl.AllowItemHover = false;
             this.tileBar_sideTileBarControl.AllowSelectedItem = true;
             this.tileBar_sideTileBarControl.BackColor = System.Drawing.Color.Transparent;
-            this.tileBar_sideTileBarControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.tileBar_sideTileBarControl.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.tileBar_sideTileBarControl.Groups.Add(this.tileBarGroup_sideTileBarControl);
             this.tileBar_sideTileBarControl.ItemSize = 95;
@@ -53,11 +52,12 @@
             this.tileBar_sideTileBarControl.MaxId = 20;
             this.tileBar_sideTileBarControl.Name = "tileBar_sideTileBarControl";
             this.tileBar_sideTileBarControl.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileBar_sideTileBarControl.Padding = new System.Windows.Forms.Padding(15, 10, 0, 0);
             this.tileBar_sideTileBarControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar;
+            this.tileBar_sideTileBarControl.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.tileBar_sideTileBarControl.ShowGroupText = false;
             this.tileBar_sideTileBarControl.Size = new System.Drawing.Size(250, 1080);
             this.tileBar_sideTileBarControl.TabIndex = 12;
-            this.tileBar_sideTileBarControl.Text = "tileBar4";
             this.tileBar_sideTileBarControl.WideTileWidth = 190;
             // 
             // tileBarGroup_sideTileBarControl
@@ -77,7 +77,7 @@
             this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem1.AppearanceItem.Normal.Options.UseForeColor = true;
             this.tileBarItem1.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
-            this.tileBarItem1.AppearanceItem.Selected.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.tileBarItem1.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem1.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 24F);
             this.tileBarItem1.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem1.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -85,26 +85,26 @@
             this.tileBarItem1.AppearanceItem.Selected.Options.UseFont = true;
             this.tileBarItem1.AppearanceItem.Selected.Options.UseForeColor = true;
             this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement1.Text = "51";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileItemElement2.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            tileItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
-            tileItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileItemElement2.Appearance.Normal.Options.UseForeColor = true;
-            tileItemElement2.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold);
-            tileItemElement2.Appearance.Selected.ForeColor = System.Drawing.Color.White;
-            tileItemElement2.Appearance.Selected.Options.UseFont = true;
-            tileItemElement2.Appearance.Selected.Options.UseForeColor = true;
-            tileItemElement2.Text = "总览";
-            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            tileItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            tileItemElement3.ImageOptions.SvgImageSize = new System.Drawing.Size(120, 60);
-            tileItemElement3.Text = "";
-            this.tileBarItem1.Elements.Add(tileItemElement1);
-            this.tileBarItem1.Elements.Add(tileItemElement2);
-            this.tileBarItem1.Elements.Add(tileItemElement3);
+            tileItemElement13.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement13.Text = "51";
+            tileItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileItemElement14.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tileItemElement14.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
+            tileItemElement14.Appearance.Normal.Options.UseFont = true;
+            tileItemElement14.Appearance.Normal.Options.UseForeColor = true;
+            tileItemElement14.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold);
+            tileItemElement14.Appearance.Selected.ForeColor = System.Drawing.Color.White;
+            tileItemElement14.Appearance.Selected.Options.UseFont = true;
+            tileItemElement14.Appearance.Selected.Options.UseForeColor = true;
+            tileItemElement14.Text = "总览";
+            tileItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            tileItemElement15.ImageOptions.Image = global::CloudManage.Properties.Resources.packagingMachineGroup_120x58;
+            tileItemElement15.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement15.ImageOptions.SvgImageSize = new System.Drawing.Size(120, 60);
+            tileItemElement15.Text = "";
+            this.tileBarItem1.Elements.Add(tileItemElement13);
+            this.tileBarItem1.Elements.Add(tileItemElement14);
+            this.tileBarItem1.Elements.Add(tileItemElement15);
             this.tileBarItem1.Id = 0;
             this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem1.Name = "tileBarItem1";
@@ -121,7 +121,7 @@
             this.tileBarItem2.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem2.AppearanceItem.Normal.Options.UseForeColor = true;
             this.tileBarItem2.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
-            this.tileBarItem2.AppearanceItem.Selected.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.tileBarItem2.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
             this.tileBarItem2.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 24F);
             this.tileBarItem2.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
             this.tileBarItem2.AppearanceItem.Selected.Options.UseBackColor = true;
@@ -129,26 +129,27 @@
             this.tileBarItem2.AppearanceItem.Selected.Options.UseFont = true;
             this.tileBarItem2.AppearanceItem.Selected.Options.UseForeColor = true;
             this.tileBarItem2.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement4.ImageOptions.ImageSize = new System.Drawing.Size(50, 50);
-            tileItemElement4.Text = "51";
-            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileItemElement5.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            tileItemElement5.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
-            tileItemElement5.Appearance.Normal.Options.UseFont = true;
-            tileItemElement5.Appearance.Normal.Options.UseForeColor = true;
-            tileItemElement5.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold);
-            tileItemElement5.Appearance.Selected.ForeColor = System.Drawing.Color.White;
-            tileItemElement5.Appearance.Selected.Options.UseFont = true;
-            tileItemElement5.Appearance.Selected.Options.UseForeColor = true;
-            tileItemElement5.Text = "1车";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-            tileItemElement6.ImageOptions.Image = global::CloudManage.Properties.Resources.hostMachine_120_60;
-            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileItemElement6.Text = "";
-            this.tileBarItem2.Elements.Add(tileItemElement4);
-            this.tileBarItem2.Elements.Add(tileItemElement5);
-            this.tileBarItem2.Elements.Add(tileItemElement6);
+            tileItemElement16.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement16.ImageOptions.ImageSize = new System.Drawing.Size(50, 50);
+            tileItemElement16.Text = "51";
+            tileItemElement16.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
+            tileItemElement17.Appearance.Normal.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            tileItemElement17.Appearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(118)))), ((int)(((byte)(118)))));
+            tileItemElement17.Appearance.Normal.Options.UseFont = true;
+            tileItemElement17.Appearance.Normal.Options.UseForeColor = true;
+            tileItemElement17.Appearance.Selected.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold);
+            tileItemElement17.Appearance.Selected.ForeColor = System.Drawing.Color.White;
+            tileItemElement17.Appearance.Selected.Options.UseFont = true;
+            tileItemElement17.Appearance.Selected.Options.UseForeColor = true;
+            tileItemElement17.Text = "1车";
+            tileItemElement17.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            tileItemElement18.ImageOptions.Image = global::CloudManage.Properties.Resources.packagingMachine_120_34;
+            tileItemElement18.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileItemElement18.ImageOptions.ImageLocation = new System.Drawing.Point(0, 15);
+            tileItemElement18.Text = "";
+            this.tileBarItem2.Elements.Add(tileItemElement16);
+            this.tileBarItem2.Elements.Add(tileItemElement17);
+            this.tileBarItem2.Elements.Add(tileItemElement18);
             this.tileBarItem2.Id = 1;
             this.tileBarItem2.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem2.Name = "tileBarItem2";
@@ -160,7 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tileBar_sideTileBarControl);
             this.Name = "SideTileBarControl";
-            this.Size = new System.Drawing.Size(250, 1080);
+            this.Size = new System.Drawing.Size(250, 800);
             this.ResumeLayout(false);
 
         }

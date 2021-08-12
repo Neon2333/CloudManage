@@ -104,11 +104,11 @@
     <Compile Include="StatusMonitor\WorkStateControl.Designer.cs">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="test.cs">
+    <Compile Include="test\testSideTileBarControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="test\testSideTileBarControl.Designer.cs">
+      <DependentUpon>testSideTileBarControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CommonControl\SideTileBarControl.resx">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
@@ -134,8 +134,8 @@
     <EmbeddedResource Include="StatusMonitor\WorkStateControl.resx">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="test.resx">
-      <DependentUpon>test.cs</DependentUpon>
+    <EmbeddedResource Include="test\testSideTileBarControl.resx">
+      <DependentUpon>testSideTileBarControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -164,7 +164,10 @@
     <None Include="Resources\aboveaverage_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hostMachine_120_60.png" />
+    <None Include="Resources\packagingMachine_120_34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\packagingMachineGroup_120x58.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

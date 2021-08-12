@@ -83,9 +83,19 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap hostMachine_120_60 {
+        internal static System.Drawing.Bitmap packagingMachine_120_34 {
             get {
-                object obj = ResourceManager.GetObject("hostMachine_120_60", resourceCulture);
+                object obj = ResourceManager.GetObject("packagingMachine_120_34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap packagingMachineGroup_120x58 {
+            get {
+                object obj = ResourceManager.GetObject("packagingMachineGroup_120x58", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

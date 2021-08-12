@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Navigation;
+using System.Text.RegularExpressions;
 
 namespace CloudManage.CommonControl
 {
@@ -19,6 +20,7 @@ namespace CloudManage.CommonControl
             InitializeComponent();
         }
 
+        //显示总览按钮
         public Boolean showOverview
         {
             get
@@ -31,31 +33,42 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //添加按钮/设备是按照顺序，在尾部依次添加
+        private bool isAllNum(string tag)
+        {
+            Regex regexNotAllNums = new Regex("[^0-9]+");
+            if (regexNotAllNums.IsMatch(tag))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        //在尾部依次添加按钮
         public bool _addSideTileBarItem(TileBarItem tileBarItem, string tagTileBarItem, string nameTileBarItem, string text, string num)
         {
             try
             {
+                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                {
+                    return false;
+                }
                 int count = this.tileBarGroup_sideTileBarControl.Items.Count;
                 if (count > 0)
                 {
                     for (int i = 0; i < count; i++)
                     {
                         TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                        //tag、itemName、text相同无法添加
                         string tag = temp.Tag.ToString();
-                        if (tagTileBarItem.CompareTo(tag) == 0) //输入的tag重复
+                        string itemName = temp.Name;
+                        if (tagTileBarItem.CompareTo(tag) == 0 || nameTileBarItem.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            
-                        }
-                        else
-                        {
-                            
+                            return false;
                         }
                     }
-                }
-                else
-                {
-
                 }
 
                 TileItemElement tileItemElementNum = new TileItemElement();
@@ -91,8 +104,9 @@ namespace CloudManage.CommonControl
                 tileItemElementText.Appearance.Selected.Options.UseForeColor = true;
                 tileItemElementText.Text = text;
                 tileItemElementText.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
-                tileItemElementIcon.ImageOptions.Image = global::CloudManage.Properties.Resources.hostMachine_120_60;
+                tileItemElementIcon.ImageOptions.Image = global::CloudManage.Properties.Resources.packagingMachine_120_34;
                 tileItemElementIcon.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+                tileItemElementIcon.ImageOptions.ImageLocation = new System.Drawing.Point(0, 15);
                 tileItemElementIcon.Text = "";
                 tileBarItem.Elements.Add(tileItemElementNum);
                 tileBarItem.Elements.Add(tileItemElementText);
@@ -112,12 +126,16 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //删除按钮/设备，需要可以在任意位置删除,以tag删除按钮
+        //可在任意位置以tag删除按钮删除按钮
         public bool _deleteButton(string tagTileBarItem)
         {
             bool flag = false;
             try
             {
+                if (!isAllNum(tagTileBarItem))
+                {
+                    return false;
+                }
                 int count = this.tileBarGroup_sideTileBarControl.Items.Count;
                 if (count > 0)
                 {
@@ -131,17 +149,9 @@ namespace CloudManage.CommonControl
                             flag = true;
                             break;
                         }
-                        else
-                        {
-                            flag = false;
-                        }
                     }
-                    return flag;
                 }
-                else
-                {
-                    return flag;
-                }
+                return flag;
                 
             }
             catch (Exception ex)
@@ -152,17 +162,27 @@ namespace CloudManage.CommonControl
         }
 
         //设置某个Item的Num值
-        public bool _setNum(string tagTileBarItem, int num)
+        public bool _setNum(string tagTileBarItem, string num)
         {
+            bool flag = false;
             try
             {
+                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                {
+                    return false;
+                }
                 int count = this.tileBarGroup_sideTileBarControl.Items.Count;
                 for(int i = 0; i < count; i++)
                 {
-                    
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    if (tagTileBarItem.CompareTo(tag) == 0)
+                    {
+                        ((TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i)).Text = num;
+                        flag = true;
+                    }
                 }
-
-                return true;
+                return flag;
             }
             catch (Exception ex)
             {
