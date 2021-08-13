@@ -168,6 +168,12 @@
     <Compile Include="DataAndAnalytics_ChartContrl.Designer.cs">
       <DependentUpon>DataAndAnalytics_ChartContrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAndAnalytics_gridControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAndAnalytics_gridControl.Designer.cs">
+      <DependentUpon>DataAndAnalytics_gridControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAndAnalytics_RealTimeSource.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataAndAnalytics_ChartContrl.resx">
       <DependentUpon>DataAndAnalytics_ChartContrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAndAnalytics_gridControl.resx">
+      <DependentUpon>DataAndAnalytics_gridControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataAndAnalytics_RealTimeSource.resx">
       <DependentUpon>DataAndAnalytics_RealTimeSource.cs</DependentUpon>
