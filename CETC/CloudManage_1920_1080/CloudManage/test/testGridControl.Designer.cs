@@ -1,13 +1,13 @@
-﻿namespace CloudManage.StatusMonitor
+﻿namespace CloudManage
 {
-    partial class WorkStateControl
+    partial class testGridControl
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,28 +20,21 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkStateControl));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.DataAccess.Excel.FieldInfo fieldInfo1 = new DevExpress.DataAccess.Excel.FieldInfo();
-            DevExpress.DataAccess.Excel.FieldInfo fieldInfo2 = new DevExpress.DataAccess.Excel.FieldInfo();
-            DevExpress.DataAccess.Excel.ExcelWorksheetSettings excelWorksheetSettings1 = new DevExpress.DataAccess.Excel.ExcelWorksheetSettings();
-            DevExpress.DataAccess.Excel.ExcelSourceOptions excelSourceOptions1 = new DevExpress.DataAccess.Excel.ExcelSourceOptions(excelWorksheetSettings1);
             DevExpress.XtraGrid.Views.Tile.ItemTemplate itemTemplate1 = new DevExpress.XtraGrid.Views.Tile.ItemTemplate();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(testGridControl));
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
@@ -53,13 +46,15 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.DataAccess.Excel.FieldInfo fieldInfo1 = new DevExpress.DataAccess.Excel.FieldInfo();
+            DevExpress.DataAccess.Excel.FieldInfo fieldInfo2 = new DevExpress.DataAccess.Excel.FieldInfo();
+            DevExpress.DataAccess.Excel.ExcelWorksheetSettings excelWorksheetSettings1 = new DevExpress.DataAccess.Excel.ExcelWorksheetSettings();
+            DevExpress.DataAccess.Excel.ExcelSourceOptions excelSourceOptions1 = new DevExpress.DataAccess.Excel.ExcelSourceOptions(excelWorksheetSettings1);
             this.colname = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colstatus = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
-            this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tileView_devices = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView_devices)).BeginInit();
             this.SuspendLayout();
@@ -78,61 +73,14 @@
             this.colstatus.Visible = true;
             this.colstatus.VisibleIndex = 1;
             // 
-            // windowsUIButtonPanel_workState
-            // 
-            this.windowsUIButtonPanel_workState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.windowsUIButtonPanel_workState.ButtonInterval = 20;
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
-            this.windowsUIButtonPanel_workState.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel_workState.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel_workState.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel_workState.Location = new System.Drawing.Point(0, 800);
-            this.windowsUIButtonPanel_workState.Name = "windowsUIButtonPanel_workState";
-            this.windowsUIButtonPanel_workState.Size = new System.Drawing.Size(1920, 80);
-            this.windowsUIButtonPanel_workState.TabIndex = 1;
-            this.windowsUIButtonPanel_workState.Text = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel_workState.UseButtonBackgroundImages = false;
-            // 
-            // sideTileBarControl1
-            // 
-            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
-            this.sideTileBarControl1.Name = "sideTileBarControl1";
-            this.sideTileBarControl1.showOverview = true;
-            this.sideTileBarControl1.Size = new System.Drawing.Size(240, 800);
-            this.sideTileBarControl1.TabIndex = 3;
-            // 
-            // excelDataSource1
-            // 
-            this.excelDataSource1.FileName = "C:\\Users\\Administrator\\Desktop\\sourceData.xlsx";
-            this.excelDataSource1.Name = "excelDataSource1";
-            this.excelDataSource1.ResultSchemaSerializable = "PFZpZXc+PEZpZWxkIE5hbWU9Im5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic3RhdHVzI" +
-    "iBUeXBlPSJTdHJpbmciIC8+PC9WaWV3Pg==";
-            fieldInfo1.Name = "name";
-            fieldInfo1.Type = typeof(string);
-            fieldInfo2.Name = "status";
-            fieldInfo2.Type = typeof(string);
-            this.excelDataSource1.Schema.AddRange(new DevExpress.DataAccess.Excel.FieldInfo[] {
-            fieldInfo1,
-            fieldInfo2});
-            excelWorksheetSettings1.CellRange = null;
-            excelWorksheetSettings1.WorksheetName = "Sheet1";
-            excelSourceOptions1.ImportSettings = excelWorksheetSettings1;
-            this.excelDataSource1.SourceOptions = excelSourceOptions1;
-            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.excelDataSource1;
-            this.gridControl1.Location = new System.Drawing.Point(240, 0);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.tileView_devices;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1680, 800);
-            this.gridControl1.TabIndex = 4;
+            this.gridControl1.Size = new System.Drawing.Size(1129, 700);
+            this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView_devices});
             // 
@@ -143,8 +91,6 @@
             this.colstatus});
             this.tileView_devices.GridControl = this.gridControl1;
             this.tileView_devices.Name = "tileView_devices";
-            this.tileView_devices.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.tileView_devices.OptionsTiles.ItemSize = new System.Drawing.Size(248, 200);
             this.tileView_devices.OptionsTiles.RowCount = 3;
             tableColumnDefinition1.Length.Value = 68D;
             tableColumnDefinition2.Length.Value = 156D;
@@ -233,15 +179,32 @@
             this.tileView_devices.TileTemplate.Add(tileViewItemElement7);
             this.tileView_devices.TileTemplate.Add(tileViewItemElement8);
             // 
-            // WorkStateControl
+            // excelDataSource1
+            // 
+            this.excelDataSource1.FileName = "C:\\Users\\Administrator\\Desktop\\sourceData.xlsx";
+            this.excelDataSource1.Name = "excelDataSource1";
+            this.excelDataSource1.ResultSchemaSerializable = "PFZpZXc+PEZpZWxkIE5hbWU9Im5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic3RhdHVzI" +
+    "iBUeXBlPSJTdHJpbmciIC8+PC9WaWV3Pg==";
+            fieldInfo1.Name = "name";
+            fieldInfo1.Type = typeof(string);
+            fieldInfo2.Name = "status";
+            fieldInfo2.Type = typeof(string);
+            this.excelDataSource1.Schema.AddRange(new DevExpress.DataAccess.Excel.FieldInfo[] {
+            fieldInfo1,
+            fieldInfo2});
+            excelWorksheetSettings1.CellRange = null;
+            excelWorksheetSettings1.WorksheetName = "Sheet1";
+            excelSourceOptions1.ImportSettings = excelWorksheetSettings1;
+            this.excelDataSource1.SourceOptions = excelSourceOptions1;
+            // 
+            // testGridControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1181, 729);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.sideTileBarControl1);
-            this.Controls.Add(this.windowsUIButtonPanel_workState);
-            this.Name = "WorkStateControl";
-            this.Size = new System.Drawing.Size(1920, 880);
+            this.Name = "testGridControl";
+            this.Text = "testGridControl";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView_devices)).EndInit();
             this.ResumeLayout(false);
@@ -250,12 +213,10 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
-        private CommonControl.SideTileBarControl sideTileBarControl1;
-        private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView_devices;
         private DevExpress.XtraGrid.Columns.TileViewColumn colname;
         private DevExpress.XtraGrid.Columns.TileViewColumn colstatus;
+        private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
     }
 }
