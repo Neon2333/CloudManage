@@ -15,9 +15,12 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControl : DevExpress.XtraEditors.XtraUserControl
     {
+        private string TagSelectedItem = String.Empty;
+        public int countSideTileBarItem = 0;    //item总数
         public SideTileBarControl()
         {
             InitializeComponent();
+            countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;    
         }
 
         //显示总览按钮
@@ -30,6 +33,66 @@ namespace CloudManage.CommonControl
             set
             {
                 this.tileBarItem1.Visible = value;
+            }
+        }
+
+        //获取被选中item的tag
+        public string tagSelectedItem
+        {
+            get
+            {
+                return this.TagSelectedItem;
+            }
+        }
+
+        //通过tag选中item
+        public bool _selectedItem(string tag)
+        {
+            bool flag = false;
+            string tagTemp = String.Empty;
+            try
+            {
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                    tagTemp = (string)temp.Tag;
+                    if (tag.CompareTo(tagTemp) == 0)
+                    {
+                        TagSelectedItem = tagTemp;
+                        this.tileBar_sideTileBarControl.SelectedItem = temp;
+                        flag = true;
+                    }
+
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
+        //通过index选中item
+        public bool _selectedItem(int indexItem)
+        {
+            bool flag = false;
+            try
+            {
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    if(indexItem == i)
+                    {
+                        this.tileBar_sideTileBarControl.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                        flag = true;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
             }
         }
 
@@ -55,10 +118,9 @@ namespace CloudManage.CommonControl
                 {
                     return false;
                 }
-                int count = this.tileBarGroup_sideTileBarControl.Items.Count;
-                if (count > 0)
+                if (countSideTileBarItem > 0)
                 {
-                    for (int i = 0; i < count; i++)
+                    for (int i = 0; i < countSideTileBarItem; i++)
                     {
                         TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
                         //tag、itemName、text相同无法添加
@@ -117,6 +179,7 @@ namespace CloudManage.CommonControl
                 tileBarItem.Tag = tagTileBarItem;
 
                 this.tileBarGroup_sideTileBarControl.Items.Add(tileBarItem);
+                countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;    //更新tileBarItem总数
                 return true;
             }
             catch(Exception ex)
@@ -126,7 +189,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //可在任意位置以tag删除按钮删除按钮
+        //可在任意位置以tag删除按钮
         public bool _deleteButton(string tagTileBarItem)
         {
             bool flag = false;
@@ -136,10 +199,9 @@ namespace CloudManage.CommonControl
                 {
                     return false;
                 }
-                int count = this.tileBarGroup_sideTileBarControl.Items.Count;
-                if (count > 0)
+                if (countSideTileBarItem > 0)
                 {
-                    for (int i = 0; i < count; i++)
+                    for (int i = 0; i < countSideTileBarItem; i++)
                     {
                         TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
                         string tag = temp.Tag.ToString();
@@ -171,8 +233,7 @@ namespace CloudManage.CommonControl
                 {
                     return false;
                 }
-                int count = this.tileBarGroup_sideTileBarControl.Items.Count;
-                for(int i = 0; i < count; i++)
+                for (int i = 0; i < countSideTileBarItem; i++)
                 {
                     TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
                     string tag = temp.Tag.ToString();
@@ -190,6 +251,8 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
+
+
 
 
     }

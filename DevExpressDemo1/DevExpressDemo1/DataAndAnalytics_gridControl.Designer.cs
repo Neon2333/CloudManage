@@ -33,35 +33,15 @@
             DevExpress.DataAccess.Excel.FieldInfo fieldInfo3 = new DevExpress.DataAccess.Excel.FieldInfo();
             DevExpress.DataAccess.Excel.ExcelWorksheetSettings excelWorksheetSettings1 = new DevExpress.DataAccess.Excel.ExcelWorksheetSettings();
             DevExpress.DataAccess.Excel.ExcelSourceOptions excelSourceOptions1 = new DevExpress.DataAccess.Excel.ExcelSourceOptions(excelWorksheetSettings1);
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
-            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colstatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colimgIndex = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.colimgIndex = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colname1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.DataSource = this.excelDataSource1;
-            this.gridControl1.Location = new System.Drawing.Point(326, 209);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(400, 200);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colname,
-            this.colstatus,
-            this.colimgIndex});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
             // 
             // excelDataSource1
             // 
@@ -85,26 +65,46 @@
             excelSourceOptions1.ImportSettings = excelWorksheetSettings1;
             this.excelDataSource1.SourceOptions = excelSourceOptions1;
             // 
-            // colname
+            // gridControl1
             // 
-            this.colname.FieldName = "name";
-            this.colname.Name = "colname";
-            this.colname.Visible = true;
-            this.colname.VisibleIndex = 0;
+            this.gridControl1.DataSource = this.excelDataSource1;
+            this.gridControl1.Location = new System.Drawing.Point(271, 178);
+            this.gridControl1.MainView = this.tileView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileView1});
             // 
-            // colstatus
+            // tileView1
             // 
-            this.colstatus.FieldName = "status";
-            this.colstatus.Name = "colstatus";
-            this.colstatus.Visible = true;
-            this.colstatus.VisibleIndex = 1;
+            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colimgIndex,
+            this.colname,
+            this.colname1});
+            this.tileView1.GridControl = this.gridControl1;
+            this.tileView1.Name = "tileView1";
             // 
             // colimgIndex
             // 
             this.colimgIndex.FieldName = "imgIndex";
             this.colimgIndex.Name = "colimgIndex";
             this.colimgIndex.Visible = true;
-            this.colimgIndex.VisibleIndex = 2;
+            this.colimgIndex.VisibleIndex = 0;
+            // 
+            // colname
+            // 
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 1;
+            // 
+            // colname1
+            // 
+            this.colname1.FieldName = "name";
+            this.colname1.Name = "colname1";
+            this.colname1.Visible = true;
+            this.colname1.VisibleIndex = 2;
             // 
             // DataAndAnalytics_gridControl
             // 
@@ -115,18 +115,17 @@
             this.Name = "DataAndAnalytics_gridControl";
             this.Text = "DataAndAnalytics_gridControl";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colname;
-        private DevExpress.XtraGrid.Columns.GridColumn colstatus;
-        private DevExpress.XtraGrid.Columns.GridColumn colimgIndex;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colimgIndex;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colname;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colname1;
     }
 }

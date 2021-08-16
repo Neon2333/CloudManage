@@ -13,9 +13,9 @@ using DevExpress.XtraEditors;
 
 namespace DevExpressDemo1
 {
-    public partial class Form_Main : Form
+    public partial class MainForm : Form
     {
-        public Form_Main()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -178,6 +178,12 @@ namespace DevExpressDemo1
         {
             NavigationAndLayout_layoutControl layoutControl = new NavigationAndLayout_layoutControl();
             layoutControl.Show();
+        }
+
+        private void gridControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataAndAnalytics_gridControl gridContorl1 = new DataAndAnalytics_gridControl();
+            gridContorl1.Show();
         }
     }
 }

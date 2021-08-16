@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraGrid.Views.Tile;
 
 using NPOI;
 using NPOI.SS.UserModel;
@@ -96,13 +97,13 @@ namespace CloudManage.StatusMonitor
         {
             if (index == "A")
             {
-                return global::CloudManage.Properties.Resources.packagingMachineGroup_120x58;
+                return global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140;
             }else if (index == "B")
             {
-                return global::CloudManage.Properties.Resources.packagingMachine_120_34;
+                return global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140;
             }else
             {
-                return global::CloudManage.Properties.Resources.technology_32x32;
+                return global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140;
             }
         }
 
@@ -111,15 +112,15 @@ namespace CloudManage.StatusMonitor
         {
             if (index == "A")
             {
-                return global::CloudManage.Properties.Resources.packagingMachineGroup_120x58;
+                return global::CloudManage.Properties.Resources.ZB45_336x140;
             }
             else if (index == "B")
             {
-                return global::CloudManage.Properties.Resources.packagingMachine_120_34;
+                return global::CloudManage.Properties.Resources.ZB45_336x140;
             }
             else
             {
-                return global::CloudManage.Properties.Resources.technology_32x32;
+                return global::CloudManage.Properties.Resources.ZB45_336x140;
             }
         }
 
@@ -174,29 +175,59 @@ namespace CloudManage.StatusMonitor
         }
 
         //按钮颜色
-        Color colorPanelReady = Color.FromArgb(58, 166, 101);
-        Color colorPanelSold = Color.FromArgb(158, 158, 158);
-        Color colorCaptionReady = Color.FromArgb(193, 222, 204);
-        Color colorCaptionSold = Color.FromArgb(219, 219, 219);
+        Color colorNormal = Color.FromArgb(56, 152, 83);
+        Color colorAbnormal = Color.FromArgb(208, 49, 68);
+        Color colorDisable = Color.FromArgb(120,120,120);
 
-        private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
+        //该事件可customize所有tile
+        private void tileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
         {
             if (e.Item == null || e.Item.Elements.Count == 0)
                 return;
-            bool normalOrError = ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"])) == "正常";
+            int stateTile = 0;
+            //e为tileview，RowHandle为选中的tile的index，每个tile是表格的一行
+            //GetRowCellValue返回tileView绑定的数据源的某一列的值，类型object
+            if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "正常"){
+                stateTile = 0;
+            }
+            else if((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "异常")
+            {
+                stateTile = 1;
 
-            var statusCaption = e.Item.GetElementByName("elementStatus");
+            }
+            else if((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "无效")
+            {
+                stateTile = 2;
+            }
+
+            //var statusCaption = e.Item.GetElementByName("elementStatus");
             //var statusCaption = e.Item.Elements[1];
-
-            e.Item.AppearanceItem.Normal.BackColor = normalOrError ? colorPanelSold : colorPanelReady;
-            statusCaption.Appearance.Normal.BackColor = normalOrError ? colorCaptionSold : colorCaptionReady;
+            if (stateTile == 0)
+            {
+                e.Item.AppearanceItem.Normal.BackColor = colorNormal;
+            }
+            else if(stateTile == 1)
+            {
+                e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
+            }
+            else if(stateTile == 2)
+            {
+                e.Item.AppearanceItem.Normal.BackColor = colorDisable;
+            }
+            //statusCaption.Appearance.Normal.BackColor = normalOrError ? colorCaptionSold : colorCaptionReady;
             //yearCaption.Appearance.Normal.ForeColor = normalOrError ? colorCaptionSold : colorCaptionReady;
-            
+
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void tileView1_DoubleClick(object sender, EventArgs e)
         {
-            dt.Rows[0][1] = "异常";
+            int[] index = this.tileView1.GetSelectedRows(); //返回被选中tile的index
+            foreach(var i in index)
+            {
+                this.sideTileBarControl1._selectedItem(i + 1);
+            }
+
+
         }
     }
 }

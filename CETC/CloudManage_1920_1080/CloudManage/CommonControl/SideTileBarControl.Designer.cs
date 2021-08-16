@@ -44,7 +44,7 @@
             // 
             this.tileBar_sideTileBarControl.AllowItemHover = false;
             this.tileBar_sideTileBarControl.AllowSelectedItem = true;
-            this.tileBar_sideTileBarControl.BackColor = System.Drawing.Color.Transparent;
+            this.tileBar_sideTileBarControl.BackColor = System.Drawing.Color.White;
             this.tileBar_sideTileBarControl.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.tileBar_sideTileBarControl.Groups.Add(this.tileBarGroup_sideTileBarControl);
             this.tileBar_sideTileBarControl.ItemSize = 95;

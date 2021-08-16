@@ -269,5 +269,25 @@ namespace CloudManage.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ZB45_336x140 {
+            get {
+                object obj = ResourceManager.GetObject("ZB45_336x140", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ZJ17_PROTOS70_336x140 {
+            get {
+                object obj = ResourceManager.GetObject("ZJ17_PROTOS70_336x140", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

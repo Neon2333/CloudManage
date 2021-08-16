@@ -259,6 +259,15 @@
   <ItemGroup>
     <None Include="Resources\recurrence_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookup&amp;reference_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZJ17_PROTOS70_336x140.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZB45_336x140.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

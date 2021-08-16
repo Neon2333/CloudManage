@@ -186,11 +186,11 @@
     <Compile Include="Form_FluentDesign.Designer.cs">
       <DependentUpon>Form_FluentDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Main.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Main.Designer.cs">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Control_SimpleButton.cs">
       <SubType>Form</SubType>
@@ -324,8 +324,8 @@
     <EmbeddedResource Include="Form_FluentDesign.resx">
       <DependentUpon>Form_FluentDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Main.resx">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control_SimpleButton.resx">
       <DependentUpon>Control_SimpleButton.cs</DependentUpon>

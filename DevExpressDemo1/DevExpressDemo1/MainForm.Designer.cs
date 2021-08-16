@@ -1,7 +1,7 @@
 ﻿
 namespace DevExpressDemo1
 {
-    partial class Form_Main
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -547,8 +547,9 @@ namespace DevExpressDemo1
             // gridControlToolStripMenuItem
             // 
             this.gridControlToolStripMenuItem.Name = "gridControlToolStripMenuItem";
-            this.gridControlToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.gridControlToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gridControlToolStripMenuItem.Text = "GridControl";
+            this.gridControlToolStripMenuItem.Click += new System.EventHandler(this.gridControlToolStripMenuItem_Click);
             // 
             // navigationToolStripMenuItem
             // 
