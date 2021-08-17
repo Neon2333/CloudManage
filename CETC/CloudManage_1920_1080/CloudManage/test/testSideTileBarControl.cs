@@ -39,8 +39,9 @@ namespace CloudManage
             this.textBox8.Text = this.sideTileBarControl1._setNum(this.textBox8.Text, this.textBox9.Text) ? "success.." : "failed..";
         }
 
-
-
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.textBox11.Text = this.sideTileBarControl1.tagSelectedItem;
+        }
     }
 }

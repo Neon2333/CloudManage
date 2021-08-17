@@ -226,8 +226,22 @@ namespace CloudManage.StatusMonitor
             {
                 this.sideTileBarControl1._selectedItem(i + 1);
             }
-
-
         }
+         
+        
+        private void tileView1_itemClick(object sender, EventArgs e)
+        {
+            string selectedPageTag = this.sideTileBarControl1.tagSelectedItem;
+            if (selectedPageTag == "0")
+            {
+                this.navigationFrame_workState.SelectedPage = this.navigationPage_overview;
+            }
+            else
+            {
+                this.navigationFrame_workState.SelectedPage = this.navigationPage_each;
+            }
+        }   
+                
+
     }
 }

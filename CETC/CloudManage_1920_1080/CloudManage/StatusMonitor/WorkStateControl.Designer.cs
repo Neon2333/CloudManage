@@ -52,23 +52,62 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
-            this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.tileViewColumn_name = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_status = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_imgTop = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_imgBottom = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            this.navigationFrame1.SuspendLayout();
-            this.navigationPage1.SuspendLayout();
+            this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
+            this.navigationFrame_workState = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.navigationPage_overview = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.navigationPage_each = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.imageSlider1 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_workState)).BeginInit();
+            this.navigationFrame_workState.SuspendLayout();
+            this.navigationPage_overview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            this.navigationPage_each.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tileViewColumn_name
+            // 
+            this.tileViewColumn_name.Caption = "tileViewColumn1";
+            this.tileViewColumn_name.FieldName = "name";
+            this.tileViewColumn_name.Name = "tileViewColumn_name";
+            this.tileViewColumn_name.Visible = true;
+            this.tileViewColumn_name.VisibleIndex = 0;
+            // 
+            // tileViewColumn_status
+            // 
+            this.tileViewColumn_status.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.tileViewColumn_status.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.tileViewColumn_status.AppearanceHeader.Options.UseBackColor = true;
+            this.tileViewColumn_status.AppearanceHeader.Options.UseForeColor = true;
+            this.tileViewColumn_status.Caption = "tileViewColumn2";
+            this.tileViewColumn_status.FieldName = "status";
+            this.tileViewColumn_status.Name = "tileViewColumn_status";
+            this.tileViewColumn_status.Visible = true;
+            this.tileViewColumn_status.VisibleIndex = 1;
+            // 
+            // tileViewColumn_imgTop
+            // 
+            this.tileViewColumn_imgTop.Caption = "tileViewColumn3";
+            this.tileViewColumn_imgTop.FieldName = "deviceImgTop";
+            this.tileViewColumn_imgTop.Name = "tileViewColumn_imgTop";
+            this.tileViewColumn_imgTop.Visible = true;
+            this.tileViewColumn_imgTop.VisibleIndex = 2;
+            // 
+            // tileViewColumn_imgBottom
+            // 
+            this.tileViewColumn_imgBottom.Caption = "tileViewColumn4";
+            this.tileViewColumn_imgBottom.FieldName = "deviceImgBottom";
+            this.tileViewColumn_imgBottom.Name = "tileViewColumn_imgBottom";
+            this.tileViewColumn_imgBottom.Visible = true;
+            this.tileViewColumn_imgBottom.VisibleIndex = 3;
             // 
             // windowsUIButtonPanel_workState
             // 
@@ -98,31 +137,28 @@
             this.sideTileBarControl1.showOverview = true;
             this.sideTileBarControl1.Size = new System.Drawing.Size(240, 800);
             this.sideTileBarControl1.TabIndex = 3;
+            this.sideTileBarControl1.sideTileBarItemSelectedChanged += new CloudManage.CommonControl.SideTileBarControl.TileItemSelectedChangedHanlder(this.tileView1_itemClick);
             // 
-            // navigationFrame1
+            // navigationFrame_workState
             // 
-            this.navigationFrame1.Controls.Add(this.navigationPage1);
-            this.navigationFrame1.Controls.Add(this.navigationPage2);
-            this.navigationFrame1.Location = new System.Drawing.Point(240, 0);
-            this.navigationFrame1.Name = "navigationFrame1";
-            this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage1,
-            this.navigationPage2});
-            this.navigationFrame1.SelectedPage = this.navigationPage2;
-            this.navigationFrame1.Size = new System.Drawing.Size(1680, 800);
-            this.navigationFrame1.TabIndex = 4;
-            this.navigationFrame1.Text = "navigationFrame1";
+            this.navigationFrame_workState.Controls.Add(this.navigationPage_overview);
+            this.navigationFrame_workState.Controls.Add(this.navigationPage_each);
+            this.navigationFrame_workState.Location = new System.Drawing.Point(240, 0);
+            this.navigationFrame_workState.Name = "navigationFrame_workState";
+            this.navigationFrame_workState.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage_overview,
+            this.navigationPage_each});
+            this.navigationFrame_workState.SelectedPage = this.navigationPage_each;
+            this.navigationFrame_workState.Size = new System.Drawing.Size(1680, 800);
+            this.navigationFrame_workState.TabIndex = 4;
+            this.navigationFrame_workState.TransitionAnimationProperties.FrameInterval = 3000;
             // 
-            // navigationPage1
+            // navigationPage_overview
             // 
-            this.navigationPage1.Controls.Add(this.gridControl1);
-            this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1680, 800);
-            // 
-            // navigationPage2
-            // 
-            this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(1680, 800);
+            this.navigationPage_overview.Caption = "navigationPage_overview";
+            this.navigationPage_overview.Controls.Add(this.gridControl1);
+            this.navigationPage_overview.Name = "navigationPage_overview";
+            this.navigationPage_overview.Size = new System.Drawing.Size(1680, 800);
             // 
             // gridControl1
             // 
@@ -262,57 +298,43 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement7);
             this.tileView1.TileTemplate.Add(tileViewItemElement8);
             this.tileView1.TileTemplate.Add(tileViewItemElement9);
+            this.tileView1.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView1_ItemCustomize);
+            this.tileView1.DoubleClick += new System.EventHandler(this.tileView1_DoubleClick);
             // 
-            // tileViewColumn_name
+            // navigationPage_each
             // 
-            this.tileViewColumn_name.Caption = "tileViewColumn1";
-            this.tileViewColumn_name.FieldName = "name";
-            this.tileViewColumn_name.Name = "tileViewColumn_name";
-            this.tileViewColumn_name.Visible = true;
-            this.tileViewColumn_name.VisibleIndex = 0;
+            this.navigationPage_each.Controls.Add(this.imageSlider1);
+            this.navigationPage_each.Name = "navigationPage_each";
+            this.navigationPage_each.Size = new System.Drawing.Size(1680, 800);
             // 
-            // tileViewColumn_status
+            // imageSlider1
             // 
-            this.tileViewColumn_status.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
-            this.tileViewColumn_status.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.tileViewColumn_status.AppearanceHeader.Options.UseBackColor = true;
-            this.tileViewColumn_status.AppearanceHeader.Options.UseForeColor = true;
-            this.tileViewColumn_status.Caption = "tileViewColumn2";
-            this.tileViewColumn_status.FieldName = "status";
-            this.tileViewColumn_status.Name = "tileViewColumn_status";
-            this.tileViewColumn_status.Visible = true;
-            this.tileViewColumn_status.VisibleIndex = 1;
-            // 
-            // tileViewColumn_imgTop
-            // 
-            this.tileViewColumn_imgTop.Caption = "tileViewColumn3";
-            this.tileViewColumn_imgTop.FieldName = "deviceImgTop";
-            this.tileViewColumn_imgTop.Name = "tileViewColumn_imgTop";
-            this.tileViewColumn_imgTop.Visible = true;
-            this.tileViewColumn_imgTop.VisibleIndex = 2;
-            // 
-            // tileViewColumn_imgBottom
-            // 
-            this.tileViewColumn_imgBottom.Caption = "tileViewColumn4";
-            this.tileViewColumn_imgBottom.FieldName = "deviceImgBottom";
-            this.tileViewColumn_imgBottom.Name = "tileViewColumn_imgBottom";
-            this.tileViewColumn_imgBottom.Visible = true;
-            this.tileViewColumn_imgBottom.VisibleIndex = 3;
+            this.imageSlider1.AllowLooping = true;
+            this.imageSlider1.CurrentImageIndex = 0;
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images"))));
+            this.imageSlider1.Images.Add(((System.Drawing.Image)(resources.GetObject("imageSlider1.Images1"))));
+            this.imageSlider1.Location = new System.Drawing.Point(275, 349);
+            this.imageSlider1.Name = "imageSlider1";
+            this.imageSlider1.Size = new System.Drawing.Size(960, 451);
+            this.imageSlider1.TabIndex = 0;
+            this.imageSlider1.Text = "imageSlider1";
             // 
             // WorkStateControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.navigationFrame1);
+            this.Controls.Add(this.navigationFrame_workState);
             this.Controls.Add(this.sideTileBarControl1);
             this.Controls.Add(this.windowsUIButtonPanel_workState);
             this.Name = "WorkStateControl";
             this.Size = new System.Drawing.Size(1920, 880);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            this.navigationFrame1.ResumeLayout(false);
-            this.navigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_workState)).EndInit();
+            this.navigationFrame_workState.ResumeLayout(false);
+            this.navigationPage_overview.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            this.navigationPage_each.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSlider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -321,14 +343,15 @@
 
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
         private CommonControl.SideTileBarControl sideTileBarControl1;
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_workState;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_overview;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_name;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_status;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_imgTop;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_imgBottom;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_each;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSlider1;
     }
 }

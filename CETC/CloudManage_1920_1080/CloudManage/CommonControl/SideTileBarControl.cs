@@ -252,8 +252,15 @@ namespace CloudManage.CommonControl
             }
         }
 
-
-
-
+        public delegate void TileItemSelectedChangedHanlder(object sender, EventArgs e);
+        public event TileItemSelectedChangedHanlder sideTileBarItemSelectedChanged; //自定义事件，将SideTileBarControl的itemSelectedChanged事件传出
+        private void tileBar_sideTileBarControl_SelectedItemChanged(object sender, TileItemEventArgs e)
+        {
+            TagSelectedItem = (string)this.tileBar_sideTileBarControl.SelectedItem.Tag;
+            if (sideTileBarItemSelectedChanged != null)
+            {
+                sideTileBarItemSelectedChanged(sender, new EventArgs());
+            }
+        }
     }
 }

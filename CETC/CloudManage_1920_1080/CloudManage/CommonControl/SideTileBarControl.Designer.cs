@@ -59,6 +59,7 @@
             this.tileBar_sideTileBarControl.Size = new System.Drawing.Size(240, 800);
             this.tileBar_sideTileBarControl.TabIndex = 12;
             this.tileBar_sideTileBarControl.WideTileWidth = 210;
+            this.tileBar_sideTileBarControl.SelectedItemChanged += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBarControl_SelectedItemChanged);
             // 
             // tileBarGroup_sideTileBarControl
             // 

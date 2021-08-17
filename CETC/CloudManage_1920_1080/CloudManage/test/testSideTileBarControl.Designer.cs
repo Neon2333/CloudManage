@@ -43,6 +43,8 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -166,11 +168,30 @@
             this.textBox10.TabIndex = 15;
             this.textBox10.Text = "tag,num";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(358, 324);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(187, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "获取被选中item的tag";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(601, 324);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 17;
+            // 
             // testSideTileBarControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1918, 848);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
@@ -209,5 +230,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }
