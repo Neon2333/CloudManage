@@ -22,7 +22,11 @@ namespace CloudManage.StatusMonitor
 {
     public partial class WorkStateControl : DevExpress.XtraEditors.XtraUserControl
     {
-        DataTable dt = new DataTable();
+        DataTable dtOverview = new DataTable();
+        DataTable dtPackagingPachine = new DataTable();
+        DataTable dtWindlass = new DataTable();
+
+
         public WorkStateControl()
         {
             InitializeComponent();
@@ -126,13 +130,20 @@ namespace CloudManage.StatusMonitor
 
         private void initData()
         {
+            initDataOverview();
+            initDataEach();
+        }
+
+        //总览数据绑定
+        public void initDataOverview()
+        {
             //读取Excel，将数据添加到DataSet的DataTable中
             //DataSet ds = new DataSet();
             //DataTable dt = new DataTable();
-            dt.Columns.Add("name", typeof(String));
-            dt.Columns.Add("status", typeof(String));
-            dt.Columns.Add("deviceImgTop", typeof(Image));
-            dt.Columns.Add("deviceImgBottom", typeof(Image));
+            dtOverview.Columns.Add("name", typeof(String));
+            dtOverview.Columns.Add("status", typeof(String));
+            dtOverview.Columns.Add("deviceImgTop", typeof(Image));
+            dtOverview.Columns.Add("deviceImgBottom", typeof(Image));
 
             string excelPath = @"C:\Users\Administrator\Desktop\devicesData.xlsx";
             FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
@@ -154,27 +165,97 @@ namespace CloudManage.StatusMonitor
                 //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
                 string tempImgIndex = (string)GetCellValue(cellDeviceImg);
 
-                DataRow dr = dt.NewRow();
+                DataRow dr = dtOverview.NewRow();
                 dr["name"] = tempName;
                 dr["status"] = tempStatus;
                 dr["deviceImgTop"] = getImgTopByIndex(tempImgIndex);
                 dr["deviceImgBottom"] = getImgBottomByIndex(tempImgIndex);
 
-                dt.Rows.Add(dr);
+                dtOverview.Rows.Add(dr);
             }
             //ds.Tables.Add(dt);
-
-            //将dt绑定到GridControl
-            gridControl1.DataSource = dt;
-
+            fs.Close();
+            gridControl_overview.DataSource = dtOverview;   //将dt绑定到GridControl
         }
+
+        //每台车数据绑定
+        public void initDataEach()
+        {
+            dtPackagingPachine.Columns.Add("name1", typeof(String));
+            dtPackagingPachine.Columns.Add("status1", typeof(String));
+            dtPackagingPachine.Columns.Add("deviceImgTop1", typeof(Image));
+            dtPackagingPachine.Columns.Add("deviceImgBottom1", typeof(Image));
+
+            dtWindlass.Columns.Add("name1", typeof(String));
+            dtWindlass.Columns.Add("status1", typeof(String));
+            dtWindlass.Columns.Add("deviceImgTop1", typeof(Image));
+            dtWindlass.Columns.Add("deviceImgBottom1", typeof(Image));
+
+            string excelPath = @"C:\Users\Administrator\Desktop\devicesDataEach.xlsx";
+            FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
+            IWorkbook workbook = null;
+            workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
+            ISheet sheetPackagingPachine = null;
+            ISheet sheetWindlass = null;
+            sheetPackagingPachine = workbook.GetSheetAt(0); //获取第1个sheet
+            sheetWindlass = workbook.GetSheetAt(1); //获取第2个sheet
+            
+            int totalRowsPackagingPachine = sheetPackagingPachine.LastRowNum + 1;   //总行数，因行号从0开始
+            int totalRowsWindlass = sheetWindlass.LastRowNum + 1;
+
+            IRow rowPackagingPachine = null;
+            IRow rowWindlass = null;
+            for (int i = 1; i < totalRowsPackagingPachine; i++)
+            {
+                rowPackagingPachine = sheetPackagingPachine.GetRow(i);	//获取第i行
+                ICell cellName = rowPackagingPachine.GetCell(0);	//获取row行的第i列的数据
+                ICell cellStatus = rowPackagingPachine.GetCell(1);
+                ICell cellDeviceImg = rowPackagingPachine.GetCell(2);
+
+                string tempNamePackagingPachine = (string)GetCellValue(cellName);
+                string tempStatusPackagingPachine = (string)GetCellValue(cellStatus);
+                //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
+                string tempImgIndexPackagingPachine = (string)GetCellValue(cellDeviceImg);
+
+                DataRow drPackagingPachine = dtPackagingPachine.NewRow();
+                drPackagingPachine["name1"] = tempNamePackagingPachine;
+                drPackagingPachine["status1"] = tempStatusPackagingPachine;
+                drPackagingPachine["deviceImgTop1"] = getImgTopByIndex(tempImgIndexPackagingPachine);
+                drPackagingPachine["deviceImgBottom1"] = getImgBottomByIndex(tempImgIndexPackagingPachine);
+
+                dtPackagingPachine.Rows.Add(drPackagingPachine);
+            }
+
+            for (int i = 1; i < totalRowsWindlass; i++)
+            {
+                rowWindlass = sheetPackagingPachine.GetRow(i);	//获取第i行
+                ICell cellName = rowWindlass.GetCell(0);	//获取row行的第i列的数据
+                ICell cellStatus = rowWindlass.GetCell(1);
+                ICell cellDeviceImg = rowWindlass.GetCell(2);
+
+                string tempNameWindlass = (string)GetCellValue(cellName);
+                string tempStatusWindlass = (string)GetCellValue(cellStatus);
+                //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
+                string tempImgIndexWindlass = (string)GetCellValue(cellDeviceImg);
+
+                DataRow drWindlass = dtWindlass.NewRow();
+                drWindlass["name1"] = tempNameWindlass;
+                drWindlass["status1"] = tempStatusWindlass;
+                drWindlass["deviceImgTop1"] = getImgTopByIndex(tempImgIndexWindlass);
+                drWindlass["deviceImgBottom1"] = getImgBottomByIndex(tempImgIndexWindlass);
+
+                dtWindlass.Rows.Add(drWindlass);
+            }
+            fs.Close();
+        }
+
 
         private void setView()
         {
             
         }
 
-        //按钮颜色
+        //状态颜色
         Color colorNormal = Color.FromArgb(56, 152, 83);
         Color colorAbnormal = Color.FromArgb(208, 49, 68);
         Color colorDisable = Color.FromArgb(120,120,120);
@@ -187,15 +268,15 @@ namespace CloudManage.StatusMonitor
             int stateTile = 0;
             //e为tileview，RowHandle为选中的tile的index，每个tile是表格的一行
             //GetRowCellValue返回tileView绑定的数据源的某一列的值，类型object
-            if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "正常"){
+            if ((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["status"]) == "正常"){
                 stateTile = 0;
             }
-            else if((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "异常")
+            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["status"]) == "异常")
             {
                 stateTile = 1;
 
             }
-            else if((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["status"]) == "无效")
+            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["status"]) == "无效")
             {
                 stateTile = 2;
             }
@@ -221,7 +302,7 @@ namespace CloudManage.StatusMonitor
 
         private void tileView1_DoubleClick(object sender, EventArgs e)
         {
-            int[] index = this.tileView1.GetSelectedRows(); //返回被选中tile的index
+            int[] index = this.tileView_overview.GetSelectedRows(); //返回被选中tile的index
             foreach(var i in index)
             {
                 this.sideTileBarControl1._selectedItem(i + 1);
@@ -240,8 +321,20 @@ namespace CloudManage.StatusMonitor
             {
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_each;
             }
-        }   
-                
+        }
+
+        private void imageSlider_each_ImageChanged(object sender, DevExpress.XtraEditors.Controls.ImageChangedEventArgs e)
+        {
+            if (this.imageSlider_each.CurrentImageIndex == 1)
+            {
+                gridControl_each.DataSource = dtPackagingPachine;
+            }else if (this.imageSlider_each.CurrentImageIndex == 0)
+            {
+                gridControl_each.DataSource = dtWindlass;
+            }
+
+        }
+
 
     }
 }
