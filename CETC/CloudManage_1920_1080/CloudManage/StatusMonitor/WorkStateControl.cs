@@ -22,9 +22,10 @@ namespace CloudManage.StatusMonitor
 {
     public partial class WorkStateControl : DevExpress.XtraEditors.XtraUserControl
     {
+        //DataSet ds = new DataSet();
         DataTable dtOverview = new DataTable();
-        DataTable dtPackagingPachine = new DataTable();
-        DataTable dtWindlass = new DataTable();
+        DataTable dtCigarettePackaging = new DataTable();
+        DataTable dtCigaretteMaking = new DataTable();
 
 
         public WorkStateControl()
@@ -138,17 +139,15 @@ namespace CloudManage.StatusMonitor
         public void initDataOverview()
         {
             //读取Excel，将数据添加到DataSet的DataTable中
-            //DataSet ds = new DataSet();
-            //DataTable dt = new DataTable();
             dtOverview.Columns.Add("name", typeof(String));
             dtOverview.Columns.Add("status", typeof(String));
             dtOverview.Columns.Add("deviceImgTop", typeof(Image));
             dtOverview.Columns.Add("deviceImgBottom", typeof(Image));
 
             string excelPath = @"C:\Users\Administrator\Desktop\devicesData.xlsx";
-            FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
+            FileStream fsOverview = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
-            workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
+            workbook = new XSSFWorkbook(fsOverview);    //XSSF打开xlsx
             ISheet sheet = null;
             sheet = workbook.GetSheetAt(0); //获取第1个sheet
             int totalRows = sheet.LastRowNum + 1;
@@ -162,7 +161,6 @@ namespace CloudManage.StatusMonitor
 
                 string tempName = (string)GetCellValue(cellName);
                 string tempStatus = (string)GetCellValue(cellStatus);
-                //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
                 string tempImgIndex = (string)GetCellValue(cellDeviceImg);
 
                 DataRow dr = dtOverview.NewRow();
@@ -174,79 +172,116 @@ namespace CloudManage.StatusMonitor
                 dtOverview.Rows.Add(dr);
             }
             //ds.Tables.Add(dt);
-            fs.Close();
+            fsOverview.Close();
             gridControl_overview.DataSource = dtOverview;   //将dt绑定到GridControl
         }
 
         //每台车数据绑定
         public void initDataEach()
         {
-            dtPackagingPachine.Columns.Add("name1", typeof(String));
-            dtPackagingPachine.Columns.Add("status1", typeof(String));
-            dtPackagingPachine.Columns.Add("deviceImgTop1", typeof(Image));
-            dtPackagingPachine.Columns.Add("deviceImgBottom1", typeof(Image));
-
-            dtWindlass.Columns.Add("name1", typeof(String));
-            dtWindlass.Columns.Add("status1", typeof(String));
-            dtWindlass.Columns.Add("deviceImgTop1", typeof(Image));
-            dtWindlass.Columns.Add("deviceImgBottom1", typeof(Image));
-
             string excelPath = @"C:\Users\Administrator\Desktop\devicesDataEach.xlsx";
-            FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
+            FileStream fsEach = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
-            workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
-            ISheet sheetPackagingPachine = null;
-            ISheet sheetWindlass = null;
-            sheetPackagingPachine = workbook.GetSheetAt(0); //获取第1个sheet
-            sheetWindlass = workbook.GetSheetAt(1); //获取第2个sheet
+            workbook = new XSSFWorkbook(fsEach);    //XSSF打开xlsx
+            ISheet sheetCigarettePackaging = null;
+            ISheet sheetCigaretteMaking = null;
+            sheetCigarettePackaging = workbook.GetSheetAt(0); //获取第1个sheet
+            sheetCigaretteMaking = workbook.GetSheetAt(1); //获取第2个sheet
+
+            dtCigarettePackaging.Columns.Add("nameCigarette", typeof(String));  //这里设定的表的字段，要和设计器的Column的fieldName保持一致
+            dtCigarettePackaging.Columns.Add("detection", typeof(String));
+            dtCigarettePackaging.Columns.Add("missingBranch", typeof(String));
+            dtCigarettePackaging.Columns.Add("CPUtemperature", typeof(String));
+            dtCigarettePackaging.Columns.Add("CPUusage", typeof(String));
+            dtCigarettePackaging.Columns.Add("memoryUsage", typeof(String));
+            dtCigarettePackaging.Columns.Add("state", typeof(String));
+            dtCigarettePackaging.Columns.Add("img", typeof(Image));
+
+            dtCigaretteMaking.Columns.Add("nameCigarette", typeof(String));
+            dtCigaretteMaking.Columns.Add("detection", typeof(String));
+            dtCigaretteMaking.Columns.Add("missingBranch", typeof(String));
+            dtCigaretteMaking.Columns.Add("CPUtemperature", typeof(String));
+            dtCigaretteMaking.Columns.Add("CPUusage", typeof(String));
+            dtCigaretteMaking.Columns.Add("memoryUsage", typeof(String));
+            dtCigaretteMaking.Columns.Add("state", typeof(String));
+            dtCigaretteMaking.Columns.Add("img", typeof(Image));
             
-            int totalRowsPackagingPachine = sheetPackagingPachine.LastRowNum + 1;   //总行数，因行号从0开始
-            int totalRowsWindlass = sheetWindlass.LastRowNum + 1;
-
-            IRow rowPackagingPachine = null;
-            IRow rowWindlass = null;
-            for (int i = 1; i < totalRowsPackagingPachine; i++)
+            int totalRowsCigarettePackaging = sheetCigarettePackaging.LastRowNum + 1;   //总行数，因行号从0开始
+            IRow rowCigarettePackaging = null;
+            for (int i = 1; i < totalRowsCigarettePackaging; i++)
             {
-                rowPackagingPachine = sheetPackagingPachine.GetRow(i);	//获取第i行
-                ICell cellName = rowPackagingPachine.GetCell(0);	//获取row行的第i列的数据
-                ICell cellStatus = rowPackagingPachine.GetCell(1);
-                ICell cellDeviceImg = rowPackagingPachine.GetCell(2);
+                rowCigarettePackaging = sheetCigarettePackaging.GetRow(i);	//获取第i行
 
-                string tempNamePackagingPachine = (string)GetCellValue(cellName);
-                string tempStatusPackagingPachine = (string)GetCellValue(cellStatus);
-                //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
-                string tempImgIndexPackagingPachine = (string)GetCellValue(cellDeviceImg);
+                ICell cellNameCigarettePackaging = rowCigarettePackaging.GetCell(0);	//获取row行的第i列的数据
+                ICell cellDetectionCigarettePackaging = rowCigarettePackaging.GetCell(1);
+                ICell cellMissingBranchCigarettePackaging = rowCigarettePackaging.GetCell(2);
+                ICell cellCPUtemperatureCigarettePackaging = rowCigarettePackaging.GetCell(3);
+                ICell cellCPUusageCigarettePackaging = rowCigarettePackaging.GetCell(4);
+                ICell cellMemoryUsageCigarettePackaging = rowCigarettePackaging.GetCell(5);
+                ICell cellStateCigarettePackaging = rowCigarettePackaging.GetCell(6);
+                ICell cellImgFlagCigarettePackaging = rowCigarettePackaging.GetCell(7);
 
-                DataRow drPackagingPachine = dtPackagingPachine.NewRow();
-                drPackagingPachine["name1"] = tempNamePackagingPachine;
-                drPackagingPachine["status1"] = tempStatusPackagingPachine;
-                drPackagingPachine["deviceImgTop1"] = getImgTopByIndex(tempImgIndexPackagingPachine);
-                drPackagingPachine["deviceImgBottom1"] = getImgBottomByIndex(tempImgIndexPackagingPachine);
+                string tempNameCigarettePackaging = (string)GetCellValue(cellNameCigarettePackaging);
+                string tempDetectionCigarettePackaging = (string)GetCellValue(cellDetectionCigarettePackaging);
+                string tempMissingBranchMackaging = (string)GetCellValue(cellMissingBranchCigarettePackaging);
+                double tempCPUtemperatureCigarettePackaging = (double)GetCellValue(cellCPUtemperatureCigarettePackaging);
+                double tempCPUusageCigarettePackaging = (double)GetCellValue(cellCPUusageCigarettePackaging);
+                double tempMemoryUsageCigarettePackaging = (double)GetCellValue(cellMemoryUsageCigarettePackaging);
+                string tempStateCigarettePacking = (string)GetCellValue(cellStateCigarettePackaging);
+                string tempImgFlagCigarettePackaging = (string)GetCellValue(cellImgFlagCigarettePackaging);
 
-                dtPackagingPachine.Rows.Add(drPackagingPachine);
+                DataRow drCigarettePackaging = dtCigarettePackaging.NewRow();
+                drCigarettePackaging["nameCigarette"] = tempNameCigarettePackaging;
+                drCigarettePackaging["detection"] = tempDetectionCigarettePackaging;
+                drCigarettePackaging["missingBranch"] = tempMissingBranchMackaging;
+                drCigarettePackaging["CPUtemperature"] = tempCPUtemperatureCigarettePackaging + "℃";
+                drCigarettePackaging["CPUusage"] = tempCPUusageCigarettePackaging + "%";
+                drCigarettePackaging["memoryUsage"] = tempMemoryUsageCigarettePackaging + "%";
+                drCigarettePackaging["state"] = tempStateCigarettePacking;
+                drCigarettePackaging["img"] = getImgTopByIndex(tempImgFlagCigarettePackaging);
+
+                dtCigarettePackaging.Rows.Add(drCigarettePackaging);
             }
 
-            for (int i = 1; i < totalRowsWindlass; i++)
+
+            int totalRowsCigaretteMaking = sheetCigaretteMaking.LastRowNum + 1;
+            IRow rowCigaretteMaking = null;
+            for (int i = 1; i < totalRowsCigaretteMaking; i++)
             {
-                rowWindlass = sheetPackagingPachine.GetRow(i);	//获取第i行
-                ICell cellName = rowWindlass.GetCell(0);	//获取row行的第i列的数据
-                ICell cellStatus = rowWindlass.GetCell(1);
-                ICell cellDeviceImg = rowWindlass.GetCell(2);
+                rowCigaretteMaking = sheetCigaretteMaking.GetRow(i);	//获取第i行
+                ICell cellNameCigaretteMaking = rowCigaretteMaking.GetCell(0);	//获取row行的第i列的数据
+                ICell cellDetectionCigaretteMaking = rowCigaretteMaking.GetCell(1);
+                ICell cellMissingBranchCigaretteMaking = rowCigaretteMaking.GetCell(2);
+                ICell cellCPUtemperatureCigaretteMaking = rowCigaretteMaking.GetCell(3);
+                ICell cellCPUusageCigaretteMaking = rowCigaretteMaking.GetCell(4);
+                ICell cellMemoryUsageCigaretteMaking = rowCigaretteMaking.GetCell(5);
+                ICell cellStateCigaretteMaking = rowCigaretteMaking.GetCell(6);
+                ICell cellImgFlagCigaretteMaking = rowCigaretteMaking.GetCell(7);
 
-                string tempNameWindlass = (string)GetCellValue(cellName);
-                string tempStatusWindlass = (string)GetCellValue(cellStatus);
-                //int tempImgIndex = (int)GetCellValue(cellDeviceImg);
-                string tempImgIndexWindlass = (string)GetCellValue(cellDeviceImg);
+                string tempNameCigaretteMaking = (string)GetCellValue(cellNameCigaretteMaking);
+                string tempDetectionCigaretteMaking = (string)GetCellValue(cellDetectionCigaretteMaking);
+                string tempMissingBranchCigaretteMaking = (string)GetCellValue(cellMissingBranchCigaretteMaking);
+                double tempCPUtemperatureCigaretteMaking = (double)GetCellValue(cellCPUtemperatureCigaretteMaking);
+                double tempCPUusageCigaretteMaking = (double)GetCellValue(cellCPUusageCigaretteMaking);
+                double tempMemoryUsageCigaretteMaking = (double)GetCellValue(cellMemoryUsageCigaretteMaking);
+                string tempStateCigaretteMaking = (string)GetCellValue(cellStateCigaretteMaking);
+                string tempImgFlagCigaretteMaking = (string)GetCellValue(cellImgFlagCigaretteMaking);
 
-                DataRow drWindlass = dtWindlass.NewRow();
-                drWindlass["name1"] = tempNameWindlass;
-                drWindlass["status1"] = tempStatusWindlass;
-                drWindlass["deviceImgTop1"] = getImgTopByIndex(tempImgIndexWindlass);
-                drWindlass["deviceImgBottom1"] = getImgBottomByIndex(tempImgIndexWindlass);
+                DataRow drCigaretteMaking = dtCigaretteMaking.NewRow();
+                drCigaretteMaking["nameCigarette"] = tempNameCigaretteMaking;
+                drCigaretteMaking["detection"] = tempDetectionCigaretteMaking;
+                drCigaretteMaking["missingBranch"] = tempMissingBranchCigaretteMaking;
+                drCigaretteMaking["CPUtemperature"] = tempCPUtemperatureCigaretteMaking + "℃";
+                drCigaretteMaking["CPUusage"] = tempCPUusageCigaretteMaking + "%";
+                drCigaretteMaking["memoryUsage"] = tempMemoryUsageCigaretteMaking + "%";
+                drCigaretteMaking["state"] = tempStateCigaretteMaking;
+                drCigaretteMaking["img"] = getImgBottomByIndex(tempImgFlagCigaretteMaking);
 
-                dtWindlass.Rows.Add(drWindlass);
+                dtCigaretteMaking.Rows.Add(drCigaretteMaking);
             }
-            fs.Close();
+            fsEach.Close();
+
+            //gridControl_each.DataSource = dtCigarettePackaging;
         }
 
 
@@ -261,7 +296,7 @@ namespace CloudManage.StatusMonitor
         Color colorDisable = Color.FromArgb(120,120,120);
 
         //该事件可customize所有tile
-        private void tileView1_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
+        private void tileView_overview_ItemCustomize(object sender, TileViewItemCustomizeEventArgs e)
         {
             if (e.Item == null || e.Item.Elements.Count == 0)
                 return;
@@ -300,7 +335,7 @@ namespace CloudManage.StatusMonitor
 
         }
 
-        private void tileView1_DoubleClick(object sender, EventArgs e)
+        private void tileView_overview_DoubleClick(object sender, EventArgs e)
         {
             int[] index = this.tileView_overview.GetSelectedRows(); //返回被选中tile的index
             foreach(var i in index)
@@ -310,7 +345,7 @@ namespace CloudManage.StatusMonitor
         }
          
         
-        private void tileView1_itemClick(object sender, EventArgs e)
+        private void tileView_overview_itemClick(object sender, EventArgs e)
         {
             string selectedPageTag = this.sideTileBarControl1.tagSelectedItem;
             if (selectedPageTag == "0")
@@ -327,12 +362,11 @@ namespace CloudManage.StatusMonitor
         {
             if (this.imageSlider_each.CurrentImageIndex == 1)
             {
-                gridControl_each.DataSource = dtPackagingPachine;
+                gridControl_each.DataSource = dtCigarettePackaging;
             }else if (this.imageSlider_each.CurrentImageIndex == 0)
             {
-                gridControl_each.DataSource = dtWindlass;
+                gridControl_each.DataSource = dtCigaretteMaking;
             }
-
         }
 
 

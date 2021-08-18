@@ -203,12 +203,6 @@
     <None Include="Resources\aboveaverage_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\packagingMachine_120_34.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\packagingMachineGroup_120x58.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\marqueezoom_32x32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +261,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ZB45_336x140.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\packagingMachineGroup_120x58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\packagingMachine_120_34.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
