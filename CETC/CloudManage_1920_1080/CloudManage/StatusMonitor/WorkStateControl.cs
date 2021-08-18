@@ -189,8 +189,8 @@ namespace CloudManage.StatusMonitor
             sheetCigaretteMaking = workbook.GetSheetAt(1); //获取第2个sheet
 
             dtCigarettePackaging.Columns.Add("nameCigarette", typeof(String));  //这里设定的表的字段，要和设计器的Column的fieldName保持一致
-            dtCigarettePackaging.Columns.Add("detection", typeof(String));
-            dtCigarettePackaging.Columns.Add("missingBranch", typeof(String));
+            dtCigarettePackaging.Columns.Add("detection", typeof(Double));
+            dtCigarettePackaging.Columns.Add("missingBranch", typeof(Double));
             dtCigarettePackaging.Columns.Add("CPUtemperature", typeof(String));
             dtCigarettePackaging.Columns.Add("CPUusage", typeof(String));
             dtCigarettePackaging.Columns.Add("memoryUsage", typeof(String));
@@ -198,8 +198,8 @@ namespace CloudManage.StatusMonitor
             dtCigarettePackaging.Columns.Add("img", typeof(Image));
 
             dtCigaretteMaking.Columns.Add("nameCigarette", typeof(String));
-            dtCigaretteMaking.Columns.Add("detection", typeof(String));
-            dtCigaretteMaking.Columns.Add("missingBranch", typeof(String));
+            dtCigaretteMaking.Columns.Add("detection", typeof(Double));
+            dtCigaretteMaking.Columns.Add("missingBranch", typeof(Double));
             dtCigaretteMaking.Columns.Add("CPUtemperature", typeof(String));
             dtCigaretteMaking.Columns.Add("CPUusage", typeof(String));
             dtCigaretteMaking.Columns.Add("memoryUsage", typeof(String));
@@ -222,8 +222,8 @@ namespace CloudManage.StatusMonitor
                 ICell cellImgFlagCigarettePackaging = rowCigarettePackaging.GetCell(7);
 
                 string tempNameCigarettePackaging = (string)GetCellValue(cellNameCigarettePackaging);
-                string tempDetectionCigarettePackaging = (string)GetCellValue(cellDetectionCigarettePackaging);
-                string tempMissingBranchMackaging = (string)GetCellValue(cellMissingBranchCigarettePackaging);
+                double tempDetectionCigarettePackaging = (double)GetCellValue(cellDetectionCigarettePackaging);
+                double tempMissingBranchMackaging = (double)GetCellValue(cellMissingBranchCigarettePackaging);
                 double tempCPUtemperatureCigarettePackaging = (double)GetCellValue(cellCPUtemperatureCigarettePackaging);
                 double tempCPUusageCigarettePackaging = (double)GetCellValue(cellCPUusageCigarettePackaging);
                 double tempMemoryUsageCigarettePackaging = (double)GetCellValue(cellMemoryUsageCigarettePackaging);
@@ -259,8 +259,8 @@ namespace CloudManage.StatusMonitor
                 ICell cellImgFlagCigaretteMaking = rowCigaretteMaking.GetCell(7);
 
                 string tempNameCigaretteMaking = (string)GetCellValue(cellNameCigaretteMaking);
-                string tempDetectionCigaretteMaking = (string)GetCellValue(cellDetectionCigaretteMaking);
-                string tempMissingBranchCigaretteMaking = (string)GetCellValue(cellMissingBranchCigaretteMaking);
+                double tempDetectionCigaretteMaking = (double)GetCellValue(cellDetectionCigaretteMaking);
+                double tempMissingBranchCigaretteMaking = (double)GetCellValue(cellMissingBranchCigaretteMaking);
                 double tempCPUtemperatureCigaretteMaking = (double)GetCellValue(cellCPUtemperatureCigaretteMaking);
                 double tempCPUusageCigaretteMaking = (double)GetCellValue(cellCPUusageCigaretteMaking);
                 double tempMemoryUsageCigaretteMaking = (double)GetCellValue(cellMemoryUsageCigaretteMaking);
@@ -332,7 +332,6 @@ namespace CloudManage.StatusMonitor
             }
             //statusCaption.Appearance.Normal.BackColor = normalOrError ? colorCaptionSold : colorCaptionReady;
             //yearCaption.Appearance.Normal.ForeColor = normalOrError ? colorCaptionSold : colorCaptionReady;
-
         }
 
         private void tileView_overview_DoubleClick(object sender, EventArgs e)
