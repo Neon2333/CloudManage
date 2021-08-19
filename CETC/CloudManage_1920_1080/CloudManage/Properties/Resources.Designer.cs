@@ -163,6 +163,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap neichen {
+            get {
+                object obj = ResourceManager.GetObject("neichen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap nextcomment_32x32 {
             get {
                 object obj = ResourceManager.GetObject("nextcomment_32x32", resourceCulture);
@@ -276,6 +286,16 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap ZB45_336x140 {
             get {
                 object obj = ResourceManager.GetObject("ZB45_336x140", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ZB45_transparent {
+            get {
+                object obj = ResourceManager.GetObject("ZB45_transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
