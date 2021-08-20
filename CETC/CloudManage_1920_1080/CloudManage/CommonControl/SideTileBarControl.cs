@@ -20,7 +20,8 @@ namespace CloudManage.CommonControl
         public SideTileBarControl()
         {
             InitializeComponent();
-            countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;    
+            countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;
+            TagSelectedItem = "0"; 
         }
 
         //显示总览按钮

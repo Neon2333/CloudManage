@@ -97,6 +97,12 @@
     <Compile Include="CommonControl\SideTileBarControl.Designer.cs">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonControl\SideTileBarControlWithSub.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonControl\SideTileBarControlWithSub.Designer.cs">
+      <DependentUpon>SideTileBarControlWithSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,8 +152,17 @@
     <Compile Include="test\testSideTileBarControl.Designer.cs">
       <DependentUpon>testSideTileBarControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="test\testSideTileBarWithSubControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\testSideTileBarWithSubControl.Designer.cs">
+      <DependentUpon>testSideTileBarWithSubControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CommonControl\SideTileBarControl.resx">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonControl\SideTileBarControlWithSub.resx">
+      <DependentUpon>SideTileBarControlWithSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -175,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="test\testSideTileBarControl.resx">
       <DependentUpon>testSideTileBarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test\testSideTileBarWithSubControl.resx">
+      <DependentUpon>testSideTileBarWithSubControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -273,6 +291,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\neichen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom100percent_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\functionslookupandreference_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\functionslookupandreference_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom100_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

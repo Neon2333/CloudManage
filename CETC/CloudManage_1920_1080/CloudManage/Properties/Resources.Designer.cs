@@ -123,6 +123,26 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap functionslookupandreference_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("functionslookupandreference_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap functionslookupandreference_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("functionslookupandreference_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap gaugestylelinearhorizontal_32x32 {
             get {
                 object obj = ResourceManager.GetObject("gaugestylelinearhorizontal_32x32", resourceCulture);
@@ -306,6 +326,36 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap ZJ17_PROTOS70_336x140 {
             get {
                 object obj = ResourceManager.GetObject("ZJ17_PROTOS70_336x140", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zoom_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("zoom_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zoom100_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("zoom100_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zoom100percent_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("zoom100percent_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

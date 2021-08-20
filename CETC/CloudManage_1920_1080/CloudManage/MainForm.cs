@@ -84,7 +84,7 @@ namespace CloudManage
         private void tileBar_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-            MessageBox.Show("传参：" + iSelectedIndex);
+            //MessageBox.Show("传参：" + iSelectedIndex);
         }
 
         private void tileBar_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
