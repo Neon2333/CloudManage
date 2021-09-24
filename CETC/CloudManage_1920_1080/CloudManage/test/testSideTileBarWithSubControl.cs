@@ -38,7 +38,7 @@ namespace CloudManage.test
             dt.Columns.Add("numSideBarItem", typeof(String));
             dt.Columns.Add("showSubItem", typeof(String));
 
-            string excelPath = @"historyQueryDevices\historyQueryDevices.xlsx";
+            string excelPath = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\historyQueryDevices.xlsx";
             FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
             workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
@@ -55,11 +55,11 @@ namespace CloudManage.test
                 ICell cell3 = row.GetCell(3);
                 ICell cell4 = row.GetCell(4);
 
-                string tagSideBarItem = (string)GetCellValue(cell0);
-                string nameSideBarItem = (string)GetCellValue(cell1);
-                string textSideBarItem = (string)GetCellValue(cell2);
-                string numSideBarItem = (string)GetCellValue(cell3);
-                string showSubItem = (string)GetCellValue(cell4);
+                string tagSideBarItem = Convert.ToString(GetCellValue(cell0));
+                string nameSideBarItem = Convert.ToString(GetCellValue(cell1));
+                string textSideBarItem = Convert.ToString(GetCellValue(cell2));
+                string numSideBarItem = Convert.ToString(GetCellValue(cell3));
+                string showSubItem = Convert.ToString(GetCellValue(cell4));
 
                 DataRow dr = dt.NewRow();
                 dr["tagSideBarItem"] = tagSideBarItem;
@@ -122,8 +122,8 @@ namespace CloudManage.test
             string name = String.Empty;
             string text = String.Empty;
             string num = String.Empty;
-            string showSubItem = String.Empty;
-            string[] showItems = new string[99];
+            string equipShow = String.Empty;
+            //string[] showItems = new string[99];
 
             for(int i = 0; i < dt.Rows.Count; i++)
             {
@@ -131,8 +131,8 @@ namespace CloudManage.test
                 name = (string)dt.Rows[i]["nameSideBarItem"];
                 text = (string)dt.Rows[i]["textSideBarItem"];
                 num = (string)dt.Rows[i]["numSideBarItem"];
-                showSubItem = (string)dt.Rows[i]["showSubItem"];
-                showItems[i] = showSubItem;
+                equipShow = (string)dt.Rows[i]["showSubItem"];
+                //equipShow[i] = showSubItem;
 
                 this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);
             }
@@ -151,7 +151,7 @@ namespace CloudManage.test
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "12", "tileBarItem_sub12", "散包光电检测", Encoding.Default.GetBytes("散包光电检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "13", "tileBarItem_sub13", "条盒拉线检测", Encoding.Default.GetBytes("条盒拉线检测").Length / 2);
 
-            this.sideTileBarControlWithSub1._showSubItemHideRedundantItem(showItems);
+            this.sideTileBarControlWithSub1._showSubItemHideRedundantItem(equipShow);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -161,7 +161,7 @@ namespace CloudManage.test
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] a = { "1", "3", "5" };
+            string a = "1000000000001"; 
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem(a);
         }
 

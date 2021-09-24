@@ -74,10 +74,10 @@
             // 
             // sideTileBarControlWithSub1
             // 
-            this.sideTileBarControlWithSub1.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControlWithSub1.Location = new System.Drawing.Point(0, 12);
             this.sideTileBarControlWithSub1.Name = "sideTileBarControlWithSub1";
             this.sideTileBarControlWithSub1.showOverview = true;
-            this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(600, 900);
+            this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(612, 900);
             this.sideTileBarControlWithSub1.TabIndex = 0;
             // 
             // testSideTileBarWithSubControl

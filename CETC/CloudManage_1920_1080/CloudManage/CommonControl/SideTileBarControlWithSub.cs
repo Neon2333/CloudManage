@@ -450,22 +450,32 @@ namespace CloudManage.CommonControl
             }
         }
 
-        private bool _existsInArr(string []arr, string ele)
-        {
-            return ((IList)arr).Contains(ele);
-        }
+        //private bool _existsInArr(string []arr, string ele)
+        //{
+        //    return ((IList)arr).Contains(ele);
+        //}
 
-        public void _showSubItemHideRedundantItem(string[] tagUsedItems)
+        public void _showSubItemHideRedundantItem(string usedItemsSub)
         {
             TileBarItem temp = null;
-            for (int i = 1; i < this.countSideTileBarItemSub; i++)
+            if (usedItemsSub.Length != this.countSideTileBarItemSub - 1)
             {
-                temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
-                string tag = temp.Tag.ToString();
-                if(_existsInArr(tagUsedItems,tag) == true)
+                MessageBox.Show("设备标志的位数不符");
+            }
+            for (int i = 0; i < usedItemsSub.Length; i++)
+            {
+                char ch = usedItemsSub.ElementAt(i);
+                temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                if (ch == '1')
                 {
+                    //string tag = temp.Tag.ToString();
                     temp.Visible = true;
                 }
+                else
+                {
+                    temp.Visible = false;
+                }
+
             }
         }
         

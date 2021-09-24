@@ -127,7 +127,7 @@
             this.tileBarDropDownContainer_sub.Controls.Add(this.tileBar_sub);
             this.tileBarDropDownContainer_sub.Location = new System.Drawing.Point(240, 0);
             this.tileBarDropDownContainer_sub.Name = "tileBarDropDownContainer_sub";
-            this.tileBarDropDownContainer_sub.Size = new System.Drawing.Size(336, 865);
+            this.tileBarDropDownContainer_sub.Size = new System.Drawing.Size(379, 854);
             this.tileBarDropDownContainer_sub.TabIndex = 14;
             // 
             // tileBar_sub
@@ -146,7 +146,7 @@
             this.tileBar_sub.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.tileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sub.Size = new System.Drawing.Size(302, 800);
+            this.tileBar_sub.Size = new System.Drawing.Size(353, 800);
             this.tileBar_sub.TabIndex = 14;
             this.tileBar_sub.WideTileWidth = 260;
             // 
@@ -240,7 +240,7 @@
             this.Controls.Add(this.tileBarDropDownContainer_sub);
             this.Controls.Add(this.tileBar_sideTileBar);
             this.Name = "SideTileBarControlWithSub";
-            this.Size = new System.Drawing.Size(600, 900);
+            this.Size = new System.Drawing.Size(671, 900);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).EndInit();
             this.tileBarDropDownContainer_sub.ResumeLayout(false);
             this.ResumeLayout(false);
