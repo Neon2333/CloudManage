@@ -143,7 +143,7 @@ namespace CloudManage.StatusMonitor
             dtOverview.Columns.Add("deviceImgTop", typeof(Image));
             dtOverview.Columns.Add("deviceImgBottom", typeof(Image));
 
-            string excelPath = @"C:\Users\Administrator\Desktop\devicesData.xlsx";
+            string excelPath = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\devicesData.xlsx";
             FileStream fsOverview = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
             workbook = new XSSFWorkbook(fsOverview);    //XSSF打开xlsx
@@ -178,7 +178,7 @@ namespace CloudManage.StatusMonitor
         //每台车数据绑定
         public void initDataEach()
         {
-            string excelPath = @"C:\Users\Administrator\Desktop\devicesDataEach.xlsx";
+            string excelPath = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\devicesDataEach.xlsx";
             FileStream fsEach = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
             workbook = new XSSFWorkbook(fsEach);    //XSSF打开xlsx

@@ -38,7 +38,7 @@ namespace CloudManage.test
             dt.Columns.Add("numSideBarItem", typeof(String));
             dt.Columns.Add("showSubItem", typeof(String));
 
-            string excelPath = @"C:\Users\Administrator\Desktop\historyQueryDevices.xlsx";
+            string excelPath = @"historyQueryDevices\historyQueryDevices.xlsx";
             FileStream fs = File.OpenRead(excelPath);    //关联流打开文件
             IWorkbook workbook = null;
             workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
