@@ -47,7 +47,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        public DataTable dt
+        public DataTable dataTable
         {
             set
             {
@@ -493,7 +493,7 @@ namespace CloudManage.CommonControl
                 for (int i = 0; i < this.TotalNumEquip; i++)
                 {
                     int indexRow = 0;
-                    indexRow = Convert.ToInt32(this.TagSelectedItem);
+                    indexRow = Convert.ToInt32(this.TagSelectedItem) - 2;   //dt中的行index为tag-2
                     DataRow dr = this.Dt.Rows[indexRow];
                     int flag = Convert.ToInt32(dr[i + 4]);
                     temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);

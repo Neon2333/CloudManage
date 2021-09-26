@@ -110,8 +110,8 @@ namespace CloudManage.test
                 dr["烟支空头检测"] = flagEquip1;
                 dr["模盒缺支检测"] = flagEquip2;
                 dr["一号轮缺支检测"] = flagEquip3;
-                dr["二号轮铝箔纸检测"] = flagEquip4;
-                dr["三号轮铝箔纸检测"] = flagEquip5;
+                dr["三号轮铝箔纸检测"] = flagEquip4;
+                dr["四号轮铝箔纸检测"] = flagEquip5;
                 dr["五号轮内框纸检测"] = flagEquip6;
                 dr["小包外观检测"] = flagEquip7;
                 dr["烟包外观复检"] = flagEquip8;
@@ -172,14 +172,14 @@ namespace CloudManage.test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.sideTileBarControlWithSub1.dt = this.dt;
+            this.sideTileBarControlWithSub1.dataTable = this.dt;
 
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "1", "tileBarItem_sub1", "烟库乱烟检测", Encoding.Default.GetBytes("烟库乱烟检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "2", "tileBarItem_sub2", "烟支空头检测", Encoding.Default.GetBytes("烟支空头检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "3", "tileBarItem_sub3", "模盒缺支检测", Encoding.Default.GetBytes("模盒缺支检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "4", "tileBarItem_sub4", "一号轮缺支检测", Encoding.Default.GetBytes("一号轮缺支检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "5", "tileBarItem_sub5", "三号轮铝箔纸检测", Encoding.Default.GetBytes("三号轮铝箔纸检测").Length / 2);
-            this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "6", "tileBarItem_sub6", "三号轮铝箔纸检测", Encoding.Default.GetBytes("三号轮铝箔纸检测").Length / 2);
+            this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "6", "tileBarItem_sub6", "四号轮铝箔纸检测", Encoding.Default.GetBytes("四号轮铝箔纸检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "7", "tileBarItem_sub7", "五号轮内框纸检测", Encoding.Default.GetBytes("五号轮内框纸检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "8", "tileBarItem_sub8", "小包外观检测", Encoding.Default.GetBytes("小包外观检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "9", "tileBarItem_sub9", "烟包外观复检", Encoding.Default.GetBytes("烟包外观复检").Length / 2);
@@ -200,7 +200,7 @@ namespace CloudManage.test
                 text = (string)dt.Rows[i]["textSideBarItem"];
                 num = (string)dt.Rows[i]["numSideBarItem"];
 
-                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);
+                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
             }
 
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
