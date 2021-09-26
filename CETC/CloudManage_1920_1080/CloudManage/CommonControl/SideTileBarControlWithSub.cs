@@ -16,16 +16,22 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControlWithSub : DevExpress.XtraEditors.XtraUserControl
     {
+        private DataTable Dt = new DataTable();
+
         private string TagSelectedItem = String.Empty;
         private string TagSelectedItemSub = String.Empty;
-        public int countSideTileBarItem = 0;
-        public int countSideTileBarItemSub = 0; 
+        public int countSideTileBarItem = 0;    //sideTileBar中items计数。包括“所有设备”按钮
+        public int countSideTileBarItemSub = 0; //sideTileBarSub中items计数
+        public int TotalNumEquip = 0;     //设备总数
+        //public string UsedItemsSub = String.Empty; //使用设备标志字符串
         public SideTileBarControlWithSub()
         {
             InitializeComponent();
-            countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;
+            countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;   
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
             TagSelectedItem = "0";
+            TotalNumEquip = this.Dt.Columns.Count - 4;  //从dt初始化设备数:-4
+
         }
 
         //显示总览按钮
@@ -38,6 +44,14 @@ namespace CloudManage.CommonControl
             set
             {
                 this.tileBarItem1.Visible = value;
+            }
+        }
+
+        public DataTable dt
+        {
+            set
+            {
+                this.Dt = value;
             }
         }
 
@@ -57,6 +71,7 @@ namespace CloudManage.CommonControl
                 return this.TagSelectedItemSub;
             }
         }
+
 
         //通过tag选中item
         public bool _selectedItem(string tag)
@@ -175,6 +190,8 @@ namespace CloudManage.CommonControl
         //在尾部依次添加按钮
         public bool _addSideTileBarItem(TileBarItem tileBarItem, string tagTileBarItem, string nameTileBarItem, string text, string num)
         {
+            TotalNumEquip = this.Dt.Columns.Count - 4;  //更新当前的设备数，避免只初始化出现-4
+
             try
             {
                 if (!isAllNum(tagTileBarItem) || !isAllNum(num))
@@ -216,8 +233,8 @@ namespace CloudManage.CommonControl
                 tileBarItem.AppearanceItem.Selected.Options.UseFont = true;
                 tileBarItem.AppearanceItem.Selected.Options.UseForeColor = true;
                 //tileBarItem.DropDownControl = this.tileBarDropDownContainer_sub;
-                tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
-                tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
+                tileBarItem.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
+                tileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
                 tileBarItem.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
                 tileItemElementNum.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
                 tileItemElementNum.Text = num;
@@ -455,33 +472,49 @@ namespace CloudManage.CommonControl
         //    return ((IList)arr).Contains(ele);
         //}
 
-        public void _showSubItemHideRedundantItem(string usedItemsSub)
+        public void _showSubItemHideRedundantItem()
         {
             TileBarItem temp = null;
-            if (usedItemsSub.Length != this.countSideTileBarItemSub - 1)
+            if (this.TotalNumEquip != this.countSideTileBarItemSub - 1)
             {
-                MessageBox.Show("设备标志的位数不符");
+                MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
             }
-            for (int i = 0; i < usedItemsSub.Length; i++)
+
+            if (this.TagSelectedItem == "0")
             {
-                char ch = usedItemsSub.ElementAt(i);
-                temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                if (ch == '1')
+                for (int i = 0; i < this.TotalNumEquip; i++)
                 {
-                    //string tag = temp.Tag.ToString();
+                    temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
                     temp.Visible = true;
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i < this.TotalNumEquip; i++)
                 {
-                    temp.Visible = false;
-                }
+                    int indexRow = 0;
+                    indexRow = Convert.ToInt32(this.TagSelectedItem);
+                    DataRow dr = this.Dt.Rows[indexRow];
+                    int flag = Convert.ToInt32(dr[i + 4]);
+                    temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                    if (flag == 1)
+                    {
+                        //string tag = temp.Tag.ToString();
+                        temp.Visible = true;
+                    }
+                    else
+                    {
+                        temp.Visible = false;
+                    }
 
+                }
             }
         }
         
         //点击sideTileItem，显示对应设备子菜单
         private void tileBar_sideTileBar_ItemClick(object sender, TileItemEventArgs e)
         {
+
             TileBarItem temp = null;
 
             //原SelectedItem解绑DropDownControl
@@ -503,6 +536,7 @@ namespace CloudManage.CommonControl
                 string tag = temp.Tag.ToString();
                 if (tagSelectedItem.CompareTo(tag) == 0)
                 {
+                    _showSubItemHideRedundantItem();
                     temp.DropDownControl = this.tileBarDropDownContainer_sub;    //重新绑定 
                     this.tileBar_sideTileBar.ShowDropDown(temp);   //立即显示子菜单
                     break;
