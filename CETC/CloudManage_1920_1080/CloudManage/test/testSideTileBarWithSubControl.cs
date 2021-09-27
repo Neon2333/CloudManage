@@ -40,8 +40,8 @@ namespace CloudManage.test
             dt.Columns.Add("烟支空头检测", typeof(int));
             dt.Columns.Add("模盒缺支检测", typeof(int));
             dt.Columns.Add("一号轮缺支检测", typeof(int));
-            dt.Columns.Add("二号轮铝箔纸检测", typeof(int));
             dt.Columns.Add("三号轮铝箔纸检测", typeof(int));
+            dt.Columns.Add("四号轮铝箔纸检测", typeof(int));
             dt.Columns.Add("五号轮内框纸检测", typeof(int));
             dt.Columns.Add("小包外观检测", typeof(int));
             dt.Columns.Add("烟包外观复检", typeof(int));
