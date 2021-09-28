@@ -34,9 +34,9 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar_sideTileBar = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_sideTileBar = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem1 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem0 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarDropDownContainer_sub = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
-            this.tileBar_sub = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBar_sideTileBar_sub = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_sub = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem_sub0 = new DevExpress.XtraBars.Navigation.TileBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).BeginInit();
@@ -57,7 +57,7 @@
             this.tileBar_sideTileBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileBar_sideTileBar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.tileBar_sideTileBar.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.tileBar_sideTileBar.SelectedItem = this.tileBarItem1;
+            this.tileBar_sideTileBar.SelectedItem = this.tileBarItem0;
             this.tileBar_sideTileBar.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.tileBar_sideTileBar.Size = new System.Drawing.Size(240, 800);
             this.tileBar_sideTileBar.TabIndex = 13;
@@ -66,30 +66,31 @@
             // 
             // tileBarGroup_sideTileBar
             // 
-            this.tileBarGroup_sideTileBar.Items.Add(this.tileBarItem1);
+            this.tileBarGroup_sideTileBar.Items.Add(this.tileBarItem0);
             this.tileBarGroup_sideTileBar.Name = "tileBarGroup_sideTileBar";
             // 
-            // tileBarItem1
+            // tileBarItem0
             // 
-            this.tileBarItem1.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
-            this.tileBarItem1.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.tileBarItem1.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem1.AppearanceItem.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem1.AppearanceItem.Normal.Options.UseForeColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
-            this.tileBarItem1.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
-            this.tileBarItem1.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileBarItem1.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseBackColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseBorderColor = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseFont = true;
-            this.tileBarItem1.AppearanceItem.Selected.Options.UseForeColor = true;
-            this.tileBarItem1.DropDownControl = this.tileBarDropDownContainer_sub;
-            this.tileBarItem1.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
-            this.tileBarItem1.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
+            this.tileBarItem0.AppearanceItem.Normal.BackColor = System.Drawing.Color.White;
+            this.tileBarItem0.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.tileBarItem0.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem0.AppearanceItem.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.tileBarItem0.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem0.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileBarItem0.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem0.AppearanceItem.Normal.Options.UseForeColor = true;
+            this.tileBarItem0.AppearanceItem.Selected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
+            this.tileBarItem0.AppearanceItem.Selected.BorderColor = System.Drawing.Color.White;
+            this.tileBarItem0.AppearanceItem.Selected.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileBarItem0.AppearanceItem.Selected.ForeColor = System.Drawing.Color.White;
+            this.tileBarItem0.AppearanceItem.Selected.Options.UseBackColor = true;
+            this.tileBarItem0.AppearanceItem.Selected.Options.UseBorderColor = true;
+            this.tileBarItem0.AppearanceItem.Selected.Options.UseFont = true;
+            this.tileBarItem0.AppearanceItem.Selected.Options.UseForeColor = true;
+            this.tileBarItem0.DropDownControl = this.tileBarDropDownContainer_sub;
+            this.tileBarItem0.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
+            this.tileBarItem0.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
+            this.tileBarItem0.DropDownOptions.Height = 300;
             tileItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             tileItemElement2.Text = "101";
             tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
@@ -107,43 +108,44 @@
             tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             tileItemElement4.ImageOptions.SvgImageSize = new System.Drawing.Size(120, 60);
             tileItemElement4.Text = "";
-            this.tileBarItem1.Elements.Add(tileItemElement2);
-            this.tileBarItem1.Elements.Add(tileItemElement3);
-            this.tileBarItem1.Elements.Add(tileItemElement4);
-            this.tileBarItem1.Id = 0;
-            this.tileBarItem1.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem1.Name = "tileBarItem1";
-            this.tileBarItem1.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem1.ShowItemShadow = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem1.Tag = "0";
+            this.tileBarItem0.Elements.Add(tileItemElement2);
+            this.tileBarItem0.Elements.Add(tileItemElement3);
+            this.tileBarItem0.Elements.Add(tileItemElement4);
+            this.tileBarItem0.Id = 0;
+            this.tileBarItem0.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem0.Name = "tileBarItem0";
+            this.tileBarItem0.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem0.ShowItemShadow = DevExpress.Utils.DefaultBoolean.True;
+            this.tileBarItem0.Tag = "0";
             // 
             // tileBarDropDownContainer_sub
             // 
-            this.tileBarDropDownContainer_sub.Controls.Add(this.tileBar_sub);
+            this.tileBarDropDownContainer_sub.Controls.Add(this.tileBar_sideTileBar_sub);
             this.tileBarDropDownContainer_sub.Location = new System.Drawing.Point(240, 0);
             this.tileBarDropDownContainer_sub.Name = "tileBarDropDownContainer_sub";
-            this.tileBarDropDownContainer_sub.Size = new System.Drawing.Size(379, 854);
+            this.tileBarDropDownContainer_sub.Size = new System.Drawing.Size(320, 800);
             this.tileBarDropDownContainer_sub.TabIndex = 14;
             // 
-            // tileBar_sub
+            // tileBar_sideTileBar_sub
             // 
-            this.tileBar_sub.AllowItemHover = false;
-            this.tileBar_sub.AllowSelectedItem = true;
-            this.tileBar_sub.BackColor = System.Drawing.Color.Transparent;
-            this.tileBar_sub.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            this.tileBar_sub.Groups.Add(this.tileBarGroup_sub);
-            this.tileBar_sub.ItemPadding = new System.Windows.Forms.Padding(60, 6, 12, 6);
-            this.tileBar_sub.ItemSize = 70;
-            this.tileBar_sub.Location = new System.Drawing.Point(0, 0);
-            this.tileBar_sub.MaxId = 24;
-            this.tileBar_sub.Name = "tileBar_sub";
-            this.tileBar_sub.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileBar_sub.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.tileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
-            this.tileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sub.Size = new System.Drawing.Size(353, 800);
-            this.tileBar_sub.TabIndex = 14;
-            this.tileBar_sub.WideTileWidth = 260;
+            this.tileBar_sideTileBar_sub.AllowItemHover = false;
+            this.tileBar_sideTileBar_sub.AllowSelectedItem = true;
+            this.tileBar_sideTileBar_sub.BackColor = System.Drawing.Color.Transparent;
+            this.tileBar_sideTileBar_sub.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBar_sideTileBar_sub.Groups.Add(this.tileBarGroup_sub);
+            this.tileBar_sideTileBar_sub.ItemPadding = new System.Windows.Forms.Padding(60, 6, 12, 6);
+            this.tileBar_sideTileBar_sub.ItemSize = 70;
+            this.tileBar_sideTileBar_sub.Location = new System.Drawing.Point(0, 0);
+            this.tileBar_sideTileBar_sub.MaxId = 24;
+            this.tileBar_sideTileBar_sub.Name = "tileBar_sideTileBar_sub";
+            this.tileBar_sideTileBar_sub.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileBar_sideTileBar_sub.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.tileBar_sideTileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tileBar_sideTileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(300, 800);
+            this.tileBar_sideTileBar_sub.TabIndex = 14;
+            this.tileBar_sideTileBar_sub.WideTileWidth = 240;
+            this.tileBar_sideTileBar_sub.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBar_sub_ItemClick);
             // 
             // tileBarGroup_sub
             // 
@@ -188,7 +190,7 @@
             this.Controls.Add(this.tileBarDropDownContainer_sub);
             this.Controls.Add(this.tileBar_sideTileBar);
             this.Name = "SideTileBarControlWithSub";
-            this.Size = new System.Drawing.Size(671, 900);
+            this.Size = new System.Drawing.Size(903, 900);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).EndInit();
             this.tileBarDropDownContainer_sub.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -199,9 +201,9 @@
 
         private DevExpress.XtraBars.Navigation.TileBar tileBar_sideTileBar;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup_sideTileBar;
-        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem1;
+        private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem0;
         private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer_sub;
-        private DevExpress.XtraBars.Navigation.TileBar tileBar_sub;
+        private DevExpress.XtraBars.Navigation.TileBar tileBar_sideTileBar_sub;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup_sub;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_sub0;
     }

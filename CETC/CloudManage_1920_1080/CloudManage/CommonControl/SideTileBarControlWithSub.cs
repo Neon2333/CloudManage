@@ -19,18 +19,18 @@ namespace CloudManage.CommonControl
         private DataTable Dt = new DataTable();
 
         private string TagSelectedItem = String.Empty;
-        private string TagSelectedItemSub = String.Empty;
-        public int countSideTileBarItem = 0;    //sideTileBar中items计数。包括“所有设备”按钮
+        private string TagSelectedItemSub = String.Empty;   //总览tag="0"，添加按钮时从tag="1"开始
+        public int countSideTileBarItem = 0;    //sideTileBar中显示的items计数。包括“所有设备”按钮
         public int countSideTileBarItemSub = 0; //sideTileBarSub中items计数
-        public int TotalNumEquip = 0;     //设备总数
+        public int TotalNumDevice = 0;     //检测设备总数
         //public string UsedItemsSub = String.Empty; //使用设备标志字符串
         public SideTileBarControlWithSub()
         {
             InitializeComponent();
             countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;   
+            TotalNumDevice = this.Dt.Columns.Count - 4;  //从表格读取列数初始化检测设备总数，去掉前4列
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
-            TagSelectedItem = "0";
-            TotalNumEquip = this.Dt.Columns.Count - 4;  //从dt初始化设备数:-4
+            TagSelectedItem = "0";  //初始默认选中“总览”
 
         }
 
@@ -39,11 +39,11 @@ namespace CloudManage.CommonControl
         {
             get
             {
-                return this.tileBarItem1.Visible;
+                return this.tileBarItem0.Visible;
             }
             set
             {
-                this.tileBarItem1.Visible = value;
+                this.tileBarItem0.Visible = value;
             }
         }
 
@@ -52,6 +52,10 @@ namespace CloudManage.CommonControl
             set
             {
                 this.Dt = value;
+            }
+            get
+            {
+                return this.Dt; 
             }
         }
 
@@ -114,7 +118,7 @@ namespace CloudManage.CommonControl
                     if (tag.CompareTo(tagTemp) == 0)
                     {
                         TagSelectedItemSub = tagTemp;
-                        this.tileBar_sub.SelectedItem = temp;
+                        this.tileBar_sideTileBar_sub.SelectedItem = temp;
                         flag = true;
                     }
 
@@ -161,7 +165,7 @@ namespace CloudManage.CommonControl
                 {
                     if (indexItem == i)
                     {
-                        this.tileBar_sub.SelectedItem = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
+                        this.tileBar_sideTileBar_sub.SelectedItem = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
                         flag = true;
                     }
                 }
@@ -187,10 +191,10 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //在尾部依次添加按钮
+        //在sideTileBar尾部依次添加按钮
         public bool _addSideTileBarItem(TileBarItem tileBarItem, string tagTileBarItem, string nameTileBarItem, string text, string num)
         {
-            TotalNumEquip = this.Dt.Columns.Count - 4;  //更新当前的设备数，避免只初始化出现-4
+            TotalNumDevice = this.Dt.Columns.Count - 4;  //更新当前的设备数，避免只初始化出现-4
 
             try
             {
@@ -236,6 +240,8 @@ namespace CloudManage.CommonControl
                 tileBarItem.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
                 tileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
                 tileBarItem.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
+                tileBarItem.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.False;
+                tileBarItem.DropDownOptions.Height = 300;   //每个tileBarItem决定绑定的子菜单的宽度
                 tileItemElementNum.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
                 tileItemElementNum.Text = num;
                 tileItemElementNum.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
@@ -262,7 +268,7 @@ namespace CloudManage.CommonControl
                 tileBarItem.Tag = tagTileBarItem;
 
                 this.tileBarGroup_sideTileBar.Items.Add(tileBarItem);
-                countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;    //更新tileBarItem总数
+                countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;    //更新显示的tileBarItem计数
                 return true;
             }
             catch (Exception ex)
@@ -271,7 +277,8 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
-        //在sub的尾部依次添加按钮
+
+        //在sideTileBarSub的尾部依次添加按钮
         public bool _addSideTileBarItemSub(TileBarItem tileBarItemSub, string tagTileBarItemSub, string nameTileBarItemSub, string textSub, int numOfChineseCharacters)
         {
             try
@@ -335,12 +342,13 @@ namespace CloudManage.CommonControl
                         paddingLeft = 40;
                         break;
                 }
-                tileBarItemSub.Padding = new System.Windows.Forms.Padding(paddingLeft, -1, -1, -1);
+                tileBarItemSub.Padding = new System.Windows.Forms.Padding(paddingLeft, 0, 0, 0);
                 tileBarItemSub.Tag = tagTileBarItemSub;
                 tileBarItemSub.Visible = false; //默认不可见
                 tileBarGroup_sub.Items.Add(tileBarItemSub);
 
-                countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    
+                countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
+                TotalNumDevice = this.Dt.Columns.Count - 4;  //更新检测设备总数
                 return true;
             }
             catch (Exception ex)
@@ -350,7 +358,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //可在任意位置以tag删除按钮
+        //以tag删除按钮
         public bool _deleteButton(string tagTileBarItem)
         {
             bool flag = false;
@@ -369,6 +377,7 @@ namespace CloudManage.CommonControl
                         if (tagTileBarItem.CompareTo(tag) == 0)
                         {
                             this.tileBarGroup_sideTileBar.Items.RemoveAt(i);
+                            countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count; //更新显示的tileBarItem的计数
                             flag = true;
                             break;
                         }
@@ -383,9 +392,14 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
-        //可在任意位置以tag删除sub的按钮
-        public bool _deleteButtonSub(string tagTileBarItemSub)
+        //以tag删除sub的按钮。
+        //删除sub的按钮后，要读取新的表格赋值给Dt，新表格将删除的sub按钮对应的标志列去掉
+        public bool _deleteButtonSub(string tagTileBarItemSub, DataTable dataTableNew)
         {
+            this.Dt.Rows.Clear();
+            this.Dt.Columns.Clear();    //清空旧表数据和结构
+            this.Dt = dataTableNew;    //绑定新表
+
             bool flag = false;
             try
             {
@@ -398,6 +412,8 @@ namespace CloudManage.CommonControl
                         if (tagTileBarItemSub.CompareTo(tag) == 0)
                         {
                             this.tileBarGroup_sub.Items.RemoveAt(i);
+                            countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
+                            TotalNumDevice = this.Dt.Columns.Count - 4;    //更新检测设备总数
                             flag = true;
                             break;
                         }
@@ -472,17 +488,19 @@ namespace CloudManage.CommonControl
         //    return ((IList)arr).Contains(ele);
         //}
 
+
+        //显示sub按钮隐藏多余的按钮
         public void _showSubItemHideRedundantItem()
         {
             TileBarItem temp = null;
-            if (this.TotalNumEquip != this.countSideTileBarItemSub - 1)
+            if (this.TotalNumDevice != this.countSideTileBarItemSub - 1)
             {
                 MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
             }
 
-            if (this.TagSelectedItem == "0")
+            if (this.TagSelectedItem == "0")    //选中总览
             {
-                for (int i = 0; i < this.TotalNumEquip; i++)
+                for (int i = 0; i < this.TotalNumDevice; i++)
                 {
                     temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
                     temp.Visible = true;
@@ -490,16 +508,16 @@ namespace CloudManage.CommonControl
             }
             else
             {
-                for (int i = 0; i < this.TotalNumEquip; i++)
+                //从Dt中读取检测设备标志，实现检测设备按钮的显示
+                int indexRow = 0;
+                indexRow = Convert.ToInt32(this.TagSelectedItem) - 1;   //dt中的行index为tag-1
+                DataRow dr = this.Dt.Rows[indexRow];
+                for (int i = 0; i < this.TotalNumDevice; i++)
                 {
-                    int indexRow = 0;
-                    indexRow = Convert.ToInt32(this.TagSelectedItem) - 2;   //dt中的行index为tag-2
-                    DataRow dr = this.Dt.Rows[indexRow];
-                    int flag = Convert.ToInt32(dr[i + 4]);
                     temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                    int flag = Convert.ToInt32(dr[i + 4]);  //historyQueryDevices表中检测设备标志位
                     if (flag == 1)
                     {
-                        //string tag = temp.Tag.ToString();
                         temp.Visible = true;
                     }
                     else
@@ -514,7 +532,6 @@ namespace CloudManage.CommonControl
         //点击sideTileItem，显示对应设备子菜单
         private void tileBar_sideTileBar_ItemClick(object sender, TileItemEventArgs e)
         {
-
             TileBarItem temp = null;
 
             //原SelectedItem解绑DropDownControl
@@ -544,8 +561,15 @@ namespace CloudManage.CommonControl
             }
         }
 
-
-
-
+        //点击sideTileItemSub事件
+        private void tileBar_sideTileBar_sub_ItemClick(object sender, TileItemEventArgs e)
+        {
+            TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag; //更新当前选中按钮变量
+            MessageBox.Show("sub按钮总数= "+countSideTileBarItemSub.ToString());
+            MessageBox.Show("该按钮的tag= "+TagSelectedItemSub);
+        }
     }
+
+
+
 }
