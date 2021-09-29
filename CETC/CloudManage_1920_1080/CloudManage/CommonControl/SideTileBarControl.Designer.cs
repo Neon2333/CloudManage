@@ -52,7 +52,7 @@
             this.tileBar_sideTileBarControl.MaxId = 23;
             this.tileBar_sideTileBarControl.Name = "tileBar_sideTileBarControl";
             this.tileBar_sideTileBarControl.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tileBar_sideTileBarControl.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.tileBar_sideTileBarControl.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.tileBar_sideTileBarControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sideTileBarControl.SelectedItem = this.tileBarItem1;
             this.tileBar_sideTileBarControl.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));

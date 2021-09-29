@@ -30,11 +30,11 @@
         {
             this.navigationFrame_statusMonitor = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_workState = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPage_realTimeData = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.navigationPage_historyQuery = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
-            this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQueryControl();
             this.workStateControl1 = new CloudManage.StatusMonitor.WorkStateControl();
+            this.navigationPage_realTimeData = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
+            this.navigationPage_historyQuery = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQueryControl();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).BeginInit();
             this.navigationFrame_statusMonitor.SuspendLayout();
             this.navigationPage_workState.SuspendLayout();
@@ -56,6 +56,7 @@
             this.navigationFrame_statusMonitor.SelectedPage = this.navigationPage_workState;
             this.navigationFrame_statusMonitor.Size = new System.Drawing.Size(1920, 880);
             this.navigationFrame_statusMonitor.TabIndex = 0;
+            this.navigationFrame_statusMonitor.TransitionAnimationProperties.FrameInterval = 3000;
             // 
             // navigationPage_workState
             // 
@@ -64,19 +65,19 @@
             this.navigationPage_workState.Name = "navigationPage_workState";
             this.navigationPage_workState.Size = new System.Drawing.Size(1920, 880);
             // 
+            // workStateControl1
+            // 
+            this.workStateControl1.Location = new System.Drawing.Point(0, 0);
+            this.workStateControl1.Name = "workStateControl1";
+            this.workStateControl1.Size = new System.Drawing.Size(1920, 880);
+            this.workStateControl1.TabIndex = 0;
+            // 
             // navigationPage_realTimeData
             // 
             this.navigationPage_realTimeData.Caption = "navigationPage_realTimeData";
             this.navigationPage_realTimeData.Controls.Add(this.realTimeDataControl1);
             this.navigationPage_realTimeData.Name = "navigationPage_realTimeData";
             this.navigationPage_realTimeData.Size = new System.Drawing.Size(1920, 880);
-            // 
-            // navigationPage_historyQuery
-            // 
-            this.navigationPage_historyQuery.Caption = "navigationPage_historyQuery";
-            this.navigationPage_historyQuery.Controls.Add(this.historyQueryControl1);
-            this.navigationPage_historyQuery.Name = "navigationPage_historyQuery";
-            this.navigationPage_historyQuery.Size = new System.Drawing.Size(1920, 880);
             // 
             // realTimeDataControl1
             // 
@@ -85,19 +86,19 @@
             this.realTimeDataControl1.Size = new System.Drawing.Size(1920, 880);
             this.realTimeDataControl1.TabIndex = 0;
             // 
+            // navigationPage_historyQuery
+            // 
+            this.navigationPage_historyQuery.Caption = "navigationPage_historyQuery";
+            this.navigationPage_historyQuery.Controls.Add(this.historyQueryControl1);
+            this.navigationPage_historyQuery.Name = "navigationPage_historyQuery";
+            this.navigationPage_historyQuery.Size = new System.Drawing.Size(1920, 880);
+            // 
             // historyQueryControl1
             // 
             this.historyQueryControl1.Location = new System.Drawing.Point(0, 0);
             this.historyQueryControl1.Name = "historyQueryControl1";
             this.historyQueryControl1.Size = new System.Drawing.Size(1920, 880);
             this.historyQueryControl1.TabIndex = 0;
-            // 
-            // workStateControl1
-            // 
-            this.workStateControl1.Location = new System.Drawing.Point(0, 0);
-            this.workStateControl1.Name = "workStateControl1";
-            this.workStateControl1.Size = new System.Drawing.Size(1920, 880);
-            this.workStateControl1.TabIndex = 0;
             // 
             // StatusMonitorControl
             // 
