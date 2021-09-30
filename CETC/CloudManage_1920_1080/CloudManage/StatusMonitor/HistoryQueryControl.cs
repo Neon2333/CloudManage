@@ -80,7 +80,7 @@ namespace CloudManage.StatusMonitor
         //初始化检测设备使能表deviceEnable。返回值：各产线显示的检测设备个数
         ArrayList init_dtDeviceEnable()
         {
-            ArrayList numShowDeviceOfEachProductionLine = new ArrayList();  //记录各个产线对应的检测设备数量
+            ArrayList numShowDeviceOfEachProductionLine = new ArrayList();  //记录各个产线对应的检测设备数量.
 
             //读各车设备使能标志表
             dtDeviceEnable.Columns.Add("产线Tag", typeof(String));
