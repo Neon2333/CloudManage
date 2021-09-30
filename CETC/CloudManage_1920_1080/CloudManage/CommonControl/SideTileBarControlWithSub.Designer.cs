@@ -141,6 +141,7 @@
             this.tileBar_sideTileBar_sub.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileBar_sideTileBar_sub.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.tileBar_sideTileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
+            this.tileBar_sideTileBar_sub.SelectedItem = this.tileBarItem_sub0;
             this.tileBar_sideTileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(270, 800);
             this.tileBar_sideTileBar_sub.TabIndex = 14;

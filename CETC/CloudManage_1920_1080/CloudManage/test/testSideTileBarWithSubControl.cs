@@ -171,7 +171,7 @@ namespace CloudManage.test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.sideTileBarControlWithSub1.dataTable = this.dt;
+            this.sideTileBarControlWithSub1.dataTableTileBarSub = this.dt;
 
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "1", "tileBarItem_sub1", "烟库乱烟检测", Encoding.Default.GetBytes("烟库乱烟检测").Length / 2);
             this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), "2", "tileBarItem_sub2", "烟支空头检测", Encoding.Default.GetBytes("烟支空头检测").Length / 2);
