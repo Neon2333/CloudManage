@@ -294,5 +294,10 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
         }
 
+        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClicked(object sender, EventArgs e)
+        {
+            this.labelControl_dir.Text = this.sideTileBarControlWithSub1.tagSelectedItem + "---->" + this.sideTileBarControlWithSub1.tagSelectedItemSub;
+
+        }
     }
 }

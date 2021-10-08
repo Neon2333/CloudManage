@@ -40,6 +40,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.timeSpanEdit2 = new DevExpress.XtraEditors.TimeSpanEdit();
             this.timeSpanEdit1 = new DevExpress.XtraEditors.TimeSpanEdit();
+            this.timeEdit6 = new DevExpress.XtraEditors.TimeEdit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit5.Properties)).BeginInit();
@@ -50,6 +51,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -65,6 +67,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.timeEdit6);
             this.tabPage1.Controls.Add(this.timeEdit5);
             this.tabPage1.Controls.Add(this.timeEdit4);
             this.tabPage1.Controls.Add(this.timeEdit3);
@@ -194,6 +197,19 @@
             this.timeSpanEdit1.TabIndex = 10;
             this.timeSpanEdit1.ToolTipTitle = "这是一个timespanedit控件";
             // 
+            // timeEdit6
+            // 
+            this.timeEdit6.EditValue = new System.DateTime(2021, 7, 13, 0, 0, 0, 0);
+            this.timeEdit6.Location = new System.Drawing.Point(241, 287);
+            this.timeEdit6.Name = "timeEdit6";
+            this.timeEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.TimeSpan;
+            this.timeEdit6.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
+            this.timeEdit6.Size = new System.Drawing.Size(100, 20);
+            this.timeEdit6.TabIndex = 10;
+            this.timeEdit6.ToolTipTitle = "触控面板";
+            // 
             // Control_TimeEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -213,6 +229,7 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +248,6 @@
         private DevExpress.XtraEditors.TimeSpanEdit timeSpanEdit2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TimeEdit timeEdit6;
     }
 }

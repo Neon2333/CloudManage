@@ -562,11 +562,19 @@ namespace CloudManage.CommonControl
         }
 
         //点击sideTileItemSub事件
+        public delegate void TileItemWithSubClickedHanlder(object sender, EventArgs e);
+        public event TileItemWithSubClickedHanlder sideTileBarItemWithSubClicked; //自定义事件，将SideTileBarControl的itemSelectedChanged事件传出
+
         private void tileBar_sideTileBar_sub_ItemClick(object sender, TileItemEventArgs e)
         {
             TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag; //更新当前选中按钮变量
             MessageBox.Show("sub按钮总数= " + countSideTileBarItemSub.ToString());
             MessageBox.Show("该按钮的tag= " + TagSelectedItemSub);
+
+            if (sideTileBarItemWithSubClicked != null)
+            {
+                sideTileBarItemWithSubClicked(sender, new EventArgs());
+            }
         }
     }
 
