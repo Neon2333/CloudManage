@@ -21,12 +21,16 @@ namespace CloudManage.StatusMonitor
 {
     public partial class HistoryQueryControl : DevExpress.XtraEditors.XtraUserControl
     {
-        DataTable dtDeviceEnable = new DataTable();     //显示的产线tag、对应产线的检测设备使能标志
+        DataTable dtDeviceEnable = new DataTable();         //产线Tag、检测设备使能标志
         string excelPath_deviceEnable = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\deviceEnable.xlsx";
-        DataTable dtProductionLine = new DataTable();   //所有的产线tag、name、text、num
+        DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
         string excelPath_productionLineName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
-        DataTable dtTestingDeviceName = new DataTable();    //所有的检测设备ID、检测设备名称
+        DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
         string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
+        DataTable dtFaultName = new DataTable();            //序号、检测设备ID、故障ID、故障名称
+        string excelPath_faultName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultName.xlsx";
+        DataTable dtFaultDataTime = new DataTable();        //序号、产线名称、检测设备名称、故障名称、故障发生时间
+        string excelPath_faultDataTime = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime.xlsx";
 
         public HistoryQueryControl()
         {
@@ -105,6 +109,7 @@ namespace CloudManage.StatusMonitor
             sheetDeviceEnable = workbookDeviceEnable.GetSheetAt(0); //获取第1个sheet
             int totalRowsDeviceEnable = sheetDeviceEnable.LastRowNum + 1;
             IRow rowDeviceEnable = null;
+
             int totalColmnsDtDeviceEnable = dtDeviceEnable.Columns.Count;
             for (int i = 1; i < totalRowsDeviceEnable; i++) //表头不读
             {
@@ -180,7 +185,8 @@ namespace CloudManage.StatusMonitor
             return numShowDeviceOfEachProductionLine;
         }
 
-        void init_dtProductionLine()
+        //
+        void _init_dtProductionLine()
         {
             FileStream fsProductionLine = File.OpenRead(excelPath_productionLineName);
             dtProductionLine.Columns.Add("产线Tag", typeof(String));
@@ -212,7 +218,7 @@ namespace CloudManage.StatusMonitor
             fsProductionLine.Close();
         }
 
-        void init_dtTestingDeviceName()
+        void _init_dtTestingDeviceName()
         {
             dtTestingDeviceName.Columns.Add("检测设备ID", typeof(String));
             dtTestingDeviceName.Columns.Add("检测设备名称", typeof(String));
@@ -224,6 +230,7 @@ namespace CloudManage.StatusMonitor
             sheetTestingDeviceName = workbookTestingDeviceName.GetSheetAt(0);
             int totalRowsTestingDeviceName = sheetTestingDeviceName.LastRowNum + 1;
             IRow rowTestingDeviceName = null;
+
             for (int i = 1; i < totalRowsTestingDeviceName; i++)
             {
                 rowTestingDeviceName = sheetTestingDeviceName.GetRow(i);
@@ -242,15 +249,95 @@ namespace CloudManage.StatusMonitor
             fsTestingDeviceName.Close();
         }
 
-        //测试函数
-        void test()
+        void _init_dtFaultName()
         {
-            init_dtTestingDeviceName();
-            init_dtProductionLine();
-            ArrayList showDeviceNum = init_dtDeviceEnable();
+            dtFaultName.Columns.Add("序号", typeof(String));
+            dtFaultName.Columns.Add("检测设备ID", typeof(String));
+            dtFaultName.Columns.Add("故障ID", typeof(String));
+            dtFaultName.Columns.Add("故障名称", typeof(String));
 
+            FileStream fsFaultName = File.OpenRead(excelPath_faultName);
+            IWorkbook workbookFaultName = null;
+            workbookFaultName = new XSSFWorkbook(fsFaultName);
+            ISheet sheetFaultName = null;
+            sheetFaultName = workbookFaultName.GetSheetAt(0);
+            int totalRowsFaultName = sheetFaultName.LastRowNum + 1;
+            IRow rowFaultName = null;
+
+            for (int i = 1; i < totalRowsFaultName; i++)
+            {
+                rowFaultName = sheetFaultName.GetRow(i);
+                ICell cellFaultName0 = rowFaultName.GetCell(0);
+                ICell cellFaultName1 = rowFaultName.GetCell(1);
+                ICell cellFaultName2 = rowFaultName.GetCell(2);
+                ICell cellFaultName3 = rowFaultName.GetCell(3);
+
+                string numFaultName = Convert.ToString(GetCellValue(cellFaultName0));
+                string tagTestingDevice = Convert.ToString(GetCellValue(cellFaultName1));
+                string tagFault = Convert.ToString(GetCellValue(cellFaultName2));
+                string nameFault = Convert.ToString(GetCellValue(cellFaultName3)); 
+
+                DataRow drFaultName = dtFaultName.NewRow();
+                drFaultName["序号"] = numFaultName;
+                drFaultName["检测设备ID"] = tagTestingDevice;
+                drFaultName["故障ID"] = tagFault;
+                drFaultName["故障名称"] = nameFault;
+
+                dtFaultName.Rows.Add(drFaultName);
+            }
+            fsFaultName.Close();
+        }
+
+        void _init_dtFaultDataTime()
+        {
+            dtFaultDataTime.Columns.Add("序号", typeof(String));
+            dtFaultDataTime.Columns.Add("产线名称", typeof(String));
+            dtFaultDataTime.Columns.Add("检测设备名称", typeof(String));
+            dtFaultDataTime.Columns.Add("故障名称", typeof(String));
+            dtFaultDataTime.Columns.Add("故障发生时间", typeof(String));
+
+            FileStream fsFaultDataTime = File.OpenRead(excelPath_faultDataTime);
+            IWorkbook workbookFaultDataTime = null;
+            workbookFaultDataTime = new XSSFWorkbook(fsFaultDataTime);
+            ISheet sheetFaultDataTime = null;
+            sheetFaultDataTime = workbookFaultDataTime.GetSheetAt(0);
+            int totalRowsFaultDataTime = sheetFaultDataTime.LastRowNum + 1;
+            IRow rowFaultDataTime = null;
+
+            //DateTime faultOccurTemp;
+            for (int i = 1; i < totalRowsFaultDataTime; i++)
+            {
+                rowFaultDataTime = sheetFaultDataTime.GetRow(i);
+                ICell cellFaultDataTime0 = rowFaultDataTime.GetCell(0);
+                ICell cellFaultDataTime1 = rowFaultDataTime.GetCell(1);
+                ICell cellFaultDataTime2 = rowFaultDataTime.GetCell(2);
+                ICell cellFaultDataTime3 = rowFaultDataTime.GetCell(3);
+                ICell cellFaultDataTime4 = rowFaultDataTime.GetCell(4);
+
+                string numFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime0));
+                string nameProductionLineFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime1));
+                string nameTestingDeviceFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime2));
+                string nameFaultFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime3));
+                string timeFaultOccurFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime4));
+                //faultOccurTemp = (DateTime)GetCellValue(cellFaultDataTime4);
+                //string timeFaultOccurFaultDataTime = faultOccurTemp.ToString("yyyy-MM-dd HH:mm:ss");
+
+                DataRow drFaultDataTime = dtFaultDataTime.NewRow();
+                drFaultDataTime["序号"] = numFaultDataTime;
+                drFaultDataTime["产线名称"] = nameProductionLineFaultDataTime;
+                drFaultDataTime["检测设备名称"] = nameTestingDeviceFaultDataTime;
+                drFaultDataTime["故障名称"] = nameFaultFaultDataTime;
+                drFaultDataTime["故障发生时间"] = timeFaultOccurFaultDataTime;
+
+                dtFaultDataTime.Rows.Add(drFaultDataTime);
+            }
+            fsFaultDataTime.Close();
+        }
+
+        //初始化子菜单
+        void _init_sideTileBarSub(ArrayList showDeviceNum)
+        {
             this.sideTileBarControlWithSub1.dataTableTileBarSub = this.dtDeviceEnable;
-            //初始化子菜单
             for (int i = 0; i < dtTestingDeviceName.Rows.Count; i++)
             {
                 string tagTemp = (string)dtTestingDeviceName.Rows[i]["检测设备ID"];
@@ -294,9 +381,63 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
         }
 
+        //测试函数
+        void test()
+        {
+            _init_dtTestingDeviceName();
+            _init_dtProductionLine();
+            ArrayList showDeviceNum = init_dtDeviceEnable();
+            _init_dtFaultName();
+            _init_dtFaultDataTime();
+            _init_sideTileBarSub(showDeviceNum);
+
+            this.gridControl_faultDataTime.DataSource = dtFaultDataTime;
+        }
+
+        private string _getProductionLineNameByTag(string tagProductionLine)
+        {
+            //dtProductionLine中没有Tag==0的记录
+            if(tagProductionLine == "0")
+            {
+                return "总览";
+            }
+
+            string temp = "产线Tag=" + "'" + tagProductionLine + "'";
+            DataRow[] rowPL = dtProductionLine.Select(temp);
+            if (rowPL.Length == 1)
+            {
+                return (string)rowPL[0]["产线名称"];
+            }
+            else
+            {
+                return "产线名称查询错误...";
+            }
+        }
+
+        private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
+        {
+            if (tagTestingDeviceName == "0")
+            {
+                return "所有设备";
+            }
+
+            string temp = "检测设备ID=" + "'" + tagTestingDeviceName + "'";
+            DataRow[] rowTD = dtTestingDeviceName.Select(temp);
+            if (rowTD.Length == 1)
+            {
+                return (string)rowTD[0]["检测设备名称"];
+            }
+            else
+            {
+                return "产线名称查询错误...";
+            }
+        }
+
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClicked(object sender, EventArgs e)
         {
-            this.labelControl_dir.Text = this.sideTileBarControlWithSub1.tagSelectedItem + "---->" + this.sideTileBarControlWithSub1.tagSelectedItemSub;
+            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
+            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
+            this.labelControl_dir.Text = str1 + "----->" + str2;
 
         }
     }

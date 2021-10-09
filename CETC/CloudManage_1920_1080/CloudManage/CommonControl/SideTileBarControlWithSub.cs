@@ -568,13 +568,15 @@ namespace CloudManage.CommonControl
         private void tileBar_sideTileBar_sub_ItemClick(object sender, TileItemEventArgs e)
         {
             TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag; //更新当前选中按钮变量
-            MessageBox.Show("sub按钮总数= " + countSideTileBarItemSub.ToString());
-            MessageBox.Show("该按钮的tag= " + TagSelectedItemSub);
+            //MessageBox.Show("sub按钮总数= " + countSideTileBarItemSub.ToString());
+            //MessageBox.Show("该按钮的tag= " + TagSelectedItemSub);
 
             if (sideTileBarItemWithSubClicked != null)
             {
                 sideTileBarItemWithSubClicked(sender, new EventArgs());
             }
+
+            this.tileBar_sideTileBar.HideDropDownWindow(false); //点击子菜单按钮后立即隐藏子菜单
         }
     }
 

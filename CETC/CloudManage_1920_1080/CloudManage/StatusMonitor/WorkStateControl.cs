@@ -416,5 +416,6 @@ namespace CloudManage.StatusMonitor
                 e.Item.AppearanceItem.Normal.BackColor = colorDisable;
             }
         }
+
     }
 }
