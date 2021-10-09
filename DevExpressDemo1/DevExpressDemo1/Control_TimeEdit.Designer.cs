@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.timeEdit6 = new DevExpress.XtraEditors.TimeEdit();
             this.timeEdit5 = new DevExpress.XtraEditors.TimeEdit();
             this.timeEdit4 = new DevExpress.XtraEditors.TimeEdit();
             this.timeEdit3 = new DevExpress.XtraEditors.TimeEdit();
@@ -40,9 +41,9 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.timeSpanEdit2 = new DevExpress.XtraEditors.TimeSpanEdit();
             this.timeSpanEdit1 = new DevExpress.XtraEditors.TimeSpanEdit();
-            this.timeEdit6 = new DevExpress.XtraEditors.TimeEdit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit3.Properties)).BeginInit();
@@ -51,7 +52,6 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -62,7 +62,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1041, 638);
+            this.tabControl1.Size = new System.Drawing.Size(1055, 651);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -76,10 +76,23 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1033, 611);
+            this.tabPage1.Size = new System.Drawing.Size(1047, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TimeEdit";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // timeEdit6
+            // 
+            this.timeEdit6.EditValue = new System.DateTime(2021, 7, 13, 0, 0, 0, 0);
+            this.timeEdit6.Location = new System.Drawing.Point(241, 287);
+            this.timeEdit6.Name = "timeEdit6";
+            this.timeEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.TimeSpan;
+            this.timeEdit6.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
+            this.timeEdit6.Size = new System.Drawing.Size(100, 20);
+            this.timeEdit6.TabIndex = 10;
+            this.timeEdit6.ToolTipTitle = "触控面板";
             // 
             // timeEdit5
             // 
@@ -197,29 +210,17 @@
             this.timeSpanEdit1.TabIndex = 10;
             this.timeSpanEdit1.ToolTipTitle = "这是一个timespanedit控件";
             // 
-            // timeEdit6
-            // 
-            this.timeEdit6.EditValue = new System.DateTime(2021, 7, 13, 0, 0, 0, 0);
-            this.timeEdit6.Location = new System.Drawing.Point(241, 287);
-            this.timeEdit6.Name = "timeEdit6";
-            this.timeEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.TimeSpan;
-            this.timeEdit6.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.timeEdit6.Size = new System.Drawing.Size(100, 20);
-            this.timeEdit6.TabIndex = 10;
-            this.timeEdit6.ToolTipTitle = "触控面板";
-            // 
             // Control_TimeEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 638);
+            this.ClientSize = new System.Drawing.Size(1055, 651);
             this.Controls.Add(this.tabControl1);
             this.Name = "Control_TimeEdit";
             this.Text = "Control_TimeEdit";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit3.Properties)).EndInit();
@@ -229,7 +230,6 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeSpanEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit6.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

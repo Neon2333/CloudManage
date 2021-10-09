@@ -29,8 +29,10 @@ namespace CloudManage.StatusMonitor
         string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
         DataTable dtFaultName = new DataTable();            //序号、检测设备ID、故障ID、故障名称
         string excelPath_faultName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultName.xlsx";
-        DataTable dtFaultDataTime = new DataTable();        //序号、产线名称、检测设备名称、故障名称、故障发生时间
-        string excelPath_faultDataTime = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime.xlsx";
+        DataTable dtFaultDataTime = new DataTable();        //序号、产线名称、检测设备名称、故障名称、故障发生时间。该表内容直接用作显示
+        string excelPath_faultDataTime = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime1_test.xlsx";    //该Excel用作测试用，后续用MySQL查询前面4张表，得出该表
+        DataTable dtFaultDataTimeQuery = new DataTable();
+        string excelPath_faultDataTimeQuery = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime2_test.xlsx";
 
         public HistoryQueryControl()
         {
@@ -381,17 +383,28 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
         }
 
-        //测试函数
-        void test()
+        void _init_dtFaultDataTimeQuery()
+        {
+
+        }
+
+        public void _initHistoryQuery()
         {
             _init_dtTestingDeviceName();
             _init_dtProductionLine();
             ArrayList showDeviceNum = init_dtDeviceEnable();
             _init_dtFaultName();
-            _init_dtFaultDataTime();
             _init_sideTileBarSub(showDeviceNum);
 
+        }
+
+        //测试函数
+        void test()
+        {
+            _init_dtFaultDataTime();    //该表是用来测试的
+            _initHistoryQuery();
             this.gridControl_faultDataTime.DataSource = dtFaultDataTime;
+
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
