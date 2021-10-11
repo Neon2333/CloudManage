@@ -34,7 +34,7 @@ namespace CloudManage.CommonControl
 
         }
 
-        //显示总览按钮
+        //“总览”按钮显示
         public Boolean showOverview
         {
             get
@@ -44,6 +44,19 @@ namespace CloudManage.CommonControl
             set
             {
                 this.tileBarItem0.Visible = value;
+            }
+        }
+
+        //“所有设备”按钮显示
+        public Boolean showAllDevices
+        {
+            get
+            {
+                return this.tileBarItem_sub0.Visible;
+            }
+            set
+            {
+                this.tileBarItem_sub0.Visible = value;
             }
         }
 
@@ -510,8 +523,15 @@ namespace CloudManage.CommonControl
             {
                 //从Dt中读取检测设备标志，实现检测设备按钮的显示
                 int indexRow = 0;
+                DataRow dr = null;
+                for(int i = 0; i < Dt.Rows.Count; i++)
+                {
+                    if ((string)Dt.Rows[i]["产线Tag"] == this.TagSelectedItem)
+                    {
+                        dr = Dt.Rows[i];
+                    }
+                }
                 indexRow = Convert.ToInt32(this.TagSelectedItem) - 1;   //dt中的行index为tag-1
-                DataRow dr = this.Dt.Rows[indexRow];
                 for (int i = 0; i < this.TotalNumDevice; i++)
                 {
                     temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);

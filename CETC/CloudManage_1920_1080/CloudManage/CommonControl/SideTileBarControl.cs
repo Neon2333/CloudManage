@@ -24,7 +24,7 @@ namespace CloudManage.CommonControl
             TagSelectedItem = "0"; 
         }
 
-        //显示总览按钮
+        //“总览”按钮显示
         public Boolean showOverview
         {
             get

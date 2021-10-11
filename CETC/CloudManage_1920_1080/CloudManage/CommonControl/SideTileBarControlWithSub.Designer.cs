@@ -39,8 +39,11 @@
             this.tileBar_sideTileBar_sub = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_sub = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem_sub0 = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.panelControl_sideTileBarControlWithSub = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).BeginInit();
             this.tileBarDropDownContainer_sub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_sideTileBarControlWithSub)).BeginInit();
+            this.panelControl_sideTileBarControlWithSub.SuspendLayout();
             this.SuspendLayout();
             // 
             // tileBar_sideTileBar
@@ -51,7 +54,7 @@
             this.tileBar_sideTileBar.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
             this.tileBar_sideTileBar.Groups.Add(this.tileBarGroup_sideTileBar);
             this.tileBar_sideTileBar.ItemSize = 95;
-            this.tileBar_sideTileBar.Location = new System.Drawing.Point(0, 0);
+            this.tileBar_sideTileBar.Location = new System.Drawing.Point(1, 1);
             this.tileBar_sideTileBar.MaxId = 23;
             this.tileBar_sideTileBar.Name = "tileBar_sideTileBar";
             this.tileBar_sideTileBar.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -59,7 +62,7 @@
             this.tileBar_sideTileBar.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sideTileBar.SelectedItem = this.tileBarItem0;
             this.tileBar_sideTileBar.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sideTileBar.Size = new System.Drawing.Size(240, 800);
+            this.tileBar_sideTileBar.Size = new System.Drawing.Size(239, 798);
             this.tileBar_sideTileBar.TabIndex = 13;
             this.tileBar_sideTileBar.WideTileWidth = 210;
             this.tileBar_sideTileBar.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBar_ItemClick);
@@ -135,7 +138,7 @@
             this.tileBar_sideTileBar_sub.Groups.Add(this.tileBarGroup_sub);
             this.tileBar_sideTileBar_sub.ItemPadding = new System.Windows.Forms.Padding(60, 6, 12, 6);
             this.tileBar_sideTileBar_sub.ItemSize = 70;
-            this.tileBar_sideTileBar_sub.Location = new System.Drawing.Point(0, 0);
+            this.tileBar_sideTileBar_sub.Location = new System.Drawing.Point(1, 1);
             this.tileBar_sideTileBar_sub.MaxId = 24;
             this.tileBar_sideTileBar_sub.Name = "tileBar_sideTileBar_sub";
             this.tileBar_sideTileBar_sub.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -143,7 +146,7 @@
             this.tileBar_sideTileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sideTileBar_sub.SelectedItem = this.tileBarItem_sub0;
             this.tileBar_sideTileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(270, 800);
+            this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(269, 798);
             this.tileBar_sideTileBar_sub.TabIndex = 14;
             this.tileBar_sideTileBar_sub.WideTileWidth = 240;
             this.tileBar_sideTileBar_sub.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBar_sub_ItemClick);
@@ -184,16 +187,26 @@
             this.tileBarItem_sub0.Name = "tileBarItem_sub0";
             this.tileBarItem_sub0.Tag = "0";
             // 
+            // panelControl_sideTileBarControlWithSub
+            // 
+            this.panelControl_sideTileBarControlWithSub.Controls.Add(this.tileBar_sideTileBar);
+            this.panelControl_sideTileBarControlWithSub.Controls.Add(this.tileBarDropDownContainer_sub);
+            this.panelControl_sideTileBarControlWithSub.Location = new System.Drawing.Point(0, 0);
+            this.panelControl_sideTileBarControlWithSub.Name = "panelControl_sideTileBarControlWithSub";
+            this.panelControl_sideTileBarControlWithSub.Size = new System.Drawing.Size(510, 800);
+            this.panelControl_sideTileBarControlWithSub.TabIndex = 15;
+            // 
             // SideTileBarControlWithSub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tileBarDropDownContainer_sub);
-            this.Controls.Add(this.tileBar_sideTileBar);
+            this.Controls.Add(this.panelControl_sideTileBarControlWithSub);
             this.Name = "SideTileBarControlWithSub";
             this.Size = new System.Drawing.Size(510, 800);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).EndInit();
             this.tileBarDropDownContainer_sub.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_sideTileBarControlWithSub)).EndInit();
+            this.panelControl_sideTileBarControlWithSub.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -207,5 +220,6 @@
         private DevExpress.XtraBars.Navigation.TileBar tileBar_sideTileBar_sub;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup_sub;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_sub0;
+        private DevExpress.XtraEditors.PanelControl panelControl_sideTileBarControlWithSub;
     }
 }

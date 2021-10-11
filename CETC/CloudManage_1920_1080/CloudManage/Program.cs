@@ -19,6 +19,7 @@ namespace CloudManage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new testSideTileBarControl());
             //Application.Run(new test.testSideTileBarWithSubControl());
             Application.Run(new MainForm());
 

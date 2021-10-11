@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(testSideTileBarControl));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,13 +39,14 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
+            this.sideTileBarControlWithSub1 = new CloudManage.CommonControl.SideTileBarControlWithSub();
             this.SuspendLayout();
             // 
             // button1
@@ -128,14 +130,6 @@
             this.textBox7.TabIndex = 10;
             this.textBox7.Text = "tag";
             // 
-            // sideTileBarControl1
-            // 
-            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
-            this.sideTileBarControl1.Name = "sideTileBarControl1";
-            this.sideTileBarControl1.showOverview = true;
-            this.sideTileBarControl1.Size = new System.Drawing.Size(250, 800);
-            this.sideTileBarControl1.TabIndex = 11;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(470, 249);
@@ -185,18 +179,36 @@
             this.textBox11.Size = new System.Drawing.Size(100, 22);
             this.textBox11.TabIndex = 17;
             // 
+            // sideTileBarControl1
+            // 
+            this.sideTileBarControl1.Location = new System.Drawing.Point(24, 12);
+            this.sideTileBarControl1.Name = "sideTileBarControl1";
+            this.sideTileBarControl1.showOverview = true;
+            this.sideTileBarControl1.Size = new System.Drawing.Size(240, 800);
+            this.sideTileBarControl1.TabIndex = 18;
+            // 
+            // sideTileBarControlWithSub1
+            // 
+            this.sideTileBarControlWithSub1.Location = new System.Drawing.Point(1126, 12);
+            this.sideTileBarControlWithSub1.Name = "sideTileBarControlWithSub1";
+            this.sideTileBarControlWithSub1.showAllDevices = true;
+            this.sideTileBarControlWithSub1.showOverview = true;
+            this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(510, 800);
+            this.sideTileBarControlWithSub1.TabIndex = 19;
+            // 
             // testSideTileBarControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1918, 848);
+            this.Controls.Add(this.sideTileBarControlWithSub1);
+            this.Controls.Add(this.sideTileBarControl1);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.sideTileBarControl1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -225,12 +237,13 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private CommonControl.SideTileBarControl sideTileBarControl1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox11;
+        private CommonControl.SideTileBarControl sideTileBarControl1;
+        private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub1;
     }
 }

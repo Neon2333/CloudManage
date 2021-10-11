@@ -16,6 +16,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
 using System.Diagnostics;
 using System.Collections;
+using DevExpress.XtraEditors.Popup;
 
 namespace CloudManage.StatusMonitor
 {
@@ -29,10 +30,11 @@ namespace CloudManage.StatusMonitor
         string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
         DataTable dtFaultName = new DataTable();            //序号、检测设备ID、故障ID、故障名称
         string excelPath_faultName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultName.xlsx";
+        
         DataTable dtFaultDataTime = new DataTable();        //序号、产线名称、检测设备名称、故障名称、故障发生时间。该表内容直接用作显示
-        string excelPath_faultDataTime = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime1_test.xlsx";    //该Excel用作测试用，后续用MySQL查询前面4张表，得出该表
-        DataTable dtFaultDataTimeQuery = new DataTable();
-        string excelPath_faultDataTimeQuery = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime2_test.xlsx";
+        string excelPath_faultDataTime = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime.xlsx";    //该Excel用作测试用，后续用MySQL查询前面4张表，得出该表
+        DataTable dtFaultDataTimeQuery = new DataTable();   //查询出来的数据的表
+        string excelPath_faultDataTimeQuery = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\faultDataTime2.xlsx";
 
         public HistoryQueryControl()
         {
@@ -187,7 +189,7 @@ namespace CloudManage.StatusMonitor
             return numShowDeviceOfEachProductionLine;
         }
 
-        //
+        
         void _init_dtProductionLine()
         {
             FileStream fsProductionLine = File.OpenRead(excelPath_productionLineName);
@@ -207,10 +209,8 @@ namespace CloudManage.StatusMonitor
                 ICell cell0 = rowProductionLine.GetCell(0);
                 ICell cell1 = rowProductionLine.GetCell(1);
 
-                string tagProductionLine = String.Empty;
-                string nameProductionLine = String.Empty;
-                tagProductionLine = Convert.ToString(GetCellValue(cell0));
-                nameProductionLine = Convert.ToString(GetCellValue(cell1));
+                string tagProductionLine = Convert.ToString(GetCellValue(cell0));
+                string nameProductionLine = Convert.ToString(GetCellValue(cell1));
                 DataRow drProductionLine = dtProductionLine.NewRow();
                 drProductionLine["产线Tag"] = tagProductionLine;
                 drProductionLine["产线名称"] = nameProductionLine;
@@ -259,10 +259,8 @@ namespace CloudManage.StatusMonitor
             dtFaultName.Columns.Add("故障名称", typeof(String));
 
             FileStream fsFaultName = File.OpenRead(excelPath_faultName);
-            IWorkbook workbookFaultName = null;
-            workbookFaultName = new XSSFWorkbook(fsFaultName);
-            ISheet sheetFaultName = null;
-            sheetFaultName = workbookFaultName.GetSheetAt(0);
+            IWorkbook workbookFaultName = new XSSFWorkbook(fsFaultName);
+            ISheet sheetFaultName = workbookFaultName.GetSheetAt(0);
             int totalRowsFaultName = sheetFaultName.LastRowNum + 1;
             IRow rowFaultName = null;
 
@@ -290,6 +288,9 @@ namespace CloudManage.StatusMonitor
             fsFaultName.Close();
         }
 
+        /**
+         *问题：复制的Excel表，虽然把数据删除了，但单元格行数不变，单元格内存Null。导致显示时出现空白行。
+         */
         void _init_dtFaultDataTime()
         {
             dtFaultDataTime.Columns.Add("序号", typeof(String));
@@ -299,13 +300,10 @@ namespace CloudManage.StatusMonitor
             dtFaultDataTime.Columns.Add("故障发生时间", typeof(String));
 
             FileStream fsFaultDataTime = File.OpenRead(excelPath_faultDataTime);
-            IWorkbook workbookFaultDataTime = null;
-            workbookFaultDataTime = new XSSFWorkbook(fsFaultDataTime);
-            ISheet sheetFaultDataTime = null;
-            sheetFaultDataTime = workbookFaultDataTime.GetSheetAt(0);
+            IWorkbook workbookFaultDataTime = new XSSFWorkbook(fsFaultDataTime);
+            ISheet sheetFaultDataTime = workbookFaultDataTime.GetSheetAt(0);
             int totalRowsFaultDataTime = sheetFaultDataTime.LastRowNum + 1;
             IRow rowFaultDataTime = null;
-
             //DateTime faultOccurTemp;
             for (int i = 1; i < totalRowsFaultDataTime; i++)
             {
@@ -334,6 +332,52 @@ namespace CloudManage.StatusMonitor
                 dtFaultDataTime.Rows.Add(drFaultDataTime);
             }
             fsFaultDataTime.Close();
+
+        }
+
+        void _init_dtFaultDataTimeQuery()
+        {
+            dtFaultDataTimeQuery.Columns.Add("序号", typeof(String));
+            dtFaultDataTimeQuery.Columns.Add("产线名称", typeof(String));
+            dtFaultDataTimeQuery.Columns.Add("检测设备名称", typeof(String));
+            dtFaultDataTimeQuery.Columns.Add("故障名称", typeof(String));
+            dtFaultDataTimeQuery.Columns.Add("故障发生时间", typeof(String));
+
+            FileStream fsFaultDataTimeQuery = File.OpenRead(excelPath_faultDataTimeQuery);
+            IWorkbook workbookFaultDataTimeQuery = null;
+            workbookFaultDataTimeQuery = new XSSFWorkbook(fsFaultDataTimeQuery);
+            ISheet sheetFaultDataTimeQuery = workbookFaultDataTimeQuery.GetSheetAt(0);
+            int totalRowsFaultDataTimeQuery = sheetFaultDataTimeQuery.LastRowNum + 1;
+            IRow rowFaultDataTimeQuery = null;
+
+            //DateTime faultOccurTemp;
+            for (int i = 1; i < totalRowsFaultDataTimeQuery; i++)
+            {
+                rowFaultDataTimeQuery = sheetFaultDataTimeQuery.GetRow(i);
+                ICell cellFaultDataTimeQuery0 = rowFaultDataTimeQuery.GetCell(0);
+                ICell cellFaultDataTimeQuery1 = rowFaultDataTimeQuery.GetCell(1);
+                ICell cellFaultDataTimeQuery2 = rowFaultDataTimeQuery.GetCell(2);
+                ICell cellFaultDataTimeQuery3 = rowFaultDataTimeQuery.GetCell(3);
+                ICell cellFaultDataTimeQuery4 = rowFaultDataTimeQuery.GetCell(4);
+
+                string numFaultDataTimeQuery = Convert.ToString(GetCellValue(cellFaultDataTimeQuery0));
+                string nameProductionLineFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery1));
+                string nameTestingDeviceFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery2));
+                string nameFaultFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery3));
+                string timeFaultOccurFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery4));
+                //faultOccurTemp = (DateTime)GetCellValue(cellFaultDataTime4);
+                //string timeFaultOccurFaultDataTime = faultOccurTemp.ToString("yyyy-MM-dd HH:mm:ss");
+
+                DataRow drFaultDataTimeQuery = dtFaultDataTimeQuery.NewRow();
+                drFaultDataTimeQuery["序号"] = numFaultDataTimeQuery;
+                drFaultDataTimeQuery["产线名称"] = nameProductionLineFaultDataTime;
+                drFaultDataTimeQuery["检测设备名称"] = nameTestingDeviceFaultDataTime;
+                drFaultDataTimeQuery["故障名称"] = nameFaultFaultDataTime;
+                drFaultDataTimeQuery["故障发生时间"] = timeFaultOccurFaultDataTime;
+
+                dtFaultDataTimeQuery.Rows.Add(drFaultDataTimeQuery);
+            }
+            fsFaultDataTimeQuery.Close();
         }
 
         //初始化子菜单
@@ -372,9 +416,15 @@ namespace CloudManage.StatusMonitor
 
             for (int i = 0; i < dtDeviceEnable.Rows.Count; i++)
             {
-                tag = (string)dtProductionLine.Rows[i]["产线Tag"];
+                tag = (string)dtDeviceEnable.Rows[i]["产线Tag"];
                 name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                text = (string)dtProductionLine.Rows[i]["产线名称"];
+                for(int j = 0; j < dtProductionLine.Rows.Count; j++)
+                {
+                    if (tag == (string)dtProductionLine.Rows[j]["产线Tag"])
+                    {
+                        text = (string)dtProductionLine.Rows[j]["产线名称"];
+                    }
+                }
                 num = Convert.ToString(showDeviceNum[i]);
 
                 this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
@@ -383,17 +433,13 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
         }
 
-        void _init_dtFaultDataTimeQuery()
-        {
-
-        }
-
+        //初始化基础信息表格
         public void _initHistoryQuery()
         {
             _init_dtTestingDeviceName();
             _init_dtProductionLine();
-            ArrayList showDeviceNum = init_dtDeviceEnable();
             _init_dtFaultName();
+            ArrayList showDeviceNum = init_dtDeviceEnable();
             _init_sideTileBarSub(showDeviceNum);
 
         }
@@ -402,6 +448,7 @@ namespace CloudManage.StatusMonitor
         void test()
         {
             _init_dtFaultDataTime();    //该表是用来测试的
+            _init_dtFaultDataTimeQuery();   //该表是用来测试的
             _initHistoryQuery();
             this.gridControl_faultDataTime.DataSource = dtFaultDataTime;
 
@@ -446,12 +493,54 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        private bool _timeInterVaIllegal()
+        {
+            if (this.timeEdit_endTime.Time <= this.timeEdit_startTime.Time)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClicked(object sender, EventArgs e)
         {
             string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
             string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
-            this.labelControl_dir.Text = str1 + "----->" + str2;
+            this.labelControl_dir.Text = "   " + str1 + "----->" + str2;
 
+        }
+
+        private void simpleButton_query_Click(object sender, EventArgs e)
+        {
+            if(_timeInterVaIllegal() == true)
+            {
+                MessageBox.Show("无效时间区间，请重新选择...");
+            }
+            this.gridControl_faultDataTime.DataSource = dtFaultDataTimeQuery;
+
+        }
+
+        private void simpleButton_startTimeModify_Click(object sender, EventArgs e)
+        {
+            this.timeEdit_startTime.ShowPopup();
+        }
+
+        private void simpleButton_endTimeOK_Click(object sender, EventArgs e)
+        {
+            TouchPopupTimeEditForm tempTE = this.timeEdit_endTime.GetPopupEditForm();
+            string endTime = tempTE.TimeEdit.Text;
+            this.timeEdit_endTime.Text = endTime;
+            this.timeEdit_endTime.ClosePopup();
+            
+        }
+
+        private void simpleButton_endTimeCancel_Click(object sender, EventArgs e)
+        {
+            this.timeEdit_endTime.CancelPopup();
         }
     }
 }
