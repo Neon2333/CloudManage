@@ -62,7 +62,7 @@
             this.tileBar_sideTileBar.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sideTileBar.SelectedItem = this.tileBarItem0;
             this.tileBar_sideTileBar.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sideTileBar.Size = new System.Drawing.Size(239, 798);
+            this.tileBar_sideTileBar.Size = new System.Drawing.Size(238, 798);
             this.tileBar_sideTileBar.TabIndex = 13;
             this.tileBar_sideTileBar.WideTileWidth = 210;
             this.tileBar_sideTileBar.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBar_ItemClick);
@@ -92,7 +92,7 @@
             this.tileBarItem0.AppearanceItem.Selected.Options.UseForeColor = true;
             this.tileBarItem0.DropDownControl = this.tileBarDropDownContainer_sub;
             this.tileBarItem0.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
-            this.tileBarItem0.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
+            this.tileBarItem0.DropDownOptions.BeakColor = System.Drawing.Color.White;
             this.tileBarItem0.DropDownOptions.Height = 270;
             tileItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
             tileItemElement2.Text = "101";
@@ -118,7 +118,6 @@
             this.tileBarItem0.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem0.Name = "tileBarItem0";
             this.tileBarItem0.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem0.ShowItemShadow = DevExpress.Utils.DefaultBoolean.True;
             this.tileBarItem0.Tag = "0";
             // 
             // tileBarDropDownContainer_sub
@@ -138,7 +137,7 @@
             this.tileBar_sideTileBar_sub.Groups.Add(this.tileBarGroup_sub);
             this.tileBar_sideTileBar_sub.ItemPadding = new System.Windows.Forms.Padding(60, 6, 12, 6);
             this.tileBar_sideTileBar_sub.ItemSize = 70;
-            this.tileBar_sideTileBar_sub.Location = new System.Drawing.Point(1, 1);
+            this.tileBar_sideTileBar_sub.Location = new System.Drawing.Point(0, 0);
             this.tileBar_sideTileBar_sub.MaxId = 24;
             this.tileBar_sideTileBar_sub.Name = "tileBar_sideTileBar_sub";
             this.tileBar_sideTileBar_sub.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -146,7 +145,7 @@
             this.tileBar_sideTileBar_sub.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar_sideTileBar_sub.SelectedItem = this.tileBarItem_sub0;
             this.tileBar_sideTileBar_sub.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(269, 798);
+            this.tileBar_sideTileBar_sub.Size = new System.Drawing.Size(270, 800);
             this.tileBar_sideTileBar_sub.TabIndex = 14;
             this.tileBar_sideTileBar_sub.WideTileWidth = 240;
             this.tileBar_sideTileBar_sub.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBar_sideTileBar_sub_ItemClick);
@@ -190,10 +189,9 @@
             // panelControl_sideTileBarControlWithSub
             // 
             this.panelControl_sideTileBarControlWithSub.Controls.Add(this.tileBar_sideTileBar);
-            this.panelControl_sideTileBarControlWithSub.Controls.Add(this.tileBarDropDownContainer_sub);
             this.panelControl_sideTileBarControlWithSub.Location = new System.Drawing.Point(0, 0);
             this.panelControl_sideTileBarControlWithSub.Name = "panelControl_sideTileBarControlWithSub";
-            this.panelControl_sideTileBarControlWithSub.Size = new System.Drawing.Size(510, 800);
+            this.panelControl_sideTileBarControlWithSub.Size = new System.Drawing.Size(240, 800);
             this.panelControl_sideTileBarControlWithSub.TabIndex = 15;
             // 
             // SideTileBarControlWithSub
@@ -201,6 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl_sideTileBarControlWithSub);
+            this.Controls.Add(this.tileBarDropDownContainer_sub);
             this.Name = "SideTileBarControlWithSub";
             this.Size = new System.Drawing.Size(510, 800);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_sub)).EndInit();

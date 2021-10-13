@@ -19,10 +19,38 @@ namespace CloudManage.StatusMonitor
 
         private NavigationPage[] statusMonitorPages = new NavigationPage[3];
 
+        private DataTable DTStatusMonitor = null;
+        private int FaultNumStatusMonitor = 0;
         public StatusMonitorControl()
         {
             InitializeComponent();
             initStatusMonitorPage();
+            this.DTStatusMonitor = this.historyQueryControl1.dtFaultHistoryQuery;
+            //this.FaultNumStatusMonitor = this.historyQueryControl1.faultNumHistoryQuery;
+        }
+
+        public DataTable dtStatusMonitor
+        {
+            set
+            {
+                this.historyQueryControl1.dtFaultHistoryQuery = value;
+            }
+            get
+            {
+                return this.historyQueryControl1.dtFaultHistoryQuery;
+            }
+        }
+
+        public int faultNumStatusMonitor
+        {
+            set
+            {
+                this.historyQueryControl1.faultNumHistoryQuery = value;
+            }
+            get
+            {
+                return this.historyQueryControl1.faultNumHistoryQuery;
+            }
         }
 
         public Boolean frameVisible

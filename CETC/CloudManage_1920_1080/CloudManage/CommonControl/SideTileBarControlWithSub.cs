@@ -250,8 +250,10 @@ namespace CloudManage.CommonControl
                 tileBarItem.AppearanceItem.Selected.Options.UseFont = true;
                 tileBarItem.AppearanceItem.Selected.Options.UseForeColor = true;
                 //tileBarItem.DropDownControl = this.tileBarDropDownContainer_sub;
+                //tileBarItem.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
+                //tileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
                 tileBarItem.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseBeakColor;
-                tileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(156)))));
+                tileBarItem.DropDownOptions.BeakColor = System.Drawing.Color.White;
                 tileBarItem.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
                 tileBarItem.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.False;
                 tileBarItem.DropDownOptions.Height = 270;   //每个tileBarItem的绑定的子菜单的显示宽度

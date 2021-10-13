@@ -14,6 +14,7 @@ namespace CloudManage
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        DateTime now = new DateTime();  //当前时间
         int[][] itemIndex = new int[6][];
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -22,6 +23,8 @@ namespace CloudManage
             InitializeComponent();
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             _InitItemIndex();
+            this.panelControl_faultHistoryQuery.Visible = false;
+            this.gridControl_faultHistoryQuery.DataSource = this.statusMonitorControl1.dtStatusMonitor;
         }
 
         private void _InitItemIndex()
@@ -37,9 +40,21 @@ namespace CloudManage
 
         private void timer_datetime_Tick(object sender, EventArgs e)
         {
-            DateTime now = new DateTime();
             now = DateTime.Now;
             this.labelControl_datetime.Text = now.ToString("yyyy-MM-dd  HH:mm:ss");
+
+            //if (this.statusMonitorControl1.faultNumStatusMonitor != 0)
+            //{
+            //    this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+            //}
+
+            if (this.statusMonitorControl1.dtStatusMonitor.Rows.Count != 0)
+            {
+                this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+                DataRow rowFirstLine = this.statusMonitorControl1.dtStatusMonitor.Rows[0];
+                //this.labelControl_title.Text = "序号：" + (string)rowFirstLine["序号"] + ",产线名称：" + (string)rowFirstLine["产线名称"] + "检测设备名称：" + (string)rowFirstLine["检测设备名称"] + "故障名称：" + (string)rowFirstLine["故障名称"] + "故障发生时间："+ (string)rowFirstLine["故障发生时间"];
+                this.labelControl_title.Text = (string)rowFirstLine["故障名称"];
+            }
         }
 
         /**
@@ -137,7 +152,6 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = itemIndex[0][2];
-            //this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
             this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
         }
 
@@ -236,6 +250,23 @@ namespace CloudManage
 
         }
 
+        private void labelControl_title_Click(object sender, EventArgs e)
+        {
+            this.panelControl_faultHistoryQuery.Visible = true;
 
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            this.panelControl_faultHistoryQuery.Visible = false;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if(this.statusMonitorControl1.dtStatusMonitor.Rows.Count > 0)
+            {
+                this.statusMonitorControl1.dtStatusMonitor.Rows.RemoveAt(0);
+            }
+        }
     }
 }
