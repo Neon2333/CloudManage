@@ -26,7 +26,7 @@ namespace CloudManage.StatusMonitor
         string excelPath_deviceEnable = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\deviceEnable.xlsx";
         private DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
         string excelPath_productionLineName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
-        private  DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
+        private DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
         string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
         private DataTable dtAllFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
         string excelPath_allFaults = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
@@ -42,7 +42,7 @@ namespace CloudManage.StatusMonitor
          * dtAllFaults——所有车、检测设备可能发生的所有的故障的名称、使能标志（只有被使能==1的故障才能被提取到DTTitleGridShow中）
          * **/
         private DataTable dtHistoryQueryGridShow = new DataTable();        //序号、产线名称、检测设备名称、故障名称、故障发生时间。grid显示
-        string excelPath_historyQueryGridShow = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\historyQueryGridShow.xlsx";    
+        string excelPath_historyQueryGridShow = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\historyQueryGridShow.xlsx";
         private DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的数据的表，该Excel用作测试用，后续用MySQL查询前面4张表，得出该表
         string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\historyQueryGridShowClickedQueryButton.xlsx";
 
@@ -71,7 +71,7 @@ namespace CloudManage.StatusMonitor
         {
             set
             {
-                this.FaultNumHistoryQuery = value;   
+                this.FaultNumHistoryQuery = value;
             }
             get
             {
@@ -129,12 +129,12 @@ namespace CloudManage.StatusMonitor
             this.DTTitleGridShow.Rows.Clear();
 
             int numRowsHistoryQueryGridShow = dtHistoryQueryGridShow.Rows.Count;
-            if(numRowShow > numRowsHistoryQueryGridShow)
+            if (numRowShow > numRowsHistoryQueryGridShow)
             {
                 numRowShow = numRowsHistoryQueryGridShow;
             }
 
-            for(int i = 0; i < numRowShow; i++)
+            for (int i = 0; i < numRowShow; i++)
             {
                 DataRow rowShowTemp = DTTitleGridShow.NewRow();
                 rowShowTemp["序号"] = dtHistoryQueryGridShow.Rows[i]["序号"];
@@ -370,6 +370,12 @@ namespace CloudManage.StatusMonitor
         /**
          *问题：复制的Excel表，虽然把数据删除了，但单元格行数不变，单元格内存Null。导致显示时出现空白行。
          */
+        string formatFaultOccurTime(object ob)
+        {
+            DateTime temp = Convert.ToDateTime(ob);
+            return temp.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
         void _init_dtHistoryQueryGridShow(string excelPath)
         {
             dtHistoryQueryGridShow.Columns.Add("序号", typeof(String));
@@ -397,9 +403,7 @@ namespace CloudManage.StatusMonitor
                 string nameProductionLineFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime1));
                 string nameTestingDeviceFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime2));
                 string nameFaultFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime3));
-                string timeFaultOccurFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTime4));
-                //faultOccurTemp = (DateTime)GetCellValue(cellFaultDataTime4);
-                //string timeFaultOccurFaultDataTime = faultOccurTemp.ToString("yyyy-MM-dd HH:mm:ss");
+                string timeFaultOccurFaultDataTime = formatFaultOccurTime(GetCellValue(cellFaultDataTime4));
 
                 DataRow drFaultDataTime = dtHistoryQueryGridShow.NewRow();
                 drFaultDataTime["序号"] = numFaultDataTime;
@@ -443,9 +447,7 @@ namespace CloudManage.StatusMonitor
                 string nameProductionLineFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery1));
                 string nameTestingDeviceFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery2));
                 string nameFaultFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery3));
-                string timeFaultOccurFaultDataTime = Convert.ToString(GetCellValue(cellFaultDataTimeQuery4));
-                //faultOccurTemp = (DateTime)GetCellValue(cellFaultDataTime4);
-                //string timeFaultOccurFaultDataTime = faultOccurTemp.ToString("yyyy-MM-dd HH:mm:ss");
+                string timeFaultOccurFaultDataTime = formatFaultOccurTime(GetCellValue(cellFaultDataTimeQuery4));
 
                 DataRow drFaultDataTimeQuery = dtHistoryQueryGridShowClickedQueryButton.NewRow();
                 drFaultDataTimeQuery["序号"] = numFaultDataTimeQuery;
@@ -458,6 +460,8 @@ namespace CloudManage.StatusMonitor
             }
             fsFaultDataTimeQuery.Close();
         }
+
+
 
         //初始化子菜单
         void _init_sideTileBarSub(ArrayList showDeviceNum)
@@ -497,7 +501,7 @@ namespace CloudManage.StatusMonitor
             {
                 tag = (string)dtDeviceEnable.Rows[i]["产线Tag"];
                 name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                for(int j = 0; j < dtProductionLine.Rows.Count; j++)
+                for (int j = 0; j < dtProductionLine.Rows.Count; j++)
                 {
                     if (tag == (string)dtProductionLine.Rows[j]["产线Tag"])
                     {
@@ -529,8 +533,8 @@ namespace CloudManage.StatusMonitor
             _initHistoryQuery();
             _init_dtHistoryQueryGridShow(excelPath_historyQueryGridShow);    //grid显示
             _init_dtHistoryQueryGridShowClickedQueryButton(excelPath_historyQueryGridShowClickedQueryButton);   //点击查询后grid显示
-            _init_dtFaultHistoryQuery();    
-            _refreshTitleGridShow(10); 
+            _init_dtFaultHistoryQuery();
+            _refreshTitleGridShow(10);
             this.gridControl_faultDataTime.DataSource = dtHistoryQueryGridShow;
 
         }
@@ -538,7 +542,7 @@ namespace CloudManage.StatusMonitor
         private string _getProductionLineNameByTag(string tagProductionLine)
         {
             //dtProductionLine中没有Tag==0的记录
-            if(tagProductionLine == "0")
+            if (tagProductionLine == "0")
             {
                 return "总览";
             }
@@ -596,7 +600,7 @@ namespace CloudManage.StatusMonitor
 
         private void simpleButton_query_Click(object sender, EventArgs e)
         {
-            if(_timeInterVaIllegal() == true)
+            if (_timeInterVaIllegal() == true)
             {
                 MessageBox.Show("无效时间区间，请重新选择...");
             }

@@ -17,6 +17,7 @@ namespace CloudManage.CommonControl
     public partial class SideTileBarControlWithSub : DevExpress.XtraEditors.XtraUserControl
     {
         private DataTable Dt = new DataTable();
+        private bool UseDtToShowSubItem = true;
 
         private string TagSelectedItem = String.Empty;
         private string TagSelectedItemSub = String.Empty;   //总览tag="0"，添加按钮时从tag="1"开始
@@ -57,6 +58,19 @@ namespace CloudManage.CommonControl
             set
             {
                 this.tileBarItem_sub0.Visible = value;
+            }
+        }
+
+        //是否使用表dataTableTileBarSub获取子菜单中检测设备使能
+        public Boolean useDtToShowSubItem
+        {
+            get
+            {
+                return this.UseDtToShowSubItem;
+            }
+            set
+            {
+                this.UseDtToShowSubItem = value;
             }
         }
 
@@ -359,7 +373,14 @@ namespace CloudManage.CommonControl
                 }
                 tileBarItemSub.Padding = new System.Windows.Forms.Padding(paddingLeft, 0, 0, 0);
                 tileBarItemSub.Tag = tagTileBarItemSub;
-                tileBarItemSub.Visible = false; //默认不可见
+                if (useDtToShowSubItem == true)
+                {
+                    tileBarItemSub.Visible = false; //读检测设备使能表的话，就让所有添加的时候不可见。通过_showSubItemHideRedundantItem()设置子菜单item显示
+                }
+                else
+                {
+                    tileBarItemSub.Visible = true;  //不读表的话，就直接全部可见
+                }
                 tileBarGroup_sub.Items.Add(tileBarItemSub);
 
                 countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
@@ -508,47 +529,56 @@ namespace CloudManage.CommonControl
         public void _showSubItemHideRedundantItem()
         {
             TileBarItem temp = null;
-            if (this.TotalNumDevice != this.countSideTileBarItemSub - 1)    //countSideTileBarItemSub比TotalNumDevice多一个“所有设备”
+            if (this.useDtToShowSubItem == true)
             {
-                MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
-            }
-
-            if (this.TagSelectedItem == "0")    //选中总览
-            {
-                for (int i = 0; i < this.TotalNumDevice; i++)
+                if (this.showAllDevices == true && (this.TotalNumDevice != this.countSideTileBarItemSub - 1))    //countSideTileBarItemSub比TotalNumDevice多一个“所有设备”
                 {
-                    temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                    temp.Visible = true;
+                    MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
                 }
+
+                if (this.showOverview == true && this.TagSelectedItem == "0")    //选中总览
+                {
+                    for (int i = 0; i < this.TotalNumDevice; i++)
+                    {
+                        temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                        temp.Visible = true;
+                    }
+                }
+                else
+                {
+                    //从Dt中读取检测设备标志，实现检测设备按钮的显示
+                    int indexRow = 0;
+                    DataRow dr = null;
+                    for (int i = 0; i < Dt.Rows.Count; i++)
+                    {
+                        if ((string)Dt.Rows[i]["产线Tag"] == this.TagSelectedItem)
+                        {
+                            dr = Dt.Rows[i];
+                        }
+                    }
+                    indexRow = Convert.ToInt32(this.TagSelectedItem) - 1;   //dt中的行index为tag-1
+                    for (int i = 0; i < this.TotalNumDevice; i++)
+                    {
+                        temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                        int flag = Convert.ToInt32(dr[i + 1]);  //deviceEnable表中检测设备标志位
+                        if (flag == 1)
+                        {
+                            temp.Visible = true;
+                        }
+                        else
+                        {
+                            temp.Visible = false;
+                        }
+
+                    }
+                }
+
             }
             else
             {
-                //从Dt中读取检测设备标志，实现检测设备按钮的显示
-                int indexRow = 0;
-                DataRow dr = null;
-                for(int i = 0; i < Dt.Rows.Count; i++)
-                {
-                    if ((string)Dt.Rows[i]["产线Tag"] == this.TagSelectedItem)
-                    {
-                        dr = Dt.Rows[i];
-                    }
-                }
-                indexRow = Convert.ToInt32(this.TagSelectedItem) - 1;   //dt中的行index为tag-1
-                for (int i = 0; i < this.TotalNumDevice; i++)
-                {
-                    temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                    int flag = Convert.ToInt32(dr[i + 1]);  //deviceEnable表中检测设备标志位
-                    if (flag == 1)
-                    {
-                        temp.Visible = true;
-                    }
-                    else
-                    {
-                        temp.Visible = false;
-                    }
 
-                }
             }
+
         }
 
         //点击sideTileItem，显示对应设备子菜单
