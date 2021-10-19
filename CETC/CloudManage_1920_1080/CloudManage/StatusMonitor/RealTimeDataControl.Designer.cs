@@ -73,6 +73,8 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement18 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition19 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition20 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition21 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition5 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
@@ -83,6 +85,10 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement21 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement22 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement23 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement24 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement25 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement26 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement27 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.tileViewColumn_CPUtemperature = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_CPUusage = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_memoryUsage = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -91,7 +97,6 @@
             this.pictureEdit_camera = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit_device = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl_NO = new DevExpress.XtraEditors.LabelControl();
             this.gridControl_rightSide = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_camera.Properties)).BeginInit();
@@ -178,41 +183,20 @@
             // 
             // panelControl_rightSide
             // 
-            this.panelControl_rightSide.Controls.Add(this.labelControl_NO);
             this.panelControl_rightSide.Controls.Add(this.gridControl_rightSide);
             this.panelControl_rightSide.Location = new System.Drawing.Point(1532, 0);
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(388, 800);
             this.panelControl_rightSide.TabIndex = 7;
             // 
-            // labelControl_NO
-            // 
-            this.labelControl_NO.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_NO.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_NO.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_NO.Appearance.Options.UseBackColor = true;
-            this.labelControl_NO.Appearance.Options.UseFont = true;
-            this.labelControl_NO.Appearance.Options.UseForeColor = true;
-            this.labelControl_NO.Appearance.Options.UseTextOptions = true;
-            this.labelControl_NO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_NO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl_NO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_NO.Location = new System.Drawing.Point(0, 0);
-            this.labelControl_NO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_NO.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_NO.Name = "labelControl_NO";
-            this.labelControl_NO.Size = new System.Drawing.Size(194, 50);
-            this.labelControl_NO.TabIndex = 17;
-            this.labelControl_NO.Text = "CPU温度";
-            // 
             // gridControl_rightSide
             // 
-            this.gridControl_rightSide.Location = new System.Drawing.Point(194, 0);
+            this.gridControl_rightSide.Location = new System.Drawing.Point(0, 0);
             this.gridControl_rightSide.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.gridControl_rightSide.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl_rightSide.MainView = this.tileView1;
             this.gridControl_rightSide.Name = "gridControl_rightSide";
-            this.gridControl_rightSide.Size = new System.Drawing.Size(194, 800);
+            this.gridControl_rightSide.Size = new System.Drawing.Size(388, 800);
             this.gridControl_rightSide.TabIndex = 16;
             this.gridControl_rightSide.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -250,7 +234,10 @@
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsEditForm.AllowHtmlCaptions = true;
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(194, 50);
+            this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
+            this.tileView1.OptionsTiles.IndentBetweenItems = 0;
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(388, 800);
+            this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileView1.OptionsTiles.RowCount = 0;
             this.tileView1.OptionsTiles.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileView1.OptionsTiles.StretchItems = true;
@@ -443,28 +430,35 @@
             itemTemplate2.Rows.Add(tableRowDefinition2);
             this.tileView1.Templates.Add(itemTemplate1);
             this.tileView1.Templates.Add(itemTemplate2);
-            tableColumnDefinition19.Length.Value = 194D;
+            tableColumnDefinition19.Length.Value = 193D;
+            tableColumnDefinition20.Length.Value = 2D;
+            tableColumnDefinition21.Length.Value = 193D;
             this.tileView1.TileColumns.Add(tableColumnDefinition19);
-            tableRowDefinition3.Length.Value = 156D;
-            tableRowDefinition5.Length.Value = 157D;
-            tableRowDefinition7.Length.Value = 157D;
+            this.tileView1.TileColumns.Add(tableColumnDefinition20);
+            this.tileView1.TileColumns.Add(tableColumnDefinition21);
+            tableRowDefinition3.Length.Value = 50D;
+            tableRowDefinition5.Length.Value = 50D;
+            tableRowDefinition7.Length.Value = 50D;
             this.tileView1.TileRows.Add(tableRowDefinition3);
             this.tileView1.TileRows.Add(tableRowDefinition4);
             this.tileView1.TileRows.Add(tableRowDefinition5);
             this.tileView1.TileRows.Add(tableRowDefinition6);
             this.tileView1.TileRows.Add(tableRowDefinition7);
             tileViewItemElement19.Column = this.tileViewColumn_CPUtemperature;
+            tileViewItemElement19.ColumnIndex = 2;
             tileViewItemElement19.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement19.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement19.Text = "tileViewColumn_CPUtemperature";
             tileViewItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement20.Column = this.tileViewColumn_CPUusage;
+            tileViewItemElement20.ColumnIndex = 2;
             tileViewItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement20.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement20.RowIndex = 2;
             tileViewItemElement20.Text = "tileViewColumn_CPUusage";
             tileViewItemElement20.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement21.Column = this.tileViewColumn_memoryUsage;
+            tileViewItemElement21.ColumnIndex = 2;
             tileViewItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement21.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement21.RowIndex = 4;
@@ -488,11 +482,38 @@
             tileViewItemElement23.StretchHorizontal = true;
             tileViewItemElement23.Text = "splitLine2";
             tileViewItemElement23.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement24.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement24.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement24.Text = "CPU温度";
+            tileViewItemElement24.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement25.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement25.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement25.RowIndex = 2;
+            tileViewItemElement25.Text = "CPU利用率";
+            tileViewItemElement25.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement26.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement26.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement26.RowIndex = 4;
+            tileViewItemElement26.Text = "内存利用率";
+            tileViewItemElement26.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement27.Appearance.Normal.BackColor = System.Drawing.Color.White;
+            tileViewItemElement27.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement27.ColumnIndex = 1;
+            tileViewItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement27.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement27.StretchVertical = true;
+            tileViewItemElement27.Text = "splitLine3";
+            tileViewItemElement27.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement27.Width = 1;
             this.tileView1.TileTemplate.Add(tileViewItemElement19);
             this.tileView1.TileTemplate.Add(tileViewItemElement20);
             this.tileView1.TileTemplate.Add(tileViewItemElement21);
             this.tileView1.TileTemplate.Add(tileViewItemElement22);
             this.tileView1.TileTemplate.Add(tileViewItemElement23);
+            this.tileView1.TileTemplate.Add(tileViewItemElement24);
+            this.tileView1.TileTemplate.Add(tileViewItemElement25);
+            this.tileView1.TileTemplate.Add(tileViewItemElement26);
+            this.tileView1.TileTemplate.Add(tileViewItemElement27);
             // 
             // RealTimeDataControl
             // 
@@ -527,6 +548,5 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_CPUtemperature;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_CPUusage;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_memoryUsage;
-        private DevExpress.XtraEditors.LabelControl labelControl_NO;
     }
 }

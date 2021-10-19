@@ -65,7 +65,7 @@ namespace CloudManage
             }
 
             initDtRightSide();
-            refreshDtRightSide("50", "50%", "30%");
+            refreshDtRightSide("50℃", "50%", "30%");
 
             //for (int i = 0; i < 100; i++)
             //{
