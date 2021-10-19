@@ -25,7 +25,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initStatusMonitorPage();
-            this.DTStatusMonitor = this.historyQueryControl1.dtFaultHistoryQuery;
+            this.DTStatusMonitor = this.historyQueryControl1.dtTitleGridShow;
             //this.FaultNumStatusMonitor = this.historyQueryControl1.faultNumHistoryQuery;
         }
 
@@ -33,11 +33,11 @@ namespace CloudManage.StatusMonitor
         {
             set
             {
-                this.historyQueryControl1.dtFaultHistoryQuery = value;
+                this.historyQueryControl1.dtTitleGridShow = value;
             }
             get
             {
-                return this.historyQueryControl1.dtFaultHistoryQuery;
+                return this.historyQueryControl1.dtTitleGridShow;
             }
         }
 

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryQueryControl));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraGrid.Views.Tile.ItemTemplate itemTemplate1 = new DevExpress.XtraGrid.Views.Tile.ItemTemplate();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -99,6 +99,7 @@
             this.tileViewColumn_FTime = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_endTimeModify = new DevExpress.XtraEditors.SimpleButton();
             this.timeEdit_endTime = new DevExpress.XtraEditors.TimeEdit();
             this.simpleButton_startTimeModify = new DevExpress.XtraEditors.SimpleButton();
@@ -116,7 +117,6 @@
             this.gridControl_faultDataTime = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).BeginInit();
@@ -180,14 +180,14 @@
             // 
             this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
-            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
-            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
-            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
             this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
@@ -211,6 +211,17 @@
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 6;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(6, 380);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(341, 46);
+            this.simpleButton1.TabIndex = 22;
+            this.simpleButton1.Text = "测试：更改故障表数据";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton_endTimeModify
             // 
@@ -325,11 +336,11 @@
             this.labelControl_dir.Appearance.Options.UseTextOptions = true;
             this.labelControl_dir.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControl_dir.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_dir.Location = new System.Drawing.Point(240, 0);
+            this.labelControl_dir.Location = new System.Drawing.Point(246, 0);
             this.labelControl_dir.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.labelControl_dir.LookAndFeel.UseDefaultLookAndFeel = false;
             this.labelControl_dir.Name = "labelControl_dir";
-            this.labelControl_dir.Size = new System.Drawing.Size(1112, 50);
+            this.labelControl_dir.Size = new System.Drawing.Size(1106, 50);
             this.labelControl_dir.TabIndex = 7;
             this.labelControl_dir.Text = "   目录信息";
             // 
@@ -345,11 +356,11 @@
             this.labelControl_NO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl_NO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControl_NO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_NO.Location = new System.Drawing.Point(240, 50);
+            this.labelControl_NO.Location = new System.Drawing.Point(246, 50);
             this.labelControl_NO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.labelControl_NO.LookAndFeel.UseDefaultLookAndFeel = false;
             this.labelControl_NO.Name = "labelControl_NO";
-            this.labelControl_NO.Size = new System.Drawing.Size(120, 50);
+            this.labelControl_NO.Size = new System.Drawing.Size(114, 50);
             this.labelControl_NO.TabIndex = 8;
             this.labelControl_NO.Text = "序号";
             // 
@@ -406,7 +417,7 @@
             this.labelControl_faultID.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.labelControl_faultID.LookAndFeel.UseDefaultLookAndFeel = false;
             this.labelControl_faultID.Name = "labelControl_faultID";
-            this.labelControl_faultID.Size = new System.Drawing.Size(224, 50);
+            this.labelControl_faultID.Size = new System.Drawing.Size(274, 50);
             this.labelControl_faultID.TabIndex = 11;
             this.labelControl_faultID.Text = "故障名称";
             // 
@@ -421,11 +432,11 @@
             this.labelControl_faultTime.Appearance.Options.UseTextOptions = true;
             this.labelControl_faultTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl_faultTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_faultTime.Location = new System.Drawing.Point(1007, 50);
+            this.labelControl_faultTime.Location = new System.Drawing.Point(1057, 50);
             this.labelControl_faultTime.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.labelControl_faultTime.LookAndFeel.UseDefaultLookAndFeel = false;
             this.labelControl_faultTime.Name = "labelControl_faultTime";
-            this.labelControl_faultTime.Size = new System.Drawing.Size(345, 50);
+            this.labelControl_faultTime.Size = new System.Drawing.Size(295, 50);
             this.labelControl_faultTime.TabIndex = 12;
             this.labelControl_faultTime.Text = "故障发生时间";
             // 
@@ -441,12 +452,12 @@
             // 
             // gridControl_faultDataTime
             // 
-            this.gridControl_faultDataTime.Location = new System.Drawing.Point(240, 100);
+            this.gridControl_faultDataTime.Location = new System.Drawing.Point(246, 100);
             this.gridControl_faultDataTime.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.gridControl_faultDataTime.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl_faultDataTime.MainView = this.tileView1;
             this.gridControl_faultDataTime.Name = "gridControl_faultDataTime";
-            this.gridControl_faultDataTime.Size = new System.Drawing.Size(1112, 700);
+            this.gridControl_faultDataTime.Size = new System.Drawing.Size(1106, 700);
             this.gridControl_faultDataTime.TabIndex = 14;
             this.gridControl_faultDataTime.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
@@ -461,7 +472,7 @@
             this.tileView1.Appearance.ItemFocused.Options.UseBorderColor = true;
             this.tileView1.Appearance.ItemFocused.Options.UseFont = true;
             this.tileView1.Appearance.ItemFocused.Options.UseForeColor = true;
-            this.tileView1.Appearance.ItemNormal.BackColor = System.Drawing.Color.Red;
+            this.tileView1.Appearance.ItemNormal.BackColor = System.Drawing.Color.Gray;
             this.tileView1.Appearance.ItemNormal.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileView1.Appearance.ItemNormal.ForeColor = System.Drawing.Color.White;
             this.tileView1.Appearance.ItemNormal.Options.UseBackColor = true;
@@ -488,7 +499,7 @@
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(6, 8, 12, 8);
             this.tileView1.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView1.OptionsTiles.IndentBetweenItems = 0;
-            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(1112, 50);
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(1106, 50);
             this.tileView1.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
@@ -692,15 +703,15 @@
             itemTemplate2.Rows.Add(tableRowDefinition2);
             this.tileView1.Templates.Add(itemTemplate1);
             this.tileView1.Templates.Add(itemTemplate2);
-            tableColumnDefinition19.Length.Value = 110D;
+            tableColumnDefinition19.Length.Value = 104D;
             tableColumnDefinition20.Length.Value = 2D;
             tableColumnDefinition21.Length.Value = 180D;
             tableColumnDefinition22.Length.Value = 2D;
             tableColumnDefinition23.Length.Value = 250D;
             tableColumnDefinition24.Length.Value = 2D;
-            tableColumnDefinition25.Length.Value = 230D;
+            tableColumnDefinition25.Length.Value = 280D;
             tableColumnDefinition26.Length.Value = 2D;
-            tableColumnDefinition27.Length.Value = 338D;
+            tableColumnDefinition27.Length.Value = 288D;
             this.tileView1.TileColumns.Add(tableColumnDefinition19);
             this.tileView1.TileColumns.Add(tableColumnDefinition20);
             this.tileView1.TileColumns.Add(tableColumnDefinition21);
@@ -785,17 +796,6 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement25);
             this.tileView1.TileTemplate.Add(tileViewItemElement26);
             this.tileView1.TileTemplate.Add(tileViewItemElement27);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(6, 380);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(341, 46);
-            this.simpleButton1.TabIndex = 22;
-            this.simpleButton1.Text = "测试：更改故障表数据";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // HistoryQueryControl
             // 
