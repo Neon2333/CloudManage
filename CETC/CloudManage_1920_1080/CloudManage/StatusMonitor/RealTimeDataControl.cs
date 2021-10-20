@@ -25,20 +25,26 @@ namespace CloudManage
 
         void initDtRightSide()
         {
-            dtRightSide.Columns.Add("CPU温度", typeof(String));
-            dtRightSide.Columns.Add("CPU利用率", typeof(String));
-            dtRightSide.Columns.Add("内存利用率", typeof(String));
-            this.gridControl_rightSide.DataSource = dtRightSide;
-        }
+            dtRightSide.Columns.Add("参数名", typeof(String));
+            dtRightSide.Columns.Add("值", typeof(String));
+            for(int i = 0; i < 10; i++)
+            {
+                DataRow drRightSide1 = dtRightSide.NewRow();
+                drRightSide1[0] = "CPU温度";
+                drRightSide1[1] = "50℃";
+                dtRightSide.Rows.Add(drRightSide1);
 
-        void refreshDtRightSide(string cpuTemperature, string CPUusage, string memoryUsage)
-        {
-            dtRightSide.Rows.Clear();
-            DataRow drRightSide = dtRightSide.NewRow();
-            drRightSide[0] = cpuTemperature;
-            drRightSide[1] = CPUusage;
-            drRightSide[2] = memoryUsage;
-            dtRightSide.Rows.Add(drRightSide);
+                DataRow drRightSide2 = dtRightSide.NewRow();
+                drRightSide2[0] = "CPU利用率";
+                drRightSide2[1] = "60%";
+                dtRightSide.Rows.Add(drRightSide2);
+                
+                DataRow drRightSide3 = dtRightSide.NewRow();
+                drRightSide3[0] = "内存利用率";
+                drRightSide3[1] = "70%";
+                dtRightSide.Rows.Add(drRightSide3);
+            }
+            this.gridControl_rightSide.DataSource = dtRightSide;
         }
 
         void test()
@@ -65,7 +71,6 @@ namespace CloudManage
             }
 
             initDtRightSide();
-            refreshDtRightSide("50℃", "50%", "30%");
 
             //for (int i = 0; i < 100; i++)
             //{
