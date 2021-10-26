@@ -15,6 +15,7 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControl : DevExpress.XtraEditors.XtraUserControl
     {
+        private DataTable DtPL = new DataTable();
         private string TagSelectedItem = String.Empty;
         public int countSideTileBarItem = 0;    //item总数
         public SideTileBarControl()
@@ -45,6 +46,20 @@ namespace CloudManage.CommonControl
                 return this.TagSelectedItem;
             }
         }
+
+        //产线表
+        public DataTable dataTableTileBarProductionLine
+        {
+            set
+            {
+                this.DtPL = value;
+            }
+            get
+            {
+                return this.DtPL;
+            }
+        }
+
 
         //通过tag选中item
         public bool _selectedItem(string tag)

@@ -175,10 +175,10 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement67 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement68 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement69 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            this.tileViewColumn_name = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn_status = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn_imgTop = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn_imgBottom = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_LineNO = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_LineStatus = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_DeviceImgTop = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_DeviceImgBottom = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn3 = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -208,46 +208,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageSlider_each)).BeginInit();
             this.SuspendLayout();
             // 
-            // tileViewColumn_name
+            // tileViewColumn_LineNO
             // 
-            this.tileViewColumn_name.Caption = "tileViewColumn1";
-            this.tileViewColumn_name.FieldName = "name";
-            this.tileViewColumn_name.Name = "tileViewColumn_name";
-            this.tileViewColumn_name.Visible = true;
-            this.tileViewColumn_name.VisibleIndex = 0;
+            this.tileViewColumn_LineNO.Caption = "LineNO";
+            this.tileViewColumn_LineNO.FieldName = "LineNO";
+            this.tileViewColumn_LineNO.Name = "tileViewColumn_LineNO";
+            this.tileViewColumn_LineNO.Visible = true;
+            this.tileViewColumn_LineNO.VisibleIndex = 0;
             // 
-            // tileViewColumn_status
+            // tileViewColumn_LineStatus
             // 
-            this.tileViewColumn_status.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
-            this.tileViewColumn_status.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
-            this.tileViewColumn_status.AppearanceHeader.Options.UseBackColor = true;
-            this.tileViewColumn_status.AppearanceHeader.Options.UseForeColor = true;
-            this.tileViewColumn_status.Caption = "tileViewColumn2";
-            this.tileViewColumn_status.FieldName = "status";
-            this.tileViewColumn_status.Name = "tileViewColumn_status";
-            this.tileViewColumn_status.Visible = true;
-            this.tileViewColumn_status.VisibleIndex = 1;
+            this.tileViewColumn_LineStatus.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.tileViewColumn_LineStatus.AppearanceHeader.ForeColor = System.Drawing.Color.Blue;
+            this.tileViewColumn_LineStatus.AppearanceHeader.Options.UseBackColor = true;
+            this.tileViewColumn_LineStatus.AppearanceHeader.Options.UseForeColor = true;
+            this.tileViewColumn_LineStatus.Caption = "LineStatus";
+            this.tileViewColumn_LineStatus.FieldName = "LineStatus";
+            this.tileViewColumn_LineStatus.Name = "tileViewColumn_LineStatus";
+            this.tileViewColumn_LineStatus.Visible = true;
+            this.tileViewColumn_LineStatus.VisibleIndex = 1;
             // 
-            // tileViewColumn_imgTop
+            // tileViewColumn_DeviceImgTop
             // 
-            this.tileViewColumn_imgTop.Caption = "tileViewColumn3";
-            this.tileViewColumn_imgTop.FieldName = "deviceImgTop";
-            this.tileViewColumn_imgTop.Name = "tileViewColumn_imgTop";
-            this.tileViewColumn_imgTop.Visible = true;
-            this.tileViewColumn_imgTop.VisibleIndex = 2;
+            this.tileViewColumn_DeviceImgTop.Caption = "DeviceImgTop";
+            this.tileViewColumn_DeviceImgTop.FieldName = "DeviceImgTop";
+            this.tileViewColumn_DeviceImgTop.Name = "tileViewColumn_DeviceImgTop";
+            this.tileViewColumn_DeviceImgTop.Visible = true;
+            this.tileViewColumn_DeviceImgTop.VisibleIndex = 2;
             // 
-            // tileViewColumn_imgBottom
+            // tileViewColumn_DeviceImgBottom
             // 
-            this.tileViewColumn_imgBottom.Caption = "tileViewColumn4";
-            this.tileViewColumn_imgBottom.FieldName = "deviceImgBottom";
-            this.tileViewColumn_imgBottom.Name = "tileViewColumn_imgBottom";
-            this.tileViewColumn_imgBottom.Visible = true;
-            this.tileViewColumn_imgBottom.VisibleIndex = 3;
+            this.tileViewColumn_DeviceImgBottom.Caption = "DeviceImgBottom";
+            this.tileViewColumn_DeviceImgBottom.FieldName = "DeviceImgBottom";
+            this.tileViewColumn_DeviceImgBottom.Name = "tileViewColumn_DeviceImgBottom";
+            this.tileViewColumn_DeviceImgBottom.Visible = true;
+            this.tileViewColumn_DeviceImgBottom.VisibleIndex = 3;
             // 
             // tileViewColumn1
             // 
             this.tileViewColumn1.Caption = "烟包内衬检测设备";
-            this.tileViewColumn1.FieldName = "nameCigarette";
+            this.tileViewColumn1.FieldName = "DeviceName";
             this.tileViewColumn1.Name = "tileViewColumn1";
             this.tileViewColumn1.Visible = true;
             this.tileViewColumn1.VisibleIndex = 0;
@@ -259,7 +259,7 @@
             this.tileViewColumn2.AppearanceHeader.Options.UseBackColor = true;
             this.tileViewColumn2.AppearanceHeader.Options.UseForeColor = true;
             this.tileViewColumn2.Caption = "30000000";
-            this.tileViewColumn2.FieldName = "detection";
+            this.tileViewColumn2.FieldName = "TestingNum";
             this.tileViewColumn2.Name = "tileViewColumn2";
             this.tileViewColumn2.Visible = true;
             this.tileViewColumn2.VisibleIndex = 1;
@@ -267,7 +267,7 @@
             // tileViewColumn3
             // 
             this.tileViewColumn3.Caption = "300000";
-            this.tileViewColumn3.FieldName = "missingBranch";
+            this.tileViewColumn3.FieldName = "DefectNum";
             this.tileViewColumn3.Name = "tileViewColumn3";
             this.tileViewColumn3.Visible = true;
             this.tileViewColumn3.VisibleIndex = 2;
@@ -275,7 +275,7 @@
             // tileViewColumn4
             // 
             this.tileViewColumn4.Caption = "70℃";
-            this.tileViewColumn4.FieldName = "CPUtemperature";
+            this.tileViewColumn4.FieldName = "CPUTemperature";
             this.tileViewColumn4.Name = "tileViewColumn4";
             this.tileViewColumn4.Visible = true;
             this.tileViewColumn4.VisibleIndex = 7;
@@ -283,7 +283,7 @@
             // tileViewColumn5
             // 
             this.tileViewColumn5.Caption = "35%";
-            this.tileViewColumn5.FieldName = "CPUusage";
+            this.tileViewColumn5.FieldName = "CPUUsage";
             this.tileViewColumn5.Name = "tileViewColumn5";
             this.tileViewColumn5.Visible = true;
             this.tileViewColumn5.VisibleIndex = 6;
@@ -299,7 +299,7 @@
             // tileViewColumn7
             // 
             this.tileViewColumn7.Caption = "正常";
-            this.tileViewColumn7.FieldName = "state";
+            this.tileViewColumn7.FieldName = "DeviceStatus";
             this.tileViewColumn7.Name = "tileViewColumn7";
             this.tileViewColumn7.Visible = true;
             this.tileViewColumn7.VisibleIndex = 3;
@@ -307,7 +307,7 @@
             // tileViewColumn8
             // 
             this.tileViewColumn8.Caption = "tileViewColumn8";
-            this.tileViewColumn8.FieldName = "img";
+            this.tileViewColumn8.FieldName = "Img";
             this.tileViewColumn8.Name = "tileViewColumn8";
             this.tileViewColumn8.Visible = true;
             this.tileViewColumn8.VisibleIndex = 4;
@@ -384,10 +384,10 @@
             this.tileView_overview.Appearance.ItemNormal.Options.UseBorderColor = true;
             this.tileView_overview.Appearance.ItemNormal.Options.UseForeColor = true;
             this.tileView_overview.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.tileViewColumn_name,
-            this.tileViewColumn_status,
-            this.tileViewColumn_imgTop,
-            this.tileViewColumn_imgBottom});
+            this.tileViewColumn_LineNO,
+            this.tileViewColumn_LineStatus,
+            this.tileViewColumn_DeviceImgTop,
+            this.tileViewColumn_DeviceImgBottom});
             this.tileView_overview.GridControl = this.gridControl_overview;
             this.tileView_overview.Name = "tileView_overview";
             this.tileView_overview.OptionsTiles.ColumnCount = 6;
@@ -413,13 +413,13 @@
             tileViewItemElement2.RowIndex = 1;
             tileViewItemElement2.Text = "gridColumn2";
             tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement3.Column = this.tileViewColumn_name;
+            tileViewItemElement3.Column = this.tileViewColumn_LineNO;
             tileViewItemElement3.ColumnIndex = 1;
             tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement3.Text = "tileViewColumn_name";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement4.Column = this.tileViewColumn_name;
+            tileViewItemElement4.Column = this.tileViewColumn_LineNO;
             tileViewItemElement4.ColumnIndex = 1;
             tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
@@ -450,7 +450,7 @@
             tileViewItemElement5.Appearance.Normal.Options.UseTextOptions = true;
             tileViewItemElement5.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             tileViewItemElement5.Appearance.Normal.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            tileViewItemElement5.Column = this.tileViewColumn_name;
+            tileViewItemElement5.Column = this.tileViewColumn_LineNO;
             tileViewItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement5.Name = "elementsName";
@@ -461,43 +461,37 @@
             tileViewItemElement6.Appearance.Normal.Options.UseTextOptions = true;
             tileViewItemElement6.Appearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             tileViewItemElement6.Appearance.Normal.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            tileViewItemElement6.Column = this.tileViewColumn_status;
+            tileViewItemElement6.Column = this.tileViewColumn_LineStatus;
             tileViewItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement6.Name = "elementStatus";
             tileViewItemElement6.RowIndex = 1;
             tileViewItemElement6.Text = "tileViewColumn_status";
             tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement7.Column = this.tileViewColumn_imgTop;
-            tileViewItemElement7.ColumnIndex = 2;
-            tileViewItemElement7.Height = 62;
-            tileViewItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileViewItemElement7.Name = "elementImgTop";
-            tileViewItemElement7.Text = "tileViewColumn_imgTop";
-            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement7.Width = 140;
-            tileViewItemElement8.Column = this.tileViewColumn_imgBottom;
+            tileViewItemElement7.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            tileViewItemElement7.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement7.ColumnIndex = 1;
+            tileViewItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement7.Name = "elementSpliLine";
+            tileViewItemElement7.RowIndex = 1;
+            tileViewItemElement7.StretchVertical = true;
+            tileViewItemElement7.Text = "tileElement_splitLine";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement7.Width = 2;
+            tileViewItemElement8.Column = this.tileViewColumn_DeviceImgTop;
             tileViewItemElement8.ColumnIndex = 2;
-            tileViewItemElement8.Height = 55;
             tileViewItemElement8.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileViewItemElement8.Name = "elementImgBottom";
-            tileViewItemElement8.RowIndex = 1;
-            tileViewItemElement8.Text = "tileViewColumn_imgBottom";
+            tileViewItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement8.Text = "tileViewColumn_imgTop";
             tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement8.Width = 125;
-            tileViewItemElement9.Appearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            tileViewItemElement9.Appearance.Normal.Options.UseBackColor = true;
-            tileViewItemElement9.ColumnIndex = 1;
+            tileViewItemElement9.Column = this.tileViewColumn_DeviceImgBottom;
+            tileViewItemElement9.ColumnIndex = 2;
             tileViewItemElement9.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement9.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement9.Name = "elementSpliLine";
             tileViewItemElement9.RowIndex = 1;
-            tileViewItemElement9.StretchVertical = true;
-            tileViewItemElement9.Text = "tileElement_splitLine";
-            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement9.Width = 2;
+            tileViewItemElement9.Text = "tileViewColumn_imgBottom";
+            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileView_overview.TileTemplate.Add(tileViewItemElement5);
             this.tileView_overview.TileTemplate.Add(tileViewItemElement6);
             this.tileView_overview.TileTemplate.Add(tileViewItemElement7);
@@ -1206,7 +1200,6 @@
             this.imageSlider_each.Size = new System.Drawing.Size(840, 300);
             this.imageSlider_each.TabIndex = 0;
             this.imageSlider_each.Text = "imageSlider1";
-            this.imageSlider_each.ImageChanged += new System.EventHandler<DevExpress.XtraEditors.Controls.ImageChangedEventArgs>(this.imageSlider_each_ImageChanged);
             // 
             // WorkStateControl
             // 
@@ -1238,10 +1231,8 @@
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_overview;
         private DevExpress.XtraGrid.GridControl gridControl_overview;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView_overview;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_name;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_status;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_imgTop;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_imgBottom;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_LineNO;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_LineStatus;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_each;
         private DevExpress.XtraEditors.Controls.ImageSlider imageSlider_each;
         private DevExpress.XtraGrid.GridControl gridControl_each;
@@ -1254,5 +1245,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn6;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn7;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn8;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_DeviceImgTop;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_DeviceImgBottom;
     }
 }

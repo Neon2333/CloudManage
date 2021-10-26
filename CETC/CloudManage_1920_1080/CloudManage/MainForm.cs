@@ -23,7 +23,7 @@ namespace CloudManage
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             _InitItemIndex();
             this.panelControl_faultHistoryQuery.Visible = false;
-            this.gridControl_faultHistoryQuery.DataSource = this.statusMonitorControl1.dtStatusMonitor;
+            this.gridControl_faultHistoryQuery.DataSource = Global.dtTitleGridShowMainForm;
         }
 
         private void _InitItemIndex()
@@ -48,23 +48,24 @@ namespace CloudManage
             //}
             if (this.panelControl_faultHistoryQuery.Visible == false)
             {
-                if (this.statusMonitorControl1.dtStatusMonitor.Rows.Count != 0)
+                if (Global.dtTitleGridShowMainForm.Rows.Count != 0)
                 {
-                    this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
-                    DataRow rowFirstLine = this.statusMonitorControl1.dtStatusMonitor.Rows[0];
+                    //this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+                    this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+                    DataRow rowFirstLine = Global.dtTitleGridShowMainForm.Rows[0];
                     //this.labelControl_title.Text = "序号：" + (string)rowFirstLine["序号"] + ",产线名称：" + (string)rowFirstLine["产线名称"] + "检测设备名称：" + (string)rowFirstLine["检测设备名称"] + "故障名称：" + (string)rowFirstLine["故障名称"] + "故障发生时间："+ (string)rowFirstLine["故障发生时间"];
                     this.labelControl_title.Text = (string)rowFirstLine["产线名称"] + " " + (string)rowFirstLine["检测设备名称"] + " " + (string)rowFirstLine["故障名称"];
                 }
                 else
                 {
                     this.labelControl_title.Text = "检测设备数字化平台";
-                    this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                    this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 }
             }
             else
             {
                 this.labelControl_title.Text = "检测设备数字化平台";
-                this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             }
         }
 
@@ -269,9 +270,9 @@ namespace CloudManage
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(this.statusMonitorControl1.dtStatusMonitor.Rows.Count > 0)
+            if(Global.dtTitleGridShowMainForm.Rows.Count > 0)
             {
-                this.statusMonitorControl1.dtStatusMonitor.Rows.RemoveAt(0);
+                Global.dtTitleGridShowMainForm.Rows.RemoveAt(0);
             }
         }
 

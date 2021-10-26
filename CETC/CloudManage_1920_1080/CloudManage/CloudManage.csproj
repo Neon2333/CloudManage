@@ -98,6 +98,7 @@
     <Compile Include="CommonControl\SideTileBarControlWithSub.Designer.cs">
       <DependentUpon>SideTileBarControlWithSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,24 +136,6 @@
     <Compile Include="StatusMonitor\WorkStateControl.Designer.cs">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="test\testGridControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test\testGridControl.Designer.cs">
-      <DependentUpon>testGridControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="test\testSideTileBarControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test\testSideTileBarControl.Designer.cs">
-      <DependentUpon>testSideTileBarControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="test\testSideTileBarWithSubControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="test\testSideTileBarWithSubControl.Designer.cs">
-      <DependentUpon>testSideTileBarWithSubControl.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CommonControl\SideTileBarControl.resx">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,15 +163,6 @@
     <EmbeddedResource Include="StatusMonitor\WorkStateControl.resx">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="test\testGridControl.resx">
-      <DependentUpon>testGridControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="test\testSideTileBarControl.resx">
-      <DependentUpon>testSideTileBarControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="test\testSideTileBarWithSubControl.resx">
-      <DependentUpon>testSideTileBarWithSubControl.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -210,6 +184,7 @@
     <Folder Include="DeepLearning\" />
     <Folder Include="DeviceManagement\" />
     <Folder Include="SystemConfig\" />
+    <Folder Include="test\" />
     <Folder Include="TwinDetection\" />
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +276,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\zoom_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

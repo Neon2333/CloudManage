@@ -342,7 +342,7 @@
             this.labelControl_dir.Name = "labelControl_dir";
             this.labelControl_dir.Size = new System.Drawing.Size(1106, 50);
             this.labelControl_dir.TabIndex = 7;
-            this.labelControl_dir.Text = "   目录信息";
+            this.labelControl_dir.Text = "   总览——所有设备";
             // 
             // labelControl_NO
             // 
@@ -449,7 +449,7 @@
             this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub1.TabIndex = 13;
             this.sideTileBarControlWithSub1.useDtToShowSubItem = true;
-            this.sideTileBarControlWithSub1.sideTileBarItemWithSubClicked += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClicked);
+            this.sideTileBarControlWithSub1.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // gridControl_faultDataTime
             // 
