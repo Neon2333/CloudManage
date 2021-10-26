@@ -29,12 +29,22 @@ namespace CloudManage
 
         public static DataTable dtDeviceEnable = new DataTable();         //产线Tag、检测设备使能标志
         public static string excelPath_deviceEnable = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\deviceConfig.xlsx";
-        /*************************************************************************************************************/
+
+        public static DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
+        public static string excelPath_productionLineName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
+
+        public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
+        public static string excelPath_testingDeviceName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
+
+        public static DataTable dtAllFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
+        public static string excelPath_allFaults = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
+        /**********************************************************************************************************************************************/
 
         //MainForm
         public static DataTable dtTitleGridShowMainForm = new DataTable();    //主菜单标题表
 
-        /*************************************************************************************************************/
+        /**********************************************************************************************************************************************/
+
 
         //WorkStateControl
 
@@ -114,7 +124,7 @@ namespace CloudManage
                 cellStatus.SetCellType(CellType.String);
 
                 string tempName = (string)Global.getCellValue(cellName);
-                string tempStatus = String.Empty;
+                string tempStatus = (string)Global.getCellValue(cellStatus);
                 DataRow dr = Global.dtOverviewWorkState.NewRow();
                 dr["LineName"] = tempName;
                 if (tempStatus == "1")
@@ -141,6 +151,7 @@ namespace CloudManage
         public static void _init_dtEachProductionLineWorkState()
         {
             //临时表，由deviceData查询得到，将ID替换为Name
+            Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
             Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
             Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
             Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
@@ -163,14 +174,16 @@ namespace CloudManage
             for (int i = 1; i < totalRows; i++)
             {
                 row = sheet.GetRow(i);	//获取第i行
-                ICell cellDeviceName = row.GetCell(0);	//获取row行的第i列的数据
-                ICell cellDeviceStatus = row.GetCell(1);
-                ICell cellDeviceTestingNum = row.GetCell(2);
-                ICell cellDeviceDefectNum = row.GetCell(3);
-                ICell cellDeviceCPUTemperature = row.GetCell(4);
-                ICell cellDeviceCPUUsage = row.GetCell(5);
-                ICell cellDeviceMemoryUsage = row.GetCell(6);
-                //ICell cellDeviceShift = row.GetCell(7);
+                ICell cellDeviceNO = row.GetCell(0);
+                ICell cellDeviceName = row.GetCell(1);	//获取row行的第i列的数据
+                ICell cellDeviceStatus = row.GetCell(2);
+                ICell cellDeviceTestingNum = row.GetCell(3);
+                ICell cellDeviceDefectNum = row.GetCell(4);
+                ICell cellDeviceCPUTemperature = row.GetCell(5);
+                ICell cellDeviceCPUUsage = row.GetCell(6);
+                ICell cellDeviceMemoryUsage = row.GetCell(7);
+                //ICell cellDeviceShift = row.GetCell(8);
+                cellDeviceNO.SetCellType(CellType.String);
                 cellDeviceName.SetCellType(CellType.String);
                 cellDeviceStatus.SetCellType(CellType.String);
                 cellDeviceTestingNum.SetCellType(CellType.String);
@@ -179,7 +192,8 @@ namespace CloudManage
                 cellDeviceCPUUsage.SetCellType(CellType.String);
                 cellDeviceMemoryUsage.SetCellType(CellType.String);
                 //cellDeviceShift.SetCellType(CellType.String);
-
+                
+                string tempDeviceNO = (string)Global.getCellValue(cellDeviceNO);
                 string tempName = (string)Global.getCellValue(cellDeviceName);
                 string tempStatus = (string)Global.getCellValue(cellDeviceStatus);
                 string tempDeviceTestingNum = (string)Global.getCellValue(cellDeviceTestingNum);
@@ -190,6 +204,7 @@ namespace CloudManage
                 //string tempDeviceShift = (string)Global.getCellValue(cellDeviceShift);
 
                 DataRow dr = Global.dtEachProductionLineWorkState.NewRow();
+                dr["DeviceNO"] = tempDeviceNO;
                 dr["DeviceName"] = tempName;
                 if (tempStatus == "1")
                 {
@@ -208,7 +223,57 @@ namespace CloudManage
                 dr["CPUTemperature"] = tempDeviceCPUTemperature + "℃";
                 dr["CPUUsage"] = tempDeviceCPUUsage + "%";
                 dr["MemoryUsage"] = tempDeviceMemoryUsage + "%";
-                dr["Img"]= global::CloudManage.Properties.Resources.ZB45_336x140;
+                if (tempStatus == "-1")
+                {
+                    dr["Img"]= null;
+
+                }
+                else
+                {
+                    switch(tempDeviceNO)
+                    {
+                        case "001":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "002":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "003":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "004":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "005":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "006":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "007":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "008":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "009":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "010":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "011":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "012":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "013":
+                            dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                    }
+                }
+
                 //dr["Shift"] = tempDeviceShift;
 
                 Global.dtEachProductionLineWorkState.Rows.Add(dr);
@@ -216,17 +281,10 @@ namespace CloudManage
             fs.Close();
         }
 
-        /*************************************************************************************************************/
+        /**********************************************************************************************************************************************/
 
         //HistoryQueryControl
-        public static DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
-        public static string excelPath_productionLineName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
         
-        public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
-        public static string excelPath_testingDeviceName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
-        
-        public static DataTable dtAllFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
-        public static string excelPath_allFaults = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
 
         public static DataTable dtSideTileBarWithSubHistoryQuery = new DataTable(); //HistoryQuery侧边栏菜单初始化表
 
