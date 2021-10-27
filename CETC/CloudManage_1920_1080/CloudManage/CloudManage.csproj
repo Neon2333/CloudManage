@@ -98,6 +98,30 @@
     <Compile Include="CommonControl\SideTileBarControlWithSub.Designer.cs">
       <DependentUpon>SideTileBarControlWithSub.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAnalysis\DataAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\DataAnalysis.Designer.cs">
+      <DependentUpon>DataAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\LateralAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\LateralAnalysis.Designer.cs">
+      <DependentUpon>LateralAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\ParameterOptimization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\ParameterOptimization.Designer.cs">
+      <DependentUpon>ParameterOptimization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\VerticalAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\VerticalAnalysis.Designer.cs">
+      <DependentUpon>VerticalAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -141,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonControl\SideTileBarControlWithSub.resx">
       <DependentUpon>SideTileBarControlWithSub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\DataAnalysis.resx">
+      <DependentUpon>DataAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\LateralAnalysis.resx">
+      <DependentUpon>LateralAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -83,7 +83,7 @@
             this.tileViewColumn_parameter = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_value = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.sideTileBarControlWithSub1 = new CloudManage.CommonControl.SideTileBarControlWithSub();
+            this.sideTileBarControlWithSub_realTimeData = new CloudManage.CommonControl.SideTileBarControlWithSub();
             this.pictureEdit_device = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
             this.gridControl_rightSide = new DevExpress.XtraGrid.GridControl();
@@ -142,17 +142,17 @@
             this.windowsUIButtonPanel_workState.Text = "windowsUIButtonPanel1";
             this.windowsUIButtonPanel_workState.UseButtonBackgroundImages = false;
             // 
-            // sideTileBarControlWithSub1
+            // sideTileBarControlWithSub_realTimeData
             // 
-            this.sideTileBarControlWithSub1.Location = new System.Drawing.Point(0, 0);
-            this.sideTileBarControlWithSub1.Name = "sideTileBarControlWithSub1";
-            this.sideTileBarControlWithSub1.showAllDevices = false;
-            this.sideTileBarControlWithSub1.showOverview = false;
-            this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(510, 800);
-            this.sideTileBarControlWithSub1.TabIndex = 4;
-            this.sideTileBarControlWithSub1.useDtInitSideTileBarWithSub = true;
-            this.sideTileBarControlWithSub1.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1);
-            this.sideTileBarControlWithSub1.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
+            this.sideTileBarControlWithSub_realTimeData.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControlWithSub_realTimeData.Name = "sideTileBarControlWithSub_realTimeData";
+            this.sideTileBarControlWithSub_realTimeData.showAllDevices = false;
+            this.sideTileBarControlWithSub_realTimeData.showOverview = false;
+            this.sideTileBarControlWithSub_realTimeData.Size = new System.Drawing.Size(510, 800);
+            this.sideTileBarControlWithSub_realTimeData.TabIndex = 4;
+            this.sideTileBarControlWithSub_realTimeData.useDtInitSideTileBarWithSub = true;
+            this.sideTileBarControlWithSub_realTimeData.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1);
+            this.sideTileBarControlWithSub_realTimeData.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // pictureEdit_device
             // 
@@ -496,7 +496,7 @@
             this.Controls.Add(this.labelControl_dir);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.pictureEdit_device);
-            this.Controls.Add(this.sideTileBarControlWithSub1);
+            this.Controls.Add(this.sideTileBarControlWithSub_realTimeData);
             this.Controls.Add(this.windowsUIButtonPanel_workState);
             this.Name = "RealTimeDataControl";
             this.Size = new System.Drawing.Size(1920, 880);
@@ -514,7 +514,7 @@
         #endregion
 
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
-        private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub1;
+        private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub_realTimeData;
         private DevExpress.XtraEditors.PictureEdit pictureEdit_device;
         private DevExpress.XtraEditors.PanelControl panelControl_rightSide;
         private DevExpress.XtraGrid.GridControl gridControl_rightSide;

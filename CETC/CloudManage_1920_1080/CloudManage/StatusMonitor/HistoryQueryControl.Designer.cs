@@ -112,7 +112,7 @@
             this.labelControl_testingDeviceID = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_faultID = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_faultTime = new DevExpress.XtraEditors.LabelControl();
-            this.sideTileBarControlWithSub1 = new CloudManage.CommonControl.SideTileBarControlWithSub();
+            this.sideTileBarControlWithSub_historyQuery = new CloudManage.CommonControl.SideTileBarControlWithSub();
             this.gridControl_faultDataTime = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -427,16 +427,16 @@
             this.labelControl_faultTime.TabIndex = 12;
             this.labelControl_faultTime.Text = "故障发生时间";
             // 
-            // sideTileBarControlWithSub1
+            // sideTileBarControlWithSub_historyQuery
             // 
-            this.sideTileBarControlWithSub1.Location = new System.Drawing.Point(0, 0);
-            this.sideTileBarControlWithSub1.Name = "sideTileBarControlWithSub1";
-            this.sideTileBarControlWithSub1.showAllDevices = true;
-            this.sideTileBarControlWithSub1.showOverview = true;
-            this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(510, 800);
-            this.sideTileBarControlWithSub1.TabIndex = 13;
-            this.sideTileBarControlWithSub1.useDtInitSideTileBarWithSub = true;
-            this.sideTileBarControlWithSub1.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
+            this.sideTileBarControlWithSub_historyQuery.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControlWithSub_historyQuery.Name = "sideTileBarControlWithSub_historyQuery";
+            this.sideTileBarControlWithSub_historyQuery.showAllDevices = true;
+            this.sideTileBarControlWithSub_historyQuery.showOverview = true;
+            this.sideTileBarControlWithSub_historyQuery.Size = new System.Drawing.Size(510, 800);
+            this.sideTileBarControlWithSub_historyQuery.TabIndex = 13;
+            this.sideTileBarControlWithSub_historyQuery.useDtInitSideTileBarWithSub = true;
+            this.sideTileBarControlWithSub_historyQuery.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // gridControl_faultDataTime
             // 
@@ -798,7 +798,7 @@
             this.Controls.Add(this.labelControl_dir);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
-            this.Controls.Add(this.sideTileBarControlWithSub1);
+            this.Controls.Add(this.sideTileBarControlWithSub_historyQuery);
             this.Name = "HistoryQueryControl";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
@@ -824,7 +824,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl_endTime;
         private DevExpress.XtraEditors.LabelControl labelControl_startTime;
         private DevExpress.XtraEditors.SimpleButton simpleButton_query;
-        private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub1;
+        private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub_historyQuery;
         private DevExpress.XtraEditors.TimeEdit timeEdit_startTime;
         private DevExpress.XtraEditors.SimpleButton simpleButton_startTimeModify;
         private DevExpress.XtraEditors.TimeEdit timeEdit_endTime;

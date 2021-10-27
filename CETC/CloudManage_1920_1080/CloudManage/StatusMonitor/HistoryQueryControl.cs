@@ -63,17 +63,17 @@ namespace CloudManage.StatusMonitor
         //刷新目录
         void _refreshLabelDir()
         {
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
+            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
+            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2;
         }
 
         //初始化子菜单
         void _initSideTileBarWithSub()
         {
-            this.sideTileBarControlWithSub1.dtInitSideTileBarWithSub = Global.dtSideTileBar;
-            this.sideTileBarControlWithSub1.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
-            this.sideTileBarControlWithSub1._initSideTileBarWithSub();
+            this.sideTileBarControlWithSub_historyQuery.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub_historyQuery.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
+            this.sideTileBarControlWithSub_historyQuery._initSideTileBarWithSub();
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)

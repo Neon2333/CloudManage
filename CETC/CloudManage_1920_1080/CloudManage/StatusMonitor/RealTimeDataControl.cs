@@ -45,17 +45,17 @@ namespace CloudManage
         //刷新目录
         void refreshLabelDir()
         {
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
+            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
         }
 
         //初始化子菜单
         void _initSideTileBarWithSub()
         {
-            this.sideTileBarControlWithSub1.dtInitSideTileBarWithSub = Global.dtSideTileBar;
-            this.sideTileBarControlWithSub1.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
-            this.sideTileBarControlWithSub1._initSideTileBarWithSub();
+            this.sideTileBarControlWithSub_realTimeData.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub_realTimeData.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
+            this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub();
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
