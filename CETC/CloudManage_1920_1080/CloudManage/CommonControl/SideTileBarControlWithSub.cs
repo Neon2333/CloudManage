@@ -16,7 +16,9 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControlWithSub : DevExpress.XtraEditors.XtraUserControl
     {
-        private bool UseDtToShowSubItem = true;
+        private bool UseDtInitSideTileBarWithSub = true;     //是否通过表初始化侧边栏
+        private DataTable DT = new DataTable();     //初始化侧边栏用表
+        private DataTable DTSUB = new DataTable();     //初始化侧边栏用表
 
         private string TagSelectedItem = String.Empty;
         private string TagSelectedItemSub = String.Empty;   //总览tag="0"，添加按钮时从tag="1"开始
@@ -33,6 +35,21 @@ namespace CloudManage.CommonControl
             TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
             TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
 
+        }
+
+        public DataTable dtInitSideTileBarWithSub
+        {
+            set
+            {
+                this.DT = value;
+            }
+        }
+        public DataTable dtSubInitSideTileBarWithSub
+        {
+            set
+            {
+                this.DTSUB = value;
+            }
         }
 
         //“总览”按钮显示
@@ -62,15 +79,15 @@ namespace CloudManage.CommonControl
         }
 
         //是否使用表dataTableTileBarSub获取子菜单中检测设备使能
-        public Boolean useDtToShowSubItem
+        public Boolean useDtInitSideTileBarWithSub
         {
             get
             {
-                return this.UseDtToShowSubItem;
+                return this.UseDtInitSideTileBarWithSub;
             }
             set
             {
-                this.UseDtToShowSubItem = value;
+                this.UseDtInitSideTileBarWithSub = value;
             }
         }
 
@@ -89,6 +106,41 @@ namespace CloudManage.CommonControl
             {
                 return this.TagSelectedItemSub;
             }
+        }
+
+        public void _initSideTileBarWithSub()
+        {
+            if (UseDtInitSideTileBarWithSub)
+            {
+                //添加产线按钮
+                string tag = String.Empty;
+                string name = String.Empty;
+                string text = String.Empty;
+                string num = String.Empty;
+
+                for (int i = 0; i < this.DT.Rows.Count; i++)
+                {
+                    tag = (string)this.DT.Rows[i]["LineNO"];
+                    name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
+                    text = (string)this.DT.Rows[i]["LineName"];
+                    num = (string)this.DT.Rows[i]["DeviceTotalNum"];
+                    this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
+                }
+
+                //添加所有检测设备按钮
+                for (int i = 0; i < Global.dtTestingDeviceName.Rows.Count; i++)
+                {
+                    string tagTemp = (string)this.DTSUB.Rows[i]["DeviceNO"];
+                    string nameTemp = (string)this.DTSUB.Rows[i]["DeviceName"];
+                    bool flag = this._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
+                }
+                this._showSubItemHideRedundantItem();
+            }
+            else
+            {
+                MessageBox.Show("useDtInitSideTileBarWithSub为false");
+            }
+
         }
 
 
@@ -368,7 +420,7 @@ namespace CloudManage.CommonControl
                 }
                 tileBarItemSub.Padding = new System.Windows.Forms.Padding(paddingLeft, 0, 0, 0);
                 tileBarItemSub.Tag = tagTileBarItemSub;
-                if (useDtToShowSubItem == true)
+                if (UseDtInitSideTileBarWithSub == true)
                 {
                     tileBarItemSub.Visible = false; //读检测设备使能表的话，就让所有添加的时候不可见。通过_showSubItemHideRedundantItem()设置子菜单item显示
                 }
@@ -528,7 +580,7 @@ namespace CloudManage.CommonControl
         public void _showSubItemHideRedundantItem()
         {
             TileBarItem temp = null;
-            if (this.useDtToShowSubItem == true)
+            if (this.UseDtInitSideTileBarWithSub == true)
             {
                 if (this.showAllDevices == true && (this.TotalNumDevice != this.countSideTileBarItemSub - 1))    //countSideTileBarItemSub比TotalNumDevice多一个“所有设备”
                 {

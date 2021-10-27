@@ -71,29 +71,9 @@ namespace CloudManage.StatusMonitor
         //初始化子菜单
         void _initSideTileBarWithSub()
         {
-            //添加产线按钮
-            string tag = String.Empty;
-            string name = String.Empty;
-            string text = String.Empty;
-            string num = String.Empty;
-
-            for (int i = 0; i < Global.dtSideTileBar.Rows.Count; i++)
-            {
-                tag = (string)Global.dtSideTileBar.Rows[i]["LineNO"];
-                name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                text = (string)Global.dtSideTileBar.Rows[i]["LineName"];
-                num = (string)Global.dtSideTileBar.Rows[i]["DeviceTotalNum"];
-                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
-            } 
-
-            //添加所有检测设备按钮
-            for (int i = 0; i < Global.dtTestingDeviceName.Rows.Count; i++)
-            {
-                string tagTemp = (string)Global.dtTestingDeviceName.Rows[i]["DeviceNO"];
-                string nameTemp = (string)Global.dtTestingDeviceName.Rows[i]["DeviceName"];
-                bool flag = this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
-            }
-            this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
+            this.sideTileBarControlWithSub1.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub1.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
+            this.sideTileBarControlWithSub1._initSideTileBarWithSub();
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)

@@ -435,7 +435,7 @@
             this.sideTileBarControlWithSub1.showOverview = true;
             this.sideTileBarControlWithSub1.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub1.TabIndex = 13;
-            this.sideTileBarControlWithSub1.useDtToShowSubItem = true;
+            this.sideTileBarControlWithSub1.useDtInitSideTileBarWithSub = true;
             this.sideTileBarControlWithSub1.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // gridControl_faultDataTime

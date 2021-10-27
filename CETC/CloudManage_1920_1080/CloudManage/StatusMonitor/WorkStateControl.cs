@@ -47,27 +47,15 @@ namespace CloudManage.StatusMonitor
             Global._init_dtAllFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
             Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
+
+            Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
+
         }
 
-        //用于初始化WorkState的侧边栏的临时表
         private void initSideTileBarWorkState()
         {
-            Global._init_dtSideTileBarWorkState();
-            //添加产线按钮tileBarItem
-            string tag = String.Empty;
-            string itemName = String.Empty;
-            string text = String.Empty;
-            string num = String.Empty;
-
-            for (int i = 0; i < Global.dtSideTileBar.Rows.Count; i++)
-            {
-                tag = (string)Global.dtSideTileBar.Rows[i]["LineNO"];
-                itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
-                text = (string)Global.dtSideTileBar.Rows[i]["LineName"];
-                num = (string)Global.dtSideTileBar.Rows[i]["DeviceTotalNum"];
-                this.sideTileBarControl1._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
-            } 
-
+            this.sideTileBarControl1.dtInitSideTileBar = Global.dtSideTileBar;
+            this.sideTileBarControl1._initSideTileBar();
         }
 
         //总览数据源绑定表

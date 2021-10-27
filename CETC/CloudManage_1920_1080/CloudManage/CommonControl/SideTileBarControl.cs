@@ -15,13 +15,35 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControl : DevExpress.XtraEditors.XtraUserControl
     {
+        private bool UseDtInitSideTileBar = true;   //是否使用表初始化侧边栏
         private string TagSelectedItem = String.Empty;
         public int countSideTileBarItem = 0;    //item总数
+        DataTable DT = new DataTable();     //用于初始化侧边栏的表
         public SideTileBarControl()
         {
             InitializeComponent();
             countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;
             TagSelectedItem = "0"; 
+        }
+
+        public Boolean useDtInitSideTileBar
+        {
+            get
+            {
+                return this.UseDtInitSideTileBar;
+            }
+            set
+            {
+                this.UseDtInitSideTileBar = value;
+            }
+        }
+
+        public DataTable dtInitSideTileBar
+        {
+            set
+            {
+                this.DT = value;   
+            }
         }
 
         //“总览”按钮显示
@@ -43,6 +65,32 @@ namespace CloudManage.CommonControl
             get
             {
                 return this.TagSelectedItem;
+            }
+        }
+
+        //初始化侧边栏
+        public void _initSideTileBar()
+        {
+            if (this.UseDtInitSideTileBar == true)
+            {
+                //添加产线按钮tileBarItem
+                string tag = String.Empty;
+                string itemName = String.Empty;
+                string text = String.Empty;
+                string num = String.Empty;
+
+                for (int i = 0; i < this.DT.Rows.Count; i++)
+                {
+                    tag = (string)this.DT.Rows[i]["LineNO"];
+                    itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
+                    text = (string)this.DT.Rows[i]["LineName"];
+                    num = (string)this.DT.Rows[i]["DeviceTotalNum"];
+                    this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
+                }
+            }
+            else
+            {
+                MessageBox.Show("useDtInitSideTileBar为false");
             }
         }
 
