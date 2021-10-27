@@ -160,6 +160,12 @@
     <Compile Include="StatusMonitor\WorkStateControl.Designer.cs">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="test\test1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\test1.Designer.cs">
+      <DependentUpon>test1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CommonControl\SideTileBarControl.resx">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +199,9 @@
     <EmbeddedResource Include="StatusMonitor\WorkStateControl.resx">
       <DependentUpon>WorkStateControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="test\test1.resx">
+      <DependentUpon>test1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -211,7 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SystemConfig\" />
-    <Folder Include="test\" />
     <Folder Include="TwinDetection\" />
   </ItemGroup>
   <ItemGroup>

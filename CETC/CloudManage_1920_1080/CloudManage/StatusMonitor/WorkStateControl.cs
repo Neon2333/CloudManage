@@ -54,8 +54,9 @@ namespace CloudManage.StatusMonitor
 
         private void initSideTileBarWorkState()
         {
-            this.sideTileBarControl1.dtInitSideTileBar = Global.dtSideTileBar;
-            this.sideTileBarControl1._initSideTileBar("LineNO", "LineName", "DeviceTotalNum");
+            this.sideTileBarControl_workState.dtInitSideTileBar = Global.dtSideTileBar;
+            this.sideTileBarControl_workState._initSideTileBar("LineNO", "LineName", "DeviceTotalNum");
+            this.sideTileBarControl_workState._setNum("000", "20");
         }
 
         //总览数据源绑定表
@@ -101,7 +102,7 @@ namespace CloudManage.StatusMonitor
             int[] index = this.tileView_overview.GetSelectedRows(); //返回被选中tile的index
             foreach(var i in index)
             {
-                this.sideTileBarControl1._selectedItem(i + 1);
+                this.sideTileBarControl_workState._selectedItem(i + 1);
             }
         }
 
@@ -114,8 +115,8 @@ namespace CloudManage.StatusMonitor
         //按下侧边栏显示相应产线的数据
         private void sideTileBarControl1_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
-            _refreshDtEachProductionLineWorkState(this.sideTileBarControl1.tagSelectedItem);
-            string selectedPageTag = this.sideTileBarControl1.tagSelectedItem;  //选中侧边栏哪个按钮
+            _refreshDtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);
+            string selectedPageTag = this.sideTileBarControl_workState.tagSelectedItem;  //选中侧边栏哪个按钮
             if (selectedPageTag == "0")
             {
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_overview; //若当前选中的是总览按钮则显示Page_overview

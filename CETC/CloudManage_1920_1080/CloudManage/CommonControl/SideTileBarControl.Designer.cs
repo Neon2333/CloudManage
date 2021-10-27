@@ -106,7 +106,7 @@
             this.tileBarItem0.Id = 0;
             this.tileBarItem0.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem0.Name = "tileBarItem0";
-            this.tileBarItem0.Tag = "0";
+            this.tileBarItem0.Tag = "000";
             // 
             // panelControl_sideTileBarControl
             // 

@@ -16,27 +16,19 @@ namespace CloudManage
     {
         DateTime now = new DateTime();  //当前时间
         int[][] itemIndex = new int[6][];
+        enum StatusMonitorPages { workStatePage = 0, realtimePage, historyQueryPage };
+        enum DataAnalysisPages { LateralAnalysisPage = 0, VerticalAnalysisPage, ParameterOptimizationPage };
+        enum TwinDetectionPages { paraSynPage, intelligentReasoningPage, paraUpdatePage };
+        enum DeepLearningPages { datapreParationPage, modelTrainingPage, modelTestingPage, modelUpdatePage };
+        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage };
+
         int iSelectedIndex = 0; //默认显示第一页
         public MainForm()
         {
             InitializeComponent();
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
-            _InitItemIndex();
             this.panelControl_faultHistoryQuery.Visible = false;
             this.gridControl_faultHistoryQuery.DataSource = Global.dtTitleGridShowMainForm;
-        }
-
-        
-
-        private void _InitItemIndex()
-        {
-            itemIndex[0] = new int[] { 0, 1, 2 };
-            itemIndex[1] = new int[] { 0, 1, 2 };
-            itemIndex[2] = new int[] { 0, 1, 2 };
-            itemIndex[3] = new int[] { 0, 1, 2, 3 };
-            itemIndex[4] = new int[] { 0, 1, 2 };
-            //itemIndex[5] = new int[] { 0, 1, 2 };
-
         }
 
         private void timer_datetime_Tick(object sender, EventArgs e)
@@ -113,14 +105,11 @@ namespace CloudManage
         private void tileBar_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-            //MessageBox.Show("传参：" + iSelectedIndex);
         }
 
         private void tileBar_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-            MessageBox.Show("传参：" + iSelectedIndex);
-
         }
 
         private void tileBar_twinDetection_ItemClick(object sender, TileItemEventArgs e)
@@ -150,7 +139,7 @@ namespace CloudManage
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = itemIndex[0][0];
+            iSelectedIndex = (int)StatusMonitorPages.workStatePage;
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
 
         }
@@ -158,14 +147,14 @@ namespace CloudManage
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = itemIndex[0][1];
+            iSelectedIndex = (int)StatusMonitorPages.realtimePage;
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = itemIndex[0][2];
+            iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
             this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
         }
 
@@ -173,43 +162,40 @@ namespace CloudManage
         private void tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = itemIndex[1][0];
-
+            iSelectedIndex = (int)DataAnalysisPages.LateralAnalysisPage;
+            
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = itemIndex[1][1];
-
+            iSelectedIndex = (int)DataAnalysisPages.VerticalAnalysisPage;
         }
 
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = itemIndex[1][2];
+            iSelectedIndex = (int)DataAnalysisPages.ParameterOptimizationPage;
 
         }
-
 
         private void tileBarItem_twinDetection_paraSyn_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = itemIndex[2][0];
+            iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
 
         }
 
-        private void tileBarItem_statusWatch_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = itemIndex[2][1];
-
+            iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = itemIndex[2][2];
+            iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
 
         }
 
@@ -217,51 +203,46 @@ namespace CloudManage
         private void tileBarItem_dataPreparation_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = itemIndex[3][0];
+            iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
 
         }
 
         private void tileBarItem_modelTraining_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = itemIndex[3][1];
+            iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
 
         }
 
         private void tileBarItem_modelTesting_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = itemIndex[3][2];
-
+            iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
         }
 
         private void tileBarItem_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = itemIndex[3][3];
-
+            iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
         }
 
 
         private void tileBarItem_deviceAddition_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = itemIndex[4][0];
-
+            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionPage;
         }
 
         private void tileBarItem_deviceDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = itemIndex[4][1];
-
+            iSelectedIndex = (int)DeviceManagementPages.deviceDeletionPage;
         }
 
         private void tileBarItem_deviceTesting_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = itemIndex[4][2];
-
+            iSelectedIndex = (int)DeviceManagementPages.deviceTestingPage;
         }
 
         private void labelControl_title_Click(object sender, EventArgs e)
@@ -282,5 +263,6 @@ namespace CloudManage
         {
             this.panelControl_faultHistoryQuery.Visible = false;
         }
+
     }
 }

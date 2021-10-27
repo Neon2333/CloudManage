@@ -188,7 +188,7 @@
             this.tileViewColumn7 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn8 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
-            this.sideTileBarControl1 = new CloudManage.CommonControl.SideTileBarControl();
+            this.sideTileBarControl_workState = new CloudManage.CommonControl.SideTileBarControl();
             this.navigationFrame_workState = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_overview = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gridControl_overview = new DevExpress.XtraGrid.GridControl();
@@ -333,14 +333,15 @@
             this.windowsUIButtonPanel_workState.Text = "windowsUIButtonPanel1";
             this.windowsUIButtonPanel_workState.UseButtonBackgroundImages = false;
             // 
-            // sideTileBarControl1
+            // sideTileBarControl_workState
             // 
-            this.sideTileBarControl1.Location = new System.Drawing.Point(0, 0);
-            this.sideTileBarControl1.Name = "sideTileBarControl1";
-            this.sideTileBarControl1.showOverview = true;
-            this.sideTileBarControl1.Size = new System.Drawing.Size(240, 800);
-            this.sideTileBarControl1.TabIndex = 3;
-            this.sideTileBarControl1.sideTileBarItemSelectedChanged += new CloudManage.CommonControl.SideTileBarControl.TileItemSelectedChangedHanlder(this.sideTileBarControl1_sideTileBarItemSelectedChanged);
+            this.sideTileBarControl_workState.Location = new System.Drawing.Point(0, 0);
+            this.sideTileBarControl_workState.Name = "sideTileBarControl_workState";
+            this.sideTileBarControl_workState.showOverview = true;
+            this.sideTileBarControl_workState.Size = new System.Drawing.Size(240, 800);
+            this.sideTileBarControl_workState.TabIndex = 3;
+            this.sideTileBarControl_workState.useDtInitSideTileBar = true;
+            this.sideTileBarControl_workState.sideTileBarItemSelectedChanged += new CloudManage.CommonControl.SideTileBarControl.TileItemSelectedChangedHanlder(this.sideTileBarControl1_sideTileBarItemSelectedChanged);
             // 
             // navigationFrame_workState
             // 
@@ -1206,7 +1207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.navigationFrame_workState);
-            this.Controls.Add(this.sideTileBarControl1);
+            this.Controls.Add(this.sideTileBarControl_workState);
             this.Controls.Add(this.windowsUIButtonPanel_workState);
             this.Name = "WorkStateControl";
             this.Size = new System.Drawing.Size(1920, 880);
@@ -1226,7 +1227,7 @@
         #endregion
 
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
-        private CommonControl.SideTileBarControl sideTileBarControl1;
+        private CommonControl.SideTileBarControl sideTileBarControl_workState;
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_workState;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_overview;
         private DevExpress.XtraGrid.GridControl gridControl_overview;
