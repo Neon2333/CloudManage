@@ -180,9 +180,6 @@
     <None Include="Resources\CETC.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAnalysis\" />
-    <Folder Include="DeepLearning\" />
-    <Folder Include="DeviceManagement\" />
     <Folder Include="SystemConfig\" />
     <Folder Include="test\" />
     <Folder Include="TwinDetection\" />

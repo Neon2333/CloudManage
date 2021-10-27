@@ -62,7 +62,7 @@ namespace CloudManage.StatusMonitor
             for (int i = 0; i < Global.dtSideTileBar.Rows.Count; i++)
             {
                 tag = (string)Global.dtSideTileBar.Rows[i]["LineNO"];
-                itemName = "tileBarItem" + (i + 2).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
+                itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
                 text = (string)Global.dtSideTileBar.Rows[i]["LineName"];
                 num = (string)Global.dtSideTileBar.Rows[i]["DeviceTotalNum"];
                 this.sideTileBarControl1._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item

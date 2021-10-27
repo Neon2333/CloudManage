@@ -29,11 +29,11 @@ namespace CloudManage.CommonControl
         {
             get
             {
-                return this.tileBarItem1.Visible;
+                return this.tileBarItem0.Visible;
             }
             set
             {
-                this.tileBarItem1.Visible = value;
+                this.tileBarItem0.Visible = value;
             }
         }
 
