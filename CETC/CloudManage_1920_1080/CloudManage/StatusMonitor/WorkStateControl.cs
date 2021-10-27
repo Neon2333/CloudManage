@@ -55,7 +55,7 @@ namespace CloudManage.StatusMonitor
         private void initSideTileBarWorkState()
         {
             this.sideTileBarControl1.dtInitSideTileBar = Global.dtSideTileBar;
-            this.sideTileBarControl1._initSideTileBar();
+            this.sideTileBarControl1._initSideTileBar("LineNO", "LineName", "DeviceTotalNum");
         }
 
         //总览数据源绑定表

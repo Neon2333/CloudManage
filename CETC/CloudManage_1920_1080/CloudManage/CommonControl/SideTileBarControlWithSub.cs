@@ -108,7 +108,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        public void _initSideTileBarWithSub()
+        public void _initSideTileBarWithSub(string colTag, string colText, string colNum, string colTagSub, string colTextSub)
         {
             if (UseDtInitSideTileBarWithSub)
             {
@@ -120,18 +120,25 @@ namespace CloudManage.CommonControl
 
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    tag = (string)this.DT.Rows[i]["LineNO"];
+                    if(colTag!=null)
+                        tag = (string)this.DT.Rows[i][colTag];
                     name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                    text = (string)this.DT.Rows[i]["LineName"];
-                    num = (string)this.DT.Rows[i]["DeviceTotalNum"];
+                    if(colText != null)
+                        text = (string)this.DT.Rows[i][colText];
+                    if (colNum != null)
+                        num = (string)this.DT.Rows[i][colNum];
                     this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
                 }
 
                 //添加所有检测设备按钮
                 for (int i = 0; i < Global.dtTestingDeviceName.Rows.Count; i++)
                 {
-                    string tagTemp = (string)this.DTSUB.Rows[i]["DeviceNO"];
-                    string nameTemp = (string)this.DTSUB.Rows[i]["DeviceName"];
+                    string tagTemp = String.Empty;
+                    string nameTemp = String.Empty;
+                    if (colTagSub != null)
+                        tagTemp = (string)this.DTSUB.Rows[i][colTagSub];
+                    if (colTextSub != null)
+                        nameTemp = (string)this.DTSUB.Rows[i][colTextSub];
                     bool flag = this._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
                 }
                 this._showSubItemHideRedundantItem();

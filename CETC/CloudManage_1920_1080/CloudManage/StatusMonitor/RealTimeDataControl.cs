@@ -55,7 +55,7 @@ namespace CloudManage
         {
             this.sideTileBarControlWithSub_realTimeData.dtInitSideTileBarWithSub = Global.dtSideTileBar;
             this.sideTileBarControlWithSub_realTimeData.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
-            this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub();
+            this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub("LineNO", "LineName", "DeviceTotalNum", "DeviceNO", "DeviceName");
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)

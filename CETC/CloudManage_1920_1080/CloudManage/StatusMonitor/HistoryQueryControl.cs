@@ -73,7 +73,7 @@ namespace CloudManage.StatusMonitor
         {
             this.sideTileBarControlWithSub_historyQuery.dtInitSideTileBarWithSub = Global.dtSideTileBar;
             this.sideTileBarControlWithSub_historyQuery.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
-            this.sideTileBarControlWithSub_historyQuery._initSideTileBarWithSub();
+            this.sideTileBarControlWithSub_historyQuery._initSideTileBarWithSub("LineNO", "LineName", "DeviceTotalNum", "DeviceNO", "DeviceName");
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
