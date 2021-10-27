@@ -35,38 +35,47 @@ namespace CloudManage
 
         void initRealTime()
         {
-            string tag = String.Empty;
-            string name = String.Empty;
-            string text = String.Empty;
-            string num = String.Empty;
-            for (int i = 1; i <= 10; i++)
-            {
-                tag = i.ToString();
-                name = "tileBarItem" + i.ToString();
-                text = i.ToString() + "车";
-                num = i.ToString();
-                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);
-            }
+            _initSideTileBarWithSub();  //初始化侧边栏
 
-            for (int i = 1; i <= 10; i++)
-            {
-                tag = i.ToString();
-                text = "烟库乱烟检测";
-                bool flag = this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), tag, "tileBarItem_sub" + i.ToString(), text, Encoding.Default.GetBytes(text).Length / 2);
-
-            }
-
-            refreshLabelDir();
             initdtRightSideRealTimeData();
             initImgSlider();
         }
 
-        //刷新labelControl_dir的显示文本
+
+        //刷新目录
         void refreshLabelDir()
         {
             string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
             string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+        }
+
+        //初始化子菜单
+        void _initSideTileBarWithSub()
+        {
+            //添加产线按钮
+            string tag = String.Empty;
+            string name = String.Empty;
+            string text = String.Empty;
+            string num = String.Empty;
+
+            for (int i = 0; i < Global.dtSideTileBar.Rows.Count; i++)
+            {
+                tag = (string)Global.dtSideTileBar.Rows[i]["LineNO"];
+                name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
+                text = (string)Global.dtSideTileBar.Rows[i]["LineName"];
+                num = (string)Global.dtSideTileBar.Rows[i]["DeviceTotalNum"];
+                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
+            }
+
+            //添加所有检测设备按钮
+            for (int i = 0; i < Global.dtTestingDeviceName.Rows.Count; i++)
+            {
+                string tagTemp = (string)Global.dtTestingDeviceName.Rows[i]["DeviceNO"];
+                string nameTemp = (string)Global.dtTestingDeviceName.Rows[i]["DeviceName"];
+                bool flag = this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
+            }
+            this.sideTileBarControlWithSub1._showSubItemHideRedundantItem();
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)

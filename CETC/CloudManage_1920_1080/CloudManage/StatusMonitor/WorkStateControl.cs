@@ -34,9 +34,19 @@ namespace CloudManage.StatusMonitor
 
         void initWorkState()
         {
+            initDataTable();
             initSideTileBarWorkState(); //初始化侧边栏
             initDataOverviewWorkState();    //初始化总览数据表
             initDataEachWorkState();    //初始化检测设备数据表
+        }
+
+        void initDataTable()
+        {
+            Global._init_dtTestingDeviceName(); //初始化检测设备名称表
+            Global._init_dtProductionLine();    //初始化产线名称表
+            Global._init_dtAllFaults();         //初始化故障名称表
+            Global._init_dtDeviceConfig();      //初始化检测设备使能表
+            Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
         }
 
         //用于初始化WorkState的侧边栏的临时表

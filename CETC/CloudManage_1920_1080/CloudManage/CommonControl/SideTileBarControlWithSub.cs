@@ -535,39 +535,73 @@ namespace CloudManage.CommonControl
                     MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
                 }
 
-                if (this.showOverview == true && this.TagSelectedItem == "000")    //选中总览
+                if (this.showOverview == true)   
                 {
-                    for (int i = 0; i < this.TotalNumDevice; i++)
+                    if(this.TagSelectedItem == "000")   //选中总览
                     {
-                        temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                        temp.Visible = true;
+                        for (int i = 0; i < this.TotalNumDevice; i++)
+                        {
+                            temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                            temp.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
+                        DataRow dr = null;
+                        for (int i = 0; i < Global.dtDeviceConfig.Rows.Count; i++)
+                        {
+                            if ((string)Global.dtDeviceConfig.Rows[i]["LineNO"] == this.TagSelectedItem)
+                            {
+                                dr = Global.dtDeviceConfig.Rows[i];
+                                break;
+                            }
+                        }
+                        for (int i = 0; i < this.TotalNumDevice; i++)
+                        {
+                            temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                            int flag = Convert.ToInt32(dr[i + 1]);  //deviceConfig表中检测设备标志位
+                            if (flag == 1)
+                            {
+                                temp.Visible = true;
+                            }
+                            else
+                            {
+                                temp.Visible = false;
+                            }
+
+                        }
                     }
                 }
                 else
                 {
-                    //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
-                    DataRow dr = null;
-                    for (int i = 0; i < Global.dtDeviceConfig.Rows.Count; i++)
+                   if(this.TagSelectedItem != "000")
                     {
-                        if ((string)Global.dtDeviceConfig.Rows[i]["LineNO"] == this.TagSelectedItem)
-                        {
-                            dr = Global.dtDeviceConfig.Rows[i];
-                            break;
-                        }
-                    }
-                    for (int i = 0; i < this.TotalNumDevice; i++)
-                    {
-                        temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                        int flag = Convert.ToInt32(dr[i + 1]);  //deviceConfig表中检测设备标志位
-                        if (flag == 1)
-                        {
-                            temp.Visible = true;
-                        }
-                        else
-                        {
-                            temp.Visible = false;
-                        }
 
+                        //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
+                        DataRow dr = null;
+                        for (int i = 0; i < Global.dtDeviceConfig.Rows.Count; i++)
+                        {
+                            if ((string)Global.dtDeviceConfig.Rows[i]["LineNO"] == this.TagSelectedItem)
+                            {
+                                dr = Global.dtDeviceConfig.Rows[i];
+                                break;
+                            }
+                        }
+                        for (int i = 0; i < this.TotalNumDevice; i++)
+                        {
+                            temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                            int flag = Convert.ToInt32(dr[i + 1]);  //deviceConfig表中检测设备标志位
+                            if (flag == 1)
+                            {
+                                temp.Visible = true;
+                            }
+                            else
+                            {
+                                temp.Visible = false;
+                            }
+
+                        }
                     }
                 }
 

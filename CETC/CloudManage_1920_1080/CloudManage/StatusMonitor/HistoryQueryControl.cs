@@ -30,21 +30,11 @@ namespace CloudManage.StatusMonitor
 
         void initHistoryQuery()
         {
-            initDataTable();
             _initSideTileBarWithSub();  //初始化侧边栏
             Global._init_dtHistoryQueryGridShow();    //显示所有故障
             Global._init_dtHistoryQueryGridShowClickedQueryButton();   //点击查询显示时间段内的故障
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
             _refreshTitleGridShow(10);
-        }
-
-        void initDataTable()
-        {
-            Global._init_dtTestingDeviceName(); //初始化检测设备名称表
-            Global._init_dtProductionLine();    //初始化产线名称表
-            Global._init_dtAllFaults();         //初始化故障名称表
-            Global._init_dtDeviceConfig();      //初始化检测设备使能表
-            Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
         }
 
         //更新标题栏的若干行（共numRowShow行）
