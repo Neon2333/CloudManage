@@ -16,9 +16,6 @@ namespace CloudManage.CommonControl
 {
     public partial class SideTileBarControlWithSub : DevExpress.XtraEditors.XtraUserControl
     {
-        private DataTable DtPL = new DataTable(); //产线表
-        private DataTable DtTD = new DataTable(); //检测设备表
-
         private bool UseDtToShowSubItem = true;
 
         private string TagSelectedItem = String.Empty;
@@ -26,12 +23,11 @@ namespace CloudManage.CommonControl
         public int countSideTileBarItem = 0;    //sideTileBar中显示的items计数。包括“总览”按钮
         public int countSideTileBarItemSub = 0; //sideTileBarSub中items计数
         public int TotalNumDevice = 0;     //检测设备总数
-        //public string UsedItemsSub = String.Empty; //使用设备标志字符串
         public SideTileBarControlWithSub()
         {
             InitializeComponent();
             countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;
-            TotalNumDevice = this.DtTD.Columns.Count - 1;  //从表格读取列数初始化检测设备总数，去掉第一列Tag
+            TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
 
             TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
@@ -75,33 +71,6 @@ namespace CloudManage.CommonControl
             set
             {
                 this.UseDtToShowSubItem = value;
-            }
-        }
-
-        //产线表
-        public DataTable dataTableTileBarSubProductionLine
-        {
-            set
-            {
-                this.DtPL = value;
-            }
-            get
-            {
-                return this.DtPL;
-            }
-
-        }
-
-        //检测设备表
-        public DataTable dataTableTileBarSubTestingDevice
-        {
-            set
-            {
-                this.DtTD = value;
-            }
-            get
-            {
-                return this.DtTD;
             }
         }
 
@@ -240,8 +209,7 @@ namespace CloudManage.CommonControl
         //在sideTileBar尾部依次添加按钮
         public bool _addSideTileBarItem(TileBarItem tileBarItem, string tagTileBarItem, string nameTileBarItem, string text, string num)
         {
-            TotalNumDevice = this.DtTD.Columns.Count - 1;  //更新当前的设备数
-
+            TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新当前的设备数
             try
             {
                 if (!isAllNum(tagTileBarItem) || !isAllNum(num))
@@ -411,7 +379,7 @@ namespace CloudManage.CommonControl
                 tileBarGroup_sub.Items.Add(tileBarItemSub);
 
                 countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
-                TotalNumDevice = this.DtTD.Columns.Count - 1;  //更新检测设备总数
+                TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新检测设备总数
 
                 ////添加子菜单按钮时判断。从而让初始化时，子菜单的按钮都选中第一个。
                 //if(this.showAllDevices == false && this.countSideTileBarItemSub == 2)
@@ -465,12 +433,8 @@ namespace CloudManage.CommonControl
         }
         //以tag删除sub的按钮。
         //删除sub的按钮后，要读取新的表格赋值给Dt，新表格将删除的sub按钮对应的标志列去掉
-        public bool _deleteButtonSub(string tagTileBarItemSub, DataTable dataTableNew)
+        public bool _deleteButtonSub(string tagTileBarItemSub)
         {
-            this.DtTD.Rows.Clear();
-            this.DtTD.Columns.Clear();    //清空旧表数据和结构
-            this.DtTD = dataTableNew;    //绑定新表
-
             bool flag = false;
             try
             {
@@ -484,7 +448,7 @@ namespace CloudManage.CommonControl
                         {
                             this.tileBarGroup_sub.Items.RemoveAt(i);
                             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
-                            TotalNumDevice = this.DtTD.Columns.Count - 1;    //更新检测设备总数
+                            TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;    //更新检测设备总数
                             flag = true;
                             break;
                         }
@@ -571,7 +535,7 @@ namespace CloudManage.CommonControl
                     MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
                 }
 
-                if (this.showOverview == true && this.TagSelectedItem == "0")    //选中总览
+                if (this.showOverview == true && this.TagSelectedItem == "000")    //选中总览
                 {
                     for (int i = 0; i < this.TotalNumDevice; i++)
                     {
@@ -581,21 +545,20 @@ namespace CloudManage.CommonControl
                 }
                 else
                 {
-                    //从Dt中读取检测设备标志，实现检测设备按钮的显示
-                    int indexRow = 0;
+                    //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
                     DataRow dr = null;
-                    for (int i = 0; i < DtTD.Rows.Count; i++)
+                    for (int i = 0; i < Global.dtDeviceConfig.Rows.Count; i++)
                     {
-                        if ((string)DtTD.Rows[i]["产线Tag"] == this.TagSelectedItem)
+                        if ((string)Global.dtDeviceConfig.Rows[i]["LineNO"] == this.TagSelectedItem)
                         {
-                            dr = DtTD.Rows[i];
+                            dr = Global.dtDeviceConfig.Rows[i];
+                            break;
                         }
                     }
-                    indexRow = Convert.ToInt32(this.TagSelectedItem) - 1;   //dt中的行index为tag-1
                     for (int i = 0; i < this.TotalNumDevice; i++)
                     {
                         temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                        int flag = Convert.ToInt32(dr[i + 1]);  //deviceEnable表中检测设备标志位
+                        int flag = Convert.ToInt32(dr[i + 1]);  //deviceConfig表中检测设备标志位
                         if (flag == 1)
                         {
                             temp.Visible = true;
@@ -611,7 +574,7 @@ namespace CloudManage.CommonControl
             }
             else
             {
-
+                //不读表dtDeviceConfig添加检测设备
             }
 
         }

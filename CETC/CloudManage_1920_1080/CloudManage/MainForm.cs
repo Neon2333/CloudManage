@@ -26,6 +26,8 @@ namespace CloudManage
             this.gridControl_faultHistoryQuery.DataSource = Global.dtTitleGridShowMainForm;
         }
 
+        
+
         private void _InitItemIndex()
         {
             itemIndex[0] = new int[] { 0, 1, 2 };
@@ -54,7 +56,7 @@ namespace CloudManage
                     this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
                     DataRow rowFirstLine = Global.dtTitleGridShowMainForm.Rows[0];
                     //this.labelControl_title.Text = "序号：" + (string)rowFirstLine["序号"] + ",产线名称：" + (string)rowFirstLine["产线名称"] + "检测设备名称：" + (string)rowFirstLine["检测设备名称"] + "故障名称：" + (string)rowFirstLine["故障名称"] + "故障发生时间："+ (string)rowFirstLine["故障发生时间"];
-                    this.labelControl_title.Text = (string)rowFirstLine["产线名称"] + " " + (string)rowFirstLine["检测设备名称"] + " " + (string)rowFirstLine["故障名称"];
+                    this.labelControl_title.Text = (string)rowFirstLine["LineName"] + " " + (string)rowFirstLine["DeviceName"] + " " + (string)rowFirstLine["FaultName"];
                 }
                 else
                 {

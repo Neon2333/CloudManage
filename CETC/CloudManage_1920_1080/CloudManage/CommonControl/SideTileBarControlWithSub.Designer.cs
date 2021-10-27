@@ -118,7 +118,7 @@
             this.tileBarItem0.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem0.Name = "tileBarItem0";
             this.tileBarItem0.ShowDropDownButton = DevExpress.Utils.DefaultBoolean.True;
-            this.tileBarItem0.Tag = "0";
+            this.tileBarItem0.Tag = "000";
             // 
             // tileBarDropDownContainer_sub
             // 
@@ -184,7 +184,7 @@
             this.tileBarItem_sub0.Id = 0;
             this.tileBarItem_sub0.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_sub0.Name = "tileBarItem_sub0";
-            this.tileBarItem_sub0.Tag = "0";
+            this.tileBarItem_sub0.Tag = "000";
             // 
             // panelControl_sideTileBarControlWithSub
             // 

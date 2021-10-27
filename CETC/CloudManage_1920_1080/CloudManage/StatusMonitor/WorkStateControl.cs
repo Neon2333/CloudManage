@@ -29,10 +29,14 @@ namespace CloudManage.StatusMonitor
         public WorkStateControl()
         {
             InitializeComponent();
-            initSideTileBarWorkState();
-            initDataOverviewWorkState();
-            initDataEachWorkState();
+            initWorkState();
+        }
 
+        void initWorkState()
+        {
+            initSideTileBarWorkState(); //初始化侧边栏
+            initDataOverviewWorkState();    //初始化总览数据表
+            initDataEachWorkState();    //初始化检测设备数据表
         }
 
         //用于初始化WorkState的侧边栏的临时表
@@ -45,12 +49,12 @@ namespace CloudManage.StatusMonitor
             string text = String.Empty;
             string num = String.Empty;
 
-            for (int i = 0; i < Global.dtSideTileBarWorkState.Rows.Count; i++)
+            for (int i = 0; i < Global.dtSideTileBar.Rows.Count; i++)
             {
-                tag = (string)Global.dtSideTileBarWorkState.Rows[i]["LineNO"];
+                tag = (string)Global.dtSideTileBar.Rows[i]["LineNO"];
                 itemName = "tileBarItem" + (i + 2).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
-                text = (string)Global.dtSideTileBarWorkState.Rows[i]["LineName"];
-                num = (string)Global.dtSideTileBarWorkState.Rows[i]["DeviceTotalNum"];
+                text = (string)Global.dtSideTileBar.Rows[i]["LineName"];
+                num = (string)Global.dtSideTileBar.Rows[i]["DeviceTotalNum"];
                 this.sideTileBarControl1._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
             } 
 
@@ -103,7 +107,7 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        //由选择的产线ID更新dtEachProductionLineWorkState
+        //由选择的产线ID更新dtEachProductionLineWorkState，使得选中不同产线显示对应数据
         private void _refreshDtEachProductionLineWorkState(string ProductionLineTag)
         {
 

@@ -99,7 +99,6 @@
             this.tileViewColumn_FTime = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_endTimeModify = new DevExpress.XtraEditors.SimpleButton();
             this.timeEdit_endTime = new DevExpress.XtraEditors.TimeEdit();
             this.simpleButton_startTimeModify = new DevExpress.XtraEditors.SimpleButton();
@@ -130,7 +129,7 @@
             // 
             this.tileViewColumn_num.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tileViewColumn_num.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_num.FieldName = "序号";
+            this.tileViewColumn_num.FieldName = "NO";
             this.tileViewColumn_num.Name = "tileViewColumn_num";
             this.tileViewColumn_num.Visible = true;
             this.tileViewColumn_num.VisibleIndex = 0;
@@ -140,7 +139,7 @@
             // 
             this.tileViewColumn_PLName.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_PLName.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_PLName.FieldName = "产线名称";
+            this.tileViewColumn_PLName.FieldName = "LineName";
             this.tileViewColumn_PLName.Name = "tileViewColumn_PLName";
             this.tileViewColumn_PLName.Visible = true;
             this.tileViewColumn_PLName.VisibleIndex = 1;
@@ -150,7 +149,7 @@
             // 
             this.tileViewColumn_TDName.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_TDName.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_TDName.FieldName = "检测设备名称";
+            this.tileViewColumn_TDName.FieldName = "DeviceName";
             this.tileViewColumn_TDName.Name = "tileViewColumn_TDName";
             this.tileViewColumn_TDName.Visible = true;
             this.tileViewColumn_TDName.VisibleIndex = 2;
@@ -160,7 +159,7 @@
             // 
             this.tileViewColumn_FName.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_FName.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_FName.FieldName = "故障名称";
+            this.tileViewColumn_FName.FieldName = "FaultName";
             this.tileViewColumn_FName.Name = "tileViewColumn_FName";
             this.tileViewColumn_FName.Visible = true;
             this.tileViewColumn_FName.VisibleIndex = 3;
@@ -170,7 +169,7 @@
             // 
             this.tileViewColumn_FTime.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_FTime.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_FTime.FieldName = "故障发生时间";
+            this.tileViewColumn_FTime.FieldName = "FaultTime";
             this.tileViewColumn_FTime.Name = "tileViewColumn_FTime";
             this.tileViewColumn_FTime.Visible = true;
             this.tileViewColumn_FTime.VisibleIndex = 4;
@@ -199,7 +198,6 @@
             // 
             // panelControl_rightSide
             // 
-            this.panelControl_rightSide.Controls.Add(this.simpleButton1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_endTimeModify);
             this.panelControl_rightSide.Controls.Add(this.timeEdit_endTime);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_startTimeModify);
@@ -211,17 +209,6 @@
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 6;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(6, 380);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(341, 46);
-            this.simpleButton1.TabIndex = 22;
-            this.simpleButton1.Text = "测试：更改故障表数据";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton_endTimeModify
             // 
@@ -850,6 +837,5 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_FTime;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_endTimeModify;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

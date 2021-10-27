@@ -30,64 +30,90 @@ namespace CloudManage
         public RealTimeDataControl()
         {
             InitializeComponent();
-            test();
+            initRealTime();
         }
 
-        //private string _getProductionLineNameByTag(string tagProductionLine)
-        //{
-        //    //dtProductionLine中没有Tag==0的记录
-        //    if (tagProductionLine == "0")
-        //    {
-        //        return "总览";
-        //    }
+        void initRealTime()
+        {
+            string tag = String.Empty;
+            string name = String.Empty;
+            string text = String.Empty;
+            string num = String.Empty;
+            for (int i = 1; i <= 10; i++)
+            {
+                tag = i.ToString();
+                name = "tileBarItem" + i.ToString();
+                text = i.ToString() + "车";
+                num = i.ToString();
+                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);
+            }
 
-        //    string temp = "产线Tag=" + "'" + tagProductionLine + "'";
-        //    DataRow[] rowPL = dtProductionLine.Select(temp);
-        //    if (rowPL.Length == 1)
-        //    {
-        //        return (string)rowPL[0]["产线名称"];
-        //    }
-        //    else
-        //    {
-        //        return "产线名称查询错误...";
-        //    }
-        //}
+            for (int i = 1; i <= 10; i++)
+            {
+                tag = i.ToString();
+                text = "烟库乱烟检测";
+                bool flag = this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), tag, "tileBarItem_sub" + i.ToString(), text, Encoding.Default.GetBytes(text).Length / 2);
 
-        //private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
-        //{
-        //    if (tagTestingDeviceName == "0")
-        //    {
-        //        return "所有设备";
-        //    }
+            }
 
-        //    string temp = "检测设备ID=" + "'" + tagTestingDeviceName + "'";
-        //    DataRow[] rowTD = dtTestingDeviceName.Select(temp);
-        //    if (rowTD.Length == 1)
-        //    {
-        //        return (string)rowTD[0]["检测设备名称"];
-        //    }
-        //    else
-        //    {
-        //        return "产线名称查询错误...";
-        //    }
-        //}
+            refreshLabelDir();
+            initdtRightSideRealTimeData();
+            initImgSlider();
+        }
 
         //刷新labelControl_dir的显示文本
         void refreshLabelDir()
         {
-            //string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
-            //string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
-            string str1 = this.sideTileBarControlWithSub1.tagSelectedItem + "号车";
-            string str2 = "烟库乱烟检测";
+            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub1.tagSelectedItem);
+            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub1.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
         }
+
+        private string _getProductionLineNameByTag(string tagProductionLine)
+        {
+            //dtProductionLine中没有Tag==0的记录
+            if (tagProductionLine == "000")
+            {
+                return "总览";
+            }
+
+            string temp = "LineNO=" + "'" + tagProductionLine + "'";
+            DataRow[] rowPL = Global.dtProductionLine.Select(temp);
+            if (rowPL.Length == 1)
+            {
+                return (string)rowPL[0]["LineName"];
+            }
+            else
+            {
+                return "产线名称查询错误...";
+            }
+        }
+
+        private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
+        {
+            if (tagTestingDeviceName == "000")
+            {
+                return "所有设备";
+            }
+
+            string temp = "DeviceNO=" + "'" + tagTestingDeviceName + "'";
+            DataRow[] rowTD = Global.dtTestingDeviceName.Select(temp);
+            if (rowTD.Length == 1)
+            {
+                return (string)rowTD[0]["DeviceName"];
+            }
+            else
+            {
+                return "产线名称查询错误...";
+            }
+        }
+
 
         //设定圆点位置
         void setPicDeviceLocation(int posX,int posY)
         {
             posX += this.pictureEdit_device.Location.X;
             posY += this.pictureEdit_device.Location.Y;
-
             this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
         }
 
@@ -135,34 +161,7 @@ namespace CloudManage
             this.imageSlider_camera.Images.Add(global::CloudManage.Properties.Resources.camera1);
         }
 
-        void test()
-        {
-
-            string tag = String.Empty;
-            string name = String.Empty;
-            string text = String.Empty;
-            string num = String.Empty;
-            for (int i = 1; i <= 10; i++)
-            {
-                tag = i.ToString();
-                name = "tileBarItem" + i.ToString();
-                text = i.ToString() + "车";
-                num = i.ToString();
-                this.sideTileBarControlWithSub1._addSideTileBarItem(new TileBarItem(), tag, name, text, num);
-            }
-
-            for (int i = 1; i <= 10; i++)
-            {
-                tag = i.ToString();
-                text = "烟库乱烟检测";
-                bool flag = this.sideTileBarControlWithSub1._addSideTileBarItemSub(new TileBarItem(), tag, "tileBarItem_sub" + i.ToString(), text, Encoding.Default.GetBytes(text).Length / 2);
-
-            }
-
-            refreshLabelDir();
-            initdtRightSideRealTimeData();
-            initImgSlider();
-        }
+       
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1(object sender, EventArgs e)
         {
@@ -204,7 +203,6 @@ namespace CloudManage
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorAlert;
                 e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-
             }
            
         }
