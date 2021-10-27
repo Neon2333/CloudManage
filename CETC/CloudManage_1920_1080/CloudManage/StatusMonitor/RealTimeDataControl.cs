@@ -20,13 +20,6 @@ namespace CloudManage
         Color colorNormal = Color.Gray;
         Color colorAlert = Color.FromArgb(208, 49, 68);
 
-        int numOfTests = 533;
-        int numOfMissingBranch = 55;
-        int processingTime = 20;
-        int temperatureCPU = 90;
-        int usageCPU = 60;
-        int usageMemory = 70;
-
         public RealTimeDataControl()
         {
             InitializeComponent();
@@ -37,7 +30,8 @@ namespace CloudManage
         {
             _initSideTileBarWithSub();  //初始化侧边栏
 
-            initdtRightSideRealTimeData();
+            Global._init_dtRightSideRealTimeData();
+            this.gridControl_rightSide.DataSource = Global.dtRightSideRealTimeData;
             initImgSlider();
         }
 
@@ -106,44 +100,6 @@ namespace CloudManage
             this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
         }
 
-        void initdtRightSideRealTimeData()
-        {
-            Global.dtRightSideRealTimeData.Columns.Add("参数名", typeof(String));
-            Global.dtRightSideRealTimeData.Columns.Add("值", typeof(String));
-
-            DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide1[0] = "检测数量";
-            drRightSide1[1] = numOfTests.ToString();
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide1);
-
-            DataRow drRightSide2 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide2[0] = "缺陷数量";
-            drRightSide2[1] = numOfMissingBranch.ToString();
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide2);
-
-            DataRow drRightSide3 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide3[0] = "处理时间";
-            drRightSide3[1] = processingTime.ToString() + "ms";
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide3);
-
-            DataRow drRightSide4 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide4[0] = "CPU温度";
-            drRightSide4[1] = temperatureCPU.ToString() + "℃";
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide4);
-
-            DataRow drRightSide5 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide5[0] = "CPU利用率";
-            drRightSide5[1] = usageCPU.ToString() + "%";
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide5);
-            
-            DataRow drRightSide6 = Global.dtRightSideRealTimeData.NewRow();
-            drRightSide6[0] = "内存利用率";
-            drRightSide6[1] = usageMemory.ToString() + "%";
-            Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
-            
-            this.gridControl_rightSide.DataSource = Global.dtRightSideRealTimeData;
-        }
-
         void initImgSlider()
         {
             this.imageSlider_camera.Images.Add(global::CloudManage.Properties.Resources.camera0);
@@ -183,11 +139,11 @@ namespace CloudManage
             string parameterName = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["参数名"]);
             string parameterVal = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["值"]);
 
-            if (parameterName == "CPU温度" && temperatureCPU <= 80)   //设定参数超出阈值变色报警
+            if (parameterName == "CPU温度" && (int)Global.dtRightSideRealTimeData.Rows[0]["CPU温度"] <= 80)   //设定参数超出阈值变色报警
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorNormal;
             }
-            else if (parameterName == "CPU温度" && temperatureCPU > 80)
+            else if (parameterName == "CPU温度" && (int)Global.dtRightSideRealTimeData.Rows[0]["CPU温度"] > 80)
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorAlert;
                 e.Item.AppearanceItem.Focused.BackColor = colorAlert;

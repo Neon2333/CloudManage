@@ -622,7 +622,41 @@ namespace CloudManage
 
         public static void _init_dtRightSideRealTimeData()
         {
+            if (Global.dtRightSideRealTimeData.Rows.Count == 0)
+            {
+                Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
+                Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
 
+                DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide1["paraName"] = "检测数量";
+                drRightSide1["paraVal"] = "533";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide1);
+
+                DataRow drRightSide2 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide2["paraName"] = "缺陷数量";
+                drRightSide2["paraVal"] = "55";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide2);
+
+                DataRow drRightSide3 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide3["paraName"] = "处理时间";
+                drRightSide3["paraVal"] = "20" + "ms";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide3);
+
+                DataRow drRightSide4 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide4["paraName"] = "CPU温度";
+                drRightSide4["paraVal"] = "60" + "℃";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide4);
+
+                DataRow drRightSide5 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide5["paraName"] = "CPU利用率";
+                drRightSide5["paraVal"] = "40" + "%";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide5);
+
+                DataRow drRightSide6 = Global.dtRightSideRealTimeData.NewRow();
+                drRightSide6["paraName"] = "内存利用率";
+                drRightSide6["paraVal"] = "20".ToString() + "%";
+                Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
+            }
         }
 
         /*************************************************************************************************************/

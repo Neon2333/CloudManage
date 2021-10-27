@@ -54,6 +54,7 @@ namespace CloudManage.DataAnalysis
             this.navigationFrame_dataAnalysis.Size = new System.Drawing.Size(1920, 880);
             this.navigationFrame_dataAnalysis.TabIndex = 0;
             this.navigationFrame_dataAnalysis.Text = "navigationFrame1";
+            this.navigationFrame_dataAnalysis.TransitionAnimationProperties.FrameInterval = 3000;
             // 
             // navigationPage_LateralAnalysis
             // 
@@ -77,6 +78,7 @@ namespace CloudManage.DataAnalysis
             // 
             // navigationPage_paraOptimization
             // 
+            this.navigationPage_paraOptimization.Caption = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Name = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Size = new System.Drawing.Size(1920, 880);
             // 

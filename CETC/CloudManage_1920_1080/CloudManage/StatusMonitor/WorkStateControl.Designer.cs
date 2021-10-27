@@ -378,7 +378,7 @@
             // 
             // tileView_overview
             // 
-            this.tileView_overview.Appearance.EmptySpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tileView_overview.Appearance.EmptySpace.BackColor = System.Drawing.Color.White;
             this.tileView_overview.Appearance.EmptySpace.Options.UseBackColor = true;
             this.tileView_overview.Appearance.ItemNormal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.tileView_overview.Appearance.ItemNormal.ForeColor = System.Drawing.Color.White;

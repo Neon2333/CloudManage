@@ -163,19 +163,22 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.LateralAnalysisPage;
-            
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.VerticalAnalysisPage;
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+
         }
 
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.ParameterOptimizationPage;
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
 
         }
 
