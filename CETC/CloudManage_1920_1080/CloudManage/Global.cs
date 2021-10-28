@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NPOI;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using NPOI.HSSF.UserModel;
-using System.Collections;
 using System.IO;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace CloudManage
 {
@@ -22,7 +16,6 @@ namespace CloudManage
          * dtProductionLine——产线名称表：产线ID、产线名称
          * dtTestingDeviceName——检测设备名称表：检测设备ID、检测设备名称
          * dtAllFaults——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
-         * dtHistoryQueryGridShow——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
          * 
          * 临时表，由查询得到：
          * dtSideTileBar——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
@@ -30,6 +23,7 @@ namespace CloudManage
          * dtOverviewWorkState——WorkState中总览显示用表：产线名称、产线状态（是否故障）
          * dtEachProductionLineWorkState——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
          * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障（由产线ID、检测设备ID、时间段从dtHistoryQueryGridShow查询出来）
+         * dtHistoryQueryGridShow——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
          * dtRightSideRealTimeData——RealTimeData中右侧显示表：参数名称、参数值
          * 
          * 
@@ -50,98 +44,103 @@ namespace CloudManage
         //初始化检测设备使能表
         public static void _init_dtDeviceConfig()
         {
-            if (dtDeviceConfig.Rows.Count == 0)
-            {
-                //读各车设备使能标志表
-                Global.dtDeviceConfig.Columns.Add("LineNO", typeof(String));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_001", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_002", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_003", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_004", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_005", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_006", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_007", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_008", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_009", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_010", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_011", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_012", typeof(int));
-                Global.dtDeviceConfig.Columns.Add("DeviceState_013", typeof(int));
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            string queryCmdDtDeviceConfig = "SELECT * FROM device_config";
+            bool flag = mysqlHelper1._connectMySQL();
+            mysqlHelper1._queryMySQL(queryCmdDtDeviceConfig, ref Global.dtDeviceConfig);
+            mysqlHelper1.conn.Close();
+            //if (dtDeviceConfig.Rows.Count == 0)
+            //{
+            //    //读各车设备使能标志表
+            //    Global.dtDeviceConfig.Columns.Add("LineNO", typeof(String));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_001", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_002", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_003", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_004", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_005", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_006", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_007", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_008", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_009", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_010", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_011", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_012", typeof(int));
+            //    Global.dtDeviceConfig.Columns.Add("DeviceState_013", typeof(int));
 
-                FileStream fs = File.OpenRead(excelPath_deviceConfig);    //关联流打开文件
-                IWorkbook workbook = null;
-                workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
-                ISheet sheet = null;
-                sheet = workbook.GetSheetAt(0); //获取第1个sheet
-                int totalRows = sheet.LastRowNum + 1;
-                IRow row = null;
-                for (int i = 1; i < totalRows; i++)
-                {
-                    row = sheet.GetRow(i);
-                    ICell cellLineNO = row.GetCell(0);
-                    ICell cellDeviceState_001 = row.GetCell(1);
-                    ICell cellDeviceState_002 = row.GetCell(2);
-                    ICell cellDeviceState_003 = row.GetCell(3);
-                    ICell cellDeviceState_004 = row.GetCell(4);
-                    ICell cellDeviceState_005 = row.GetCell(5);
-                    ICell cellDeviceState_006 = row.GetCell(6);
-                    ICell cellDeviceState_007 = row.GetCell(7);
-                    ICell cellDeviceState_008 = row.GetCell(8);
-                    ICell cellDeviceState_009 = row.GetCell(9);
-                    ICell cellDeviceState_010 = row.GetCell(10);
-                    ICell cellDeviceState_011 = row.GetCell(11);
-                    ICell cellDeviceState_012 = row.GetCell(12);
-                    ICell cellDeviceState_013 = row.GetCell(13);
+            //    FileStream fs = File.OpenRead(excelPath_deviceConfig);    //关联流打开文件
+            //    IWorkbook workbook = null;
+            //    workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
+            //    ISheet sheet = null;
+            //    sheet = workbook.GetSheetAt(0); //获取第1个sheet
+            //    int totalRows = sheet.LastRowNum + 1;
+            //    IRow row = null;
+            //    for (int i = 1; i < totalRows; i++)
+            //    {
+            //        row = sheet.GetRow(i);
+            //        ICell cellLineNO = row.GetCell(0);
+            //        ICell cellDeviceState_001 = row.GetCell(1);
+            //        ICell cellDeviceState_002 = row.GetCell(2);
+            //        ICell cellDeviceState_003 = row.GetCell(3);
+            //        ICell cellDeviceState_004 = row.GetCell(4);
+            //        ICell cellDeviceState_005 = row.GetCell(5);
+            //        ICell cellDeviceState_006 = row.GetCell(6);
+            //        ICell cellDeviceState_007 = row.GetCell(7);
+            //        ICell cellDeviceState_008 = row.GetCell(8);
+            //        ICell cellDeviceState_009 = row.GetCell(9);
+            //        ICell cellDeviceState_010 = row.GetCell(10);
+            //        ICell cellDeviceState_011 = row.GetCell(11);
+            //        ICell cellDeviceState_012 = row.GetCell(12);
+            //        ICell cellDeviceState_013 = row.GetCell(13);
 
-                    cellLineNO.SetCellType(CellType.String);
-                    cellDeviceState_001.SetCellType(CellType.String);
-                    cellDeviceState_002.SetCellType(CellType.String);
-                    cellDeviceState_003.SetCellType(CellType.String);
-                    cellDeviceState_004.SetCellType(CellType.String);
-                    cellDeviceState_005.SetCellType(CellType.String);
-                    cellDeviceState_006.SetCellType(CellType.String);
-                    cellDeviceState_007.SetCellType(CellType.String);
-                    cellDeviceState_008.SetCellType(CellType.String);
-                    cellDeviceState_009.SetCellType(CellType.String);
-                    cellDeviceState_010.SetCellType(CellType.String);
-                    cellDeviceState_011.SetCellType(CellType.String);
-                    cellDeviceState_012.SetCellType(CellType.String);
-                    cellDeviceState_013.SetCellType(CellType.String);
+            //        cellLineNO.SetCellType(CellType.String);
+            //        cellDeviceState_001.SetCellType(CellType.String);
+            //        cellDeviceState_002.SetCellType(CellType.String);
+            //        cellDeviceState_003.SetCellType(CellType.String);
+            //        cellDeviceState_004.SetCellType(CellType.String);
+            //        cellDeviceState_005.SetCellType(CellType.String);
+            //        cellDeviceState_006.SetCellType(CellType.String);
+            //        cellDeviceState_007.SetCellType(CellType.String);
+            //        cellDeviceState_008.SetCellType(CellType.String);
+            //        cellDeviceState_009.SetCellType(CellType.String);
+            //        cellDeviceState_010.SetCellType(CellType.String);
+            //        cellDeviceState_011.SetCellType(CellType.String);
+            //        cellDeviceState_012.SetCellType(CellType.String);
+            //        cellDeviceState_013.SetCellType(CellType.String);
 
-                    string tempLineNO = (string)Global.getCellValue(cellLineNO);
-                    string tempDeviceState_001 = (string)Global.getCellValue(cellDeviceState_001);
-                    string tempDeviceState_002 = (string)Global.getCellValue(cellDeviceState_002);
-                    string tempDeviceState_003 = (string)Global.getCellValue(cellDeviceState_003);
-                    string tempDeviceState_004 = (string)Global.getCellValue(cellDeviceState_004);
-                    string tempDeviceState_005 = (string)Global.getCellValue(cellDeviceState_005);
-                    string tempDeviceState_006 = (string)Global.getCellValue(cellDeviceState_006);
-                    string tempDeviceState_007 = (string)Global.getCellValue(cellDeviceState_007);
-                    string tempDeviceState_008 = (string)Global.getCellValue(cellDeviceState_008);
-                    string tempDeviceState_009 = (string)Global.getCellValue(cellDeviceState_009);
-                    string tempDeviceState_010 = (string)Global.getCellValue(cellDeviceState_010);
-                    string tempDeviceState_011 = (string)Global.getCellValue(cellDeviceState_011);
-                    string tempDeviceState_012 = (string)Global.getCellValue(cellDeviceState_012);
-                    string tempDeviceState_013 = (string)Global.getCellValue(cellDeviceState_013);
+            //        string tempLineNO = (string)Global.getCellValue(cellLineNO);
+            //        string tempDeviceState_001 = (string)Global.getCellValue(cellDeviceState_001);
+            //        string tempDeviceState_002 = (string)Global.getCellValue(cellDeviceState_002);
+            //        string tempDeviceState_003 = (string)Global.getCellValue(cellDeviceState_003);
+            //        string tempDeviceState_004 = (string)Global.getCellValue(cellDeviceState_004);
+            //        string tempDeviceState_005 = (string)Global.getCellValue(cellDeviceState_005);
+            //        string tempDeviceState_006 = (string)Global.getCellValue(cellDeviceState_006);
+            //        string tempDeviceState_007 = (string)Global.getCellValue(cellDeviceState_007);
+            //        string tempDeviceState_008 = (string)Global.getCellValue(cellDeviceState_008);
+            //        string tempDeviceState_009 = (string)Global.getCellValue(cellDeviceState_009);
+            //        string tempDeviceState_010 = (string)Global.getCellValue(cellDeviceState_010);
+            //        string tempDeviceState_011 = (string)Global.getCellValue(cellDeviceState_011);
+            //        string tempDeviceState_012 = (string)Global.getCellValue(cellDeviceState_012);
+            //        string tempDeviceState_013 = (string)Global.getCellValue(cellDeviceState_013);
 
-                    DataRow dr = Global.dtDeviceConfig.NewRow();
-                    dr["LineNO"] = tempLineNO;
-                    dr["DeviceState_001"] = tempDeviceState_001;
-                    dr["DeviceState_002"] = tempDeviceState_002;
-                    dr["DeviceState_003"] = tempDeviceState_003;
-                    dr["DeviceState_004"] = tempDeviceState_004;
-                    dr["DeviceState_005"] = tempDeviceState_005;
-                    dr["DeviceState_006"] = tempDeviceState_006;
-                    dr["DeviceState_007"] = tempDeviceState_007;
-                    dr["DeviceState_008"] = tempDeviceState_008;
-                    dr["DeviceState_009"] = tempDeviceState_009;
-                    dr["DeviceState_010"] = tempDeviceState_010;
-                    dr["DeviceState_011"] = tempDeviceState_011;
-                    dr["DeviceState_012"] = tempDeviceState_012;
-                    dr["DeviceState_013"] = tempDeviceState_013;
-                    Global.dtDeviceConfig.Rows.Add(dr);
-                }
-                fs.Close();
-            }
+            //        DataRow dr = Global.dtDeviceConfig.NewRow();
+            //        dr["LineNO"] = tempLineNO;
+            //        dr["DeviceState_001"] = tempDeviceState_001;
+            //        dr["DeviceState_002"] = tempDeviceState_002;
+            //        dr["DeviceState_003"] = tempDeviceState_003;
+            //        dr["DeviceState_004"] = tempDeviceState_004;
+            //        dr["DeviceState_005"] = tempDeviceState_005;
+            //        dr["DeviceState_006"] = tempDeviceState_006;
+            //        dr["DeviceState_007"] = tempDeviceState_007;
+            //        dr["DeviceState_008"] = tempDeviceState_008;
+            //        dr["DeviceState_009"] = tempDeviceState_009;
+            //        dr["DeviceState_010"] = tempDeviceState_010;
+            //        dr["DeviceState_011"] = tempDeviceState_011;
+            //        dr["DeviceState_012"] = tempDeviceState_012;
+            //        dr["DeviceState_013"] = tempDeviceState_013;
+            //        Global.dtDeviceConfig.Rows.Add(dr);
+            //    }
+            //    fs.Close();
+            //}
         }
 
         //初始化产线名称表
@@ -218,11 +217,11 @@ namespace CloudManage
         {
             if (dtAllFaults.Rows.Count == 0)
             {
-                Global.dtAllFaults.Columns.Add("序号", typeof(String));
-                Global.dtAllFaults.Columns.Add("检测设备ID", typeof(String));
-                Global.dtAllFaults.Columns.Add("故障ID", typeof(String));
-                Global.dtAllFaults.Columns.Add("故障名称", typeof(String));
-                Global.dtAllFaults.Columns.Add("故障使能标志", typeof(int));
+                //Global.dtAllFaults.Columns.Add("序号", typeof(String));
+                Global.dtAllFaults.Columns.Add("DeviceNO", typeof(String));
+                Global.dtAllFaults.Columns.Add("FaultNO", typeof(String));
+                Global.dtAllFaults.Columns.Add("FaultName", typeof(String));
+                Global.dtAllFaults.Columns.Add("FaultEnable", typeof(int));
 
                 FileStream fsFaultName = File.OpenRead(excelPath_allFaults);
                 IWorkbook workbookFaultName = new XSSFWorkbook(fsFaultName);
@@ -233,25 +232,25 @@ namespace CloudManage
                 for (int i = 1; i < totalRowsFaultName; i++)
                 {
                     rowFaultName = sheetFaultName.GetRow(i);
-                    ICell cellFaultName0 = rowFaultName.GetCell(0);
-                    ICell cellFaultName1 = rowFaultName.GetCell(1);
-                    ICell cellFaultName2 = rowFaultName.GetCell(2);
-                    ICell cellFaultName3 = rowFaultName.GetCell(3);
-                    ICell cellFaultName4 = rowFaultName.GetCell(4);
+                    //ICell cellFaultName0 = rowFaultName.GetCell(0);
+                    ICell cellFaultName1 = rowFaultName.GetCell(0);
+                    ICell cellFaultName2 = rowFaultName.GetCell(1);
+                    ICell cellFaultName3 = rowFaultName.GetCell(2);
+                    ICell cellFaultName4 = rowFaultName.GetCell(3);
 
 
-                    string numFaultName = Convert.ToString(getCellValue(cellFaultName0));
+                    //string numFaultName = Convert.ToString(getCellValue(cellFaultName0));
                     string tagTestingDevice = Convert.ToString(getCellValue(cellFaultName1));
                     string tagFault = Convert.ToString(getCellValue(cellFaultName2));
                     string nameFault = Convert.ToString(getCellValue(cellFaultName3));
                     int flagEnable = Convert.ToInt32(getCellValue(cellFaultName4));
 
                     DataRow drFaultName = Global.dtAllFaults.NewRow();
-                    drFaultName["序号"] = numFaultName;
-                    drFaultName["检测设备ID"] = tagTestingDevice;
-                    drFaultName["故障ID"] = tagFault;
-                    drFaultName["故障名称"] = nameFault;
-                    drFaultName["故障使能标志"] = flagEnable;
+                    //drFaultName["序号"] = numFaultName;
+                    drFaultName["DeviceNO"] = tagTestingDevice;
+                    drFaultName["FaultNO"] = tagFault;
+                    drFaultName["FaultName"] = nameFault;
+                    drFaultName["FaultEnable"] = flagEnable;
 
                     Global.dtAllFaults.Rows.Add(drFaultName);
                 }
