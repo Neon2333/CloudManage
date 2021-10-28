@@ -117,7 +117,7 @@ namespace CloudManage.StatusMonitor
         {
             _refreshDtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);
             string selectedPageTag = this.sideTileBarControl_workState.tagSelectedItem;  //选中侧边栏哪个按钮
-            if (selectedPageTag == "0")
+            if (selectedPageTag == "000")
             {
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_overview; //若当前选中的是总览按钮则显示Page_overview
             }

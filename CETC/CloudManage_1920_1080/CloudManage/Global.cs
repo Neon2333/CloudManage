@@ -18,26 +18,34 @@ namespace CloudManage
     {
         /*
          * 表格说明：
-         * historyQueryGridShow——grid显示的表。表示已发生的所有故障。
-         * historyQueryGridShowClickedQueryButton——根据车号、检测设备、时间，查出来的某些故障
-         * historyQueryGridShowTest——用于测试的表。当historyQueryGridShow发生改变时显示的表
+         * dtDeviceConfig——各产线的检测设备使能表：产线ID、检测设备使能标志
+         * dtProductionLine——产线名称表：产线ID、产线名称
+         * dtTestingDeviceName——检测设备名称表：检测设备ID、检测设备名称
+         * dtAllFaults——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
+         * dtHistoryQueryGridShow——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
          * 
-         * DTTitleGridShow——从dtHistoryQueryGridShow中提取前若干条故障（故障的使能标志为1，故障使能在表dtAllFaluts中），临时表，通过“忽略一次”按钮可删除第一条记录
+         * 临时表，由查询得到：
+         * dtSideTileBar——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
+         * dtTitleGridShowMainForm——标题栏显示所有故障的最新若干条记录（由dtHistoryQueryGridShow得到）
+         * dtOverviewWorkState——WorkState中总览显示用表：产线名称、产线状态（是否故障）
+         * dtEachProductionLineWorkState——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
+         * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障（由产线ID、检测设备ID、时间段从dtHistoryQueryGridShow查询出来）
+         * dtRightSideRealTimeData——RealTimeData中右侧显示表：参数名称、参数值
          * 
-         * dtAllFaults——所有车、检测设备可能发生的所有的故障的名称、使能标志（只有被使能==1的故障才能被提取到DTTitleGridShow中）
+         * 
          * */
 
         public static DataTable dtDeviceConfig = new DataTable();         //产线Tag、检测设备使能标志
-        public static string excelPath_deviceConfig = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\deviceConfig.xlsx";
+        public static string excelPath_deviceConfig = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\deviceConfig.xlsx";
 
         public static DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
-        public static string excelPath_productionLineName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
+        public static string excelPath_productionLineName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
 
         public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
-        public static string excelPath_testingDeviceName = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
+        public static string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
 
         public static DataTable dtAllFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
-        public static string excelPath_allFaults = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
+        public static string excelPath_allFaults = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
 
         //初始化检测设备使能表
         public static void _init_dtDeviceConfig()
@@ -254,7 +262,7 @@ namespace CloudManage
         /**********************************************************************************************************************************************/
         //共有
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
-        public static string excelPath_sideTileBarWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtSideTileBar.xlsx";
+        public static string excelPath_sideTileBarWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtSideTileBar.xlsx";
         public static void _init_dtSideTileBarWorkState()
         {
             if (dtSideTileBar.Rows.Count == 0)
@@ -320,10 +328,10 @@ namespace CloudManage
         //WorkStateControl
 
         public static DataTable dtOverviewWorkState = new DataTable();      //总览数据表
-        public static string excelPath_overviewWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtOverviewWorkState.xlsx";
+        public static string excelPath_overviewWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtOverviewWorkState.xlsx";
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
-        public static string excelPath_EachProductionLineWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtEachProductionLineWorkState.xlsx";
+        public static string excelPath_EachProductionLineWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtEachProductionLineWorkState.xlsx";
 
         //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
         public static void _init_dtOverviewWorkState()
@@ -518,10 +526,10 @@ namespace CloudManage
         //HistoryQueryControl
 
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
-        public static string excelPath_historyQueryGridShow = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowHistoryQuery.xlsx";
+        public static string excelPath_historyQueryGridShow = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowHistoryQuery.xlsx";
         
         public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
-        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
+        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
 
         public static void _init_dtHistoryQueryGridShow()
         {
