@@ -619,7 +619,7 @@ namespace CloudManage.CommonControl
                         for (int i = 0; i < this.TotalNumDevice; i++)
                         {
                             temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                            int flag = Convert.ToInt32(dr[i + 1]);  //deviceConfig表中检测设备标志位
+                            int flag = Convert.ToInt32(dr[i + 2]);  //deviceConfig表中检测设备标志位
                             if (flag == 1)
                             {
                                 temp.Visible = true;

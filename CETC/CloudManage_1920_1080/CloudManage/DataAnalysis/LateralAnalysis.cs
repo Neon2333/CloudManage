@@ -21,7 +21,6 @@ namespace CloudManage.DataAnalysis
 
         void initLateralAnalysis()
         {
-            Global._init_dtTestingDeviceName();
             this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtTestingDeviceName;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar("DeviceNO", "DeviceName", null);
         }
