@@ -11,19 +11,21 @@ namespace CloudManage
     class Global
     {
         /*
-         * 表格说明：
-         * dtDeviceConfig——各产线的检测设备使能表：产线ID、检测设备使能标志
-         * dtProductionLine——产线名称表：产线ID、产线名称
-         * dtTestingDeviceName——检测设备名称表：检测设备ID、检测设备名称
-         * dtAllFaults——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
+         * MySQL表格：
+         * device_config(dtDeviceConfig)——各产线的检测设备使能表：产线ID、检测设备使能标志
+         * productionline(dtProductionLine)——产线名称表：产线ID、产线名称
+         * device(dtTestingDeviceName)——检测设备名称表：检测设备ID、检测设备名称
+         * faults(dtFaults)——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
+         * faults_config——各产线对应设备的故障使能：产线ID、检测设备ID、故障ID、使能标志
+         * faults_time——所有故障的发生时间：产线ID、设备ID、故障ID、故障时间
+         * device_info——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
          * 
          * 临时表，由查询得到：
-         * dtSideTileBar——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
-         * dtTitleGridShowMainForm——标题栏显示所有故障的最新若干条记录（由dtHistoryQueryGridShow得到）
+         * dtSideTileBar（）——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
          * dtOverviewWorkState——WorkState中总览显示用表：产线名称、产线状态（是否故障）
-         * dtEachProductionLineWorkState——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
-         * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障（由产线ID、检测设备ID、时间段从dtHistoryQueryGridShow查询出来）
-         * dtHistoryQueryGridShow——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
+         * dtTitleGridShowMainForm——标题栏显示所有故障的最新若干条记录（由device_info得到）
+         * dtHistoryQueryGridShow（faults_time）——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
+         * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障
          * dtRightSideRealTimeData——RealTimeData中右侧显示表：参数名称、参数值
          * 
          * 
@@ -38,17 +40,26 @@ namespace CloudManage
         public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
         public static string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
 
-        public static DataTable dtAllFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
+        public static DataTable dtFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
         public static string excelPath_allFaults = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
+
+        public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
+        {
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            string queryCmdDtDeviceConfig = cmdDt;
+            bool flag = mysqlHelper1._connectMySQL();
+            mysqlHelper1._queryMySQL(queryCmdDtDeviceConfig, ref dt);
+            mysqlHelper1.conn.Close();
+            return flag;
+        }
+
 
         //初始化检测设备使能表
         public static void _init_dtDeviceConfig()
         {
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            string queryCmdDtDeviceConfig = "SELECT * FROM device_config";
-            bool flag = mysqlHelper1._connectMySQL();
-            mysqlHelper1._queryMySQL(queryCmdDtDeviceConfig, ref Global.dtDeviceConfig);
-            mysqlHelper1.conn.Close();
+            string cmdInitDtDeviceConfig = "SELECT * FROM device_config";
+            _initDtMySQL(ref Global.dtDeviceConfig, cmdInitDtDeviceConfig);
+           
             //if (dtDeviceConfig.Rows.Count == 0)
             //{
             //    //读各车设备使能标志表
@@ -146,35 +157,39 @@ namespace CloudManage
         //初始化产线名称表
         public static void _init_dtProductionLine()
         {
-            if (dtProductionLine.Rows.Count == 0)
-            {
-                Global.dtProductionLine.Columns.Add("LineNO", typeof(String));
-                Global.dtProductionLine.Columns.Add("LineName", typeof(String));
+            string cmdInitDtDeviceConfig = "SELECT * FROM productionline";
+            _initDtMySQL(ref Global.dtProductionLine, cmdInitDtDeviceConfig);
 
-                FileStream fsProductionLine = File.OpenRead(Global.excelPath_productionLineName);
-                IWorkbook workbookProductionLine = null;
-                workbookProductionLine = new XSSFWorkbook(fsProductionLine);
-                ISheet sheetProductionLine = null;
-                sheetProductionLine = workbookProductionLine.GetSheetAt(0);
-                int totalRowsProductionLine = sheetProductionLine.LastRowNum + 1;
-                IRow rowProductionLine = null;
 
-                for (int i = 1; i < totalRowsProductionLine; i++)
-                {
-                    rowProductionLine = sheetProductionLine.GetRow(i);
-                    ICell cell0 = rowProductionLine.GetCell(0);
-                    ICell cell1 = rowProductionLine.GetCell(1);
+            //if (dtProductionLine.Rows.Count == 0)
+            //{
+            //    Global.dtProductionLine.Columns.Add("LineNO", typeof(String));
+            //    Global.dtProductionLine.Columns.Add("LineName", typeof(String));
 
-                    string tagProductionLine = Convert.ToString(getCellValue(cell0));
-                    string nameProductionLine = Convert.ToString(getCellValue(cell1));
-                    DataRow drProductionLine = Global.dtProductionLine.NewRow();
-                    drProductionLine["LineNO"] = tagProductionLine;
-                    drProductionLine["LineName"] = nameProductionLine;
+            //    FileStream fsProductionLine = File.OpenRead(Global.excelPath_productionLineName);
+            //    IWorkbook workbookProductionLine = null;
+            //    workbookProductionLine = new XSSFWorkbook(fsProductionLine);
+            //    ISheet sheetProductionLine = null;
+            //    sheetProductionLine = workbookProductionLine.GetSheetAt(0);
+            //    int totalRowsProductionLine = sheetProductionLine.LastRowNum + 1;
+            //    IRow rowProductionLine = null;
 
-                    Global.dtProductionLine.Rows.Add(drProductionLine);
-                }
-                fsProductionLine.Close();
-            }
+            //    for (int i = 1; i < totalRowsProductionLine; i++)
+            //    {
+            //        rowProductionLine = sheetProductionLine.GetRow(i);
+            //        ICell cell0 = rowProductionLine.GetCell(0);
+            //        ICell cell1 = rowProductionLine.GetCell(1);
+
+            //        string tagProductionLine = Convert.ToString(getCellValue(cell0));
+            //        string nameProductionLine = Convert.ToString(getCellValue(cell1));
+            //        DataRow drProductionLine = Global.dtProductionLine.NewRow();
+            //        drProductionLine["LineNO"] = tagProductionLine;
+            //        drProductionLine["LineName"] = nameProductionLine;
+
+            //        Global.dtProductionLine.Rows.Add(drProductionLine);
+            //    }
+            //    fsProductionLine.Close();
+            //}
         }
 
         //初始化检测设备名称表
@@ -213,15 +228,15 @@ namespace CloudManage
         }
 
         //初始化故障表
-        public static void _init_dtAllFaults()
+        public static void _init_dtFaults()
         {
-            if (dtAllFaults.Rows.Count == 0)
+            if (dtFaults.Rows.Count == 0)
             {
-                //Global.dtAllFaults.Columns.Add("序号", typeof(String));
-                Global.dtAllFaults.Columns.Add("DeviceNO", typeof(String));
-                Global.dtAllFaults.Columns.Add("FaultNO", typeof(String));
-                Global.dtAllFaults.Columns.Add("FaultName", typeof(String));
-                Global.dtAllFaults.Columns.Add("FaultEnable", typeof(int));
+                //Global.dtFaults.Columns.Add("序号", typeof(String));
+                Global.dtFaults.Columns.Add("DeviceNO", typeof(String));
+                Global.dtFaults.Columns.Add("FaultNO", typeof(String));
+                Global.dtFaults.Columns.Add("FaultName", typeof(String));
+                Global.dtFaults.Columns.Add("FaultEnable", typeof(int));
 
                 FileStream fsFaultName = File.OpenRead(excelPath_allFaults);
                 IWorkbook workbookFaultName = new XSSFWorkbook(fsFaultName);
@@ -245,14 +260,14 @@ namespace CloudManage
                     string nameFault = Convert.ToString(getCellValue(cellFaultName3));
                     int flagEnable = Convert.ToInt32(getCellValue(cellFaultName4));
 
-                    DataRow drFaultName = Global.dtAllFaults.NewRow();
+                    DataRow drFaultName = Global.dtFaults.NewRow();
                     //drFaultName["序号"] = numFaultName;
                     drFaultName["DeviceNO"] = tagTestingDevice;
                     drFaultName["FaultNO"] = tagFault;
                     drFaultName["FaultName"] = nameFault;
                     drFaultName["FaultEnable"] = flagEnable;
 
-                    Global.dtAllFaults.Rows.Add(drFaultName);
+                    Global.dtFaults.Rows.Add(drFaultName);
                 }
                 fsFaultName.Close();
             }
