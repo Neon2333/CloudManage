@@ -69,6 +69,7 @@ namespace CloudManage.CommonControl
         }
 
         //初始化侧边栏
+        //参数传入null时
         public void _initSideTileBar(string colTag, string colText, string colNum)
         {
             if (this.UseDtInitSideTileBar == true)
@@ -79,6 +80,7 @@ namespace CloudManage.CommonControl
                 string text = String.Empty;
                 string num = String.Empty;
 
+                int totalNumTemp = 0;
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
                     if(colTag!=null)
@@ -86,10 +88,17 @@ namespace CloudManage.CommonControl
                     itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
                     if(colText!=null)
                         text = (string)this.DT.Rows[i][colText];
-                    if(colNum!=null)
-                        num = (string)this.DT.Rows[i][colNum];
+                    if (colNum != null) { 
+                        num = this.DT.Rows[i][colNum].ToString();
+                        totalNumTemp += Convert.ToInt32(num);
+                    }
                     this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
                 }
+                if (this.showOverview == true)
+                {
+                    this._setNum("000", totalNumTemp.ToString());
+                }
+
             }
             else
             {

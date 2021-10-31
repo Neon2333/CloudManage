@@ -117,6 +117,7 @@ namespace CloudManage.CommonControl
                 string name = String.Empty;
                 string text = String.Empty;
                 string num = String.Empty;
+                int totalNumTemp = 0;
 
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
@@ -126,8 +127,17 @@ namespace CloudManage.CommonControl
                     if(colText != null)
                         text = (string)this.DT.Rows[i][colText];
                     if (colNum != null)
-                        num = (string)this.DT.Rows[i][colNum];
+                    {
+                        num = this.DT.Rows[i][colNum].ToString();
+                        totalNumTemp += Convert.ToInt32(num);
+                    }
+                    //num = Convert.ToString(this.DT.Rows[i][colNum]);  //可以。Convert.toString/toString/(string)区别？
+                    //num = (string)this.DT.Rows[i][colNum];    //无法将double转成string
                     this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
+                }
+                if (this.showOverview == true)
+                {
+                    this._setNum("000", totalNumTemp.ToString());
                 }
 
                 //添加所有检测设备按钮

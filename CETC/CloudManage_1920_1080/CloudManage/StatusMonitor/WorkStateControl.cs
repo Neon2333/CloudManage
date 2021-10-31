@@ -34,29 +34,15 @@ namespace CloudManage.StatusMonitor
 
         void initWorkState()
         {
-            initDataTable();
             initSideTileBarWorkState(); //初始化侧边栏
             initDataOverviewWorkState();    //初始化总览数据表
             initDataEachWorkState();    //初始化检测设备数据表
-        }
-
-        void initDataTable()
-        {
-            Global._init_dtTestingDeviceName(); //初始化检测设备名称表
-            Global._init_dtProductionLine();    //初始化产线名称表
-            Global._init_dtFaults();         //初始化故障名称表
-            Global._init_dtDeviceConfig();      //初始化检测设备使能表
-            Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
-
-            Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
-
         }
 
         private void initSideTileBarWorkState()
         {
             this.sideTileBarControl_workState.dtInitSideTileBar = Global.dtSideTileBar;
             this.sideTileBarControl_workState._initSideTileBar("LineNO", "LineName", "DeviceTotalNum");
-            this.sideTileBarControl_workState._setNum("000", "74");
         }
 
         //总览数据源绑定表

@@ -10,6 +10,17 @@ namespace CloudManage
 {
     class Global
     {
+        public static void initDataTable()
+        {
+            Global._init_dtTestingDeviceName(); //初始化检测设备名称表
+            Global._init_dtProductionLine();    //初始化产线名称表
+            Global._init_dtFaults();         //初始化故障名称表
+            Global._init_dtDeviceConfig();      //初始化检测设备使能表
+            Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
+
+            Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
+
+        }
         /*
          * MySQL表格：
          * device_config(dtDeviceConfig)——各产线的检测设备使能表：产线ID、检测设备使能标志
@@ -48,9 +59,8 @@ namespace CloudManage
         public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
         {
             MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            string queryCmdDtDeviceConfig = cmdDt;
             bool flag = mysqlHelper1._connectMySQL();
-            mysqlHelper1._queryMySQL(queryCmdDtDeviceConfig, ref dt);
+            mysqlHelper1._queryTableMySQL(cmdDt, ref dt);
             mysqlHelper1.conn.Close();
             return flag;
         }
@@ -86,50 +96,63 @@ namespace CloudManage
         /**********************************************************************************************************************************************/
         //共有
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
-        public static string excelPath_sideTileBarWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtSideTileBar.xlsx";
+        public static string excelPath_sideTileBarWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtSideTileBar.xlsx";
         public static void _init_dtSideTileBarWorkState()
         {
-            //string cmdInitDtDeviceConfig = "SELECT * FROM faults";
-            //_initDtMySQL(ref Global.dtFaults, cmdInitDtDeviceConfig);
-
-
-            if (dtSideTileBar.Rows.Count == 0)
+            string cmdGetDeviceNO = "SELECT +`DeviceNO` FROM device";
+            DataTable dtDeviceNOTemp = new DataTable();
+            _initDtMySQL(ref dtDeviceNOTemp, cmdGetDeviceNO);
+            string strT1 = "SELECT LineNo, DeviceStatus_" + dtDeviceNOTemp.Rows[0]["DeviceNO"].ToString();
+            int rowNumDtdeviceNOTemp = dtDeviceNOTemp.Rows.Count;
+            for (int i = 1; i < rowNumDtdeviceNOTemp; i++)
             {
-                //临时表
-                Global.dtSideTileBar.Columns.Add("LineNO", typeof(String));
-                Global.dtSideTileBar.Columns.Add("LineName", typeof(String));
-                Global.dtSideTileBar.Columns.Add("DeviceTotalNum", typeof(String));
-
-
-                FileStream fs = File.OpenRead(excelPath_sideTileBarWorkState);    //关联流打开文件
-                IWorkbook workbook = null;
-                workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
-                ISheet sheet = null;
-                sheet = workbook.GetSheetAt(0); //获取第1个sheet
-                int totalRows = sheet.LastRowNum + 1;
-                IRow row = null;
-                for (int i = 1; i < totalRows; i++)
-                {
-                    row = sheet.GetRow(i);  //获取第i行
-                    ICell cellLineNo = row.GetCell(0);  //获取row行的第i列的数据
-                    ICell cellLineName = row.GetCell(1);
-                    ICell deviceTotalNum = row.GetCell(2);
-                    cellLineName.SetCellType(CellType.String);  //为防止Excel自动将数字视为Double类型，造成无法强转为string，在读取cell后先将其转换为string类型
-                    cellLineName.SetCellType(CellType.String);
-                    deviceTotalNum.SetCellType(CellType.String);
-
-                    string tempName = (string)Global.getCellValue(cellLineNo);
-                    string tempStatus = (string)Global.getCellValue(cellLineName);
-                    String tempDeviceTotalNum = (string)Global.getCellValue(deviceTotalNum);
-
-                    DataRow dr = Global.dtSideTileBar.NewRow();
-                    dr["LineNO"] = tempName;
-                    dr["LineName"] = tempStatus;
-                    dr["DeviceTotalNum"] = tempDeviceTotalNum;
-                    Global.dtSideTileBar.Rows.Add(dr);
-                }
-                fs.Close();
+                strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
             }
+            strT1 += " AS DeviceTotalNum FROM device_config";
+            string cmdInitDtDeviceConfig = "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
+                                           "FROM (" + strT1 + ")AS t1 " +
+                                           "INNER JOIN productionline AS t2 " +
+                                           "ON t1.LineNO=t2.LineNO;";
+            _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtDeviceConfig);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
+
+
+            //if (dtSideTileBar.Rows.Count == 0)
+            //{
+            //    //临时表
+            //    Global.dtSideTileBar.Columns.Add("LineNO", typeof(String));
+            //    Global.dtSideTileBar.Columns.Add("LineName", typeof(String));
+            //    Global.dtSideTileBar.Columns.Add("DeviceTotalNum", typeof(String));
+
+
+            //    FileStream fs = File.OpenRead(excelPath_sideTileBarWorkState);    //关联流打开文件
+            //    IWorkbook workbook = null;
+            //    workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
+            //    ISheet sheet = null;
+            //    sheet = workbook.GetSheetAt(0); //获取第1个sheet
+            //    int totalRows = sheet.LastRowNum + 1;
+            //    IRow row = null;
+            //    for (int i = 1; i < totalRows; i++)
+            //    {
+            //        row = sheet.GetRow(i);  //获取第i行
+            //        ICell cellLineNo = row.GetCell(0);  //获取row行的第i列的数据
+            //        ICell cellLineName = row.GetCell(1);
+            //        ICell deviceTotalNum = row.GetCell(2);
+            //        cellLineName.SetCellType(CellType.String);  //为防止Excel自动将数字视为Double类型，造成无法强转为string，在读取cell后先将其转换为string类型
+            //        cellLineName.SetCellType(CellType.String);
+            //        deviceTotalNum.SetCellType(CellType.String);
+
+            //        string tempName = (string)Global.getCellValue(cellLineNo);
+            //        string tempStatus = (string)Global.getCellValue(cellLineName);
+            //        String tempDeviceTotalNum = (string)Global.getCellValue(deviceTotalNum);
+
+            //        DataRow dr = Global.dtSideTileBar.NewRow();
+            //        dr["LineNO"] = tempName;
+            //        dr["LineName"] = tempStatus;
+            //        dr["DeviceTotalNum"] = tempDeviceTotalNum;
+            //        Global.dtSideTileBar.Rows.Add(dr);
+            //    }
+            //    fs.Close();
+            //}
         }
 
         /**********************************************************************************************************************************************/
@@ -152,10 +175,10 @@ namespace CloudManage
         /**********************************************************************************************************************************************/
         //WorkStateControl
         public static DataTable dtOverviewWorkState = new DataTable();      //总览数据表
-        public static string excelPath_overviewWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtOverviewWorkState.xlsx";
+        public static string excelPath_overviewWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtOverviewWorkState.xlsx";
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
-        public static string excelPath_EachProductionLineWorkState = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtEachProductionLineWorkState.xlsx";
+        public static string excelPath_EachProductionLineWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtEachProductionLineWorkState.xlsx";
 
         //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
         public static void _init_dtOverviewWorkState()
@@ -353,7 +376,7 @@ namespace CloudManage
         //public static string excelPath_historyQueryGridShow = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowHistoryQuery.xlsx";
 
         public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
-        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
+        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
 
         public static void _init_dtHistoryQueryGridShow()
         {
@@ -460,6 +483,8 @@ namespace CloudManage
                 Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
             }
         }
+
+
 
         /*************************************************************************************************************/
 

@@ -25,6 +25,7 @@ namespace CloudManage
         int iSelectedIndex = 0; //默认显示第一页
         public MainForm()
         {
+            Global.initDataTable();
             InitializeComponent();
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultHistoryQuery.Visible = false;

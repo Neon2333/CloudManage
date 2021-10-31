@@ -131,19 +131,20 @@ namespace CloudManage
             refreshLabelDir();
         }
 
+        //给右侧数据上色，自动对绑定gridcontrol的每条记录执行一遍
         private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
         {
             if (e.Item == null || e.Item.Elements.Count == 0)
                 return;
 
-            string parameterName = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["参数名"]);
-            string parameterVal = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["值"]);
+            string parameterName = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["paraName"]);
+            string parameterVal = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["paraVal"]);
 
-            if (parameterName == "CPU温度" && (int)Global.dtRightSideRealTimeData.Rows[0]["CPU温度"] <= 80)   //设定参数超出阈值变色报警
+            if (parameterName == "CPU温度" && parameterVal.CompareTo("50℃") <= 0)   //设定参数超出阈值变色报警
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorNormal;
             }
-            else if (parameterName == "CPU温度" && (int)Global.dtRightSideRealTimeData.Rows[0]["CPU温度"] > 80)
+            else if (parameterName == "CPU温度" && parameterVal.CompareTo("50℃") > 0 )
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorAlert;
                 e.Item.AppearanceItem.Focused.BackColor = colorAlert;

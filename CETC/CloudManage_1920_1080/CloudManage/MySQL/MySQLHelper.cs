@@ -104,7 +104,7 @@ namespace CloudManage.MySQL
         }
 
         //mysql查询
-        public bool _queryMySQL(string queryCmd, ref DataTable resultDt)
+        public bool _queryTableMySQL(string queryCmd, ref DataTable resultDt)
         {
             bool flag = false;
             try
