@@ -201,7 +201,8 @@ namespace CloudManage
                                                               "WHEN t1.DeviceStatus=0 THEN '异常' " +
                                                               "WHEN t1.DeviceStatus=-1 THEN '无效' " +
                                                               "END) AS DeviceStatus," +
-                                                              "t1.TestingNum,t1.DefectNum,t1.CPUTemperature,t1.CPUUsage,t1.MemoryUsage " +
+                                                              "t1.TestingNum,t1.DefectNum, " +
+                                                              "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
                                                               "FROM device_info AS t1 INNER JOIN device AS t2 " +
                                                               "ON t1.DeviceNO=t2.DeviceNO " +
                                                               "WHERE t1.LineNO=" + selectedItemTag +

@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 01/11/2021 15:01:23
+ Date: 01/11/2021 17:16:07
 */
 
 SET NAMES utf8mb4;
@@ -25,9 +25,9 @@ CREATE TABLE `device`  (
   `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `DeviceName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`DeviceNO`) USING BTREE,
+  PRIMARY KEY (`NO`) USING BTREE,
   UNIQUE INDEX `NO`(`NO`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of device
@@ -45,6 +45,9 @@ INSERT INTO `device` VALUES (10, '010', '小包拉线检测');
 INSERT INTO `device` VALUES (11, '011', '散包视觉检测');
 INSERT INTO `device` VALUES (12, '012', '散包光电检测');
 INSERT INTO `device` VALUES (13, '013', '条盒拉线检测');
+INSERT INTO `device` VALUES (14, '101', '_烟库乱烟检测');
+INSERT INTO `device` VALUES (15, '102', '_烟支空头检测');
+INSERT INTO `device` VALUES (16, '103', '_模盒缺支检测');
 INSERT INTO `device` VALUES (17, '104', '_一号轮缺支检测');
 INSERT INTO `device` VALUES (18, '105', '_三号轮铝箔纸检测');
 
@@ -4648,7 +4651,7 @@ CREATE TABLE `productionline`  (
   `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `LineName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`LineNO`) USING BTREE,
+  PRIMARY KEY (`NO`) USING BTREE,
   UNIQUE INDEX `NO`(`NO`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
