@@ -17,7 +17,6 @@ namespace CloudManage
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
             Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
-
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
 
         }
@@ -43,17 +42,14 @@ namespace CloudManage
          * 
          * */
 
+
         public static DataTable dtDeviceConfig = new DataTable();         //产线Tag、检测设备使能标志
-        //public static string excelPath_deviceConfig = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\deviceConfig.xlsx";
 
         public static DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
-        //public static string excelPath_productionLineName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\productionLineName.xlsx";
 
         public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
-        //public static string excelPath_testingDeviceName = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\testingDeviceName.xlsx";
 
         public static DataTable dtFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
-        //public static string excelPath_allFaults = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\allFaults.xlsx";
 
         //从MySQL中查询数据初始化表
         public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
@@ -96,7 +92,6 @@ namespace CloudManage
         /**********************************************************************************************************************************************/
         //共有
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
-        public static string excelPath_sideTileBarWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtSideTileBar.xlsx";
         public static void _init_dtSideTileBarWorkState()
         {
             string cmdGetDeviceNO = "SELECT +`DeviceNO` FROM device";
@@ -114,45 +109,6 @@ namespace CloudManage
                                            "INNER JOIN productionline AS t2 " +
                                            "ON t1.LineNO=t2.LineNO;";
             _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtDeviceConfig);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
-
-
-            //if (dtSideTileBar.Rows.Count == 0)
-            //{
-            //    //临时表
-            //    Global.dtSideTileBar.Columns.Add("LineNO", typeof(String));
-            //    Global.dtSideTileBar.Columns.Add("LineName", typeof(String));
-            //    Global.dtSideTileBar.Columns.Add("DeviceTotalNum", typeof(String));
-
-
-            //    FileStream fs = File.OpenRead(excelPath_sideTileBarWorkState);    //关联流打开文件
-            //    IWorkbook workbook = null;
-            //    workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
-            //    ISheet sheet = null;
-            //    sheet = workbook.GetSheetAt(0); //获取第1个sheet
-            //    int totalRows = sheet.LastRowNum + 1;
-            //    IRow row = null;
-            //    for (int i = 1; i < totalRows; i++)
-            //    {
-            //        row = sheet.GetRow(i);  //获取第i行
-            //        ICell cellLineNo = row.GetCell(0);  //获取row行的第i列的数据
-            //        ICell cellLineName = row.GetCell(1);
-            //        ICell deviceTotalNum = row.GetCell(2);
-            //        cellLineName.SetCellType(CellType.String);  //为防止Excel自动将数字视为Double类型，造成无法强转为string，在读取cell后先将其转换为string类型
-            //        cellLineName.SetCellType(CellType.String);
-            //        deviceTotalNum.SetCellType(CellType.String);
-
-            //        string tempName = (string)Global.getCellValue(cellLineNo);
-            //        string tempStatus = (string)Global.getCellValue(cellLineName);
-            //        String tempDeviceTotalNum = (string)Global.getCellValue(deviceTotalNum);
-
-            //        DataRow dr = Global.dtSideTileBar.NewRow();
-            //        dr["LineNO"] = tempName;
-            //        dr["LineName"] = tempStatus;
-            //        dr["DeviceTotalNum"] = tempDeviceTotalNum;
-            //        Global.dtSideTileBar.Rows.Add(dr);
-            //    }
-            //    fs.Close();
-            //}
         }
 
         /**********************************************************************************************************************************************/
@@ -175,212 +131,169 @@ namespace CloudManage
         /**********************************************************************************************************************************************/
         //WorkStateControl
         public static DataTable dtOverviewWorkState = new DataTable();      //总览数据表
-        public static string excelPath_overviewWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtOverviewWorkState.xlsx";
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
-        public static string excelPath_EachProductionLineWorkState = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtEachProductionLineWorkState.xlsx";
 
         //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
         public static void _init_dtOverviewWorkState()
         {
             if (dtOverviewWorkState.Rows.Count == 0)
             {
-                //临时表
-                Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));
+                string cmdInitDTOverviewWorkState = "SELECT LineName, " +
+                                                    "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
+                                                    "WHEN COUNT(FaultTime)=0 THEN '正常' " +
+                                                    "END) AS LineStatus " +
+                                                    "FROM productionline AS t1 LEFT JOIN faults_time AS t2 " +
+                                                    "ON t1.LineNO=t2.LineNO " +
+                                                    "GROUP BY LineName " +
+                                                    "ORDER BY t1.`NO`;";
+
+                Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));     //先定义表头也可填充，表头不会填充两次
                 Global.dtOverviewWorkState.Columns.Add("LineStatus", typeof(String));
                 Global.dtOverviewWorkState.Columns.Add("DeviceImgTop", typeof(Image));
                 Global.dtOverviewWorkState.Columns.Add("DeviceImgBottom", typeof(Image));
-
-
-
-                FileStream fsOverview = File.OpenRead(excelPath_overviewWorkState);    //关联流打开文件
-                IWorkbook workbook = null;
-                workbook = new XSSFWorkbook(fsOverview);    //XSSF打开xlsx
-                ISheet sheet = null;
-                sheet = workbook.GetSheetAt(0); //获取第1个sheet
-                int totalRows = sheet.LastRowNum + 1;
-                IRow row = null;
-                for (int i = 1; i < totalRows; i++)
+                _initDtMySQL(ref dtOverviewWorkState, cmdInitDTOverviewWorkState);
+                
+                int totalDeviceNum = dtOverviewWorkState.Rows.Count;
+                int undefineTileNum = 0;
+                if(totalDeviceNum <= 24)
                 {
-                    row = sheet.GetRow(i);  //获取第i行
-                    ICell cellName = row.GetCell(0);    //获取row行的第i列的数据
-                    ICell cellStatus = row.GetCell(1);
-                    cellName.SetCellType(CellType.String);
-                    cellStatus.SetCellType(CellType.String);
-
-                    string tempName = (string)Global.getCellValue(cellName);
-                    string tempStatus = (string)Global.getCellValue(cellStatus);
-                    DataRow dr = Global.dtOverviewWorkState.NewRow();
-                    dr["LineName"] = tempName;
-                    if (tempStatus == "1")
-                    {
-                        dr["LineStatus"] = "正常";
-                    }
-                    else if (tempStatus == "0")
-                    {
-                        dr["LineStatus"] = "异常";
-                    }
-                    else if (tempStatus == "-1")
-                    {
-                        dr["LineStatus"] = "无效";
-                    }
-
-                    dr["deviceImgTop"] = global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140;
-                    dr["deviceImgBottom"] = global::CloudManage.Properties.Resources.ZB45_336x140;
-
-                    Global.dtOverviewWorkState.Rows.Add(dr);
+                    undefineTileNum = 24 - totalDeviceNum;
                 }
-                fsOverview.Close();
+                else if(totalDeviceNum > 24 && totalDeviceNum <= 48)
+                {
+                    undefineTileNum = 48 - totalDeviceNum;
+                }
+                else if(totalDeviceNum > 48 && totalDeviceNum <= 72)
+                {
+                    undefineTileNum = 72 - totalDeviceNum;
+                }
+                else if(totalDeviceNum > 72 && totalDeviceNum <= 96)
+                {
+                    undefineTileNum = 96 - totalDeviceNum;
+                }
+
+                //添加“未定义”Tile
+                for (int i = 0; i < undefineTileNum; i++)
+                {
+                    DataRow dr = Global.dtOverviewWorkState.NewRow();
+                    dr["LineName"] = "\\";
+                    dr["LineStatus"] = "未定义";
+                    dtOverviewWorkState.Rows.Add(dr);
+                }
+
+                DataRow drTemp = null;
+                for(int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
+                {
+                    drTemp = dtOverviewWorkState.Rows[i];
+                    drTemp["deviceImgTop"]= global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140; ;
+                    drTemp["deviceImgBottom"]= global::CloudManage.Properties.Resources.ZB45_336x140;
+                }
             }
         }
 
-        public static void _init_dtEachProductionLineWorkState()
+        public static void _init_dtEachProductionLineWorkState(string selectedItemTag)
         {
             if (dtEachProductionLineWorkState.Rows.Count == 0)
             {
-                //临时表，由deviceData查询得到，将ID替换为Name
-                Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("DefectNum", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("CPUTemperature", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("CPUUsage", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("MemoryUsage", typeof(String));
-                Global.dtEachProductionLineWorkState.Columns.Add("Img", typeof(Image));
-                //Global.dtEachProductionLineWorkState.Columns.Add("Shift", typeof(String));
-
-
-                FileStream fs = File.OpenRead(excelPath_EachProductionLineWorkState);    //关联流打开文件
-                IWorkbook workbook = null;
-                workbook = new XSSFWorkbook(fs);    //XSSF打开xlsx
-                ISheet sheet = null;
-                sheet = workbook.GetSheetAt(0); //获取第1个sheet
-                int totalRows = sheet.LastRowNum + 1;
-                IRow row = null;
-                for (int i = 1; i < totalRows; i++)
+                string cmdInitDtEachProductionLineWorkState = "SELECT t1.DeviceNO,t2.DeviceName, " +
+                                                              "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
+                                                              "WHEN t1.DeviceStatus=0 THEN '异常' " +
+                                                              "WHEN t1.DeviceStatus=-1 THEN '无效' " +
+                                                              "END) AS DeviceStatus," +
+                                                              "t1.TestingNum,t1.DefectNum,t1.CPUTemperature,t1.CPUUsage,t1.MemoryUsage " +
+                                                              "FROM device_info AS t1 INNER JOIN device AS t2 " +
+                                                              "ON t1.DeviceNO=t2.DeviceNO " +
+                                                              "WHERE t1.LineNO=" + selectedItemTag +
+                                                              " ORDER BY t1.`NO`;";
+                
+                if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
-                    row = sheet.GetRow(i);  //获取第i行
-                    ICell cellDeviceNO = row.GetCell(0);
-                    ICell cellDeviceName = row.GetCell(1);  //获取row行的第i列的数据
-                    ICell cellDeviceStatus = row.GetCell(2);
-                    ICell cellDeviceTestingNum = row.GetCell(3);
-                    ICell cellDeviceDefectNum = row.GetCell(4);
-                    ICell cellDeviceCPUTemperature = row.GetCell(5);
-                    ICell cellDeviceCPUUsage = row.GetCell(6);
-                    ICell cellDeviceMemoryUsage = row.GetCell(7);
-                    //ICell cellDeviceShift = row.GetCell(8);
-                    cellDeviceNO.SetCellType(CellType.String);
-                    cellDeviceName.SetCellType(CellType.String);
-                    cellDeviceStatus.SetCellType(CellType.String);
-                    cellDeviceTestingNum.SetCellType(CellType.String);
-                    cellDeviceDefectNum.SetCellType(CellType.String);
-                    cellDeviceCPUTemperature.SetCellType(CellType.String);
-                    cellDeviceCPUUsage.SetCellType(CellType.String);
-                    cellDeviceMemoryUsage.SetCellType(CellType.String);
-                    //cellDeviceShift.SetCellType(CellType.String);
+                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("DefectNum", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("CPUTemperature", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("CPUUsage", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("MemoryUsage", typeof(String));
+                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceImg", typeof(Image));
+                }
 
-                    string tempDeviceNO = (string)Global.getCellValue(cellDeviceNO);
-                    string tempName = (string)Global.getCellValue(cellDeviceName);
-                    string tempStatus = (string)Global.getCellValue(cellDeviceStatus);
-                    string tempDeviceTestingNum = (string)Global.getCellValue(cellDeviceTestingNum);
-                    string tempDeviceDefectNum = (string)Global.getCellValue(cellDeviceDefectNum);
-                    string tempDeviceCPUTemperature = (string)Global.getCellValue(cellDeviceCPUTemperature);
-                    string tempDeviceCPUUsage = (string)Global.getCellValue(cellDeviceCPUUsage);
-                    string tempDeviceMemoryUsage = (string)Global.getCellValue(cellDeviceMemoryUsage);
-                    //string tempDeviceShift = (string)Global.getCellValue(cellDeviceShift);
+                _initDtMySQL(ref dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);
 
-                    DataRow dr = Global.dtEachProductionLineWorkState.NewRow();
-                    dr["DeviceNO"] = tempDeviceNO;
-                    dr["DeviceName"] = tempName;
-                    if (tempStatus == "1")
+                for(int i=0;i< Global.dtEachProductionLineWorkState.Rows.Count; i++)
+                {
+                    if (dtEachProductionLineWorkState.Rows[i]["DeviceStatus"].ToString() == "无效")
                     {
-                        dr["DeviceStatus"] = "正常";
-                    }
-                    else if (tempStatus == "0")
-                    {
-                        dr["DeviceStatus"] = "异常";
-                    }
-                    else if (tempStatus == "-1")
-                    {
-                        dr["DeviceStatus"] = "无效";
-                    }
-                    dr["TestingNum"] = tempDeviceTestingNum;
-                    dr["DefectNum"] = tempDeviceDefectNum;
-                    dr["CPUTemperature"] = tempDeviceCPUTemperature + "℃";
-                    dr["CPUUsage"] = tempDeviceCPUUsage + "%";
-                    dr["MemoryUsage"] = tempDeviceMemoryUsage + "%";
-                    if (tempStatus == "-1")
-                    {
-                        dr["Img"] = null;
-
+                        dtEachProductionLineWorkState.Rows[i]["TestingNum"] = "\\";
+                        dtEachProductionLineWorkState.Rows[i]["DefectNum"] = "\\";
+                        dtEachProductionLineWorkState.Rows[i]["CPUTemperature"] = "\\";
+                        dtEachProductionLineWorkState.Rows[i]["CPUUsage"] = "\\";
+                        dtEachProductionLineWorkState.Rows[i]["MemoryUsage"] = "\\";
+                        dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = null;
                     }
                     else
                     {
-                        switch (tempDeviceNO)    //检测设备图片
+                        switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"])    //更换检测设备图片
                         {
                             case "001":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "002":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "003":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "004":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "005":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "006":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "007":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "008":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "009":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "010":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "011":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "012":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                             case "013":
-                                dr["Img"] = global::CloudManage.Properties.Resources.neichen;
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
                         }
                     }
-                    //dr["Shift"] = tempDeviceShift;
-
-                    Global.dtEachProductionLineWorkState.Rows.Add(dr);
                 }
-                fs.Close();
+
             }
         }
 
         /**********************************************************************************************************************************************/
-
         //HistoryQueryControl
 
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
-        //public static string excelPath_historyQueryGridShow = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowHistoryQuery.xlsx";
 
         public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
-        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
+        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
 
         public static void _init_dtHistoryQueryGridShow()
         {
-            string cmdInitDtDeviceConfig = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+            string cmdInitDtDeviceConfig =  "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
                                             "FROM faults_time AS t1 " +
                                             "INNER JOIN productionline AS t2 " +
                                             "INNER JOIN device AS t3 " +

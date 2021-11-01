@@ -19,6 +19,11 @@ namespace CloudManage.CommonControl
         private string TagSelectedItem = String.Empty;
         public int countSideTileBarItem = 0;    //item总数
         DataTable DT = new DataTable();     //用于初始化侧边栏的表
+        //表DT的3个字段
+        private string ColTagDT = String.Empty;
+        private string ColTextDT = String.Empty;
+        private string ColNumDT = String.Empty;
+
         public SideTileBarControl()
         {
             InitializeComponent();
@@ -68,9 +73,45 @@ namespace CloudManage.CommonControl
             }
         }
 
+        public string colTagDT
+        {
+            get
+            {
+                return this.ColTagDT;
+            }
+            set
+            {
+                this.ColTagDT = value;
+            }
+        }
+
+        public string colTextDT
+        {
+            get
+            {
+                return this.ColTextDT;
+            }
+            set
+            {
+                this.ColTextDT = value;
+            }
+        }
+
+        public string colNumDT
+        {
+            get
+            {
+                return this.ColNumDT;
+            }
+            set
+            {
+                this.ColNumDT = value;
+            }
+        }
+
         //初始化侧边栏
         //参数传入null时
-        public void _initSideTileBar(string colTag, string colText, string colNum)
+        public void _initSideTileBar()
         {
             if (this.UseDtInitSideTileBar == true)
             {
@@ -83,13 +124,13 @@ namespace CloudManage.CommonControl
                 int totalNumTemp = 0;
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    if(colTag!=null)
-                        tag = (string)this.DT.Rows[i][colTag];
+                    if(this.colTagDT!=null)
+                        tag = (string)this.DT.Rows[i][this.colTagDT];
                     itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
-                    if(colText!=null)
-                        text = (string)this.DT.Rows[i][colText];
-                    if (colNum != null) { 
-                        num = this.DT.Rows[i][colNum].ToString();
+                    if(this.colTextDT !=null)
+                        text = (string)this.DT.Rows[i][this.colTextDT];
+                    if (this.colNumDT != null) { 
+                        num = this.DT.Rows[i][this.colNumDT].ToString();
                         totalNumTemp += Convert.ToInt32(num);
                     }
                     this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
@@ -157,7 +198,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        private bool isAllNum(string tag)
+        private bool _isAllNum(string tag)
         {
             Regex regexNotAllNums = new Regex("[^0-9]+");
             if (regexNotAllNums.IsMatch(tag))
@@ -175,7 +216,7 @@ namespace CloudManage.CommonControl
         {
             try
             {
-                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(num))
                 {
                     return false;
                 }
@@ -256,7 +297,7 @@ namespace CloudManage.CommonControl
             bool flag = false;
             try
             {
-                if (!isAllNum(tagTileBarItem))
+                if (!_isAllNum(tagTileBarItem))
                 {
                     return false;
                 }
@@ -290,7 +331,7 @@ namespace CloudManage.CommonControl
             bool flag = false;
             try
             {
-                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(num))
                 {
                     return false;
                 }
@@ -311,6 +352,25 @@ namespace CloudManage.CommonControl
                 ex.ToString();
                 return false;
             }
+        }
+
+        //通过Tag获得Text
+        public string _getItemTextUseTag(string tagTileBarItem)
+        {
+            DataRow[] dr = null;
+            if (_isAllNum(tagTileBarItem) == true && this.DT.Rows.Count != 0)
+            {
+                dr = this.DT.Select(this.ColTagDT + "='"+ tagTileBarItem + "'");
+            }
+            if (dr.Length != 1)
+            {
+                return "未找到";
+            }
+            else
+            {
+                return dr[0][this.ColTextDT].ToString();
+            }
+
         }
 
         public delegate void TileItemSelectedChangedHanlder(object sender, EventArgs e);

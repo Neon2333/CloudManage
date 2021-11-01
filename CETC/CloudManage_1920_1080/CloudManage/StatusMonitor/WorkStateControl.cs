@@ -42,7 +42,10 @@ namespace CloudManage.StatusMonitor
         private void initSideTileBarWorkState()
         {
             this.sideTileBarControl_workState.dtInitSideTileBar = Global.dtSideTileBar;
-            this.sideTileBarControl_workState._initSideTileBar("LineNO", "LineName", "DeviceTotalNum");
+            this.sideTileBarControl_workState.colTagDT = "LineNO";
+            this.sideTileBarControl_workState.colTextDT = "LineName";
+            this.sideTileBarControl_workState.colNumDT = "DeviceTotalNum";
+            this.sideTileBarControl_workState._initSideTileBar();
         }
 
         //总览数据源绑定表
@@ -55,7 +58,7 @@ namespace CloudManage.StatusMonitor
         //每条产线数据源绑定表
         public void initDataEachWorkState()
         {
-            Global._init_dtEachProductionLineWorkState();
+            Global._init_dtEachProductionLineWorkState("001");   
             gridControl_each.DataSource = Global.dtEachProductionLineWorkState; //绑定每条产线的数据表
         }
 
@@ -75,7 +78,7 @@ namespace CloudManage.StatusMonitor
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
             }
-            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "无效")
+            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "未定义")
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorDisable;
             }
@@ -92,16 +95,9 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        //由选择的产线ID更新dtEachProductionLineWorkState，使得选中不同产线显示对应数据
-        private void _refreshDtEachProductionLineWorkState(string ProductionLineTag)
-        {
-
-        }
-
         //按下侧边栏显示相应产线的数据
         private void sideTileBarControl1_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
-            _refreshDtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);
             string selectedPageTag = this.sideTileBarControl_workState.tagSelectedItem;  //选中侧边栏哪个按钮
             if (selectedPageTag == "000")
             {
@@ -109,6 +105,8 @@ namespace CloudManage.StatusMonitor
             }
             else
             {
+                Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
+                Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_each; //若当前选中的不是总览按钮则显示Page_each
             }
         }

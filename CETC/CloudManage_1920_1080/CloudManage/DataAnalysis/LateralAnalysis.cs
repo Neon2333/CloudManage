@@ -22,7 +22,10 @@ namespace CloudManage.DataAnalysis
         void initLateralAnalysis()
         {
             this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtTestingDeviceName;
-            this.sideTileBarControl_lateralAnalysis._initSideTileBar("DeviceNO", "DeviceName", null);
+            this.sideTileBarControl_lateralAnalysis.colTagDT = "DeviceNO";
+            this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
+            this.sideTileBarControl_lateralAnalysis.colNumDT = null;
+            this.sideTileBarControl_lateralAnalysis._initSideTileBar();
         }
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)

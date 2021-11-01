@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 29/10/2021 17:28:49
+ Date: 01/11/2021 15:01:23
 */
 
 SET NAMES utf8mb4;
@@ -45,9 +45,6 @@ INSERT INTO `device` VALUES (10, '010', '小包拉线检测');
 INSERT INTO `device` VALUES (11, '011', '散包视觉检测');
 INSERT INTO `device` VALUES (12, '012', '散包光电检测');
 INSERT INTO `device` VALUES (13, '013', '条盒拉线检测');
-INSERT INTO `device` VALUES (14, '101', '_烟库乱烟检测');
-INSERT INTO `device` VALUES (15, '102', '_烟支空头检测');
-INSERT INTO `device` VALUES (16, '103', '_模盒缺支检测');
 INSERT INTO `device` VALUES (17, '104', '_一号轮缺支检测');
 INSERT INTO `device` VALUES (18, '105', '_三号轮铝箔纸检测');
 
@@ -128,26 +125,26 @@ CREATE TABLE `device_info`  (
 -- Records of device_info
 -- ----------------------------
 INSERT INTO `device_info` VALUES (1, '001', '001', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (2, '001', '002', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (2, '001', '002', '1', '100', '43', '70', '60', '40');
 INSERT INTO `device_info` VALUES (3, '001', '003', '0', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (4, '002', '004', '1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (5, '002', '005', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (6, '002', '006', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (7, '003', '007', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (4, '002', '004', '1', '100', '0', '75', '55', '60');
+INSERT INTO `device_info` VALUES (5, '002', '005', '1', '100', '0', '80', '40', '70');
+INSERT INTO `device_info` VALUES (6, '002', '006', '1', '100', '0', '60', '50', '30');
+INSERT INTO `device_info` VALUES (7, '003', '007', '1', '100', '0', '70', '60', '40');
 INSERT INTO `device_info` VALUES (8, '003', '008', '0', '100', '22', '65', '66', '50');
 INSERT INTO `device_info` VALUES (9, '003', '009', '-1', '100', '11', '75', '55', '60');
 INSERT INTO `device_info` VALUES (10, '004', '010', '0', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (11, '004', '011', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (12, '004', '012', '1', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (13, '004', '013', '1', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (14, '006', '001', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (11, '004', '011', '1', '100', '0', '60', '50', '30');
+INSERT INTO `device_info` VALUES (12, '004', '012', '1', '100', '0', '70', '60', '40');
+INSERT INTO `device_info` VALUES (13, '004', '013', '1', '100', '0', '65', '66', '50');
+INSERT INTO `device_info` VALUES (14, '006', '001', '1', '100', '0', '75', '55', '60');
 INSERT INTO `device_info` VALUES (15, '006', '002', '0', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (16, '006', '003', '1', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (16, '006', '003', '1', '100', '0', '60', '50', '30');
 INSERT INTO `device_info` VALUES (17, '007', '004', '0', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (18, '007', '005', '1', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (19, '007', '006', '1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (20, '008', '007', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (21, '008', '008', '1', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (18, '007', '005', '1', '100', '0', '65', '66', '50');
+INSERT INTO `device_info` VALUES (19, '007', '006', '1', '100', '0', '75', '55', '60');
+INSERT INTO `device_info` VALUES (20, '008', '007', '1', '100', '0', '80', '40', '70');
+INSERT INTO `device_info` VALUES (21, '008', '008', '1', '100', '0', '60', '50', '30');
 INSERT INTO `device_info` VALUES (22, '008', '009', '0', '100', '42', '70', '60', '40');
 INSERT INTO `device_info` VALUES (23, '009', '010', '1', '100', '22', '65', '66', '50');
 INSERT INTO `device_info` VALUES (24, '009', '011', '1', '100', '11', '75', '55', '60');

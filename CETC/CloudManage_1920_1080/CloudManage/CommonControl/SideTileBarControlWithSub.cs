@@ -19,6 +19,13 @@ namespace CloudManage.CommonControl
         private bool UseDtInitSideTileBarWithSub = true;     //是否通过表初始化侧边栏
         private DataTable DT = new DataTable();     //初始化侧边栏用表
         private DataTable DTSUB = new DataTable();     //初始化侧边栏用表
+        //表DT的字段
+        private string ColTagDT = String.Empty;
+        private string ColTextDT = String.Empty;
+        private string ColNumDT = String.Empty;
+        //表DTSUB的字段
+        private string ColTagDTSUB = String.Empty;
+        private string ColTextDTSUB = String.Empty;
 
         private string TagSelectedItem = String.Empty;
         private string TagSelectedItemSub = String.Empty;   //总览tag="0"，添加按钮时从tag="1"开始
@@ -108,7 +115,69 @@ namespace CloudManage.CommonControl
             }
         }
 
-        public void _initSideTileBarWithSub(string colTag, string colText, string colNum, string colTagSub, string colTextSub)
+
+        public string colTagDT
+        {
+            get
+            {
+                return this.ColTagDT;
+            }
+            set
+            {
+                this.ColTagDT = value;
+            }
+        }
+
+        public string colTextDT
+        {
+            get
+            {
+                return this.ColTextDT;
+            }
+            set
+            {
+                this.ColTextDT = value;
+            }
+        }
+
+        public string colNumDT
+        {
+            get
+            {
+                return this.ColNumDT;
+            }
+            set
+            {
+                this.ColNumDT = value;
+            }
+        }
+
+        public string colTagDTSUB
+        {
+            get
+            {
+                return this.ColTagDTSUB;
+            }
+            set
+            {
+                this.ColTagDTSUB = value;
+            }
+        }
+
+        public string colTextDTSUB
+        {
+            get
+            {
+                return this.ColTextDTSUB;
+            }
+            set
+            {
+                this.ColTextDTSUB = value;
+            }
+        }
+
+        //初始化侧边栏
+        public void _initSideTileBarWithSub()
         {
             if (UseDtInitSideTileBarWithSub)
             {
@@ -121,14 +190,14 @@ namespace CloudManage.CommonControl
 
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    if(colTag!=null)
-                        tag = (string)this.DT.Rows[i][colTag];
+                    if(this.ColTagDT!=null)
+                        tag = (string)this.DT.Rows[i][this.ColTagDT];
                     name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                    if(colText != null)
-                        text = (string)this.DT.Rows[i][colText];
-                    if (colNum != null)
+                    if(this.ColTextDT != null)
+                        text = (string)this.DT.Rows[i][this.ColTextDT];
+                    if (this.ColNumDT != null)
                     {
-                        num = this.DT.Rows[i][colNum].ToString();
+                        num = this.DT.Rows[i][this.ColNumDT].ToString();
                         totalNumTemp += Convert.ToInt32(num);
                     }
                     //num = Convert.ToString(this.DT.Rows[i][colNum]);  //可以。Convert.toString/toString/(string)区别？
@@ -145,10 +214,10 @@ namespace CloudManage.CommonControl
                 {
                     string tagTemp = String.Empty;
                     string nameTemp = String.Empty;
-                    if (colTagSub != null)
-                        tagTemp = (string)this.DTSUB.Rows[i][colTagSub];
-                    if (colTextSub != null)
-                        nameTemp = (string)this.DTSUB.Rows[i][colTextSub];
+                    if (this.ColTagDTSUB != null)
+                        tagTemp = (string)this.DTSUB.Rows[i][this.ColTagDTSUB];
+                    if (this.ColTextDTSUB != null)
+                        nameTemp = (string)this.DTSUB.Rows[i][this.ColTextDTSUB];
                     bool flag = this._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
                 }
                 this._showSubItemHideRedundantItem();
@@ -160,6 +229,24 @@ namespace CloudManage.CommonControl
 
         }
 
+        //通过Tag获得Text
+        public string _getItemTextUseTag(string tagTileBarItem)
+        {
+            DataRow[] dr = null;
+            if (_isAllNum(tagTileBarItem) == true && this.DT.Rows.Count != 0)
+            {
+                dr = this.DT.Select(this.ColTagDT + "='" + tagTileBarItem + "'");
+            }
+            if (dr.Length != 1)
+            {
+                return "未找到";
+            }
+            else
+            {
+                return dr[0][this.ColTextDT].ToString();
+            }
+
+        }
 
         //通过tag选中item
         public bool _selectedItem(string tag)
@@ -262,7 +349,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-        private bool isAllNum(string tag)
+        private bool _isAllNum(string tag)
         {
             Regex regexNotAllNums = new Regex("[^0-9]+");
             if (regexNotAllNums.IsMatch(tag))
@@ -281,7 +368,7 @@ namespace CloudManage.CommonControl
             TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新当前的设备数
             try
             {
-                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(num))
                 {
                     return false;
                 }
@@ -472,7 +559,7 @@ namespace CloudManage.CommonControl
             bool flag = false;
             try
             {
-                if (!isAllNum(tagTileBarItem))
+                if (!_isAllNum(tagTileBarItem))
                 {
                     return false;
                 }
@@ -539,7 +626,7 @@ namespace CloudManage.CommonControl
             bool flag = false;
             try
             {
-                if (!isAllNum(tagTileBarItem) || !isAllNum(num))
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(num))
                 {
                     return false;
                 }

@@ -48,8 +48,13 @@ namespace CloudManage
         void _initSideTileBarWithSub()
         {
             this.sideTileBarControlWithSub_realTimeData.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub_realTimeData.colTagDT = "LineNO";
+            this.sideTileBarControlWithSub_realTimeData.colTextDT = "LineName";
+            this.sideTileBarControlWithSub_realTimeData.colNumDT = "DeviceTotalNum";
             this.sideTileBarControlWithSub_realTimeData.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
-            this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub("LineNO", "LineName", "DeviceTotalNum", "DeviceNO", "DeviceName");
+            this.sideTileBarControlWithSub_realTimeData.colTagDTSUB = "DeviceNO";
+            this.sideTileBarControlWithSub_realTimeData.colTextDTSUB = "DeviceName";
+            this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub();
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
