@@ -118,7 +118,7 @@ namespace CloudManage
         //初始化标题栏故障表
         public static void _init_dtFaultHistoryQuery()
         {
-            if (dtTitleGridShowMainForm.Rows.Count == 0)
+            if (dtTitleGridShowMainForm.Rows.Count == 0 && dtTitleGridShowMainForm.Columns.Count == 0)
             {
                 Global.dtTitleGridShowMainForm.Columns.Add("NO", typeof(String));
                 Global.dtTitleGridShowMainForm.Columns.Add("LineName", typeof(String));
@@ -147,28 +147,30 @@ namespace CloudManage
                                                     "ON t1.LineNO=t2.LineNO " +
                                                     "GROUP BY LineName " +
                                                     "ORDER BY t1.`NO`;";
-
-                Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));     //先定义表头也可填充，表头不会填充两次
-                Global.dtOverviewWorkState.Columns.Add("LineStatus", typeof(String));
-                Global.dtOverviewWorkState.Columns.Add("DeviceImgTop", typeof(Image));
-                Global.dtOverviewWorkState.Columns.Add("DeviceImgBottom", typeof(Image));
+                if (dtOverviewWorkState.Columns.Count == 0)
+                {
+                    //Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));     //先定义表头也可填充，表头不会填充两次
+                    //Global.dtOverviewWorkState.Columns.Add("LineStatus", typeof(String));
+                    Global.dtOverviewWorkState.Columns.Add("DeviceImgTop", typeof(Image));
+                    Global.dtOverviewWorkState.Columns.Add("DeviceImgBottom", typeof(Image));
+                }
                 _initDtMySQL(ref dtOverviewWorkState, cmdInitDTOverviewWorkState);
-                
+
                 int totalDeviceNum = dtOverviewWorkState.Rows.Count;
                 int undefineTileNum = 0;
-                if(totalDeviceNum <= 24)
+                if (totalDeviceNum <= 24)
                 {
                     undefineTileNum = 24 - totalDeviceNum;
                 }
-                else if(totalDeviceNum > 24 && totalDeviceNum <= 48)
+                else if (totalDeviceNum > 24 && totalDeviceNum <= 48)
                 {
                     undefineTileNum = 48 - totalDeviceNum;
                 }
-                else if(totalDeviceNum > 48 && totalDeviceNum <= 72)
+                else if (totalDeviceNum > 48 && totalDeviceNum <= 72)
                 {
                     undefineTileNum = 72 - totalDeviceNum;
                 }
-                else if(totalDeviceNum > 72 && totalDeviceNum <= 96)
+                else if (totalDeviceNum > 72 && totalDeviceNum <= 96)
                 {
                     undefineTileNum = 96 - totalDeviceNum;
                 }
@@ -183,11 +185,11 @@ namespace CloudManage
                 }
 
                 DataRow drTemp = null;
-                for(int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
+                for (int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
                 {
                     drTemp = dtOverviewWorkState.Rows[i];
-                    drTemp["deviceImgTop"]= global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140; ;
-                    drTemp["deviceImgBottom"]= global::CloudManage.Properties.Resources.ZB45_336x140;
+                    drTemp["deviceImgTop"] = global::CloudManage.Properties.Resources.ZJ17_PROTOS70_336x140; ;
+                    drTemp["deviceImgBottom"] = global::CloudManage.Properties.Resources.ZB45_336x140;
                 }
             }
         }
@@ -207,23 +209,23 @@ namespace CloudManage
                                                               "ON t1.DeviceNO=t2.DeviceNO " +
                                                               "WHERE t1.LineNO=" + selectedItemTag +
                                                               " ORDER BY t1.`NO`;";
-                
+
                 if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
-                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("DefectNum", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("CPUTemperature", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("CPUUsage", typeof(String));
-                    Global.dtEachProductionLineWorkState.Columns.Add("MemoryUsage", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("DefectNum", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("CPUTemperature", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("CPUUsage", typeof(String));
+                    //Global.dtEachProductionLineWorkState.Columns.Add("MemoryUsage", typeof(String));
                     Global.dtEachProductionLineWorkState.Columns.Add("DeviceImg", typeof(Image));
                 }
 
                 _initDtMySQL(ref dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);
 
-                for(int i=0;i< Global.dtEachProductionLineWorkState.Rows.Count; i++)
+                for (int i = 0; i < Global.dtEachProductionLineWorkState.Rows.Count; i++)
                 {
                     if (dtEachProductionLineWorkState.Rows[i]["DeviceStatus"].ToString() == "无效")
                     {
@@ -294,7 +296,7 @@ namespace CloudManage
 
         public static void _init_dtHistoryQueryGridShow()
         {
-            string cmdInitDtDeviceConfig =  "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+            string cmdInitDtDeviceConfig = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
                                             "FROM faults_time AS t1 " +
                                             "INNER JOIN productionline AS t2 " +
                                             "INNER JOIN device AS t3 " +
@@ -311,11 +313,14 @@ namespace CloudManage
         {
             if (dtHistoryQueryGridShowClickedQueryButton.Rows.Count == 0)
             {
-                Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("NO", typeof(String));
-                Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("LineName", typeof(String));
-                Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("DeviceName", typeof(String));
-                Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultName", typeof(String));
-                Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultTime", typeof(String));
+                if (dtHistoryQueryGridShowClickedQueryButton.Columns.Count == 0)
+                {
+                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("NO", typeof(String));
+                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("LineName", typeof(String));
+                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("DeviceName", typeof(String));
+                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultName", typeof(String));
+                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultTime", typeof(String));
+                }
 
                 FileStream fsFaultDataTimeQuery = File.OpenRead(excelPath_historyQueryGridShowClickedQueryButton);
                 IWorkbook workbookFaultDataTimeQuery = null;
@@ -363,8 +368,11 @@ namespace CloudManage
         {
             if (Global.dtRightSideRealTimeData.Rows.Count == 0)
             {
-                Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
-                Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
+                if (Global.dtRightSideRealTimeData.Columns.Count == 0)
+                {
+                    Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
+                    Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
+                }
 
                 DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
                 drRightSide1["paraName"] = "检测数量";
@@ -448,5 +456,5 @@ namespace CloudManage
 
 
 
-    }   
+    }
 }

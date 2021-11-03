@@ -30,15 +30,18 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControl_lateralAnalysis.colNumDT = null;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
 
+            //CefSettings settings = new CefSettings();
+            //Cef.Initialize(settings);
+
             chromeBrowser_lateralAnalysis = new CefSharp.WinForms.ChromiumWebBrowser("www.baidu.com");
             this.chromeBrowser_lateralAnalysis.ActivateBrowserOnCreation = false;
             this.chromeBrowser_lateralAnalysis.Location = new System.Drawing.Point(240, 0);
             this.chromeBrowser_lateralAnalysis.Name = "chromeBrowser";
             this.chromeBrowser_lateralAnalysis.Size = new System.Drawing.Size(1118, 800);
+            chromeBrowser_lateralAnalysis.Dock = DockStyle.Fill;
+            this.Controls.Add(this.chromeBrowser_lateralAnalysis);
 
-            //CefSettings settings = new CefSettings();
-            //Cef.Initialize(settings);
-            chromeBrowser_lateralAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
+            //chromeBrowser_lateralAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
         }
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)
@@ -83,5 +86,7 @@ namespace CloudManage.DataAnalysis
             return true;
         }
     }
+
+
 
 }

@@ -36,9 +36,10 @@ namespace CloudManage.DataAnalysis
             this.chromeBrowser_verticalAnalysis.Location = new System.Drawing.Point(240, 0);
             this.chromeBrowser_verticalAnalysis.Name = "chromeBrowser";
             this.chromeBrowser_verticalAnalysis.Size = new System.Drawing.Size(1118, 800);
+            chromeBrowser_verticalAnalysis.Dock = DockStyle.Fill;
+            this.Controls.Add(this.chromeBrowser_verticalAnalysis);
 
             chromeBrowser_verticalAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
-            chromeBrowser_verticalAnalysis.Dock = DockStyle.Fill;
         }
 
         private void simpleButton_query_Click(object sender, EventArgs e)

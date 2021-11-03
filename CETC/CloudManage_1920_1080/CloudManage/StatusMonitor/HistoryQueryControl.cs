@@ -143,7 +143,7 @@ namespace CloudManage.StatusMonitor
                 //查询改变grid绑定的表
                 this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
             }
-            
+
 
         }
 
