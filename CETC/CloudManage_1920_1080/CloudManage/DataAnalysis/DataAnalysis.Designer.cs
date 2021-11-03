@@ -34,9 +34,11 @@ namespace CloudManage.DataAnalysis
             this.lateralAnalysis1 = new CloudManage.DataAnalysis.LateralAnalysis();
             this.navigationPage_VerticalAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_paraOptimization = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.verticalAnalysis1 = new CloudManage.DataAnalysis.VerticalAnalysis();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_dataAnalysis)).BeginInit();
             this.navigationFrame_dataAnalysis.SuspendLayout();
             this.navigationPage_LateralAnalysis.SuspendLayout();
+            this.navigationPage_VerticalAnalysis.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationFrame_dataAnalysis
@@ -58,7 +60,6 @@ namespace CloudManage.DataAnalysis
             // 
             // navigationPage_LateralAnalysis
             // 
-            this.navigationPage_LateralAnalysis.Caption = "navigationPage_LateralAnalysis";
             this.navigationPage_LateralAnalysis.Controls.Add(this.lateralAnalysis1);
             this.navigationPage_LateralAnalysis.Name = "navigationPage_LateralAnalysis";
             this.navigationPage_LateralAnalysis.Size = new System.Drawing.Size(1920, 880);
@@ -72,7 +73,7 @@ namespace CloudManage.DataAnalysis
             // 
             // navigationPage_VerticalAnalysis
             // 
-            this.navigationPage_VerticalAnalysis.Caption = "navigationPage_VerticalAnalysis";
+            this.navigationPage_VerticalAnalysis.Controls.Add(this.verticalAnalysis1);
             this.navigationPage_VerticalAnalysis.Name = "navigationPage_VerticalAnalysis";
             this.navigationPage_VerticalAnalysis.Size = new System.Drawing.Size(1920, 880);
             // 
@@ -81,6 +82,13 @@ namespace CloudManage.DataAnalysis
             this.navigationPage_paraOptimization.Caption = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Name = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Size = new System.Drawing.Size(1920, 880);
+            // 
+            // verticalAnalysis1
+            // 
+            this.verticalAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.verticalAnalysis1.Name = "verticalAnalysis1";
+            this.verticalAnalysis1.Size = new System.Drawing.Size(1920, 880);
+            this.verticalAnalysis1.TabIndex = 0;
             // 
             // DataAnalysis
             // 
@@ -92,6 +100,7 @@ namespace CloudManage.DataAnalysis
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_dataAnalysis)).EndInit();
             this.navigationFrame_dataAnalysis.ResumeLayout(false);
             this.navigationPage_LateralAnalysis.ResumeLayout(false);
+            this.navigationPage_VerticalAnalysis.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -100,5 +109,6 @@ namespace CloudManage.DataAnalysis
 
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_dataAnalysis;
         private LateralAnalysis lateralAnalysis1;
+        private VerticalAnalysis verticalAnalysis1;
     }
 }

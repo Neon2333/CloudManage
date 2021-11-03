@@ -182,6 +182,9 @@
     <EmbeddedResource Include="DataAnalysis\LateralAnalysis.resx">
       <DependentUpon>LateralAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\VerticalAnalysis.resx">
+      <DependentUpon>VerticalAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
