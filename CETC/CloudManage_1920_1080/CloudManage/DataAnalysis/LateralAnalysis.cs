@@ -30,18 +30,22 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControl_lateralAnalysis.colNumDT = null;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
 
-            //CefSettings settings = new CefSettings();
-            //Cef.Initialize(settings);
+            //initChromeBrowser();
+        }
+
+        private void initChromeBrowser()
+        {
+            CefSettings settings = new CefSettings();
+            Cef.Initialize(settings);
 
             chromeBrowser_lateralAnalysis = new CefSharp.WinForms.ChromiumWebBrowser("www.baidu.com");
             this.chromeBrowser_lateralAnalysis.ActivateBrowserOnCreation = false;
             this.chromeBrowser_lateralAnalysis.Location = new System.Drawing.Point(240, 0);
             this.chromeBrowser_lateralAnalysis.Name = "chromeBrowser";
             this.chromeBrowser_lateralAnalysis.Size = new System.Drawing.Size(1118, 800);
-            chromeBrowser_lateralAnalysis.Dock = DockStyle.Fill;
-            this.Controls.Add(this.chromeBrowser_lateralAnalysis);
-
-            //chromeBrowser_lateralAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
+            this.chromeBrowser_lateralAnalysis.Dock = DockStyle.Fill;
+            this.panelControl_chromeBrowser.Controls.Add(this.chromeBrowser_lateralAnalysis);
+            this.chromeBrowser_lateralAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
         }
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)
@@ -61,8 +65,8 @@ namespace CloudManage.DataAnalysis
                 chromeBrowser_lateralAnalysis.ExecuteScriptAsync("ShowShiftAllBtn()");
                 string strScrip = "get_analysis_lateral_shift_data('get_analysis_lateral_shift_data?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToLocalTime() + "&end_time=" + timeEdit_endTime.Time.ToLocalTime() + "')";
                 chromeBrowser_lateralAnalysis.ExecuteScriptAsync(strScrip);
-
             }
+
         }
     }
 

@@ -48,16 +48,20 @@ namespace CloudManage.StatusMonitor
                 numRowShow = numRowsHistoryQueryGridShow;
             }
 
-            for (int i = 0; i < numRowShow; i++)
+            if (Global.dtTitleGridShowMainForm.Columns.Count != 0)
             {
-                DataRow rowShowTemp = Global.dtTitleGridShowMainForm.NewRow();
-                rowShowTemp["NO"] = Global.dtHistoryQueryGridShow.Rows[i]["NO"];
-                rowShowTemp["LineName"] = Global.dtHistoryQueryGridShow.Rows[i]["LineName"];
-                rowShowTemp["DeviceName"] = Global.dtHistoryQueryGridShow.Rows[i]["DeviceName"];
-                rowShowTemp["FaultName"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultName"];
-                rowShowTemp["FaultTime"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultTime"];
-                Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
+                for (int i = 0; i < numRowShow; i++)
+                {
+                    DataRow rowShowTemp = Global.dtTitleGridShowMainForm.NewRow();
+                    rowShowTemp["NO"] = Global.dtHistoryQueryGridShow.Rows[i]["NO"];
+                    rowShowTemp["LineName"] = Global.dtHistoryQueryGridShow.Rows[i]["LineName"];
+                    rowShowTemp["DeviceName"] = Global.dtHistoryQueryGridShow.Rows[i]["DeviceName"];
+                    rowShowTemp["FaultName"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultName"];
+                    rowShowTemp["FaultTime"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultTime"];
+                    Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
+                }
             }
+            
         }
 
         //刷新目录

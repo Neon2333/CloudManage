@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 01/11/2021 17:16:07
+ Date: 03/11/2021 15:30:02
 */
 
 SET NAMES utf8mb4;
@@ -27,7 +27,7 @@ CREATE TABLE `device`  (
   `DeviceName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`NO`) USING BTREE,
   UNIQUE INDEX `NO`(`NO`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of device
@@ -128,79 +128,77 @@ CREATE TABLE `device_info`  (
 -- Records of device_info
 -- ----------------------------
 INSERT INTO `device_info` VALUES (1, '001', '001', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (2, '001', '002', '1', '100', '43', '70', '60', '40');
-INSERT INTO `device_info` VALUES (3, '001', '003', '0', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (4, '002', '004', '1', '100', '0', '75', '55', '60');
-INSERT INTO `device_info` VALUES (5, '002', '005', '1', '100', '0', '80', '40', '70');
-INSERT INTO `device_info` VALUES (6, '002', '006', '1', '100', '0', '60', '50', '30');
-INSERT INTO `device_info` VALUES (7, '003', '007', '1', '100', '0', '70', '60', '40');
-INSERT INTO `device_info` VALUES (8, '003', '008', '0', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (9, '003', '009', '-1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (10, '004', '010', '0', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (11, '004', '011', '1', '100', '0', '60', '50', '30');
-INSERT INTO `device_info` VALUES (12, '004', '012', '1', '100', '0', '70', '60', '40');
-INSERT INTO `device_info` VALUES (13, '004', '013', '1', '100', '0', '65', '66', '50');
-INSERT INTO `device_info` VALUES (14, '006', '001', '1', '100', '0', '75', '55', '60');
-INSERT INTO `device_info` VALUES (15, '006', '002', '0', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (16, '006', '003', '1', '100', '0', '60', '50', '30');
-INSERT INTO `device_info` VALUES (17, '007', '004', '0', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (18, '007', '005', '1', '100', '0', '65', '66', '50');
-INSERT INTO `device_info` VALUES (19, '007', '006', '1', '100', '0', '75', '55', '60');
-INSERT INTO `device_info` VALUES (20, '008', '007', '1', '100', '0', '80', '40', '70');
-INSERT INTO `device_info` VALUES (21, '008', '008', '1', '100', '0', '60', '50', '30');
-INSERT INTO `device_info` VALUES (22, '008', '009', '0', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (23, '009', '010', '1', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (24, '009', '011', '1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (25, '009', '012', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (26, '009', '013', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (27, '010', '001', '0', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (28, '010', '002', '0', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (29, '010', '003', '1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (30, '011', '004', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (31, '011', '005', '1', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (32, '011', '006', '1', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (33, '012', '007', '1', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (34, '012', '008', '-1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (35, '012', '009', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (36, '013', '010', '0', '100', '23', '60', '50', '30');
-INSERT INTO `device_info` VALUES (37, '013', '011', '1', '100', '42', '70', '60', '40');
-INSERT INTO `device_info` VALUES (38, '013', '012', '1', '100', '22', '65', '66', '50');
-INSERT INTO `device_info` VALUES (39, '013', '013', '1', '100', '11', '75', '55', '60');
-INSERT INTO `device_info` VALUES (40, '014', '001', '1', '100', '6', '80', '40', '70');
-INSERT INTO `device_info` VALUES (41, '014', '002', '1', '100', '23', '60', '50', '70');
-INSERT INTO `device_info` VALUES (42, '014', '003', '1', '100', '42', '70', '60', '30');
-INSERT INTO `device_info` VALUES (43, '015', '004', '1', '100', '22', '65', '66', '40');
-INSERT INTO `device_info` VALUES (44, '015', '005', '1', '100', '11', '75', '55', '50');
-INSERT INTO `device_info` VALUES (45, '015', '006', '1', '100', '6', '80', '40', '60');
-INSERT INTO `device_info` VALUES (46, '016', '007', '1', '100', '23', '60', '50', '70');
-INSERT INTO `device_info` VALUES (47, '016', '008', '1', '100', '42', '70', '60', '30');
-INSERT INTO `device_info` VALUES (48, '016', '009', '1', '100', '22', '65', '66', '40');
-INSERT INTO `device_info` VALUES (49, '017', '010', '1', '100', '11', '75', '55', '50');
-INSERT INTO `device_info` VALUES (50, '017', '011', '1', '100', '6', '80', '40', '60');
-INSERT INTO `device_info` VALUES (51, '017', '012', '0', '100', '23', '60', '50', '70');
-INSERT INTO `device_info` VALUES (52, '017', '013', '-1', '100', '42', '70', '60', '30');
-INSERT INTO `device_info` VALUES (53, '018', '001', '1', '100', '22', '65', '66', '40');
-INSERT INTO `device_info` VALUES (54, '018', '002', '1', '100', '11', '75', '55', '50');
-INSERT INTO `device_info` VALUES (55, '018', '003', '1', '100', '6', '80', '40', '60');
-INSERT INTO `device_info` VALUES (56, '019', '004', '0', '100', '23', '60', '50', '70');
-INSERT INTO `device_info` VALUES (57, '019', '005', '1', '100', '42', '70', '60', '30');
-INSERT INTO `device_info` VALUES (58, '019', '006', '1', '100', '22', '65', '66', '40');
-INSERT INTO `device_info` VALUES (59, '020', '007', '0', '100', '11', '75', '55', '50');
-INSERT INTO `device_info` VALUES (60, '020', '008', '-1', '100', '6', '80', '40', '60');
-INSERT INTO `device_info` VALUES (61, '020', '009', '1', '100', '23', '60', '40', '70');
-INSERT INTO `device_info` VALUES (62, '021', '010', '1', '100', '42', '70', '50', '30');
-INSERT INTO `device_info` VALUES (63, '021', '011', '1', '100', '22', '65', '60', '40');
-INSERT INTO `device_info` VALUES (64, '021', '012', '0', '100', '11', '75', '66', '50');
-INSERT INTO `device_info` VALUES (65, '021', '013', '1', '100', '6', '80', '55', '60');
-INSERT INTO `device_info` VALUES (66, '022', '001', '0', '100', '23', '60', '40', '70');
-INSERT INTO `device_info` VALUES (67, '022', '002', '0', '100', '42', '70', '50', '40');
-INSERT INTO `device_info` VALUES (68, '022', '003', '1', '100', '22', '65', '60', '50');
-INSERT INTO `device_info` VALUES (69, '023', '004', '1', '100', '11', '75', '66', '60');
-INSERT INTO `device_info` VALUES (70, '023', '005', '1', '100', '6', '80', '55', '70');
-INSERT INTO `device_info` VALUES (71, '023', '006', '1', '100', '23', '60', '40', '30');
-INSERT INTO `device_info` VALUES (72, '024', '007', '0', '100', '42', '70', '66', '40');
-INSERT INTO `device_info` VALUES (73, '024', '008', '0', '100', '22', '65', '55', '50');
-INSERT INTO `device_info` VALUES (74, '024', '009', '1', '100', '11', '75', '40', '60');
+INSERT INTO `device_info` VALUES (2, '001', '002', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (3, '001', '003', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (4, '002', '004', '0', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (5, '002', '005', '0', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (6, '002', '006', '0', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (7, '003', '007', '0', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (8, '003', '008', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (9, '003', '009', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (10, '004', '010', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (11, '004', '011', '0', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (12, '004', '012', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (13, '005', '013', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (14, '005', '101', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (15, '005', '102', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (16, '006', '103', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (17, '006', '104', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (18, '006', '105', '1', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (19, '007', '001', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (20, '007', '002', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (21, '007', '003', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (22, '008', '004', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (23, '008', '005', '1', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (24, '008', '006', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (25, '009', '007', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (26, '009', '008', '0', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (27, '009', '009', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (28, '010', '010', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (29, '010', '011', '0', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (30, '010', '012', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (31, '011', '013', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (32, '011', '101', '0', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (33, '011', '102', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (34, '012', '103', '0', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (35, '012', '104', '1', '100', '11', '75', '55', '60');
+INSERT INTO `device_info` VALUES (36, '012', '105', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (37, '013', '001', '0', '100', '23', '60', '50', '30');
+INSERT INTO `device_info` VALUES (38, '013', '002', '1', '100', '42', '70', '60', '40');
+INSERT INTO `device_info` VALUES (39, '013', '003', '1', '100', '22', '65', '66', '50');
+INSERT INTO `device_info` VALUES (40, '014', '004', '1', '100', '6', '80', '40', '70');
+INSERT INTO `device_info` VALUES (41, '014', '005', '1', '100', '23', '60', '50', '70');
+INSERT INTO `device_info` VALUES (42, '014', '006', '1', '100', '42', '70', '60', '30');
+INSERT INTO `device_info` VALUES (43, '015', '007', '1', '100', '22', '65', '66', '40');
+INSERT INTO `device_info` VALUES (44, '015', '008', '1', '100', '11', '75', '55', '50');
+INSERT INTO `device_info` VALUES (45, '015', '009', '1', '100', '6', '80', '40', '60');
+INSERT INTO `device_info` VALUES (46, '016', '010', '1', '100', '23', '60', '50', '70');
+INSERT INTO `device_info` VALUES (47, '016', '011', '1', '100', '42', '70', '60', '30');
+INSERT INTO `device_info` VALUES (48, '016', '012', '1', '100', '22', '65', '66', '40');
+INSERT INTO `device_info` VALUES (49, '017', '013', '1', '100', '11', '75', '55', '50');
+INSERT INTO `device_info` VALUES (50, '017', '101', '1', '100', '6', '80', '40', '60');
+INSERT INTO `device_info` VALUES (51, '017', '102', '1', '100', '23', '60', '50', '70');
+INSERT INTO `device_info` VALUES (52, '018', '103', '1', '100', '22', '65', '66', '40');
+INSERT INTO `device_info` VALUES (53, '018', '104', '1', '100', '11', '75', '55', '50');
+INSERT INTO `device_info` VALUES (54, '018', '105', '1', '100', '6', '80', '40', '60');
+INSERT INTO `device_info` VALUES (55, '019', '001', '1', '100', '23', '60', '50', '70');
+INSERT INTO `device_info` VALUES (56, '019', '002', '1', '100', '42', '70', '60', '30');
+INSERT INTO `device_info` VALUES (57, '019', '003', '1', '100', '22', '65', '66', '40');
+INSERT INTO `device_info` VALUES (58, '020', '004', '1', '100', '11', '75', '55', '50');
+INSERT INTO `device_info` VALUES (59, '020', '005', '1', '100', '6', '80', '40', '60');
+INSERT INTO `device_info` VALUES (60, '020', '006', '1', '100', '23', '60', '40', '70');
+INSERT INTO `device_info` VALUES (61, '021', '007', '1', '100', '42', '70', '50', '30');
+INSERT INTO `device_info` VALUES (62, '021', '008', '1', '100', '22', '65', '60', '40');
+INSERT INTO `device_info` VALUES (63, '021', '009', '1', '100', '11', '75', '66', '50');
+INSERT INTO `device_info` VALUES (64, '022', '010', '1', '100', '23', '60', '40', '70');
+INSERT INTO `device_info` VALUES (65, '022', '011', '1', '100', '42', '70', '50', '40');
+INSERT INTO `device_info` VALUES (66, '022', '012', '1', '100', '22', '65', '60', '50');
+INSERT INTO `device_info` VALUES (67, '023', '013', '1', '100', '11', '75', '66', '60');
+INSERT INTO `device_info` VALUES (68, '023', '101', '1', '100', '6', '80', '55', '70');
+INSERT INTO `device_info` VALUES (69, '023', '102', '1', '100', '23', '60', '40', '30');
+INSERT INTO `device_info` VALUES (70, '024', '103', '1', '100', '42', '70', '66', '40');
+INSERT INTO `device_info` VALUES (71, '024', '104', '1', '100', '22', '65', '55', '50');
+INSERT INTO `device_info` VALUES (72, '024', '105', '1', '100', '11', '75', '40', '60');
 
 -- ----------------------------
 -- Table structure for faults

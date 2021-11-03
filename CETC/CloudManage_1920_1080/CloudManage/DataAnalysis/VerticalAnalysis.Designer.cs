@@ -38,10 +38,12 @@ namespace CloudManage.DataAnalysis
             this.labelControl_endTime = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_startTime = new DevExpress.XtraEditors.LabelControl();
             this.timeEdit_startTime = new DevExpress.XtraEditors.TimeEdit();
+            this.panelControl_chromeBrowser = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_chromeBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // sideTileBarControlWithSub_verticalAnalysis
@@ -174,10 +176,18 @@ namespace CloudManage.DataAnalysis
             this.timeEdit_startTime.Size = new System.Drawing.Size(324, 46);
             this.timeEdit_startTime.TabIndex = 13;
             // 
+            // panelControl_chromeBrowser
+            // 
+            this.panelControl_chromeBrowser.Location = new System.Drawing.Point(240, 0);
+            this.panelControl_chromeBrowser.Name = "panelControl_chromeBrowser";
+            this.panelControl_chromeBrowser.Size = new System.Drawing.Size(1118, 800);
+            this.panelControl_chromeBrowser.TabIndex = 9;
+            // 
             // VerticalAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelControl_chromeBrowser);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.sideTileBarControlWithSub_verticalAnalysis);
             this.Name = "VerticalAnalysis";
@@ -186,6 +196,7 @@ namespace CloudManage.DataAnalysis
             this.panelControl_rightSide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_chromeBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,5 +212,6 @@ namespace CloudManage.DataAnalysis
         private DevExpress.XtraEditors.LabelControl labelControl_endTime;
         private DevExpress.XtraEditors.LabelControl labelControl_startTime;
         private DevExpress.XtraEditors.TimeEdit timeEdit_startTime;
+        private DevExpress.XtraEditors.PanelControl panelControl_chromeBrowser;
     }
 }

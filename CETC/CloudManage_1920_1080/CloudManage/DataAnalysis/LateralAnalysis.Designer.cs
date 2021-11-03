@@ -29,10 +29,10 @@ namespace CloudManage.DataAnalysis
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LateralAnalysis));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sideTileBarControl_lateralAnalysis = new CloudManage.CommonControl.SideTileBarControl();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
@@ -43,10 +43,12 @@ namespace CloudManage.DataAnalysis
             this.labelControl_endTime = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_startTime = new DevExpress.XtraEditors.LabelControl();
             this.timeEdit_startTime = new DevExpress.XtraEditors.TimeEdit();
+            this.panelControl_chromeBrowser = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_chromeBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // sideTileBarControl_lateralAnalysis
@@ -68,14 +70,14 @@ namespace CloudManage.DataAnalysis
             // 
             this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
+            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
+            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
             this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
@@ -199,10 +201,18 @@ namespace CloudManage.DataAnalysis
             this.timeEdit_startTime.Size = new System.Drawing.Size(324, 46);
             this.timeEdit_startTime.TabIndex = 13;
             // 
+            // panelControl_chromeBrowser
+            // 
+            this.panelControl_chromeBrowser.Location = new System.Drawing.Point(240, 0);
+            this.panelControl_chromeBrowser.Name = "panelControl_chromeBrowser";
+            this.panelControl_chromeBrowser.Size = new System.Drawing.Size(1118, 800);
+            this.panelControl_chromeBrowser.TabIndex = 8;
+            // 
             // LateralAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelControl_chromeBrowser);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
             this.Controls.Add(this.sideTileBarControl_lateralAnalysis);
@@ -212,6 +222,7 @@ namespace CloudManage.DataAnalysis
             this.panelControl_rightSide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl_chromeBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +239,6 @@ namespace CloudManage.DataAnalysis
         private DevExpress.XtraEditors.LabelControl labelControl_endTime;
         private DevExpress.XtraEditors.LabelControl labelControl_startTime;
         private DevExpress.XtraEditors.TimeEdit timeEdit_startTime;
+        private DevExpress.XtraEditors.PanelControl panelControl_chromeBrowser;
     }
 }

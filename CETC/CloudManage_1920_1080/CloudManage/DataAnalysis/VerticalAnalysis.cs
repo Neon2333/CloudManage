@@ -28,6 +28,11 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_verticalAnalysis._initSideTileBarWithSub();
 
+            //initChromeBrowser();
+        }
+
+        private void initChromeBrowser()
+        {
             //chromeBrowser_verticalAnalysis.Load("www.baidu.com");
             //chromeBrowser_verticalAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
 
@@ -37,9 +42,8 @@ namespace CloudManage.DataAnalysis
             this.chromeBrowser_verticalAnalysis.Name = "chromeBrowser";
             this.chromeBrowser_verticalAnalysis.Size = new System.Drawing.Size(1118, 800);
             chromeBrowser_verticalAnalysis.Dock = DockStyle.Fill;
-            this.Controls.Add(this.chromeBrowser_verticalAnalysis);
-
-            chromeBrowser_verticalAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
+            this.panelControl_chromeBrowser.Controls.Add(this.chromeBrowser_verticalAnalysis);
+            this.chromeBrowser_verticalAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
         }
 
         private void simpleButton_query_Click(object sender, EventArgs e)

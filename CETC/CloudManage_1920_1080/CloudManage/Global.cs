@@ -279,6 +279,21 @@ namespace CloudManage
                             case "013":
                                 dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
                                 break;
+                            case "101":
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                                break;
+                            case "102":
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                                break;
+                            case "103":
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                                break;
+                            case "104":
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                                break;
+                            case "105":
+                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                                break;
                         }
                     }
                 }
