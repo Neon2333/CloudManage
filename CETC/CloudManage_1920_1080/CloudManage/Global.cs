@@ -236,7 +236,7 @@ namespace CloudManage
                     }
                     else
                     {
-                        switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"])    //更换检测设备图片
+                        switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"].ToString())    //更换检测设备图片
                         {
                             case "001":
                                 dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
