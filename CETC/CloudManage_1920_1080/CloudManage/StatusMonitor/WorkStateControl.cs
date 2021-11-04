@@ -105,6 +105,8 @@ namespace CloudManage.StatusMonitor
             }
             else
             {
+                object o = this.tileView_each.FocusedValue;
+
                 Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
                 Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_each; //若当前选中的不是总览按钮则显示Page_each

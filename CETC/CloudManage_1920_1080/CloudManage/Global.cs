@@ -167,14 +167,14 @@ namespace CloudManage
                 valFaultTime = Global.dtHistoryValid.Rows[i]["FaultTime"].ToString();
 
                 cmdIfExist = "SELECT COUNT(t1.`NO`) FROM faults_history AS t1 WHERE " +
-                             "t1.LineNO=" + "'" + valLineNO + "'" +
-                             "t1.DeviceNO=" + "'" + valDeviceNO + "'" +
-                             "t1.FaultNO=" + "'" + valFaultNO + "'" +
-                             "t1.FaultTime=" + "'" + valFaultTime + "';";
+                             "t1.LineNO=" + "'" + valLineNO + "' " +
+                             "AND t1.DeviceNO=" + "'" + valDeviceNO + "' " +
+                             "AND t1.FaultNO=" + "'" + valFaultNO + "' " +
+                             "AND t1.FaultTime=" + "'" + valFaultTime + "';";
 
                 DataTable dtIfExist = new DataTable();
                 _initDtMySQL(ref dtIfExist, cmdIfExist);
-                if (dtIfExist.Rows.Count == 0)
+                if (Convert.ToInt32(dtIfExist.Rows[0][0]) == 0)
                 {
                     cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
                                            "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
@@ -366,7 +366,7 @@ namespace CloudManage
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
 
         public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
-        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery.xlsx";
+        public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery";
 
         public static void _init_dtHistoryQueryGridShow()
         {
@@ -383,54 +383,68 @@ namespace CloudManage
             _initDtMySQL(ref Global.dtHistoryQueryGridShow, cmdInitDtHistoryQueryGridShow);
         }
 
-        public static void _init_dtHistoryQueryGridShowClickedQueryButton()
+        public static void queryDtHistoryQueryGridShowClickedQueryButton(string timeStart, string timeEnd)
         {
-            if (dtHistoryQueryGridShowClickedQueryButton.Rows.Count == 0)
-            {
-                if (dtHistoryQueryGridShowClickedQueryButton.Columns.Count == 0)
-                {
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("NO", typeof(String));
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("LineName", typeof(String));
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("DeviceName", typeof(String));
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultName", typeof(String));
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultTime", typeof(String));
-                }
+            string cmdQueryDtHistoryQueryGridShowClickedQueryButton = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            "WHERE t1.FaultTime BETWEEN " +
+                                            "'" + timeStart + "'" + " AND " + "'" + timeEnd + "' " +
+                                            "ORDER BY t1.`NO`;";
+            _initDtMySQL(ref dtHistoryQueryGridShowClickedQueryButton, cmdQueryDtHistoryQueryGridShowClickedQueryButton);
 
-                FileStream fsFaultDataTimeQuery = File.OpenRead(excelPath_historyQueryGridShowClickedQueryButton);
-                IWorkbook workbookFaultDataTimeQuery = null;
-                workbookFaultDataTimeQuery = new XSSFWorkbook(fsFaultDataTimeQuery);
-                ISheet sheetFaultDataTimeQuery = workbookFaultDataTimeQuery.GetSheetAt(0);
-                int totalRowsFaultDataTimeQuery = sheetFaultDataTimeQuery.LastRowNum + 1;
-                IRow rowFaultDataTimeQuery = null;
+            //if (dtHistoryQueryGridShowClickedQueryButton.Rows.Count == 0)
+            //{
+            //    if (dtHistoryQueryGridShowClickedQueryButton.Columns.Count == 0)
+            //    {
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("NO", typeof(String));
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("LineName", typeof(String));
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("DeviceName", typeof(String));
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultName", typeof(String));
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultTime", typeof(String));
+            //    }
 
-                //DateTime faultOccurTemp;
-                for (int i = 1; i < totalRowsFaultDataTimeQuery; i++)
-                {
-                    rowFaultDataTimeQuery = sheetFaultDataTimeQuery.GetRow(i);
-                    ICell cellFaultDataTimeQuery0 = rowFaultDataTimeQuery.GetCell(0);
-                    ICell cellFaultDataTimeQuery1 = rowFaultDataTimeQuery.GetCell(1);
-                    ICell cellFaultDataTimeQuery2 = rowFaultDataTimeQuery.GetCell(2);
-                    ICell cellFaultDataTimeQuery3 = rowFaultDataTimeQuery.GetCell(3);
-                    ICell cellFaultDataTimeQuery4 = rowFaultDataTimeQuery.GetCell(4);
+            //    FileStream fsFaultDataTimeQuery = File.OpenRead(excelPath_historyQueryGridShowClickedQueryButton);
+            //    IWorkbook workbookFaultDataTimeQuery = null;
+            //    workbookFaultDataTimeQuery = new XSSFWorkbook(fsFaultDataTimeQuery);
+            //    ISheet sheetFaultDataTimeQuery = workbookFaultDataTimeQuery.GetSheetAt(0);
+            //    int totalRowsFaultDataTimeQuery = sheetFaultDataTimeQuery.LastRowNum + 1;
+            //    IRow rowFaultDataTimeQuery = null;
 
-                    string numFaultDataTimeQuery = Convert.ToString(getCellValue(cellFaultDataTimeQuery0));
-                    string nameProductionLineFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery1));
-                    string nameTestingDeviceFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery2));
-                    string nameFaultFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery3));
-                    DateTime tempTimeFaultOccurFaultDataTime = Convert.ToDateTime(getCellValue(cellFaultDataTimeQuery4));
-                    string timeFaultOccurFaultDataTime = tempTimeFaultOccurFaultDataTime.ToString("yyyy-MM-dd HH:mm:ss");
+            //    //DateTime faultOccurTemp;
+            //    for (int i = 1; i < totalRowsFaultDataTimeQuery; i++)
+            //    {
+            //        rowFaultDataTimeQuery = sheetFaultDataTimeQuery.GetRow(i);
+            //        ICell cellFaultDataTimeQuery0 = rowFaultDataTimeQuery.GetCell(0);
+            //        ICell cellFaultDataTimeQuery1 = rowFaultDataTimeQuery.GetCell(1);
+            //        ICell cellFaultDataTimeQuery2 = rowFaultDataTimeQuery.GetCell(2);
+            //        ICell cellFaultDataTimeQuery3 = rowFaultDataTimeQuery.GetCell(3);
+            //        ICell cellFaultDataTimeQuery4 = rowFaultDataTimeQuery.GetCell(4);
 
-                    DataRow drFaultDataTimeQuery = Global.dtHistoryQueryGridShowClickedQueryButton.NewRow();
-                    drFaultDataTimeQuery["NO"] = numFaultDataTimeQuery;
-                    drFaultDataTimeQuery["LineName"] = nameProductionLineFaultDataTime;
-                    drFaultDataTimeQuery["DeviceName"] = nameTestingDeviceFaultDataTime;
-                    drFaultDataTimeQuery["FaultName"] = nameFaultFaultDataTime;
-                    drFaultDataTimeQuery["FaultTime"] = timeFaultOccurFaultDataTime;
+            //        string numFaultDataTimeQuery = Convert.ToString(getCellValue(cellFaultDataTimeQuery0));
+            //        string nameProductionLineFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery1));
+            //        string nameTestingDeviceFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery2));
+            //        string nameFaultFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery3));
+            //        DateTime tempTimeFaultOccurFaultDataTime = Convert.ToDateTime(getCellValue(cellFaultDataTimeQuery4));
+            //        string timeFaultOccurFaultDataTime = tempTimeFaultOccurFaultDataTime.ToString("yyyy-MM-dd HH:mm:ss");
 
-                    Global.dtHistoryQueryGridShowClickedQueryButton.Rows.Add(drFaultDataTimeQuery);
-                }
-                fsFaultDataTimeQuery.Close();
-            }
+            //        DataRow drFaultDataTimeQuery = Global.dtHistoryQueryGridShowClickedQueryButton.NewRow();
+            //        drFaultDataTimeQuery["NO"] = numFaultDataTimeQuery;
+            //        drFaultDataTimeQuery["LineName"] = nameProductionLineFaultDataTime;
+            //        drFaultDataTimeQuery["DeviceName"] = nameTestingDeviceFaultDataTime;
+            //        drFaultDataTimeQuery["FaultName"] = nameFaultFaultDataTime;
+            //        drFaultDataTimeQuery["FaultTime"] = timeFaultOccurFaultDataTime;
+
+            //        Global.dtHistoryQueryGridShowClickedQueryButton.Rows.Add(drFaultDataTimeQuery);
+            //    }
+            //    fsFaultDataTimeQuery.Close();
+            //}
         }
 
         /*************************************************************************************************************/

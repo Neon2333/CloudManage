@@ -30,6 +30,8 @@ namespace CloudManage
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
+            object o = this.tileView_1.FocusedValue;
+
         }
 
         private void timer_datetime_Tick(object sender, EventArgs e)
@@ -262,9 +264,14 @@ namespace CloudManage
             this.panelControl_faultsCurrent.Visible = false;
         }
 
-        private void timer__refreshTitleGridShow_Tick(object sender, EventArgs e)
+        private void timer_refreshDtTitleGridShowMainForm_Tick(object sender, EventArgs e)
         {
             Global._refreshTitleGridShow();
+            int[] index1 = this.tileView_1.GetSelectedRows(); //返回被选中tile的index
+
+
+
+            int[] index2 = this.tileView_1.GetSelectedRows();
             Global._writeFaultsHistory();
         }
     }

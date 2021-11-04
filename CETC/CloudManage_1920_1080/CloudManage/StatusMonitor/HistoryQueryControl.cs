@@ -32,8 +32,8 @@ namespace CloudManage.StatusMonitor
         {
             _initSideTileBarWithSub();  //初始化侧边栏
             Global._init_dtHistoryQueryGridShow();    //显示所有故障
-            Global._init_dtHistoryQueryGridShowClickedQueryButton();   //点击查询显示时间段内的故障
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
+
         }
 
         ////更新标题栏的若干行（共numRowShow行）
@@ -60,7 +60,7 @@ namespace CloudManage.StatusMonitor
         //            Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
         //        }
         //    }
-            
+
         //}
 
         //刷新目录
@@ -144,6 +144,7 @@ namespace CloudManage.StatusMonitor
             else
             {
                 //查询改变grid绑定的表
+                Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
                 this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
             }
 
