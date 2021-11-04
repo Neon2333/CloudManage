@@ -118,6 +118,7 @@ namespace CloudManage.MySQL
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(queryCmd, this.conn);//创建MySqlDataAdapter对象
                 MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);//此处必须有，否则无法更新
+                resultDt.Rows.Clear();  
                 adapter.Fill(resultDt);//将查询的内容填充到数据表中
                 flag = true;
             }
@@ -128,6 +129,30 @@ namespace CloudManage.MySQL
             return flag;
         }
 
+        //mysql插入记录
+        public bool _insertTableMySQL(string queryCmd)
+        {
+            bool flag = false;
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(queryCmd, this.conn);//创建MySqlCommand对象
+                myCommand.CommandType = CommandType.Text;//命令类型
+                myCommand.CommandTimeout = 12000;
+
+                if (this.conn.State == ConnectionState.Closed)
+                {
+                    this.conn.Open();//开启连接
+                }
+                if (myCommand.ExecuteNonQuery() > 0) {
+                    flag = true;
+                }//更新内容(返回受影响函数，如增、删、改操作)
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
+            return flag;
+        }
 
     }
 }

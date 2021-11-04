@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 03/11/2021 15:30:02
+ Date: 04/11/2021 17:35:37
 */
 
 SET NAMES utf8mb4;
@@ -56,7 +56,7 @@ INSERT INTO `device` VALUES (18, '105', '_三号轮铝箔纸检测');
 -- ----------------------------
 DROP TABLE IF EXISTS `device_config`;
 CREATE TABLE `device_config`  (
-  `NO` int(255) NOT NULL,
+  `NO` int(255) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `DeviceStatus_001` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `DeviceStatus_002` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `device_config`  (
   `DeviceStatus_104` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `DeviceStatus_105` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`NO`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of device_config
@@ -205,12 +205,12 @@ INSERT INTO `device_info` VALUES (72, '024', '105', '1', '100', '11', '75', '40'
 -- ----------------------------
 DROP TABLE IF EXISTS `faults`;
 CREATE TABLE `faults`  (
-  `NO` int(10) NOT NULL,
+  `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `FaultNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `FaultName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`NO`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of faults
@@ -1131,7 +1131,7 @@ INSERT INTO `faults_config` VALUES (838, '005', '012', '8', '1');
 INSERT INTO `faults_config` VALUES (839, '005', '012', '9', '1');
 INSERT INTO `faults_config` VALUES (840, '005', '012', '10', '1');
 INSERT INTO `faults_config` VALUES (841, '005', '013', '1', '1');
-INSERT INTO `faults_config` VALUES (842, '005', '013', '2', '1');
+INSERT INTO `faults_config` VALUES (842, '005', '013', '2', '0');
 INSERT INTO `faults_config` VALUES (843, '005', '013', '3', '1');
 INSERT INTO `faults_config` VALUES (844, '005', '013', '4', '1');
 INSERT INTO `faults_config` VALUES (845, '005', '013', '5', '1');
@@ -4612,34 +4612,84 @@ INSERT INTO `faults_config` VALUES (4319, '024', '018', '9', '1');
 INSERT INTO `faults_config` VALUES (4320, '024', '018', '10', '1');
 
 -- ----------------------------
--- Table structure for faults_time
+-- Table structure for faults_current
 -- ----------------------------
-DROP TABLE IF EXISTS `faults_time`;
-CREATE TABLE `faults_time`  (
-  `NO` int(10) NOT NULL,
+DROP TABLE IF EXISTS `faults_current`;
+CREATE TABLE `faults_current`  (
+  `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `FaultNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `FaultTime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`NO`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of faults_time
+-- Records of faults_current
 -- ----------------------------
-INSERT INTO `faults_time` VALUES (1, '002', '004', '2', '2021-09-01 08:30:35');
-INSERT INTO `faults_time` VALUES (2, '002', '005', '1', '2021-09-02 10:02:09');
-INSERT INTO `faults_time` VALUES (3, '002', '006', '3', '2021-09-03 20:45:20');
-INSERT INTO `faults_time` VALUES (4, '002', '004', '2', '2021-09-04 15:08:49');
-INSERT INTO `faults_time` VALUES (5, '002', '005', '1', '2021-09-05 11:32:56');
-INSERT INTO `faults_time` VALUES (6, '009', '008', '4', '2021-09-06 13:34:12');
-INSERT INTO `faults_time` VALUES (7, '010', '011', '2', '2021-09-07 12:17:14');
-INSERT INTO `faults_time` VALUES (8, '011', '101', '1', '2021-09-08 17:14:36');
-INSERT INTO `faults_time` VALUES (9, '012', '103', '2', '2021-09-09 09:12:33');
-INSERT INTO `faults_time` VALUES (10, '013', '001', '4', '2021-09-10 19:12:15');
-INSERT INTO `faults_time` VALUES (11, '002', '004', '3', '2021-09-01 08:30:35');
-INSERT INTO `faults_time` VALUES (12, '003', '007', '2', '2021-09-02 10:02:09');
-INSERT INTO `faults_time` VALUES (13, '004', '011', '2', '2021-09-03 20:45:20');
+INSERT INTO `faults_current` VALUES (1, '001', '003', '1', '2021-11-01 08:30:35');
+INSERT INTO `faults_current` VALUES (2, '002', '005', '1', '2021-11-01 10:02:09');
+INSERT INTO `faults_current` VALUES (3, '003', '007', '2', '2021-11-01 20:45:20');
+INSERT INTO `faults_current` VALUES (4, '004', '010', '4', '2021-11-02 11:32:40');
+INSERT INTO `faults_current` VALUES (5, '005', '013', '2', '2021-11-02 15:08:55');
+
+-- ----------------------------
+-- Table structure for faults_history
+-- ----------------------------
+DROP TABLE IF EXISTS `faults_history`;
+CREATE TABLE `faults_history`  (
+  `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `FaultNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `FaultTime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`NO`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of faults_history
+-- ----------------------------
+INSERT INTO `faults_history` VALUES (1, '002', '004', '2', '2021-09-01 08:30:35');
+INSERT INTO `faults_history` VALUES (2, '002', '005', '1', '2021-09-02 10:02:09');
+INSERT INTO `faults_history` VALUES (3, '002', '006', '3', '2021-09-03 20:45:20');
+INSERT INTO `faults_history` VALUES (4, '002', '004', '2', '2021-09-04 15:08:49');
+INSERT INTO `faults_history` VALUES (5, '002', '005', '1', '2021-09-05 11:32:56');
+INSERT INTO `faults_history` VALUES (6, '009', '008', '4', '2021-09-06 13:34:12');
+INSERT INTO `faults_history` VALUES (7, '010', '011', '2', '2021-09-07 12:17:14');
+INSERT INTO `faults_history` VALUES (8, '011', '101', '1', '2021-09-08 17:14:36');
+INSERT INTO `faults_history` VALUES (9, '004', '010', '4', '2021-11-02 11:32:40');
+INSERT INTO `faults_history` VALUES (10, '005', '013', '2', '2021-11-02 15:08:55');
+INSERT INTO `faults_history` VALUES (20, '001', '003', '1', '2021-11-01 08:30:35');
+INSERT INTO `faults_history` VALUES (21, '002', '005', '1', '2021-11-01 10:02:09');
+INSERT INTO `faults_history` VALUES (22, '003', '007', '2', '2021-11-01 20:45:20');
+INSERT INTO `faults_history` VALUES (23, '004', '010', '4', '2021-11-02 11:32:40');
+
+-- ----------------------------
+-- Table structure for faults_history_backup
+-- ----------------------------
+DROP TABLE IF EXISTS `faults_history_backup`;
+CREATE TABLE `faults_history_backup`  (
+  `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `FaultNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `FaultTime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`NO`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of faults_history_backup
+-- ----------------------------
+INSERT INTO `faults_history_backup` VALUES (1, '002', '004', '2', '2021-09-01 08:30:35');
+INSERT INTO `faults_history_backup` VALUES (2, '002', '005', '1', '2021-09-02 10:02:09');
+INSERT INTO `faults_history_backup` VALUES (3, '002', '006', '3', '2021-09-03 20:45:20');
+INSERT INTO `faults_history_backup` VALUES (4, '002', '004', '2', '2021-09-04 15:08:49');
+INSERT INTO `faults_history_backup` VALUES (5, '002', '005', '1', '2021-09-05 11:32:56');
+INSERT INTO `faults_history_backup` VALUES (6, '009', '008', '4', '2021-09-06 13:34:12');
+INSERT INTO `faults_history_backup` VALUES (7, '010', '011', '2', '2021-09-07 12:17:14');
+INSERT INTO `faults_history_backup` VALUES (8, '011', '101', '1', '2021-09-08 17:14:36');
+INSERT INTO `faults_history_backup` VALUES (9, '004', '010', '4', '2021-11-02 11:32:56');
+INSERT INTO `faults_history_backup` VALUES (10, '005', '013', '2', '2021-11-02 15:08:49');
 
 -- ----------------------------
 -- Table structure for productionline

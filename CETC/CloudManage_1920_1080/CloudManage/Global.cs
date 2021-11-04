@@ -16,7 +16,9 @@ namespace CloudManage
             Global._init_dtProductionLine();    //初始化产线名称表
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
-            Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
+            //Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
+            Global._refreshTitleGridShow();
+            Global._writeFaultsHistory();
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
 
         }
@@ -27,7 +29,7 @@ namespace CloudManage
          * device(dtTestingDeviceName)——检测设备名称表：检测设备ID、检测设备名称
          * faults(dtFaults)——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
          * faults_config——各产线对应设备的故障使能：产线ID、检测设备ID、故障ID、使能标志
-         * faults_time——所有故障的发生时间：产线ID、设备ID、故障ID、故障时间
+         * faults_history——所有故障的发生时间：产线ID、设备ID、故障ID、故障时间
          * device_info——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
          * 
          * 临时表，由查询得到：
@@ -35,7 +37,7 @@ namespace CloudManage
          * dtOverviewWorkState——WorkState中总览显示用表：产线名称、产线状态（是否故障）
          * dtEachProductionLineWorkState——WorkState中每条产线数据显示表
          * dtTitleGridShowMainForm——标题栏显示所有故障的最新若干条记录（由device_info得到）
-         * dtHistoryQueryGridShow（faults_time）——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
+         * dtHistoryQueryGridShow（faults_history）——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
          * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障
          * dtRightSideRealTimeData——RealTimeData中右侧显示表：参数名称、参数值
          * 
@@ -71,22 +73,22 @@ namespace CloudManage
         //初始化产线名称表
         public static void _init_dtProductionLine()
         {
-            string cmdInitDtDeviceConfig = "SELECT * FROM productionline";
-            _initDtMySQL(ref Global.dtProductionLine, cmdInitDtDeviceConfig);
+            string cmdInitDtProductionLine = "SELECT * FROM productionline";
+            _initDtMySQL(ref Global.dtProductionLine, cmdInitDtProductionLine);
         }
 
         //初始化检测设备名称表
         public static void _init_dtTestingDeviceName()
         {
-            string cmdInitDtDeviceConfig = "SELECT * FROM device";
-            _initDtMySQL(ref Global.dtTestingDeviceName, cmdInitDtDeviceConfig);
+            string cmdInitDtTestingDeviceName = "SELECT * FROM device";
+            _initDtMySQL(ref Global.dtTestingDeviceName, cmdInitDtTestingDeviceName);
         }
 
         //初始化故障表
         public static void _init_dtFaults()
         {
-            string cmdInitDtDeviceConfig = "SELECT * FROM faults";
-            _initDtMySQL(ref Global.dtFaults, cmdInitDtDeviceConfig);
+            string cmdInitDtFaults = "SELECT * FROM faults";
+            _initDtMySQL(ref Global.dtFaults, cmdInitDtFaults);
         }
 
         /**********************************************************************************************************************************************/
@@ -104,27 +106,84 @@ namespace CloudManage
                 strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
             }
             strT1 += " AS DeviceTotalNum FROM device_config";
-            string cmdInitDtDeviceConfig = "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
+            string cmdInitDtSideTileBar = "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
                                            "FROM (" + strT1 + ")AS t1 " +
                                            "INNER JOIN productionline AS t2 " +
                                            "ON t1.LineNO=t2.LineNO;";
-            _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtDeviceConfig);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
+            _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtSideTileBar);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
         }
 
         /**********************************************************************************************************************************************/
         //MainForm
-        public static DataTable dtTitleGridShowMainForm = new DataTable();    //主菜单标题表
-
-        //初始化标题栏故障表
-        public static void _init_dtFaultHistoryQuery()
+        public static DataTable dtTitleGridShowMainForm = new DataTable();    //主菜单标题显示表
+        public static DataTable dtHistoryValid = new DataTable();
+        //刷新标题栏故障表
+        public static void _refreshTitleGridShow()
         {
-            if (dtTitleGridShowMainForm.Rows.Count == 0 && dtTitleGridShowMainForm.Columns.Count == 0)
+
+            string cmdQueryDtTitleGridShowMainForm = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM " +
+                                            "("     +
+                                            "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
+                                            "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
+                                            "AND t2.FaultEnable='1'" +
+                                            ")AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            "ORDER BY t1.`NO`;";
+            _initDtMySQL(ref dtTitleGridShowMainForm, cmdQueryDtTitleGridShowMainForm);
+
+            string cmdQueryDtHistoryValid = "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
+                                            "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
+                                            "AND t2.FaultEnable='1';";
+            _initDtMySQL(ref dtHistoryValid, cmdQueryDtHistoryValid);
+        }
+
+        public static void _writeFaultsHistory()
+        {
+            //string cmdQueryDtWriteFaultsHistory = "SELECT * FROM faults_current WHERE faults_current.`NO` NOT IN ( " +
+            //                                     "SELECT t1.`NO` FROM faults_current AS t1, faults_history AS t2 WHERE " +
+            //                                     "t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO AND t1.FaultTime=t2.FaultTime); ";
+            //_initDtMySQL(ref dtWriteFaultsHistory, cmdQueryDtWriteFaultsHistory);
+
+            string cmdInsertFaultsHistory = String.Empty;
+            string cmdIfExist = String.Empty;
+
+            string valLineNO = String.Empty;
+            string valDeviceNO = String.Empty;
+            string valFaultNO = String.Empty;
+            string valFaultTime = String.Empty;
+
+            for (int i = 0; i < dtHistoryValid.Rows.Count; i++)
             {
-                Global.dtTitleGridShowMainForm.Columns.Add("NO", typeof(String));
-                Global.dtTitleGridShowMainForm.Columns.Add("LineName", typeof(String));
-                Global.dtTitleGridShowMainForm.Columns.Add("DeviceName", typeof(String));
-                Global.dtTitleGridShowMainForm.Columns.Add("FaultName", typeof(String));
-                Global.dtTitleGridShowMainForm.Columns.Add("FaultTime", typeof(String));
+                valLineNO = Global.dtHistoryValid.Rows[i]["LineNO"].ToString();
+                valDeviceNO = Global.dtHistoryValid.Rows[i]["DeviceNO"].ToString();
+                valFaultNO = Global.dtHistoryValid.Rows[i]["FaultNO"].ToString();
+                valFaultTime = Global.dtHistoryValid.Rows[i]["FaultTime"].ToString();
+
+                cmdIfExist = "SELECT COUNT(t1.`NO`) FROM faults_history AS t1 WHERE " +
+                             "t1.LineNO=" + "'" + valLineNO + "'" +
+                             "t1.DeviceNO=" + "'" + valDeviceNO + "'" +
+                             "t1.FaultNO=" + "'" + valFaultNO + "'" +
+                             "t1.FaultTime=" + "'" + valFaultTime + "';";
+
+                DataTable dtIfExist = new DataTable();
+                _initDtMySQL(ref dtIfExist, cmdIfExist);
+                if (dtIfExist.Rows.Count == 0)
+                {
+                    cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
+                                           "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
+
+                    MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                    bool flag1 = mysqlHelper1._connectMySQL();
+                    bool flag2 = mysqlHelper1._insertTableMySQL(cmdInsertFaultsHistory);
+                    mysqlHelper1.conn.Close();
+                }
             }
         }
 
@@ -143,7 +202,7 @@ namespace CloudManage
                                                     "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
                                                     "WHEN COUNT(FaultTime)=0 THEN '正常' " +
                                                     "END) AS LineStatus " +
-                                                    "FROM productionline AS t1 LEFT JOIN faults_time AS t2 " +
+                                                    "FROM productionline AS t1 LEFT JOIN faults_history AS t2 " +
                                                     "ON t1.LineNO=t2.LineNO " +
                                                     "GROUP BY LineName " +
                                                     "ORDER BY t1.`NO`;";
@@ -311,8 +370,8 @@ namespace CloudManage
 
         public static void _init_dtHistoryQueryGridShow()
         {
-            string cmdInitDtDeviceConfig = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
-                                            "FROM faults_time AS t1 " +
+            string cmdInitDtHistoryQueryGridShow = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
                                             "INNER JOIN productionline AS t2 " +
                                             "INNER JOIN device AS t3 " +
                                             "INNER JOIN faults AS t4 " +
@@ -321,7 +380,7 @@ namespace CloudManage
                                             "AND t1.DeviceNO=t4.DeviceNO " +
                                             "AND t1.FaultNO=t4.FaultNO " +
                                             "ORDER BY t1.`NO`;";
-            _initDtMySQL(ref Global.dtHistoryQueryGridShow, cmdInitDtDeviceConfig);
+            _initDtMySQL(ref Global.dtHistoryQueryGridShow, cmdInitDtHistoryQueryGridShow);
         }
 
         public static void _init_dtHistoryQueryGridShowClickedQueryButton()

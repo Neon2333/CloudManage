@@ -28,8 +28,8 @@ namespace CloudManage
             Global.initDataTable();
             InitializeComponent();
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
-            this.panelControl_faultHistoryQuery.Visible = false;
-            this.gridControl_faultHistoryQuery.DataSource = Global.dtTitleGridShowMainForm;
+            this.panelControl_faultsCurrent.Visible = false;
+            this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
         }
 
         private void timer_datetime_Tick(object sender, EventArgs e)
@@ -37,18 +37,12 @@ namespace CloudManage
             now = DateTime.Now;
             this.labelControl_datetime.Text = now.ToString("yyyy-MM-dd  HH:mm:ss");
 
-            //if (this.statusMonitorControl1.faultNumStatusMonitor != 0)
-            //{
-            //    this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
-            //}
-            if (this.panelControl_faultHistoryQuery.Visible == false)
+            if (this.panelControl_faultsCurrent.Visible == false)
             {
                 if (Global.dtTitleGridShowMainForm.Rows.Count != 0)
                 {
-                    //this.sidePanel_title.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
                     this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
                     DataRow rowFirstLine = Global.dtTitleGridShowMainForm.Rows[0];
-                    //this.labelControl_title.Text = "序号：" + (string)rowFirstLine["序号"] + ",产线名称：" + (string)rowFirstLine["产线名称"] + "检测设备名称：" + (string)rowFirstLine["检测设备名称"] + "故障名称：" + (string)rowFirstLine["故障名称"] + "故障发生时间："+ (string)rowFirstLine["故障发生时间"];
                     this.labelControl_title.Text = (string)rowFirstLine["LineName"] + " " + (string)rowFirstLine["DeviceName"] + " " + (string)rowFirstLine["FaultName"];
                 }
                 else
@@ -251,7 +245,7 @@ namespace CloudManage
 
         private void labelControl_title_Click(object sender, EventArgs e)
         {
-            this.panelControl_faultHistoryQuery.Visible = true;
+            this.panelControl_faultsCurrent.Visible = true;
 
         }
 
@@ -265,8 +259,13 @@ namespace CloudManage
 
         private void simpleButtonfaultHistoryQuery_Click(object sender, EventArgs e)
         {
-            this.panelControl_faultHistoryQuery.Visible = false;
+            this.panelControl_faultsCurrent.Visible = false;
         }
 
+        private void timer__refreshTitleGridShow_Tick(object sender, EventArgs e)
+        {
+            Global._refreshTitleGridShow();
+            Global._writeFaultsHistory();
+        }
     }
 }

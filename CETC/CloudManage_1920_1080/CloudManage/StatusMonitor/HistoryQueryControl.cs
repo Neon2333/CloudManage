@@ -34,35 +34,34 @@ namespace CloudManage.StatusMonitor
             Global._init_dtHistoryQueryGridShow();    //显示所有故障
             Global._init_dtHistoryQueryGridShowClickedQueryButton();   //点击查询显示时间段内的故障
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
-            _refreshTitleGridShow(10);
         }
 
-        //更新标题栏的若干行（共numRowShow行）
-        public void _refreshTitleGridShow(int numRowShow)
-        {
-            Global.dtTitleGridShowMainForm.Rows.Clear();
+        ////更新标题栏的若干行（共numRowShow行）
+        //public void _refreshTitleGridShow(int numRowShow)
+        //{
+        //    Global.dtTitleGridShowMainForm.Rows.Clear();
 
-            int numRowsHistoryQueryGridShow = Global.dtHistoryQueryGridShow.Rows.Count;
-            if (numRowShow > numRowsHistoryQueryGridShow)
-            {
-                numRowShow = numRowsHistoryQueryGridShow;
-            }
+        //    int numRowsHistoryQueryGridShow = Global.dtHistoryQueryGridShow.Rows.Count;
+        //    if (numRowShow > numRowsHistoryQueryGridShow)
+        //    {
+        //        numRowShow = numRowsHistoryQueryGridShow;
+        //    }
 
-            if (Global.dtTitleGridShowMainForm.Columns.Count != 0)
-            {
-                for (int i = 0; i < numRowShow; i++)
-                {
-                    DataRow rowShowTemp = Global.dtTitleGridShowMainForm.NewRow();
-                    rowShowTemp["NO"] = Global.dtHistoryQueryGridShow.Rows[i]["NO"];
-                    rowShowTemp["LineName"] = Global.dtHistoryQueryGridShow.Rows[i]["LineName"];
-                    rowShowTemp["DeviceName"] = Global.dtHistoryQueryGridShow.Rows[i]["DeviceName"];
-                    rowShowTemp["FaultName"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultName"];
-                    rowShowTemp["FaultTime"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultTime"];
-                    Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
-                }
-            }
+        //    if (Global.dtTitleGridShowMainForm.Columns.Count != 0)
+        //    {
+        //        for (int i = 0; i < numRowShow; i++)
+        //        {
+        //            DataRow rowShowTemp = Global.dtTitleGridShowMainForm.NewRow();
+        //            rowShowTemp["NO"] = Global.dtHistoryQueryGridShow.Rows[i]["NO"];
+        //            rowShowTemp["LineName"] = Global.dtHistoryQueryGridShow.Rows[i]["LineName"];
+        //            rowShowTemp["DeviceName"] = Global.dtHistoryQueryGridShow.Rows[i]["DeviceName"];
+        //            rowShowTemp["FaultName"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultName"];
+        //            rowShowTemp["FaultTime"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultTime"];
+        //            Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
+        //        }
+        //    }
             
-        }
+        //}
 
         //刷新目录
         void _refreshLabelDir()
@@ -161,15 +160,6 @@ namespace CloudManage.StatusMonitor
             this.timeEdit_endTime.ShowPopup();
         }
 
-
-        //grid绑定的表不变，dtHistoryQueryGridShow，但dtHistoryQueryGridShow中内容发生了改变时的操作
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Global.dtHistoryQueryGridShow = new DataTable();
-            Global._init_dtHistoryQueryGridShow();    //该表是用来测试的
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
-            this._refreshTitleGridShow(10);
-        }
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
