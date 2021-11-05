@@ -130,12 +130,12 @@ namespace CloudManage.MySQL
         }
 
         //mysql插入记录
-        public bool _insertTableMySQL(string queryCmd)
+        public bool _insertMySQL(string insertCmd)
         {
             bool flag = false;
             try
             {
-                MySqlCommand myCommand = new MySqlCommand(queryCmd, this.conn);//创建MySqlCommand对象
+                MySqlCommand myCommand = new MySqlCommand(insertCmd, this.conn);//创建MySqlCommand对象
                 myCommand.CommandType = CommandType.Text;//命令类型
                 myCommand.CommandTimeout = 12000;
 
@@ -144,6 +144,57 @@ namespace CloudManage.MySQL
                     this.conn.Open();//开启连接
                 }
                 if (myCommand.ExecuteNonQuery() > 0) {
+                    flag = true;
+                }//更新内容(返回受影响函数，如增、删、改操作)
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
+            return flag;
+        }
+
+        //mysql删除记录
+        public bool _deleteMySQL(string delCmd)
+        {
+            bool flag = false;
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(delCmd, this.conn);//创建MySqlCommand对象
+                myCommand.CommandType = CommandType.Text;//命令类型
+                myCommand.CommandTimeout = 12000;
+
+                if (this.conn.State == ConnectionState.Closed)
+                {
+                    this.conn.Open();//开启连接
+                }
+                if (myCommand.ExecuteNonQuery() > 0)
+                {
+                    flag = true;
+                }//更新内容(返回受影响函数，如增、删、改操作)
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
+            return flag;
+        }
+
+        public bool _updateMysql(string updateCmd)
+        {
+            bool flag = false;
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(updateCmd, this.conn);//创建MySqlCommand对象
+                myCommand.CommandType = CommandType.Text;//命令类型
+                myCommand.CommandTimeout = 12000;
+
+                if (this.conn.State == ConnectionState.Closed)
+                {
+                    this.conn.Open();//开启连接
+                }
+                if (myCommand.ExecuteNonQuery() > 0)
+                {
                     flag = true;
                 }//更新内容(返回受影响函数，如增、删、改操作)
             }

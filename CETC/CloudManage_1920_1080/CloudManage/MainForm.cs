@@ -30,7 +30,6 @@ namespace CloudManage
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
-            object o = this.tileView_1.FocusedValue;
 
         }
 
@@ -253,10 +252,8 @@ namespace CloudManage
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if(Global.dtTitleGridShowMainForm.Rows.Count > 0)
-            {
-                Global.dtTitleGridShowMainForm.Rows.RemoveAt(0);
-            }
+            
+
         }
 
         private void simpleButtonfaultHistoryQuery_Click(object sender, EventArgs e)
@@ -269,10 +266,98 @@ namespace CloudManage
             Global._refreshTitleGridShow();
             int[] index1 = this.tileView_1.GetSelectedRows(); //返回被选中tile的index
 
-
-
-            int[] index2 = this.tileView_1.GetSelectedRows();
             Global._writeFaultsHistory();
         }
+
+        private void simpleButton_ignoreOnce_Click(object sender, EventArgs e)
+        {
+            if (Global.dtTitleGridShowMainForm.Rows.Count > 0)
+            {
+                DataRow drSelected = this.tileView_1.GetFocusedDataRow();
+
+                string valLineName = drSelected["LineName"].ToString();
+                string valDeviceName = drSelected["DeviceName"].ToString();
+                string valFaultName = drSelected["FaultName"].ToString();
+
+                //dtTitleGridShowMainForm中存储的是名称，而faults_current中是ID
+                string cmdTransfrom = "SELECT t1.LineNO,t2.DeviceNO,t3.FaultNO " +
+                                      "FROM productionline AS t1, device AS t2, faults AS t3 " +
+                                      "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
+                DataTable dtTemp = new DataTable();
+                MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                mysqlHelper1._connectMySQL();
+                bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransfrom, ref dtTemp);
+                if (flag1 == true)
+                {
+                    string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
+                    string valDeviceNO = dtTemp.Rows[0]["DeviceNO"].ToString();
+                    string valFaultNO = dtTemp.Rows[0]["FaultNO"].ToString();
+                    string valFaultTime = drSelected["FaultTime"].ToString();
+
+                    string cmdIgnoreOnce = "DELETE FROM faults_current WHERE " +
+                                         "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
+                                         "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
+
+                    MySQL.MySQLHelper mysqlHelper2 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                    mysqlHelper1._connectMySQL();
+                    bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
+                    mysqlHelper1.conn.Close();
+                    if (flag2 == true)
+                    {
+                        Global._refreshTitleGridShow();
+                    }
+                }
+            }
+        }
+
+        private void simpleButton_ignoreFaults_Click(object sender, EventArgs e)
+        {
+            if (Global.dtTitleGridShowMainForm.Rows.Count > 0)
+            {
+                MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                mysqlHelper1._connectMySQL();
+                
+                DataRow drSelected = this.tileView_1.GetFocusedDataRow();
+
+                string valLineName = drSelected["LineName"].ToString();
+                string valDeviceName = drSelected["DeviceName"].ToString();
+                string valFaultName = drSelected["FaultName"].ToString();
+
+                //dtTitleGridShowMainForm中存储的是名称，而faults_current中是ID
+                string cmdTransfrom = "SELECT t1.LineNO,t2.DeviceNO,t3.FaultNO " +
+                                      "FROM productionline AS t1, device AS t2, faults AS t3 " +
+                                      "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
+                DataTable dtTemp = new DataTable();
+                bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransfrom, ref dtTemp);
+                if (flag1 == true)
+                {
+                    string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
+                    string valDeviceNO = dtTemp.Rows[0]["DeviceNO"].ToString();
+                    string valFaultNO = dtTemp.Rows[0]["FaultNO"].ToString();
+                    string valFaultTime = drSelected["FaultTime"].ToString();
+
+                    string cmdIgnoreOnce = "DELETE FROM faults_current WHERE " +
+                                         "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
+                                         "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
+
+                    string cmdUpdateFaultConfig = "UPDATE faults_config SET FaultEnable='0' "
+                                                 + "WHERE LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" + "'" + valFaultNO + "';";
+
+                    bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
+                    bool flag3 = mysqlHelper1._updateMysql(cmdUpdateFaultConfig);
+                    mysqlHelper1.conn.Close();
+
+                    if (flag2 == true)
+                    {
+                        Global._refreshTitleGridShow();
+                    }
+
+
+                }
+            }
+
+        }
+
+
     }
 }

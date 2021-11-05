@@ -181,7 +181,7 @@ namespace CloudManage
 
                     MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     bool flag1 = mysqlHelper1._connectMySQL();
-                    bool flag2 = mysqlHelper1._insertTableMySQL(cmdInsertFaultsHistory);
+                    bool flag2 = mysqlHelper1._insertMySQL(cmdInsertFaultsHistory);
                     mysqlHelper1.conn.Close();
                 }
             }
