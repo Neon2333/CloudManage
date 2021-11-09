@@ -260,7 +260,7 @@ namespace CloudManage
                 string cmdInitDtEachProductionLineWorkState = "SELECT t1.DeviceNO,t2.DeviceName, " +
                                                               "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
                                                               "WHEN t1.DeviceStatus=0 THEN '异常' " +
-                                                              "WHEN t1.DeviceStatus=-1 THEN '无效' " +
+                                                              //"WHEN t1.DeviceStatus=-1 THEN '无效' " +
                                                               "END) AS DeviceStatus," +
                                                               "t1.TestingNum,t1.DefectNum, " +
                                                               "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
@@ -284,78 +284,126 @@ namespace CloudManage
 
                 _initDtMySQL(ref dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);
 
-                for (int i = 0; i < Global.dtEachProductionLineWorkState.Rows.Count; i++)
+                int totalDeviceNum = dtEachProductionLineWorkState.Rows.Count;
+                int undefineTileNum = 0;
+                if (totalDeviceNum <= 10)
                 {
-                    if (dtEachProductionLineWorkState.Rows[i]["DeviceStatus"].ToString() == "无效")
+                    undefineTileNum = 10 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 10 && totalDeviceNum <= 20)
+                {
+                    undefineTileNum = 20 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 20 && totalDeviceNum <= 30)
+                {
+                    undefineTileNum = 30 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 30 && totalDeviceNum <= 40)
+                {
+                    undefineTileNum = 40 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 40 && totalDeviceNum <= 50)
+                {
+                    undefineTileNum = 50 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 50 && totalDeviceNum <= 60)
+                {
+                    undefineTileNum = 60 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 60 && totalDeviceNum <= 70)
+                {
+                    undefineTileNum = 70 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 70 && totalDeviceNum <= 80)
+                {
+                    undefineTileNum = 80 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 80 && totalDeviceNum <= 90)
+                {
+                    undefineTileNum = 90 - totalDeviceNum;
+                }
+                else if (totalDeviceNum > 90 && totalDeviceNum <= 100)
+                {
+                    undefineTileNum = 100 - totalDeviceNum;
+                }
+
+                //添加“无效”Tile
+                for (int i = 0; i < undefineTileNum; i++)
+                {
+                    DataRow dr = Global.dtEachProductionLineWorkState.NewRow();
+                    dr["DeviceNO"] = "\\";
+                    dr["DeviceName"] = "\\";
+                    dr["DeviceStatus"] = "无效";
+                    dr["TestingNum"] = "\\";
+                    dr["DefectNum"] = "\\";
+                    dr["CPUTemperature"] = "\\";
+                    dr["CPUUsage"] = "\\";
+                    dr["MemoryUsage"] = "\\";
+
+                    dtEachProductionLineWorkState.Rows.Add(dr);
+                }
+
+                for (int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
+                {
+                    switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"].ToString())    //更换检测设备图片
                     {
-                        dtEachProductionLineWorkState.Rows[i]["TestingNum"] = "\\";
-                        dtEachProductionLineWorkState.Rows[i]["DefectNum"] = "\\";
-                        dtEachProductionLineWorkState.Rows[i]["CPUTemperature"] = "\\";
-                        dtEachProductionLineWorkState.Rows[i]["CPUUsage"] = "\\";
-                        dtEachProductionLineWorkState.Rows[i]["MemoryUsage"] = "\\";
-                        dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = null;
-                    }
-                    else
-                    {
-                        switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"].ToString())    //更换检测设备图片
-                        {
-                            case "001":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "002":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "003":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "004":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "005":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "006":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "007":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "008":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "009":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "010":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "011":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "012":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "013":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "101":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "102":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "103":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "104":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                            case "105":
-                                dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
-                                break;
-                        }
+                        case "001":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "002":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "003":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "004":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "005":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "006":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "007":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "008":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "009":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "010":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "011":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "012":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "013":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "101":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "102":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "103":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "104":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
+                        case "105":
+                            dtEachProductionLineWorkState.Rows[i]["DeviceImg"] = global::CloudManage.Properties.Resources.neichen;
+                            break;
                     }
                 }
+
 
             }
         }

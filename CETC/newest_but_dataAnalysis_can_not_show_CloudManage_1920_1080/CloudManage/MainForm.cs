@@ -23,6 +23,9 @@ namespace CloudManage
         enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage };
 
         int iSelectedIndex = 0; //默认显示第一页
+
+        private int[] selectRowFaultCurrent = { -1 };
+
         public MainForm()
         {
             Global.initDataTable();
@@ -247,13 +250,6 @@ namespace CloudManage
         private void labelControl_title_Click(object sender, EventArgs e)
         {
             this.panelControl_faultsCurrent.Visible = true;
-
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            
-
         }
 
         private void simpleButtonfaultHistoryQuery_Click(object sender, EventArgs e)
@@ -264,9 +260,17 @@ namespace CloudManage
         private void timer_refreshDtTitleGridShowMainForm_Tick(object sender, EventArgs e)
         {
             Global._refreshTitleGridShow();
-            int[] index1 = this.tileView_1.GetSelectedRows(); //返回被选中tile的index
-
             Global._writeFaultsHistory();
+
+            if (selectRowFaultCurrent.Length == 1)
+            {
+                this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     //手动设置被选中的行
+            }
+            else
+            {
+                MessageBox.Show("所选行数大于1");
+            }
+            MessageBox.Show("3s");
         }
 
         private void simpleButton_ignoreOnce_Click(object sender, EventArgs e)
@@ -337,8 +341,8 @@ namespace CloudManage
                     string valFaultTime = drSelected["FaultTime"].ToString();
 
                     string cmdIgnoreOnce = "DELETE FROM faults_current WHERE " +
-                                         "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
-                                         "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
+                                            "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
+                                            "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
 
                     string cmdUpdateFaultConfig = "UPDATE faults_config SET FaultEnable='0' "
                                                  + "WHERE LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" + "'" + valFaultNO + "';";
@@ -357,6 +361,44 @@ namespace CloudManage
             }
 
         }
+
+        private void tileView_1_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+            selectRowFaultCurrent = this.tileView_1.GetSelectedRows();
+
+        }
+
+
+        //private void tileView_1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
+        //{
+
+        //    try
+        //    {
+        //        MessageBox.Show("ItemCustomize");
+        //        //if (this.panelControl_faultsCurrent.Visible == true)
+        //        //{
+        //        //    if (e.Item == null || e.Item.Elements.Count == 0)
+        //        //        return;
+        //        //    if (selectRowFaultCurrent.Length == 1)
+        //        //    {
+        //        //        if (rowIndexTemp == selectRowFaultCurrent[0])
+        //        //        {
+        //        //            //e.Item.AppearanceItem.Normal.BackColor = Color.FromArgb(255, 128, 0);
+        //        //            //e.Item.AppearanceItem.Normal.BorderColor = Color.White;
+        //        //            //e.Item.AppearanceItem.Normal.ForeColor = Color.White;
+        //        //            //MessageBox.Show("changed" + rowIndexTemp.ToString());
+        //        //        }
+        //        //    }
+        //        //    rowIndexTemp++;
+        //        //}
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+
+        //    }
+
+        //}
 
 
     }
