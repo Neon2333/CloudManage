@@ -31,7 +31,7 @@ namespace CloudManage.StatusMonitor
         void initHistoryQuery()
         {
             _initSideTileBarWithSub();  //初始化侧边栏
-            Global._init_dtHistoryQueryGridShow();    //显示所有故障
+            Global._init_dtHistoryQueryGridShow();    //初始化历史故障表
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
 
         }

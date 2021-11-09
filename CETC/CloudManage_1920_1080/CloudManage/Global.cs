@@ -446,53 +446,6 @@ namespace CloudManage
                                             "'" + timeStart + "'" + " AND " + "'" + timeEnd + "' " +
                                             "ORDER BY t1.`NO`;";
             _initDtMySQL(ref dtHistoryQueryGridShowClickedQueryButton, cmdQueryDtHistoryQueryGridShowClickedQueryButton);
-
-            //if (dtHistoryQueryGridShowClickedQueryButton.Rows.Count == 0)
-            //{
-            //    if (dtHistoryQueryGridShowClickedQueryButton.Columns.Count == 0)
-            //    {
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("NO", typeof(String));
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("LineName", typeof(String));
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("DeviceName", typeof(String));
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultName", typeof(String));
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Columns.Add("FaultTime", typeof(String));
-            //    }
-
-            //    FileStream fsFaultDataTimeQuery = File.OpenRead(excelPath_historyQueryGridShowClickedQueryButton);
-            //    IWorkbook workbookFaultDataTimeQuery = null;
-            //    workbookFaultDataTimeQuery = new XSSFWorkbook(fsFaultDataTimeQuery);
-            //    ISheet sheetFaultDataTimeQuery = workbookFaultDataTimeQuery.GetSheetAt(0);
-            //    int totalRowsFaultDataTimeQuery = sheetFaultDataTimeQuery.LastRowNum + 1;
-            //    IRow rowFaultDataTimeQuery = null;
-
-            //    //DateTime faultOccurTemp;
-            //    for (int i = 1; i < totalRowsFaultDataTimeQuery; i++)
-            //    {
-            //        rowFaultDataTimeQuery = sheetFaultDataTimeQuery.GetRow(i);
-            //        ICell cellFaultDataTimeQuery0 = rowFaultDataTimeQuery.GetCell(0);
-            //        ICell cellFaultDataTimeQuery1 = rowFaultDataTimeQuery.GetCell(1);
-            //        ICell cellFaultDataTimeQuery2 = rowFaultDataTimeQuery.GetCell(2);
-            //        ICell cellFaultDataTimeQuery3 = rowFaultDataTimeQuery.GetCell(3);
-            //        ICell cellFaultDataTimeQuery4 = rowFaultDataTimeQuery.GetCell(4);
-
-            //        string numFaultDataTimeQuery = Convert.ToString(getCellValue(cellFaultDataTimeQuery0));
-            //        string nameProductionLineFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery1));
-            //        string nameTestingDeviceFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery2));
-            //        string nameFaultFaultDataTime = Convert.ToString(getCellValue(cellFaultDataTimeQuery3));
-            //        DateTime tempTimeFaultOccurFaultDataTime = Convert.ToDateTime(getCellValue(cellFaultDataTimeQuery4));
-            //        string timeFaultOccurFaultDataTime = tempTimeFaultOccurFaultDataTime.ToString("yyyy-MM-dd HH:mm:ss");
-
-            //        DataRow drFaultDataTimeQuery = Global.dtHistoryQueryGridShowClickedQueryButton.NewRow();
-            //        drFaultDataTimeQuery["NO"] = numFaultDataTimeQuery;
-            //        drFaultDataTimeQuery["LineName"] = nameProductionLineFaultDataTime;
-            //        drFaultDataTimeQuery["DeviceName"] = nameTestingDeviceFaultDataTime;
-            //        drFaultDataTimeQuery["FaultName"] = nameFaultFaultDataTime;
-            //        drFaultDataTimeQuery["FaultTime"] = timeFaultOccurFaultDataTime;
-
-            //        Global.dtHistoryQueryGridShowClickedQueryButton.Rows.Add(drFaultDataTimeQuery);
-            //    }
-            //    fsFaultDataTimeQuery.Close();
-            //}
         }
 
         /*************************************************************************************************************/
@@ -540,6 +493,21 @@ namespace CloudManage
                 drRightSide6["paraVal"] = "20".ToString() + "%";
                 Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
             }
+        }
+
+        /*************************************************************************************************************/
+
+        //DiagnosisManagement
+        public static DataTable dtFaultsConfig = new DataTable();
+
+        public static void _init_dtFaultsConfig()
+        {
+            string cmdInitDtFaultsConfig = "SELECT t1.`NO`, t2.LineName, t3.DeviceName, t4.FaultName,(CASE WHEN FaultEnable=1 THEN '使能' WHEN FaultEnable=0 THEN '禁止' END) AS FaultEnable " +
+                                          "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
+                                          "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO ORDER BY t1.`NO`;";
+
+            _initDtMySQL(ref dtFaultsConfig, cmdInitDtFaultsConfig);
+
         }
 
 

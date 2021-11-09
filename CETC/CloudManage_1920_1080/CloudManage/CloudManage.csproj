@@ -142,6 +142,36 @@
     <Compile Include="DataAnalysis\VerticalAnalysis.Designer.cs">
       <DependentUpon>VerticalAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeviceManagement\DeviceAddition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceAddition.Designer.cs">
+      <DependentUpon>DeviceAddition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceDeletion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceDeletion.Designer.cs">
+      <DependentUpon>DeviceDeletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceManagement.Designer.cs">
+      <DependentUpon>DeviceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceTesting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceTesting.Designer.cs">
+      <DependentUpon>DeviceTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceManagement\DiagnosisManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DiagnosisManagement.Designer.cs">
+      <DependentUpon>DiagnosisManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +234,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataAnalysis\VerticalAnalysis.resx">
       <DependentUpon>VerticalAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DeviceAddition.resx">
+      <DependentUpon>DeviceAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DeviceDeletion.resx">
+      <DependentUpon>DeviceDeletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DeviceManagement.resx">
+      <DependentUpon>DeviceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DeviceTesting.resx">
+      <DependentUpon>DeviceTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DiagnosisManagement.resx">
+      <DependentUpon>DiagnosisManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
