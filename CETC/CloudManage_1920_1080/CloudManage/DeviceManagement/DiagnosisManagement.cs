@@ -13,6 +13,14 @@ namespace CloudManage.DeviceManagement
 {
     public partial class DiagnosisManagement : DevExpress.XtraEditors.XtraUserControl
     {
+        private int[] selectRow = { -1 };
+        struct faultsIndexAndStatus
+        {
+            public int rowHandle;
+            public string faultStatus;
+        };
+        List<faultsIndexAndStatus> faultsStorage = new List<faultsIndexAndStatus>();    //暂存被修改的故障设置
+
         public DiagnosisManagement()
         {
             InitializeComponent();
@@ -92,6 +100,87 @@ namespace CloudManage.DeviceManagement
 
         }
 
+        private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
+        {
+            if (e.Item == null || e.Item.Elements.Count == 0)
+                return;
+            if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["FaultEnable"]) == "使能")
+            {
+                e.Item.AppearanceItem.Normal.ForeColor = Color.Green;
+            }
+            else if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["FaultEnable"]) == "禁止")
+            {
+                e.Item.AppearanceItem.Normal.ForeColor = Color.Red;
+            }
 
+
+        }
+
+        private void tileView1_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+            selectRow = this.tileView1.GetSelectedRows();   //记录选中的行
+            DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
+            if (selectRow.Length == 1)
+            {
+                if (drTemp["FaultEnable"].ToString() == "使能")
+                {
+                    this.simpleButton_statusChange.Appearance.BackColor = Color.Green;
+                }
+                else if(drTemp["FaultEnable"].ToString() == "禁止")
+                {
+                    this.simpleButton_statusChange.Appearance.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void simpleButton_statusChange_Click(object sender, EventArgs e)
+        {
+            if (Global.dtFaultsConfig.Rows.Count > 0 && selectRow.Length == 1)
+            {
+                DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
+                if (drTemp != null) //避免未选中行就点击按钮
+                {
+                    if (drTemp["FaultEnable"].ToString() == "使能")
+                    {
+                        faultsIndexAndStatus fTemp = new faultsIndexAndStatus();
+                        fTemp.rowHandle = selectRow[0];
+                        fTemp.faultStatus = drTemp["FaultEnable"].ToString();
+                        faultsStorage.Add(fTemp);   //暂存当前被改变的行。因为可能一次改变多行，然后再点保存/取消，所以用list存
+
+                        Global.dtFaultsConfig.Rows[selectRow[0]]["FaultEnable"] = "禁止"; //修改dt中存储的状态
+                        this.simpleButton_statusChange.Appearance.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        faultsIndexAndStatus fTemp = new faultsIndexAndStatus();
+                        fTemp.rowHandle = selectRow[0];
+                        fTemp.faultStatus = drTemp["FaultEnable"].ToString();
+                        faultsStorage.Add(fTemp);
+
+                        Global.dtFaultsConfig.Rows[selectRow[0]]["FaultEnable"] = "使能";
+                        this.simpleButton_statusChange.Appearance.BackColor = Color.Green;
+                    }
+                }
+                else if(selectRow[0] == -1)
+                {
+                    MessageBox.Show("未选中故障");
+                }
+                
+            }
+        }
+
+        private void simpleButton_saveStatusChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton_cancelStatusChange_Click(object sender, EventArgs e)
+        {
+            foreach(var fTemp in faultsStorage)
+            {
+                Global.dtFaultsConfig.Rows[fTemp.rowHandle]["FaultEnable"] = fTemp.faultStatus;
+            }
+            faultsStorage.Clear();  //清空记录的被改变的行
+        }
     }
 }

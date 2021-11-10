@@ -20,7 +20,7 @@ namespace CloudManage
         enum DataAnalysisPages { LateralAnalysisPage = 0, VerticalAnalysisPage, ParameterOptimizationPage };
         enum TwinDetectionPages { paraSynPage, intelligentReasoningPage, paraUpdatePage };
         enum DeepLearningPages { datapreParationPage, modelTrainingPage, modelTestingPage, modelUpdatePage };
-        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage };
+        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage};
 
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -127,8 +127,6 @@ namespace CloudManage
         private void tileBar_deviceManagement_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-            MessageBox.Show("传参：" + iSelectedIndex);
-
         }
 
         /**
@@ -228,23 +226,34 @@ namespace CloudManage
             iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
         }
 
-
-        private void tileBarItem_deviceAddition_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_deviceManagement_deviceAddition_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
             iSelectedIndex = (int)DeviceManagementPages.deviceAdditionPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
         }
 
-        private void tileBarItem_deviceDeletion_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_deviceManagement_deviceDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
             iSelectedIndex = (int)DeviceManagementPages.deviceDeletionPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
         }
 
-        private void tileBarItem_deviceTesting_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_deviceManagement_deviceTesting_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
             iSelectedIndex = (int)DeviceManagementPages.deviceTestingPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+        }
+
+        private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
         private void labelControl_title_Click(object sender, EventArgs e)
@@ -281,12 +290,12 @@ namespace CloudManage
         private void simpleButton_ignoreOnce_Click(object sender, EventArgs e)
         {
             //从fault_current中删除所选记录
-            if (Global.dtTitleGridShowMainForm.Rows.Count > 0)  //表空的话不进行后续
+            if (Global.dtTitleGridShowMainForm.Rows.Count > 0 && selectRowFaultCurrent.Length == 1)  //表空的话不进行后续
             {
                 //DataRow drSelected = this.tileView_1.GetFocusedDataRow(); //调用方法获取被选中的row还是有几率获取到DataSource改变时自动选择的第一行，因为可能选中行的手动修改可能还未执行
-                DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行
+                DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行。GetDataRow通过RowHandler获取行，Rowhandle和行index值相同
                 
-                if (drSelected != null)
+                if (drSelected != null) //避免未选中行就点击按钮出错
                 {
                     MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     mysqlHelper1._connectMySQL();
@@ -333,7 +342,7 @@ namespace CloudManage
         private void simpleButton_ignoreFaults_Click(object sender, EventArgs e)
         {
             //从fault_current中删除，并修改faults_config对应的Enable
-            if (Global.dtTitleGridShowMainForm.Rows.Count > 0)
+            if (Global.dtTitleGridShowMainForm.Rows.Count > 0 && selectRowFaultCurrent.Length == 1)
             {
                 //DataRow drSelected = this.tileView_1.GetFocusedDataRow(); //调用方法获取被选中的row还是有几率获取到DataSource改变时自动选择的第一行，因为可能选中行的手动修改可能还未执行
                 DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行
@@ -391,6 +400,20 @@ namespace CloudManage
             }
 
         }
+
+       
+
+       
+
+       
+
+       
+
+
+
+
+
+
 
 
 

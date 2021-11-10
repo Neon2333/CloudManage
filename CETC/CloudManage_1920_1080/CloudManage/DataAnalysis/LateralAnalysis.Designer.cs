@@ -29,10 +29,10 @@ namespace CloudManage.DataAnalysis
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LateralAnalysis));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sideTileBarControl_lateralAnalysis = new CloudManage.CommonControl.SideTileBarControl();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
@@ -70,14 +70,14 @@ namespace CloudManage.DataAnalysis
             // 
             this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
-            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
-            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
-            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
             this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
@@ -107,7 +107,7 @@ namespace CloudManage.DataAnalysis
             this.simpleButton_endTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_endTimeModify.Location = new System.Drawing.Point(336, 180);
             this.simpleButton_endTimeModify.Name = "simpleButton_endTimeModify";
-            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(219, 46);
+            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(220, 46);
             this.simpleButton_endTimeModify.TabIndex = 21;
             this.simpleButton_endTimeModify.Text = "更改";
             // 
@@ -132,7 +132,7 @@ namespace CloudManage.DataAnalysis
             this.simpleButton_startTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_startTimeModify.Location = new System.Drawing.Point(336, 56);
             this.simpleButton_startTimeModify.Name = "simpleButton_startTimeModify";
-            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(219, 46);
+            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(220, 46);
             this.simpleButton_startTimeModify.TabIndex = 19;
             this.simpleButton_startTimeModify.Text = "更改";
             // 
@@ -143,7 +143,7 @@ namespace CloudManage.DataAnalysis
             this.simpleButton_query.Location = new System.Drawing.Point(6, 232);
             this.simpleButton_query.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_query.Name = "simpleButton_query";
-            this.simpleButton_query.Size = new System.Drawing.Size(549, 118);
+            this.simpleButton_query.Size = new System.Drawing.Size(550, 118);
             this.simpleButton_query.TabIndex = 17;
             this.simpleButton_query.Text = "查询";
             this.simpleButton_query.Click += new System.EventHandler(this.simpleButton_query_Click);

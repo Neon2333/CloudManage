@@ -53,7 +53,7 @@ namespace CloudManage.DeviceManagement
             this.navigationPage_deviceDeletion,
             this.navigationPage_deviceTesting,
             this.navigationPage_diagnosisManagement});
-            this.navigationFrame_deviceManagement.SelectedPage = this.navigationPage_diagnosisManagement;
+            this.navigationFrame_deviceManagement.SelectedPage = this.navigationPage_deviceAddition;
             this.navigationFrame_deviceManagement.Size = new System.Drawing.Size(1920, 880);
             this.navigationFrame_deviceManagement.TabIndex = 0;
             this.navigationFrame_deviceManagement.Text = "navigationFrame1";
@@ -79,6 +79,7 @@ namespace CloudManage.DeviceManagement
             // 
             // navigationPage_diagnosisManagement
             // 
+            this.navigationPage_diagnosisManagement.Caption = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Controls.Add(this.diagnosisManagement1);
             this.navigationPage_diagnosisManagement.Name = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Size = new System.Drawing.Size(1920, 880);
@@ -107,10 +108,7 @@ namespace CloudManage.DeviceManagement
         #endregion
 
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_deviceManagement;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceAddition;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceDeletion;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceTesting;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_diagnosisManagement;
+        
         private DiagnosisManagement diagnosisManagement1;
     }
 }

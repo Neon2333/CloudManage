@@ -216,7 +216,7 @@
             this.simpleButton_endTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_endTimeModify.Location = new System.Drawing.Point(336, 180);
             this.simpleButton_endTimeModify.Name = "simpleButton_endTimeModify";
-            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(219, 46);
+            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(220, 46);
             this.simpleButton_endTimeModify.TabIndex = 21;
             this.simpleButton_endTimeModify.Text = "更改";
             this.simpleButton_endTimeModify.Click += new System.EventHandler(this.simpleButton_endTimeModify_Click);
@@ -242,7 +242,7 @@
             this.simpleButton_startTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_startTimeModify.Location = new System.Drawing.Point(336, 56);
             this.simpleButton_startTimeModify.Name = "simpleButton_startTimeModify";
-            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(219, 46);
+            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(220, 46);
             this.simpleButton_startTimeModify.TabIndex = 19;
             this.simpleButton_startTimeModify.Text = "更改";
             this.simpleButton_startTimeModify.Click += new System.EventHandler(this.simpleButton_startTimeModify_Click);
@@ -254,7 +254,7 @@
             this.simpleButton_query.Location = new System.Drawing.Point(6, 232);
             this.simpleButton_query.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_query.Name = "simpleButton_query";
-            this.simpleButton_query.Size = new System.Drawing.Size(549, 118);
+            this.simpleButton_query.Size = new System.Drawing.Size(550, 118);
             this.simpleButton_query.TabIndex = 17;
             this.simpleButton_query.Text = "查询";
             this.simpleButton_query.Click += new System.EventHandler(this.simpleButton_query_Click);
