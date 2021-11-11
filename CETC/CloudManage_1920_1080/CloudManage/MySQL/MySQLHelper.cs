@@ -29,61 +29,61 @@ namespace CloudManage.MySQL
 
         }
 
-        public string dataSource
-        {
-            get
-            {
-                return this.DataSource;
-            }
-            set
-            {
-                this.DataSource = value;
-                connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
+        //public string dataSource
+        //{
+        //    get
+        //    {
+        //        return this.DataSource;
+        //    }
+        //    set
+        //    {
+        //        this.DataSource = value;
+        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
-            }
-        }
+        //    }
+        //}
 
-        public string dbName
-        {
-            get
-            {
-                return this.DbName;
-            }
-            set
-            {
-                this.DbName = value;
-                connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
+        //public string dbName
+        //{
+        //    get
+        //    {
+        //        return this.DbName;
+        //    }
+        //    set
+        //    {
+        //        this.DbName = value;
+        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
-            }
-        }
+        //    }
+        //}
 
-        public string userName
-        {
-            get
-            {
-                return this.UserName;
-            }
-            set
-            {
-                this.UserName = value;
-                connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
+        //public string userName
+        //{
+        //    get
+        //    {
+        //        return this.UserName;
+        //    }
+        //    set
+        //    {
+        //        this.UserName = value;
+        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
-            }
-        }
+        //    }
+        //}
 
-        public string password
-        {
-            get
-            {
-                return this.Password;
-            }
-            set
-            {
-                this.Password = value;
-                connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
+        //public string password
+        //{
+        //    get
+        //    {
+        //        return this.Password;
+        //    }
+        //    set
+        //    {
+        //        this.Password = value;
+        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
-            }
-        }
+        //    }
+        //}
 
         //mysql连接
         public bool _connectMySQL()

@@ -503,8 +503,8 @@ namespace CloudManage
         public static void _init_dtFaultsConfig()
         {
             string cmdInitDtFaultsConfig = "SELECT t1.`NO`, t2.LineName, t3.DeviceName, t4.FaultName,(CASE WHEN FaultEnable=1 THEN '使能' WHEN FaultEnable=0 THEN '禁止' END) AS FaultEnable " +
-                                          "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
-                                          "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO ORDER BY t1.`NO`;";
+                                           "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
+                                           "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO ORDER BY t1.`NO`;";
 
             _initDtMySQL(ref dtFaultsConfig, cmdInitDtFaultsConfig);
 

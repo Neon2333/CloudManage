@@ -270,11 +270,10 @@ namespace CloudManage
         {
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
-
-            //在DataSource发生改变后，手动修改被选中的row
+            
             if (selectRowFaultCurrent.Length == 1)
             {
-                this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     
+                this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     //在DataSource发生改变后，手动修改被选中的row
             }
             else
             {
@@ -282,9 +281,10 @@ namespace CloudManage
             }
         }
 
-        private void tileView_1_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        private void gridControl_faultsCurrent_Click(object sender, EventArgs e)    //不要用itemClick，有时候点击了但selectedrows未改变，出现bug
         {
             selectRowFaultCurrent = this.tileView_1.GetSelectedRows();  //手动记录被按下按钮
+
         }
 
         private void simpleButton_ignoreOnce_Click(object sender, EventArgs e)
@@ -294,7 +294,7 @@ namespace CloudManage
             {
                 //DataRow drSelected = this.tileView_1.GetFocusedDataRow(); //调用方法获取被选中的row还是有几率获取到DataSource改变时自动选择的第一行，因为可能选中行的手动修改可能还未执行
                 DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行。GetDataRow通过RowHandler获取行，Rowhandle和行index值相同
-                
+
                 if (drSelected != null) //避免未选中行就点击按钮出错
                 {
                     MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
@@ -305,11 +305,11 @@ namespace CloudManage
                     string valFaultName = drSelected["FaultName"].ToString();
 
                     //dtTitleGridShowMainForm中存储的是名称，而faults_current中是ID
-                    string cmdTransfrom = "SELECT t1.LineNO,t2.DeviceNO,t3.FaultNO " +
+                    string cmdTransform = "SELECT t1.LineNO,t2.DeviceNO,t3.FaultNO " +
                                           "FROM productionline AS t1, device AS t2, faults AS t3 " +
                                           "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
                     DataTable dtTemp = new DataTable();
-                    bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransfrom, ref dtTemp);
+                    bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
                     if (flag1 == true)
                     {
                         string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
@@ -321,7 +321,7 @@ namespace CloudManage
                                              "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
                                              "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
 
-                        bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);  
+                        bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
                         mysqlHelper1.conn.Close();
                         if (flag2 == true)
                         {
@@ -335,7 +335,7 @@ namespace CloudManage
                     MessageBox.Show("未选中故障");
                 }
 
-                
+
             }
         }
 
@@ -401,13 +401,14 @@ namespace CloudManage
 
         }
 
-       
 
-       
 
-       
 
-       
+
+
+
+
+
 
 
 
