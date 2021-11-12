@@ -111,7 +111,7 @@ namespace CloudManage.DeviceManagement
             this.simpleButton_cancelStatusChange = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_saveStatusChange = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_statusChange = new DevExpress.XtraEditors.SimpleButton();
-            this.windowsUIButtonPanel_diagnosisManagement = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultDataTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
@@ -711,32 +711,32 @@ namespace CloudManage.DeviceManagement
             this.simpleButton_statusChange.Text = "状态更改";
             this.simpleButton_statusChange.Click += new System.EventHandler(this.simpleButton_statusChange_Click);
             // 
-            // windowsUIButtonPanel_diagnosisManagement
+            // windowsUIButtonPanel_historyQuery
             // 
-            this.windowsUIButtonPanel_diagnosisManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.windowsUIButtonPanel_diagnosisManagement.ButtonInterval = 20;
+            this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
             windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
             windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
             windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
-            this.windowsUIButtonPanel_diagnosisManagement.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel_diagnosisManagement.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel_diagnosisManagement.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel_diagnosisManagement.Location = new System.Drawing.Point(0, 800);
-            this.windowsUIButtonPanel_diagnosisManagement.Name = "windowsUIButtonPanel_diagnosisManagement";
-            this.windowsUIButtonPanel_diagnosisManagement.Size = new System.Drawing.Size(1920, 80);
-            this.windowsUIButtonPanel_diagnosisManagement.TabIndex = 17;
-            this.windowsUIButtonPanel_diagnosisManagement.Text = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel_diagnosisManagement.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
+            this.windowsUIButtonPanel_historyQuery.Name = "windowsUIButtonPanel_historyQuery";
+            this.windowsUIButtonPanel_historyQuery.Size = new System.Drawing.Size(1920, 80);
+            this.windowsUIButtonPanel_historyQuery.TabIndex = 17;
+            this.windowsUIButtonPanel_historyQuery.Text = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel_historyQuery.UseButtonBackgroundImages = false;
             // 
             // DiagnosisManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.windowsUIButtonPanel_diagnosisManagement);
+            this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.gridControl_faultDataTime);
             this.Controls.Add(this.labelControl_diagnosticEnable);
@@ -775,9 +775,9 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_FEnable;
         private DevExpress.XtraEditors.PanelControl panelControl_rightSide;
         private DevExpress.XtraEditors.SimpleButton simpleButton_statusChange;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_diagnosisManagement;
         private DevExpress.XtraEditors.SimpleButton simpleButton_saveStatusChange;
         private DevExpress.XtraEditors.SimpleButton simpleButton_cancelStatusChange;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_historyQuery;
     }
 }

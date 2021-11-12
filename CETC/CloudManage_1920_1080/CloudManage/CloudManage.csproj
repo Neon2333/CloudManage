@@ -292,6 +292,7 @@
     <None Include="Resources\CETC.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DeepLearning\" />
     <Folder Include="SystemConfig\" />
     <Folder Include="TwinDetection\" />
   </ItemGroup>
