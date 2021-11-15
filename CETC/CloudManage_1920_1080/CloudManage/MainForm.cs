@@ -17,7 +17,7 @@ namespace CloudManage
         DateTime now = new DateTime();  //当前时间
         int[][] itemIndex = new int[6][];
         enum StatusMonitorPages { workStatePage = 0, realtimePage, historyQueryPage };
-        enum DataAnalysisPages { LateralAnalysisPage = 0, VerticalAnalysisPage, ParameterOptimizationPage };
+        enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
         enum TwinDetectionPages { paraSynPage, intelligentReasoningPage, paraUpdatePage };
         enum DeepLearningPages { datapreParationPage, modelTrainingPage, modelTestingPage, modelUpdatePage };
         enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage};
@@ -159,14 +159,14 @@ namespace CloudManage
         private void tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.LateralAnalysisPage;
+            iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.VerticalAnalysisPage;
+            iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
 
         }
@@ -174,7 +174,7 @@ namespace CloudManage
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.ParameterOptimizationPage;
+            iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
 
         }

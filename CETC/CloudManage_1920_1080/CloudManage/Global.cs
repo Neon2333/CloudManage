@@ -332,7 +332,7 @@ namespace CloudManage
                 {
                     DataRow dr = Global.dtEachProductionLineWorkState.NewRow();
                     dr["DeviceNO"] = "\\";
-                    dr["DeviceName"] = "\\";
+                    dr["DeviceName"] = "未定义";
                     dr["DeviceStatus"] = "无效";
                     dr["TestingNum"] = "\\";
                     dr["DefectNum"] = "\\";

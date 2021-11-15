@@ -105,15 +105,16 @@ namespace CloudManage.DeviceManagement
             this.labelControl_testingDeviceName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_faultsName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_diagnosticEnable = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl_faultDataTime = new DevExpress.XtraGrid.GridControl();
+            this.gridControl_faultsConfig = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton_queryTypeFaultsConfig = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_cancelStatusChange = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_saveStatusChange = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_statusChange = new DevExpress.XtraEditors.SimpleButton();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultDataTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultsConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
@@ -314,20 +315,20 @@ namespace CloudManage.DeviceManagement
             this.labelControl_diagnosticEnable.TabIndex = 13;
             this.labelControl_diagnosticEnable.Text = "诊断使能状态";
             // 
-            // gridControl_faultDataTime
+            // gridControl_faultsConfig
             // 
-            this.gridControl_faultDataTime.Location = new System.Drawing.Point(246, 100);
-            this.gridControl_faultDataTime.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.gridControl_faultDataTime.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl_faultDataTime.MainView = this.tileView1;
-            this.gridControl_faultDataTime.Name = "gridControl_faultDataTime";
-            this.gridControl_faultDataTime.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControl_faultsConfig.Location = new System.Drawing.Point(246, 100);
+            this.gridControl_faultsConfig.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.gridControl_faultsConfig.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControl_faultsConfig.MainView = this.tileView1;
+            this.gridControl_faultsConfig.Name = "gridControl_faultsConfig";
+            this.gridControl_faultsConfig.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1});
-            this.gridControl_faultDataTime.Size = new System.Drawing.Size(1106, 700);
-            this.gridControl_faultDataTime.TabIndex = 15;
-            this.gridControl_faultDataTime.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl_faultsConfig.Size = new System.Drawing.Size(1106, 700);
+            this.gridControl_faultsConfig.TabIndex = 15;
+            this.gridControl_faultsConfig.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
-            this.gridControl_faultDataTime.Click += new System.EventHandler(this.gridControl_faultDataTime_Click);
+            this.gridControl_faultsConfig.Click += new System.EventHandler(this.gridControl_faultDataTime_Click);
             // 
             // tileView1
             // 
@@ -360,7 +361,7 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_FEnable});
             this.tileView1.ContextButtonOptions.ItemCursor = System.Windows.Forms.Cursors.PanSouth;
             this.tileView1.ContextButtonOptions.PanelCursor = System.Windows.Forms.Cursors.Arrow;
-            this.tileView1.GridControl = this.gridControl_faultDataTime;
+            this.tileView1.GridControl = this.gridControl_faultsConfig;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsEditForm.AllowHtmlCaptions = true;
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(6, 8, 12, 8);
@@ -667,6 +668,7 @@ namespace CloudManage.DeviceManagement
             // 
             // panelControl_rightSide
             // 
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_queryTypeFaultsConfig);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_cancelStatusChange);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_saveStatusChange);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_statusChange);
@@ -675,14 +677,26 @@ namespace CloudManage.DeviceManagement
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 16;
             // 
+            // simpleButton_queryTypeFaultsConfig
+            // 
+            this.simpleButton_queryTypeFaultsConfig.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F);
+            this.simpleButton_queryTypeFaultsConfig.Appearance.Options.UseFont = true;
+            this.simpleButton_queryTypeFaultsConfig.Location = new System.Drawing.Point(6, 6);
+            this.simpleButton_queryTypeFaultsConfig.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.simpleButton_queryTypeFaultsConfig.Name = "simpleButton_queryTypeFaultsConfig";
+            this.simpleButton_queryTypeFaultsConfig.Size = new System.Drawing.Size(550, 60);
+            this.simpleButton_queryTypeFaultsConfig.TabIndex = 20;
+            this.simpleButton_queryTypeFaultsConfig.Text = "显示全部";
+            this.simpleButton_queryTypeFaultsConfig.Click += new System.EventHandler(this.simpleButton_queryTypeFaultsConfig_Click);
+            // 
             // simpleButton_cancelStatusChange
             // 
             this.simpleButton_cancelStatusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_cancelStatusChange.Appearance.Options.UseFont = true;
-            this.simpleButton_cancelStatusChange.Location = new System.Drawing.Point(284, 130);
+            this.simpleButton_cancelStatusChange.Location = new System.Drawing.Point(284, 192);
             this.simpleButton_cancelStatusChange.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_cancelStatusChange.Name = "simpleButton_cancelStatusChange";
-            this.simpleButton_cancelStatusChange.Size = new System.Drawing.Size(272, 59);
+            this.simpleButton_cancelStatusChange.Size = new System.Drawing.Size(272, 60);
             this.simpleButton_cancelStatusChange.TabIndex = 19;
             this.simpleButton_cancelStatusChange.Text = "取消";
             this.simpleButton_cancelStatusChange.Click += new System.EventHandler(this.simpleButton_cancelStatusChange_Click);
@@ -691,22 +705,22 @@ namespace CloudManage.DeviceManagement
             // 
             this.simpleButton_saveStatusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_saveStatusChange.Appearance.Options.UseFont = true;
-            this.simpleButton_saveStatusChange.Location = new System.Drawing.Point(6, 130);
+            this.simpleButton_saveStatusChange.Location = new System.Drawing.Point(6, 192);
             this.simpleButton_saveStatusChange.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_saveStatusChange.Name = "simpleButton_saveStatusChange";
-            this.simpleButton_saveStatusChange.Size = new System.Drawing.Size(272, 59);
+            this.simpleButton_saveStatusChange.Size = new System.Drawing.Size(272, 60);
             this.simpleButton_saveStatusChange.TabIndex = 18;
             this.simpleButton_saveStatusChange.Text = "保存";
             this.simpleButton_saveStatusChange.Click += new System.EventHandler(this.simpleButton_saveStatusChange_Click);
             // 
             // simpleButton_statusChange
             // 
-            this.simpleButton_statusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_statusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleButton_statusChange.Appearance.Options.UseFont = true;
-            this.simpleButton_statusChange.Location = new System.Drawing.Point(6, 6);
+            this.simpleButton_statusChange.Location = new System.Drawing.Point(6, 72);
             this.simpleButton_statusChange.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_statusChange.Name = "simpleButton_statusChange";
-            this.simpleButton_statusChange.Size = new System.Drawing.Size(550, 118);
+            this.simpleButton_statusChange.Size = new System.Drawing.Size(550, 114);
             this.simpleButton_statusChange.TabIndex = 17;
             this.simpleButton_statusChange.Text = "状态更改";
             this.simpleButton_statusChange.Click += new System.EventHandler(this.simpleButton_statusChange_Click);
@@ -738,7 +752,7 @@ namespace CloudManage.DeviceManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
             this.Controls.Add(this.panelControl_rightSide);
-            this.Controls.Add(this.gridControl_faultDataTime);
+            this.Controls.Add(this.gridControl_faultsConfig);
             this.Controls.Add(this.labelControl_diagnosticEnable);
             this.Controls.Add(this.labelControl_faultsName);
             this.Controls.Add(this.labelControl_testingDeviceName);
@@ -749,7 +763,7 @@ namespace CloudManage.DeviceManagement
             this.Name = "DiagnosisManagement";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultDataTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultsConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
             this.panelControl_rightSide.ResumeLayout(false);
@@ -766,7 +780,7 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraEditors.LabelControl labelControl_testingDeviceName;
         private DevExpress.XtraEditors.LabelControl labelControl_faultsName;
         private DevExpress.XtraEditors.LabelControl labelControl_diagnosticEnable;
-        private DevExpress.XtraGrid.GridControl gridControl_faultDataTime;
+        private DevExpress.XtraGrid.GridControl gridControl_faultsConfig;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_num;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_PLName;
@@ -779,5 +793,6 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraEditors.SimpleButton simpleButton_cancelStatusChange;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_historyQuery;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_queryTypeFaultsConfig;
     }
 }
