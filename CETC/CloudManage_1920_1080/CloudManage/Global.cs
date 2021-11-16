@@ -16,6 +16,7 @@ namespace CloudManage
             Global._init_dtProductionLine();    //初始化产线名称表
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
+            Global._init_dtDeviceInfoLimitsAndLocation();   //初始化设备参数上下限、坐标表
             //Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
@@ -266,8 +267,8 @@ namespace CloudManage
                                                               "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
                                                               "FROM device_info AS t1 INNER JOIN device AS t2 " +
                                                               "ON t1.DeviceNO=t2.DeviceNO " +
-                                                              "WHERE t1.LineNO=" + selectedItemTag +
-                                                              " ORDER BY t1.`NO`;";
+                                                              "WHERE t1.LineNO='" + selectedItemTag +
+                                                              "' ORDER BY t1.`NO`;";
 
                 if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
@@ -451,48 +452,54 @@ namespace CloudManage
         /*************************************************************************************************************/
 
         //RealTimeDataControl
-        public static DataTable dtRightSideRealTimeData = new DataTable();
+        public static DataTable dtDeviceInfoLimitsAndLocation = new DataTable();
 
-        public static void _init_dtRightSideRealTimeData()
+        public static void _init_dtDeviceInfoLimitsAndLocation()
         {
-            if (Global.dtRightSideRealTimeData.Rows.Count == 0)
-            {
-                if (Global.dtRightSideRealTimeData.Columns.Count == 0)
-                {
-                    Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
-                    Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
-                }
+            string cmdInitDtDeviceInfoLimitsAndLocation = "SELECT * FROM device_info_limits;"; 
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            mysqlHelper1._connectMySQL();
+            mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoLimitsAndLocation ,ref Global.dtDeviceInfoLimitsAndLocation);
+            mysqlHelper1.conn.Close();
 
-                DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide1["paraName"] = "检测数量";
-                drRightSide1["paraVal"] = "533";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide1);
+            //if (Global.dtRightSideRealTimeData.Rows.Count == 0)
+            //{
+            //    if (Global.dtRightSideRealTimeData.Columns.Count == 0)
+            //    {
+            //        Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
+            //        Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
+            //    }
 
-                DataRow drRightSide2 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide2["paraName"] = "缺陷数量";
-                drRightSide2["paraVal"] = "55";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide2);
+            //    DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide1["paraName"] = "检测数量";
+            //    drRightSide1["paraVal"] = "533";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide1);
 
-                DataRow drRightSide3 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide3["paraName"] = "处理时间";
-                drRightSide3["paraVal"] = "20" + "ms";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide3);
+            //    DataRow drRightSide2 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide2["paraName"] = "缺陷数量";
+            //    drRightSide2["paraVal"] = "55";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide2);
 
-                DataRow drRightSide4 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide4["paraName"] = "CPU温度";
-                drRightSide4["paraVal"] = "60" + "℃";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide4);
+            //    DataRow drRightSide3 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide3["paraName"] = "处理时间";
+            //    drRightSide3["paraVal"] = "20" + "ms";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide3);
 
-                DataRow drRightSide5 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide5["paraName"] = "CPU利用率";
-                drRightSide5["paraVal"] = "40" + "%";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide5);
+            //    DataRow drRightSide4 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide4["paraName"] = "CPU温度";
+            //    drRightSide4["paraVal"] = "60" + "℃";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide4);
 
-                DataRow drRightSide6 = Global.dtRightSideRealTimeData.NewRow();
-                drRightSide6["paraName"] = "内存利用率";
-                drRightSide6["paraVal"] = "20".ToString() + "%";
-                Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
-            }
+            //    DataRow drRightSide5 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide5["paraName"] = "CPU利用率";
+            //    drRightSide5["paraVal"] = "40" + "%";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide5);
+
+            //    DataRow drRightSide6 = Global.dtRightSideRealTimeData.NewRow();
+            //    drRightSide6["paraName"] = "内存利用率";
+            //    drRightSide6["paraVal"] = "20".ToString() + "%";
+            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
+            //}
         }
 
         /*************************************************************************************************************/
@@ -558,6 +565,25 @@ namespace CloudManage
             return value;
         }
 
+        /*************************************************************************************************************/
+
+        //获取表的所有字段名
+
+        public static string[] GetColumnsByDataTable(DataTable dt)
+        {
+            string[] strColumns = null;
+            if (dt.Columns.Count > 0)
+            {
+                int columnNum = 0;
+                columnNum = dt.Columns.Count;
+                strColumns = new string[columnNum];
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    strColumns[i] = dt.Columns[i].ColumnName;
+                }
+            }
+            return strColumns;
+        }
 
 
     }

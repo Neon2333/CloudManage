@@ -291,9 +291,6 @@ namespace CloudManage.DeviceManagement
                 }
             }
 
-
-
-
         }
 
         private void simpleButton_saveStatusChange_Click(object sender, EventArgs e)
@@ -374,9 +371,41 @@ namespace CloudManage.DeviceManagement
                 //还原到最初的状态
                 foreach (var fo in faultsOriginal)
                 {
-                    Global.dtFaultsConfig.Rows[fo.Key]["FaultEnable"] = fo.Value.faultsFaultEnable; //不用faultsStorage[0]直接赋值，因为有多个行被记录
+                    Global.dtFaultsConfig.Rows[fo.Key]["FaultEnable"] = fo.Value.faultsFaultEnable; //还原dtFaultsConfig，不用faultsStorage[0]直接赋值，因为有多个行被记录
                 }
 
+                this.dtQueryFaultsConfigType.Rows.Clear();  //清空dtQueryFaultsConfigType
+                if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
+                {
+                    DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '使能'");
+                    foreach (var dp in drTemp)
+                    {
+                        //不能直接把dp添加到dtQueryFaultsConfigType中，报错dp属于另一个表
+                        DataRow dr = this.dtQueryFaultsConfigType.NewRow();
+                        dr["NO"] = dp["NO"];
+                        dr["LineName"] = dp["LineName"];
+                        dr["DeviceName"] = dp["DeviceName"];
+                        dr["FaultName"] = dp["FaultName"];
+                        dr["FaultEnable"] = dp["FaultEnable"];
+                        this.dtQueryFaultsConfigType.Rows.Add(dr);
+                    }
+                }
+                else if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.notEnableFualtsConfig)
+                {
+                    DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '禁止'");
+                    foreach (var dp in drTemp)
+                    {
+                        //不能直接把dp添加到dtQueryFaultsConfigType中，报错dp属于另一个表
+                        DataRow dr = this.dtQueryFaultsConfigType.NewRow();
+                        dr["NO"] = dp["NO"];
+                        dr["LineName"] = dp["LineName"];
+                        dr["DeviceName"] = dp["DeviceName"];
+                        dr["FaultName"] = dp["FaultName"];
+                        dr["FaultEnable"] = dp["FaultEnable"];
+                        this.dtQueryFaultsConfigType.Rows.Add(dr);
+                    }
+                }
+                
                 faultsOriginal.Clear();
                 faultsLatest.Clear();
 
@@ -403,6 +432,7 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_queryTypeFaultsConfig_Click(object sender, EventArgs e)
         {
+            selectRow[0] = 0;
             queryFaultsConfigTypeCurrent = (++queryFaultsConfigTypeCurrent) % 3;   //更新按钮显示标志
 
             if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
@@ -413,9 +443,10 @@ namespace CloudManage.DeviceManagement
             }
             else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
             {
-                this.dtQueryFaultsConfigType.Rows.Clear();
+                this.dtQueryFaultsConfigType.Rows.Clear();  //清空dtQueryFaultsConfigType
                 this.simpleButton_queryTypeFaultsConfig.Text = "显示使能";
                 this.simpleButton_queryTypeFaultsConfig.Appearance.BackColor = Color.FromArgb(56, 152, 83);
+                //从dtFaultsConfig中将使能的记录拷贝到dtQueryFaultsConfigType中
                 DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '使能'");
                 foreach(var dp in drTemp)
                 {
@@ -428,13 +459,14 @@ namespace CloudManage.DeviceManagement
                     dr["FaultEnable"] = dp["FaultEnable"];
                     this.dtQueryFaultsConfigType.Rows.Add(dr);
                 }
-                this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigType;
+                this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigType;    //grid显示绑定dtQueryFaultsConfigType
             }
             else if(queryFaultsConfigTypeCurrent==(int)queryFaultsConfigType.notEnableFualtsConfig)
             {
                 this.dtQueryFaultsConfigType.Rows.Clear();
                 this.simpleButton_queryTypeFaultsConfig.Text = "显示禁止";
                 this.simpleButton_queryTypeFaultsConfig.Appearance.BackColor = Color.FromArgb(208, 49, 68);
+                //从dtFaultsConfig中将禁止的记录拷贝到dtQueryFaultsConfigType中
                 DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '禁止'");
                 foreach (var dp in drTemp)
                 {
