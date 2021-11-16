@@ -179,6 +179,23 @@ namespace CloudManage.DeviceManagement
             this.tileView1.FocusedRowHandle = selectRow[0];
         }
 
+        //根据选中行刷新《更改状态》按钮的颜色
+        private void refreshColorButtonStatusChange()
+        {
+            DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
+            if (selectRow.Length == 1)
+            {
+                if (drTemp["FaultEnable"].ToString() == "使能")
+                {
+                    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(56, 152, 83);
+                }
+                else if (drTemp["FaultEnable"].ToString() == "禁止")
+                {
+                    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(208, 49, 68);
+                }
+            }
+        }
+
         private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
         {
             if (e.Item == null || e.Item.Elements.Count == 0)
@@ -193,23 +210,15 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+
+
+        //点击选中某行时，按钮变色
         private void gridControl_faultDataTime_Click(object sender, EventArgs e)    //不要用itemClick，有时候点击了但selectedrows未改变，出现bug
         {
             if (Global.dtFaultsConfig.Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRow = this.tileView1.GetSelectedRows();   //记录选中的行
-                DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
-                if (selectRow.Length == 1)
-                {
-                    if (drTemp["FaultEnable"].ToString() == "使能")
-                    {
-                        this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(56, 152, 83);
-                    }
-                    else if (drTemp["FaultEnable"].ToString() == "禁止")
-                    {
-                        this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(208, 49, 68);
-                    }
-                }
+                refreshColorButtonStatusChange();
             }
         }
 
@@ -245,7 +254,6 @@ namespace CloudManage.DeviceManagement
                                 drr[0]["FaultEnable"] = drTemp["FaultEnable"].ToString(); //同步dtFaultsConfig中对应dtQueryFaultsConfigType的行
                             }
                         }
-                        
 
                         //保存被修改行当前状态
                         fTemp.faultsFaultEnable = "禁止";
@@ -257,8 +265,7 @@ namespace CloudManage.DeviceManagement
                         {
                             faultsLatest.Add(fTemp.rowHandle, fTemp);
                         }
-
-                        this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(208, 49, 68);
+                        refreshColorButtonStatusChange();
                     }
                     else
                     {
@@ -285,8 +292,7 @@ namespace CloudManage.DeviceManagement
                         {
                             faultsLatest.Add(fTemp.rowHandle, fTemp);
                         }
-
-                        this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(56, 152, 83);
+                        refreshColorButtonStatusChange();
                     }
                 }
             }
@@ -409,18 +415,21 @@ namespace CloudManage.DeviceManagement
                 faultsOriginal.Clear();
                 faultsLatest.Clear();
 
+                refreshColorButtonStatusChange();
                 //取消后恢复按钮颜色
-                if (Global.dtFaultsConfig.Rows[selectRow[0]]["FaultEnable"].ToString() == "禁止")
-                {
-                    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(208, 49, 68);
-                }
-                else
-                {
-                    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(56, 152, 83);
-                }
+                //if (Global.dtFaultsConfig.Rows[selectRow[0]]["FaultEnable"].ToString() == "禁止")
+                //{
+                //    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(208, 49, 68);
+                //}
+                //else
+                //{
+                //    this.simpleButton_statusChange.Appearance.BackColor = Color.FromArgb(56, 152, 83);
+                //}
+
             }
         }
 
+        //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
         private void reorderDtFaultsConfigNO()
         {
             int lenDtFaultsConfig = Global.dtFaultsConfig.Rows.Count;
@@ -430,9 +439,10 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        //显示全部/使能/禁止
         private void simpleButton_queryTypeFaultsConfig_Click(object sender, EventArgs e)
         {
-            selectRow[0] = 0;
+            selectRow[0] = 0;   //每次更改显示时，都默认选中第一行
             queryFaultsConfigTypeCurrent = (++queryFaultsConfigTypeCurrent) % 3;   //更新按钮显示标志
 
             if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
@@ -440,6 +450,7 @@ namespace CloudManage.DeviceManagement
                 this.simpleButton_queryTypeFaultsConfig.Text = "显示全部";
                 this.simpleButton_queryTypeFaultsConfig.Appearance.BackColor = Color.Transparent;
                 this.gridControl_faultsConfig.DataSource = Global.dtFaultsConfig;
+                refreshColorButtonStatusChange();
             }
             else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
             {
@@ -460,8 +471,9 @@ namespace CloudManage.DeviceManagement
                     this.dtQueryFaultsConfigType.Rows.Add(dr);
                 }
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigType;    //grid显示绑定dtQueryFaultsConfigType
+                refreshColorButtonStatusChange();
             }
-            else if(queryFaultsConfigTypeCurrent==(int)queryFaultsConfigType.notEnableFualtsConfig)
+            else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.notEnableFualtsConfig)
             {
                 this.dtQueryFaultsConfigType.Rows.Clear();
                 this.simpleButton_queryTypeFaultsConfig.Text = "显示禁止";
@@ -479,6 +491,7 @@ namespace CloudManage.DeviceManagement
                     this.dtQueryFaultsConfigType.Rows.Add(dr);
                 }
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigType;
+                refreshColorButtonStatusChange();
 
             }
 
