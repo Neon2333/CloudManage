@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 12/11/2021 10:31:35
+ Date: 17/11/2021 17:26:26
 */
 
 SET NAMES utf8mb4;
@@ -201,6 +201,105 @@ INSERT INTO `device_info` VALUES (71, '024', '104', '1', '100', '22', '65', '55'
 INSERT INTO `device_info` VALUES (72, '024', '105', '1', '100', '11', '75', '40', '60');
 
 -- ----------------------------
+-- Table structure for device_info_limits
+-- ----------------------------
+DROP TABLE IF EXISTS `device_info_limits`;
+CREATE TABLE `device_info_limits`  (
+  `NO` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `LineNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `DeviceNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `LocationX` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `LocationY` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `TestingNumMin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `TestingNumMax` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `DefectNumMin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `DefectNumMax` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `CPUTemperatureMin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `CPUTemperatureMax` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `CPUUsageMin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `CPUUsageMax` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `MemoryUsageMin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `MemoryUsageMax` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`NO`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of device_info_limits
+-- ----------------------------
+INSERT INTO `device_info_limits` VALUES (1, '001', '001', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (2, '001', '002', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (3, '001', '003', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (4, '002', '004', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (5, '002', '005', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (6, '002', '006', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (7, '003', '007', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (8, '003', '008', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (9, '003', '009', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (10, '004', '010', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (11, '004', '011', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (12, '004', '012', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (13, '005', '013', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (14, '005', '101', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (15, '005', '102', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (16, '006', '103', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (17, '006', '104', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (18, '006', '105', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (19, '007', '001', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (20, '007', '002', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (21, '007', '003', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (22, '008', '004', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (23, '008', '005', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (24, '008', '006', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (25, '009', '007', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (26, '009', '008', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (27, '009', '009', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (28, '010', '010', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (29, '010', '011', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (30, '010', '012', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (31, '011', '013', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (32, '011', '101', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (33, '011', '102', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (34, '012', '103', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (35, '012', '104', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (36, '012', '105', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (37, '013', '001', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (38, '013', '002', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (39, '013', '003', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (40, '014', '004', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (41, '014', '005', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (42, '014', '006', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (43, '015', '007', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (44, '015', '008', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (45, '015', '009', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (46, '016', '010', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (47, '016', '011', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (48, '016', '012', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (49, '017', '013', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (50, '017', '101', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (51, '017', '102', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (52, '018', '103', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (53, '018', '104', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (54, '018', '105', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (55, '019', '001', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (56, '019', '002', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (57, '019', '003', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (58, '020', '004', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (59, '020', '005', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (60, '020', '006', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (61, '021', '007', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (62, '021', '008', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (63, '021', '009', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (64, '022', '010', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (65, '022', '011', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (66, '022', '012', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (67, '023', '013', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (68, '023', '101', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (69, '023', '102', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (70, '024', '103', '550', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (71, '024', '104', '550', '770', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+INSERT INTO `device_info_limits` VALUES (72, '024', '105', '1198', '554', '0', '10', '0', '100', '0', '60', '0', '90', '0', '90');
+
+-- ----------------------------
 -- Table structure for faults
 -- ----------------------------
 DROP TABLE IF EXISTS `faults`;
@@ -290,7 +389,7 @@ CREATE TABLE `faults_config`  (
 -- ----------------------------
 -- Records of faults_config
 -- ----------------------------
-INSERT INTO `faults_config` VALUES (1, '001', '001', '1', '1');
+INSERT INTO `faults_config` VALUES (1, '001', '001', '1', '0');
 INSERT INTO `faults_config` VALUES (2, '001', '001', '2', '1');
 INSERT INTO `faults_config` VALUES (3, '001', '001', '3', '1');
 INSERT INTO `faults_config` VALUES (4, '001', '001', '4', '1');
@@ -711,7 +810,7 @@ INSERT INTO `faults_config` VALUES (418, '003', '006', '8', '1');
 INSERT INTO `faults_config` VALUES (419, '003', '006', '9', '1');
 INSERT INTO `faults_config` VALUES (420, '003', '006', '10', '1');
 INSERT INTO `faults_config` VALUES (421, '003', '007', '1', '1');
-INSERT INTO `faults_config` VALUES (422, '003', '007', '2', '0');
+INSERT INTO `faults_config` VALUES (422, '003', '007', '2', '1');
 INSERT INTO `faults_config` VALUES (423, '003', '007', '3', '1');
 INSERT INTO `faults_config` VALUES (424, '003', '007', '4', '1');
 INSERT INTO `faults_config` VALUES (425, '003', '007', '5', '1');
@@ -8964,7 +9063,6 @@ CREATE TABLE `faults_current`  (
 -- ----------------------------
 -- Records of faults_current
 -- ----------------------------
-INSERT INTO `faults_current` VALUES (1, '001', '003', '1', '2021-11-01 08:30:35');
 INSERT INTO `faults_current` VALUES (2, '002', '005', '1', '2021-11-01 10:02:09');
 INSERT INTO `faults_current` VALUES (3, '003', '007', '2', '2021-11-01 20:45:20');
 INSERT INTO `faults_current` VALUES (4, '004', '010', '4', '2021-11-02 11:32:40');
@@ -9003,7 +9101,7 @@ CREATE TABLE `faults_history`  (
   `FaultNO` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `FaultTime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`NO`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of faults_history
@@ -9023,6 +9121,7 @@ INSERT INTO `faults_history` VALUES (12, '002', '005', '1', '2021-11-01 10:02:09
 INSERT INTO `faults_history` VALUES (13, '004', '010', '4', '2021-11-02 11:32:40');
 INSERT INTO `faults_history` VALUES (14, '005', '013', '2', '2021-11-02 15:08:55');
 INSERT INTO `faults_history` VALUES (15, '002', '004', '3', '2021-11-02 15:08:56');
+INSERT INTO `faults_history` VALUES (16, '003', '007', '2', '2021-11-01 20:45:20');
 
 -- ----------------------------
 -- Table structure for faults_history_backup
@@ -9090,5 +9189,75 @@ INSERT INTO `productionline` VALUES (21, '021', '21号车');
 INSERT INTO `productionline` VALUES (22, '022', '22号车');
 INSERT INTO `productionline` VALUES (23, '023', '23号车');
 INSERT INTO `productionline` VALUES (24, '024', '24号车');
+
+-- ----------------------------
+-- Procedure structure for proc1
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `proc1`;
+delimiter ;;
+CREATE PROCEDURE `proc1`()
+BEGIN
+
+SELECT
+	t1.`NO`,
+	t2.LineName,
+	t3.DeviceName,
+	t4.FaultName,(
+	CASE
+			
+			WHEN FaultEnable = 1 THEN
+			'使能' 
+			WHEN FaultEnable = 0 THEN
+			'禁止' 
+		END 
+		) AS FaultEnable 
+	FROM
+		faults_config AS t1
+		INNER JOIN productionline AS t2 ON t1.LineNO = t2.LineNO
+		INNER JOIN device AS t3 ON t1.DeviceNO = t3.DeviceNO
+		INNER JOIN faults AS t4 ON t1.DeviceNO = t4.DeviceNO 
+		AND t1.FaultNO = t4.FaultNO 
+ORDER BY
+	t1.`NO`;
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for proc2
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `proc2`;
+delimiter ;;
+CREATE PROCEDURE `proc2`(lineNO varchar(255), OUT deviceTotal int(10))
+BEGIN
+
+SELECT (
+DeviceStatus_001+
+DeviceStatus_002+
+DeviceStatus_003+
+DeviceStatus_004+
+DeviceStatus_005+
+DeviceStatus_006+
+DeviceStatus_007+
+DeviceStatus_008+
+DeviceStatus_009+
+DeviceStatus_010+
+DeviceStatus_011+
+DeviceStatus_012+
+DeviceStatus_013+
+DeviceStatus_101+
+DeviceStatus_102+
+DeviceStatus_103+
+DeviceStatus_104+
+DeviceStatus_105
+) INTO deviceTotal 
+FROM device_config 
+WHERE LineNO=lineNO;
+
+
+END
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,7 +18,13 @@ namespace CloudManage.DataAnalysis
         public VerticalAnalysis()
         {
             InitializeComponent();
+            _initVerticalAnalysis();
 
+            //initChromeBrowser();
+        }
+
+        void _initVerticalAnalysis()
+        {
             this.sideTileBarControlWithSub_verticalAnalysis.dtInitSideTileBarWithSub = Global.dtSideTileBar;
             this.sideTileBarControlWithSub_verticalAnalysis.colTagDT = "LineNO";
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDT = "LineName";
@@ -27,8 +33,15 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControlWithSub_verticalAnalysis.colTagDTSUB = "DeviceNO";
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_verticalAnalysis._initSideTileBarWithSub();
+            _initTimeEditStartAndEnd();
+        }
 
-            //initChromeBrowser();
+        void _initTimeEditStartAndEnd()
+        {
+            DateTime nowdt = DateTime.Now;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
+            this.timeEdit_startTime.Time = oneMonthAgo;
+            this.timeEdit_endTime.Time = nowdt;
         }
 
         private void initChromeBrowser()

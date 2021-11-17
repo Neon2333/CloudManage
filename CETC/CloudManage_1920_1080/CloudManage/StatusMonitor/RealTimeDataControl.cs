@@ -19,8 +19,8 @@ namespace CloudManage
         string labelDirImgType = "——实时";    //imageSlider当前图片类型：实时、缺陷
         Color colorNormal = Color.Gray;
         Color colorAlert = Color.FromArgb(208, 49, 68);
-        private DataTable dtGridDataSourceTemp = new DataTable();
-        private DataTable dtGridDataSource = new DataTable();
+        private DataTable dtGridDataSourceTemp = new DataTable();   //从device_info中查出的一行的原始数据
+        private DataTable dtGridDataSource = new DataTable();   //改变数据显示形式，将一行变为若干行
         private DataRow drParaLimits;
 
         string testingNumMin = String.Empty;
@@ -33,7 +33,6 @@ namespace CloudManage
         string CPUUsageMax = String.Empty;
         string memoryUsageMin = String.Empty;
         string memoryUsageMax = String.Empty;
-
 
         public RealTimeDataControl()
         {
@@ -52,7 +51,11 @@ namespace CloudManage
         private void initDataSource()
         {
             string DeviceNOTemp = String.Empty;
-            string firstLineNO = Global.dtDeviceConfig.Rows[0]["LineNO"].ToString();
+            string firstLineNO = String.Empty;
+            if (Global.dtDeviceConfig.Rows.Count != 0)  //防止单独打开StatusMonitor设计器时，Global.dtDeviceConfig未初始化，导致出错
+            {
+                firstLineNO = Global.dtDeviceConfig.Rows[0]["LineNO"].ToString();
+            }
             string[] cols = Global.GetColumnsByDataTable(Global.dtDeviceConfig);
             for(int i = 2; i < Global.dtDeviceConfig.Columns.Count; i++)
             {
@@ -98,30 +101,34 @@ namespace CloudManage
                 this.dtGridDataSource.Columns.Add("paraVal", typeof(String));
             }
 
-            DataRow drrTestingNum = this.dtGridDataSource.NewRow();
-            drrTestingNum["paraName"] = "检测数量";
-            drrTestingNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["TestingNum"];
-            this.dtGridDataSource.Rows.Add(drrTestingNum);
+            if (this.dtGridDataSourceTemp.Rows.Count != 0)
+            {
+                DataRow drrTestingNum = this.dtGridDataSource.NewRow();
+                drrTestingNum["paraName"] = "检测数量";
+                drrTestingNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["TestingNum"];
+                this.dtGridDataSource.Rows.Add(drrTestingNum);
 
-            DataRow drrDefectNum = this.dtGridDataSource.NewRow();
-            drrDefectNum["paraName"] = "缺陷数量";
-            drrDefectNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["DefectNum"];
-            this.dtGridDataSource.Rows.Add(drrDefectNum);
+                DataRow drrDefectNum = this.dtGridDataSource.NewRow();
+                drrDefectNum["paraName"] = "缺陷数量";
+                drrDefectNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["DefectNum"];
+                this.dtGridDataSource.Rows.Add(drrDefectNum);
 
-            DataRow drrCPUTemperature = this.dtGridDataSource.NewRow();
-            drrCPUTemperature["paraName"] = "CPU温度";
-            drrCPUTemperature["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUTemperature"];
-            this.dtGridDataSource.Rows.Add(drrCPUTemperature);
+                DataRow drrCPUTemperature = this.dtGridDataSource.NewRow();
+                drrCPUTemperature["paraName"] = "CPU温度";
+                drrCPUTemperature["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUTemperature"];
+                this.dtGridDataSource.Rows.Add(drrCPUTemperature);
 
-            DataRow drrCPUUsage = this.dtGridDataSource.NewRow();
-            drrCPUUsage["paraName"] = "CPU利用率";
-            drrCPUUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUUsage"];
-            this.dtGridDataSource.Rows.Add(drrCPUUsage);
+                DataRow drrCPUUsage = this.dtGridDataSource.NewRow();
+                drrCPUUsage["paraName"] = "CPU利用率";
+                drrCPUUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUUsage"];
+                this.dtGridDataSource.Rows.Add(drrCPUUsage);
 
-            DataRow drrMemoryUsage = this.dtGridDataSource.NewRow();
-            drrMemoryUsage["paraName"] = "内存利用率";
-            drrMemoryUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["MemoryUsage"];
-            this.dtGridDataSource.Rows.Add(drrMemoryUsage);
+                DataRow drrMemoryUsage = this.dtGridDataSource.NewRow();
+                drrMemoryUsage["paraName"] = "内存利用率";
+                drrMemoryUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["MemoryUsage"];
+                this.dtGridDataSource.Rows.Add(drrMemoryUsage);
+            }
+            
         }
 
         //刷新目录

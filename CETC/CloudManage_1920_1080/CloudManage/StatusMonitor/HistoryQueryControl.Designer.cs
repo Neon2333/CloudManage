@@ -99,6 +99,8 @@
             this.tileViewColumn_FTime = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton_query6Months = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_query3Months = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_endTimeModify = new DevExpress.XtraEditors.SimpleButton();
             this.timeEdit_endTime = new DevExpress.XtraEditors.TimeEdit();
             this.simpleButton_startTimeModify = new DevExpress.XtraEditors.SimpleButton();
@@ -198,6 +200,8 @@
             // 
             // panelControl_rightSide
             // 
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_query6Months);
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_query3Months);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_endTimeModify);
             this.panelControl_rightSide.Controls.Add(this.timeEdit_endTime);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_startTimeModify);
@@ -210,13 +214,41 @@
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 6;
             // 
+            // simpleButton_query6Months
+            // 
+            this.simpleButton_query6Months.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_query6Months.Appearance.Options.UseFont = true;
+            this.simpleButton_query6Months.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_query6Months.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_query6Months.Location = new System.Drawing.Point(284, 356);
+            this.simpleButton_query6Months.Name = "simpleButton_query6Months";
+            this.simpleButton_query6Months.Size = new System.Drawing.Size(272, 46);
+            this.simpleButton_query6Months.TabIndex = 23;
+            this.simpleButton_query6Months.Text = "查询近半年";
+            this.simpleButton_query6Months.Click += new System.EventHandler(this.simpleButton_query6Months_Click);
+            // 
+            // simpleButton_query3Months
+            // 
+            this.simpleButton_query3Months.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_query3Months.Appearance.Options.UseFont = true;
+            this.simpleButton_query3Months.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_query3Months.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_query3Months.Location = new System.Drawing.Point(6, 356);
+            this.simpleButton_query3Months.Name = "simpleButton_query3Months";
+            this.simpleButton_query3Months.Size = new System.Drawing.Size(272, 46);
+            this.simpleButton_query3Months.TabIndex = 22;
+            this.simpleButton_query3Months.Text = "查询近3个月";
+            this.simpleButton_query3Months.Click += new System.EventHandler(this.simpleButton_query3Months_Click);
+            // 
             // simpleButton_endTimeModify
             // 
             this.simpleButton_endTimeModify.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_endTimeModify.Appearance.Options.UseFont = true;
-            this.simpleButton_endTimeModify.Location = new System.Drawing.Point(336, 180);
+            this.simpleButton_endTimeModify.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_endTimeModify.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_endTimeModify.Location = new System.Drawing.Point(356, 180);
             this.simpleButton_endTimeModify.Name = "simpleButton_endTimeModify";
-            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(220, 46);
+            this.simpleButton_endTimeModify.Size = new System.Drawing.Size(200, 46);
             this.simpleButton_endTimeModify.TabIndex = 21;
             this.simpleButton_endTimeModify.Text = "更改";
             this.simpleButton_endTimeModify.Click += new System.EventHandler(this.simpleButton_endTimeModify_Click);
@@ -233,16 +265,18 @@
             this.timeEdit_endTime.Properties.Mask.EditMask = "G";
             this.timeEdit_endTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.timeEdit_endTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.timeEdit_endTime.Size = new System.Drawing.Size(324, 46);
+            this.timeEdit_endTime.Size = new System.Drawing.Size(344, 46);
             this.timeEdit_endTime.TabIndex = 20;
             // 
             // simpleButton_startTimeModify
             // 
             this.simpleButton_startTimeModify.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_startTimeModify.Appearance.Options.UseFont = true;
-            this.simpleButton_startTimeModify.Location = new System.Drawing.Point(336, 56);
+            this.simpleButton_startTimeModify.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_startTimeModify.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_startTimeModify.Location = new System.Drawing.Point(356, 56);
             this.simpleButton_startTimeModify.Name = "simpleButton_startTimeModify";
-            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(220, 46);
+            this.simpleButton_startTimeModify.Size = new System.Drawing.Size(200, 46);
             this.simpleButton_startTimeModify.TabIndex = 19;
             this.simpleButton_startTimeModify.Text = "更改";
             this.simpleButton_startTimeModify.Click += new System.EventHandler(this.simpleButton_startTimeModify_Click);
@@ -251,6 +285,8 @@
             // 
             this.simpleButton_query.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_query.Appearance.Options.UseFont = true;
+            this.simpleButton_query.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_query.AppearancePressed.Options.UseFont = true;
             this.simpleButton_query.Location = new System.Drawing.Point(6, 232);
             this.simpleButton_query.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_query.Name = "simpleButton_query";
@@ -309,7 +345,7 @@
             this.timeEdit_startTime.Properties.Mask.EditMask = "G";
             this.timeEdit_startTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.timeEdit_startTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.timeEdit_startTime.Size = new System.Drawing.Size(324, 46);
+            this.timeEdit_startTime.Size = new System.Drawing.Size(344, 46);
             this.timeEdit_startTime.TabIndex = 13;
             // 
             // labelControl_dir
@@ -842,5 +878,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_FTime;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_endTimeModify;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_query6Months;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_query3Months;
     }
 }

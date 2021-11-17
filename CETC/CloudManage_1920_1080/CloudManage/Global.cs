@@ -17,7 +17,6 @@ namespace CloudManage
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
             Global._init_dtDeviceInfoLimitsAndLocation();   //初始化设备参数上下限、坐标表
-            //Global._init_dtFaultHistoryQuery(); //初始化标题栏故障表
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
@@ -585,6 +584,17 @@ namespace CloudManage
             return strColumns;
         }
 
+        /*************************************************************************************************************/
+
+        //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
+        public static void reorderDtFaultsConfigNO(DataTable dt)
+        {
+            int lenDtFaultsConfig = dt.Rows.Count;
+            for (int i = 0; i < lenDtFaultsConfig; i++)
+            {
+                dt.Rows[i]["NO"] = (i + 1).ToString();
+            }
+        }
 
     }
 }

@@ -22,6 +22,8 @@ namespace CloudManage.StatusMonitor
 {
     public partial class HistoryQueryControl : DevExpress.XtraEditors.XtraUserControl
     {
+        string cmdQueryFaultsHistory = String.Empty;
+
         public HistoryQueryControl()
         {
             InitializeComponent();
@@ -31,37 +33,12 @@ namespace CloudManage.StatusMonitor
         void initHistoryQuery()
         {
             _initSideTileBarWithSub();  //初始化侧边栏
-            Global._init_dtHistoryQueryGridShow();    //初始化历史故障表
+            Global._init_dtHistoryQueryGridShow();    //初始化历史故障表，默认显示全部故障历史
+            _initTimeEditStartAndEnd();
+            //初始化显示一个月的历史
+            Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
-
         }
-
-        ////更新标题栏的若干行（共numRowShow行）
-        //public void _refreshTitleGridShow(int numRowShow)
-        //{
-        //    Global.dtTitleGridShowMainForm.Rows.Clear();
-
-        //    int numRowsHistoryQueryGridShow = Global.dtHistoryQueryGridShow.Rows.Count;
-        //    if (numRowShow > numRowsHistoryQueryGridShow)
-        //    {
-        //        numRowShow = numRowsHistoryQueryGridShow;
-        //    }
-
-        //    if (Global.dtTitleGridShowMainForm.Columns.Count != 0)
-        //    {
-        //        for (int i = 0; i < numRowShow; i++)
-        //        {
-        //            DataRow rowShowTemp = Global.dtTitleGridShowMainForm.NewRow();
-        //            rowShowTemp["NO"] = Global.dtHistoryQueryGridShow.Rows[i]["NO"];
-        //            rowShowTemp["LineName"] = Global.dtHistoryQueryGridShow.Rows[i]["LineName"];
-        //            rowShowTemp["DeviceName"] = Global.dtHistoryQueryGridShow.Rows[i]["DeviceName"];
-        //            rowShowTemp["FaultName"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultName"];
-        //            rowShowTemp["FaultTime"] = Global.dtHistoryQueryGridShow.Rows[i]["FaultTime"];
-        //            Global.dtTitleGridShowMainForm.Rows.Add(rowShowTemp);
-        //        }
-        //    }
-
-        //}
 
         //刷新目录
         void _refreshLabelDir()
@@ -82,6 +59,14 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub_historyQuery.colTagDTSUB = "DeviceNO";
             this.sideTileBarControlWithSub_historyQuery.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_historyQuery._initSideTileBarWithSub();
+        }
+
+        void _initTimeEditStartAndEnd()
+        {
+            DateTime nowdt = DateTime.Now;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
+            this.timeEdit_startTime.Time = oneMonthAgo;
+            this.timeEdit_endTime.Time = nowdt;
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
@@ -135,6 +120,75 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        private void initCmdQueryFaultsHistory()
+        {
+            if (this.sideTileBarControlWithSub_historyQuery.tagSelectedItem == "000")
+            {
+                if (this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub == "000")
+                {
+                    cmdQueryFaultsHistory = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            "ORDER BY t1.`NO`;";
+                }
+                else
+                {
+                    cmdQueryFaultsHistory = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            //"AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
+                                            "AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " + 
+                                            "ORDER BY t1.`NO`;";
+                }
+            }
+            else
+            {
+                if (this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub == "000")
+                {
+                    cmdQueryFaultsHistory = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            "AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
+                                            //"AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " +
+                                            "ORDER BY t1.`NO`;";
+                }
+                else
+                {
+                    cmdQueryFaultsHistory = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+                                            "FROM faults_history AS t1 " +
+                                            "INNER JOIN productionline AS t2 " +
+                                            "INNER JOIN device AS t3 " +
+                                            "INNER JOIN faults AS t4 " +
+                                            "ON t1.LineNO=t2.LineNO " +
+                                            "AND t1.DeviceNO=t3.DeviceNO " +
+                                            "AND t1.DeviceNO=t4.DeviceNO " +
+                                            "AND t1.FaultNO=t4.FaultNO " +
+                                            "AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
+                                            "AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " +
+                                            "ORDER BY t1.`NO`;";
+                }
+            }
+        }
+
+
         private void simpleButton_query_Click(object sender, EventArgs e)
         {
             if (_timeInterValIllegal() == true)
@@ -170,7 +224,26 @@ namespace CloudManage.StatusMonitor
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
             _refreshLabelDir();
+
+            initCmdQueryFaultsHistory(); //初始化查询命令，4种
+
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            mysqlHelper1._connectMySQL();
+            bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
+            Global.reorderDtFaultsConfigNO(Global.dtHistoryQueryGridShow);
+
         }
 
+        private void simpleButton_query3Months_Click(object sender, EventArgs e)
+        {
+            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-3).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
+            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+        }
+
+        private void simpleButton_query6Months_Click(object sender, EventArgs e)
+        {
+            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-6).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
+            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+        }
     }
 }

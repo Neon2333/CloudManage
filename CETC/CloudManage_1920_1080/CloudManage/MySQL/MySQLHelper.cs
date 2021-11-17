@@ -29,61 +29,6 @@ namespace CloudManage.MySQL
 
         }
 
-        //public string dataSource
-        //{
-        //    get
-        //    {
-        //        return this.DataSource;
-        //    }
-        //    set
-        //    {
-        //        this.DataSource = value;
-        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
-
-        //    }
-        //}
-
-        //public string dbName
-        //{
-        //    get
-        //    {
-        //        return this.DbName;
-        //    }
-        //    set
-        //    {
-        //        this.DbName = value;
-        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
-
-        //    }
-        //}
-
-        //public string userName
-        //{
-        //    get
-        //    {
-        //        return this.UserName;
-        //    }
-        //    set
-        //    {
-        //        this.UserName = value;
-        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
-
-        //    }
-        //}
-
-        //public string password
-        //{
-        //    get
-        //    {
-        //        return this.Password;
-        //    }
-        //    set
-        //    {
-        //        this.Password = value;
-        //        connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
-
-        //    }
-        //}
 
         //mysql连接
         public bool _connectMySQL()
@@ -103,7 +48,7 @@ namespace CloudManage.MySQL
             return flag;
         }
 
-        //mysql查询
+        //mysql查询，填充DataTable
         public bool _queryTableMySQL(string queryCmd, ref DataTable resultDt)
         {
             bool flag = false;
@@ -129,7 +74,7 @@ namespace CloudManage.MySQL
             return flag;
         }
 
-        //mysql插入记录
+        //mysql插入记录，直接将数据和指令拼接
         public bool _insertMySQL(string insertCmd)
         {
             bool flag = false;
@@ -152,6 +97,32 @@ namespace CloudManage.MySQL
                 ex.ToString();
             }
             return flag;
+        }
+
+        //mysql插入记录，将数据封装成MySqlParameter变量，防参数化注入
+        public void _InsertMySQLUseParameter(String sqlInsert, MySqlParameter[] parameters)
+        {
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(sqlInsert, this.conn);//创建MySqlCommand对象
+                myCommand.CommandType = CommandType.Text;//命令类型
+                myCommand.CommandTimeout = 12000;
+                if (parameters != null)//添加参数
+                {
+                    foreach (MySqlParameter parm in parameters)
+                        myCommand.Parameters.Add(parm);
+                }
+
+                if (this.conn.State == ConnectionState.Closed)
+                {
+                    this.conn.Open();//开启连接
+                }
+                myCommand.ExecuteNonQuery();//更新内容(返回受影响函数，如增、删、改操作)
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
         }
 
         //mysql删除记录
