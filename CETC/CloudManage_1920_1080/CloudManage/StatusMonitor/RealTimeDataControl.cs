@@ -70,8 +70,8 @@ namespace CloudManage
                     firstDeviceNO += DeviceNOTemp.ElementAt(i);
                 }
             }
-            //getDataSource(firstLineNO, firstDeviceNO);
-            //refreshParaLimits(firstLineNO, firstDeviceNO);
+            getDataSource(firstLineNO, firstDeviceNO);
+            refreshParaLimits(firstLineNO, firstDeviceNO);
             this.gridControl_rightSide.DataSource = this.dtGridDataSource;
         }
 
