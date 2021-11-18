@@ -82,7 +82,7 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement21 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.tileViewColumn_parameter = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_value = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.windowsUIButtonPanel_workState = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.windowsUIButtonPanel_realTime = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.sideTileBarControlWithSub_realTimeData = new CloudManage.CommonControl.SideTileBarControlWithSub();
             this.pictureEdit_device = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
@@ -121,26 +121,26 @@
             this.tileViewColumn_value.VisibleIndex = 1;
             this.tileViewColumn_value.Width = 193;
             // 
-            // windowsUIButtonPanel_workState
+            // windowsUIButtonPanel_realTime
             // 
-            this.windowsUIButtonPanel_workState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.windowsUIButtonPanel_workState.ButtonInterval = 20;
+            this.windowsUIButtonPanel_realTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.windowsUIButtonPanel_realTime.ButtonInterval = 20;
             windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
             windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
             windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
-            this.windowsUIButtonPanel_workState.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            this.windowsUIButtonPanel_realTime.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel_workState.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel_workState.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel_workState.Location = new System.Drawing.Point(0, 800);
-            this.windowsUIButtonPanel_workState.Name = "windowsUIButtonPanel_workState";
-            this.windowsUIButtonPanel_workState.Size = new System.Drawing.Size(1920, 80);
-            this.windowsUIButtonPanel_workState.TabIndex = 3;
-            this.windowsUIButtonPanel_workState.Text = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel_workState.UseButtonBackgroundImages = false;
+            this.windowsUIButtonPanel_realTime.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel_realTime.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel_realTime.Location = new System.Drawing.Point(0, 800);
+            this.windowsUIButtonPanel_realTime.Name = "windowsUIButtonPanel_realTime";
+            this.windowsUIButtonPanel_realTime.Size = new System.Drawing.Size(1920, 80);
+            this.windowsUIButtonPanel_realTime.TabIndex = 3;
+            this.windowsUIButtonPanel_realTime.Text = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel_realTime.UseButtonBackgroundImages = false;
             // 
             // sideTileBarControlWithSub_realTimeData
             // 
@@ -503,7 +503,7 @@
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.pictureEdit_device);
             this.Controls.Add(this.sideTileBarControlWithSub_realTimeData);
-            this.Controls.Add(this.windowsUIButtonPanel_workState);
+            this.Controls.Add(this.windowsUIButtonPanel_realTime);
             this.Name = "RealTimeDataControl";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_device.Properties)).EndInit();
@@ -519,7 +519,7 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_workState;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_realTime;
         private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub_realTimeData;
         private DevExpress.XtraEditors.PictureEdit pictureEdit_device;
         private DevExpress.XtraEditors.PanelControl panelControl_rightSide;

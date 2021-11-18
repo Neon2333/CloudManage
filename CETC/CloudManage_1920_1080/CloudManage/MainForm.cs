@@ -20,7 +20,7 @@ namespace CloudManage
         enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
         enum TwinDetectionPages { paraSynPage, intelligentReasoningPage, paraUpdatePage };
         enum DeepLearningPages { datapreParationPage, modelTrainingPage, modelTestingPage, modelUpdatePage };
-        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage};
+        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage, monitorThresholdPage};
 
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -256,6 +256,13 @@ namespace CloudManage
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
+        private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+        }
+
         private void labelControl_title_Click(object sender, EventArgs e)
         {
             this.panelControl_faultsCurrent.Visible = true;
@@ -400,6 +407,7 @@ namespace CloudManage
             }
 
         }
+
 
 
 

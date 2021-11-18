@@ -29,12 +29,12 @@ namespace CloudManage.DataAnalysis
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LateralAnalysis));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions5 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions6 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sideTileBarControl_lateralAnalysis = new CloudManage.CommonControl.SideTileBarControl();
-            this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
+            this.windowsUIButtonPanel_lateralAnalysis = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton_endTimeModify = new DevExpress.XtraEditors.SimpleButton();
             this.timeEdit_endTime = new DevExpress.XtraEditors.TimeEdit();
@@ -66,26 +66,26 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControl_lateralAnalysis.useDtInitSideTileBar = true;
             this.sideTileBarControl_lateralAnalysis.sideTileBarItemSelectedChanged += new CloudManage.CommonControl.SideTileBarControl.TileItemSelectedChangedHanlder(this.sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged);
             // 
-            // windowsUIButtonPanel_historyQuery
+            // windowsUIButtonPanel_lateralAnalysis
             // 
-            this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
-            windowsUIButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions4.Image")));
-            windowsUIButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions5.SvgImage")));
-            windowsUIButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions6.SvgImage")));
-            this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            this.windowsUIButtonPanel_lateralAnalysis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.windowsUIButtonPanel_lateralAnalysis.ButtonInterval = 20;
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            this.windowsUIButtonPanel_lateralAnalysis.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
-            this.windowsUIButtonPanel_historyQuery.Name = "windowsUIButtonPanel_historyQuery";
-            this.windowsUIButtonPanel_historyQuery.Size = new System.Drawing.Size(1920, 80);
-            this.windowsUIButtonPanel_historyQuery.TabIndex = 5;
-            this.windowsUIButtonPanel_historyQuery.Text = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel_historyQuery.UseButtonBackgroundImages = false;
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.windowsUIButtonPanel_lateralAnalysis.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel_lateralAnalysis.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel_lateralAnalysis.Location = new System.Drawing.Point(0, 800);
+            this.windowsUIButtonPanel_lateralAnalysis.Name = "windowsUIButtonPanel_lateralAnalysis";
+            this.windowsUIButtonPanel_lateralAnalysis.Size = new System.Drawing.Size(1920, 80);
+            this.windowsUIButtonPanel_lateralAnalysis.TabIndex = 5;
+            this.windowsUIButtonPanel_lateralAnalysis.Text = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel_lateralAnalysis.UseButtonBackgroundImages = false;
             // 
             // panelControl_rightSide
             // 
@@ -220,7 +220,7 @@ namespace CloudManage.DataAnalysis
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl_chromeBrowser);
             this.Controls.Add(this.panelControl_rightSide);
-            this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
+            this.Controls.Add(this.windowsUIButtonPanel_lateralAnalysis);
             this.Controls.Add(this.sideTileBarControl_lateralAnalysis);
             this.Name = "LateralAnalysis";
             this.Size = new System.Drawing.Size(1920, 880);
@@ -236,7 +236,7 @@ namespace CloudManage.DataAnalysis
         #endregion
 
         private CommonControl.SideTileBarControl sideTileBarControl_lateralAnalysis;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_historyQuery;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_lateralAnalysis;
         private DevExpress.XtraEditors.PanelControl panelControl_rightSide;
         private DevExpress.XtraEditors.SimpleButton simpleButton_endTimeModify;
         private DevExpress.XtraEditors.TimeEdit timeEdit_endTime;

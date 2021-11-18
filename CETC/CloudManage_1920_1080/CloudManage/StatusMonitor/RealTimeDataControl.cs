@@ -19,20 +19,27 @@ namespace CloudManage
         string labelDirImgType = "——实时";    //imageSlider当前图片类型：实时、缺陷
         Color colorNormal = Color.Gray;
         Color colorAlert = Color.FromArgb(208, 49, 68);
-        private DataTable dtGridDataSourceTemp = new DataTable();   //从device_info中查出的一行的原始数据
-        private DataTable dtGridDataSource = new DataTable();   //改变数据显示形式，将一行变为若干行
-        private DataRow drParaLimits;
+        private DataTable dtParaVal = new DataTable();              //从device_info中查出的一行的原始数据，参数值
+        private DataTable dtParaNameAndSuffix = new DataTable();    //参数名、参数单位
+        private DataTable dtGridDataSource = new DataTable();       //改变数据显示形式，将一行变为若干行，最终绑定到grid上的dt
+        private DataRow drParaThreshold;                            //某台设备的参数阈值
 
-        string testingNumMin = String.Empty;
-        string testingNumMax = String.Empty;
-        string defectNumMin = String.Empty;
-        string defectNumMax = String.Empty;
-        string CPUTemperatureMin = String.Empty;
-        string CPUTemperatureMax = String.Empty;
-        string CPUUsageMin = String.Empty;
-        string CPUUsageMax = String.Empty;
-        string memoryUsageMin = String.Empty;
-        string memoryUsageMax = String.Empty;
+        struct paraThreshold
+        {
+            public string lowerLimit;
+            public string upperLimit;
+        }
+        paraThreshold[] paraThresholdList = new paraThreshold[64];
+        //string testingNumMin = String.Empty;
+        //string testingNumMax = String.Empty;
+        //string defectNumMin = String.Empty;
+        //string defectNumMax = String.Empty;
+        //string CPUTemperatureMin = String.Empty;
+        //string CPUTemperatureMax = String.Empty;
+        //string CPUUsageMin = String.Empty;
+        //string CPUUsageMax = String.Empty;
+        //string memoryUsageMin = String.Empty;
+        //string memoryUsageMax = String.Empty;
 
         public RealTimeDataControl()
         {
@@ -43,7 +50,7 @@ namespace CloudManage
         void initRealTime()
         {
             _initSideTileBarWithSub();  //初始化侧边栏
-            Global._init_dtDeviceInfoLimitsAndLocation();
+            Global._init_dtDeviceInfoThresholdAndLocation();
             initDataSource();
             initImgSlider();
         }
@@ -80,19 +87,17 @@ namespace CloudManage
 
         private void getDataSource(string selectedItemTag, string selectedItemSubTag)
         {
-            string cmdInitDtEachProductionLineWorkState = "SELECT t1.DeviceNO,t2.DeviceName, " +
-                                                          "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
-                                                          "WHEN t1.DeviceStatus=0 THEN '异常' " +
-                                                          "END) AS DeviceStatus," +
-                                                          "t1.TestingNum,t1.DefectNum, " +
-                                                          "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
-                                                          "FROM device_info AS t1 INNER JOIN device AS t2 " +
-                                                          "ON t1.DeviceNO=t2.DeviceNO " +
-                                                          "WHERE t1.LineNO='" + selectedItemTag +
-                                                          "' AND t1.DeviceNO='" + selectedItemSubTag +
-                                                          "' ORDER BY t1.`NO`;";
-            Global._initDtMySQL(ref this.dtGridDataSourceTemp, cmdInitDtEachProductionLineWorkState);
-            
+            //查询设备参数值
+            string cmdInitDtParaVal = "SELECT * FROM device_info " +
+                                                 "WHERE LineNO='" + selectedItemTag + "' AND " +
+                                                 "DeviceNO='" + selectedItemSubTag + "';";
+            Global._initDtMySQL(ref this.dtParaVal, cmdInitDtParaVal);
+            //查询设备参数名称、单位
+            string cmdInitDtParaNameAndSuffix = "SELECT * FROM device_info_paranameandsuffix " +
+                                                "WHERE LineNO='" + selectedItemTag + "' AND " +
+                                                "DeviceNO='" + selectedItemSubTag + "';";
+            Global._initDtMySQL(ref this.dtParaNameAndSuffix, cmdInitDtParaNameAndSuffix);
+
             this.dtGridDataSource.Rows.Clear();
 
             if (this.dtGridDataSource.Columns.Count == 0)
@@ -101,32 +106,17 @@ namespace CloudManage
                 this.dtGridDataSource.Columns.Add("paraVal", typeof(String));
             }
 
-            if (this.dtGridDataSourceTemp.Rows.Count != 0)
+            if (this.dtParaVal.Rows.Count == 1 && this.dtParaNameAndSuffix.Rows.Count == 1)
             {
-                DataRow drrTestingNum = this.dtGridDataSource.NewRow();
-                drrTestingNum["paraName"] = "检测数量";
-                drrTestingNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["TestingNum"];
-                this.dtGridDataSource.Rows.Add(drrTestingNum);
-
-                DataRow drrDefectNum = this.dtGridDataSource.NewRow();
-                drrDefectNum["paraName"] = "缺陷数量";
-                drrDefectNum["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["DefectNum"];
-                this.dtGridDataSource.Rows.Add(drrDefectNum);
-
-                DataRow drrCPUTemperature = this.dtGridDataSource.NewRow();
-                drrCPUTemperature["paraName"] = "CPU温度";
-                drrCPUTemperature["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUTemperature"];
-                this.dtGridDataSource.Rows.Add(drrCPUTemperature);
-
-                DataRow drrCPUUsage = this.dtGridDataSource.NewRow();
-                drrCPUUsage["paraName"] = "CPU利用率";
-                drrCPUUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["CPUUsage"];
-                this.dtGridDataSource.Rows.Add(drrCPUUsage);
-
-                DataRow drrMemoryUsage = this.dtGridDataSource.NewRow();
-                drrMemoryUsage["paraName"] = "内存利用率";
-                drrMemoryUsage["paraVal"] = this.dtGridDataSourceTemp.Rows[0]["MemoryUsage"];
-                this.dtGridDataSource.Rows.Add(drrMemoryUsage);
+                int validParaCount = (int)this.dtParaVal.Rows[0]["ValidParaCount"];
+                for (int i = 0; i < validParaCount; i++)
+                {
+                    DataRow drrPara = this.dtGridDataSource.NewRow();
+                    string paraCol = "Para" + (i + 1).ToString() + "Name";
+                    drrPara["paraName"] = this.dtParaNameAndSuffix.Rows[0][paraCol];    //赋值参数值
+                    drrPara["paraVal"] = this.dtParaVal.Rows[0][paraCol];               //赋值参数名
+                    this.dtGridDataSource.Rows.Add(drrPara);
+                }
             }
             
         }
@@ -141,20 +131,26 @@ namespace CloudManage
 
         void refreshParaLimits(string selectedItemTag, string selectedItemSubTag)
         {
-            DataRow[] drr = Global.dtDeviceInfoLimitsAndLocation.Select("LineNO='" + selectedItemTag + "' AND DeviceNO='" + selectedItemSubTag + "'");
+            DataRow[] drr = Global.dtDeviceInfoThresholdAndLocation.Select("LineNO='" + selectedItemTag + "' AND DeviceNO='" + selectedItemSubTag + "'");
+            int validParaCount = (int)this.dtParaNameAndSuffix.Rows[0]["ValidParaCount"];
             if (drr.Length == 1)
             {
-                this.drParaLimits = drr[0];
-                this.testingNumMin = drParaLimits["TestingNumMin"].ToString();
-                this.testingNumMax = drParaLimits["TestingNumMax"].ToString();
-                this.defectNumMin = drParaLimits["DefectNumMin"].ToString();
-                this.defectNumMax = drParaLimits["DefectNumMax"].ToString();
-                this.CPUTemperatureMin = drParaLimits["CPUTemperatureMin"].ToString();
-                this.CPUTemperatureMax = drParaLimits["CPUTemperatureMax"].ToString();
-                this.CPUUsageMin = drParaLimits["CPUUsageMin"].ToString();
-                this.CPUUsageMax = drParaLimits["CPUUsageMax"].ToString();
-                this.memoryUsageMin = drParaLimits["MemoryUsageMin"].ToString();
-                this.memoryUsageMax = drParaLimits["MemoryUsageMax"].ToString();
+                this.drParaThreshold = drr[0];
+                for(int i=0;i< validParaCount; i++)
+                {
+                    
+                }
+
+                //this.testingNumMin = drParaThreshold["TestingNumMin"].ToString();
+                //this.testingNumMax = drParaThreshold["TestingNumMax"].ToString();
+                //this.defectNumMin = drParaThreshold["DefectNumMin"].ToString();
+                //this.defectNumMax = drParaThreshold["DefectNumMax"].ToString();
+                //this.CPUTemperatureMin = drParaThreshold["CPUTemperatureMin"].ToString();
+                //this.CPUTemperatureMax = drParaThreshold["CPUTemperatureMax"].ToString();
+                //this.CPUUsageMin = drParaThreshold["CPUUsageMin"].ToString();
+                //this.CPUUsageMax = drParaThreshold["CPUUsageMax"].ToString();
+                //this.memoryUsageMin = drParaThreshold["MemoryUsageMin"].ToString();
+                //this.memoryUsageMax = drParaThreshold["MemoryUsageMax"].ToString();
             }
         }
 
@@ -210,15 +206,15 @@ namespace CloudManage
             }
         }
 
-
+        
         //设定圆点位置
         void setPicDeviceLocation()
         {
             //DataRow[] drr = Global.dtDeviceInfoLimitsAndLocation.Select("LineNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItem + "' AND DeviceNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub + "'");
             //posX += this.pictureEdit_device.Location.X;
             //posY += this.pictureEdit_device.Location.Y;
-            int posX = Convert.ToInt32(this.drParaLimits["LocationX"]);
-            int posY = Convert.ToInt32(this.drParaLimits["LocationY"]);
+            int posX = Convert.ToInt32(this.drParaThreshold["LocationX"]);
+            int posY = Convert.ToInt32(this.drParaThreshold["LocationY"]);
             this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
         }
 
@@ -236,9 +232,9 @@ namespace CloudManage
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
             refreshLabelDir();
-            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-            setPicDeviceLocation();
+            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
+            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
+            setPicDeviceLocation(); //根据选中的设备设定位置
         }
 
         private void imageSlider_camera_ImageChanged(object sender, DevExpress.XtraEditors.Controls.ImageChangedEventArgs e)

@@ -172,6 +172,12 @@
     <Compile Include="DeviceManagement\DiagnosisManagement.Designer.cs">
       <DependentUpon>DiagnosisManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeviceManagement\MonitorThreshold.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\MonitorThreshold.Designer.cs">
+      <DependentUpon>MonitorThreshold.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeviceManagement\DiagnosisManagement.resx">
       <DependentUpon>DiagnosisManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\MonitorThreshold.resx">
+      <DependentUpon>MonitorThreshold.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -16,7 +16,7 @@ namespace CloudManage
             Global._init_dtProductionLine();    //初始化产线名称表
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
-            Global._init_dtDeviceInfoLimitsAndLocation();   //初始化设备参数上下限、坐标表
+            Global._init_dtDeviceInfoThresholdAndLocation();   //初始化设备参数上下限、坐标表
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
@@ -30,7 +30,7 @@ namespace CloudManage
          * faults(dtFaults)——各检测设备的所有故障名称表：检测设备ID、故障ID、故障名称、故障使能标志
          * faults_config——各产线对应设备的故障使能：产线ID、检测设备ID、故障ID、使能标志
          * faults_history——所有故障的发生时间：产线ID、设备ID、故障ID、故障时间
-         * device_info——WorkState中各个产线对应检测设备的参数：检测设备ID、检测设备名称、检测设备状态（是否故障）、检测数、缺陷数、CPU温度、CPU利用率、内存利用率
+         * device_info——WorkState中各个产线对应检测设备的参数：产线ID、检测设备ID、检测设备状态（是否故障）、有效参数个数、Para1(检测数)、Para2(缺陷数)、Para3(CPU温度)、Para4(CPU利用率)、Para5(内存利用率)
          * 
          * 临时表，由查询得到：
          * dtSideTileBar（）——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
@@ -260,7 +260,6 @@ namespace CloudManage
                 string cmdInitDtEachProductionLineWorkState = "SELECT t1.DeviceNO,t2.DeviceName, " +
                                                               "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
                                                               "WHEN t1.DeviceStatus=0 THEN '异常' " +
-                                                              //"WHEN t1.DeviceStatus=-1 THEN '无效' " +
                                                               "END) AS DeviceStatus," +
                                                               "t1.TestingNum,t1.DefectNum, " +
                                                               "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
@@ -451,54 +450,15 @@ namespace CloudManage
         /*************************************************************************************************************/
 
         //RealTimeDataControl
-        public static DataTable dtDeviceInfoLimitsAndLocation = new DataTable();
+        public static DataTable dtDeviceInfoThresholdAndLocation = new DataTable();
 
-        public static void _init_dtDeviceInfoLimitsAndLocation()
+        public static void _init_dtDeviceInfoThresholdAndLocation()
         {
-            string cmdInitDtDeviceInfoLimitsAndLocation = "SELECT * FROM device_info_limits;"; 
+            string cmdInitDtDeviceInfoThresholdAndLocation = "SELECT * FROM device_info_threshold;"; 
             MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
             mysqlHelper1._connectMySQL();
-            mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoLimitsAndLocation ,ref Global.dtDeviceInfoLimitsAndLocation);
+            mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoThresholdAndLocation, ref Global.dtDeviceInfoThresholdAndLocation);
             mysqlHelper1.conn.Close();
-
-            //if (Global.dtRightSideRealTimeData.Rows.Count == 0)
-            //{
-            //    if (Global.dtRightSideRealTimeData.Columns.Count == 0)
-            //    {
-            //        Global.dtRightSideRealTimeData.Columns.Add("paraName", typeof(String));
-            //        Global.dtRightSideRealTimeData.Columns.Add("paraVal", typeof(String));
-            //    }
-
-            //    DataRow drRightSide1 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide1["paraName"] = "检测数量";
-            //    drRightSide1["paraVal"] = "533";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide1);
-
-            //    DataRow drRightSide2 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide2["paraName"] = "缺陷数量";
-            //    drRightSide2["paraVal"] = "55";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide2);
-
-            //    DataRow drRightSide3 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide3["paraName"] = "处理时间";
-            //    drRightSide3["paraVal"] = "20" + "ms";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide3);
-
-            //    DataRow drRightSide4 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide4["paraName"] = "CPU温度";
-            //    drRightSide4["paraVal"] = "60" + "℃";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide4);
-
-            //    DataRow drRightSide5 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide5["paraName"] = "CPU利用率";
-            //    drRightSide5["paraVal"] = "40" + "%";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide5);
-
-            //    DataRow drRightSide6 = Global.dtRightSideRealTimeData.NewRow();
-            //    drRightSide6["paraName"] = "内存利用率";
-            //    drRightSide6["paraVal"] = "20".ToString() + "%";
-            //    Global.dtRightSideRealTimeData.Rows.Add(drRightSide6);
-            //}
         }
 
         /*************************************************************************************************************/
@@ -515,8 +475,6 @@ namespace CloudManage
             _initDtMySQL(ref dtFaultsConfig, cmdInitDtFaultsConfig);
 
         }
-
-
 
         /*************************************************************************************************************/
 
