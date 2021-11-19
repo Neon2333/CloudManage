@@ -30,9 +30,21 @@ namespace CloudManage
         {
             Global.initDataTable();
             InitializeComponent();
+            loadModules();  //动态加载各个模块
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
+
+        }
+        
+        private void loadModules()
+        {
+            this.statusMonitorControl1 = new StatusMonitor.StatusMonitorControl();
+            this.dataAnalysis1 = new DataAnalysis.DataAnalysis();
+            this.deviceManagement1 = new DeviceManagement.DeviceManagement();
+            this.navigationPage_statusMonitoring.Controls.Add(this.statusMonitorControl1);
+            this.navigationPage_dataAnalysis.Controls.Add(this.dataAnalysis1);
+            this.navigationPage_deviceManagement.Controls.Add(this.deviceManagement1);
 
         }
 

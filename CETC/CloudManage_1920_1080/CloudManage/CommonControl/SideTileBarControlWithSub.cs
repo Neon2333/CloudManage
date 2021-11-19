@@ -115,7 +115,6 @@ namespace CloudManage.CommonControl
             }
         }
 
-
         public string colTagDT
         {
             get

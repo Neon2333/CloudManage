@@ -108,13 +108,15 @@ namespace CloudManage
 
             if (this.dtParaVal.Rows.Count == 1 && this.dtParaNameAndSuffix.Rows.Count == 1)
             {
-                int validParaCount = (int)this.dtParaVal.Rows[0]["ValidParaCount"];
+                int validParaCount = Convert.ToInt32(this.dtParaVal.Rows[0]["ValidParaCount"]);
                 for (int i = 0; i < validParaCount; i++)
                 {
                     DataRow drrPara = this.dtGridDataSource.NewRow();
-                    string paraCol = "Para" + (i + 1).ToString() + "Name";
-                    drrPara["paraName"] = this.dtParaNameAndSuffix.Rows[0][paraCol];    //赋值参数值
-                    drrPara["paraVal"] = this.dtParaVal.Rows[0][paraCol];               //赋值参数名
+                    string paraCol = "Para" + (i + 1).ToString();
+                    string paraNameCol = "Para" + (i + 1).ToString() + "Name";
+                    string paraSuffixCol = "Para" + (i + 1).ToString() + "Suffix";
+                    drrPara["paraVal"] = this.dtParaVal.Rows[0][paraCol].ToString() + this.dtParaNameAndSuffix.Rows[0][paraSuffixCol].ToString();               //赋值参数值，含有单位
+                    drrPara["paraName"] = this.dtParaNameAndSuffix.Rows[0][paraNameCol].ToString();    //赋值参数名
                     this.dtGridDataSource.Rows.Add(drrPara);
                 }
             }
@@ -124,33 +126,33 @@ namespace CloudManage
         //刷新目录
         void refreshLabelDir()
         {
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-            this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+            //实时页面的侧边栏没有总览、全部设备，默认是000-000，初始化时不刷新导航栏
+            if (this.sideTileBarControlWithSub_realTimeData.tagSelectedItem != "000" && this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub!="000")
+            {
+                string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+                string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+                this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+            }
         }
 
+        //刷新选中设备的阈值
         void refreshParaLimits(string selectedItemTag, string selectedItemSubTag)
         {
             DataRow[] drr = Global.dtDeviceInfoThresholdAndLocation.Select("LineNO='" + selectedItemTag + "' AND DeviceNO='" + selectedItemSubTag + "'");
-            int validParaCount = (int)this.dtParaNameAndSuffix.Rows[0]["ValidParaCount"];
+            int validParaCount = 0;
+            if (this.dtParaNameAndSuffix.Rows.Count == 1)
+            {
+                validParaCount = Convert.ToInt32(this.dtParaNameAndSuffix.Rows[0]["ValidParaCount"]);
+            }
             if (drr.Length == 1)
             {
                 this.drParaThreshold = drr[0];
                 for(int i=0;i< validParaCount; i++)
                 {
-                    
+                    this.paraThresholdList[i].lowerLimit = this.drParaThreshold[6 + 2 * i].ToString();
+                    this.paraThresholdList[i].upperLimit = this.drParaThreshold[7 + 2 * i].ToString();
                 }
 
-                //this.testingNumMin = drParaThreshold["TestingNumMin"].ToString();
-                //this.testingNumMax = drParaThreshold["TestingNumMax"].ToString();
-                //this.defectNumMin = drParaThreshold["DefectNumMin"].ToString();
-                //this.defectNumMax = drParaThreshold["DefectNumMax"].ToString();
-                //this.CPUTemperatureMin = drParaThreshold["CPUTemperatureMin"].ToString();
-                //this.CPUTemperatureMax = drParaThreshold["CPUTemperatureMax"].ToString();
-                //this.CPUUsageMin = drParaThreshold["CPUUsageMin"].ToString();
-                //this.CPUUsageMax = drParaThreshold["CPUUsageMax"].ToString();
-                //this.memoryUsageMin = drParaThreshold["MemoryUsageMin"].ToString();
-                //this.memoryUsageMax = drParaThreshold["MemoryUsageMax"].ToString();
             }
         }
 
@@ -210,9 +212,6 @@ namespace CloudManage
         //设定圆点位置
         void setPicDeviceLocation()
         {
-            //DataRow[] drr = Global.dtDeviceInfoLimitsAndLocation.Select("LineNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItem + "' AND DeviceNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub + "'");
-            //posX += this.pictureEdit_device.Location.X;
-            //posY += this.pictureEdit_device.Location.Y;
             int posX = Convert.ToInt32(this.drParaThreshold["LocationX"]);
             int posY = Convert.ToInt32(this.drParaThreshold["LocationY"]);
             this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
@@ -256,102 +255,16 @@ namespace CloudManage
             if (e.Item == null || e.Item.Elements.Count == 0)
                 return;
 
-            string parameterName = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["paraName"]);
-            string parameterVal = (string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["paraVal"]);
-
-            if(parameterName == "检测数量")
+            int paraIndex = e.RowHandle;
+            string parameterVal = this.dtParaVal.Rows[0]["Para" + (paraIndex + 1).ToString()].ToString();
+            if (Convert.ToInt32(parameterVal) < Convert.ToInt32(paraThresholdList[paraIndex].lowerLimit) || Convert.ToInt32(parameterVal) > Convert.ToInt32(paraThresholdList[paraIndex].upperLimit))
             {
-                if(Convert.ToInt32(parameterVal) < Convert.ToInt32(testingNumMin) || Convert.ToInt32(parameterVal) > Convert.ToInt32(testingNumMax))
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorAlert;
-                    e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-                }
-                else
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-                }
+                e.Item.AppearanceItem.Normal.BackColor = colorAlert;
+                e.Item.AppearanceItem.Focused.BackColor = colorAlert;
             }
-
-            if (parameterName == "缺陷数量")
+            else
             {
-                if (Convert.ToInt32(parameterVal) < Convert.ToInt32(defectNumMin) || Convert.ToInt32(parameterVal) > Convert.ToInt32(defectNumMax))
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorAlert;
-                    e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-                }
-                else
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-                }
-            }
-
-            if (parameterName == "CPU温度")
-            {
-                string parameterValTemp = String.Empty;
-                for(int i = 0; i < parameterVal.Length; i++)
-                {
-                    if (parameterVal.ElementAt(i) >= '0' && parameterVal.ElementAt(i) <= '9')
-                    {
-                        parameterValTemp += parameterVal.ElementAt(i);
-                    }
-                }
-                parameterVal = parameterValTemp;
-
-                if (Convert.ToInt32(parameterVal) < Convert.ToInt32(CPUTemperatureMin) || Convert.ToInt32(parameterVal) > Convert.ToInt32(CPUTemperatureMax))
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorAlert;
-                    e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-                }
-                else
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-                }
-            }
-
-            if (parameterName == "CPU利用率")
-            {
-                string parameterValTemp = String.Empty;
-                for (int i = 0; i < parameterVal.Length; i++)
-                {
-                    if (parameterVal.ElementAt(i) >= '0' && parameterVal.ElementAt(i) <= '9')
-                    {
-                        parameterValTemp += parameterVal.ElementAt(i);
-                    }
-                }
-                parameterVal = parameterValTemp;
-
-                if (Convert.ToInt32(parameterVal) < Convert.ToInt32(CPUUsageMin) || Convert.ToInt32(parameterVal) > Convert.ToInt32(CPUUsageMax))
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorAlert;
-                    e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-                }
-                else
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-                }
-            }
-
-            if (parameterName == "内存利用率")
-            {
-                string parameterValTemp = String.Empty;
-                for (int i = 0; i < parameterVal.Length; i++)
-                {
-                    if (parameterVal.ElementAt(i) >= '0' && parameterVal.ElementAt(i) <= '9')
-                    {
-                        parameterValTemp += parameterVal.ElementAt(i);
-                    }
-                }
-                parameterVal = parameterValTemp;
-
-                if (Convert.ToInt32(parameterVal) < Convert.ToInt32(memoryUsageMin) || Convert.ToInt32(parameterVal) > Convert.ToInt32(memoryUsageMax))
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorAlert;
-                    e.Item.AppearanceItem.Focused.BackColor = colorAlert;
-                }
-                else
-                {
-                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-                }
+                e.Item.AppearanceItem.Normal.BackColor = colorNormal;
             }
 
         }

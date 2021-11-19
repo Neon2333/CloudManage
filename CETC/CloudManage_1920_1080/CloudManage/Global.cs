@@ -189,10 +189,11 @@ namespace CloudManage
 
         /**********************************************************************************************************************************************/
         //WorkStateControl
-        public static DataTable dtOverviewWorkState = new DataTable();      //总览数据表
+        public static DataTable dtOverviewWorkState = new DataTable();              //总览数据表
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
 
+        public static DataTable dtEachProductionLineSuffix = new DataTable();                     //存设备数据的单位
         //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
         public static void _init_dtOverviewWorkState()
         {
@@ -257,31 +258,40 @@ namespace CloudManage
         {
             if (dtEachProductionLineWorkState.Rows.Count == 0)
             {
-                string cmdInitDtEachProductionLineWorkState = "SELECT t1.DeviceNO,t2.DeviceName, " +
+                string cmdInitDtEachProductionLineWorkState = "SELECT DISTINCT t1.DeviceNO,t1.ValidParaCount, t2.DeviceName, " +
                                                               "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
                                                               "WHEN t1.DeviceStatus=0 THEN '异常' " +
                                                               "END) AS DeviceStatus," +
-                                                              "t1.TestingNum,t1.DefectNum, " +
-                                                              "CONCAT(t1.CPUTemperature,'℃') AS CPUTemperature,CONCAT(t1.CPUUsage,'%') AS CPUUsage,CONCAT(t1.MemoryUsage,'%') AS MemoryUsage " +
-                                                              "FROM device_info AS t1 INNER JOIN device AS t2 " +
-                                                              "ON t1.DeviceNO=t2.DeviceNO " +
+                                                              "t3.Para1Name, t1.Para1, " +
+                                                              "t3.Para2Name, t1.Para2, " +
+                                                              "t3.Para3Name, t1.Para3, " +
+                                                              "t3.Para4Name, t1.Para4, " +
+                                                              "t3.Para5Name, t1.Para5 "  +
+                                                              "FROM device_info AS t1 INNER JOIN device AS t2 ON t1.DeviceNO=t2.DeviceNO " +
+                                                              "INNER JOIN device_info_paranameandsuffix AS t3 ON t1.DeviceNO=t3.DeviceNO " +
                                                               "WHERE t1.LineNO='" + selectedItemTag +
                                                               "' ORDER BY t1.`NO`;";
-
                 if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
-                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceNO", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceName", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("DeviceStatus", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("TestingNum", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("DefectNum", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("CPUTemperature", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("CPUUsage", typeof(String));
-                    //Global.dtEachProductionLineWorkState.Columns.Add("MemoryUsage", typeof(String));
                     Global.dtEachProductionLineWorkState.Columns.Add("DeviceImg", typeof(Image));
                 }
+                _initDtMySQL(ref Global.dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);  //不含单位
 
-                _initDtMySQL(ref dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);
+                string cmdInitDtEachProductionLineSuffix = "SELECT * FROM device_info_paranameandsuffix " +
+                                                           "WHERE device_info_paranameandsuffix.LineNO='" + selectedItemTag + "';";
+                _initDtMySQL(ref Global.dtEachProductionLineSuffix, cmdInitDtEachProductionLineSuffix);    //参数单位表
+
+                for(int i = 0; i < Global.dtEachProductionLineWorkState.Rows.Count; i++)
+                {
+                    int paraCount = Convert.ToInt32(Global.dtEachProductionLineWorkState.Rows[i]["ValidParaCount"]);
+                    for(int j = 0; j < paraCount; j++)
+                    {
+                        string paraCol = "Para" + (j + 1).ToString();
+                        string paraSuffixCol = "Para" + (j + 1).ToString() + "Suffix";
+                        Global.dtEachProductionLineWorkState.Rows[i][paraCol] += dtEachProductionLineSuffix.Rows[i][paraSuffixCol].ToString();
+                    }
+
+                }
 
                 int totalDeviceNum = dtEachProductionLineWorkState.Rows.Count;
                 int undefineTileNum = 0;
@@ -333,11 +343,11 @@ namespace CloudManage
                     dr["DeviceNO"] = "\\";
                     dr["DeviceName"] = "未定义";
                     dr["DeviceStatus"] = "无效";
-                    dr["TestingNum"] = "\\";
-                    dr["DefectNum"] = "\\";
-                    dr["CPUTemperature"] = "\\";
-                    dr["CPUUsage"] = "\\";
-                    dr["MemoryUsage"] = "\\";
+                    dr["Para1"] = "\\";
+                    dr["Para2"] = "\\";
+                    dr["Para3"] = "\\";
+                    dr["Para4"] = "\\";
+                    dr["Para5"] = "\\";
 
                     dtEachProductionLineWorkState.Rows.Add(dr);
                 }

@@ -463,7 +463,7 @@
             this.labelControl_dir.Name = "labelControl_dir";
             this.labelControl_dir.Size = new System.Drawing.Size(1280, 50);
             this.labelControl_dir.TabIndex = 8;
-            this.labelControl_dir.Text = "   1号车——烟包外观检测";
+            this.labelControl_dir.Text = "   1号车——烟库乱烟检测";
             // 
             // imageSlider_camera
             // 

@@ -28,7 +28,14 @@ namespace CloudManage.CommonControl
         {
             InitializeComponent();
             countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;
-            TagSelectedItem = "0"; 
+            if (this.showOverview == true)
+            {
+                TagSelectedItem = "000"; 
+            }
+            else
+            {
+                TagSelectedItem = "001";
+            }
         }
 
         public Boolean useDtInitSideTileBar
@@ -139,7 +146,6 @@ namespace CloudManage.CommonControl
                 {
                     this._setNum("000", totalNumTemp.ToString());
                 }
-
             }
             else
             {

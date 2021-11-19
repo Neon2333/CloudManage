@@ -18,7 +18,8 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceDeletion;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceTesting;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_diagnosisManagement;
-        private NavigationPage[] deviceManagementPages = new NavigationPage[4];
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_monitorThreshold;
+        private NavigationPage[] deviceManagementPages = new NavigationPage[5];
 
 
         public DeviceManagement()
@@ -45,6 +46,7 @@ namespace CloudManage.DeviceManagement
             deviceManagementPages[1] = navigationPage_deviceDeletion;
             deviceManagementPages[2] = navigationPage_deviceTesting;
             deviceManagementPages[3] = navigationPage_diagnosisManagement;
+            deviceManagementPages[4] = navigationPage_monitorThreshold;
         }
 
         public int selectedFramePage
