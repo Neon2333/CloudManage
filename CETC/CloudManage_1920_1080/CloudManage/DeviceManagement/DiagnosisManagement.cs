@@ -48,7 +48,10 @@ namespace CloudManage.DeviceManagement
             initDtqueryFaultsConfigEnableAndNotEnable();    //初始化使能/禁止表
             Global.reorderDtFaultsConfigNO(Global.dtFaultsConfig);  //NO从1开始排序
             this.gridControl_faultsConfig.DataSource = Global.dtFaultsConfig;
-            this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
+            if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)
+            {
+                this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
+            }
         }
 
         private void _initSideTileBarWithSub()

@@ -30,16 +30,6 @@ namespace CloudManage
             public string upperLimit;
         }
         paraThreshold[] paraThresholdList = new paraThreshold[64];
-        //string testingNumMin = String.Empty;
-        //string testingNumMax = String.Empty;
-        //string defectNumMin = String.Empty;
-        //string defectNumMax = String.Empty;
-        //string CPUTemperatureMin = String.Empty;
-        //string CPUTemperatureMax = String.Empty;
-        //string CPUUsageMin = String.Empty;
-        //string CPUUsageMax = String.Empty;
-        //string memoryUsageMin = String.Empty;
-        //string memoryUsageMax = String.Empty;
 
         public RealTimeDataControl()
         {
@@ -127,12 +117,9 @@ namespace CloudManage
         void refreshLabelDir()
         {
             //实时页面的侧边栏没有总览、全部设备，默认是000-000，初始化时不刷新导航栏
-            if (this.sideTileBarControlWithSub_realTimeData.tagSelectedItem != "000" && this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub!="000")
-            {
-                string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
-                string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-                this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
-            }
+            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+            this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
         }
 
         //刷新选中设备的阈值

@@ -35,6 +35,7 @@ namespace CloudManage.CommonControl
         public SideTileBarControlWithSub()
         {
             InitializeComponent();
+
             countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;
             TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
@@ -441,12 +442,12 @@ namespace CloudManage.CommonControl
                 this.tileBarGroup_sideTileBar.Items.Add(tileBarItem);
                 countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;    //更新显示的tileBarItem计数
 
-                ////初始化时，菜单按钮选中菜单第一个
-                //if (this.showAllDevices == false && this.countSideTileBarItem == 2)
-                //{
-                //    this.tileBar_sideTileBar.SelectedItem = tileBarItem;
-                //    this.TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
-                //}
+                //不显示“总览”时，初始化默认选中“产线1”
+                if (this.showOverview == false && this.countSideTileBarItem == 2)
+                {
+                    this.tileBar_sideTileBar.SelectedItem = tileBarItem;
+                    this.TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
+                }
 
                 return true;
             }
@@ -536,12 +537,12 @@ namespace CloudManage.CommonControl
                 countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
                 TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新检测设备总数
 
-                ////添加子菜单按钮时判断。从而让初始化时，子菜单的按钮都选中第一个。
-                //if(this.showAllDevices == false && this.countSideTileBarItemSub == 2)
-                //{
-                //    this.tileBar_sideTileBar_sub.SelectedItem = tileBarItemSub;
-                //    this.TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
-                //}
+                //不显示“所有设备”时，初始化默认选中“设备1”
+                if (this.showAllDevices == false && this.countSideTileBarItemSub == 2)
+                {
+                    this.tileBar_sideTileBar_sub.SelectedItem = tileBarItemSub;
+                    this.TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
+                }
 
                 return true;
             }
