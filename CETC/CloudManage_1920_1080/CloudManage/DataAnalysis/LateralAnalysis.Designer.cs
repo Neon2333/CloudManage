@@ -29,10 +29,10 @@ namespace CloudManage.DataAnalysis
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LateralAnalysis));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sideTileBarControl_lateralAnalysis = new CloudManage.CommonControl.SideTileBarControl();
             this.windowsUIButtonPanel_lateralAnalysis = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
@@ -70,14 +70,14 @@ namespace CloudManage.DataAnalysis
             // 
             this.windowsUIButtonPanel_lateralAnalysis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_lateralAnalysis.ButtonInterval = 20;
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
+            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
+            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
             this.windowsUIButtonPanel_lateralAnalysis.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_lateralAnalysis.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_lateralAnalysis.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_lateralAnalysis.Location = new System.Drawing.Point(0, 800);
@@ -103,6 +103,7 @@ namespace CloudManage.DataAnalysis
             // 
             // simpleButton_endTimeModify
             // 
+            this.simpleButton_endTimeModify.AllowFocus = false;
             this.simpleButton_endTimeModify.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_endTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_endTimeModify.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
@@ -130,6 +131,7 @@ namespace CloudManage.DataAnalysis
             // 
             // simpleButton_startTimeModify
             // 
+            this.simpleButton_startTimeModify.AllowFocus = false;
             this.simpleButton_startTimeModify.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_startTimeModify.Appearance.Options.UseFont = true;
             this.simpleButton_startTimeModify.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
@@ -142,6 +144,7 @@ namespace CloudManage.DataAnalysis
             // 
             // simpleButton_query
             // 
+            this.simpleButton_query.AllowFocus = false;
             this.simpleButton_query.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_query.Appearance.Options.UseFont = true;
             this.simpleButton_query.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);

@@ -679,6 +679,7 @@ namespace CloudManage.DeviceManagement
             // 
             // simpleButton_queryTypeFaultsConfig
             // 
+            this.simpleButton_queryTypeFaultsConfig.AllowFocus = false;
             this.simpleButton_queryTypeFaultsConfig.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F);
             this.simpleButton_queryTypeFaultsConfig.Appearance.Options.UseFont = true;
             this.simpleButton_queryTypeFaultsConfig.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
@@ -693,6 +694,7 @@ namespace CloudManage.DeviceManagement
             // 
             // simpleButton_cancelStatusChange
             // 
+            this.simpleButton_cancelStatusChange.AllowFocus = false;
             this.simpleButton_cancelStatusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_cancelStatusChange.Appearance.Options.UseFont = true;
             this.simpleButton_cancelStatusChange.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
@@ -707,6 +709,7 @@ namespace CloudManage.DeviceManagement
             // 
             // simpleButton_saveStatusChange
             // 
+            this.simpleButton_saveStatusChange.AllowFocus = false;
             this.simpleButton_saveStatusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton_saveStatusChange.Appearance.Options.UseFont = true;
             this.simpleButton_saveStatusChange.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
@@ -721,6 +724,7 @@ namespace CloudManage.DeviceManagement
             // 
             // simpleButton_statusChange
             // 
+            this.simpleButton_statusChange.AllowFocus = false;
             this.simpleButton_statusChange.Appearance.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleButton_statusChange.Appearance.Options.UseFont = true;
             this.simpleButton_statusChange.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 35F);

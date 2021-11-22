@@ -381,11 +381,11 @@ namespace CloudManage.DeviceManagement
                 this.dtQueryFaultsConfigEnable.Rows.Clear();  //清空dtQueryFaultsConfigType
                 this.simpleButton_queryTypeFaultsConfig.Text = "仅显示使能";
                 this.simpleButton_queryTypeFaultsConfig.Appearance.BackColor = Color.FromArgb(56, 152, 83);
-                //从dtFaultsConfig中将使能的记录拷贝到dtQueryFaultsConfigType中
+                //从dtFaultsConfig中将使能的记录拷贝到dtQueryFaultsConfigEnable中
                 DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '使能'");
                 foreach (var dp in drTemp)
                 {
-                    //不能直接把dp添加到dtQueryFaultsConfigType中，报错dp属于另一个表
+                    //不能直接把dp添加到dtQueryFaultsConfigEnable中，报错dp属于另一个表
                     DataRow dr = this.dtQueryFaultsConfigEnable.NewRow();
                     dr["NO"] = dp["NO"];
                     dr["LineName"] = dp["LineName"];
@@ -503,6 +503,7 @@ namespace CloudManage.DeviceManagement
                 }
 
                 this.dtQueryFaultsConfigEnable.Rows.Clear();  //清空
+                this.dtQueryFaultsConfigNotEnable.Rows.Clear();  //清空
 
                 //以dtFaultsConfig更新dtQueryFaultsConfigEnable
                 if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)

@@ -51,7 +51,7 @@ namespace CloudManage
 
         public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
 
-        public static DataTable dtFaults = new DataTable();            //序号、检测设备ID、故障ID、故障名称、故障使能标志
+        public static DataTable dtFaults = new DataTable();               //序号、检测设备ID、故障ID、故障名称、故障使能标志
 
         //从MySQL中查询数据初始化表
         public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
@@ -66,28 +66,28 @@ namespace CloudManage
         //初始化检测设备使能表
         public static void _init_dtDeviceConfig()
         {
-            string cmdInitDtDeviceConfig = "SELECT * FROM device_config";
+            string cmdInitDtDeviceConfig = "initDtDeviceConfig();";   //21ms
             _initDtMySQL(ref Global.dtDeviceConfig, cmdInitDtDeviceConfig);
         }
 
         //初始化产线名称表
         public static void _init_dtProductionLine()
         {
-            string cmdInitDtProductionLine = "SELECT * FROM productionline";
+            string cmdInitDtProductionLine = "initDtProductionLine();";    //19ms
             _initDtMySQL(ref Global.dtProductionLine, cmdInitDtProductionLine);
         }
 
         //初始化检测设备名称表
         public static void _init_dtTestingDeviceName()
         {
-            string cmdInitDtTestingDeviceName = "SELECT * FROM device";
+            string cmdInitDtTestingDeviceName = "initDtTestingDeviceName();";    //19ms
             _initDtMySQL(ref Global.dtTestingDeviceName, cmdInitDtTestingDeviceName);
         }
 
         //初始化故障表
         public static void _init_dtFaults()
         {
-            string cmdInitDtFaults = "SELECT * FROM faults";
+            string cmdInitDtFaults = "initDtFaults();";    //25ms
             _initDtMySQL(ref Global.dtFaults, cmdInitDtFaults);
         }
 
@@ -96,7 +96,7 @@ namespace CloudManage
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
         public static void _init_dtSideTileBarWorkState()
         {
-            string cmdGetDeviceNO = "SELECT +`DeviceNO` FROM device";
+            string cmdGetDeviceNO = "SELECT `DeviceNO` FROM device;";
             DataTable dtDeviceNOTemp = new DataTable();
             _initDtMySQL(ref dtDeviceNOTemp, cmdGetDeviceNO);
             string strT1 = "SELECT LineNo, DeviceStatus_" + dtDeviceNOTemp.Rows[0]["DeviceNO"].ToString();
@@ -106,10 +106,10 @@ namespace CloudManage
                 strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
             }
             strT1 += " AS DeviceTotalNum FROM device_config";
-            string cmdInitDtSideTileBar = "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
+            string cmdInitDtSideTileBar =  "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
                                            "FROM (" + strT1 + ")AS t1 " +
                                            "INNER JOIN productionline AS t2 " +
-                                           "ON t1.LineNO=t2.LineNO;";
+                                           "ON t1.LineNO=t2.LineNO;";      //19ms
             _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtSideTileBar);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
         }
 
@@ -135,12 +135,12 @@ namespace CloudManage
                                             "AND t1.DeviceNO=t3.DeviceNO " +
                                             "AND t1.DeviceNO=t4.DeviceNO " +
                                             "AND t1.FaultNO=t4.FaultNO " +
-                                            "ORDER BY t1.`NO`;";
+                                            "ORDER BY t1.`NO`;";    //25ms
             _initDtMySQL(ref dtTitleGridShowMainForm, cmdQueryDtTitleGridShowMainForm);
 
             string cmdQueryDtHistoryValid = "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
                                             "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
-                                            "AND t2.FaultEnable='1';";
+                                            "AND t2.FaultEnable='1';";  //24ms
             _initDtMySQL(ref dtHistoryValid, cmdQueryDtHistoryValid);
         }
 
@@ -170,7 +170,7 @@ namespace CloudManage
                              "t1.LineNO=" + "'" + valLineNO + "' " +
                              "AND t1.DeviceNO=" + "'" + valDeviceNO + "' " +
                              "AND t1.FaultNO=" + "'" + valFaultNO + "' " +
-                             "AND t1.FaultTime=" + "'" + valFaultTime + "';";
+                             "AND t1.FaultTime=" + "'" + valFaultTime + "';";   //18ms
 
                 DataTable dtIfExist = new DataTable();
                 _initDtMySQL(ref dtIfExist, cmdIfExist);
@@ -206,7 +206,7 @@ namespace CloudManage
                                                     "FROM productionline AS t1 LEFT JOIN faults_history AS t2 " +
                                                     "ON t1.LineNO=t2.LineNO " +
                                                     "GROUP BY LineName " +
-                                                    "ORDER BY t1.`NO`;";
+                                                    "ORDER BY t1.`NO`;";    //20ms
                 if (dtOverviewWorkState.Columns.Count == 0)
                 {
                     //Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));     //先定义表头也可填充，表头不会填充两次
@@ -270,7 +270,7 @@ namespace CloudManage
                                                               "FROM device_info AS t1 INNER JOIN device AS t2 ON t1.DeviceNO=t2.DeviceNO " +
                                                               "INNER JOIN device_info_paranameandsuffix AS t3 ON t1.DeviceNO=t3.DeviceNO " +
                                                               "WHERE t1.LineNO='" + selectedItemTag +
-                                                              "' ORDER BY t1.`NO`;";
+                                                              "' ORDER BY t1.`NO`;";    //19ms
                 if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
                     Global.dtEachProductionLineWorkState.Columns.Add("DeviceImg", typeof(Image));

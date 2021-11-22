@@ -234,6 +234,18 @@ namespace CloudManage.StatusMonitor
 
         }
 
+        private void simpleButton_query1Week_Click(object sender, EventArgs e)
+        {
+            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
+            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+        }
+
+        private void simpleButton_query1Months_Click(object sender, EventArgs e)
+        {
+            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
+            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+        }
+
         private void simpleButton_query3Months_Click(object sender, EventArgs e)
         {
             Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-3).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
@@ -245,5 +257,7 @@ namespace CloudManage.StatusMonitor
             Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-6).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
+
+       
     }
 }
