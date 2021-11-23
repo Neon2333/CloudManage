@@ -501,7 +501,7 @@ namespace CloudManage
         public static DataTable dtDeviceInfoThresholdGridShow = new DataTable();
         public static void _init_dtDeviceInfoThresholdGridShowTemp()
         {
-            string cmdInitDtDeviceInfoThresholdGridShowTemp = "CALL initDtDeviceInfoThresholdGridShowTemp();";
+            string cmdInitDtDeviceInfoThresholdGridShowTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(0, '000', '000');";
             _initDtMySQL(ref dtDeviceInfoThresholdGridShowTemp, cmdInitDtDeviceInfoThresholdGridShowTemp);
         }
         
@@ -612,7 +612,7 @@ namespace CloudManage
         /*************************************************************************************************************/
 
         //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
-        public static void reorderDtFaultsConfigNO(DataTable dt)
+        public static void reorderDtFaultsConfigNO(ref DataTable dt)
         {
             int lenDt = dt.Rows.Count;
             for (int i = 0; i < lenDt; i++)

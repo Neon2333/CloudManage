@@ -45,7 +45,7 @@ namespace CloudManage.DeviceManagement
             _initSideTileBarWithSub();        //初始化侧边栏
             Global._init_dtFaultsConfig();    //初始化故障配置表
             initDtqueryFaultsConfigEnableAndNotEnable();    //初始化使能/禁止表
-            Global.reorderDtFaultsConfigNO(Global.dtFaultsConfig);  //NO从1开始排序
+            Global.reorderDtFaultsConfigNO(ref Global.dtFaultsConfig);  //NO从1开始排序
             this.gridControl_faultsConfig.DataSource = Global.dtFaultsConfig;
             if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)
             {
@@ -233,7 +233,7 @@ namespace CloudManage.DeviceManagement
 
             //更新dtFaultsConfig
             bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsConfig, ref Global.dtFaultsConfig);
-            Global.reorderDtFaultsConfigNO(Global.dtFaultsConfig);
+            Global.reorderDtFaultsConfigNO(ref Global.dtFaultsConfig);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigEnable
             this.dtQueryFaultsConfigEnable.Rows.Clear();  //清空
@@ -249,7 +249,7 @@ namespace CloudManage.DeviceManagement
                 dr["FaultEnable"] = dp["FaultEnable"];
                 this.dtQueryFaultsConfigEnable.Rows.Add(dr);
             }
-            Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigEnable);
+            Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigNotEnable
             this.dtQueryFaultsConfigNotEnable.Rows.Clear();
@@ -264,7 +264,7 @@ namespace CloudManage.DeviceManagement
                 dr["FaultEnable"] = dp["FaultEnable"];
                 this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
             }
-            Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigNotEnable);
+            Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
 
             //查询结果后默认选中第一行
             selectRow[0] = 0;
@@ -287,6 +287,8 @@ namespace CloudManage.DeviceManagement
             {
 
             }
+
+            mysqlHelper1.conn.Close();
         }
 
         private void simpleButton_statusChange_Click(object sender, EventArgs e)
@@ -394,7 +396,7 @@ namespace CloudManage.DeviceManagement
                     dr["FaultEnable"] = dp["FaultEnable"];
                     this.dtQueryFaultsConfigEnable.Rows.Add(dr);
                 }
-                Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigEnable);
+                Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigEnable;    //grid显示绑定dtQueryFaultsConfigType
                 refreshColorButtonStatusChange();
             }
@@ -415,7 +417,7 @@ namespace CloudManage.DeviceManagement
                     dr["FaultEnable"] = dp["FaultEnable"];
                     this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
                 }
-                Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigNotEnable);
+                Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigNotEnable;
                 refreshColorButtonStatusChange();
             }
@@ -520,7 +522,7 @@ namespace CloudManage.DeviceManagement
                         dr["FaultEnable"] = dp["FaultEnable"];
                         this.dtQueryFaultsConfigEnable.Rows.Add(dr);
                     }
-                    Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigEnable);
+                    Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
                 }
                 //以dtFaultsConfig更新dtQueryFaultsConfigNotEnable
                 else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.notEnableFualtsConfig)
@@ -537,7 +539,7 @@ namespace CloudManage.DeviceManagement
                         dr["FaultEnable"] = dp["FaultEnable"];
                         this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
                     }
-                    Global.reorderDtFaultsConfigNO(this.dtQueryFaultsConfigNotEnable);
+                    Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
                 }
                 
                 faultsOriginal.Clear();

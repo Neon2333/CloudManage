@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : learning
+ Source Server         : mysql_1
  Source Server Type    : MySQL
  Source Server Version : 50726
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 23/11/2021 17:24:46
+ Date: 23/11/2021 22:13:27
 */
 
 SET NAMES utf8mb4;
@@ -654,8 +654,16 @@ a:WHILE ii<=vpcEach DO
 	SET ii=ii+1;
 END WHILE;
 
+CASE cmdFlag
+WHEN 0 THEN  
 SET SQL_FOR_SELECT=CONCAT(SQL_FOR_SELECT, ' FROM device_info_threshold AS t1 INNER JOIN device_info_paranameandsuffix AS t2 ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO INNER JOIN productionline AS t3 ON t1.LineNO=t3.LineNO INNER JOIN device AS t4 ON t1.DeviceNO=t4.DeviceNO INNER JOIN device_info_paranameandsuffix AS t5 ON t1.LineNO=t5.LineNO AND t1.DeviceNO=t5.DeviceNO;');
-
+WHEN 1 THEN
+SET SQL_FOR_SELECT=CONCAT(SQL_FOR_SELECT, ' FROM device_info_threshold AS t1 INNER JOIN device_info_paranameandsuffix AS t2 ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO INNER JOIN productionline AS t3 ON t1.LineNO=t3.LineNO INNER JOIN device AS t4 ON t1.DeviceNO=t4.DeviceNO INNER JOIN device_info_paranameandsuffix AS t5 ON t1.LineNO=t5.LineNO AND t1.DeviceNO=t5.DeviceNO WHERE t1.DeviceNO=', dNO);
+WHEN 2 THEN
+SET SQL_FOR_SELECT=CONCAT(SQL_FOR_SELECT, ' FROM device_info_threshold AS t1 INNER JOIN device_info_paranameandsuffix AS t2 ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO INNER JOIN productionline AS t3 ON t1.LineNO=t3.LineNO INNER JOIN device AS t4 ON t1.DeviceNO=t4.DeviceNO INNER JOIN device_info_paranameandsuffix AS t5 ON t1.LineNO=t5.LineNO AND t1.DeviceNO=t5.DeviceNO WHERE t1.LineNO=', lNO);
+WHEN 3 THEN 
+SET SQL_FOR_SELECT=CONCAT(SQL_FOR_SELECT, ' FROM device_info_threshold AS t1 INNER JOIN device_info_paranameandsuffix AS t2 ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO INNER JOIN productionline AS t3 ON t1.LineNO=t3.LineNO INNER JOIN device AS t4 ON t1.DeviceNO=t4.DeviceNO INNER JOIN device_info_paranameandsuffix AS t5 ON t1.LineNO=t5.LineNO AND t1.DeviceNO=t5.DeviceNO WHERE t1.LineNO=', lNO, ' AND t1.DeviceNO=',  dNO);
+END CASE;
 
 SET @sql=SQL_FOR_SELECT;
 PREPARE stmt FROM @sql;

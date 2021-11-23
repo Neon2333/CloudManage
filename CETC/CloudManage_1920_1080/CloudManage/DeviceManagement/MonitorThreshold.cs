@@ -14,7 +14,7 @@ namespace CloudManage.DeviceManagement
     public partial class MonitorThreshold : DevExpress.XtraEditors.XtraUserControl
     {
         private int[] selectRow = { 0 };
-        string cmdQueryDeviceInfoThreshold = String.Empty;
+        string cmdQueryDeviceInfoThresholdTemp = String.Empty;
 
         public MonitorThreshold()
         {
@@ -22,7 +22,7 @@ namespace CloudManage.DeviceManagement
 
             _initSideTileBarWithSub();
             Global._init_dtDeviceInfoThresholdGridShow();
-            Global.reorderDtFaultsConfigNO(Global.dtDeviceInfoThresholdGridShow);
+            Global.reorderDtFaultsConfigNO(ref Global.dtDeviceInfoThresholdGridShow);
             this.gridControl_deviceInfoThreshold.DataSource = Global.dtDeviceInfoThresholdGridShow;
 
             if (((DataTable)this.gridControl_deviceInfoThreshold.DataSource).Rows.Count > 0)
@@ -108,39 +108,28 @@ namespace CloudManage.DeviceManagement
         }
 
         //点击侧边栏查询的命令
-        private void initCmdQueryDeviceInfoThreshold()
+        private void initCmdQueryDeviceInfoThresholdTemp()
         {
             if (this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem == "000")
             {
                 if (this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub == "000")
                 {
-                    cmdQueryDeviceInfoThreshold = "CALL initDtDeviceInfoThresholdGridShowTemp()";
+                    cmdQueryDeviceInfoThresholdTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(0, '000', '000')";
                 }
                 else
                 {
-                    cmdQueryDeviceInfoThreshold = "SELECT t1.`NO`, t2.LineName, t3.DeviceName, t4.FaultName,(CASE WHEN FaultEnable=1 THEN '使能' WHEN FaultEnable=0 THEN '禁止' END) AS FaultEnable " +
-                                           "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
-                                           "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO " +
-                                           "AND t3.DeviceNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub + "' ORDER BY t1.`NO`;";
+                    cmdQueryDeviceInfoThresholdTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(1, '000', '" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub + "');";
                 }
             }
             else
             {
                 if (this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub == "000")
                 {
-                    cmdQueryDeviceInfoThreshold = "SELECT t1.`NO`, t2.LineName, t3.DeviceName, t4.FaultName,(CASE WHEN FaultEnable=1 THEN '使能' WHEN FaultEnable=0 THEN '禁止' END) AS FaultEnable " +
-                                           "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
-                                           "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO " +
-                                           "AND t2.LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "' ORDER BY t1.`NO`;";
+                    cmdQueryDeviceInfoThresholdTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(2,'" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "', '000');";
                 }
                 else
                 {
-                    cmdQueryDeviceInfoThreshold = "SELECT t1.`NO`, t2.LineName, t3.DeviceName, t4.FaultName,(CASE WHEN FaultEnable=1 THEN '使能' WHEN FaultEnable=0 THEN '禁止' END) AS FaultEnable " +
-                                           "FROM faults_config AS t1, productionline AS t2, device AS t3, faults AS t4 " +
-                                           "WHERE t1.LineNO=t2.LineNO AND t1.DeviceNO=t3.DeviceNO AND t1.FaultNO=t4.FaultNO AND t1.DeviceNO=t4.DeviceNO " +
-                                           "AND t2.LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "' " +
-                                           "AND t3.DeviceNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub + "' " +
-                                           "ORDER BY t1.`NO`;";
+                    cmdQueryDeviceInfoThresholdTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(2,'" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "', '" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub + "');";
                 }
             }
         }
@@ -154,14 +143,20 @@ namespace CloudManage.DeviceManagement
         {
             _refreshLabelDir();
 
-            initCmdQueryDeviceInfoThreshold();
+            initCmdQueryDeviceInfoThresholdTemp();
 
-            
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            mysqlHelper1._connectMySQL();
 
+            //更新dtFaultsConfig
+            bool flag = mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
+            Global.dtDeviceInfoThresholdGridShow.Rows.Clear();
+            Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
+            Global.reorderDtFaultsConfigNO(ref Global.dtDeviceInfoThresholdGridShow);
 
         }
 
-        
+
 
 
 
