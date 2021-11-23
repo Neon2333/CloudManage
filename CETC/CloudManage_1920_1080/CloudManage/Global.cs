@@ -66,28 +66,28 @@ namespace CloudManage
         //初始化检测设备使能表
         public static void _init_dtDeviceConfig()
         {
-            string cmdInitDtDeviceConfig = "initDtDeviceConfig();";   //21ms
+            string cmdInitDtDeviceConfig = "CALL initDtDeviceConfig();";   //21ms
             _initDtMySQL(ref Global.dtDeviceConfig, cmdInitDtDeviceConfig);
         }
 
         //初始化产线名称表
         public static void _init_dtProductionLine()
         {
-            string cmdInitDtProductionLine = "initDtProductionLine();";    //19ms
+            string cmdInitDtProductionLine = "CALL initDtProductionLine();";    //19ms
             _initDtMySQL(ref Global.dtProductionLine, cmdInitDtProductionLine);
         }
 
         //初始化检测设备名称表
         public static void _init_dtTestingDeviceName()
         {
-            string cmdInitDtTestingDeviceName = "initDtTestingDeviceName();";    //19ms
+            string cmdInitDtTestingDeviceName = "CALL initDtTestingDeviceName();";    //19ms
             _initDtMySQL(ref Global.dtTestingDeviceName, cmdInitDtTestingDeviceName);
         }
 
         //初始化故障表
         public static void _init_dtFaults()
         {
-            string cmdInitDtFaults = "initDtFaults();";    //25ms
+            string cmdInitDtFaults = "CALL initDtFaults();";    //25ms
             _initDtMySQL(ref Global.dtFaults, cmdInitDtFaults);
         }
 
@@ -96,20 +96,22 @@ namespace CloudManage
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
         public static void _init_dtSideTileBarWorkState()
         {
-            string cmdGetDeviceNO = "SELECT `DeviceNO` FROM device;";
-            DataTable dtDeviceNOTemp = new DataTable();
-            _initDtMySQL(ref dtDeviceNOTemp, cmdGetDeviceNO);
-            string strT1 = "SELECT LineNo, DeviceStatus_" + dtDeviceNOTemp.Rows[0]["DeviceNO"].ToString();
-            int rowNumDtdeviceNOTemp = dtDeviceNOTemp.Rows.Count;
-            for (int i = 1; i < rowNumDtdeviceNOTemp; i++)
-            {
-                strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
-            }
-            strT1 += " AS DeviceTotalNum FROM device_config";
-            string cmdInitDtSideTileBar =  "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
-                                           "FROM (" + strT1 + ")AS t1 " +
-                                           "INNER JOIN productionline AS t2 " +
-                                           "ON t1.LineNO=t2.LineNO;";      //19ms
+            //string cmdGetDeviceNO = "SELECT `DeviceNO` FROM device;";
+            //DataTable dtDeviceNOTemp = new DataTable();
+            //_initDtMySQL(ref dtDeviceNOTemp, cmdGetDeviceNO);
+            //string strT1 = "SELECT LineNo, DeviceStatus_" + dtDeviceNOTemp.Rows[0]["DeviceNO"].ToString();
+            //int rowNumDtdeviceNOTemp = dtDeviceNOTemp.Rows.Count;
+            //for (int i = 1; i < rowNumDtdeviceNOTemp; i++)
+            //{
+            //    strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
+            //}
+            //strT1 += " AS DeviceTotalNum FROM device_config";
+            //string cmdInitDtSideTileBar =  "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
+            //                               "FROM (" + strT1 + ")AS t1 " +
+            //                               "INNER JOIN productionline AS t2 " +
+            //                               "ON t1.LineNO=t2.LineNO;";      //19ms
+
+            string cmdInitDtSideTileBar = "CALL initDtSideTileBar();";
             _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtSideTileBar);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
         }
 
@@ -120,27 +122,29 @@ namespace CloudManage
         //刷新标题栏故障表
         public static void _refreshTitleGridShow()
         {
-
-            string cmdQueryDtTitleGridShowMainForm = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
-                                            "FROM " +
-                                            "("     +
-                                            "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
-                                            "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
-                                            "AND t2.FaultEnable='1'" +
-                                            ")AS t1 " +
-                                            "INNER JOIN productionline AS t2 " +
-                                            "INNER JOIN device AS t3 " +
-                                            "INNER JOIN faults AS t4 " +
-                                            "ON t1.LineNO=t2.LineNO " +
-                                            "AND t1.DeviceNO=t3.DeviceNO " +
-                                            "AND t1.DeviceNO=t4.DeviceNO " +
-                                            "AND t1.FaultNO=t4.FaultNO " +
-                                            "ORDER BY t1.`NO`;";    //25ms
+            //string cmdQueryDtTitleGridShowMainForm = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
+            //                                "FROM " +
+            //                                "("     +
+            //                                "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
+            //                                "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
+            //                                "AND t2.FaultEnable='1'" +
+            //                                ")AS t1 " +
+            //                                "INNER JOIN productionline AS t2 " +
+            //                                "INNER JOIN device AS t3 " +
+            //                                "INNER JOIN faults AS t4 " +
+            //                                "ON t1.LineNO=t2.LineNO " +
+            //                                "AND t1.DeviceNO=t3.DeviceNO " +
+            //                                "AND t1.DeviceNO=t4.DeviceNO " +
+            //                                "AND t1.FaultNO=t4.FaultNO " +
+            //                                "ORDER BY t1.`NO`;";    //25ms
+            string cmdQueryDtTitleGridShowMainForm = "CALL queryDtTitleGridShowMainForm();";  //查询当前故障表中所有使能故障，并按照grid要求显示名称 
             _initDtMySQL(ref dtTitleGridShowMainForm, cmdQueryDtTitleGridShowMainForm);
 
-            string cmdQueryDtHistoryValid = "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
-                                            "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
-                                            "AND t2.FaultEnable='1';";  //24ms
+            //string cmdQueryDtHistoryValid = "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
+            //                                "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
+            //                                "AND t2.FaultEnable='1';";  //24ms
+
+            string cmdQueryDtHistoryValid = "CALL queryDtHistoryValid();";   //查询当前故障表中所有使能的故障故障,LineNO等
             _initDtMySQL(ref dtHistoryValid, cmdQueryDtHistoryValid);
         }
 
@@ -151,8 +155,9 @@ namespace CloudManage
             //                                     "t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO AND t1.FaultTime=t2.FaultTime); ";
             //_initDtMySQL(ref dtWriteFaultsHistory, cmdQueryDtWriteFaultsHistory);
 
+            //判断当前故障表中使能的故障在历史故障表中是否存在，若不存在则将其插入到历史表中
             string cmdInsertFaultsHistory = String.Empty;
-            string cmdIfExist = String.Empty;
+            string cmdJudgeIfExistInFaultHistory = String.Empty;
 
             string valLineNO = String.Empty;
             string valDeviceNO = String.Empty;
@@ -166,18 +171,21 @@ namespace CloudManage
                 valFaultNO = Global.dtHistoryValid.Rows[i]["FaultNO"].ToString();
                 valFaultTime = Global.dtHistoryValid.Rows[i]["FaultTime"].ToString();
 
-                cmdIfExist = "SELECT COUNT(t1.`NO`) FROM faults_history AS t1 WHERE " +
-                             "t1.LineNO=" + "'" + valLineNO + "' " +
-                             "AND t1.DeviceNO=" + "'" + valDeviceNO + "' " +
-                             "AND t1.FaultNO=" + "'" + valFaultNO + "' " +
-                             "AND t1.FaultTime=" + "'" + valFaultTime + "';";   //18ms
+                //cmdJudgeIfExistInFaultHistory = "SELECT COUNT(t1.`NO`) FROM faults_history AS t1 WHERE " +
+                //             "t1.LineNO=" + "'" + valLineNO + "' " +
+                //             "AND t1.DeviceNO=" + "'" + valDeviceNO + "' " +
+                //             "AND t1.FaultNO=" + "'" + valFaultNO + "' " +
+                //             "AND t1.FaultTime=" + "'" + valFaultTime + "';";   //18ms
 
-                DataTable dtIfExist = new DataTable();
-                _initDtMySQL(ref dtIfExist, cmdIfExist);
-                if (Convert.ToInt32(dtIfExist.Rows[0][0]) == 0)
+                cmdJudgeIfExistInFaultHistory = "CALL judgeIfExistInFaultHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime +"');";
+                DataTable dtJudgeIfExistInFaultHistory = new DataTable();
+                _initDtMySQL(ref dtJudgeIfExistInFaultHistory, cmdJudgeIfExistInFaultHistory);
+                if (Convert.ToInt32(dtJudgeIfExistInFaultHistory.Rows[0][0]) == 0)
                 {
-                    cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
-                                           "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
+                    //cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
+                    //                       "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
+
+                    cmdInsertFaultsHistory = "CALL insertFaultsHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime + "');";  
 
                     MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     bool flag1 = mysqlHelper1._connectMySQL();
@@ -488,6 +496,55 @@ namespace CloudManage
 
         /*************************************************************************************************************/
 
+        //MonitorThreshold
+        public static DataTable dtDeviceInfoThresholdGridShowTemp = new DataTable();
+        public static DataTable dtDeviceInfoThresholdGridShow = new DataTable();
+        public static void _init_dtDeviceInfoThresholdGridShowTemp()
+        {
+            string cmdInitDtDeviceInfoThresholdGridShowTemp = "CALL initDtDeviceInfoThresholdGridShowTemp();";
+            _initDtMySQL(ref dtDeviceInfoThresholdGridShowTemp, cmdInitDtDeviceInfoThresholdGridShowTemp);
+        }
+        
+        public static void transformDtDeviceInfoThresholdGridTemp(ref DataTable dtTemp, ref DataTable dt)
+        {
+            int no = 1;
+            for (int i = 0; i < dtTemp.Rows.Count; i++)
+            {
+                int validParaCount = Convert.ToInt32(dtTemp.Rows[i]["ValidParaCount"]);
+                for (int j = 0; j < validParaCount; j++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["NO"] = no++;
+                    dr["LineName"] = dtTemp.Rows[i]["LineName"];
+                    dr["DeviceName"] = dtTemp.Rows[i]["DeviceName"];
+                    dr["ParaName"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Name"];
+                    dr["LowerLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Min"].ToString() + dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Suffix"];
+                    dr["UpperLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Max"].ToString() + dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Suffix"];
+                    dt.Rows.Add(dr);
+                }
+            }
+        }
+
+        public static void _init_dtDeviceInfoThresholdGridShow()
+        {
+            _init_dtDeviceInfoThresholdGridShowTemp();
+
+            if (dtDeviceInfoThresholdGridShow.Columns.Count == 0)
+            {
+                dtDeviceInfoThresholdGridShow.Columns.Add("NO");
+                dtDeviceInfoThresholdGridShow.Columns.Add("LineName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("DeviceName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("ParaName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("UpperLimit");
+                dtDeviceInfoThresholdGridShow.Columns.Add("LowerLimit");
+            }
+            transformDtDeviceInfoThresholdGridTemp(ref dtDeviceInfoThresholdGridShowTemp, ref dtDeviceInfoThresholdGridShow);
+        }
+
+
+
+        /*************************************************************************************************************/
+
         //获取Excel单元格数据
         public static object getCellValue(ICell cell)
         {
@@ -557,8 +614,8 @@ namespace CloudManage
         //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
         public static void reorderDtFaultsConfigNO(DataTable dt)
         {
-            int lenDtFaultsConfig = dt.Rows.Count;
-            for (int i = 0; i < lenDtFaultsConfig; i++)
+            int lenDt = dt.Rows.Count;
+            for (int i = 0; i < lenDt; i++)
             {
                 dt.Rows[i]["NO"] = (i + 1).ToString();
             }

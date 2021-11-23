@@ -18,9 +18,9 @@ namespace CloudManage
         int[][] itemIndex = new int[6][];
         enum StatusMonitorPages { workStatePage = 0, realtimePage, historyQueryPage };
         enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
-        enum TwinDetectionPages { paraSynPage, intelligentReasoningPage, paraUpdatePage };
-        enum DeepLearningPages { datapreParationPage, modelTrainingPage, modelTestingPage, modelUpdatePage };
-        enum DeviceManagementPages { deviceAdditionPage, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage, monitorThresholdPage};
+        enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage, paraUpdatePage };
+        enum DeepLearningPages { datapreParationPage = 0, modelTrainingPage, modelTestingPage, modelUpdatePage };
+        enum DeviceManagementPages { deviceAdditionPage = 0, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage, monitorThresholdPage};
 
         int iSelectedIndex = 0; //默认显示第一页
 

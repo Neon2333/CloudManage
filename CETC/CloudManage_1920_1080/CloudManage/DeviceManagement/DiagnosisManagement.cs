@@ -24,7 +24,6 @@ namespace CloudManage.DeviceManagement
             public string faultsDeviceName;
             public string faultsFaultName;
             public string faultsFaultEnable;
-
         };
 
         //Hashtable faultsOriginal = new Hashtable();   //因为Hashtable的Key和Value都是object类型，所以在使用值类型的时候，必然会出现装箱和拆箱的操作，因此性能肯定是不如Dictionary的
@@ -174,10 +173,12 @@ namespace CloudManage.DeviceManagement
             if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["FaultEnable"]) == "使能")
             {
                 e.Item.AppearanceItem.Normal.ForeColor = Color.White;
+                e.Item.AppearanceItem.Focused.ForeColor = Color.White;
             }
             else if ((string)tileView1.GetRowCellValue(e.RowHandle, tileView1.Columns["FaultEnable"]) == "禁止")
             {
                 e.Item.AppearanceItem.Normal.ForeColor = Color.FromArgb(208, 49, 68);
+                e.Item.AppearanceItem.Focused.ForeColor = Color.FromArgb(208, 49, 68);
             }
         }
 
@@ -185,7 +186,6 @@ namespace CloudManage.DeviceManagement
         //根据选中行刷新《更改状态》按钮的颜色
         private void refreshColorButtonStatusChange()
         {
-            //DataTable dtTemp = ;
             if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count != 0)
             {
                 DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
