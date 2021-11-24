@@ -106,6 +106,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonControl\NumberKeyboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonControl\NumberKeyboard.Designer.cs">
+      <DependentUpon>NumberKeyboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonControl\SideTileBarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     <Compile Include="test\test1.Designer.cs">
       <DependentUpon>test1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CommonControl\NumberKeyboard.resx">
+      <DependentUpon>NumberKeyboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonControl\SideTileBarControl.resx">
       <DependentUpon>SideTileBarControl.cs</DependentUpon>
     </EmbeddedResource>

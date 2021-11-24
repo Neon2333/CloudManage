@@ -13,6 +13,8 @@ namespace CloudManage.DeviceManagement
 {
     public partial class MonitorThreshold : DevExpress.XtraEditors.XtraUserControl
     {
+        //private CommonControl.NumberKeyboard numberKeyboard1;
+
         private int[] selectRow = { 0 };
         string cmdQueryDeviceInfoThresholdTemp = String.Empty;
 
@@ -29,6 +31,11 @@ namespace CloudManage.DeviceManagement
             {
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
+
+            //numberKeyboard1 = new CommonControl.NumberKeyboard(0, 200);
+            //this.Controls.Add(this.numberKeyboard1);
+            //this.numberKeyboard1.Location = new System.Drawing.Point(400, 100);
+
         }
 
         private void _initSideTileBarWithSub()
@@ -156,11 +163,15 @@ namespace CloudManage.DeviceManagement
 
         }
 
+        private void simpleButton_modifyUpperLimit_Click(object sender, EventArgs e)
+        {
+            this.numberKeyboard1.Visible = true;
+        }
 
+        private void simpleButton_modifyLowerLimit_Click(object sender, EventArgs e)
+        {
+            this.numberKeyboard1.Visible = true;
 
-
-
-
-
+        }
     }
 }

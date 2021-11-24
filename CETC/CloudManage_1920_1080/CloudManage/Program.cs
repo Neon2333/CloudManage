@@ -21,7 +21,7 @@ namespace CloudManage
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new testSideTileBarControl());
             //Application.Run(new test.testSideTileBarWithSubControl());
-            Application.Run(new MainForm());
+            Application.Run(new test.test1());
 
         }
     }
