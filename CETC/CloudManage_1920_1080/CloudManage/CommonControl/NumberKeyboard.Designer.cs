@@ -726,13 +726,13 @@ namespace CloudManage.CommonControl
             this.labelControl_display.Appearance.Options.UseFont = true;
             this.labelControl_display.Appearance.Options.UseForeColor = true;
             this.labelControl_display.Appearance.Options.UseTextOptions = true;
-            this.labelControl_display.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_display.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl_display.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl_display.Location = new System.Drawing.Point(10, 48);
             this.labelControl_display.Name = "labelControl_display";
             this.labelControl_display.Size = new System.Drawing.Size(330, 50);
             this.labelControl_display.TabIndex = 22;
-            this.labelControl_display.Text = "000000000000000";
+            this.labelControl_display.Text = "0.0";
             // 
             // labelControl_title
             // 

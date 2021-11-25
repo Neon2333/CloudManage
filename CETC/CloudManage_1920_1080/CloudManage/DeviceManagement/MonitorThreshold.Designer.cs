@@ -29,9 +29,6 @@ namespace CloudManage.DeviceManagement
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions13 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions14 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions15 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraGrid.Views.Tile.ItemTemplate itemTemplate1 = new DevExpress.XtraGrid.Views.Tile.ItemTemplate();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -95,13 +92,16 @@ namespace CloudManage.DeviceManagement
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement27 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement28 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement29 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitorThreshold));
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tileViewColumn_NO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_PLName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_TDName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_PName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LLimit = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_ULimit = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.windowsUIButtonPanel_monitorThreshold = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.labelControl_dir = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_thresholdNO = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_productionLineName = new DevExpress.XtraEditors.LabelControl();
@@ -109,19 +109,19 @@ namespace CloudManage.DeviceManagement
             this.labelControl_paraName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_lowerLimit = new DevExpress.XtraEditors.LabelControl();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
-            this.numberKeyboard1 = new CloudManage.CommonControl.NumberKeyboard();
             this.simpleButton_modifyUpperLimit = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_cancelThresholdModify = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_saveThresholdModify = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_modifyLowerLimit = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl_upperLimit = new DevExpress.XtraEditors.LabelControl();
             this.sideTileBarControlWithSub_monitorThreshold = new CloudManage.CommonControl.SideTileBarControlWithSub();
-            this.gridControl_deviceInfoThreshold = new DevExpress.XtraGrid.GridControl();
+            this.gridControl_monitorThreshold = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
+            this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceInfoThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_monitorThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             this.SuspendLayout();
@@ -187,24 +187,6 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_ULimit.Name = "tileViewColumn_ULimit";
             this.tileViewColumn_ULimit.Visible = true;
             this.tileViewColumn_ULimit.VisibleIndex = 5;
-            // 
-            // windowsUIButtonPanel_monitorThreshold
-            // 
-            this.windowsUIButtonPanel_monitorThreshold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.windowsUIButtonPanel_monitorThreshold.ButtonInterval = 20;
-            this.windowsUIButtonPanel_monitorThreshold.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
-            this.windowsUIButtonPanel_monitorThreshold.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.windowsUIButtonPanel_monitorThreshold.ForeColor = System.Drawing.Color.White;
-            this.windowsUIButtonPanel_monitorThreshold.Location = new System.Drawing.Point(0, 800);
-            this.windowsUIButtonPanel_monitorThreshold.Name = "windowsUIButtonPanel_monitorThreshold";
-            this.windowsUIButtonPanel_monitorThreshold.Size = new System.Drawing.Size(1920, 80);
-            this.windowsUIButtonPanel_monitorThreshold.TabIndex = 18;
-            this.windowsUIButtonPanel_monitorThreshold.Text = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel_monitorThreshold.UseButtonBackgroundImages = false;
             // 
             // labelControl_dir
             // 
@@ -323,7 +305,6 @@ namespace CloudManage.DeviceManagement
             // 
             // panelControl_rightSide
             // 
-            this.panelControl_rightSide.Controls.Add(this.numberKeyboard1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_modifyUpperLimit);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_cancelThresholdModify);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_saveThresholdModify);
@@ -332,19 +313,6 @@ namespace CloudManage.DeviceManagement
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 25;
-            // 
-            // numberKeyboard1
-            // 
-            this.numberKeyboard1.Appearance.BackColor = System.Drawing.Color.White;
-            this.numberKeyboard1.Appearance.Options.UseBackColor = true;
-            this.numberKeyboard1.Location = new System.Drawing.Point(6, 150);
-            this.numberKeyboard1.maxVal = 1000D;
-            this.numberKeyboard1.minVal = 0D;
-            this.numberKeyboard1.Name = "numberKeyboard1";
-            this.numberKeyboard1.Size = new System.Drawing.Size(350, 650);
-            this.numberKeyboard1.TabIndex = 28;
-            this.numberKeyboard1.Visible = false;
-            this.numberKeyboard1.NumberKeyboardEnterClicked += new CloudManage.CommonControl.NumberKeyboard.SimpleButtonEnterClickHanlder(this.numberKeyboard1_NumberKeyboardEnterClicked);
             // 
             // simpleButton_modifyUpperLimit
             // 
@@ -442,20 +410,20 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControlWithSub_monitorThreshold.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem);
             this.sideTileBarControlWithSub_monitorThreshold.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem);
             // 
-            // gridControl_deviceInfoThreshold
+            // gridControl_monitorThreshold
             // 
-            this.gridControl_deviceInfoThreshold.Location = new System.Drawing.Point(246, 100);
-            this.gridControl_deviceInfoThreshold.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.gridControl_deviceInfoThreshold.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl_deviceInfoThreshold.MainView = this.tileView1;
-            this.gridControl_deviceInfoThreshold.Name = "gridControl_deviceInfoThreshold";
-            this.gridControl_deviceInfoThreshold.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControl_monitorThreshold.Location = new System.Drawing.Point(246, 100);
+            this.gridControl_monitorThreshold.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.gridControl_monitorThreshold.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControl_monitorThreshold.MainView = this.tileView1;
+            this.gridControl_monitorThreshold.Name = "gridControl_monitorThreshold";
+            this.gridControl_monitorThreshold.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1});
-            this.gridControl_deviceInfoThreshold.Size = new System.Drawing.Size(1106, 700);
-            this.gridControl_deviceInfoThreshold.TabIndex = 27;
-            this.gridControl_deviceInfoThreshold.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl_monitorThreshold.Size = new System.Drawing.Size(1106, 700);
+            this.gridControl_monitorThreshold.TabIndex = 27;
+            this.gridControl_monitorThreshold.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
-            this.gridControl_deviceInfoThreshold.Click += new System.EventHandler(this.gridControl_deviceInfoThreshold_Click);
+            this.gridControl_monitorThreshold.Click += new System.EventHandler(this.gridControl_deviceInfoThreshold_Click);
             // 
             // tileView1
             // 
@@ -489,7 +457,7 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_ULimit});
             this.tileView1.ContextButtonOptions.ItemCursor = System.Windows.Forms.Cursors.PanSouth;
             this.tileView1.ContextButtonOptions.PanelCursor = System.Windows.Forms.Cursors.Arrow;
-            this.tileView1.GridControl = this.gridControl_deviceInfoThreshold;
+            this.tileView1.GridControl = this.gridControl_monitorThreshold;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsEditForm.AllowHtmlCaptions = true;
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(6, 8, 12, 8);
@@ -810,6 +778,7 @@ namespace CloudManage.DeviceManagement
             this.tileView1.TileTemplate.Add(tileViewItemElement27);
             this.tileView1.TileTemplate.Add(tileViewItemElement28);
             this.tileView1.TileTemplate.Add(tileViewItemElement29);
+            this.tileView1.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView1_ItemCustomize);
             // 
             // repositoryItemFontEdit1
             // 
@@ -820,11 +789,33 @@ namespace CloudManage.DeviceManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
             // 
+            // windowsUIButtonPanel_historyQuery
+            // 
+            this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.windowsUIButtonPanel_historyQuery.ButtonInterval = 20;
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            this.windowsUIButtonPanel_historyQuery.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.windowsUIButtonPanel_historyQuery.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.windowsUIButtonPanel_historyQuery.ForeColor = System.Drawing.Color.White;
+            this.windowsUIButtonPanel_historyQuery.Location = new System.Drawing.Point(0, 800);
+            this.windowsUIButtonPanel_historyQuery.Name = "windowsUIButtonPanel_historyQuery";
+            this.windowsUIButtonPanel_historyQuery.Size = new System.Drawing.Size(1920, 80);
+            this.windowsUIButtonPanel_historyQuery.TabIndex = 28;
+            this.windowsUIButtonPanel_historyQuery.Text = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel_historyQuery.UseButtonBackgroundImages = false;
+            // 
             // MonitorThreshold
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridControl_deviceInfoThreshold);
+            this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
+            this.Controls.Add(this.gridControl_monitorThreshold);
             this.Controls.Add(this.labelControl_upperLimit);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.labelControl_lowerLimit);
@@ -833,13 +824,12 @@ namespace CloudManage.DeviceManagement
             this.Controls.Add(this.labelControl_productionLineName);
             this.Controls.Add(this.labelControl_thresholdNO);
             this.Controls.Add(this.labelControl_dir);
-            this.Controls.Add(this.windowsUIButtonPanel_monitorThreshold);
             this.Controls.Add(this.sideTileBarControlWithSub_monitorThreshold);
             this.Name = "MonitorThreshold";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
             this.panelControl_rightSide.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceInfoThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_monitorThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
             this.ResumeLayout(false);
@@ -849,7 +839,6 @@ namespace CloudManage.DeviceManagement
         #endregion
 
         private CommonControl.SideTileBarControlWithSub sideTileBarControlWithSub_monitorThreshold;
-        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_monitorThreshold;
         private DevExpress.XtraEditors.LabelControl labelControl_dir;
         private DevExpress.XtraEditors.LabelControl labelControl_thresholdNO;
         private DevExpress.XtraEditors.LabelControl labelControl_productionLineName;
@@ -862,7 +851,7 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraEditors.SimpleButton simpleButton_saveThresholdModify;
         private DevExpress.XtraEditors.SimpleButton simpleButton_modifyLowerLimit;
         private DevExpress.XtraEditors.LabelControl labelControl_upperLimit;
-        private DevExpress.XtraGrid.GridControl gridControl_deviceInfoThreshold;
+        private DevExpress.XtraGrid.GridControl gridControl_monitorThreshold;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_NO;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_PLName;
@@ -871,6 +860,6 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_LLimit;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_ULimit;
-        private CommonControl.NumberKeyboard numberKeyboard1;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_historyQuery;
     }
 }

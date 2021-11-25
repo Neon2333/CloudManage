@@ -43,6 +43,7 @@ namespace CloudManage.CommonControl
             resultEachNum.Add('+');             //resultEachNum第一位为符号位
             this.labelControl_display.Text = "";
             this.labelControl_outOfRange.Visible = false;
+            refreshDisplay();
         }
 
         public double maxVal
@@ -141,13 +142,14 @@ namespace CloudManage.CommonControl
             bool flag = true;
             try
             {
-                this.labelControl_display.Text = "";
+                this.labelControl_display.Text = "0";
                 if (this.resultEachNum.Count == 1)
                 {
                     
                     return flag;    //只有符号位没有数字时不显示
                 }
 
+                this.labelControl_display.Text = "";
                 foreach (var v in this.resultEachNum)
                 {
                     if (v == '+')
