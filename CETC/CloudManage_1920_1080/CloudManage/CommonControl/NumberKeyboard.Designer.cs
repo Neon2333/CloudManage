@@ -80,7 +80,7 @@ namespace CloudManage.CommonControl
             this.panelControl_numKeyboard.Controls.Add(this.labelControl_outOfRange);
             this.panelControl_numKeyboard.Controls.Add(this.labelControl_display);
             this.panelControl_numKeyboard.Controls.Add(this.labelControl_title);
-            this.panelControl_numKeyboard.Location = new System.Drawing.Point(3, 3);
+            this.panelControl_numKeyboard.Location = new System.Drawing.Point(0, 0);
             this.panelControl_numKeyboard.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl_numKeyboard.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl_numKeyboard.Name = "panelControl_numKeyboard";
@@ -155,6 +155,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_plusMinus.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_plusMinus.TabIndex = 39;
             this.simpleButton_plusMinus.Text = "+/-";
+            this.simpleButton_plusMinus.Click += new System.EventHandler(this.simpleButton_plusMinus_Click);
             // 
             // simpleButton_dot
             // 
@@ -190,6 +191,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_dot.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_dot.TabIndex = 38;
             this.simpleButton_dot.Text = ".";
+            this.simpleButton_dot.Click += new System.EventHandler(this.simpleButton_dot_Click);
             // 
             // simpleButton_num3
             // 
@@ -225,6 +227,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num3.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num3.TabIndex = 37;
             this.simpleButton_num3.Text = "3";
+            this.simpleButton_num3.Click += new System.EventHandler(this.simpleButton_num3_Click);
             // 
             // simpleButton_num2
             // 
@@ -260,6 +263,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num2.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num2.TabIndex = 36;
             this.simpleButton_num2.Text = "2";
+            this.simpleButton_num2.Click += new System.EventHandler(this.simpleButton_num2_Click);
             // 
             // simpleButton_num6
             // 
@@ -295,6 +299,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num6.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num6.TabIndex = 35;
             this.simpleButton_num6.Text = "6";
+            this.simpleButton_num6.Click += new System.EventHandler(this.simpleButton_num6_Click);
             // 
             // simpleButton_num5
             // 
@@ -330,6 +335,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num5.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num5.TabIndex = 34;
             this.simpleButton_num5.Text = "5";
+            this.simpleButton_num5.Click += new System.EventHandler(this.simpleButton_num5_Click);
             // 
             // simpleButton_num0
             // 
@@ -366,6 +372,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num0.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num0.TabIndex = 33;
             this.simpleButton_num0.Text = "0";
+            this.simpleButton_num0.Click += new System.EventHandler(this.simpleButton_num0_Click);
             // 
             // simpleButton_num1
             // 
@@ -401,6 +408,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num1.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num1.TabIndex = 32;
             this.simpleButton_num1.Text = "1";
+            this.simpleButton_num1.Click += new System.EventHandler(this.simpleButton_num1_Click);
             // 
             // simpleButton_num4
             // 
@@ -436,6 +444,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num4.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num4.TabIndex = 31;
             this.simpleButton_num4.Text = "4";
+            this.simpleButton_num4.Click += new System.EventHandler(this.simpleButton_num4_Click);
             // 
             // simpleButton_enter
             // 
@@ -471,6 +480,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_enter.Size = new System.Drawing.Size(75, 330);
             this.simpleButton_enter.TabIndex = 30;
             this.simpleButton_enter.Text = "Enter";
+            this.simpleButton_enter.Click += new System.EventHandler(this.simpleButton_enter_Click);
             // 
             // simpleButton_num9
             // 
@@ -506,6 +516,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num9.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num9.TabIndex = 29;
             this.simpleButton_num9.Text = "9";
+            this.simpleButton_num9.Click += new System.EventHandler(this.simpleButton_num9_Click);
             // 
             // simpleButton_num8
             // 
@@ -541,6 +552,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num8.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num8.TabIndex = 28;
             this.simpleButton_num8.Text = "8";
+            this.simpleButton_num8.Click += new System.EventHandler(this.simpleButton_num8_Click);
             // 
             // simpleButton_num7
             // 
@@ -576,6 +588,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_num7.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_num7.TabIndex = 27;
             this.simpleButton_num7.Text = "7";
+            this.simpleButton_num7.Click += new System.EventHandler(this.simpleButton_num7_Click);
             // 
             // simpleButton_backspace
             // 
@@ -611,6 +624,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_backspace.Size = new System.Drawing.Size(160, 75);
             this.simpleButton_backspace.TabIndex = 26;
             this.simpleButton_backspace.Text = "Backspace";
+            this.simpleButton_backspace.Click += new System.EventHandler(this.simpleButton_backspace_Click);
             // 
             // simpleButton_clr
             // 
@@ -646,6 +660,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_clr.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_clr.TabIndex = 25;
             this.simpleButton_clr.Text = "Clr";
+            this.simpleButton_clr.Click += new System.EventHandler(this.simpleButton_clr_Click);
             // 
             // simpleButton_esc
             // 
@@ -681,6 +696,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_esc.Size = new System.Drawing.Size(75, 75);
             this.simpleButton_esc.TabIndex = 24;
             this.simpleButton_esc.Text = "ESC";
+            this.simpleButton_esc.Click += new System.EventHandler(this.simpleButton_esc_Click);
             // 
             // labelControl_outOfRange
             // 
@@ -743,7 +759,7 @@ namespace CloudManage.CommonControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl_numKeyboard);
             this.Name = "NumberKeyboard";
-            this.Size = new System.Drawing.Size(356, 656);
+            this.Size = new System.Drawing.Size(350, 650);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_numKeyboard)).EndInit();
             this.panelControl_numKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);

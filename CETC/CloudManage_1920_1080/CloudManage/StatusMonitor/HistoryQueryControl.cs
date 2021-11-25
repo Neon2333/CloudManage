@@ -230,7 +230,7 @@ namespace CloudManage.StatusMonitor
             MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
             mysqlHelper1._connectMySQL();
             bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
-            Global.reorderDtFaultsConfigNO(ref Global.dtHistoryQueryGridShow);
+            Global.reorderDt(ref Global.dtHistoryQueryGridShow);
 
         }
 

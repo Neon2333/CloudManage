@@ -26,7 +26,7 @@ namespace CloudManage.DeviceManagement
             public string faultsFaultEnable;
         };
 
-        //Hashtable faultsOriginal = new Hashtable();   //因为Hashtable的Key和Value都是object类型，所以在使用值类型的时候，必然会出现装箱和拆箱的操作，因此性能肯定是不如Dictionary的
+        //因该表较长，所以只存被修改的行，不用一个dtTemp存储每次改变和最初状态。用dtTemp存储的话，每次都要拷贝整个表
         Stack<faultsIndexAndStatus> faultsStorage = new Stack<faultsIndexAndStatus>();                      //暂存故障设置被修改的所有历史
         Dictionary<int, faultsIndexAndStatus> faultsOriginal = new Dictionary<int, faultsIndexAndStatus>(); //暂存未保存时被改动行的最初状态
         Dictionary<int, faultsIndexAndStatus> faultsLatest = new Dictionary<int, faultsIndexAndStatus>();   //存所有被改动行的当前状态
@@ -45,7 +45,7 @@ namespace CloudManage.DeviceManagement
             _initSideTileBarWithSub();        //初始化侧边栏
             Global._init_dtFaultsConfig();    //初始化故障配置表
             initDtqueryFaultsConfigEnableAndNotEnable();    //初始化使能/禁止表
-            Global.reorderDtFaultsConfigNO(ref Global.dtFaultsConfig);  //NO从1开始排序
+            Global.reorderDt(ref Global.dtFaultsConfig);  //NO从1开始排序
             this.gridControl_faultsConfig.DataSource = Global.dtFaultsConfig;
             if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)
             {
@@ -213,7 +213,7 @@ namespace CloudManage.DeviceManagement
             if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRow = this.tileView1.GetSelectedRows();   //记录选中的行
-                refreshColorButtonStatusChange();
+                refreshColorButtonStatusChange(); 
             }
         }
 
@@ -233,7 +233,7 @@ namespace CloudManage.DeviceManagement
 
             //更新dtFaultsConfig
             bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsConfig, ref Global.dtFaultsConfig);
-            Global.reorderDtFaultsConfigNO(ref Global.dtFaultsConfig);
+            Global.reorderDt(ref Global.dtFaultsConfig);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigEnable
             this.dtQueryFaultsConfigEnable.Rows.Clear();  //清空
@@ -249,7 +249,7 @@ namespace CloudManage.DeviceManagement
                 dr["FaultEnable"] = dp["FaultEnable"];
                 this.dtQueryFaultsConfigEnable.Rows.Add(dr);
             }
-            Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
+            Global.reorderDt(ref this.dtQueryFaultsConfigEnable);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigNotEnable
             this.dtQueryFaultsConfigNotEnable.Rows.Clear();
@@ -264,7 +264,7 @@ namespace CloudManage.DeviceManagement
                 dr["FaultEnable"] = dp["FaultEnable"];
                 this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
             }
-            Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
+            Global.reorderDt(ref this.dtQueryFaultsConfigNotEnable);
 
             //查询结果后默认选中第一行
             selectRow[0] = 0;
@@ -396,7 +396,7 @@ namespace CloudManage.DeviceManagement
                     dr["FaultEnable"] = dp["FaultEnable"];
                     this.dtQueryFaultsConfigEnable.Rows.Add(dr);
                 }
-                Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
+                Global.reorderDt(ref this.dtQueryFaultsConfigEnable);
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigEnable;    //grid显示绑定dtQueryFaultsConfigType
                 refreshColorButtonStatusChange();
             }
@@ -405,7 +405,7 @@ namespace CloudManage.DeviceManagement
                 this.dtQueryFaultsConfigNotEnable.Rows.Clear();
                 this.simpleButton_queryTypeFaultsConfig.Text = "仅显示禁止";
                 this.simpleButton_queryTypeFaultsConfig.Appearance.BackColor = Color.FromArgb(208, 49, 68);
-                //从dtFaultsConfig中将禁止的记录拷贝到dtQueryFaultsConfigType中
+                //从dtFaultsConfig中将禁止的记录拷贝到dtQueryFaultsConfigNotEnable中
                 DataRow[] drTemp = Global.dtFaultsConfig.Select("FaultEnable = '禁止'");
                 foreach (var dp in drTemp)
                 {
@@ -417,7 +417,7 @@ namespace CloudManage.DeviceManagement
                     dr["FaultEnable"] = dp["FaultEnable"];
                     this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
                 }
-                Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
+                Global.reorderDt(ref this.dtQueryFaultsConfigNotEnable);
                 this.gridControl_faultsConfig.DataSource = this.dtQueryFaultsConfigNotEnable;
                 refreshColorButtonStatusChange();
             }
@@ -522,7 +522,7 @@ namespace CloudManage.DeviceManagement
                         dr["FaultEnable"] = dp["FaultEnable"];
                         this.dtQueryFaultsConfigEnable.Rows.Add(dr);
                     }
-                    Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigEnable);
+                    Global.reorderDt(ref this.dtQueryFaultsConfigEnable);
                 }
                 //以dtFaultsConfig更新dtQueryFaultsConfigNotEnable
                 else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.notEnableFualtsConfig)
@@ -539,7 +539,7 @@ namespace CloudManage.DeviceManagement
                         dr["FaultEnable"] = dp["FaultEnable"];
                         this.dtQueryFaultsConfigNotEnable.Rows.Add(dr);
                     }
-                    Global.reorderDtFaultsConfigNO(ref this.dtQueryFaultsConfigNotEnable);
+                    Global.reorderDt(ref this.dtQueryFaultsConfigNotEnable);
                 }
                 
                 faultsOriginal.Clear();

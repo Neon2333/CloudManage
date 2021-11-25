@@ -515,11 +515,16 @@ namespace CloudManage
                 {
                     DataRow dr = dt.NewRow();
                     dr["NO"] = no++;
+                    dr["RowHandle"] = i.ToString();
+                    dr["LineNO"] = dtTemp.Rows[i]["LineNO"];
                     dr["LineName"] = dtTemp.Rows[i]["LineName"];
+                    dr["DeviceNO"] = dtTemp.Rows[i]["DeviceNO"];
                     dr["DeviceName"] = dtTemp.Rows[i]["DeviceName"];
+                    dr["ParaNO"] = j + 1;
                     dr["ParaName"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Name"];
-                    dr["LowerLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Min"].ToString() + dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Suffix"];
-                    dr["UpperLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Max"].ToString() + dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Suffix"];
+                    dr["ParaSuffix"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Suffix"];
+                    dr["LowerLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Min"].ToString() + dr["ParaSuffix"].ToString();
+                    dr["UpperLimit"] = dtTemp.Rows[i]["Para" + (j + 1).ToString() + "Max"].ToString() + dr["ParaSuffix"].ToString();
                     dt.Rows.Add(dr);
                 }
             }
@@ -532,9 +537,14 @@ namespace CloudManage
             if (dtDeviceInfoThresholdGridShow.Columns.Count == 0)
             {
                 dtDeviceInfoThresholdGridShow.Columns.Add("NO");
+                dtDeviceInfoThresholdGridShow.Columns.Add("RowHandle");
+                dtDeviceInfoThresholdGridShow.Columns.Add("LineNO");    //有些grid用不到的col也可以放到dt中，虽然不显示，但是可以方便数据的处理，不再需要查表
                 dtDeviceInfoThresholdGridShow.Columns.Add("LineName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("DeviceNO");
                 dtDeviceInfoThresholdGridShow.Columns.Add("DeviceName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("ParaNO");
                 dtDeviceInfoThresholdGridShow.Columns.Add("ParaName");
+                dtDeviceInfoThresholdGridShow.Columns.Add("ParaSuffix");
                 dtDeviceInfoThresholdGridShow.Columns.Add("UpperLimit");
                 dtDeviceInfoThresholdGridShow.Columns.Add("LowerLimit");
             }
@@ -612,7 +622,7 @@ namespace CloudManage
         /*************************************************************************************************************/
 
         //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
-        public static void reorderDtFaultsConfigNO(ref DataTable dt)
+        public static void reorderDt(ref DataTable dt)
         {
             int lenDt = dt.Rows.Count;
             for (int i = 0; i < lenDt; i++)

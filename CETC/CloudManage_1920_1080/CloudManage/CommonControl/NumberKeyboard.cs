@@ -42,6 +42,7 @@ namespace CloudManage.CommonControl
             resultEachNum = new List<char>();
             resultEachNum.Add('+');             //resultEachNum第一位为符号位
             this.labelControl_display.Text = "";
+            this.labelControl_outOfRange.Visible = false;
         }
 
         public double maxVal
@@ -70,20 +71,28 @@ namespace CloudManage.CommonControl
             }
         }
 
+        public double result
+        {
+            get
+            {
+                return this.resultNum;
+            }
+        }
+
         private bool judgeOutOfRange()
         {
-            bool flag = true;
+            bool flag = false;
             try
             {
                 if (this.resultNum < this.MinVal || this.resultNum > this.MaxVal)
                 {
-                    flag = false;
+                    flag = true;
                 }
             }
             catch(Exception ex)
             {
                 ex.ToString();
-                flag = false;
+                flag = true;
             }
             return flag;
         }
@@ -135,6 +144,7 @@ namespace CloudManage.CommonControl
                 this.labelControl_display.Text = "";
                 if (this.resultEachNum.Count == 1)
                 {
+                    
                     return flag;    //只有符号位没有数字时不显示
                 }
 
@@ -310,7 +320,7 @@ namespace CloudManage.CommonControl
 
         private void simpleButton_esc_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
         }
 
         private void simpleButton_clr_Click(object sender, EventArgs e)
@@ -320,6 +330,8 @@ namespace CloudManage.CommonControl
                 this.resultEachNum.RemoveAt(this.resultEachNum.Count - 1);
             }
             this.dotExistsInResultEachNum = false;  //清空后dot存在标志置false
+            this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
+            this.resultEachNum.Add('+');
             refreshDisplay();
         }
 
@@ -334,25 +346,37 @@ namespace CloudManage.CommonControl
                 {
                     this.dotExistsInResultEachNum = false;  //退格删除的是dot的话，dot存在标志置false
                 }
-            }
 
+                if (this.resultEachNum.Count == 1)
+                {
+                    this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
+                    this.resultEachNum.Add('+');
+                }
+            }
             refreshDisplay();
         }
 
+        public delegate void SimpleButtonEnterClickHanlder(object sender, EventArgs e);
+        public event SimpleButtonEnterClickHanlder NumberKeyboardEnterClicked; //自定义事件，将SideTileBarControl的itemSelectedChanged事件
         private void simpleButton_enter_Click(object sender, EventArgs e)
         {
-            //判断数据resultEachNum是否合法
-            if (judgeOutOfRange() == true)
+            calcResultNum();
+            //判断结果resultNum是否合法
+            if (judgeOutOfRange())
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                if (NumberKeyboardEnterClicked != null)
+                {
+                    NumberKeyboardEnterClicked(sender, new EventArgs());
+                }
+                simpleButton_clr_Click(sender, new EventArgs());
+            }
             
-            calcResultNum();
-            MessageBox.Show(resultNum.ToString());
-            
+
         }
-
-
 
     }
 }

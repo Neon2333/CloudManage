@@ -15,7 +15,7 @@ namespace CloudManage
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         DateTime now = new DateTime();  //当前时间
-        int[][] itemIndex = new int[6][];
+        //int[][] itemIndex = new int[6][];
         enum StatusMonitorPages { workStatePage = 0, realtimePage, historyQueryPage };
         enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
         enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage, paraUpdatePage };
