@@ -49,6 +49,7 @@ namespace CloudManage.DeviceManagement
             {
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
+            refreshSelectRow();
         }
 
         private void _initSideTileBarWithSub()
@@ -338,6 +339,8 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        public delegate void ParaLimitsChangedHanlder(object sender, EventArgs e);
+        public static event ParaLimitsChangedHanlder paraLimitsChangedExists; //不用static，RealTime访问不到？
         private void simpleButton_saveThresholdModify_Click(object sender, EventArgs e)
         {
             if (thresholdLatest.Count != 0)    //有修改时才保存
@@ -369,6 +372,8 @@ namespace CloudManage.DeviceManagement
                     Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //保存后，因为grid绑定的表没有变化，所以虽然thresholdLatest以清空，但itemCustomize不会触发，被修改的行不会从红色刷新到白色
                     selectRow = this.tileView1.GetSelectedRows();
                     refreshSelectRow();
+
+                    paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传出
                 }
                 thresholdOriginal.Clear();
                 mysqlHelper1.conn.Close();

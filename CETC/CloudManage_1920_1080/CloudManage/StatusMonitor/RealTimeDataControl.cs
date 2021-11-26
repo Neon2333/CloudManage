@@ -15,7 +15,6 @@ namespace CloudManage
 {
     public partial class RealTimeDataControl : DevExpress.XtraEditors.XtraUserControl
     {
-        //DataTable dtRightSideRealTimeData = new DataTable();
         string labelDirImgType = "——实时";    //imageSlider当前图片类型：实时、缺陷
         Color colorNormal = Color.Gray;
         Color colorAlert = Color.FromArgb(208, 49, 68);
@@ -23,6 +22,7 @@ namespace CloudManage
         private DataTable dtParaNameAndSuffix = new DataTable();    //参数名、参数单位
         private DataTable dtGridDataSource = new DataTable();       //改变数据显示形式，将一行变为若干行，最终绑定到grid上的dt
         private DataRow drParaThreshold;                            //某台设备的参数阈值
+        
 
         struct paraThreshold
         {
@@ -43,6 +43,8 @@ namespace CloudManage
             Global._init_dtDeviceInfoThresholdAndLocation();
             initDataSource();
             initImgSlider();
+
+            DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
         }
 
         private void initDataSource()
@@ -73,6 +75,7 @@ namespace CloudManage
             getDataSource(firstLineNO, firstDeviceNO);
             refreshParaLimits(firstLineNO, firstDeviceNO);
             this.gridControl_rightSide.DataSource = this.dtGridDataSource;
+
         }
 
         private void getDataSource(string selectedItemTag, string selectedItemSubTag)
@@ -123,8 +126,10 @@ namespace CloudManage
         }
 
         //刷新选中设备的阈值
-        void refreshParaLimits(string selectedItemTag, string selectedItemSubTag)
+        public void refreshParaLimits(string selectedItemTag, string selectedItemSubTag)
         {
+            Global._init_dtDeviceInfoThresholdAndLocation();
+
             DataRow[] drr = Global.dtDeviceInfoThresholdAndLocation.Select("LineNO='" + selectedItemTag + "' AND DeviceNO='" + selectedItemSubTag + "'");
             int validParaCount = 0;
             if (this.dtParaNameAndSuffix.Rows.Count == 1)
@@ -140,6 +145,20 @@ namespace CloudManage
                     this.paraThresholdList[i].upperLimit = this.drParaThreshold[7 + 2 * i].ToString();
                 }
 
+            }
+        }
+
+        //强制触发itemCustomize刷新
+        public void refreshGrid()
+        {
+            if (this.dtGridDataSource.Rows.Count != 0)
+            {
+                for(int i = 0; i < this.dtGridDataSource.Rows.Count; i++)
+                {
+                    string colTemp = this.dtGridDataSource.Rows[i]["ParaName"].ToString();
+                    //this.dtGridDataSource.Rows[0]["ParaName"] = "强制刷新grid";
+                    this.dtGridDataSource.Rows[i]["ParaName"] = colTemp;
+                }
             }
         }
 
@@ -236,7 +255,7 @@ namespace CloudManage
             refreshLabelDir();
         }
 
-        //给右侧数据上色，自动对绑定gridcontrol的每条记录执行一遍
+        //给右侧数据上色，绑定gridcontrol的表发生改变时自动对每条记录执行一次
         private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
         {
             if (e.Item == null || e.Item.Elements.Count == 0)
@@ -252,8 +271,8 @@ namespace CloudManage
             else
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorNormal;
+                e.Item.AppearanceItem.Focused.BackColor = colorNormal;
             }
-
         }
 
         private void timer_deviceLocation_Tick(object sender, EventArgs e)
@@ -261,6 +280,12 @@ namespace CloudManage
             this.pictureEdit_deviceLocation.Visible = !this.pictureEdit_deviceLocation.Visible;
         }
 
-       
+
+        private void monitorThreshold_paraLimitsChanged(object sender, EventArgs e)
+        {
+            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
+            refreshGrid();
+        }
+
     }
 }
