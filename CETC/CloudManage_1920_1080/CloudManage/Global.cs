@@ -505,6 +505,7 @@ namespace CloudManage
             _initDtMySQL(ref dtDeviceInfoThresholdGridShowTemp, cmdInitDtDeviceInfoThresholdGridShowTemp);
         }
         
+        //将设备有若干参数共用一行，转化为每个参数作为一行的表格形式
         public static void transformDtDeviceInfoThresholdGridTemp(ref DataTable dtTemp, ref DataTable dt)
         {
             int no = 1;

@@ -32,7 +32,6 @@ namespace CloudManage.DeviceManagement
             public string UpperLimit;
         };
 
-        Stack<thresholdIndexAndVal> thresholdStorage = new Stack<thresholdIndexAndVal>();                      //暂存故障设置被修改的所有历史
         Dictionary<int, thresholdIndexAndVal> thresholdOriginal = new Dictionary<int, thresholdIndexAndVal>(); //暂存未保存时被改动行的最初状态
         Dictionary<int, thresholdIndexAndVal> thresholdLatest = new Dictionary<int, thresholdIndexAndVal>();   //存所有被改动行的当前状态
 
@@ -64,6 +63,7 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControlWithSub_monitorThreshold._initSideTileBarWithSub();
         }
 
+        //刷新导航目录
         void _refreshLabelDir()
         {
             string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
@@ -71,13 +71,36 @@ namespace CloudManage.DeviceManagement
             this.labelControl_dir.Text = "   " + str1 + "——" + str2;
         }
 
-        //刷新当前选中行（当grid绑定的dt发生改变时一定要刷新）
+        //刷新当前选中行（当grid绑定的dt发生改变时必须要刷新，否则自动选中第一行）
         private void refreshSelectRow()
         {
             if (selectRow.Length == 1)
             {
                 this.tileView1.FocusedRowHandle = selectRow[0];
             }
+        }
+
+        //小键盘刷新(重新创建对象)
+        private void refreshNumberKeyboard()
+        {
+            if (this.numberKeyboard1 != null)
+            {
+                this.numberKeyboard1.Visible = false;
+            }
+            this.numberKeyboard1 = new CommonControl.NumberKeyboard(0, 200);
+            this.numberKeyboard1.Appearance.BackColor = System.Drawing.Color.White;
+            this.numberKeyboard1.Appearance.Options.UseBackColor = true;
+            this.numberKeyboard1.Location = new System.Drawing.Point(6, 150);
+            this.numberKeyboard1.maxVal = 9999D;
+            this.numberKeyboard1.minVal = 0D;
+            this.numberKeyboard1.Name = "numberKeyboard1";
+            this.numberKeyboard1.Size = new System.Drawing.Size(350, 650);
+            this.numberKeyboard1.TabIndex = 28;
+            this.numberKeyboard1.title = "修改阈值";
+            this.panelControl_rightSide.Controls.Add(this.numberKeyboard1);
+            this.numberKeyboard1.BringToFront();
+            this.numberKeyboard1.Visible = false;
+            this.numberKeyboard1.NumberKeyboardEnterClicked += new CloudManage.CommonControl.NumberKeyboard.SimpleButtonEnterClickHanlder(this.numberKeyboard1_NumberKeyboardEnterClicked);
         }
 
         private string _getProductionLineNameByTag(string tagProductionLine)
@@ -119,6 +142,7 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        //将dr中的UpperLimit、LowerLimit中的单位去掉
         private string removeSuffixLimits(string limit, string suffix)
         {
             int lenStrSuffis = suffix.Length;
@@ -135,24 +159,7 @@ namespace CloudManage.DeviceManagement
                 refreshSelectRow();
             }
 
-            //选中记录时根据变量创建小键盘，并赋值最小最大值
-            if (this.numberKeyboard1 != null)
-            {
-                this.numberKeyboard1.Visible = false;
-            }
-            this.numberKeyboard1 = new CommonControl.NumberKeyboard(0, 200);
-            this.numberKeyboard1.Appearance.BackColor = System.Drawing.Color.White;
-            this.numberKeyboard1.Appearance.Options.UseBackColor = true;
-            this.numberKeyboard1.Location = new System.Drawing.Point(6, 150);
-            this.numberKeyboard1.maxVal = 9999D;
-            this.numberKeyboard1.minVal = 0D;
-            this.numberKeyboard1.Name = "numberKeyboard1";
-            this.numberKeyboard1.Size = new System.Drawing.Size(350, 650);
-            this.numberKeyboard1.TabIndex = 28;
-            this.panelControl_rightSide.Controls.Add(this.numberKeyboard1);
-            this.numberKeyboard1.BringToFront();
-            this.numberKeyboard1.Visible = false;
-            this.numberKeyboard1.NumberKeyboardEnterClicked += new CloudManage.CommonControl.NumberKeyboard.SimpleButtonEnterClickHanlder(this.numberKeyboard1_NumberKeyboardEnterClicked);
+            refreshNumberKeyboard();
         }
 
         //点击侧边栏查询的命令
@@ -189,15 +196,18 @@ namespace CloudManage.DeviceManagement
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            _refreshLabelDir();
+            refreshNumberKeyboard();    //刷新小键盘
+            simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
+            _refreshLabelDir();    
 
-            initCmdQueryDeviceInfoThresholdTemp();
+            initCmdQueryDeviceInfoThresholdTemp();  //刷新grid显示
 
             MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
             mysqlHelper1._connectMySQL();
 
             //更新dtFaultsConfig
             bool flag = mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
+            mysqlHelper1.conn.Close();
             Global.dtDeviceInfoThresholdGridShow.Rows.Clear();
             Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
             Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow);
@@ -210,6 +220,7 @@ namespace CloudManage.DeviceManagement
             this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyUpper;
             if (this.numberKeyboard1 != null)
             {
+                this.numberKeyboard1.title = "修改上限";
                 this.numberKeyboard1.Visible = true;
             }
         }
@@ -219,6 +230,7 @@ namespace CloudManage.DeviceManagement
             this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyLower;
             if (this.numberKeyboard1 != null)
             {
+                this.numberKeyboard1.title = "修改下限";
                 this.numberKeyboard1.Visible = true;
             }
         }
@@ -228,13 +240,13 @@ namespace CloudManage.DeviceManagement
             if (this.modifyUpperOrLowerCurrent == (int)ModifyUpperOrLower.modifyUpper)
             {
                 //需要判断输入的上限是否大于下限
-                //把dt["LowerLimit"]的单位去掉
-                double numberKeyboardResultTemp = this.numberKeyboard1.result;
-                string lowerLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());
+              
+                double numberKeyboardResultTemp = this.numberKeyboard1.result;  //获取小键盘输入结果
+                string lowerLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
 
                 if (numberKeyboardResultTemp >= Convert.ToDouble(lowerLimitCurrentRow))
                 {
-                    //保存修改前、最新的修改
+                    //保存最新的修改
                     if (((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0 && selectRow.Length == 1)
                     {
                         DataRow drTemp = this.tileView1.GetDataRow(selectRow[0]);
@@ -250,19 +262,15 @@ namespace CloudManage.DeviceManagement
                             fTemp.LowerLimit = drTemp["LowerLimit"].ToString();
                             fTemp.UpperLimit = drTemp["UpperLimit"].ToString();
 
-                            //保存原始状态
+                            //保存原始行
                             if (!thresholdOriginal.ContainsKey(Convert.ToInt32(fTemp.NO)))
                             {
                                 thresholdOriginal.Add(Convert.ToInt32(fTemp.NO), fTemp);
                             }
 
-                            //修改grid显示
+                            //保存行最新修改
                             string UpperLimitTemp = numberKeyboardResultTemp.ToString() + Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"];
-                            fTemp.UpperLimit = UpperLimitTemp;
-                            selectRow = this.tileView1.GetSelectedRows();
-                            refreshSelectRow();
-
-                            //保存最新状态
+                            fTemp.UpperLimit = UpperLimitTemp;  //暂存最新修改，暂时不修改grid绑定表，否则会在thresholdLatest暂存最新修改前，就触发itemCustomize事件，最新的修改无法表现在grid上的红色改变
                             if (thresholdLatest.ContainsKey(Convert.ToInt32(fTemp.NO)))
                             {
                                 thresholdLatest[Convert.ToInt32(fTemp.NO)] = fTemp;
@@ -272,8 +280,10 @@ namespace CloudManage.DeviceManagement
                                 thresholdLatest.Add(Convert.ToInt32(fTemp.NO), fTemp);
                             }
 
+                            //修改grid显示
                             Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["UpperLimit"] = UpperLimitTemp;
-
+                            selectRow = this.tileView1.GetSelectedRows();
+                            refreshSelectRow();
                         }
                     }
 
@@ -302,18 +312,13 @@ namespace CloudManage.DeviceManagement
                             fTemp.LowerLimit = drTemp["LowerLimit"].ToString();
                             fTemp.UpperLimit = drTemp["UpperLimit"].ToString();
 
-                            //保存原始状态
                             if (!thresholdOriginal.ContainsKey(Convert.ToInt32(fTemp.NO)))
                             {
                                 thresholdOriginal.Add(Convert.ToInt32(fTemp.NO), fTemp);
                             }
 
                             string LowerLimitTemp = numberKeyboardResultTemp.ToString() + Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"];
-                            fTemp.LowerLimit = LowerLimitTemp;
-                            selectRow = this.tileView1.GetSelectedRows();
-                            refreshSelectRow();
-
-                            //保存最新状态
+                            fTemp.LowerLimit = LowerLimitTemp;  
                             if (thresholdLatest.ContainsKey(Convert.ToInt32(fTemp.NO)))
                             {
                                 thresholdLatest[Convert.ToInt32(fTemp.NO)] = fTemp;
@@ -323,8 +328,9 @@ namespace CloudManage.DeviceManagement
                                 thresholdLatest.Add(Convert.ToInt32(fTemp.NO), fTemp);
                             }
 
-                            //修改grid显示
                             Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"] = LowerLimitTemp;
+                            selectRow = this.tileView1.GetSelectedRows();
+                            refreshSelectRow();
                         }
                     }
 
@@ -334,7 +340,7 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_saveThresholdModify_Click(object sender, EventArgs e)
         {
-            if (thresholdLatest.Count != 0)    //有改动时才保存
+            if (thresholdLatest.Count != 0)    //有修改时才保存
             {
                 MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                 mysqlHelper1._connectMySQL();
@@ -359,17 +365,20 @@ namespace CloudManage.DeviceManagement
                 }
                 if (flagSaveSuccess == true)
                 {
+                    thresholdLatest.Clear();    //将最新修改表清空
+                    Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //保存后，因为grid绑定的表没有变化，所以虽然thresholdLatest以清空，但itemCustomize不会触发，被修改的行不会从红色刷新到白色
                     selectRow = this.tileView1.GetSelectedRows();
                     refreshSelectRow();
                 }
                 thresholdOriginal.Clear();
-                thresholdLatest.Clear();
                 mysqlHelper1.conn.Close();
             }
         }
 
         private void simpleButton_cancelThresholdModify_Click(object sender, EventArgs e)
         {
+            this.thresholdLatest.Clear();   //首先把最新修改表清空，防止后面用thresholdOriginal还原dtDeviceInfoThresholdGridShow触发itemCustomize时，thresholdLatest未修改
+
             //dtDeviceInfoThresholdGridShowTemp还原到最初的状态
             foreach (var to in thresholdOriginal)
             {
@@ -383,9 +392,8 @@ namespace CloudManage.DeviceManagement
             }
 
             this.thresholdOriginal.Clear();
-            this.thresholdLatest.Clear();
-            Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
-            Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow);
+            //Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
+            Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //重排grid绑定的dt会触发itemCustomize事件
             selectRow = this.tileView1.GetSelectedRows();
             refreshSelectRow();
         }
@@ -398,7 +406,7 @@ namespace CloudManage.DeviceManagement
             e.Item.AppearanceItem.Normal.ForeColor = Color.White;
             e.Item.AppearanceItem.Focused.ForeColor = Color.White;
 
-            if (thresholdLatest.ContainsKey(e.RowHandle + 1))
+            if (thresholdLatest.ContainsKey(e.RowHandle + 1))   //(DataTable)tileview1.DataSource中NO=RowHandle+1
             {
                 e.Item.AppearanceItem.Normal.ForeColor = Color.FromArgb(208, 49, 68);
                 e.Item.AppearanceItem.Focused.ForeColor = Color.FromArgb(208, 49, 68);

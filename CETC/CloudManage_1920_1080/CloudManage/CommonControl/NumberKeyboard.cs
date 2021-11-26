@@ -46,6 +46,18 @@ namespace CloudManage.CommonControl
             refreshDisplay();
         }
 
+        public string title
+        {
+            get
+            {
+                return this.labelControl_title.Text;
+            }
+            set
+            {
+                this.labelControl_title.Text = value;
+            }
+        }
+
         public double maxVal
         {
             get
