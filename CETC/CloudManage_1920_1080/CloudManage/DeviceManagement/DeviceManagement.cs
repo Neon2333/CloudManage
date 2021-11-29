@@ -14,11 +14,11 @@ namespace CloudManage.DeviceManagement
 {
     public partial class DeviceManagement : DevExpress.XtraEditors.XtraUserControl
     {
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceAddition;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceDeletion;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceTesting;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_deviceAdditionDeletion;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_diagnosisManagement;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_monitorThreshold;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_reserve1;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_reserve2;
         private NavigationPage[] deviceManagementPages = new NavigationPage[5];
 
 
@@ -42,11 +42,11 @@ namespace CloudManage.DeviceManagement
 
         private void initDeviceManagementPage()
         {
-            deviceManagementPages[0] = navigationPage_deviceAddition;
-            deviceManagementPages[1] = navigationPage_deviceDeletion;
-            deviceManagementPages[2] = navigationPage_deviceTesting;
-            deviceManagementPages[3] = navigationPage_diagnosisManagement;
-            deviceManagementPages[4] = navigationPage_monitorThreshold;
+            deviceManagementPages[0] = navigationPage_deviceAdditionDeletion;
+            deviceManagementPages[1] = navigationPage_monitorThreshold;
+            deviceManagementPages[2] = navigationPage_diagnosisManagement;
+            deviceManagementPages[3] = navigationPage_reserve1;
+            deviceManagementPages[4] = navigationPage_reserve2;
         }
 
         public int selectedFramePage

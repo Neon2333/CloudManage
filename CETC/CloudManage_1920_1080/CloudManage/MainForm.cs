@@ -20,7 +20,7 @@ namespace CloudManage
         enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
         enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage, paraUpdatePage };
         enum DeepLearningPages { datapreParationPage = 0, modelTrainingPage, modelTestingPage, modelUpdatePage };
-        enum DeviceManagementPages { deviceAdditionPage = 0, deviceDeletionPage, deviceTestingPage, diagnosisManagementPage, monitorThresholdPage};
+        enum DeviceManagementPages { deviceAdditionDeletionPage = 0, monitorThresholdPage, diagnosisManagementPage, reservePage1, reservePage2};
 
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -238,26 +238,17 @@ namespace CloudManage
             iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
         }
 
-        private void tileBarItem_deviceManagement_deviceAddition_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionPage;
+            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
 
         }
-
-        private void tileBarItem_deviceManagement_deviceDeletion_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = (int)DeviceManagementPages.deviceDeletionPage;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
-
-        }
-
-        private void tileBarItem_deviceManagement_deviceTesting_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = (int)DeviceManagementPages.deviceTestingPage;
+            iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
@@ -268,10 +259,18 @@ namespace CloudManage
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
-        private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
+
+        private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
+            iSelectedIndex = (int)DeviceManagementPages.reservePage1;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+        }
+
+        private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            iSelectedIndex = (int)DeviceManagementPages.reservePage2;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 

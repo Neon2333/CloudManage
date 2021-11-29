@@ -247,8 +247,8 @@ namespace CloudManage
                 for (int i = 0; i < undefineTileNum; i++)
                 {
                     DataRow dr = Global.dtOverviewWorkState.NewRow();
-                    dr["LineName"] = "\\";
-                    dr["LineStatus"] = "未定义";
+                    dr["LineName"] = "未定义";
+                    dr["LineStatus"] = "";
                     dtOverviewWorkState.Rows.Add(dr);
                 }
 
@@ -348,14 +348,14 @@ namespace CloudManage
                 for (int i = 0; i < undefineTileNum; i++)
                 {
                     DataRow dr = Global.dtEachProductionLineWorkState.NewRow();
-                    dr["DeviceNO"] = "\\";
+                    dr["DeviceNO"] = "";
                     dr["DeviceName"] = "未定义";
-                    dr["DeviceStatus"] = "无效";
-                    dr["Para1"] = "\\";
-                    dr["Para2"] = "\\";
-                    dr["Para3"] = "\\";
-                    dr["Para4"] = "\\";
-                    dr["Para5"] = "\\";
+                    dr["DeviceStatus"] = "";
+                    dr["Para1"] = "";
+                    dr["Para2"] = "";
+                    dr["Para3"] = "";
+                    dr["Para4"] = "";
+                    dr["Para5"] = "";
 
                     dtEachProductionLineWorkState.Rows.Add(dr);
                 }

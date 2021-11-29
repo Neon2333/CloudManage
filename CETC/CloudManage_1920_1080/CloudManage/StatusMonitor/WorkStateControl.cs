@@ -70,19 +70,25 @@ namespace CloudManage.StatusMonitor
                 return;
             //e为tileview，RowHandle为选中的tile的index，每个tile是表格的一行
             //GetRowCellValue返回tileView绑定的数据源的某一列的值，类型object
-            if ((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "正常")
-            {
-                e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-            }
-            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "异常")
-            {
-                e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
-            }
-            else if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "未定义")
+            if((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineName"]) == "未定义")
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorDisable;
             }
-
+            else
+            {
+                if ((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "正常")
+                {
+                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
+                }
+                else if ((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "异常")
+                {
+                    e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
+                }
+                //else if ((string)tileView_overview.GetRowCellValue(e.RowHandle, tileView_overview.Columns["LineStatus"]) == "未定义")
+                //{
+                //    e.Item.AppearanceItem.Normal.BackColor = colorDisable;
+                //}
+            }
         }
 
         //总览页面内双击tile，侧边栏对应按钮被选中，跳转到对应产线页面
@@ -131,22 +137,26 @@ namespace CloudManage.StatusMonitor
             if (e.Item == null || e.Item.Elements.Count == 0)
                 return;
 
-            if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "正常")
-            {
-                e.Item.AppearanceItem.Normal.BackColor = colorNormal;
-
-            }
-            else if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "异常")
-            {
-                e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
-
-
-            }
-            else if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "无效")
+            if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceName"]) == "未定义")
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorDisable;
             }
+            else
+            {
+                if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "正常")
+                {
+                    e.Item.AppearanceItem.Normal.BackColor = colorNormal;
 
+                }
+                else if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "异常")
+                {
+                    e.Item.AppearanceItem.Normal.BackColor = colorAbnormal;
+                }
+                //else if ((string)tileView_each.GetRowCellValue(e.RowHandle, tileView_each.Columns["DeviceStatus"]) == "无效")
+                //{
+                //    e.Item.AppearanceItem.Normal.BackColor = colorDisable;
+                //}
+            }
         }
 
     }
