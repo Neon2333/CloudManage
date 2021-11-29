@@ -17,6 +17,7 @@ using NPOI.HSSF.UserModel;
 using System.Diagnostics;
 using System.Collections;
 using DevExpress.XtraEditors.Popup;
+using DevExpress.XtraBars.Docking2010;
 
 namespace CloudManage.StatusMonitor
 {
@@ -24,6 +25,7 @@ namespace CloudManage.StatusMonitor
     {
         string cmdQueryFaultsHistory = String.Empty;
 
+        int excelFileNameIndex = 1;
         public HistoryQueryControl()
         {
             InitializeComponent();
@@ -38,6 +40,7 @@ namespace CloudManage.StatusMonitor
             //初始化显示一个月的历史
             Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
+            _initWindowsUIButtonPanel();
         }
 
         //刷新目录
@@ -59,6 +62,11 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControlWithSub_historyQuery.colTagDTSUB = "DeviceNO";
             this.sideTileBarControlWithSub_historyQuery.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_historyQuery._initSideTileBarWithSub();
+        }
+
+        private void _initWindowsUIButtonPanel()
+        {
+            windowsUIButtonPanel_historyQuery.ButtonChecked += windowsUIButtonPanel_historyQuery_buttonChecked;
         }
 
         void _initTimeEditStartAndEnd()
@@ -118,6 +126,53 @@ namespace CloudManage.StatusMonitor
             {
                 return false;
             }
+        }
+
+        private void exportExcelDtHistoryQueryGridShow(string path)
+        {
+            DataTable dtGrid = (DataTable)this.gridControl_faultDataTime.DataSource;
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string excelFileName = path + "\\faultsHistory" + excelFileNameIndex++.ToString() + ".xlsx";
+            FileStream filestream = new FileStream(excelFileName, FileMode.OpenOrCreate);
+
+            XSSFWorkbook wk = new XSSFWorkbook();   //创建表对象wk
+            ISheet isheet = wk.CreateSheet("Sheet1");   //在wk中创建sheet1
+
+            IRow row = null;
+            ICell cell = null;
+            //加表头
+            row = isheet.CreateRow(0);
+            cell = row.CreateCell(0);
+            cell.SetCellValue("序号");
+            cell = row.CreateCell(1);
+            cell.SetCellValue("产线名称");
+            cell = row.CreateCell(2);
+            cell.SetCellValue("设备名称");
+            cell = row.CreateCell(3);
+            cell.SetCellValue("故障名称");
+            cell = row.CreateCell(4);
+            cell.SetCellValue("故障时间");
+
+            for (int i = 1; i < dtGrid.Rows.Count + 1; i++)
+            {
+                row = isheet.CreateRow(i); //创建index=j的行
+                for (int j = 0; j < 5; j++)
+                {
+                    cell = row.CreateCell(j);      //在index=j的行中创建index=0的单元格
+                    cell.SetCellValue(dtGrid.Rows[i - 1][j].ToString());     //给创建的单元格赋值string
+                }
+                
+            }
+
+            wk.Write(filestream);   //通过流filestream将表wk写入文件
+            filestream.Close(); //关闭文件流filestream
+            wk.Close();	//关闭Excel表对象wk
+            MessageBox.Show("Excel导出");
         }
 
         private void initCmdQueryFaultsHistory()
@@ -188,7 +243,6 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-
         private void simpleButton_query_Click(object sender, EventArgs e)
         {
             if (_timeInterValIllegal() == true)
@@ -258,6 +312,17 @@ namespace CloudManage.StatusMonitor
             this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
 
-       
+        void windowsUIButtonPanel_historyQuery_buttonChecked(object sender, ButtonEventArgs e)
+        {
+            string tag = ((WindowsUIButton)e.Button).Tag.ToString();
+            switch (tag)
+            {
+                case "exportXLSX":
+                    exportExcelDtHistoryQueryGridShow("C:\\Users\\eivision\\Desktop\\FaultsHistoryExportExcel");
+                    break;
+
+            }
+            e.Button.Properties.Checked = false;
+        }
     }
 }
