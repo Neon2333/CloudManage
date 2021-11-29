@@ -128,9 +128,17 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        private void exportExcelDtHistoryQueryGridShow(string path)
+        private void exportExcelDtHistoryQueryGridShow()
         {
             DataTable dtGrid = (DataTable)this.gridControl_faultDataTime.DataSource;
+            string path = String.Empty;
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            if (folderDlg.ShowDialog() == DialogResult.OK)
+            {
+                path = folderDlg.SelectedPath;
+            }
+
+            path += "\\faultsHistory";
 
             if (!Directory.Exists(path))
             {
@@ -140,8 +148,8 @@ namespace CloudManage.StatusMonitor
             string excelFileName = path + "\\faultsHistory" + excelFileNameIndex++.ToString() + ".xlsx";
             FileStream filestream = new FileStream(excelFileName, FileMode.OpenOrCreate);
 
-            XSSFWorkbook wk = new XSSFWorkbook();   //创建表对象wk
-            ISheet isheet = wk.CreateSheet("Sheet1");   //在wk中创建sheet1
+            XSSFWorkbook wk = new XSSFWorkbook();   
+            ISheet isheet = wk.CreateSheet("Sheet1");  
 
             IRow row = null;
             ICell cell = null;
@@ -160,11 +168,11 @@ namespace CloudManage.StatusMonitor
 
             for (int i = 1; i < dtGrid.Rows.Count + 1; i++)
             {
-                row = isheet.CreateRow(i); //创建index=j的行
+                row = isheet.CreateRow(i); 
                 for (int j = 0; j < 5; j++)
                 {
-                    cell = row.CreateCell(j);      //在index=j的行中创建index=0的单元格
-                    cell.SetCellValue(dtGrid.Rows[i - 1][j].ToString());     //给创建的单元格赋值string
+                    cell = row.CreateCell(j);      
+                    cell.SetCellValue(dtGrid.Rows[i - 1][j].ToString());     
                 }
                 
             }
@@ -255,8 +263,6 @@ namespace CloudManage.StatusMonitor
                 Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
                 this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
             }
-
-
         }
 
         private void simpleButton_startTimeModify_Click(object sender, EventArgs e)
@@ -268,7 +274,6 @@ namespace CloudManage.StatusMonitor
         {
             this.timeEdit_endTime.ShowPopup();
         }
-
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
@@ -285,7 +290,6 @@ namespace CloudManage.StatusMonitor
             mysqlHelper1._connectMySQL();
             bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
             Global.reorderDt(ref Global.dtHistoryQueryGridShow);
-
         }
 
         private void simpleButton_query1Week_Click(object sender, EventArgs e)
@@ -314,15 +318,16 @@ namespace CloudManage.StatusMonitor
 
         void windowsUIButtonPanel_historyQuery_buttonChecked(object sender, ButtonEventArgs e)
         {
-            string tag = ((WindowsUIButton)e.Button).Tag.ToString();
+            string tag = ((WindowsUIButton)e.Button).Tag.ToString();    //checkedbutton通过tag获取选中的按钮
             switch (tag)
             {
                 case "exportXLSX":
-                    exportExcelDtHistoryQueryGridShow("C:\\Users\\eivision\\Desktop\\FaultsHistoryExportExcel");
+                    exportExcelDtHistoryQueryGridShow();
                     break;
 
             }
             e.Button.Properties.Checked = false;
         }
+
     }
 }

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CloudManage.DeviceManagement
 {
-    public partial class DeviceAddition : DevExpress.XtraEditors.XtraUserControl
+    public partial class Reserve2 : DevExpress.XtraEditors.XtraUserControl
     {
-        public DeviceAddition()
+        public Reserve2()
         {
             InitializeComponent();
         }

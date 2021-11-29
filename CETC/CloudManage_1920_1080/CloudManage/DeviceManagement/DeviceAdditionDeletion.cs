@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CloudManage.DeviceManagement
 {
-    public partial class DeviceTesting : DevExpress.XtraEditors.XtraUserControl
+    public partial class DeviceAdditionDeletion : DevExpress.XtraEditors.XtraUserControl
     {
-        public DeviceTesting()
+        public DeviceAdditionDeletion()
         {
             InitializeComponent();
         }

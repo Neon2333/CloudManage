@@ -1,7 +1,7 @@
 ﻿
 namespace CloudManage.DeviceManagement
 {
-    partial class DeviceTesting
+    partial class Reserve2
     {
         /// <summary> 
         /// Required designer variable.

@@ -66,17 +66,20 @@ namespace CloudManage.DeviceManagement
             // 
             // navigationPage_deviceAdditionDeletion
             // 
+            this.navigationPage_deviceAdditionDeletion.Caption = "navigationPage_deviceAdditionDeletion";
             this.navigationPage_deviceAdditionDeletion.Name = "navigationPage_deviceAdditionDeletion";
             this.navigationPage_deviceAdditionDeletion.Size = new System.Drawing.Size(1920, 880);
             // 
             // navigationPage_monitorThreshold
             // 
+            this.navigationPage_monitorThreshold.Caption = "navigationPage_monitorThreshold";
             this.navigationPage_monitorThreshold.Controls.Add(this.monitorThreshold1);
             this.navigationPage_monitorThreshold.Name = "navigationPage_monitorThreshold";
             this.navigationPage_monitorThreshold.Size = new System.Drawing.Size(1920, 880);
             // 
             // navigationPage_diagnosisManagement
             // 
+            this.navigationPage_diagnosisManagement.Caption = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Controls.Add(this.diagnosisManagement1);
             this.navigationPage_diagnosisManagement.Name = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Size = new System.Drawing.Size(1920, 880);

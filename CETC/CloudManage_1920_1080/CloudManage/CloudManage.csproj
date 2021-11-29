@@ -149,17 +149,17 @@
     <Compile Include="DataAnalysis\VerticalAnalysis.Designer.cs">
       <DependentUpon>VerticalAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceAddition.cs">
+    <Compile Include="DeviceManagement\DeviceAdditionDeletion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceAddition.Designer.cs">
-      <DependentUpon>DeviceAddition.cs</DependentUpon>
+    <Compile Include="DeviceManagement\DeviceAdditionDeletion.Designer.cs">
+      <DependentUpon>DeviceAdditionDeletion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceDeletion.cs">
+    <Compile Include="DeviceManagement\Reserve1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceDeletion.Designer.cs">
-      <DependentUpon>DeviceDeletion.cs</DependentUpon>
+    <Compile Include="DeviceManagement\Reserve1.Designer.cs">
+      <DependentUpon>Reserve1.cs</DependentUpon>
     </Compile>
     <Compile Include="DeviceManagement\DeviceManagement.cs">
       <SubType>UserControl</SubType>
@@ -167,11 +167,11 @@
     <Compile Include="DeviceManagement\DeviceManagement.Designer.cs">
       <DependentUpon>DeviceManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceTesting.cs">
+    <Compile Include="DeviceManagement\Reserve2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeviceManagement\DeviceTesting.Designer.cs">
-      <DependentUpon>DeviceTesting.cs</DependentUpon>
+    <Compile Include="DeviceManagement\Reserve2.Designer.cs">
+      <DependentUpon>Reserve2.cs</DependentUpon>
     </Compile>
     <Compile Include="DeviceManagement\DiagnosisManagement.cs">
       <SubType>UserControl</SubType>
@@ -251,17 +251,17 @@
     <EmbeddedResource Include="DataAnalysis\VerticalAnalysis.resx">
       <DependentUpon>VerticalAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeviceManagement\DeviceAddition.resx">
-      <DependentUpon>DeviceAddition.cs</DependentUpon>
+    <EmbeddedResource Include="DeviceManagement\DeviceAdditionDeletion.resx">
+      <DependentUpon>DeviceAdditionDeletion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeviceManagement\DeviceDeletion.resx">
-      <DependentUpon>DeviceDeletion.cs</DependentUpon>
+    <EmbeddedResource Include="DeviceManagement\Reserve1.resx">
+      <DependentUpon>Reserve1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeviceManagement\DeviceManagement.resx">
       <DependentUpon>DeviceManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeviceManagement\DeviceTesting.resx">
-      <DependentUpon>DeviceTesting.cs</DependentUpon>
+    <EmbeddedResource Include="DeviceManagement\Reserve2.resx">
+      <DependentUpon>Reserve2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeviceManagement\DiagnosisManagement.resx">
       <DependentUpon>DiagnosisManagement.cs</DependentUpon>

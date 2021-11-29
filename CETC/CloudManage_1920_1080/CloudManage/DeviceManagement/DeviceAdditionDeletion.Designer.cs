@@ -1,7 +1,7 @@
 ﻿
 namespace CloudManage.DeviceManagement
 {
-    partial class DeviceDeletion
+    partial class DeviceAdditionDeletion
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,11 +31,11 @@ namespace CloudManage.DeviceManagement
         {
             this.SuspendLayout();
             // 
-            // DeviceDeletion
+            // DeviceAddition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "DeviceDeletion";
+            this.Name = "DeviceAddition";
             this.Size = new System.Drawing.Size(1920, 880);
             this.ResumeLayout(false);
 
