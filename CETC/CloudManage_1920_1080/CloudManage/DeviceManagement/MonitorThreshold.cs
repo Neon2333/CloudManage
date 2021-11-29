@@ -92,7 +92,7 @@ namespace CloudManage.DeviceManagement
             this.numberKeyboard1.Appearance.BackColor = System.Drawing.Color.White;
             this.numberKeyboard1.Appearance.Options.UseBackColor = true;
             this.numberKeyboard1.Location = new System.Drawing.Point(6, 150);
-            this.numberKeyboard1.maxVal = 9999D;
+            this.numberKeyboard1.maxVal = 999999D;
             this.numberKeyboard1.minVal = 0D;
             this.numberKeyboard1.Name = "numberKeyboard1";
             this.numberKeyboard1.Size = new System.Drawing.Size(350, 650);
@@ -240,8 +240,7 @@ namespace CloudManage.DeviceManagement
         {
             if (this.modifyUpperOrLowerCurrent == (int)ModifyUpperOrLower.modifyUpper)
             {
-                //需要判断输入的上限是否大于下限
-              
+                //需要判断输入的上限是否大于下限，若输入的上限<下限则不操作
                 double numberKeyboardResultTemp = this.numberKeyboard1.result;  //获取小键盘输入结果
                 string lowerLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
 

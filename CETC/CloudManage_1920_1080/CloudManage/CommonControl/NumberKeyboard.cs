@@ -20,7 +20,7 @@ namespace CloudManage.CommonControl
         private List<char> resultEachNum;    //保存每个字符
         private double resultNum = 0.0;      //保存数字结果
         private int resultNumDigitsMax = 15; //最多15位
-        
+
         public NumberKeyboard(double min, double max)
         {
             InitializeComponent();
@@ -246,6 +246,12 @@ namespace CloudManage.CommonControl
             //刷新display
             refreshDisplay();
 
+            //每次输入，计算值，判断是否“超出范围”
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num1_Click(object sender, EventArgs e)
@@ -253,6 +259,12 @@ namespace CloudManage.CommonControl
             chNowInput = '1';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num2_Click(object sender, EventArgs e)
@@ -260,6 +272,12 @@ namespace CloudManage.CommonControl
             chNowInput = '2';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num3_Click(object sender, EventArgs e)
@@ -267,6 +285,12 @@ namespace CloudManage.CommonControl
             chNowInput = '3';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num4_Click(object sender, EventArgs e)
@@ -274,6 +298,12 @@ namespace CloudManage.CommonControl
             chNowInput = '4';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num5_Click(object sender, EventArgs e)
@@ -281,6 +311,12 @@ namespace CloudManage.CommonControl
             chNowInput = '5';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num6_Click(object sender, EventArgs e)
@@ -288,6 +324,12 @@ namespace CloudManage.CommonControl
             chNowInput = '6';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num7_Click(object sender, EventArgs e)
@@ -295,6 +337,12 @@ namespace CloudManage.CommonControl
             chNowInput = '7';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num8_Click(object sender, EventArgs e)
@@ -302,6 +350,12 @@ namespace CloudManage.CommonControl
             chNowInput = '8';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_num9_Click(object sender, EventArgs e)
@@ -309,6 +363,12 @@ namespace CloudManage.CommonControl
             chNowInput = '9';
             pushIntoResultEachNum();
             refreshDisplay();
+
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
         }
 
         private void simpleButton_dot_Click(object sender, EventArgs e)
@@ -347,6 +407,7 @@ namespace CloudManage.CommonControl
             this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
             this.resultEachNum.Add('+');
             refreshDisplay();
+            this.labelControl_outOfRange.Visible = false;   //清空字符时，“超出范围”隐藏
         }
 
         private void simpleButton_backspace_Click(object sender, EventArgs e)
@@ -360,12 +421,23 @@ namespace CloudManage.CommonControl
                 {
                     this.dotExistsInResultEachNum = false;  //退格删除的是dot的话，dot存在标志置false
                 }
+                else
+                {
+                    //每次退格计算值，判断“超出范围”是否该隐藏
+                    calcResultNum();
+                    if (!judgeOutOfRange())
+                    {
+                        this.labelControl_outOfRange.Visible = false; 
+                    }
+                }
 
                 if (this.resultEachNum.Count == 1)
                 {
                     this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
                     this.resultEachNum.Add('+');
+                    //this.labelControl_outOfRange.Visible = false;   //删掉最后一个字符时，“超出范围”隐藏
                 }
+
             }
             refreshDisplay();
         }
@@ -375,20 +447,16 @@ namespace CloudManage.CommonControl
         private void simpleButton_enter_Click(object sender, EventArgs e)
         {
             calcResultNum();
-            //判断结果resultNum是否合法
-            if (judgeOutOfRange())
-            {
-                this.labelControl_outOfRange.Visible = true;
-            }
-            else
+            //计算结果resultNum合法才传出事件
+            if (!judgeOutOfRange())
             {
                 if (NumberKeyboardEnterClicked != null)
                 {
                     NumberKeyboardEnterClicked(sender, new EventArgs());
                 }
                 simpleButton_clr_Click(sender, new EventArgs());
+                simpleButton_esc_Click(sender, new EventArgs());    //点击Enter后，若输入合法，键盘自动隐藏
             }
-            
 
         }
 

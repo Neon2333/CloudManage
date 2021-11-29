@@ -702,7 +702,7 @@ namespace CloudManage.CommonControl
             // 
             this.labelControl_outOfRange.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.labelControl_outOfRange.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_outOfRange.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
+            this.labelControl_outOfRange.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(151)))), ((int)(((byte)(63)))));
             this.labelControl_outOfRange.Appearance.Options.UseBackColor = true;
             this.labelControl_outOfRange.Appearance.Options.UseFont = true;
             this.labelControl_outOfRange.Appearance.Options.UseForeColor = true;
@@ -738,7 +738,7 @@ namespace CloudManage.CommonControl
             // 
             this.labelControl_title.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.labelControl_title.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_title.Appearance.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.labelControl_title.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl_title.Appearance.Options.UseBackColor = true;
             this.labelControl_title.Appearance.Options.UseFont = true;
             this.labelControl_title.Appearance.Options.UseForeColor = true;
