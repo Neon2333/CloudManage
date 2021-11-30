@@ -107,6 +107,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonControl\ConfirmationBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonControl\ConfirmationBox.Designer.cs">
+      <DependentUpon>ConfirmationBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonControl\NumberKeyboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     <Compile Include="test\test1.Designer.cs">
       <DependentUpon>test1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CommonControl\ConfirmationBox.resx">
+      <DependentUpon>ConfirmationBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonControl\NumberKeyboard.resx">
       <DependentUpon>NumberKeyboard.cs</DependentUpon>
     </EmbeddedResource>
