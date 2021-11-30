@@ -32,13 +32,15 @@ namespace CloudManage.DeviceManagement
             this.navigationFrame_deviceManagement = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_deviceAdditionDeletion = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_monitorThreshold = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.monitorThreshold1 = new CloudManage.DeviceManagement.MonitorThreshold();
             this.navigationPage_diagnosisManagement = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.diagnosisManagement1 = new CloudManage.DeviceManagement.DiagnosisManagement();
             this.navigationPage_reserve1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_reserve2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.monitorThreshold1 = new CloudManage.DeviceManagement.MonitorThreshold();
-            this.diagnosisManagement1 = new CloudManage.DeviceManagement.DiagnosisManagement();
+            this.deviceAdditionDeletion1 = new CloudManage.DeviceManagement.DeviceAdditionDeletion();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_deviceManagement)).BeginInit();
             this.navigationFrame_deviceManagement.SuspendLayout();
+            this.navigationPage_deviceAdditionDeletion.SuspendLayout();
             this.navigationPage_monitorThreshold.SuspendLayout();
             this.navigationPage_diagnosisManagement.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,7 @@ namespace CloudManage.DeviceManagement
             // navigationPage_deviceAdditionDeletion
             // 
             this.navigationPage_deviceAdditionDeletion.Caption = "navigationPage_deviceAdditionDeletion";
+            this.navigationPage_deviceAdditionDeletion.Controls.Add(this.deviceAdditionDeletion1);
             this.navigationPage_deviceAdditionDeletion.Name = "navigationPage_deviceAdditionDeletion";
             this.navigationPage_deviceAdditionDeletion.Size = new System.Drawing.Size(1920, 880);
             // 
@@ -77,12 +80,26 @@ namespace CloudManage.DeviceManagement
             this.navigationPage_monitorThreshold.Name = "navigationPage_monitorThreshold";
             this.navigationPage_monitorThreshold.Size = new System.Drawing.Size(1920, 880);
             // 
+            // monitorThreshold1
+            // 
+            this.monitorThreshold1.Location = new System.Drawing.Point(0, 0);
+            this.monitorThreshold1.Name = "monitorThreshold1";
+            this.monitorThreshold1.Size = new System.Drawing.Size(1920, 880);
+            this.monitorThreshold1.TabIndex = 0;
+            // 
             // navigationPage_diagnosisManagement
             // 
             this.navigationPage_diagnosisManagement.Caption = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Controls.Add(this.diagnosisManagement1);
             this.navigationPage_diagnosisManagement.Name = "navigationPage_diagnosisManagement";
             this.navigationPage_diagnosisManagement.Size = new System.Drawing.Size(1920, 880);
+            // 
+            // diagnosisManagement1
+            // 
+            this.diagnosisManagement1.Location = new System.Drawing.Point(0, 0);
+            this.diagnosisManagement1.Name = "diagnosisManagement1";
+            this.diagnosisManagement1.Size = new System.Drawing.Size(1920, 880);
+            this.diagnosisManagement1.TabIndex = 0;
             // 
             // navigationPage_reserve1
             // 
@@ -96,19 +113,12 @@ namespace CloudManage.DeviceManagement
             this.navigationPage_reserve2.Name = "navigationPage_reserve2";
             this.navigationPage_reserve2.Size = new System.Drawing.Size(1920, 880);
             // 
-            // monitorThreshold1
+            // deviceAdditionDeletion1
             // 
-            this.monitorThreshold1.Location = new System.Drawing.Point(0, 0);
-            this.monitorThreshold1.Name = "monitorThreshold1";
-            this.monitorThreshold1.Size = new System.Drawing.Size(1920, 880);
-            this.monitorThreshold1.TabIndex = 0;
-            // 
-            // diagnosisManagement1
-            // 
-            this.diagnosisManagement1.Location = new System.Drawing.Point(0, 0);
-            this.diagnosisManagement1.Name = "diagnosisManagement1";
-            this.diagnosisManagement1.Size = new System.Drawing.Size(1920, 880);
-            this.diagnosisManagement1.TabIndex = 0;
+            this.deviceAdditionDeletion1.Location = new System.Drawing.Point(0, 0);
+            this.deviceAdditionDeletion1.Name = "deviceAdditionDeletion1";
+            this.deviceAdditionDeletion1.Size = new System.Drawing.Size(1920, 880);
+            this.deviceAdditionDeletion1.TabIndex = 0;
             // 
             // DeviceManagement
             // 
@@ -119,6 +129,7 @@ namespace CloudManage.DeviceManagement
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_deviceManagement)).EndInit();
             this.navigationFrame_deviceManagement.ResumeLayout(false);
+            this.navigationPage_deviceAdditionDeletion.ResumeLayout(false);
             this.navigationPage_monitorThreshold.ResumeLayout(false);
             this.navigationPage_diagnosisManagement.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -130,5 +141,6 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_deviceManagement;
         private MonitorThreshold monitorThreshold1;
         private DiagnosisManagement diagnosisManagement1;
+        private DeviceAdditionDeletion deviceAdditionDeletion1;
     }
 }

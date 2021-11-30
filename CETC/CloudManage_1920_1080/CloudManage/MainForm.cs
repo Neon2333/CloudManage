@@ -39,7 +39,7 @@ namespace CloudManage
         
         private void loadModules()
         {
-            this.statusMonitorControl1 = new StatusMonitor.StatusMonitorControl();
+            this.statusMonitorControl1 = new StatusMonitor.StatusMonitor();
             this.dataAnalysis1 = new DataAnalysis.DataAnalysis();
             this.deviceManagement1 = new DeviceManagement.DeviceManagement();
             this.navigationPage_statusMonitoring.Controls.Add(this.statusMonitorControl1);

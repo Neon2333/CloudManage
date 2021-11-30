@@ -63,7 +63,7 @@ namespace CloudManage.MySQL
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(queryCmd, this.conn);//创建MySqlDataAdapter对象
                 MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);//此处必须有，否则无法更新
-                resultDt.Rows.Clear();  
+                resultDt.Rows.Clear();  //填充前清空表
                 adapter.Fill(resultDt);//将查询的内容填充到数据表中
                 flag = true;
             }

@@ -120,8 +120,8 @@ namespace CloudManage
         void refreshLabelDir()
         {
             //实时页面的侧边栏没有总览、全部设备，默认是000-000，初始化时不刷新导航栏
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
         }
 
@@ -175,46 +175,6 @@ namespace CloudManage
             this.sideTileBarControlWithSub_realTimeData._initSideTileBarWithSub();
         }
 
-        private string _getProductionLineNameByTag(string tagProductionLine)
-        {
-            //dtProductionLine中没有Tag==0的记录
-            if (tagProductionLine == "000")
-            {
-                return "总览";
-            }
-
-            string temp = "LineNO=" + "'" + tagProductionLine + "'";
-            DataRow[] rowPL = Global.dtProductionLine.Select(temp);
-            if (rowPL.Length == 1)
-            {
-                return (string)rowPL[0]["LineName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
-        }
-
-        private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
-        {
-            if (tagTestingDeviceName == "000")
-            {
-                return "所有设备";
-            }
-
-            string temp = "DeviceNO=" + "'" + tagTestingDeviceName + "'";
-            DataRow[] rowTD = Global.dtTestingDeviceName.Select(temp);
-            if (rowTD.Length == 1)
-            {
-                return (string)rowTD[0]["DeviceName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
-        }
-
-        
         //设定圆点位置
         void setPicDeviceLocation()
         {

@@ -2103,7 +2103,7 @@
         private System.Windows.Forms.Timer timer_refreshDtTitleGridShowMainForm;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_diagnosisManagement;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_monitorThreshold;
-        private StatusMonitor.StatusMonitorControl statusMonitorControl1;
+        private StatusMonitor.StatusMonitor statusMonitorControl1;
         private DataAnalysis.DataAnalysis dataAnalysis1;
         private DeviceManagement.DeviceManagement deviceManagement1;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_reserve2;

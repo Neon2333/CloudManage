@@ -19,14 +19,14 @@ using System.IO;
 
 namespace CloudManage.StatusMonitor
 {
-    public partial class WorkStateControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class WorkState : DevExpress.XtraEditors.XtraUserControl
     {
         //状态颜色
         Color colorNormal = Color.FromArgb(56, 152, 83);
         Color colorAbnormal = Color.FromArgb(208, 49, 68);
         Color colorDisable = Color.FromArgb(120, 120, 120);
 
-        public WorkStateControl()
+        public WorkState()
         {
             InitializeComponent();
             initWorkState();

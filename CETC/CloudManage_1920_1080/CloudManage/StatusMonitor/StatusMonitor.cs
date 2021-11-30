@@ -11,14 +11,14 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Navigation;
 namespace CloudManage.StatusMonitor
 {
-    public partial class StatusMonitorControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
     {
         private NavigationPage navigationPage_workState;
         private NavigationPage navigationPage_realTimeData;
         private NavigationPage navigationPage_historyQuery;
         private NavigationPage[] statusMonitorPages = new NavigationPage[3];
 
-        public StatusMonitorControl()
+        public StatusMonitor()
         {
             InitializeComponent();
             initStatusMonitorPage();

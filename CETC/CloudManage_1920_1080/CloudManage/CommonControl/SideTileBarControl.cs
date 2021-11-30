@@ -288,6 +288,12 @@ namespace CloudManage.CommonControl
 
                 this.tileBarGroup_sideTileBarControl.Items.Add(tileBarItem);
                 countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;    //更新tileBarItem总数
+                //不显示“总览”时，初始化默认选中“产线1”
+                if (this.showOverview == false && this.countSideTileBarItem == 2)
+                {
+                    this.tileBar_sideTileBarControl.SelectedItem = tileBarItem;
+                    this.TagSelectedItem = (string)this.tileBar_sideTileBarControl.SelectedItem.Tag;
+                }
                 return true;
             }
             catch(Exception ex)
@@ -387,6 +393,17 @@ namespace CloudManage.CommonControl
             if (sideTileBarItemSelectedChanged != null)
             {
                 sideTileBarItemSelectedChanged(sender, new EventArgs());
+            }
+        }
+
+        public delegate void TileItemItemClickedHanlder(object sender, EventArgs e);
+        public event TileItemItemClickedHanlder sideTileBarItemClicked; //自定义事件，将SideTileBarControl的itemSelectedChanged事件传出
+        private void tileBar_sideTileBarControl_ItemClick(object sender, TileItemEventArgs e)
+        {
+            TagSelectedItem = (string)this.tileBar_sideTileBarControl.SelectedItem.Tag;
+            if (sideTileBarItemClicked != null)
+            {
+                sideTileBarItemClicked(sender, new EventArgs());
             }
         }
     }

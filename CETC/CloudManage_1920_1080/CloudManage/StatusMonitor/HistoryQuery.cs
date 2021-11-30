@@ -21,12 +21,12 @@ using DevExpress.XtraBars.Docking2010;
 
 namespace CloudManage.StatusMonitor
 {
-    public partial class HistoryQueryControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class HistoryQuery : DevExpress.XtraEditors.XtraUserControl
     {
         string cmdQueryFaultsHistory = String.Empty;
 
         int excelFileNameIndex = 1;
-        public HistoryQueryControl()
+        public HistoryQuery()
         {
             InitializeComponent();
             initHistoryQuery();
@@ -46,8 +46,8 @@ namespace CloudManage.StatusMonitor
         //刷新目录
         void _refreshLabelDir()
         {
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub);
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2;
         }
 
@@ -75,45 +75,6 @@ namespace CloudManage.StatusMonitor
             DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
             this.timeEdit_startTime.Time = oneMonthAgo;
             this.timeEdit_endTime.Time = nowdt;
-        }
-
-        private string _getProductionLineNameByTag(string tagProductionLine)
-        {
-            //dtProductionLine中没有Tag==0的记录
-            if (tagProductionLine == "000")
-            {
-                return "总览";
-            }
-
-            string temp = "LineNO=" + "'" + tagProductionLine + "'";
-            DataRow[] rowPL = Global.dtProductionLine.Select(temp);
-            if (rowPL.Length == 1)
-            {
-                return (string)rowPL[0]["LineName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
-        }
-
-        private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
-        {
-            if (tagTestingDeviceName == "000")
-            {
-                return "所有设备";
-            }
-
-            string temp = "DeviceNO=" + "'" + tagTestingDeviceName + "'";
-            DataRow[] rowTD = Global.dtTestingDeviceName.Select(temp);
-            if (rowTD.Length == 1)
-            {
-                return (string)rowTD[0]["DeviceName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
         }
 
         private bool _timeInterValIllegal()

@@ -58,8 +58,8 @@ namespace CloudManage.DataAnalysis
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
-            string url = "http://127.0.0.1:8080/analysis_lateral/?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString();
-            chromeBrowser_lateralAnalysis.Load(url);
+            //string url = "http://127.0.0.1:8080/analysis_lateral/?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString();
+            //chromeBrowser_lateralAnalysis.Load(url);
         }
 
         private void simpleButton_query_Click(object sender, EventArgs e)

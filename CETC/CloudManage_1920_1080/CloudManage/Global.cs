@@ -196,6 +196,7 @@ namespace CloudManage
         }
 
         /**********************************************************************************************************************************************/
+        
         //WorkStateControl
         public static DataTable dtOverviewWorkState = new DataTable();              //总览数据表
 
@@ -426,6 +427,7 @@ namespace CloudManage
         }
 
         /**********************************************************************************************************************************************/
+       
         //HistoryQueryControl
 
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
@@ -552,6 +554,26 @@ namespace CloudManage
             transformDtDeviceInfoThresholdGridTemp(ref dtDeviceInfoThresholdGridShowTemp, ref dtDeviceInfoThresholdGridShow);
         }
 
+        /*************************************************************************************************************/
+
+        //DeviceAdditionDeletion
+        public static DataTable dtDeviceCanDeleteEachLine = new DataTable();
+
+        public static void initDtDeviceCanDeleteEachLine()
+        {
+            if (Global.dtDeviceCanDeleteEachLine.Columns.Count == 0)
+            {
+                dtDeviceCanDeleteEachLine.Columns.Add("NO");
+                dtDeviceCanDeleteEachLine.Columns.Add("LineNO");
+                dtDeviceCanDeleteEachLine.Columns.Add("LineName");
+                dtDeviceCanDeleteEachLine.Columns.Add("DeviceNO");
+                dtDeviceCanDeleteEachLine.Columns.Add("DeviceName");
+                dtDeviceCanDeleteEachLine.Columns.Add("ValidParaCount");
+                dtDeviceCanDeleteEachLine.Columns.Add("DeviceFaultsCount");
+                dtDeviceCanDeleteEachLine.Columns.Add("DeviceFaultsEnableCount");
+            }
+        }
+        
 
 
         /*************************************************************************************************************/
@@ -603,7 +625,6 @@ namespace CloudManage
         /*************************************************************************************************************/
 
         //获取表的所有字段名
-
         public static string[] GetColumnsByDataTable(DataTable dt)
         {
             string[] strColumns = null;
@@ -631,6 +652,52 @@ namespace CloudManage
                 dt.Rows[i]["NO"] = (i + 1).ToString();
             }
         }
+
+        /***************************************************************************************************************/
+
+        //通过产线LineNO获取LineName
+        public static string _getProductionLineNameByTag(string LineNO)
+        {
+            //dtProductionLine中没有Tag==0的记录
+            if (LineNO == "000")
+            {
+                return "总览";
+            }
+
+            string temp = "LineNO=" + "'" + LineNO + "'";
+            DataRow[] rowPL = Global.dtProductionLine.Select(temp);
+            if (rowPL.Length == 1)
+            {
+                return (string)rowPL[0]["LineName"];
+            }
+            else
+            {
+                return "产线名称查询错误...";
+            }
+        }
+
+        //通过设备DeviceNO获取DeviceName
+        public static string _getTestingDeviceNameByTag(string DeviceNO)
+        {
+            if (DeviceNO == "000")
+            {
+                return "所有设备";
+            }
+
+            string temp = "DeviceNO=" + "'" + DeviceNO + "'";
+            DataRow[] rowTD = Global.dtTestingDeviceName.Select(temp);
+            if (rowTD.Length == 1)
+            {
+                return (string)rowTD[0]["DeviceName"];
+            }
+            else
+            {
+                return "设备名称查询错误...";
+            }
+        }
+
+        /***************************************************************************************************************/
+
 
     }
 }

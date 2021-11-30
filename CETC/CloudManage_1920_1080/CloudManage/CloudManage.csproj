@@ -161,6 +161,12 @@
     <Compile Include="DeviceManagement\DeviceAdditionDeletion.Designer.cs">
       <DependentUpon>DeviceAdditionDeletion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeviceManagement\DeviceAdditionDeletion_addDeviceBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\DeviceAdditionDeletion_addDeviceBox.Designer.cs">
+      <DependentUpon>DeviceAdditionDeletion_addDeviceBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeviceManagement\Reserve1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,29 +212,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="StatusMonitor\RealTimeDataControl.cs">
+    <Compile Include="StatusMonitor\RealTimeData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StatusMonitor\RealTimeDataControl.Designer.cs">
-      <DependentUpon>RealTimeDataControl.cs</DependentUpon>
+    <Compile Include="StatusMonitor\RealTimeData.Designer.cs">
+      <DependentUpon>RealTimeData.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatusMonitor\HistoryQueryControl.cs">
+    <Compile Include="StatusMonitor\HistoryQuery.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StatusMonitor\HistoryQueryControl.Designer.cs">
-      <DependentUpon>HistoryQueryControl.cs</DependentUpon>
+    <Compile Include="StatusMonitor\HistoryQuery.Designer.cs">
+      <DependentUpon>HistoryQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatusMonitor\StatusMonitorControl.cs">
+    <Compile Include="StatusMonitor\StatusMonitor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StatusMonitor\StatusMonitorControl.Designer.cs">
-      <DependentUpon>StatusMonitorControl.cs</DependentUpon>
+    <Compile Include="StatusMonitor\StatusMonitor.Designer.cs">
+      <DependentUpon>StatusMonitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatusMonitor\WorkStateControl.cs">
+    <Compile Include="StatusMonitor\WorkState.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StatusMonitor\WorkStateControl.Designer.cs">
-      <DependentUpon>WorkStateControl.cs</DependentUpon>
+    <Compile Include="StatusMonitor\WorkState.Designer.cs">
+      <DependentUpon>WorkState.cs</DependentUpon>
     </Compile>
     <Compile Include="test\test1.cs">
       <SubType>Form</SubType>
@@ -263,6 +269,9 @@
     <EmbeddedResource Include="DeviceManagement\DeviceAdditionDeletion.resx">
       <DependentUpon>DeviceAdditionDeletion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\DeviceAdditionDeletion_addDeviceBox.resx">
+      <DependentUpon>DeviceAdditionDeletion_addDeviceBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeviceManagement\Reserve1.resx">
       <DependentUpon>Reserve1.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,17 +296,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusMonitor\HistoryQueryControl.resx">
-      <DependentUpon>HistoryQueryControl.cs</DependentUpon>
+    <EmbeddedResource Include="StatusMonitor\HistoryQuery.resx">
+      <DependentUpon>HistoryQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusMonitor\RealTimeDataControl.resx">
-      <DependentUpon>RealTimeDataControl.cs</DependentUpon>
+    <EmbeddedResource Include="StatusMonitor\RealTimeData.resx">
+      <DependentUpon>RealTimeData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusMonitor\StatusMonitorControl.resx">
-      <DependentUpon>StatusMonitorControl.cs</DependentUpon>
+    <EmbeddedResource Include="StatusMonitor\StatusMonitor.resx">
+      <DependentUpon>StatusMonitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusMonitor\WorkStateControl.resx">
-      <DependentUpon>WorkStateControl.cs</DependentUpon>
+    <EmbeddedResource Include="StatusMonitor\WorkState.resx">
+      <DependentUpon>WorkState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test\test1.resx">
       <DependentUpon>test1.cs</DependentUpon>

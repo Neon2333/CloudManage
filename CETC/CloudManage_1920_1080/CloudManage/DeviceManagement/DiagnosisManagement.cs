@@ -26,14 +26,13 @@ namespace CloudManage.DeviceManagement
             public string faultsFaultEnable;
         };
 
-        //因该表较长，所以只存被修改的行，不用一个dtTemp存储每次改变和最初状态。用dtTemp存储的话，每次都要拷贝整个表
         Stack<faultsIndexAndStatus> faultsStorage = new Stack<faultsIndexAndStatus>();                      //暂存故障设置被修改的所有历史
         Dictionary<int, faultsIndexAndStatus> faultsOriginal = new Dictionary<int, faultsIndexAndStatus>(); //暂存未保存时被改动行的最初状态
         Dictionary<int, faultsIndexAndStatus> faultsLatest = new Dictionary<int, faultsIndexAndStatus>();   //存所有被改动行的当前状态
 
         string cmdQueryFaultsConfig = String.Empty;
 
-        enum queryFaultsConfigType {allFaultsConfig=0, enableFaultsConfig, notEnableFualtsConfig};
+        enum queryFaultsConfigType {allFaultsConfig = 0, enableFaultsConfig, notEnableFualtsConfig};
         int queryFaultsConfigTypeCurrent = (int)queryFaultsConfigType.allFaultsConfig;  //当前显示标志
         DataTable dtQueryFaultsConfigEnable = new DataTable();    //暂存查询出来的所有使能、禁止
         DataTable dtQueryFaultsConfigNotEnable = new DataTable();
@@ -67,63 +66,29 @@ namespace CloudManage.DeviceManagement
 
         private void initDtqueryFaultsConfigEnableAndNotEnable()
         {
-            this.dtQueryFaultsConfigEnable.Columns.Add("NO", typeof(String));
-            this.dtQueryFaultsConfigEnable.Columns.Add("LineName", typeof(String));
-            this.dtQueryFaultsConfigEnable.Columns.Add("DeviceName", typeof(String));
-            this.dtQueryFaultsConfigEnable.Columns.Add("FaultName", typeof(String));
-            this.dtQueryFaultsConfigEnable.Columns.Add("FaultEnable", typeof(String));
-
-            this.dtQueryFaultsConfigNotEnable.Columns.Add("NO", typeof(String));
-            this.dtQueryFaultsConfigNotEnable.Columns.Add("LineName", typeof(String));
-            this.dtQueryFaultsConfigNotEnable.Columns.Add("DeviceName", typeof(String));
-            this.dtQueryFaultsConfigNotEnable.Columns.Add("FaultName", typeof(String));
-            this.dtQueryFaultsConfigNotEnable.Columns.Add("FaultEnable", typeof(String));
+            if (this.dtQueryFaultsConfigEnable.Columns.Count == 0)
+            {
+                this.dtQueryFaultsConfigEnable.Columns.Add("NO", typeof(String));
+                this.dtQueryFaultsConfigEnable.Columns.Add("LineName", typeof(String));
+                this.dtQueryFaultsConfigEnable.Columns.Add("DeviceName", typeof(String));
+                this.dtQueryFaultsConfigEnable.Columns.Add("FaultName", typeof(String));
+                this.dtQueryFaultsConfigEnable.Columns.Add("FaultEnable", typeof(String));
+            }
+            if (this.dtQueryFaultsConfigNotEnable.Columns.Count == 0)
+            {
+                this.dtQueryFaultsConfigNotEnable.Columns.Add("NO", typeof(String));
+                this.dtQueryFaultsConfigNotEnable.Columns.Add("LineName", typeof(String));
+                this.dtQueryFaultsConfigNotEnable.Columns.Add("DeviceName", typeof(String));
+                this.dtQueryFaultsConfigNotEnable.Columns.Add("FaultName", typeof(String));
+                this.dtQueryFaultsConfigNotEnable.Columns.Add("FaultEnable", typeof(String));
+            }
         }
 
         void _refreshLabelDir()
         {
-            string str1 = _getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
-            string str2 = _getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-        }
-
-        private string _getProductionLineNameByTag(string tagProductionLine)
-        {
-            //dtProductionLine中没有Tag==0的记录
-            if (tagProductionLine == "000")
-            {
-                return "总览";
-            }
-
-            string temp = "LineNO=" + "'" + tagProductionLine + "'";
-            DataRow[] rowPL = Global.dtProductionLine.Select(temp);
-            if (rowPL.Length == 1)
-            {
-                return (string)rowPL[0]["LineName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
-        }
-
-        private string _getTestingDeviceNameByTag(string tagTestingDeviceName)
-        {
-            if (tagTestingDeviceName == "000")
-            {
-                return "所有设备";
-            }
-
-            string temp = "DeviceNO=" + "'" + tagTestingDeviceName + "'";
-            DataRow[] rowTD = Global.dtTestingDeviceName.Select(temp);
-            if (rowTD.Length == 1)
-            {
-                return (string)rowTD[0]["DeviceName"];
-            }
-            else
-            {
-                return "产线名称查询错误...";
-            }
         }
 
         //点击侧边栏查询的命令

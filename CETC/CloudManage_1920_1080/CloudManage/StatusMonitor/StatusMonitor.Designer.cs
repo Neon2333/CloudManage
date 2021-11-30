@@ -1,6 +1,6 @@
 ﻿namespace CloudManage.StatusMonitor
 {
-    partial class StatusMonitorControl
+    partial class StatusMonitor
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,11 +30,11 @@
         {
             this.navigationFrame_statusMonitor = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_workState = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.workStateControl1 = new CloudManage.StatusMonitor.WorkStateControl();
+            this.workStateControl1 = new CloudManage.StatusMonitor.WorkState();
             this.navigationPage_realTimeData = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
             this.navigationPage_historyQuery = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQueryControl();
+            this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQuery();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).BeginInit();
             this.navigationFrame_statusMonitor.SuspendLayout();
             this.navigationPage_workState.SuspendLayout();
@@ -120,7 +120,7 @@
 
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_statusMonitor;
         private RealTimeDataControl realTimeDataControl1;
-        private HistoryQueryControl historyQueryControl1;
-        private WorkStateControl workStateControl1;
+        private HistoryQuery historyQueryControl1;
+        private WorkState workStateControl1;
     }
 }
