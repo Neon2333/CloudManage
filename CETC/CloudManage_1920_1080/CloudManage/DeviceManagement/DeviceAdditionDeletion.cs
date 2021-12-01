@@ -17,6 +17,7 @@ namespace CloudManage.DeviceManagement
         private CommonControl.ConfirmationBox confirmationBox1;
 
 
+
         public DeviceAdditionDeletion()
         {
             InitializeComponent();
@@ -55,6 +56,12 @@ namespace CloudManage.DeviceManagement
         //填充dtDeviceCanDeleteEachLine
         void getDtDeviceCanDeleteEachLine(string LineNO)
         {
+            /**
+             *  1.  从MySQL中查出的表放到datatable中，datatable若没用Columns.Add()添加表头，query时会自动添加表头；
+             *  2.  datatable初始化表头时不一定要和MySQL保持完全一致，可以用Columns.Add()手动添加MySQL表中没有的列，这样通过query填充datatable时，MySQL表中没有的列不会填充，只填充有的列。
+             *  3.  添加MySQL表中没有的列，虽然冗余，但有时会简化查询过程，如Global.initDtDeviceCanDeleteEachLine()
+             *  4.  使用视图存储一些小的、常用的表可以简化查询
+             */
             Global.dtDeviceCanDeleteEachLine.Rows.Clear();
 
             MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
@@ -120,7 +127,12 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_deviceAddition_Click(object sender, EventArgs e)
         {
-            
+            this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
+            this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(6, 246);
+            this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
+            this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
+            this.deviceAdditionDeletion_addDeviceBox1.TabIndex = 29;
+            this.deviceAdditionDeletion_addDeviceBox1.titleAddDeviceBox = "添加设备";
         }
 
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
@@ -132,21 +144,27 @@ namespace CloudManage.DeviceManagement
             this.confirmationBox1.Name = "confirmationBox1";
             this.confirmationBox1.Size = new System.Drawing.Size(350, 200);
             this.confirmationBox1.TabIndex = 29;
-            this.confirmationBox1.titleConfirmationBox = "确认删除 五号轮内框纸检测?";
+            this.confirmationBox1.titleConfirmationBox = "确认删除 " + Global._getTestingDeviceNameByTag(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem) + "?";
             this.confirmationBox1.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox1_ConfirmationBoxOKClicked);
             this.confirmationBox1.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox1_ConfirmationBoxCancelClicked);
             this.Controls.Add(this.confirmationBox1);
+            this.confirmationBox1.Visible = true;
             this.confirmationBox1.BringToFront();
+
+
         }
 
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
+            this.confirmationBox1.Visible = false;
 
         }
 
         private void confirmationBox1_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
+            this.confirmationBox1.Visible = false;
 
         }
+
     }
 }
