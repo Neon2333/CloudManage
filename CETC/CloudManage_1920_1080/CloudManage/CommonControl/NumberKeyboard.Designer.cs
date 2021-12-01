@@ -450,13 +450,13 @@ namespace CloudManage.CommonControl
             // 
             this.simpleButton_enter.AllowFocus = false;
             this.simpleButton_enter.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.simpleButton_enter.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton_enter.Appearance.Font = new System.Drawing.Font("微软雅黑", 21F);
             this.simpleButton_enter.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton_enter.Appearance.Options.UseBackColor = true;
             this.simpleButton_enter.Appearance.Options.UseFont = true;
             this.simpleButton_enter.Appearance.Options.UseForeColor = true;
             this.simpleButton_enter.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.simpleButton_enter.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 21.75F);
+            this.simpleButton_enter.AppearanceHovered.Font = new System.Drawing.Font("微软雅黑", 21F);
             this.simpleButton_enter.AppearanceHovered.ForeColor = System.Drawing.Color.Black;
             this.simpleButton_enter.AppearanceHovered.Options.UseBackColor = true;
             this.simpleButton_enter.AppearanceHovered.Options.UseFont = true;
@@ -465,7 +465,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_enter.AppearanceHovered.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.simpleButton_enter.AppearanceHovered.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.simpleButton_enter.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(215)))));
-            this.simpleButton_enter.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 21.75F);
+            this.simpleButton_enter.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 21F);
             this.simpleButton_enter.AppearancePressed.ForeColor = System.Drawing.Color.White;
             this.simpleButton_enter.AppearancePressed.Options.UseBackColor = true;
             this.simpleButton_enter.AppearancePressed.Options.UseFont = true;

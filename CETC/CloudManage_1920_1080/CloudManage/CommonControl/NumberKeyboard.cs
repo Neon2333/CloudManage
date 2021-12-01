@@ -28,6 +28,17 @@ namespace CloudManage.CommonControl
             initNumberKeyboard();
             this.minVal = min;
             this.maxVal = max;
+
+            //初始化键盘时默认result==0,为了判断此时是否超出范围
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         public NumberKeyboard()
@@ -42,7 +53,15 @@ namespace CloudManage.CommonControl
             resultEachNum = new List<char>();
             resultEachNum.Add('+');             //resultEachNum第一位为符号位
             this.labelControl_display.Text = "";
-            this.labelControl_outOfRange.Visible = false;
+            //calcResultNum();
+            //if (judgeOutOfRange())
+            //{
+            //    this.labelControl_outOfRange.Visible = true;
+            //}
+            //else
+            //{
+            //    this.labelControl_outOfRange.Visible = false;
+            //}
             refreshDisplay();
         }
 
@@ -252,6 +271,10 @@ namespace CloudManage.CommonControl
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_num1_Click(object sender, EventArgs e)
@@ -263,7 +286,11 @@ namespace CloudManage.CommonControl
             calcResultNum();
             if (judgeOutOfRange())
             {
-                this.labelControl_outOfRange.Visible = true;
+                this.labelControl_outOfRange.Visible = true;    
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
             }
         }
 
@@ -278,6 +305,10 @@ namespace CloudManage.CommonControl
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_num3_Click(object sender, EventArgs e)
@@ -290,6 +321,10 @@ namespace CloudManage.CommonControl
             if (judgeOutOfRange())
             {
                 this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
             }
         }
 
@@ -304,6 +339,10 @@ namespace CloudManage.CommonControl
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_num5_Click(object sender, EventArgs e)
@@ -316,6 +355,10 @@ namespace CloudManage.CommonControl
             if (judgeOutOfRange())
             {
                 this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
             }
         }
 
@@ -330,6 +373,10 @@ namespace CloudManage.CommonControl
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_num7_Click(object sender, EventArgs e)
@@ -342,6 +389,10 @@ namespace CloudManage.CommonControl
             if (judgeOutOfRange())
             {
                 this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
             }
         }
 
@@ -356,6 +407,10 @@ namespace CloudManage.CommonControl
             {
                 this.labelControl_outOfRange.Visible = true;
             }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_num9_Click(object sender, EventArgs e)
@@ -368,6 +423,10 @@ namespace CloudManage.CommonControl
             if (judgeOutOfRange())
             {
                 this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
             }
         }
 
@@ -390,6 +449,15 @@ namespace CloudManage.CommonControl
                 resultEachNum[0] = '+';
             }
             refreshDisplay();
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_esc_Click(object sender, EventArgs e)
@@ -407,7 +475,15 @@ namespace CloudManage.CommonControl
             this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
             this.resultEachNum.Add('+');
             refreshDisplay();
-            this.labelControl_outOfRange.Visible = false;   //清空字符时，“超出范围”隐藏
+            calcResultNum();
+            if (judgeOutOfRange())
+            {
+                this.labelControl_outOfRange.Visible = true;
+            }
+            else
+            {
+                this.labelControl_outOfRange.Visible = false;
+            }
         }
 
         private void simpleButton_backspace_Click(object sender, EventArgs e)
@@ -425,9 +501,13 @@ namespace CloudManage.CommonControl
                 {
                     //每次退格计算值，判断“超出范围”是否该隐藏
                     calcResultNum();
-                    if (!judgeOutOfRange())
+                    if (judgeOutOfRange())
                     {
-                        this.labelControl_outOfRange.Visible = false; 
+                        this.labelControl_outOfRange.Visible = true;
+                    }
+                    else
+                    {
+                        this.labelControl_outOfRange.Visible = false;
                     }
                 }
 
@@ -435,7 +515,15 @@ namespace CloudManage.CommonControl
                 {
                     this.resultEachNum.RemoveAt(0);         //清空后将符号位重置为+
                     this.resultEachNum.Add('+');
-                    //this.labelControl_outOfRange.Visible = false;   //删掉最后一个字符时，“超出范围”隐藏
+                    calcResultNum();
+                    if (judgeOutOfRange())
+                    {
+                        this.labelControl_outOfRange.Visible = true;
+                    }
+                    else
+                    {
+                        this.labelControl_outOfRange.Visible = false;
+                    }
                 }
 
             }
