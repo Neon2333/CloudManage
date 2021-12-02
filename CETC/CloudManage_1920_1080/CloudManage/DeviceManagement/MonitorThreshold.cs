@@ -303,7 +303,7 @@ namespace CloudManage.DeviceManagement
 
                     string cmdSaveDtDevice_info_threshold = "UPDATE device_info_threshold SET Para" + paraNO + "Max='" + upperLimit +
                                           "', Para" + paraNO + "Min='" + lowerLimit + "' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
-                    bool flag1 = mysqlHelper1._updateMysql(cmdSaveDtDevice_info_threshold);
+                    bool flag1 = mysqlHelper1._updateMySQL(cmdSaveDtDevice_info_threshold);
                     if (flag1 == false)
                     {
                         flagSaveSuccess = false;

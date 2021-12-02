@@ -420,7 +420,7 @@ namespace CloudManage.DeviceManagement
 
                         string cmdSaveFaultsConfig = "UPDATE faults_config SET FaultEnable='" + faultEnable + "' " +
                                                      "WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "' AND FaultNO='" + faultNO + "';";
-                        bool flag2 = mysqlHelper1._updateMysql(cmdSaveFaultsConfig);
+                        bool flag2 = mysqlHelper1._updateMySQL(cmdSaveFaultsConfig);
                         if (flag2 == false)
                         {
                             flagSaveSuccess = false;

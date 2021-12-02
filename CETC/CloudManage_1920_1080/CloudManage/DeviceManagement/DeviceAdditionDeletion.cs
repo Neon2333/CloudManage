@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,7 +77,7 @@ namespace CloudManage.DeviceManagement
                 deviceCountEachLine = Convert.ToInt32(dtDeviceCountEachLine.Rows[0][0]);
             }
 
-            for(int i = 0; i < deviceCountEachLine; i++)
+            for (int i = 0; i < deviceCountEachLine; i++)
             {
                 DataRow dr = Global.dtDeviceCanDeleteEachLine.NewRow();
                 dr["NO"] = i;
@@ -90,7 +91,7 @@ namespace CloudManage.DeviceManagement
             string cmdGetDeviceNOAndValidParaCount = "SELECT DeviceNO, ValidParaCount FROM device_info WHERE LineNO='" + LineNO + "';";
             mysqlHelper1._queryTableMySQL(cmdGetDeviceNOAndValidParaCount, ref dtDeviceNOAndValidParaCount);
 
-            for(int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
+            for (int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
             {
                 Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceNO"] = dtDeviceNOAndValidParaCount.Rows[i]["DeviceNO"];
                 Global.dtDeviceCanDeleteEachLine.Rows[i]["ValidParaCount"] = dtDeviceNOAndValidParaCount.Rows[i]["ValidParaCount"];
@@ -101,12 +102,16 @@ namespace CloudManage.DeviceManagement
             DataTable dtDeviceFaultsCountAndFaultsEnableCount = new DataTable();
             string cmdGetDtDeviceFaultsCountAndFaultsEnableCount = "SELECT * FROM v_deviceFaultsCount_and_faultsEnableCount WHERE LineNO='" + LineNO + "';";
             mysqlHelper1._queryTableMySQL(cmdGetDtDeviceFaultsCountAndFaultsEnableCount, ref dtDeviceFaultsCountAndFaultsEnableCount);
-            for(int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
+            for (int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
             {
-                Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsCount"] = dtDeviceFaultsCountAndFaultsEnableCount.Rows[i]["DeviceFaultsCount"];
-                Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsEnableCount"] = dtDeviceFaultsCountAndFaultsEnableCount.Rows[i]["DeviceFaultsEnableCount"];
+                string dn = Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceNO"].ToString();
+                DataRow[] drs = dtDeviceFaultsCountAndFaultsEnableCount.Select("DeviceNO=" + "'" + dn + "'");
+                if (drs.Length == 1)
+                {
+                    Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsCount"] = drs[0]["DeviceFaultsCount"];
+                    Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsEnableCount"] = drs[0]["DeviceFaultsEnableCount"];
+                }
             }
-
             mysqlHelper1.conn.Close();
         }
 
@@ -133,10 +138,19 @@ namespace CloudManage.DeviceManagement
             this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
             this.deviceAdditionDeletion_addDeviceBox1.TabIndex = 29;
             this.deviceAdditionDeletion_addDeviceBox1.titleAddDeviceBox = "添加设备";
+
+            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked);
+            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked);
+
+            this.panelControl_rightSide.Controls.Add(this.deviceAdditionDeletion_addDeviceBox1);
+            this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
+            this.deviceAdditionDeletion_addDeviceBox1.BringToFront();
+
         }
 
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
         {
+            //弹出确认框
             this.confirmationBox1 = new CommonControl.ConfirmationBox();
             this.confirmationBox1.Appearance.BackColor = System.Drawing.Color.White;
             this.confirmationBox1.Appearance.Options.UseBackColor = true;
@@ -151,19 +165,54 @@ namespace CloudManage.DeviceManagement
             this.confirmationBox1.Visible = true;
             this.confirmationBox1.BringToFront();
 
-
         }
 
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
-            this.confirmationBox1.Visible = false;
+            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            mysqlHelper1._connectMySQL();
 
+            DataRow drSelected = tileView1.GetDataRow(selectRow[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
+
+            MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
+            lineNO.Value = this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem;
+            MySqlParameter deviceNO = new MySqlParameter("dn", MySqlDbType.VarChar, 20);
+            deviceNO.Value = drSelected["DeviceNO"];
+            MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
+            MySqlParameter[] paras = { lineNO, deviceNO, ifAffected };
+            string cmdDeleteDevice = "p_deleteDevice";
+            mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);
+
+            //string cmdDeleteDevice = "CALL p_deleteDevice('" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" + drSelected["DeviceNO"] + "');";
+            //mysqlHelper1._updateMySQL(cmdDeleteDevice);
+
+            this.confirmationBox1.Visible = false;
+            getDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
+
+            if (Convert.ToInt32(ifAffected.Value) == 1)
+            {
+                MessageBox.Show("删除成功");
+            }
+            else if (Convert.ToInt32(ifAffected.Value) == 0)
+            {
+                MessageBox.Show("删除失败");
+            }
+            mysqlHelper1.conn.Close();
         }
 
         private void confirmationBox1_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
             this.confirmationBox1.Visible = false;
+        }
 
+        private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("OK");
+        }
+
+        private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cancel");
         }
 
     }

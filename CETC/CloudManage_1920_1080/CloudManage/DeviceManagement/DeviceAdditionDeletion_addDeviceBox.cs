@@ -32,14 +32,15 @@ namespace CloudManage.DeviceManagement
 
         public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxOKClicked;
-        private void simpleButton_confirmationOK_Click(object sender, EventArgs e)
+        private void simpleButton_addDeviceOK_Click(object sender, EventArgs e)
         {
             AddDeviceBoxOKClicked(sender, new EventArgs());
+
         }
 
         public delegate void SimpleButtonCancelClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxCancelClicked;
-        private void simpleButton_confirmationCancel_Click(object sender, EventArgs e)
+        private void simpleButton_addDeviceCancel_Click(object sender, EventArgs e)
         {
             AddDeviceBoxCancelClicked(sender, new EventArgs());
         }

@@ -394,7 +394,7 @@ namespace CloudManage
                                                      + "WHERE LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" + "'" + valFaultNO + "';";
 
                         bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
-                        bool flag3 = mysqlHelper1._updateMysql(cmdUpdateFaultConfig);
+                        bool flag3 = mysqlHelper1._updateMySQL(cmdUpdateFaultConfig);
                         mysqlHelper1.conn.Close();
 
                         if (flag2 == true)

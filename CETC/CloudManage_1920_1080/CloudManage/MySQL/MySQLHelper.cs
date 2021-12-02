@@ -18,7 +18,6 @@ namespace CloudManage.MySQL
         private string Password = String.Empty;
         private string connStr = String.Empty;
 
-
         public MySQLHelper(string host, string db, string user, string pw)
         {
             this.DataSource = host;
@@ -28,7 +27,6 @@ namespace CloudManage.MySQL
             connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
         }
-
 
         //mysql连接
         public bool _connectMySQL()
@@ -40,7 +38,7 @@ namespace CloudManage.MySQL
                 this.conn.Open();
                 flag = true;
             }
-            catch(SystemException ex)
+            catch (SystemException ex)
             {
                 ex.ToString();
                 flag = false;
@@ -88,7 +86,8 @@ namespace CloudManage.MySQL
                 {
                     this.conn.Open();//开启连接
                 }
-                if (myCommand.ExecuteNonQuery() > 0) {
+                if (myCommand.ExecuteNonQuery() > 0)
+                {
                     flag = true;
                 }//更新内容(返回受影响函数，如增、删、改操作)
             }
@@ -151,7 +150,7 @@ namespace CloudManage.MySQL
             return flag;
         }
 
-        public bool _updateMysql(string updateCmd)
+        public bool _updateMySQL(string updateCmd)
         {
             bool flag = false;
             try
@@ -168,6 +167,44 @@ namespace CloudManage.MySQL
                 {
                     flag = true;
                 }//更新内容(返回受影响函数，如增、删、改操作)
+            }
+            catch (SystemException ex)
+            {
+                ex.ToString();
+            }
+            return flag;
+        }
+
+        public bool _executeProcMySQL(string cmdExecute, MySqlParameter[] parameters, int inParaCount, int outParaCount)
+        {
+            bool flag = false;
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(cmdExecute, conn);//创建MySqlCommand对象
+                myCommand.CommandType = CommandType.StoredProcedure;
+                myCommand.CommandTimeout = 12000;
+                if (this.conn.State == ConnectionState.Closed)
+                {
+                    this.conn.Open();//开启连接
+                }
+                for (int i = 0; i < inParaCount; i++)
+                {
+                    parameters[i].Direction = ParameterDirection.Input;
+                    myCommand.Parameters.Add(parameters[i]);
+                }
+
+                for (int i = 0; i < outParaCount; i++)
+                {
+                    parameters[inParaCount + i].Direction = ParameterDirection.Output;
+                    myCommand.Parameters.Add(parameters[inParaCount + i]);
+                }
+
+                int rows = myCommand.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    flag = true;
+                }
+                myCommand.Parameters.Clear();
             }
             catch (SystemException ex)
             {
