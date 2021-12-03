@@ -80,6 +80,8 @@ namespace CloudManage
 
         private void getDataSource(string selectedItemTag, string selectedItemSubTag)
         {
+            this.dtGridDataSource.Rows.Clear();
+
             //查询设备参数值
             string cmdInitDtParaVal = "SELECT * FROM device_info " +
                                                  "WHERE LineNO='" + selectedItemTag + "' AND " +
@@ -91,10 +93,10 @@ namespace CloudManage
                                                 "DeviceNO='" + selectedItemSubTag + "';";
             Global._initDtMySQL(ref this.dtParaNameAndSuffix, cmdInitDtParaNameAndSuffix);
 
-            this.dtGridDataSource.Rows.Clear();
 
             if (this.dtGridDataSource.Columns.Count == 0)
             {
+                this.dtGridDataSource.Columns.Add("NO", typeof(String));    //NO字段是为了在refreshGrid通过Global.reorderDt更新NO从而触发ItemCustomize
                 this.dtGridDataSource.Columns.Add("paraName", typeof(String));
                 this.dtGridDataSource.Columns.Add("paraVal", typeof(String));
             }
@@ -110,6 +112,7 @@ namespace CloudManage
                     string paraSuffixCol = "Para" + (i + 1).ToString() + "Suffix";
                     drrPara["paraVal"] = this.dtParaVal.Rows[0][paraCol].ToString() + this.dtParaNameAndSuffix.Rows[0][paraSuffixCol].ToString();               //赋值参数值，含有单位
                     drrPara["paraName"] = this.dtParaNameAndSuffix.Rows[0][paraNameCol].ToString();    //赋值参数名
+                    drrPara["NO"] = i + 1;
                     this.dtGridDataSource.Rows.Add(drrPara);
                 }
             }
@@ -151,15 +154,16 @@ namespace CloudManage
         //强制触发itemCustomize刷新
         public void refreshGrid()
         {
-            if (this.dtGridDataSource.Rows.Count != 0)
-            {
-                for(int i = 0; i < this.dtGridDataSource.Rows.Count; i++)
-                {
-                    string colTemp = this.dtGridDataSource.Rows[i]["ParaName"].ToString();
-                    //this.dtGridDataSource.Rows[0]["ParaName"] = "强制刷新grid";
-                    this.dtGridDataSource.Rows[i]["ParaName"] = colTemp;
-                }
-            }
+            //if (this.dtGridDataSource.Rows.Count != 0)
+            //{
+            //    for(int i = 0; i < this.dtGridDataSource.Rows.Count; i++)
+            //    {
+            //        string colTemp = this.dtGridDataSource.Rows[i]["ParaName"].ToString();
+            //        //this.dtGridDataSource.Rows[0]["ParaName"] = "强制刷新grid";
+            //        this.dtGridDataSource.Rows[i]["ParaName"] = colTemp;
+            //    }
+            //}
+            Global.reorderDt(ref this.dtGridDataSource);
         }
 
         //初始化子菜单
@@ -244,8 +248,12 @@ namespace CloudManage
         private void monitorThreshold_paraLimitsChanged(object sender, EventArgs e)
         {
             refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
-            refreshGrid();
+            refreshGrid();      //dtGridDataSource未变所以需要强制刷新
         }
 
+        private void timer_devicePara_Tick(object sender, EventArgs e)
+        {
+            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    
+        }
     }
 }

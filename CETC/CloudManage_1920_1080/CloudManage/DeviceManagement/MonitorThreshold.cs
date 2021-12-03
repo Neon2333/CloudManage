@@ -317,7 +317,7 @@ namespace CloudManage.DeviceManagement
                     selectRow = this.tileView1.GetSelectedRows();
                     refreshSelectRow();
 
-                    paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传出
+                    paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传到RealTimeData
                 }
                 thresholdOriginal.Clear();
                 mysqlHelper1.conn.Close();

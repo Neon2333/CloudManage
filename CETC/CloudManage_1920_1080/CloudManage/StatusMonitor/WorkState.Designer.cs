@@ -203,7 +203,7 @@
             this.gridControl_each = new DevExpress.XtraGrid.GridControl();
             this.tileView_each = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.imageSlider_each = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.timer_devicePara = new System.Windows.Forms.Timer(this.components);
+            this.timer_refreshDtEachProductionLineWorkState = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_workState)).BeginInit();
             this.navigationFrame_workState.SuspendLayout();
             this.navigationPage_overview.SuspendLayout();
@@ -1253,10 +1253,10 @@
             this.imageSlider_each.TabIndex = 0;
             this.imageSlider_each.Text = "imageSlider1";
             // 
-            // timer_devicePara
+            // timer_refreshDtEachProductionLineWorkState
             // 
-            this.timer_devicePara.Interval = 1000;
-            this.timer_devicePara.Tick += new System.EventHandler(this.timer_devicePara_Tick);
+            this.timer_refreshDtEachProductionLineWorkState.Interval = 1000;
+            this.timer_refreshDtEachProductionLineWorkState.Tick += new System.EventHandler(this.timer_devicePara_Tick);
             // 
             // WorkState
             // 
@@ -1309,6 +1309,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn11;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn12;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn13;
-        private System.Windows.Forms.Timer timer_devicePara;
+        private System.Windows.Forms.Timer timer_refreshDtEachProductionLineWorkState;
     }
 }

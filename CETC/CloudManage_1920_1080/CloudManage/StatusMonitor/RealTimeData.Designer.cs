@@ -92,6 +92,7 @@
             this.imageSlider_camera = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.pictureEdit_deviceLocation = new DevExpress.XtraEditors.PictureEdit();
             this.timer_deviceLocation = new System.Windows.Forms.Timer(this.components);
+            this.timer_refreshDtGridDataSource = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_device.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
@@ -493,6 +494,12 @@
             this.timer_deviceLocation.Interval = 300;
             this.timer_deviceLocation.Tick += new System.EventHandler(this.timer_deviceLocation_Tick);
             // 
+            // timer_refreshDtGridDataSource
+            // 
+            this.timer_refreshDtGridDataSource.Enabled = true;
+            this.timer_refreshDtGridDataSource.Interval = 1000;
+            this.timer_refreshDtGridDataSource.Tick += new System.EventHandler(this.timer_devicePara_Tick);
+            // 
             // RealTimeDataControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -531,5 +538,6 @@
         private DevExpress.XtraEditors.Controls.ImageSlider imageSlider_camera;
         private DevExpress.XtraEditors.PictureEdit pictureEdit_deviceLocation;
         private System.Windows.Forms.Timer timer_deviceLocation;
+        private System.Windows.Forms.Timer timer_refreshDtGridDataSource;
     }
 }
