@@ -12,8 +12,11 @@ using System.Windows.Forms;
 
 namespace CloudManage.DataAnalysis
 {
+
     public partial class DataAnalysis : DevExpress.XtraEditors.XtraUserControl
     {
+        private LateralAnalysis lateralAnalysis1;
+        private VerticalAnalysis verticalAnalysis1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_LateralAnalysis;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_VerticalAnalysis;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_paraOptimization;
@@ -23,6 +26,24 @@ namespace CloudManage.DataAnalysis
         {
             InitializeComponent();
             initDataAnalysisPage();
+            loadModules();
+        }
+
+        private void loadModules()
+        {
+            this.lateralAnalysis1 = new CloudManage.DataAnalysis.LateralAnalysis();
+            this.navigationPage_LateralAnalysis.Controls.Add(this.lateralAnalysis1);
+            this.lateralAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.lateralAnalysis1.Name = "lateralAnalysis1";
+            this.lateralAnalysis1.Size = new System.Drawing.Size(1920, 880);
+            this.lateralAnalysis1.TabIndex = 0;
+
+            this.verticalAnalysis1 = new CloudManage.DataAnalysis.VerticalAnalysis();
+            this.navigationPage_VerticalAnalysis.Controls.Add(this.verticalAnalysis1);
+            this.verticalAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.verticalAnalysis1.Name = "verticalAnalysis1";
+            this.verticalAnalysis1.Size = new System.Drawing.Size(1920, 880);
+            this.verticalAnalysis1.TabIndex = 0;
         }
 
         public Boolean frameVisible

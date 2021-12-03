@@ -141,8 +141,8 @@ namespace CloudManage
                 this.drParaThreshold = drr[0];
                 for(int i=0;i< validParaCount; i++)
                 {
-                    this.paraThresholdList[i].lowerLimit = this.drParaThreshold[6 + 2 * i].ToString();
-                    this.paraThresholdList[i].upperLimit = this.drParaThreshold[7 + 2 * i].ToString();
+                    this.paraThresholdList[i].lowerLimit = this.drParaThreshold[7 + 2 * i].ToString();
+                    this.paraThresholdList[i].upperLimit = this.drParaThreshold[8 + 2 * i].ToString();
                 }
 
             }
@@ -223,7 +223,7 @@ namespace CloudManage
 
             int paraIndex = e.RowHandle;
             string parameterVal = this.dtParaVal.Rows[0]["Para" + (paraIndex + 1).ToString()].ToString();
-            if (Convert.ToInt32(parameterVal) < Convert.ToInt32(paraThresholdList[paraIndex].lowerLimit) || Convert.ToInt32(parameterVal) > Convert.ToInt32(paraThresholdList[paraIndex].upperLimit))
+            if (Convert.ToDouble(parameterVal) < Convert.ToDouble(paraThresholdList[paraIndex].lowerLimit) || Convert.ToDouble(parameterVal) > Convert.ToDouble(paraThresholdList[paraIndex].upperLimit))
             {
                 e.Item.AppearanceItem.Normal.BackColor = colorAlert;
                 e.Item.AppearanceItem.Focused.BackColor = colorAlert;

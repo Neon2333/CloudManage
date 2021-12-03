@@ -31,10 +31,8 @@ namespace CloudManage.DataAnalysis
         {
             this.navigationFrame_dataAnalysis = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_LateralAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.lateralAnalysis1 = new CloudManage.DataAnalysis.LateralAnalysis();
             this.navigationPage_VerticalAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_paraOptimization = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.verticalAnalysis1 = new CloudManage.DataAnalysis.VerticalAnalysis();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_dataAnalysis)).BeginInit();
             this.navigationFrame_dataAnalysis.SuspendLayout();
             this.navigationPage_LateralAnalysis.SuspendLayout();
@@ -60,20 +58,11 @@ namespace CloudManage.DataAnalysis
             // 
             // navigationPage_LateralAnalysis
             // 
-            this.navigationPage_LateralAnalysis.Controls.Add(this.lateralAnalysis1);
             this.navigationPage_LateralAnalysis.Name = "navigationPage_LateralAnalysis";
             this.navigationPage_LateralAnalysis.Size = new System.Drawing.Size(1920, 880);
             // 
-            // lateralAnalysis1
-            // 
-            this.lateralAnalysis1.Location = new System.Drawing.Point(0, 0);
-            this.lateralAnalysis1.Name = "lateralAnalysis1";
-            this.lateralAnalysis1.Size = new System.Drawing.Size(1920, 880);
-            this.lateralAnalysis1.TabIndex = 0;
-            // 
             // navigationPage_VerticalAnalysis
             // 
-            this.navigationPage_VerticalAnalysis.Controls.Add(this.verticalAnalysis1);
             this.navigationPage_VerticalAnalysis.Name = "navigationPage_VerticalAnalysis";
             this.navigationPage_VerticalAnalysis.Size = new System.Drawing.Size(1920, 880);
             // 
@@ -82,13 +71,6 @@ namespace CloudManage.DataAnalysis
             this.navigationPage_paraOptimization.Caption = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Name = "navigationPage_paraOptimization";
             this.navigationPage_paraOptimization.Size = new System.Drawing.Size(1920, 880);
-            // 
-            // verticalAnalysis1
-            // 
-            this.verticalAnalysis1.Location = new System.Drawing.Point(0, 0);
-            this.verticalAnalysis1.Name = "verticalAnalysis1";
-            this.verticalAnalysis1.Size = new System.Drawing.Size(1920, 880);
-            this.verticalAnalysis1.TabIndex = 0;
             // 
             // DataAnalysis
             // 
@@ -108,7 +90,5 @@ namespace CloudManage.DataAnalysis
         #endregion
 
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_dataAnalysis;
-        private LateralAnalysis lateralAnalysis1;
-        private VerticalAnalysis verticalAnalysis1;
     }
 }

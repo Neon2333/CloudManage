@@ -573,7 +573,19 @@ namespace CloudManage
                 dtDeviceCanDeleteEachLine.Columns.Add("DeviceFaultsEnableCount");
             }
         }
-        
+
+        public static DataTable dtDeviceCanAddEachLine = new DataTable();
+
+        public static void initDtDeviceCanAddEachLine()
+        {
+            if (Global.dtDeviceCanAddEachLine.Columns.Count == 0)
+            {
+                dtDeviceCanAddEachLine.Columns.Add("NO");
+                dtDeviceCanAddEachLine.Columns.Add("DeviceNO");
+                dtDeviceCanAddEachLine.Columns.Add("DeviceName");
+            }
+        }
+
 
 
         /*************************************************************************************************************/
@@ -643,7 +655,7 @@ namespace CloudManage
 
         /*************************************************************************************************************/
 
-        //grid中显示的数据的NO重新排序，不按照数据库中NO的数值显示
+        //grid中显示的数据的NO重新排序/填充，不按照数据库中NO的数值显示
         public static void reorderDt(ref DataTable dt)
         {
             int lenDt = dt.Rows.Count;

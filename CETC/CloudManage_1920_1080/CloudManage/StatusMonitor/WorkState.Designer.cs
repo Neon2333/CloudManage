@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkState));
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
@@ -202,6 +203,7 @@
             this.gridControl_each = new DevExpress.XtraGrid.GridControl();
             this.tileView_each = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.imageSlider_each = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.timer_devicePara = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_workState)).BeginInit();
             this.navigationFrame_workState.SuspendLayout();
             this.navigationPage_overview.SuspendLayout();
@@ -1251,14 +1253,19 @@
             this.imageSlider_each.TabIndex = 0;
             this.imageSlider_each.Text = "imageSlider1";
             // 
-            // WorkStateControl
+            // timer_devicePara
+            // 
+            this.timer_devicePara.Interval = 1000;
+            this.timer_devicePara.Tick += new System.EventHandler(this.timer_devicePara_Tick);
+            // 
+            // WorkState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.navigationFrame_workState);
             this.Controls.Add(this.sideTileBarControl_workState);
             this.Controls.Add(this.windowsUIButtonPanel_workState);
-            this.Name = "WorkStateControl";
+            this.Name = "WorkState";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_workState)).EndInit();
             this.navigationFrame_workState.ResumeLayout(false);
@@ -1302,5 +1309,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn11;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn12;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn13;
+        private System.Windows.Forms.Timer timer_devicePara;
     }
 }

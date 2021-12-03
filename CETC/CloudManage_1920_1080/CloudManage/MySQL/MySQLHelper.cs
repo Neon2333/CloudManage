@@ -175,6 +175,7 @@ namespace CloudManage.MySQL
             return flag;
         }
 
+        //参数列表：存储过程名、封装的参数、输入参数个数、输出参数个数
         public bool _executeProcMySQL(string cmdExecute, MySqlParameter[] parameters, int inParaCount, int outParaCount)
         {
             bool flag = false;

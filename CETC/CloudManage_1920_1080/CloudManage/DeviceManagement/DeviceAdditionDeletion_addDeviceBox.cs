@@ -30,6 +30,38 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        public DataTable dataSource
+        {
+            get
+            {
+                return (DataTable)this.gridControl_addDeviceBox.DataSource;
+            }
+            set
+            {
+                this.gridControl_addDeviceBox.DataSource = value;
+            }
+        }
+
+        //当前选中行的index
+        public int currentFocusRowHandler
+        {
+            get
+            {
+                if(((DataTable)this.gridControl_addDeviceBox.DataSource).Rows.Count > 0)
+                {
+                    return this.tileView_addDeviceBox.GetSelectedRows()[0];
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            set
+            {
+                this.tileView_addDeviceBox.FocusedRowHandle = value;
+            }
+        }
+
         public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxOKClicked;
         private void simpleButton_addDeviceOK_Click(object sender, EventArgs e)

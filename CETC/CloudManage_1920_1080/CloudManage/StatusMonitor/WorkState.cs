@@ -159,5 +159,14 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        //刷新实时数据
+        private void timer_devicePara_Tick(object sender, EventArgs e)
+        {
+            //使用触发器？但是从表中读生成dtEachProductionLineWorkState的过程挺复杂，写成存储过程，通过触发器调用可能也比较耗费资源、而且把问题复杂化了
+            Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
+            Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
+        }
+
+
     }
 }

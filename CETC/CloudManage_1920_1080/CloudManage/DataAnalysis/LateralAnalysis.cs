@@ -15,7 +15,8 @@ namespace CloudManage.DataAnalysis
 {
     public partial class LateralAnalysis : DevExpress.XtraEditors.XtraUserControl
     {
-        private CefSharp.WinForms.ChromiumWebBrowser chromeBrowser_lateralAnalysis;
+
+        private CefSharp.WinForms.ChromiumWebBrowser chromeBrowser;
         public LateralAnalysis()
         {
             InitializeComponent();
@@ -29,37 +30,24 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
             this.sideTileBarControl_lateralAnalysis.colNumDT = null;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
-            _initTimeEditStartAndEnd();
-            //initChromeBrowser();
-        }
 
-        void _initTimeEditStartAndEnd()
-        {
-            DateTime nowdt = DateTime.Now;
-            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
-            this.timeEdit_startTime.Time = oneMonthAgo;
-            this.timeEdit_endTime.Time = nowdt;
-        }
 
-        private void initChromeBrowser()
-        {
+
             CefSettings settings = new CefSettings();
             Cef.Initialize(settings);
 
-            chromeBrowser_lateralAnalysis = new CefSharp.WinForms.ChromiumWebBrowser("www.baidu.com");
-            this.chromeBrowser_lateralAnalysis.ActivateBrowserOnCreation = false;
-            this.chromeBrowser_lateralAnalysis.Location = new System.Drawing.Point(240, 0);
-            this.chromeBrowser_lateralAnalysis.Name = "chromeBrowser";
-            this.chromeBrowser_lateralAnalysis.Size = new System.Drawing.Size(1118, 800);
-            this.chromeBrowser_lateralAnalysis.Dock = DockStyle.Fill;
-            this.panelControl_chromeBrowser.Controls.Add(this.chromeBrowser_lateralAnalysis);
-            this.chromeBrowser_lateralAnalysis.LifeSpanHandler = new CefSharpOpenPageSelf();
+            chromeBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
+            chromeBrowser.MenuHandler = new MenuHandler();
+            chromeBrowser.LifeSpanHandler = new CefSharpOpenPageSelf();
+            chromeBrowser.Dock = DockStyle.Fill;
+
+            panelControl_chromeBrowser.Controls.Add(chromeBrowser);
         }
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
-            //string url = "http://127.0.0.1:8080/analysis_lateral/?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString();
-            //chromeBrowser_lateralAnalysis.Load(url);
+            //string url = "http://192.168.111.12:8080/analysis_lateral/?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToLocalTime() + "&end_time=" + timeEdit_endTime.Time.ToLocalTime();
+            //chromeBrowser.Load(url);
         }
 
         private void simpleButton_query_Click(object sender, EventArgs e)
@@ -70,15 +58,43 @@ namespace CloudManage.DataAnalysis
             }
             else
             {
-                chromeBrowser_lateralAnalysis.ExecuteScriptAsync("ShowShiftAllBtn()");
+                chromeBrowser.ExecuteScriptAsync("ShowShiftAllBtn()");
                 string strScrip = "get_analysis_lateral_shift_data('get_analysis_lateral_shift_data?device_id=" + this.sideTileBarControl_lateralAnalysis.tagSelectedItem.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToLocalTime() + "&end_time=" + timeEdit_endTime.Time.ToLocalTime() + "')";
-                chromeBrowser_lateralAnalysis.ExecuteScriptAsync(strScrip);
-            }
+                chromeBrowser.ExecuteScriptAsync(strScrip);
 
+            }
         }
     }
+    /// <summary>
+    /// 禁用右键菜单
+    /// </summary>
+    partial class MenuHandler : IContextMenuHandler
+    {
 
-    internal class CefSharpOpenPageSelf : ILifeSpanHandler
+        public void OnBeforeContextMenu(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
+        {
+            model.Clear();
+        }
+
+        public bool OnContextMenuCommand(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
+        {
+            return false;
+        }
+
+        public void OnContextMenuDismissed(IWebBrowser browserControl, IBrowser browser, IFrame frame)
+        {
+
+        }
+
+        public bool RunContextMenu(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model, IRunContextMenuCallback callback)
+        {
+            return false;
+        }
+    }
+    /// <summary>
+    /// 禁止打开新窗口
+    /// </summary>
+    partial class CefSharpOpenPageSelf : ILifeSpanHandler
     {
         public bool DoClose(IWebBrowser browserControl, IBrowser browser)
         {
@@ -98,7 +114,4 @@ namespace CloudManage.DataAnalysis
             return true;
         }
     }
-
-
-
 }
