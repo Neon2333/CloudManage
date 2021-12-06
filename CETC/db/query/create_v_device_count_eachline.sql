@@ -1,0 +1,2 @@
+DROP VIEW IF EXISTS `v_device_count_eachline`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_device_count_eachline` AS select `device_info`.`LineNO` AS `LineNO`,count(`device_info`.`DeviceNO`) AS `DeviceCount` from `device_info` group by `device_info`.`LineNO`;

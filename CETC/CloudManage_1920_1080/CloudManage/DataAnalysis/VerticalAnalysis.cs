@@ -19,7 +19,11 @@ namespace CloudManage.DataAnalysis
         public VerticalAnalysis()
         {
             InitializeComponent();
+            initVerticalAnalysis();
+        }
 
+        private void initVerticalAnalysis()
+        {
             this.sideTileBarControlWithSub_verticalAnalysis.dtInitSideTileBarWithSub = Global.dtSideTileBar;
             this.sideTileBarControlWithSub_verticalAnalysis.colTagDT = "LineNO";
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDT = "LineName";
@@ -28,8 +32,6 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControlWithSub_verticalAnalysis.colTagDTSUB = "DeviceNO";
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_verticalAnalysis._initSideTileBarWithSub();
-
-
 
             chromeBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             chromeBrowser.MenuHandler = new MenuHandler();

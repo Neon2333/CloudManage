@@ -154,7 +154,8 @@ namespace CloudManage.DeviceManagement
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
+            if (this.numberKeyboard1 != null)
+                this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
             simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
             _refreshLabelDir();    
 

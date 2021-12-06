@@ -1,0 +1,9 @@
+DROP PROCEDURE IF EXISTS p_queryDeviceDisableInLine;
+DELIMITER $;
+CREATE PROCEDURE p_queryDeviceDisableInLine(IN ln VARCHAR(20))
+BEGIN
+
+
+
+END$
+DELIMITER ;

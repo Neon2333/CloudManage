@@ -1,0 +1,5 @@
+DROP PROCEDURE IF EXISTS initDtFaults;
+CREATE PROCEDURE `initDtFaults`()
+BEGIN
+	SELECT * FROM faults;
+END

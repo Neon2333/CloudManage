@@ -20,7 +20,7 @@ namespace CloudManage.DataAnalysis
         public LateralAnalysis()
         {
             InitializeComponent();
-            initLateralAnalysis();
+            //initLateralAnalysis();
         }
 
         void initLateralAnalysis()
