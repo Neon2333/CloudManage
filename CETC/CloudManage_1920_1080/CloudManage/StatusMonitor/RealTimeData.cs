@@ -22,7 +22,7 @@ namespace CloudManage
         private DataTable dtParaNameAndSuffix = new DataTable();    //参数名、参数单位
         private DataTable dtGridDataSource = new DataTable();       //改变数据显示形式，将一行变为若干行，最终绑定到grid上的dt
         private DataRow drParaThreshold;                            //某台设备的参数阈值
-        
+        string lineNO_deviceNONotChanged = String.Empty;            //防止timer_devicePara_Tick中刷新dtGridDataSource时，lineNO改变了但是DeviceNO还未变，导致dtGridDataSource为空
 
         struct paraThreshold
         {
@@ -43,7 +43,7 @@ namespace CloudManage
             Global._init_dtDeviceInfoThresholdAndLocation();
             initDataSource();
             initImgSlider();
-
+            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    //001
             DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
         }
 
@@ -201,6 +201,7 @@ namespace CloudManage
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
             refreshLabelDir();
+            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    //选中device后，将tagSelectedItemSub改变后，才更新表
             this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
             refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
             setPicDeviceLocation(); //根据选中的设备设定位置
@@ -253,7 +254,9 @@ namespace CloudManage
 
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
-            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    
+            //选中产线、未选中设备是不刷新表。选中产线且选中设备时才刷新表
+            this.getDataSource(lineNO_deviceNONotChanged, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    
         }
+
     }
 }
