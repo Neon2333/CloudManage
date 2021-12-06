@@ -1,6 +1,5 @@
 DROP PROCEDURE IF EXISTS p_deleteDevice;
-DELIMITER $
-CREATE PROCEDURE p_deleteDevice(IN ln VARCHAR(20), IN dn VARCHAR(20))
+CREATE PROCEDURE p_deleteDevice(IN ln VARCHAR(20), IN dn VARCHAR(20), OUT ifRowAffected INT(1))
 BEGIN
 DECLARE ifAffectedRow TINYINT(1) DEFAULT 1;
 DECLARE SQL_FOR_UPDATE_device_config VARCHAR(100);
@@ -54,9 +53,9 @@ END CASE;
 
 IF(ifAffectedRow=1) THEN 
 	COMMIT;
+	SELECT ifAffectedRow INTO ifRowAffected;
 ELSE 
 	ROLLBACK;
 END IF;
 
-END$
-DELIMITER ;
+END
