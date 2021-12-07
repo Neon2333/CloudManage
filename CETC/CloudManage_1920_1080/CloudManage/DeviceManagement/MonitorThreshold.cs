@@ -161,18 +161,18 @@ namespace CloudManage.DeviceManagement
 
             initCmdQueryDeviceInfoThresholdTemp();  //刷新grid显示
 
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            mysqlHelper1._connectMySQL();
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //mysqlHelper1._connectMySQL();
 
             //更新dtFaultsConfig
-            bool flag = mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
-            mysqlHelper1.conn.Close();
+            bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
+            //Global.mysqlHelper1.conn.Close();
             Global.dtDeviceInfoThresholdGridShow.Rows.Clear();
             Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
             Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow);
             selectRow[0] = 0;
             refreshSelectRow();
-            mysqlHelper1.conn.Close();
+            //Global.mysqlHelper1.conn.Close();
         }
 
         private void simpleButton_modifyUpperLimit_Click(object sender, EventArgs e)
@@ -290,8 +290,8 @@ namespace CloudManage.DeviceManagement
         {
             if (thresholdLatest.Count != 0)    //有修改时才保存
             {
-                MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                mysqlHelper1._connectMySQL();
+                //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                //mysqlHelper1._connectMySQL();
 
                 bool flagSaveSuccess = true;
                 foreach (var to in thresholdLatest)
@@ -304,7 +304,7 @@ namespace CloudManage.DeviceManagement
 
                     string cmdSaveDtDevice_info_threshold = "UPDATE device_info_threshold SET Para" + paraNO + "Max='" + upperLimit +
                                           "', Para" + paraNO + "Min='" + lowerLimit + "' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
-                    bool flag1 = mysqlHelper1._updateMySQL(cmdSaveDtDevice_info_threshold);
+                    bool flag1 = Global.mysqlHelper1._updateMySQL(cmdSaveDtDevice_info_threshold);
                     if (flag1 == false)
                     {
                         flagSaveSuccess = false;
@@ -321,7 +321,7 @@ namespace CloudManage.DeviceManagement
                     paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传到RealTimeData
                 }
                 thresholdOriginal.Clear();
-                mysqlHelper1.conn.Close();
+                //Global.mysqlHelper1.conn.Close();
             }
         }
 

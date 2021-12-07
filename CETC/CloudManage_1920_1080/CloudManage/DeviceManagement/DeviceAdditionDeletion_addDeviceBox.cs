@@ -62,6 +62,15 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        //当前选中行
+        public DataRow currentSelectedRow
+        {
+            get
+            {
+                return this.tileView_addDeviceBox.GetDataRow(this.tileView_addDeviceBox.FocusedRowHandle);
+            }
+        }
+
         public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxOKClicked;
         private void simpleButton_addDeviceOK_Click(object sender, EventArgs e)

@@ -315,8 +315,8 @@ namespace CloudManage
 
                 if (drSelected != null) //避免未选中行就点击按钮出错
                 {
-                    MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                    mysqlHelper1._connectMySQL();
+                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                    //mysqlHelper1._connectMySQL();
 
                     string valLineName = drSelected["LineName"].ToString();
                     string valDeviceName = drSelected["DeviceName"].ToString();
@@ -327,7 +327,7 @@ namespace CloudManage
                                           "FROM productionline AS t1, device AS t2, faults AS t3 " +
                                           "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
                     DataTable dtTemp = new DataTable();
-                    bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
+                    bool flag1 = Global.mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
                     if (flag1 == true)
                     {
                         string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
@@ -339,8 +339,8 @@ namespace CloudManage
                                              "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
                                              "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
 
-                        bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
-                        mysqlHelper1.conn.Close();
+                        bool flag2 = Global.mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
+                        //Global.mysqlHelper1.conn.Close();
                         if (flag2 == true)
                         {
                             Global._refreshTitleGridShow();
@@ -366,8 +366,8 @@ namespace CloudManage
                 DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行
                 if (drSelected != null)
                 {
-                    MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                    mysqlHelper1._connectMySQL();
+                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                    Global.mysqlHelper1._connectMySQL();
 
                     string valLineName = drSelected["LineName"].ToString();
                     string valDeviceName = drSelected["DeviceName"].ToString();
@@ -378,7 +378,7 @@ namespace CloudManage
                                           "FROM productionline AS t1, device AS t2, faults AS t3 " +
                                           "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
                     DataTable dtTemp = new DataTable();
-                    bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransfrom, ref dtTemp);
+                    bool flag1 = Global.mysqlHelper1._queryTableMySQL(cmdTransfrom, ref dtTemp);
                     if (flag1 == true)
                     {
                         string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
@@ -393,9 +393,9 @@ namespace CloudManage
                         string cmdUpdateFaultConfig = "UPDATE faults_config SET FaultEnable='0' "
                                                      + "WHERE LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" + "'" + valFaultNO + "';";
 
-                        bool flag2 = mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
-                        bool flag3 = mysqlHelper1._updateMySQL(cmdUpdateFaultConfig);
-                        mysqlHelper1.conn.Close();
+                        bool flag2 = Global.mysqlHelper1._deleteMySQL(cmdIgnoreOnce);
+                        bool flag3 = Global.mysqlHelper1._updateMySQL(cmdUpdateFaultConfig);
+                        //Global.mysqlHelper1.conn.Close();
 
                         if (flag2 == true)
                         {

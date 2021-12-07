@@ -20,19 +20,11 @@ namespace CloudManage.DataAnalysis
         public LateralAnalysis()
         {
             InitializeComponent();
-            //initLateralAnalysis();
+            initLateralAnalysis();
         }
 
         void initLateralAnalysis()
         {
-            this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtTestingDeviceName;
-            this.sideTileBarControl_lateralAnalysis.colTagDT = "DeviceNO";
-            this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
-            this.sideTileBarControl_lateralAnalysis.colNumDT = null;
-            this.sideTileBarControl_lateralAnalysis._initSideTileBar();
-
-
-
             CefSettings settings = new CefSettings();
             Cef.Initialize(settings);
 
@@ -42,6 +34,12 @@ namespace CloudManage.DataAnalysis
             chromeBrowser.Dock = DockStyle.Fill;
 
             panelControl_chromeBrowser.Controls.Add(chromeBrowser);
+
+            this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtTestingDeviceName;
+            this.sideTileBarControl_lateralAnalysis.colTagDT = "DeviceNO";
+            this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
+            this.sideTileBarControl_lateralAnalysis.colNumDT = null;
+            this.sideTileBarControl_lateralAnalysis._initSideTileBar();
         }
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)

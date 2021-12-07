@@ -10,8 +10,15 @@ namespace CloudManage
 {
     class Global
     {
+        public static MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+        
         public static void initDataTable()
         {
+            if (!mysqlHelper1._connectMySQL())
+            {
+                MessageBox.Show("数据库连接失败");
+            }
+
             Global._init_dtTestingDeviceName(); //初始化检测设备名称表
             Global._init_dtProductionLine();    //初始化产线名称表
             Global._init_dtFaults();         //初始化故障名称表
@@ -49,17 +56,16 @@ namespace CloudManage
 
         public static DataTable dtProductionLine = new DataTable();       //产线Tag、产线名称（text）
 
-        public static DataTable dtTestingDeviceName = new DataTable();    //检测设备ID、检测设备名称
+        public static DataTable dtTestingDeviceName = new DataTable();    //DeviceNO、DeviceName、MachineNO、LocationX、LocationY、ValidParaCount
 
         public static DataTable dtFaults = new DataTable();               //序号、检测设备ID、故障ID、故障名称、故障使能标志
 
         //从MySQL中查询数据初始化表
         public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
         {
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            bool flag = mysqlHelper1._connectMySQL();
-            mysqlHelper1._queryTableMySQL(cmdDt, ref dt);
-            mysqlHelper1.conn.Close();
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //bool flag = mysqlHelper1._connectMySQL();
+            bool flag = mysqlHelper1._queryTableMySQL(cmdDt, ref dt);
             return flag;
         }
 
@@ -96,21 +102,6 @@ namespace CloudManage
         public static DataTable dtSideTileBar = new DataTable();   //WorkState和HistoryQuery侧边栏菜单初始化表
         public static void _init_dtSideTileBarWorkState()
         {
-            //string cmdGetDeviceNO = "SELECT `DeviceNO` FROM device;";
-            //DataTable dtDeviceNOTemp = new DataTable();
-            //_initDtMySQL(ref dtDeviceNOTemp, cmdGetDeviceNO);
-            //string strT1 = "SELECT LineNo, DeviceStatus_" + dtDeviceNOTemp.Rows[0]["DeviceNO"].ToString();
-            //int rowNumDtdeviceNOTemp = dtDeviceNOTemp.Rows.Count;
-            //for (int i = 1; i < rowNumDtdeviceNOTemp; i++)
-            //{
-            //    strT1 += "+DeviceStatus_" + dtDeviceNOTemp.Rows[i]["DeviceNO"].ToString();
-            //}
-            //strT1 += " AS DeviceTotalNum FROM device_config";
-            //string cmdInitDtSideTileBar =  "SELECT t1.LineNO,t2.LineName,t1.DeviceTotalNum " +
-            //                               "FROM (" + strT1 + ")AS t1 " +
-            //                               "INNER JOIN productionline AS t2 " +
-            //                               "ON t1.LineNO=t2.LineNO;";      //19ms
-
             string cmdInitDtSideTileBar = "CALL initDtSideTileBar();";
             _initDtMySQL(ref Global.dtSideTileBar, cmdInitDtSideTileBar);  //数据库查询时直接将"1"和"0"相加，导致dtSideTileBar中存储的DeviceTotalNum的类型是object(double)
         }
@@ -122,27 +113,8 @@ namespace CloudManage
         //刷新标题栏故障表
         public static void _refreshTitleGridShow()
         {
-            //string cmdQueryDtTitleGridShowMainForm = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
-            //                                "FROM " +
-            //                                "("     +
-            //                                "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
-            //                                "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
-            //                                "AND t2.FaultEnable='1'" +
-            //                                ")AS t1 " +
-            //                                "INNER JOIN productionline AS t2 " +
-            //                                "INNER JOIN device AS t3 " +
-            //                                "INNER JOIN faults AS t4 " +
-            //                                "ON t1.LineNO=t2.LineNO " +
-            //                                "AND t1.DeviceNO=t3.DeviceNO " +
-            //                                "AND t1.DeviceNO=t4.DeviceNO " +
-            //                                "AND t1.FaultNO=t4.FaultNO " +
-            //                                "ORDER BY t1.`NO`;";    //25ms
             string cmdQueryDtTitleGridShowMainForm = "CALL queryDtTitleGridShowMainForm();";  //查询当前故障表中所有使能故障，并按照grid要求显示名称 
             _initDtMySQL(ref dtTitleGridShowMainForm, cmdQueryDtTitleGridShowMainForm);
-
-            //string cmdQueryDtHistoryValid = "SELECT t1.* FROM faults_current AS t1 INNER JOIN faults_config AS t2 " +
-            //                                "ON t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO " +
-            //                                "AND t2.FaultEnable='1';";  //24ms
 
             string cmdQueryDtHistoryValid = "CALL queryDtHistoryValid();";   //查询当前故障表中所有使能的故障故障,LineNO等
             _initDtMySQL(ref dtHistoryValid, cmdQueryDtHistoryValid);
@@ -150,11 +122,6 @@ namespace CloudManage
 
         public static void _writeFaultsHistory()
         {
-            //string cmdQueryDtWriteFaultsHistory = "SELECT * FROM faults_current WHERE faults_current.`NO` NOT IN ( " +
-            //                                     "SELECT t1.`NO` FROM faults_current AS t1, faults_history AS t2 WHERE " +
-            //                                     "t1.LineNO=t2.LineNO AND t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO AND t1.FaultTime=t2.FaultTime); ";
-            //_initDtMySQL(ref dtWriteFaultsHistory, cmdQueryDtWriteFaultsHistory);
-
             //判断当前故障表中使能的故障在历史故障表中是否存在，若不存在则将其插入到历史表中
             string cmdInsertFaultsHistory = String.Empty;
             string cmdJudgeIfExistInFaultHistory = String.Empty;
@@ -187,7 +154,7 @@ namespace CloudManage
 
                     cmdInsertFaultsHistory = "CALL insertFaultsHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime + "');";  
 
-                    MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     bool flag1 = mysqlHelper1._connectMySQL();
                     bool flag2 = mysqlHelper1._insertMySQL(cmdInsertFaultsHistory);
                     mysqlHelper1.conn.Close();
@@ -475,7 +442,7 @@ namespace CloudManage
         public static void _init_dtDeviceInfoThresholdAndLocation()
         {
             string cmdInitDtDeviceInfoThresholdAndLocation = "SELECT * FROM device_info_threshold;"; 
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
             mysqlHelper1._connectMySQL();
             mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoThresholdAndLocation, ref Global.dtDeviceInfoThresholdAndLocation);
             mysqlHelper1.conn.Close();

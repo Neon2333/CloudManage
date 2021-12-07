@@ -193,11 +193,11 @@ namespace CloudManage.DeviceManagement
 
             initCmdQueryFaultsConfig(); //初始化查询命令，4种
 
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            mysqlHelper1._connectMySQL();
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //mysqlHelper1._connectMySQL();
 
             //更新dtFaultsConfig
-            bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsConfig, ref Global.dtFaultsConfig);
+            bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryFaultsConfig, ref Global.dtFaultsConfig);
             Global.reorderDt(ref Global.dtFaultsConfig);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigEnable
@@ -253,7 +253,7 @@ namespace CloudManage.DeviceManagement
 
             }
 
-            mysqlHelper1.conn.Close();
+            //Global.mysqlHelper1.conn.Close();
         }
 
         private void simpleButton_statusChange_Click(object sender, EventArgs e)
@@ -392,8 +392,8 @@ namespace CloudManage.DeviceManagement
         {
             if (faultsLatest.Count != 0)    //有改动时才保存
             {
-                MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                mysqlHelper1._connectMySQL();
+                //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+                //mysqlHelper1._connectMySQL();
 
                 bool flagSaveSuccess = true;
                 foreach (var fo in faultsLatest)
@@ -410,7 +410,7 @@ namespace CloudManage.DeviceManagement
                                           "WHERE t2.LineName='" + lineName + "' AND t3.DeviceName='" + deviceName + "' AND t4.FaultName='" + faultName + "';";
 
                     DataTable dtTemp = new DataTable();
-                    bool flag1 = mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
+                    bool flag1 = Global.mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
                     if (flag1 == true)
                     {
                         string lineNO = dtTemp.Rows[0]["LineNO"].ToString();
@@ -420,7 +420,7 @@ namespace CloudManage.DeviceManagement
 
                         string cmdSaveFaultsConfig = "UPDATE faults_config SET FaultEnable='" + faultEnable + "' " +
                                                      "WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "' AND FaultNO='" + faultNO + "';";
-                        bool flag2 = mysqlHelper1._updateMySQL(cmdSaveFaultsConfig);
+                        bool flag2 = Global.mysqlHelper1._updateMySQL(cmdSaveFaultsConfig);
                         if (flag2 == false)
                         {
                             flagSaveSuccess = false;
@@ -439,7 +439,7 @@ namespace CloudManage.DeviceManagement
 
                 faultsOriginal.Clear();
                 faultsLatest.Clear();
-                mysqlHelper1.conn.Close();
+                //Global.mysqlHelper1.conn.Close();
             }
             
         }

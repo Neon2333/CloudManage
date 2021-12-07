@@ -17,7 +17,7 @@ namespace CloudManage.DeviceManagement
         private int[] selectRowDtDeviceCanDeleteEachLine = { 0 };   //当表变化时当前选中行会自动变成第一行，selectRow[0]记录的选中行重置当前选中行
         private int[] selectRowDtDeviceCanAddEachLine = { 0 };
         private CommonControl.ConfirmationBox confirmationBox1;
-
+        private bool addOrDeleteDevice = false;     //是否增删了设备，true时重启程序
 
 
         public DeviceAdditionDeletion()
@@ -65,7 +65,8 @@ namespace CloudManage.DeviceManagement
             {
                 selectRowDtDeviceCanDeleteEachLine = this.tileView1.GetSelectedRows();
             }
-            selectRowDtDeviceCanAddEachLine[0] = this.deviceAdditionDeletion_addDeviceBox1.currentFocusRowHandler;
+            if(this.deviceAdditionDeletion_addDeviceBox1!=null)
+                selectRowDtDeviceCanAddEachLine[0] = this.deviceAdditionDeletion_addDeviceBox1.currentFocusRowHandler;
         }
 
         //填充dtDeviceCanDeleteEachLine
@@ -77,15 +78,16 @@ namespace CloudManage.DeviceManagement
              *  3.  添加MySQL表中没有的列，虽然冗余，但有时会简化查询过程，如Global.initDtDeviceCanDeleteEachLine()
              *  4.  使用视图存储一些小的、常用的表可以简化查询
              */
+
             Global.dtDeviceCanDeleteEachLine.Rows.Clear();
 
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            mysqlHelper1._connectMySQL();
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //mysqlHelper1._connectMySQL();
             //获得设备数
             int deviceCountEachLine = 0;
             DataTable dtDeviceCountEachLine = new DataTable();
             string cmdGetDeviceEnableCount = "SELECT DeviceCount FROM v_device_count_eachline WHERE LineNO='" + LineNO + "';";
-            mysqlHelper1._queryTableMySQL(cmdGetDeviceEnableCount, ref dtDeviceCountEachLine);
+            Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceEnableCount, ref dtDeviceCountEachLine);
             if (dtDeviceCountEachLine.Rows.Count == 1)
             {
                 deviceCountEachLine = Convert.ToInt32(dtDeviceCountEachLine.Rows[0][0]);
@@ -103,7 +105,7 @@ namespace CloudManage.DeviceManagement
             //填充DeviceNO、DeviceName、ValidParaCount
             DataTable dtDeviceNOAndValidParaCount = new DataTable();
             string cmdGetDeviceNOAndValidParaCount = "SELECT DeviceNO, ValidParaCount FROM device_info WHERE LineNO='" + LineNO + "';";
-            mysqlHelper1._queryTableMySQL(cmdGetDeviceNOAndValidParaCount, ref dtDeviceNOAndValidParaCount);
+            Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceNOAndValidParaCount, ref dtDeviceNOAndValidParaCount);
 
             for (int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
             {
@@ -115,7 +117,7 @@ namespace CloudManage.DeviceManagement
             //填充DeviceFaultsCount、DeviceFaultsEnableCount
             DataTable dtDeviceFaultsCountAndFaultsEnableCount = new DataTable();
             string cmdGetDtDeviceFaultsCountAndFaultsEnableCount = "SELECT * FROM v_deviceFaultsCount_and_faultsEnableCount WHERE LineNO='" + LineNO + "';";
-            mysqlHelper1._queryTableMySQL(cmdGetDtDeviceFaultsCountAndFaultsEnableCount, ref dtDeviceFaultsCountAndFaultsEnableCount);
+            Global.mysqlHelper1._queryTableMySQL(cmdGetDtDeviceFaultsCountAndFaultsEnableCount, ref dtDeviceFaultsCountAndFaultsEnableCount);
             for (int i = 0; i < Global.dtDeviceCanDeleteEachLine.Rows.Count; i++)
             {
                 string dn = Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceNO"].ToString();
@@ -126,7 +128,7 @@ namespace CloudManage.DeviceManagement
                     Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsEnableCount"] = drs[0]["DeviceFaultsEnableCount"];
                 }
             }
-            mysqlHelper1.conn.Close();
+            //mysqlHelper1.conn.Close();
 
             //当表中数据发生改变时，会自动选中第一行，需要用selectRow重置选中行
             if (this.gridControl_deviceAdditionDeletion.DataSource != null)
@@ -231,8 +233,8 @@ namespace CloudManage.DeviceManagement
 
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            mysqlHelper1._connectMySQL();
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //mysqlHelper1._connectMySQL();
 
             DataRow drSelected = tileView1.GetDataRow(selectRowDtDeviceCanDeleteEachLine[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
 
@@ -243,23 +245,25 @@ namespace CloudManage.DeviceManagement
             MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
             MySqlParameter[] paras = { lineNO, deviceNO, ifAffected };
             string cmdDeleteDevice = "p_deleteDevice";
-            mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);
+            Global.mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);
 
             //string cmdDeleteDevice = "CALL p_deleteDevice('" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" + drSelected["DeviceNO"] + "');";
             //mysqlHelper1._updateMySQL(cmdDeleteDevice);
 
             this.confirmationBox1.Visible = false;
-            refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
             {
                 MessageBox.Show("删除成功");
+                addOrDeleteDevice = true;
+                refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
+                refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
             }
             else if (Convert.ToInt32(ifAffected.Value) == 0)
             {
                 MessageBox.Show("删除失败");
             }
-            mysqlHelper1.conn.Close();
+            //Global.mysqlHelper1.conn.Close();
         }
 
         private void confirmationBox1_ConfirmationBoxCancelClicked(object sender, EventArgs e)
@@ -269,7 +273,188 @@ namespace CloudManage.DeviceManagement
 
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked(object sender, EventArgs e)
         {
-            
+            //DataRow drSelected = Global.dtDeviceCanAddEachLine.Rows[selectRowDtDeviceCanAddEachLine[0]];
+            DataRow drSelected = this.deviceAdditionDeletion_addDeviceBox1.currentSelectedRow;
+            DataRow[] drDevice = Global.dtTestingDeviceName.Select("DeviceNO=" + drSelected["DeviceNO"]);
+
+            //device_config
+            string cmdAddDtDevice_config = "UPDATE device_config SET DeviceStatus_" + drSelected["DeviceNO"].ToString() +
+                                       "='1' WHERE LineNO='" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "';";
+            bool flag_device_config = false;
+            flag_device_config = Global.mysqlHelper1._updateMySQL(cmdAddDtDevice_config);
+
+
+            //device_info
+            string cmdAddDeviceDtDeviceInfo = "Insert INTO device_info (LineNO, DeviceNO, DeviceStatus, ValidParaCount";
+            for (int i = 0; i < 64; i++)
+            {
+                cmdAddDeviceDtDeviceInfo = cmdAddDeviceDtDeviceInfo + ", Para" + (i + 1).ToString();
+            }
+            cmdAddDeviceDtDeviceInfo += ") VALUES (";
+            cmdAddDeviceDtDeviceInfo += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" + drDevice[0]["DeviceNO"].ToString() + "', " + "'1', '" + drDevice[0]["ValidParaCount"].ToString() + "'";
+            for (int i = 0; i < 64; i++)
+            {
+                string p = "Para" + (i + 1).ToString() + "Default";
+                if (drDevice[0][p].ToString() == "\\")
+                {
+                    cmdAddDeviceDtDeviceInfo = cmdAddDeviceDtDeviceInfo + ", " + "'" + drDevice[0][p].ToString() + "\\'";
+                }
+                else
+                {
+                    cmdAddDeviceDtDeviceInfo = cmdAddDeviceDtDeviceInfo + ", " + "'" + drDevice[0][p].ToString() + "'";
+                }
+            }   
+            cmdAddDeviceDtDeviceInfo += ");";
+            bool flag_device_info = Global.mysqlHelper1._insertMySQL(cmdAddDeviceDtDeviceInfo);
+            if (flag_device_info == true)
+            {
+                Global.mysqlHelper1._updateMySQL("ALTER TABLE device_info AUTO_INCREMENT=1;");  //重置主键NO
+            }
+
+            //device_threshold
+            string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
+            for (int i = 0; i < 64; i++)
+            {
+                cmdAddDeviceDtDevice_info_threshold = cmdAddDeviceDtDevice_info_threshold + ", Para" + (i + 1).ToString() + "Min" + ", Para" + (i + 1).ToString() + "Max";
+            }
+            cmdAddDeviceDtDevice_info_threshold += ") VALUES (";
+            cmdAddDeviceDtDevice_info_threshold += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
+                                                   drDevice[0]["DeviceNO"].ToString() + "', '" + drDevice[0]["MachineNO"].ToString() + "', '" +
+                                                   drDevice[0]["LocationX"].ToString() + "', '" + drDevice[0]["LocationY"].ToString() + "', '" +
+                                                   drDevice[0]["ValidParaCount"].ToString() + "', ";
+            if (drDevice[0]["Para1MinDefault"].ToString() == "\\")
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + drDevice[0]["Para1MinDefault"] + "\\', ";
+            }
+            else
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + drDevice[0]["Para1MinDefault"] + "', ";
+            }
+            if (drDevice[0]["Para1MinDefault"].ToString() == "\\")
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + drDevice[0]["Para1MaxDefault"] + "\\'";
+            }
+            else
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + drDevice[0]["Para1MaxDefault"] + "'";
+            }
+
+            for (int i = 1; i < 64; i++)
+            {
+                string p1 = "Para" + (i + 1).ToString() + "MinDefault";
+                string p2 = "Para" + (i + 1).ToString() + "MaxDefault";
+                if (drDevice[0][p1].ToString() == "\\")
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + drDevice[0][p1] + "\\'";
+                }
+                else
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + drDevice[0][p1] + "'";
+                }
+                if (drDevice[0][p2].ToString() == "\\")
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + drDevice[0][p2] + "\\'";
+                }
+                else
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + drDevice[0][p2] + "'";
+                }
+            }
+            cmdAddDeviceDtDevice_info_threshold += ");";
+            bool flag_device_info_threshold = Global.mysqlHelper1._insertMySQL(cmdAddDeviceDtDevice_info_threshold);
+            if (flag_device_info_threshold == true)
+            {
+                Global.mysqlHelper1._updateMySQL("ALTER TABLE device_info_threshold AUTO_INCREMENT=1;");  //重置主键NO
+            }
+
+
+            //device_paraNameAndSuffix
+            string cmdAddDevice_paraNameAndSuffix = "INSERT INTO device_info_paranameandsuffix (LineNO, DeviceNO, ValidParaCount";
+            for (int i = 0; i < 64; i++)
+            {
+                cmdAddDevice_paraNameAndSuffix = cmdAddDevice_paraNameAndSuffix + ", Para" + (i + 1).ToString() + "Name" + ", Para" + (i + 1).ToString() + "Suffix";
+            }
+            cmdAddDevice_paraNameAndSuffix += ") VALUES (";
+            cmdAddDevice_paraNameAndSuffix += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
+                                                   drDevice[0]["DeviceNO"].ToString() + "', '" +
+                                                   drDevice[0]["ValidParaCount"].ToString() + "', ";
+            if (drDevice[0]["Para1NameDefault"].ToString() == "\\")
+            {
+                cmdAddDevice_paraNameAndSuffix += "'" + drDevice[0]["Para1NameDefault"] + "\\', ";
+            }
+            else
+            {
+                cmdAddDevice_paraNameAndSuffix += "'" + drDevice[0]["Para1NameDefault"] + "', ";
+            }
+            if (drDevice[0]["Para1SuffixDefault"].ToString() == "\\")
+            {
+                cmdAddDevice_paraNameAndSuffix += "'" + drDevice[0]["Para1SuffixDefault"] + "\\'";
+            }
+            else
+            {
+                cmdAddDevice_paraNameAndSuffix += "'" + drDevice[0]["Para1SuffixDefault"] + "'";
+            }
+
+            for (int i = 1; i < 64; i++)
+            {
+                string p1 = "Para" + (i + 1).ToString() + "NameDefault";
+                string p2 = "Para" + (i + 1).ToString() + "SuffixDefault";
+                if (drDevice[0][p1].ToString() == "\\")
+                {
+                    cmdAddDevice_paraNameAndSuffix += ", '" + drDevice[0][p1] + "\\'";
+                }
+                else
+                {
+                    cmdAddDevice_paraNameAndSuffix += ", '" + drDevice[0][p1] + "'";
+                }
+                if (drDevice[0][p2].ToString() == "\\")
+                {
+                    cmdAddDevice_paraNameAndSuffix += ", '" + drDevice[0][p2] + "\\'";
+                }
+                else
+                {
+                    cmdAddDevice_paraNameAndSuffix += ", '" + drDevice[0][p2] + "'";
+                }
+            }
+            cmdAddDevice_paraNameAndSuffix += ");";
+            bool flag_device_paraNameAndSuffix = Global.mysqlHelper1._insertMySQL(cmdAddDeviceDtDevice_info_threshold);
+            if (flag_device_paraNameAndSuffix == true)
+            {
+                Global.mysqlHelper1._updateMySQL("ALTER TABLE device_info_paranameandsuffix AUTO_INCREMENT=1;");  //重置主键NO
+            }
+
+            //faults_config
+            string cmdFaultsDevice = "SELECT * FROM faults WHERE DeviceNO=" + drSelected["DeviceNO"].ToString() + ";";
+            DataTable dtFaultsDevice = new DataTable();
+            Global.mysqlHelper1._queryTableMySQL(cmdFaultsDevice, ref dtFaultsDevice);
+
+            bool flag_faults_config = true;
+            for(int i = 0; i < dtFaultsDevice.Rows.Count; i++)
+            {
+                string fn = dtFaultsDevice.Rows[i]["FaultNO"].ToString();
+                string cmdAddDtFaults_config = "INSERT INTO faults_config (LineNO, DeviceNO, FaultNO, FaultEnable) VALUES (" +
+                                               "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', " + "'" + drSelected["DeviceNO"].ToString() + "', " +
+                                               "'" + fn + "', " + "'1');";
+                flag_faults_config=flag_faults_config && Global.mysqlHelper1._insertMySQL(cmdAddDtFaults_config); ;
+            }
+            if (flag_faults_config == true)
+            {
+                Global.mysqlHelper1._updateMySQL("ALTER TABLE faults_config AUTO_INCREMENT=1;");  //重置主键NO
+            }
+
+            if (flag_device_config==true && flag_device_info==true && flag_device_info_threshold ==true && flag_device_paraNameAndSuffix==true && flag_faults_config == true)
+            {
+                MessageBox.Show("添加成功");
+                addOrDeleteDevice = true;
+                refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
+                refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+            }
+            else
+            {
+                MessageBox.Show("添加失败");
+            }
+
+
 
         }
 

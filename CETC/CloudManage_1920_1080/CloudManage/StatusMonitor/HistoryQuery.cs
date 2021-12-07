@@ -247,9 +247,9 @@ namespace CloudManage.StatusMonitor
 
             initCmdQueryFaultsHistory(); //初始化查询命令，4种
 
-            MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            mysqlHelper1._connectMySQL();
-            bool flag = mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
+            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+            //mysqlHelper1._connectMySQL();
+            bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
             Global.reorderDt(ref Global.dtHistoryQueryGridShow);
         }
 
