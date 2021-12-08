@@ -236,6 +236,24 @@
     <Compile Include="StatusMonitor\WorkState.Designer.cs">
       <DependentUpon>WorkState.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemConfig\ProductionLineAdditionDeletion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemConfig\ProductionLineAdditionDeletion.Designer.cs">
+      <DependentUpon>ProductionLineAdditionDeletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfig\Reserve1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemConfig\Reserve1.Designer.cs">
+      <DependentUpon>Reserve1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfig\SystemConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemConfig\SystemConfig.Designer.cs">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="test\test1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +326,15 @@
     <EmbeddedResource Include="StatusMonitor\WorkState.resx">
       <DependentUpon>WorkState.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig\ProductionLineAdditionDeletion.resx">
+      <DependentUpon>ProductionLineAdditionDeletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig\Reserve1.resx">
+      <DependentUpon>Reserve1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig\SystemConfig.resx">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="test\test1.resx">
       <DependentUpon>test1.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,7 +357,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DeepLearning\" />
-    <Folder Include="SystemConfig\" />
     <Folder Include="TwinDetection\" />
   </ItemGroup>
   <ItemGroup>

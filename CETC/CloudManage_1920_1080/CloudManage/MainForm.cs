@@ -25,6 +25,7 @@ namespace CloudManage
         enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage , paraUpdatePage };
         enum DeepLearningPages { datapreParationPage = 0, modelTrainingPage , modelTestingPage , modelUpdatePage };
         enum DeviceManagementPages { deviceAdditionDeletionPage = 0, monitorThresholdPage, diagnosisManagementPage, reservePage1, reservePage2 };
+        enum SystemConfigPages { productionLineAdditionDeletion = 0, reservePage1 };
 
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -162,6 +163,11 @@ namespace CloudManage
             this.tileBar_mainMenu.HideDropDownWindow(false);
         }
 
+        private void tileBar_systemConfig_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.tileBar_mainMenu.HideDropDownWindow(false);
+        }
+
         /**
         *******************************************************二级子菜单显示***************************************************************
         */
@@ -192,7 +198,7 @@ namespace CloudManage
 
         private void confirmationBox_applicationRestart_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
-            //停留在增删设备页面不翻页
+            //返回增删设备页面不翻页
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
             iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
             currentPage = (int)StatusMonitorPages.workStatePage;
@@ -204,241 +210,363 @@ namespace CloudManage
 
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = (int)StatusMonitorPages.workStatePage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+                iSelectedIndex = (int)StatusMonitorPages.workStatePage;
+                this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+                currentPage = (int)StatusMonitorPages.workStatePage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)StatusMonitorPages.workStatePage;
-            currentPage = processCurrentPage();
-            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            else
+            {
+                if (currentPage == 13)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = (int)StatusMonitorPages.realtimePage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+                iSelectedIndex = (int)StatusMonitorPages.realtimePage;
+                this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+                currentPage = (int)StatusMonitorPages.realtimePage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)StatusMonitorPages.realtimePage;
-            currentPage = processCurrentPage();
-            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+                iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
+                this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
+                currentPage = (int)StatusMonitorPages.historyQueryPage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)StatusMonitorPages.historyQueryPage;
-            currentPage = processCurrentPage();
-            this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
-
 
         private void tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+                iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
+                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+                currentPage = (int)DataAnalysisPages.lateralAnalysisPage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)DataAnalysisPages.lateralAnalysisPage;
-            currentPage = processCurrentPage();
-            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+                iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
+                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+                currentPage = (int)DataAnalysisPages.verticalAnalysisPage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)DataAnalysisPages.verticalAnalysisPage;
-            currentPage = processCurrentPage();
-            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
-
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-            iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+                iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
+                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+                currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
-            currentPage = processCurrentPage();
-            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
-
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_twinDetection_paraSyn_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)TwinDetectionPages.paraSynPage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+                iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
 
+                currentPage = (int)TwinDetectionPages.paraSynPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+                iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
 
+                currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-            iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+                iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
+
+                currentPage = (int)TwinDetectionPages.paraUpdatePage;
+                currentPage = processCurrentPage();
             }
-            currentPage = (int)TwinDetectionPages.paraUpdatePage;
-            currentPage = processCurrentPage();
-
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
-
 
         private void tileBarItem_dataPreparation_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)DeepLearningPages.datapreParationPage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+                iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
 
+                currentPage = (int)DeepLearningPages.datapreParationPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_modelTraining_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)DeepLearningPages.modelTrainingPage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+                iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
 
+                currentPage = (int)DeepLearningPages.modelTrainingPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_modelTesting_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)DeepLearningPages.modelTestingPage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+                iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
 
+                currentPage = (int)DeepLearningPages.modelTestingPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-            iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
-            }
-            currentPage = (int)DeepLearningPages.modelUpdatePage;
-            currentPage = processCurrentPage();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+                iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
 
+                currentPage = (int)DeepLearningPages.modelUpdatePage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+                currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+                this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-            currentPage = processCurrentPage();
-            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
-
+            //else
+            //{
+            //    if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            //    {
+            //        createConfirmationBox();
+            //    }
+            //}
         }
         private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+                currentPage = (int)StatusMonitorPages.workStatePage;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
+                this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            currentPage = (int)StatusMonitorPages.workStatePage;
-            currentPage = processCurrentPage();
-            iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+                currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
+                this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
-            currentPage = processCurrentPage();
-            iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
 
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+                currentPage = (int)DeviceManagementPages.reservePage1;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)DeviceManagementPages.reservePage1;
+                this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            currentPage = (int)DeviceManagementPages.reservePage1;
-            currentPage = processCurrentPage();
-            iSelectedIndex = (int)DeviceManagementPages.reservePage1;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
         {
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            if (Global.ifDeviceAdditionOrDeletion == false)
             {
-                createConfirmationBox();
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+                currentPage = (int)DeviceManagementPages.reservePage2;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)DeviceManagementPages.reservePage2;
+                this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            currentPage = (int)DeviceManagementPages.reservePage2;
-            currentPage = processCurrentPage();
-            iSelectedIndex = (int)DeviceManagementPages.reservePage2;
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
+        }
+
+        private void tileBarItem_systemConfig_productionAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
+        {
+            if (Global.ifDeviceAdditionOrDeletion == false)
+            {
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_systemConfig;
+                currentPage = (int)SystemConfigPages.productionLineAdditionDeletion;
+                currentPage = processCurrentPage();
+                iSelectedIndex = (int)SystemConfigPages.productionLineAdditionDeletion;
+                this.deviceMana.selectedFramePage = iSelectedIndex;
+            }
+            else
+            {
+                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                {
+                    createConfirmationBox();
+                }
+            }
         }
 
         private void labelControl_title_Click(object sender, EventArgs e)
@@ -585,6 +713,10 @@ namespace CloudManage
             }
 
         }
+
+      
+
+
 
 
 
