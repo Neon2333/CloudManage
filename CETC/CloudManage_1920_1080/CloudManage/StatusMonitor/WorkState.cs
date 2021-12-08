@@ -34,12 +34,12 @@ namespace CloudManage.StatusMonitor
 
         void initWorkState()
         {
-            initSideTileBarWorkState(); //初始化侧边栏
+            initSideTileBarWorkState();     //初始化侧边栏
             initDataOverviewWorkState();    //初始化总览数据表
-            initDataEachWorkState();    //初始化检测设备数据表
+            initDataEachWorkState();        //初始化检测设备数据表
         }
 
-        private void initSideTileBarWorkState()
+        public void initSideTileBarWorkState()
         {
             this.sideTileBarControl_workState.dtInitSideTileBar = Global.dtSideTileBar;
             this.sideTileBarControl_workState.colTagDT = "LineNO";

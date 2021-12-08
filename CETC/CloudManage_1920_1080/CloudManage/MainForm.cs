@@ -14,13 +14,17 @@ namespace CloudManage
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        int currentPage = (int)StatusMonitorPages.workStatePage;    //全局记录当前页面
+        private CommonControl.ConfirmationBox confirmationBox_applicationRestart;
+
+
         DateTime now = new DateTime();  //当前时间
         //int[][] itemIndex = new int[6][];
         enum StatusMonitorPages { workStatePage = 0, realtimePage, historyQueryPage };
         enum DataAnalysisPages { lateralAnalysisPage = 0, verticalAnalysisPage, parameterOptimizationPage };
-        enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage, paraUpdatePage };
-        enum DeepLearningPages { datapreParationPage = 0, modelTrainingPage, modelTestingPage, modelUpdatePage };
-        enum DeviceManagementPages { deviceAdditionDeletionPage = 0, monitorThresholdPage, diagnosisManagementPage, reservePage1, reservePage2};
+        enum TwinDetectionPages { paraSynPage = 0, intelligentReasoningPage , paraUpdatePage };
+        enum DeepLearningPages { datapreParationPage = 0, modelTrainingPage , modelTestingPage , modelUpdatePage };
+        enum DeviceManagementPages { deviceAdditionDeletionPage = 0, monitorThresholdPage, diagnosisManagementPage, reservePage1, reservePage2 };
 
         int iSelectedIndex = 0; //默认显示第一页
 
@@ -72,6 +76,23 @@ namespace CloudManage
                 this.labelControl_title.Text = "检测设备数字化平台";
                 this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             }
+        }
+
+        private void createConfirmationBox()
+        {
+            this.confirmationBox_applicationRestart = new CommonControl.ConfirmationBox();
+            this.confirmationBox_applicationRestart.Appearance.BackColor = System.Drawing.Color.White;
+            this.confirmationBox_applicationRestart.Appearance.Options.UseBackColor = true;
+            this.confirmationBox_applicationRestart.Location = new System.Drawing.Point(627, 369);
+            this.confirmationBox_applicationRestart.Name = "confirmationBox_applicationRestart";
+            this.confirmationBox_applicationRestart.Size = new System.Drawing.Size(350, 200);
+            this.confirmationBox_applicationRestart.TabIndex = 29;
+            this.confirmationBox_applicationRestart.titleConfirmationBox = "设备已增删，确认重启软件？";
+            this.confirmationBox_applicationRestart.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxOKClicked);
+            this.confirmationBox_applicationRestart.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxCancelClicked);
+            this.Controls.Add(this.confirmationBox_applicationRestart);
+            this.confirmationBox_applicationRestart.Visible = true;
+            this.confirmationBox_applicationRestart.BringToFront();
         }
 
         /**
@@ -144,19 +165,66 @@ namespace CloudManage
         /**
         *******************************************************二级子菜单显示***************************************************************
         */
+        //为了使currentPage唯一
+        private int processCurrentPage()
+        {
+            int curPage = 0;
+            if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_statusMonitoring)
+                curPage = currentPage + 0;
+            else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_dataAnalysis)
+                curPage = currentPage + 3;
+            else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_twinDetection)
+                curPage = currentPage + 6;
+            else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_deepLearning)
+                curPage = currentPage + 9;
+            else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_deviceManagement)
+                curPage = currentPage + 13;
+            else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_systemConfig)
+                curPage = currentPage + 18;
+
+            return curPage;
+        }
+
+        private void confirmationBox_applicationRestart_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void confirmationBox_applicationRestart_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            //停留在增删设备页面不翻页
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            currentPage = (int)StatusMonitorPages.workStatePage;
+            currentPage = processCurrentPage();
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
+            this.confirmationBox_applicationRestart.Visible = false;
+        }
 
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = (int)StatusMonitorPages.workStatePage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)StatusMonitorPages.workStatePage;
+            currentPage = processCurrentPage();
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
-
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = (int)StatusMonitorPages.realtimePage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)StatusMonitorPages.realtimePage;
+            currentPage = processCurrentPage();
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
         }
 
@@ -164,6 +232,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
             iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)StatusMonitorPages.historyQueryPage;
+            currentPage = processCurrentPage();
             this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
         }
 
@@ -172,6 +246,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DataAnalysisPages.lateralAnalysisPage;
+            currentPage = processCurrentPage();
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
         }
 
@@ -179,6 +259,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DataAnalysisPages.verticalAnalysisPage;
+            currentPage = processCurrentPage();
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
 
         }
@@ -187,6 +273,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
             iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
+            currentPage = processCurrentPage();
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
 
         }
@@ -195,6 +287,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)TwinDetectionPages.paraSynPage;
+            currentPage = processCurrentPage();
 
         }
 
@@ -202,12 +300,25 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
+            currentPage = processCurrentPage();
+
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)TwinDetectionPages.paraUpdatePage;
+            currentPage = processCurrentPage();
 
         }
 
@@ -216,6 +327,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
             iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeepLearningPages.datapreParationPage;
+            currentPage = processCurrentPage();
 
         }
 
@@ -223,6 +340,12 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
             iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeepLearningPages.modelTrainingPage;
+            currentPage = processCurrentPage();
 
         }
 
@@ -230,17 +353,37 @@ namespace CloudManage
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
             iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeepLearningPages.modelTestingPage;
+            currentPage = processCurrentPage();
+
         }
 
         private void tileBarItem_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
             iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeepLearningPages.modelUpdatePage;
+            currentPage = processCurrentPage();
+
         }
 
         private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            currentPage = processCurrentPage();
             iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
 
@@ -248,6 +391,12 @@ namespace CloudManage
         private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)StatusMonitorPages.workStatePage;
+            currentPage = processCurrentPage();
             iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
@@ -255,6 +404,12 @@ namespace CloudManage
         private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
+            currentPage = processCurrentPage();
             iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
@@ -263,6 +418,12 @@ namespace CloudManage
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeviceManagementPages.reservePage1;
+            currentPage = processCurrentPage();
             iSelectedIndex = (int)DeviceManagementPages.reservePage1;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
@@ -270,6 +431,12 @@ namespace CloudManage
         private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
         {
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+            {
+                createConfirmationBox();
+            }
+            currentPage = (int)DeviceManagementPages.reservePage2;
+            currentPage = processCurrentPage();
             iSelectedIndex = (int)DeviceManagementPages.reservePage2;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }

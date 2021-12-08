@@ -553,7 +553,7 @@ namespace CloudManage
             }
         }
 
-
+        public static bool ifDeviceAdditionOrDeletion = false;  //设备是否发生了增删
 
         /*************************************************************************************************************/
 
