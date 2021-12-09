@@ -85,10 +85,10 @@ namespace CloudManage.SystemConfig
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement23 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement24 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement25 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions31 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions25 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionLineAdditionDeletion));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions32 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions33 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions26 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions27 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tileViewColumn_NO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LNO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -100,6 +100,7 @@ namespace CloudManage.SystemConfig
             this.sideTileBarControl_productionLineAdditionDeletion = new CloudManage.CommonControl.SideTileBarControl();
             this.labelControl_dir = new DevExpress.XtraEditors.LabelControl();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.dtucTextBoxEx1 = new DTControl.Controls.DTUCTextBoxEx();
             this.simpleButton_productionLineDeletion = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_productionLineAddition = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl_productionLineAdditionDeletion = new DevExpress.XtraGrid.GridControl();
@@ -269,12 +270,57 @@ namespace CloudManage.SystemConfig
             // 
             // panelControl_rightSide
             // 
+            this.panelControl_rightSide.Controls.Add(this.dtucTextBoxEx1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineDeletion);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineAddition);
             this.panelControl_rightSide.Location = new System.Drawing.Point(1358, 0);
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 33;
+            // 
+            // dtucTextBoxEx1
+            // 
+            this.dtucTextBoxEx1.BackColor = System.Drawing.Color.Transparent;
+            this.dtucTextBoxEx1.ConerRadius = 5;
+            this.dtucTextBoxEx1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dtucTextBoxEx1.DecLength = 2;
+            this.dtucTextBoxEx1.FillColor = System.Drawing.Color.Empty;
+            this.dtucTextBoxEx1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(59)))));
+            this.dtucTextBoxEx1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dtucTextBoxEx1.HandInputExePath = "D:\\programs\\vs2019\\Common7\\IDE\\HandInput\\handinput.exe";
+            this.dtucTextBoxEx1.InputText = "";
+            this.dtucTextBoxEx1.InputType = DTControl.TextInputType.NotControl;
+            this.dtucTextBoxEx1.IsFocusColor = true;
+            this.dtucTextBoxEx1.IsRadius = true;
+            this.dtucTextBoxEx1.IsShowClearBtn = true;
+            this.dtucTextBoxEx1.IsShowKeyboard = true;
+            this.dtucTextBoxEx1.IsShowRect = true;
+            this.dtucTextBoxEx1.IsShowSearchBtn = false;
+            this.dtucTextBoxEx1.KeyBoardType = DTControl.Controls.KeyBoardType.UCKeyBorderHand;
+            this.dtucTextBoxEx1.Location = new System.Drawing.Point(6, 282);
+            this.dtucTextBoxEx1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtucTextBoxEx1.MaxValue = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.dtucTextBoxEx1.MinValue = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            -2147483648});
+            this.dtucTextBoxEx1.Name = "dtucTextBoxEx1";
+            this.dtucTextBoxEx1.Padding = new System.Windows.Forms.Padding(5);
+            this.dtucTextBoxEx1.PasswordChar = '\0';
+            this.dtucTextBoxEx1.PromptColor = System.Drawing.Color.Gray;
+            this.dtucTextBoxEx1.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dtucTextBoxEx1.PromptText = "";
+            this.dtucTextBoxEx1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dtucTextBoxEx1.RectWidth = 1;
+            this.dtucTextBoxEx1.RegexPattern = "";
+            this.dtucTextBoxEx1.Size = new System.Drawing.Size(550, 55);
+            this.dtucTextBoxEx1.TabIndex = 19;
+            this.dtucTextBoxEx1.Visible = false;
             // 
             // simpleButton_productionLineDeletion
             // 
@@ -645,14 +691,14 @@ namespace CloudManage.SystemConfig
             // 
             this.windowsUIButtonPanel_productionLineAdditionDeletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_productionLineAdditionDeletion.ButtonInterval = 20;
-            windowsUIButtonImageOptions31.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions31.Image")));
-            windowsUIButtonImageOptions32.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions32.SvgImage")));
-            windowsUIButtonImageOptions33.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions33.SvgImage")));
+            windowsUIButtonImageOptions25.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions25.Image")));
+            windowsUIButtonImageOptions26.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions26.SvgImage")));
+            windowsUIButtonImageOptions27.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions27.SvgImage")));
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions31, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions32, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions25, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions26, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions33, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions27, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_productionLineAdditionDeletion.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Location = new System.Drawing.Point(0, 800);
@@ -704,5 +750,6 @@ namespace CloudManage.SystemConfig
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_LDCount;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_productionLineAdditionDeletion;
+        private DTControl.Controls.DTUCTextBoxEx dtucTextBoxEx1;
     }
 }

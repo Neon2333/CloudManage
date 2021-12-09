@@ -1,0 +1,1 @@
+ ucTextBoxEx1.HandInputExePath = "Vision41st\\HandInput\\handinput.exe";

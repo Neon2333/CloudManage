@@ -16,7 +16,9 @@ namespace CloudManage.SystemConfig
     {
         private int[] selectRowDtProductionLineExists = { 0 };
         private CommonControl.ConfirmationBox confirmationBox_delLine;
+        private CommonControl.ConfirmationBox confirmationBox_inputLineName;
         private CommonControl.ConfirmationBox confirmationBox_addLine;
+        string inputLineName = String.Empty;
 
         public ProductionLineAdditionDeletion()
         {
@@ -29,7 +31,8 @@ namespace CloudManage.SystemConfig
             Global.initDtProductionLineExists();
             initSideTileBarProductionLineAdditionDeletion();
             this.gridControl_productionLineAdditionDeletion.DataSource = Global.dtProductionLineSystemConfig;
-            
+            dtucTextBoxEx1.HandInputExePath = "D:\\WorkSpace\\DevExpressDemo\\CETC\\HandInput\\handinput.exe";
+
             if (((DataTable)this.gridControl_productionLineAdditionDeletion.DataSource).Rows.Count > 0)
             {
                 this.tileView1.FocusedRowHandle = selectRowDtProductionLineExists[0]; //默认选中第一行
@@ -57,6 +60,7 @@ namespace CloudManage.SystemConfig
         {
             string cmdInitDtProductionLineExists = "SELECT * FROM v_productionline_system_config;";
             Global.mysqlHelper1._queryTableMySQL(cmdInitDtProductionLineExists, ref Global.dtProductionLineSystemConfig);
+            //Global.reorderDt(ref Global.dtProductionLineSystemConfig);
         }
 
         private void gridControl_productionLineAdditionDeletion_Click(object sender, EventArgs e)
@@ -68,6 +72,7 @@ namespace CloudManage.SystemConfig
             }
         }
 
+        /*********************************************删除产线*******************************************************/
         private void simpleButton_productionLineDeletion_Click(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
@@ -123,6 +128,7 @@ namespace CloudManage.SystemConfig
                 MessageBox.Show("删除成功");
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
+
             }
             else if (Convert.ToInt32(ifAffected.Value) == 0)
             {
@@ -135,11 +141,97 @@ namespace CloudManage.SystemConfig
             this.confirmationBox_delLine.Visible = false;
         }
 
+        /*********************************************增加产线*******************************************************/
         private void simpleButton_productionLineAddition_Click(object sender, EventArgs e)
         {
+            this.confirmationBox_inputLineName = new CommonControl.ConfirmationBox();
+            this.confirmationBox_inputLineName.Appearance.BackColor = System.Drawing.Color.White;
+            this.confirmationBox_inputLineName.Appearance.Options.UseBackColor = true;
+            this.confirmationBox_inputLineName.Location = new System.Drawing.Point(627, 169);
+            this.confirmationBox_inputLineName.Name = "confirmationBox1";
+            this.confirmationBox_inputLineName.Size = new System.Drawing.Size(350, 200);
+            this.confirmationBox_inputLineName.TabIndex = 29;
+            DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
+            this.confirmationBox_inputLineName.titleConfirmationBox = "请输入产线名称";
+            this.confirmationBox_inputLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxOKClicked);
+            this.confirmationBox_inputLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxCancelClicked);
+            this.Controls.Add(this.confirmationBox_delLine);
+            this.confirmationBox_inputLineName.Visible = true;
+            this.confirmationBox_inputLineName.BringToFront();
 
+            this.dtucTextBoxEx1.Visible = true;
         }
 
+        private void confirmationBox_inputLineName_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            if (this.dtucTextBoxEx1.InputText!="")
+                inputLineName = this.dtucTextBoxEx1.InputText;
+            this.dtucTextBoxEx1.ResetText();
+            if (inputLineName != "")
+            {
+                this.dtucTextBoxEx1.Visible = false;
+                this.confirmationBox_inputLineName.Visible = false;
+
+                this.confirmationBox_addLine = new CommonControl.ConfirmationBox();
+                this.confirmationBox_addLine.Appearance.BackColor = System.Drawing.Color.White;
+                this.confirmationBox_addLine.Appearance.Options.UseBackColor = true;
+                this.confirmationBox_addLine.Location = new System.Drawing.Point(627, 169);
+                this.confirmationBox_addLine.Name = "confirmationBox1";
+                this.confirmationBox_addLine.Size = new System.Drawing.Size(350, 200);
+                this.confirmationBox_addLine.TabIndex = 29;
+                DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
+                this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线 " + inputLineName + " ?";
+                this.confirmationBox_addLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_addLine_ConfirmationBoxOKClicked);
+                this.confirmationBox_addLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_addLine_ConfirmationBoxCancelClicked);
+                this.Controls.Add(this.confirmationBox_delLine);
+                this.confirmationBox_addLine.Visible = true;
+                this.confirmationBox_addLine.BringToFront();
+            }
+        }
+
+        private void confirmationBox_inputLineName_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.dtucTextBoxEx1.ResetText();
+            this.dtucTextBoxEx1.Visible = false;
+            this.confirmationBox_inputLineName.Visible = false;
+        }
+
+        private void confirmationBox_addLine_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+
+            for(int i = 0; i < Global.dtProductionLineSystemConfig.Rows.Count; i++)
+            {
+
+            }
+            //Global.dtProductionLineSystemConfig;
+
+            MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
+            //lineNO.Value = ;
+            MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
+            //lineName.Value = ;
+            MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
+            MySqlParameter[] paras = { lineNO, lineName, ifAffected };
+            string cmdAddLine = "p_addLine";
+            Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 1, 1);
+
+            this.confirmationBox_delLine.Visible = false;
+
+            if (Convert.ToInt32(ifAffected.Value) == 1)
+            {
+                MessageBox.Show("添加成功");
+                Global.ifLineAdditionOrDeletion = true;
+                refreshDtProductionLineSystemConfig();
+            }
+            else if (Convert.ToInt32(ifAffected.Value) == 0)
+            {
+                MessageBox.Show("添加失败");
+            }
+        }
+
+        private void confirmationBox_addLine_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.confirmationBox_addLine.Visible = false;
+        }
 
 
     }
