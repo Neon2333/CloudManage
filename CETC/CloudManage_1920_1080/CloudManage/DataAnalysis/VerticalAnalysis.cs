@@ -19,7 +19,7 @@ namespace CloudManage.DataAnalysis
         public VerticalAnalysis()
         {
             InitializeComponent();
-            initVerticalAnalysis();
+            //initVerticalAnalysis();
         }
 
         private void initVerticalAnalysis()

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            this.tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            this.tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            this.tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             this.tileBar_sideTileBarControl = new DevExpress.XtraBars.Navigation.TileBar();
             this.tileBarGroup_sideTileBarControl = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem0 = new DevExpress.XtraBars.Navigation.TileBarItem();
@@ -137,5 +137,8 @@
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem0;
         private DevExpress.XtraBars.Navigation.TileBarGroup tileBarGroup_sideTileBarControl;
         private DevExpress.XtraEditors.PanelControl panelControl_sideTileBarControl;
+        private DevExpress.XtraEditors.TileItemElement tileItemElement1;
+        private DevExpress.XtraEditors.TileItemElement tileItemElement2;
+        private DevExpress.XtraEditors.TileItemElement tileItemElement3;
     }
 }

@@ -71,6 +71,15 @@ namespace CloudManage.CommonControl
             }
         }
 
+        //“总览”按钮的显示名
+        public string overViewText
+        {
+            set
+            {
+                this.tileItemElement2.Text = value;
+            }
+        }
+
         //获取被选中item的tag
         public string tagSelectedItem
         {

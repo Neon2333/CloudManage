@@ -557,6 +557,22 @@ namespace CloudManage
 
         /*************************************************************************************************************/
 
+        //productionLineAdditionDeletion
+        public static DataTable dtProductionLineSystemConfig = new DataTable();
+        public static DataTable dtProductionCount = new DataTable();
+
+        public static void initDtProductionLineExists()
+        {
+            string cmdInitDtProductionLineExists = "SELECT * FROM v_productionline_system_config;";
+            Global.mysqlHelper1._queryTableMySQL(cmdInitDtProductionLineExists, ref dtProductionLineSystemConfig);
+            string cmdInitDtProductionCount = "SELECT COUNT(*) AS totalProductionCount FROM v_productionline_system_config;";
+            Global.mysqlHelper1._queryTableMySQL(cmdInitDtProductionCount, ref dtProductionCount);
+        }
+
+        public static bool ifLineAdditionOrDeletion = false;    //产线是否发生了增删
+
+        /*************************************************************************************************************/
+
         //获取Excel单元格数据
         public static object getCellValue(ICell cell)
         {

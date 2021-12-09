@@ -28,7 +28,7 @@ namespace CloudManage.DeviceManagement
 
         void initDeviceAdditionDeletion()
         {
-            initSideTileBarWorkState();
+            initSideTileBarDeviceAdditionDeletion();
             Global.initDtDeviceCanDeleteEachLine();     //初始化可删除设备表
             refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
             this.gridControl_deviceAdditionDeletion.DataSource = Global.dtDeviceCanDeleteEachLine;
@@ -40,7 +40,7 @@ namespace CloudManage.DeviceManagement
             Global.initDtDeviceCanAddEachLine();   //初始化可添加设备表
         }
 
-        private void initSideTileBarWorkState()
+        private void initSideTileBarDeviceAdditionDeletion()
         {
             this.sideTileBarControl_deviceAdditionDeletion.dtInitSideTileBar = Global.dtSideTileBar;
             this.sideTileBarControl_deviceAdditionDeletion.colTagDT = "LineNO";

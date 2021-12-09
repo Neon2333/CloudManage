@@ -108,12 +108,12 @@ namespace CloudManage.DeviceManagement
             this.simpleButton_deviceDeletion = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_deviceAddition = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl_dir = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_deviceEnableNO = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_deviceCanDeleteNO = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_productionLineName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_testingDeviceName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_deviceParaCount = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_deviceFaultsEnableTotal = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_deviceFaultsTotal = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_deviceFaultsEnableCount = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_deviceFaultsCount = new DevExpress.XtraEditors.LabelControl();
             this.gridControl_deviceAdditionDeletion = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
@@ -280,25 +280,25 @@ namespace CloudManage.DeviceManagement
             this.labelControl_dir.TabIndex = 18;
             this.labelControl_dir.Text = "   导航栏";
             // 
-            // labelControl_deviceEnableNO
+            // labelControl_deviceCanDeleteNO
             // 
-            this.labelControl_deviceEnableNO.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_deviceEnableNO.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_deviceEnableNO.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_deviceEnableNO.Appearance.Options.UseBackColor = true;
-            this.labelControl_deviceEnableNO.Appearance.Options.UseFont = true;
-            this.labelControl_deviceEnableNO.Appearance.Options.UseForeColor = true;
-            this.labelControl_deviceEnableNO.Appearance.Options.UseTextOptions = true;
-            this.labelControl_deviceEnableNO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_deviceEnableNO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl_deviceEnableNO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_deviceEnableNO.Location = new System.Drawing.Point(246, 50);
-            this.labelControl_deviceEnableNO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_deviceEnableNO.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_deviceEnableNO.Name = "labelControl_deviceEnableNO";
-            this.labelControl_deviceEnableNO.Size = new System.Drawing.Size(114, 50);
-            this.labelControl_deviceEnableNO.TabIndex = 19;
-            this.labelControl_deviceEnableNO.Text = "序号";
+            this.labelControl_deviceCanDeleteNO.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl_deviceCanDeleteNO.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_deviceCanDeleteNO.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl_deviceCanDeleteNO.Appearance.Options.UseBackColor = true;
+            this.labelControl_deviceCanDeleteNO.Appearance.Options.UseFont = true;
+            this.labelControl_deviceCanDeleteNO.Appearance.Options.UseForeColor = true;
+            this.labelControl_deviceCanDeleteNO.Appearance.Options.UseTextOptions = true;
+            this.labelControl_deviceCanDeleteNO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_deviceCanDeleteNO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControl_deviceCanDeleteNO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl_deviceCanDeleteNO.Location = new System.Drawing.Point(246, 50);
+            this.labelControl_deviceCanDeleteNO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.labelControl_deviceCanDeleteNO.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.labelControl_deviceCanDeleteNO.Name = "labelControl_deviceCanDeleteNO";
+            this.labelControl_deviceCanDeleteNO.Size = new System.Drawing.Size(114, 50);
+            this.labelControl_deviceCanDeleteNO.TabIndex = 19;
+            this.labelControl_deviceCanDeleteNO.Text = "序号";
             // 
             // labelControl_productionLineName
             // 
@@ -357,43 +357,43 @@ namespace CloudManage.DeviceManagement
             this.labelControl_deviceParaCount.TabIndex = 22;
             this.labelControl_deviceParaCount.Text = "参数数量";
             // 
-            // labelControl_deviceFaultsEnableTotal
+            // labelControl_deviceFaultsEnableCount
             // 
-            this.labelControl_deviceFaultsEnableTotal.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_deviceFaultsEnableTotal.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_deviceFaultsEnableTotal.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_deviceFaultsEnableTotal.Appearance.Options.UseBackColor = true;
-            this.labelControl_deviceFaultsEnableTotal.Appearance.Options.UseFont = true;
-            this.labelControl_deviceFaultsEnableTotal.Appearance.Options.UseForeColor = true;
-            this.labelControl_deviceFaultsEnableTotal.Appearance.Options.UseTextOptions = true;
-            this.labelControl_deviceFaultsEnableTotal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_deviceFaultsEnableTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_deviceFaultsEnableTotal.Location = new System.Drawing.Point(1170, 50);
-            this.labelControl_deviceFaultsEnableTotal.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_deviceFaultsEnableTotal.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_deviceFaultsEnableTotal.Name = "labelControl_deviceFaultsEnableTotal";
-            this.labelControl_deviceFaultsEnableTotal.Size = new System.Drawing.Size(182, 50);
-            this.labelControl_deviceFaultsEnableTotal.TabIndex = 23;
-            this.labelControl_deviceFaultsEnableTotal.Text = "诊断使能";
+            this.labelControl_deviceFaultsEnableCount.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl_deviceFaultsEnableCount.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_deviceFaultsEnableCount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl_deviceFaultsEnableCount.Appearance.Options.UseBackColor = true;
+            this.labelControl_deviceFaultsEnableCount.Appearance.Options.UseFont = true;
+            this.labelControl_deviceFaultsEnableCount.Appearance.Options.UseForeColor = true;
+            this.labelControl_deviceFaultsEnableCount.Appearance.Options.UseTextOptions = true;
+            this.labelControl_deviceFaultsEnableCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_deviceFaultsEnableCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl_deviceFaultsEnableCount.Location = new System.Drawing.Point(1170, 50);
+            this.labelControl_deviceFaultsEnableCount.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.labelControl_deviceFaultsEnableCount.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.labelControl_deviceFaultsEnableCount.Name = "labelControl_deviceFaultsEnableCount";
+            this.labelControl_deviceFaultsEnableCount.Size = new System.Drawing.Size(182, 50);
+            this.labelControl_deviceFaultsEnableCount.TabIndex = 23;
+            this.labelControl_deviceFaultsEnableCount.Text = "诊断使能";
             // 
-            // labelControl_deviceFaultsTotal
+            // labelControl_deviceFaultsCount
             // 
-            this.labelControl_deviceFaultsTotal.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_deviceFaultsTotal.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_deviceFaultsTotal.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_deviceFaultsTotal.Appearance.Options.UseBackColor = true;
-            this.labelControl_deviceFaultsTotal.Appearance.Options.UseFont = true;
-            this.labelControl_deviceFaultsTotal.Appearance.Options.UseForeColor = true;
-            this.labelControl_deviceFaultsTotal.Appearance.Options.UseTextOptions = true;
-            this.labelControl_deviceFaultsTotal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_deviceFaultsTotal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_deviceFaultsTotal.Location = new System.Drawing.Point(1000, 50);
-            this.labelControl_deviceFaultsTotal.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_deviceFaultsTotal.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_deviceFaultsTotal.Name = "labelControl_deviceFaultsTotal";
-            this.labelControl_deviceFaultsTotal.Size = new System.Drawing.Size(169, 50);
-            this.labelControl_deviceFaultsTotal.TabIndex = 24;
-            this.labelControl_deviceFaultsTotal.Text = "诊断数量";
+            this.labelControl_deviceFaultsCount.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl_deviceFaultsCount.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_deviceFaultsCount.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl_deviceFaultsCount.Appearance.Options.UseBackColor = true;
+            this.labelControl_deviceFaultsCount.Appearance.Options.UseFont = true;
+            this.labelControl_deviceFaultsCount.Appearance.Options.UseForeColor = true;
+            this.labelControl_deviceFaultsCount.Appearance.Options.UseTextOptions = true;
+            this.labelControl_deviceFaultsCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_deviceFaultsCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl_deviceFaultsCount.Location = new System.Drawing.Point(1000, 50);
+            this.labelControl_deviceFaultsCount.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.labelControl_deviceFaultsCount.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.labelControl_deviceFaultsCount.Name = "labelControl_deviceFaultsCount";
+            this.labelControl_deviceFaultsCount.Size = new System.Drawing.Size(169, 50);
+            this.labelControl_deviceFaultsCount.TabIndex = 24;
+            this.labelControl_deviceFaultsCount.Text = "诊断数量";
             // 
             // gridControl_deviceAdditionDeletion
             // 
@@ -778,12 +778,12 @@ namespace CloudManage.DeviceManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl_deviceAdditionDeletion);
-            this.Controls.Add(this.labelControl_deviceFaultsTotal);
-            this.Controls.Add(this.labelControl_deviceFaultsEnableTotal);
+            this.Controls.Add(this.labelControl_deviceFaultsCount);
+            this.Controls.Add(this.labelControl_deviceFaultsEnableCount);
             this.Controls.Add(this.labelControl_deviceParaCount);
             this.Controls.Add(this.labelControl_testingDeviceName);
             this.Controls.Add(this.labelControl_productionLineName);
-            this.Controls.Add(this.labelControl_deviceEnableNO);
+            this.Controls.Add(this.labelControl_deviceCanDeleteNO);
             this.Controls.Add(this.labelControl_dir);
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.windowsUIButtonPanel_deviceAdditionDeletion);
@@ -807,12 +807,12 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraEditors.SimpleButton simpleButton_deviceAddition;
         private DevExpress.XtraEditors.SimpleButton simpleButton_deviceDeletion;
         private DevExpress.XtraEditors.LabelControl labelControl_dir;
-        private DevExpress.XtraEditors.LabelControl labelControl_deviceEnableNO;
+        private DevExpress.XtraEditors.LabelControl labelControl_deviceCanDeleteNO;
         private DevExpress.XtraEditors.LabelControl labelControl_productionLineName;
         private DevExpress.XtraEditors.LabelControl labelControl_testingDeviceName;
         private DevExpress.XtraEditors.LabelControl labelControl_deviceParaCount;
-        private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsEnableTotal;
-        private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsTotal;
+        private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsEnableCount;
+        private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsCount;
         private DevExpress.XtraGrid.GridControl gridControl_deviceAdditionDeletion;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_NO;
