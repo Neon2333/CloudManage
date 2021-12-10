@@ -80,7 +80,7 @@ namespace CloudManage
             }
         }
 
-        private void createConfirmationBox()
+        private void createConfirmationBox(string title)
         {
             this.confirmationBox_applicationRestart = new CommonControl.ConfirmationBox();
             this.confirmationBox_applicationRestart.Appearance.BackColor = System.Drawing.Color.White;
@@ -89,7 +89,7 @@ namespace CloudManage
             this.confirmationBox_applicationRestart.Name = "confirmationBox_applicationRestart";
             this.confirmationBox_applicationRestart.Size = new System.Drawing.Size(350, 200);
             this.confirmationBox_applicationRestart.TabIndex = 29;
-            this.confirmationBox_applicationRestart.titleConfirmationBox = "设备已增删，确认重启软件？";
+            this.confirmationBox_applicationRestart.titleConfirmationBox = title;
             this.confirmationBox_applicationRestart.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxOKClicked);
             this.confirmationBox_applicationRestart.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxCancelClicked);
             this.Controls.Add(this.confirmationBox_applicationRestart);
@@ -130,7 +130,6 @@ namespace CloudManage
         {
             this.tileBar_mainMenu.ShowDropDown(this.tileBarItem_systemConfig);
         }
-
 
         /**
         **********************************************点击二级子菜单按钮后，子菜单按钮隐藏***********************************************************
@@ -199,19 +198,21 @@ namespace CloudManage
 
         private void confirmationBox_applicationRestart_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
-            //返回增删设备页面不翻页
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-            currentPage = (int)StatusMonitorPages.workStatePage;
-            currentPage = processCurrentPage();
-            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            ////返回增删设备页面不翻页
+            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            //iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            //currentPage = (int)StatusMonitorPages.workStatePage;
+            //currentPage = processCurrentPage();
+            //this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
+            //this.confirmationBox_applicationRestart.Visible = false;
 
             this.confirmationBox_applicationRestart.Visible = false;
         }
 
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
                 iSelectedIndex = (int)StatusMonitorPages.workStatePage;
@@ -223,14 +224,18 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if(currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
                 iSelectedIndex = (int)StatusMonitorPages.realtimePage;
@@ -240,16 +245,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
                 iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
@@ -259,16 +268,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
                 iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
@@ -278,16 +291,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
                 iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
@@ -297,16 +314,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
                 iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
@@ -316,16 +337,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_twinDetection_paraSyn_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
                 iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
@@ -335,16 +360,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
                 iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
@@ -354,16 +383,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
                 iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
@@ -373,16 +406,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_dataPreparation_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
                 iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
@@ -392,16 +429,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_modelTraining_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
                 iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
@@ -411,16 +452,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_modelTesting_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
                 iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
@@ -430,16 +475,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
                 iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
@@ -449,16 +498,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
                 currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
@@ -466,17 +519,17 @@ namespace CloudManage
                 iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
                 this.deviceManagement1.selectedFramePage = iSelectedIndex;
             }
-            //else
-            //{
-            //    if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
-            //    {
-            //        createConfirmationBox();
-            //    }
-            //}
+            else
+            {
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
+                }
+            }
         }
         private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
                 currentPage = (int)StatusMonitorPages.workStatePage;
@@ -486,16 +539,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
                 currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
@@ -505,9 +562,13 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
@@ -515,7 +576,7 @@ namespace CloudManage
 
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
                 currentPage = (int)DeviceManagementPages.reservePage1;
@@ -525,16 +586,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
                 currentPage = (int)DeviceManagementPages.reservePage2;
@@ -544,16 +609,20 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线已增删，确认重启软件？");
                 }
             }
         }
 
         private void tileBarItem_systemConfig_productionAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             {
                 this.navigationFrame_mainMenu.SelectedPage = navigationPage_systemConfig;
                 currentPage = (int)SystemConfigPages.productionLineAdditionDeletion;
@@ -563,9 +632,9 @@ namespace CloudManage
             }
             else
             {
-                if (currentPage == 13 && Global.ifDeviceAdditionOrDeletion == true)
+                if (currentPage == 13)
                 {
-                    createConfirmationBox();
+                    createConfirmationBox("设备已增删，确认重启软件？");
                 }
             }
         }

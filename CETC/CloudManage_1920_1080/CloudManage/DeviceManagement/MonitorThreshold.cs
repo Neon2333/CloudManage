@@ -64,13 +64,37 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControlWithSub_monitorThreshold._initSideTileBarWithSub();
         }
 
-        //刷新导航目录
         void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
             string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
             this.labelControl_dir.Text = "   " + str1 + "——" + str2;
         }
+
+        //void refreshLabelDirLine()
+        //{
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+        //    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        //}
+
+        ////刷新目录：设备
+        //public void refreshLabelDirDevice()
+        //{
+        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "'");
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+        //    if (dr.Length == 1)
+        //    {
+        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+        //        {
+        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //        }
+        //        else
+        //        {
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        //        }
+        //    }
+        //}
 
         //刷新当前选中行（当grid绑定的dt发生改变时必须要刷新，否则自动选中第一行）
         private void refreshSelectRow()
@@ -149,7 +173,8 @@ namespace CloudManage.DeviceManagement
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            //_refreshLabelDir();
+            //refreshLabelDirLine();
+            _refreshLabelDir();
         }
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
@@ -157,7 +182,9 @@ namespace CloudManage.DeviceManagement
             if (this.numberKeyboard1 != null)
                 this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
             simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
-            _refreshLabelDir();    
+            _refreshLabelDir();
+            //refreshLabelDirLine();
+            //refreshLabelDirDevice(); 
 
             initCmdQueryDeviceInfoThresholdTemp();  //刷新grid显示
 

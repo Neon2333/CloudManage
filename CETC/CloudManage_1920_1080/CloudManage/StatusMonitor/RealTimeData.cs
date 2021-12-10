@@ -119,13 +119,31 @@ namespace CloudManage
             
         }
 
-        //刷新目录
-        void refreshLabelDir()
+        //刷新目录：产线
+        void refreshLabelDirLine()
         {
-            //实时页面的侧边栏没有总览、全部设备，默认是000-000，初始化时不刷新导航栏
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
-            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-            this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+            this.labelControl_dir.Text = "   " + str1;
+        }
+
+        //刷新目录：设备
+        public void refreshLabelDirDevice()
+        {
+            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItem + "'");
+            if (dr.Length == 1)
+            {
+                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+                {
+                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+                    this.labelControl_dir.Text += "——" + str2;
+                }
+            }
+        }
+
+        //刷新目录：图片类型
+        public void refreshLabelDirImgType()
+        {
+            this.labelControl_dir.Text += labelDirImgType;
         }
 
         //刷新选中设备的阈值
@@ -150,6 +168,7 @@ namespace CloudManage
 
             }
         }
+
 
         //强制触发itemCustomize刷新
         public void refreshGrid()
@@ -195,12 +214,13 @@ namespace CloudManage
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1(object sender, EventArgs e)
         {
-            //refreshLabelDir();
+            refreshLabelDirLine();
         }
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            refreshLabelDir();
+            refreshLabelDirDevice();
+            refreshLabelDirImgType();
             lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    //选中device后，将tagSelectedItemSub改变后，才更新表
             this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
             refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
@@ -217,7 +237,9 @@ namespace CloudManage
             {
                 this.labelDirImgType = "——缺陷";
             }
-            refreshLabelDir();
+            refreshLabelDirLine();
+            refreshLabelDirDevice();
+            refreshLabelDirImgType();
         }
 
         //给右侧数据上色，绑定gridcontrol的表发生改变时自动对每条记录执行一次

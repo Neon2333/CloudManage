@@ -19,6 +19,7 @@ namespace CloudManage.SystemConfig
         private CommonControl.ConfirmationBox confirmationBox_inputLineName;
         private CommonControl.ConfirmationBox confirmationBox_addLine;
         string inputLineName = String.Empty;
+        string[] lineNOVec = new string[999];   //暂存所有可能的LineNO
 
         public ProductionLineAdditionDeletion()
         {
@@ -28,6 +29,7 @@ namespace CloudManage.SystemConfig
 
         void initDeviceAdditionDeletion()
         {
+            initLineNOVec();
             Global.initDtProductionLineExists();
             initSideTileBarProductionLineAdditionDeletion();
             this.gridControl_productionLineAdditionDeletion.DataSource = Global.dtProductionLineSystemConfig;
@@ -38,15 +40,27 @@ namespace CloudManage.SystemConfig
                 this.tileView1.FocusedRowHandle = selectRowDtProductionLineExists[0]; //默认选中第一行
             }
         }
+        
+        private void initLineNOVec()
+        {
+            for(int i = 1; i <= 9; i++)
+            {
+                lineNOVec[i - 1] = "00" + i.ToString();
+            }
+            for(int i = 10; i <= 99; i++)
+            {
+                lineNOVec[i - 1] = "0" + i.ToString();
+            }
+            for(int i = 100; i <= 999; i++)
+            {
+                lineNOVec[i - 1] = i.ToString();
+            }
+        }
 
         private void initSideTileBarProductionLineAdditionDeletion()
         {
             this.sideTileBarControl_productionLineAdditionDeletion.overViewText = "产线";
-            string totalProductionCount = String.Empty;
-            if (Global.dtProductionCount.Rows.Count == 1)
-            {
-                totalProductionCount = Global.dtProductionCount.Rows[0]["totalProductionCount"].ToString();
-            }
+            string totalProductionCount = Global.dtSideTileBar.Rows.Count.ToString();
             this.sideTileBarControl_productionLineAdditionDeletion._setNum("000", totalProductionCount);
         }
 
@@ -58,9 +72,8 @@ namespace CloudManage.SystemConfig
 
         private void refreshDtProductionLineSystemConfig()
         {
-            string cmdInitDtProductionLineExists = "SELECT * FROM v_productionline_system_config;";
-            Global.mysqlHelper1._queryTableMySQL(cmdInitDtProductionLineExists, ref Global.dtProductionLineSystemConfig);
-            //Global.reorderDt(ref Global.dtProductionLineSystemConfig);
+            Global._init_dtSideTileBarWorkState();
+            Global.initDtProductionLineExists();
         }
 
         private void gridControl_productionLineAdditionDeletion_Click(object sender, EventArgs e)
@@ -155,7 +168,7 @@ namespace CloudManage.SystemConfig
             this.confirmationBox_inputLineName.titleConfirmationBox = "请输入产线名称";
             this.confirmationBox_inputLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxOKClicked);
             this.confirmationBox_inputLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxCancelClicked);
-            this.Controls.Add(this.confirmationBox_delLine);
+            this.Controls.Add(this.confirmationBox_inputLineName);
             this.confirmationBox_inputLineName.Visible = true;
             this.confirmationBox_inputLineName.BringToFront();
 
@@ -179,11 +192,10 @@ namespace CloudManage.SystemConfig
                 this.confirmationBox_addLine.Name = "confirmationBox1";
                 this.confirmationBox_addLine.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox_addLine.TabIndex = 29;
-                DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
                 this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线 " + inputLineName + " ?";
                 this.confirmationBox_addLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_addLine_ConfirmationBoxOKClicked);
                 this.confirmationBox_addLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_addLine_ConfirmationBoxCancelClicked);
-                this.Controls.Add(this.confirmationBox_delLine);
+                this.Controls.Add(this.confirmationBox_addLine);
                 this.confirmationBox_addLine.Visible = true;
                 this.confirmationBox_addLine.BringToFront();
             }
@@ -198,23 +210,33 @@ namespace CloudManage.SystemConfig
 
         private void confirmationBox_addLine_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
-
-            for(int i = 0; i < Global.dtProductionLineSystemConfig.Rows.Count; i++)
+            string lNO = String.Empty;
+            List<string> ll = new List<string>();
+            for (int i = 0; i < Global.dtProductionLine.Rows.Count; i++)
             {
-
+                ll.Add(Global.dtProductionLine.Rows[i]["LineNO"].ToString());
             }
-            //Global.dtProductionLineSystemConfig;
+
+            for(int i = 0; i < 999; i++)
+            {
+                if (ll.Contains(lineNOVec[i]) == false)
+                {
+                    lNO = lineNOVec[i];
+                    break;
+                }
+            }
+            
 
             MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
-            //lineNO.Value = ;
+            lineNO.Value = lNO;
             MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
-            //lineName.Value = ;
+            lineName.Value = this.dtucTextBoxEx1.InputText;
             MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
             MySqlParameter[] paras = { lineNO, lineName, ifAffected };
             string cmdAddLine = "p_addLine";
-            Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 1, 1);
+            Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 2, 1);
 
-            this.confirmationBox_delLine.Visible = false;
+            this.confirmationBox_addLine.Visible = false;
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
             {

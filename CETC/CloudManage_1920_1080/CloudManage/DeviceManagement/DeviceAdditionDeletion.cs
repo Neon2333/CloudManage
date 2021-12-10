@@ -84,12 +84,15 @@ namespace CloudManage.DeviceManagement
             //mysqlHelper1._connectMySQL();
             //获得设备数
             int deviceCountEachLine = 0;
-            DataTable dtDeviceCountEachLine = new DataTable();
-            string cmdGetDeviceEnableCount = "SELECT DeviceCount FROM v_device_count_eachline WHERE LineNO='" + LineNO + "';";
-            Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceEnableCount, ref dtDeviceCountEachLine);
-            if (dtDeviceCountEachLine.Rows.Count == 1)
+            //DataTable dtDeviceCountEachLine = new DataTable();
+            //string cmdGetDeviceEnableCount = "SELECT DeviceCount FROM v_device_count_eachline WHERE LineNO='" + LineNO + "';";
+            //Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceEnableCount, ref dtDeviceCountEachLine);
+            Global._init_dtSideTileBarWorkState();
+            DataRow[] drDtSideTileBar = Global.dtSideTileBar.Select("LineNO='" + LineNO + "'");
+
+            if (drDtSideTileBar.Length == 1)
             {
-                deviceCountEachLine = Convert.ToInt32(dtDeviceCountEachLine.Rows[0][0]);
+                deviceCountEachLine = Convert.ToInt32(drDtSideTileBar[0]["DeviceTotalNum"]);
             }
 
             for (int i = 0; i < deviceCountEachLine; i++)
@@ -440,6 +443,8 @@ namespace CloudManage.DeviceManagement
                 {
                     Global.mysqlHelper1._updateMySQL("ALTER TABLE faults_config AUTO_INCREMENT=1;");  //重置主键NO
                 }
+
+                this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
 
                 if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
                 {

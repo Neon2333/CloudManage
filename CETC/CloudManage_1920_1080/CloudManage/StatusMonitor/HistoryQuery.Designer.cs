@@ -515,6 +515,7 @@
             this.sideTileBarControlWithSub_historyQuery.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub_historyQuery.TabIndex = 13;
             this.sideTileBarControlWithSub_historyQuery.useDtInitSideTileBarWithSub = true;
+            this.sideTileBarControlWithSub_historyQuery.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem);
             this.sideTileBarControlWithSub_historyQuery.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // gridControl_faultDataTime
@@ -864,7 +865,7 @@
             this.tileView_1.TileTemplate.Add(tileViewItemElement26);
             this.tileView_1.TileTemplate.Add(tileViewItemElement27);
             // 
-            // HistoryQueryControl
+            // HistoryQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -878,7 +879,7 @@
             this.Controls.Add(this.panelControl_rightSide);
             this.Controls.Add(this.windowsUIButtonPanel_historyQuery);
             this.Controls.Add(this.sideTileBarControlWithSub_historyQuery);
-            this.Name = "HistoryQueryControl";
+            this.Name = "HistoryQuery";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
             this.panelControl_rightSide.ResumeLayout(false);

@@ -85,10 +85,10 @@ namespace CloudManage.SystemConfig
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement23 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement24 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement25 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions25 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionLineAdditionDeletion));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions26 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions27 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.tileViewColumn_NO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LNO = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -151,8 +151,8 @@ namespace CloudManage.SystemConfig
             // 
             this.tileViewColumn_LDCount.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_LDCount.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_LDCount.Caption = "DeviceCountEachLine";
-            this.tileViewColumn_LDCount.FieldName = "DeviceCountEachLine";
+            this.tileViewColumn_LDCount.Caption = "DeviceTotalNum";
+            this.tileViewColumn_LDCount.FieldName = "DeviceTotalNum";
             this.tileViewColumn_LDCount.Name = "tileViewColumn_LDCount";
             this.tileViewColumn_LDCount.Visible = true;
             this.tileViewColumn_LDCount.VisibleIndex = 3;
@@ -266,7 +266,7 @@ namespace CloudManage.SystemConfig
             this.labelControl_dir.Name = "labelControl_dir";
             this.labelControl_dir.Size = new System.Drawing.Size(1106, 50);
             this.labelControl_dir.TabIndex = 32;
-            this.labelControl_dir.Text = "   当前已有产线";
+            this.labelControl_dir.Text = "   当前产线";
             // 
             // panelControl_rightSide
             // 
@@ -691,14 +691,14 @@ namespace CloudManage.SystemConfig
             // 
             this.windowsUIButtonPanel_productionLineAdditionDeletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_productionLineAdditionDeletion.ButtonInterval = 20;
-            windowsUIButtonImageOptions25.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions25.Image")));
-            windowsUIButtonImageOptions26.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions26.SvgImage")));
-            windowsUIButtonImageOptions27.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions27.SvgImage")));
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions25, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions26, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions27, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_productionLineAdditionDeletion.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_productionLineAdditionDeletion.Location = new System.Drawing.Point(0, 800);
