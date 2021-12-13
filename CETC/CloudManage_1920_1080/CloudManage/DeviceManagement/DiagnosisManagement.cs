@@ -84,11 +84,36 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        void _refreshLabelDir()
+        //void _refreshLabelDir()
+        //{
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
+        //    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
+        //    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //}
+
+        void refreshLabelDirLine()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
-            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
-            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        }
+
+        //刷新目录：设备
+        public void refreshLabelDirDevice()
+        {
+            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem + "'");
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
+            if (dr.Length == 1)
+            {
+                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+                {
+                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
+                    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+                }
+                else
+                {
+                    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+                }
+            }
         }
 
         //点击侧边栏查询的命令
@@ -184,17 +209,15 @@ namespace CloudManage.DeviceManagement
 
         private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            _refreshLabelDir();
+            refreshLabelDirLine();
         }
 
         private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            _refreshLabelDir();
+            refreshLabelDirLine();
+            refreshLabelDirDevice();
 
             initCmdQueryFaultsConfig(); //初始化查询命令，4种
-
-            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            //mysqlHelper1._connectMySQL();
 
             //更新dtFaultsConfig
             bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryFaultsConfig, ref Global.dtFaultsConfig);
@@ -392,9 +415,6 @@ namespace CloudManage.DeviceManagement
         {
             if (faultsLatest.Count != 0)    //有改动时才保存
             {
-                //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                //mysqlHelper1._connectMySQL();
-
                 bool flagSaveSuccess = true;
                 foreach (var fo in faultsLatest)
                 {

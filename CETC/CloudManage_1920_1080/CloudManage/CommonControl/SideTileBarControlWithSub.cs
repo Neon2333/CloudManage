@@ -315,6 +315,7 @@ namespace CloudManage.CommonControl
                     if (indexItem == i)
                     {
                         this.tileBar_sideTileBar.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i);
+                        this.TagSelectedItem = (string)((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Tag; 
                         flag = true;
                     }
                 }
@@ -337,6 +338,7 @@ namespace CloudManage.CommonControl
                     if (indexItem == i)
                     {
                         this.tileBar_sideTileBar_sub.SelectedItem = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
+                        this.TagSelectedItemSub = (string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag;
                         flag = true;
                     }
                 }
@@ -537,12 +539,14 @@ namespace CloudManage.CommonControl
                 countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
                 TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新检测设备总数
 
-                //不显示“所有设备”时，初始化默认选中“设备1”
-                if (this.showAllDevices == false && this.countSideTileBarItemSub == 2)
-                {
-                    this.tileBar_sideTileBar_sub.SelectedItem = tileBarItemSub;
-                    this.TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
-                }
+                //显示“所有设备”时，初始化默认选中“所有设备”
+                //不显示“所有设备”时，选中“所有设备”但是不显示
+                //if (this.showAllDevices == false && this.countSideTileBarItemSub == 2)
+                //{
+                //    this.tileBar_sideTileBar_sub.SelectedItem = tileBarItemSub;
+                //    this.TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
+                //}
+                this._selectedItemSub(0);  
 
                 return true;
             }
@@ -700,6 +704,8 @@ namespace CloudManage.CommonControl
                             temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
                             temp.Visible = true;
                         }
+
+                        this._selectedItemSub(0);   //showAllDevice==true时重新选中“所有设备”,为false时不显示选中
                     }
                     else
                     {
@@ -725,15 +731,14 @@ namespace CloudManage.CommonControl
                             {
                                 temp.Visible = false;
                             }
-
                         }
+                        this._selectedItemSub(0);
                     }
                 }
                 else
                 {
                    if(this.TagSelectedItem != "000")
                     {
-
                         //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
                         DataRow dr = null;
                         for (int i = 0; i < Global.dtDeviceConfig.Rows.Count; i++)
@@ -756,8 +761,8 @@ namespace CloudManage.CommonControl
                             {
                                 temp.Visible = false;
                             }
-
                         }
+                        this._selectedItemSub(0);
                     }
                 }
 

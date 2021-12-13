@@ -16,6 +16,8 @@ namespace CloudManage.DeviceManagement
         private CommonControl.NumberKeyboard numberKeyboard1;
 
         private int[] selectRow = { 0 };    //选中行的RowHandle
+        //int[] selectRow = new int[1];    //选中行的RowHandle
+
         string cmdQueryDeviceInfoThresholdTemp = String.Empty;
         enum ModifyUpperOrLower { modifyUpper = 0, modifyLower = 1 };
         int modifyUpperOrLowerCurrent;  //当前修改的是上限还是下限
@@ -34,7 +36,6 @@ namespace CloudManage.DeviceManagement
 
         Dictionary<int, thresholdIndexAndVal> thresholdOriginal = new Dictionary<int, thresholdIndexAndVal>(); //暂存未保存时被改动行的最初状态
         Dictionary<int, thresholdIndexAndVal> thresholdLatest = new Dictionary<int, thresholdIndexAndVal>();   //存所有被改动行的当前状态
-
 
         public MonitorThreshold()
         {
@@ -64,37 +65,37 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControlWithSub_monitorThreshold._initSideTileBarWithSub();
         }
 
-        void _refreshLabelDir()
+        //void _refreshLabelDir()
+        //{
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+        //     string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
+        //    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //}
+
+        void refreshLabelDirLine()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
-            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
         }
 
-        //void refreshLabelDirLine()
-        //{
-        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-        //    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-        //}
-
-        ////刷新目录：设备
-        //public void refreshLabelDirDevice()
-        //{
-        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "'");
-        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-        //    if (dr.Length == 1)
-        //    {
-        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
-        //        {
-        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
-        //            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-        //        }
-        //        else
-        //        {
-        //            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-        //        }
-        //    }
-        //}
+        //刷新目录：设备
+        public void refreshLabelDirDevice()
+        {
+            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "'");
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+            if (dr.Length == 1)
+            {
+                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+                {
+                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
+                    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+                }
+                else
+                {
+                    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+                }
+            }
+        }
 
         //刷新当前选中行（当grid绑定的dt发生改变时必须要刷新，否则自动选中第一行）
         private void refreshSelectRow()
@@ -173,8 +174,7 @@ namespace CloudManage.DeviceManagement
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            //refreshLabelDirLine();
-            _refreshLabelDir();
+            refreshLabelDirLine();
         }
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
@@ -182,14 +182,10 @@ namespace CloudManage.DeviceManagement
             if (this.numberKeyboard1 != null)
                 this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
             simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
-            _refreshLabelDir();
-            //refreshLabelDirLine();
-            //refreshLabelDirDevice(); 
+            refreshLabelDirLine();
+            refreshLabelDirDevice();
 
             initCmdQueryDeviceInfoThresholdTemp();  //刷新grid显示
-
-            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            //mysqlHelper1._connectMySQL();
 
             //更新dtFaultsConfig
             bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
@@ -317,9 +313,6 @@ namespace CloudManage.DeviceManagement
         {
             if (thresholdLatest.Count != 0)    //有修改时才保存
             {
-                //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                //mysqlHelper1._connectMySQL();
-
                 bool flagSaveSuccess = true;
                 foreach (var to in thresholdLatest)
                 {
@@ -342,7 +335,8 @@ namespace CloudManage.DeviceManagement
                 {
                     thresholdLatest.Clear();    //将最新修改表清空
                     Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //保存后，因为grid绑定的表没有变化，所以虽然thresholdLatest以清空，但itemCustomize不会触发，被修改的行不会从红色刷新到白色
-                    selectRow = this.tileView1.GetSelectedRows();
+                    if(((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
+                        selectRow = this.tileView1.GetSelectedRows();
                     refreshSelectRow();
 
                     paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传到RealTimeData
@@ -371,7 +365,8 @@ namespace CloudManage.DeviceManagement
             this.thresholdOriginal.Clear();
             //Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
             Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //重排grid绑定的dt会触发itemCustomize事件
-            selectRow = this.tileView1.GetSelectedRows();
+            if(((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
+                selectRow = this.tileView1.GetSelectedRows();
             refreshSelectRow();
         }
 

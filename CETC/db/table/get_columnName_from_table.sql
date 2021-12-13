@@ -1,1 +1,0 @@
-select COLUMN_NAME from information_schema.COLUMNS where table_name = 'device_config' and table_schema = 'cloud_manage';  

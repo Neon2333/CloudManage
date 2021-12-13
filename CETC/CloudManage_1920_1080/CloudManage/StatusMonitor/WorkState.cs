@@ -94,7 +94,11 @@ namespace CloudManage.StatusMonitor
         //总览页面内双击tile，侧边栏对应按钮被选中，跳转到对应产线页面
         private void tileView_overview_DoubleClick(object sender, EventArgs e)
         {
-            int[] index = this.tileView_overview.GetSelectedRows(); //返回被选中tile的index
+            int[] index = { 0 };
+            if (((DataTable)this.gridControl_overview.DataSource).Rows.Count > 0)
+            {
+                index = this.tileView_overview.GetSelectedRows(); //返回被选中tile的index
+            }
             foreach(var i in index)
             {
                 this.sideTileBarControl_workState._selectedItem(i + 1);

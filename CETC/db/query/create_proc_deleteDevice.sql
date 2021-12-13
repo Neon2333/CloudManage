@@ -6,6 +6,7 @@ DECLARE SQL_FOR_UPDATE_device_config VARCHAR(100);
 
 START TRANSACTION;
 
+-- device_config
 SET SQL_FOR_UPDATE_device_config=CONCAT('UPDATE device_config SET `DeviceStatus_', dn, '`=0 WHERE LineNO=', ln, ';');
 SET @sql=SQL_FOR_UPDATE_device_config;
 PREPARE stmt FROM @sql;
@@ -19,14 +20,18 @@ CASE ROW_COUNT()
 END CASE;	
 DEALLOCATE PREPARE stmt;
 
+-- device_info
 DELETE FROM device_info WHERE LineNO=ln AND DeviceNO=dn;
 CASE ROW_COUNT()
 	WHEN 0 THEN 
 		SET ifAffectedRow=0;
 	ELSE 
 		ALTER TABLE device_info AUTO_INCREMENT=1;
+-- 		ALTER TABLE device_info DROP `id`;
+-- 		ALTER TABLE device_info ADD `id` INT(10) NOT NULL AUTO_INCREMENT FIRST;
 END CASE;
 
+-- device_info_threshold
 DELETE FROM device_info_threshold WHERE LineNO=ln AND DeviceNO=dn;
 CASE ROW_COUNT()
 WHEN 0 THEN 
@@ -35,6 +40,7 @@ ELSE
 	ALTER TABLE device_info_threshold AUTO_INCREMENT=1;
 END CASE;
 
+-- device_info_paranameandsuffix
 DELETE FROM device_info_paranameandsuffix WHERE LineNO=ln AND DeviceNO=dn;
 CASE ROW_COUNT()
 WHEN 0 THEN 
@@ -43,6 +49,7 @@ ELSE
 	ALTER TABLE device_info_paranameandsuffix AUTO_INCREMENT=1;
 END CASE;
 
+-- faults_config
 DELETE FROM faults_config WHERE LineNO=ln AND DeviceNO=dn;
 CASE ROW_COUNT()
 WHEN 0 THEN 
@@ -57,5 +64,4 @@ IF(ifAffectedRow=1) THEN
 ELSE 
 	ROLLBACK;
 END IF;
-
 END

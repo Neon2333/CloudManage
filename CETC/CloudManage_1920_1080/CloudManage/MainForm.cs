@@ -666,7 +666,8 @@ namespace CloudManage
 
         private void gridControl_faultsCurrent_Click(object sender, EventArgs e)    //不要用itemClick，有时候点击了但selectedrows未改变，出现bug
         {
-            selectRowFaultCurrent = this.tileView_1.GetSelectedRows();  //手动记录被按下按钮
+            if (((DataTable)this.gridControl_faultsCurrent.DataSource).Rows.Count > 0)
+                selectRowFaultCurrent = this.tileView_1.GetSelectedRows();  //手动记录被按下按钮
 
         }
 
@@ -680,9 +681,6 @@ namespace CloudManage
 
                 if (drSelected != null) //避免未选中行就点击按钮出错
                 {
-                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-                    //mysqlHelper1._connectMySQL();
-
                     string valLineName = drSelected["LineName"].ToString();
                     string valDeviceName = drSelected["DeviceName"].ToString();
                     string valFaultName = drSelected["FaultName"].ToString();
@@ -731,7 +729,6 @@ namespace CloudManage
                 DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行
                 if (drSelected != null)
                 {
-                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     Global.mysqlHelper1._connectMySQL();
 
                     string valLineName = drSelected["LineName"].ToString();

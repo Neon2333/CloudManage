@@ -80,8 +80,6 @@ namespace CloudManage.DeviceManagement
 
             Global.dtDeviceCanDeleteEachLine.Rows.Clear();
 
-            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            //mysqlHelper1._connectMySQL();
             //获得设备数
             int deviceCountEachLine = 0;
             //DataTable dtDeviceCountEachLine = new DataTable();

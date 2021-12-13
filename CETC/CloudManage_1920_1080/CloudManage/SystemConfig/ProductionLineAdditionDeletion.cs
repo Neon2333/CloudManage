@@ -64,12 +64,6 @@ namespace CloudManage.SystemConfig
             this.sideTileBarControl_productionLineAdditionDeletion._setNum("000", totalProductionCount);
         }
 
-        //刷新导航目录
-        void _refreshLabelDir()
-        {
-            
-        }
-
         private void refreshDtProductionLineSystemConfig()
         {
             Global._init_dtSideTileBarWorkState();
@@ -225,7 +219,6 @@ namespace CloudManage.SystemConfig
                     break;
                 }
             }
-            
 
             MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
             lineNO.Value = lNO;

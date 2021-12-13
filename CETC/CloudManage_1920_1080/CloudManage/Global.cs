@@ -63,8 +63,6 @@ namespace CloudManage
         //从MySQL中查询数据初始化表
         public static bool _initDtMySQL(ref DataTable dt, string cmdDt)
         {
-            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-            //bool flag = mysqlHelper1._connectMySQL();
             bool flag = mysqlHelper1._queryTableMySQL(cmdDt, ref dt);
             return flag;
         }
@@ -154,7 +152,6 @@ namespace CloudManage
 
                     cmdInsertFaultsHistory = "CALL insertFaultsHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime + "');";  
 
-                    //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
                     bool flag1 = mysqlHelper1._connectMySQL();
                     bool flag2 = mysqlHelper1._insertMySQL(cmdInsertFaultsHistory);
                     mysqlHelper1.conn.Close();
@@ -442,7 +439,6 @@ namespace CloudManage
         public static void _init_dtDeviceInfoThresholdAndLocation()
         {
             string cmdInitDtDeviceInfoThresholdAndLocation = "SELECT * FROM device_info_threshold;"; 
-            //MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
             mysqlHelper1._connectMySQL();
             mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoThresholdAndLocation, ref Global.dtDeviceInfoThresholdAndLocation);
             mysqlHelper1.conn.Close();

@@ -43,7 +43,7 @@ namespace CloudManage
             Global._init_dtDeviceInfoThresholdAndLocation();
             initDataSource();
             initImgSlider();
-            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    //001
+            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    
             DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
         }
 
@@ -276,7 +276,7 @@ namespace CloudManage
 
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
-            //选中产线、未选中设备是不刷新表。选中产线且选中设备时才刷新表
+            //选中产线、未选中设备时不刷新表。选中产线且选中设备时才刷新表
             this.getDataSource(lineNO_deviceNONotChanged, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    
         }
 
