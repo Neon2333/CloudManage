@@ -186,7 +186,7 @@ namespace CloudManage.SystemConfig
                 this.confirmationBox_addLine.Name = "confirmationBox1";
                 this.confirmationBox_addLine.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox_addLine.TabIndex = 29;
-                this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线 " + inputLineName + " ?";
+                this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线   " + inputLineName + "?";
                 this.confirmationBox_addLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_addLine_ConfirmationBoxOKClicked);
                 this.confirmationBox_addLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_addLine_ConfirmationBoxCancelClicked);
                 this.Controls.Add(this.confirmationBox_addLine);

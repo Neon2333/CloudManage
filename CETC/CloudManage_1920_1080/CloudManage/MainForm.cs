@@ -224,11 +224,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if(currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -247,11 +247,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -270,11 +270,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -293,11 +293,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -316,11 +316,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -339,11 +339,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -362,11 +362,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -385,11 +385,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -408,11 +408,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -431,11 +431,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -454,11 +454,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -477,11 +477,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -500,11 +500,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -523,7 +523,7 @@ namespace CloudManage
             {
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -541,11 +541,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -564,11 +564,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -588,11 +588,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -611,11 +611,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启软件？");
+                    createConfirmationBox("产线已增删，确认重启？");
                 }
             }
         }
@@ -634,7 +634,7 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启软件？");
+                    createConfirmationBox("设备已增删，确认重启？");
                 }
             }
         }
