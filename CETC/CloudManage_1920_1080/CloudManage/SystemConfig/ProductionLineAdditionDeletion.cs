@@ -82,7 +82,7 @@ namespace CloudManage.SystemConfig
         /*********************************************删除产线*******************************************************/
         private void simpleButton_productionLineDeletion_Click(object sender, EventArgs e)
         {
-            if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
+            if (Global.dtProductionLineSystemConfig.Rows.Count != 0)
             {
                 //弹出确认框
                 this.confirmationBox_delLine = new CommonControl.ConfirmationBox();
@@ -128,6 +128,7 @@ namespace CloudManage.SystemConfig
             string cmdDeleteLine = "p_deleteLine";
             Global.mysqlHelper1._executeProcMySQL(cmdDeleteLine, paras, 1, 1);
 
+
             this.confirmationBox_delLine.Visible = false;
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
@@ -136,6 +137,22 @@ namespace CloudManage.SystemConfig
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
 
+                //只需重读当前页面用到的表，其他表，重启时会更新
+                //重读device_config
+                Global._init_dtDeviceConfig();
+                //重读productionLine
+                Global._init_dtProductionLine();
+                //重读device_info
+
+                //重读device_info_paranameandsuffix
+
+                //重读device_info_threshold
+
+                //重读faults_config
+
+                //重读faults_current
+
+                //重读faults_history
             }
             else if (Convert.ToInt32(ifAffected.Value) == 0)
             {
@@ -229,6 +246,8 @@ namespace CloudManage.SystemConfig
             string cmdAddLine = "p_addLine";
             Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 2, 1);
 
+            
+
             this.confirmationBox_addLine.Visible = false;
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
@@ -236,6 +255,11 @@ namespace CloudManage.SystemConfig
                 MessageBox.Show("添加成功");
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
+
+                //重读device_config
+                Global._init_dtDeviceConfig();
+                //重读productionLine
+                Global._init_dtProductionLine();
             }
             else if (Convert.ToInt32(ifAffected.Value) == 0)
             {

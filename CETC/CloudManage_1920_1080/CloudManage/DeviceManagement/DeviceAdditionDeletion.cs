@@ -234,6 +234,7 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        //*************************************************************删除设备****************************************************************************
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
@@ -257,6 +258,10 @@ namespace CloudManage.DeviceManagement
                     Global.ifDeviceAdditionOrDeletion = true;
                     refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                     refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+
+                    //device_config
+                    Global._init_dtDeviceConfig();
+                    
                 }
                 else if (Convert.ToInt32(ifAffected.Value) == 0)
                 {
@@ -270,6 +275,7 @@ namespace CloudManage.DeviceManagement
             this.confirmationBox1.Visible = false;
         }
 
+        /******************************************************增加设备**************************************************************/
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanAddEachLine.Rows.Count != 0)
