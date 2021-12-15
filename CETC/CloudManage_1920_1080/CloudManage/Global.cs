@@ -615,18 +615,25 @@ namespace CloudManage
         //获取表的所有字段名
         public static string[] GetColumnsByDataTable(DataTable dt)
         {
-            string[] strColumns = null;
-            if (dt.Columns.Count > 0)
+            if (dt != null)
             {
-                int columnNum = 0;
-                columnNum = dt.Columns.Count;
-                strColumns = new string[columnNum];
-                for (int i = 0; i < dt.Columns.Count; i++)
+                string[] strColumns = null;
+                if (dt.Columns.Count > 0)
                 {
-                    strColumns[i] = dt.Columns[i].ColumnName;
+                    int columnNum = 0;
+                    columnNum = dt.Columns.Count;
+                    strColumns = new string[columnNum];
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        strColumns[i] = dt.Columns[i].ColumnName;
+                    }
                 }
+                return strColumns;
             }
-            return strColumns;
+            else
+            {
+                return null;
+            }
         }
 
         /*************************************************************************************************************/

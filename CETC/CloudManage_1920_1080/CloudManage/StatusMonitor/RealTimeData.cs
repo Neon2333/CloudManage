@@ -23,6 +23,7 @@ namespace CloudManage
         private DataTable dtGridDataSource = new DataTable();       //改变数据显示形式，将一行变为若干行，最终绑定到grid上的dt
         private DataRow drParaThreshold;                            //某台设备的参数阈值
         string lineNO_deviceNONotChanged = String.Empty;            //防止timer_devicePara_Tick中刷新dtGridDataSource时，lineNO改变了但是DeviceNO还未变，导致dtGridDataSource为空
+        string deviceNO_deviceNONotChanged = String.Empty;
 
         struct paraThreshold
         {
@@ -43,39 +44,40 @@ namespace CloudManage
             Global._init_dtDeviceInfoThresholdAndLocation();
             initDataSource();
             initImgSlider();
-            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    
+            lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;
+            deviceNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub;
             DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
         }
 
         private void initDataSource()
         {
-            string DeviceNOTemp = String.Empty;
-            string firstLineNO = String.Empty;
-            if (Global.dtDeviceConfig.Rows.Count != 0)  //防止单独打开StatusMonitor设计器时，Global.dtDeviceConfig未初始化，导致出错
+            if (Global.dtDeviceConfig.Rows.Count != 0)
             {
+                string DeviceNOTemp = String.Empty;
+                string firstLineNO = String.Empty;
                 firstLineNO = Global.dtDeviceConfig.Rows[0]["LineNO"].ToString();
-            }
-            string[] cols = Global.GetColumnsByDataTable(Global.dtDeviceConfig);
-            for(int i = 2; i < Global.dtDeviceConfig.Columns.Count; i++)
-            {
-                if(Global.dtDeviceConfig.Rows[0][i].ToString() == "1")
-                {
-                    DeviceNOTemp = cols[i];
-                    break;
-                }
-            }
-            string firstDeviceNO = String.Empty;
-            for(int i = 0; i < DeviceNOTemp.Length; i++)
-            {
-                if (DeviceNOTemp.ElementAt(i) >= '0' && DeviceNOTemp.ElementAt(i) <= '9')
-                {
-                    firstDeviceNO += DeviceNOTemp.ElementAt(i);
-                }
-            }
-            getDataSource(firstLineNO, firstDeviceNO);
-            refreshParaLimits(firstLineNO, firstDeviceNO);
-            this.gridControl_rightSide.DataSource = this.dtGridDataSource;
+                string[] cols = Global.GetColumnsByDataTable(Global.dtDeviceConfig);
 
+                for (int i = 2; i < Global.dtDeviceConfig.Columns.Count; i++)
+                {
+                    if (Global.dtDeviceConfig.Rows[0][i].ToString() == "1")
+                    {
+                        DeviceNOTemp = cols[i];
+                        break;
+                    }
+                }
+                string firstDeviceNO = String.Empty;
+                for (int i = 0; i < DeviceNOTemp.Length; i++)
+                {
+                    if (DeviceNOTemp.ElementAt(i) >= '0' && DeviceNOTemp.ElementAt(i) <= '9')
+                    {
+                        firstDeviceNO += DeviceNOTemp.ElementAt(i);
+                    }
+                }
+                getDataSource(firstLineNO, firstDeviceNO);
+                refreshParaLimits(firstLineNO, firstDeviceNO);
+                this.gridControl_rightSide.DataSource = this.dtGridDataSource;
+            }
         }
 
         private void getDataSource(string selectedItemTag, string selectedItemSubTag)
@@ -123,6 +125,8 @@ namespace CloudManage
         void refreshLabelDirLine()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+            if (str1 == "总览")
+                str1 = "";
             this.labelControl_dir.Text = "   " + str1;
         }
 
@@ -143,7 +147,8 @@ namespace CloudManage
         //刷新目录：图片类型
         public void refreshLabelDirImgType()
         {
-            this.labelControl_dir.Text += labelDirImgType;
+            if(this.labelControl_dir.Text!="   ")
+                this.labelControl_dir.Text += labelDirImgType;
         }
 
         //刷新选中设备的阈值
@@ -212,6 +217,7 @@ namespace CloudManage
             this.imageSlider_camera.Images.Add(global::CloudManage.Properties.Resources.camera1);
         }
 
+        //没有所有设备，所有点击产线不默认选中子菜单
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1(object sender, EventArgs e)
         {
             refreshLabelDirLine();
@@ -219,12 +225,16 @@ namespace CloudManage
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            refreshLabelDirDevice();
-            refreshLabelDirImgType();
             lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;    //选中device后，将tagSelectedItemSub改变后，才更新表
-            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
-            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
-            setPicDeviceLocation(); //根据选中的设备设定位置
+            deviceNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub;
+            if (lineNO_deviceNONotChanged != "000")
+            {
+                refreshLabelDirDevice();
+                refreshLabelDirImgType();
+                this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
+                refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
+                setPicDeviceLocation(); //根据选中的设备设定位置
+            }
         }
 
         private void imageSlider_camera_ImageChanged(object sender, DevExpress.XtraEditors.Controls.ImageChangedEventArgs e)
@@ -277,7 +287,7 @@ namespace CloudManage
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
             //选中产线、未选中设备时不刷新表。选中产线且选中设备时才刷新表
-            this.getDataSource(lineNO_deviceNONotChanged, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    
+            this.getDataSource(lineNO_deviceNONotChanged, deviceNO_deviceNONotChanged);    
         }
 
     }

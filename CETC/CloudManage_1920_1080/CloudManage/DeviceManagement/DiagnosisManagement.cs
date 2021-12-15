@@ -207,16 +207,8 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
+        private void refreshGridSourceSideTileBarPressed()
         {
-            refreshLabelDirLine();
-        }
-
-        private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
-        {
-            refreshLabelDirLine();
-            refreshLabelDirDevice();
-
             initCmdQueryFaultsConfig(); //初始化查询命令，4种
 
             //更新dtFaultsConfig
@@ -259,11 +251,10 @@ namespace CloudManage.DeviceManagement
             this.tileView1.FocusedRowHandle = selectRow[0];
             refreshColorButtonStatusChange();
 
-
             //在显示全部时点击查询
             if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
             {
-                
+
             }
             //在仅显示使能时点击查询
             else if (queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
@@ -275,8 +266,21 @@ namespace CloudManage.DeviceManagement
             {
 
             }
+        }
 
-            //Global.mysqlHelper1.conn.Close();
+        //子菜单显示“所有设备”，每次点击产线时默认选中“所有设备”，且刷新grid显示
+        private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
+        {
+            refreshLabelDirLine();
+            refreshGridSourceSideTileBarPressed();
+        }
+
+        //点击具体设备时按照设备刷新grid
+        private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
+        {
+            refreshLabelDirLine();
+            refreshLabelDirDevice();
+            refreshGridSourceSideTileBarPressed();
         }
 
         private void simpleButton_statusChange_Click(object sender, EventArgs e)

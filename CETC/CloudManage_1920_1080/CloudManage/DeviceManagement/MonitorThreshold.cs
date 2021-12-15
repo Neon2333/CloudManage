@@ -172,30 +172,34 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
-        {
-            refreshLabelDirLine();
-        }
-
-        private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
+        private void refreshGridSourceSideTileBarPressed(object sender, EventArgs e)
         {
             if (this.numberKeyboard1 != null)
                 this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
+            initCmdQueryDeviceInfoThresholdTemp();  //初始化查询命令
             simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
-            refreshLabelDirLine();
-            refreshLabelDirDevice();
-
-            initCmdQueryDeviceInfoThresholdTemp();  //刷新grid显示
 
             //更新dtFaultsConfig
             bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
-            //Global.mysqlHelper1.conn.Close();
             Global.dtDeviceInfoThresholdGridShow.Rows.Clear();
             Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
             Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow);
             selectRow[0] = 0;
             refreshSelectRow();
-            //Global.mysqlHelper1.conn.Close();
+        }
+
+        //点击产线时默认选中“所有设备”，按照“所有设备”刷新grid
+        private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
+        {
+            refreshLabelDirLine();
+            refreshGridSourceSideTileBarPressed(sender, e);
+        }
+
+        private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
+        {
+            refreshLabelDirLine();
+            refreshLabelDirDevice();
+            refreshGridSourceSideTileBarPressed(sender, e);
         }
 
         private void simpleButton_modifyUpperLimit_Click(object sender, EventArgs e)

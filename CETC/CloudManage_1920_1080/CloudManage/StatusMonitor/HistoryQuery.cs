@@ -43,32 +43,6 @@ namespace CloudManage.StatusMonitor
             _initWindowsUIButtonPanel();
         }
 
-        ////刷新目录：产线
-        //void refreshLabelDirLine()
-        //{
-        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
-        //    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-        //}
-
-        ////刷新目录：设备
-        //public void refreshLabelDirDevice()
-        //{
-        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "'");
-        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
-        //    if (dr.Length == 1)
-        //    {
-        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
-        //        {
-        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub);
-        //            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-        //        }
-        //        else
-        //        {
-        //            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-        //        }
-        //    }
-        //}
-
         void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
@@ -261,22 +235,24 @@ namespace CloudManage.StatusMonitor
             this.timeEdit_endTime.ShowPopup();
         }
 
-        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
+        private void refreshGridSourceSideTileBarPressed()
         {
-            //refreshLabelDirLine();
-            _refreshLabelDir();
-        }
-
-        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
-        {
-            //refreshLabelDirLine();
-            //refreshLabelDirDevice();
-            _refreshLabelDir();
-
             initCmdQueryFaultsHistory(); //初始化查询命令，4种
 
             bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryFaultsHistory, ref Global.dtHistoryQueryGridShow);
             Global.reorderDt(ref Global.dtHistoryQueryGridShow);
+        }
+
+        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
+        {
+            _refreshLabelDir();
+            refreshGridSourceSideTileBarPressed();
+        }
+
+        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
+        {
+            _refreshLabelDir();
+            refreshGridSourceSideTileBarPressed();
         }
 
         private void simpleButton_query1Week_Click(object sender, EventArgs e)

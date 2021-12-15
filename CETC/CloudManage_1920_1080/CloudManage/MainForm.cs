@@ -187,7 +187,6 @@ namespace CloudManage
                 curPage = currentPage + 13;
             else if (this.navigationFrame_mainMenu.SelectedPage == navigationPage_systemConfig)
                 curPage = currentPage + 18;
-
             return curPage;
         }
 
