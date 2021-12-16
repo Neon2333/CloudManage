@@ -214,7 +214,7 @@ namespace CloudManage.SystemConfig
 
         private void confirmationBox_inputLineName_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
-            this.dtucTextBoxEx1.ResetText();
+            this.dtucTextBoxEx1.InputText = "";
             this.dtucTextBoxEx1.Visible = false;
             this.confirmationBox_inputLineName.Visible = false;
         }
