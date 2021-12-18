@@ -197,7 +197,7 @@ namespace CloudManage.DeviceManagement
         {
             //创建设备添加框
             this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
-            this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(535, 252);
+            this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(524,100);
             this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
             this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
             this.deviceAdditionDeletion_addDeviceBox1.TabIndex = 29;
@@ -220,7 +220,7 @@ namespace CloudManage.DeviceManagement
                 this.confirmationBox1 = new CommonControl.ConfirmationBox();
                 this.confirmationBox1.Appearance.BackColor = System.Drawing.Color.White;
                 this.confirmationBox1.Appearance.Options.UseBackColor = true;
-                this.confirmationBox1.Location = new System.Drawing.Point(627, 169);
+                this.confirmationBox1.Location = new System.Drawing.Point(624,200);
                 this.confirmationBox1.Name = "confirmationBox1";
                 this.confirmationBox1.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox1.TabIndex = 29;

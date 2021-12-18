@@ -18,6 +18,10 @@ namespace CloudManage.SystemConfig
         private CommonControl.ConfirmationBox confirmationBox_delLine;
         private CommonControl.ConfirmationBox confirmationBox_inputLineName;
         private CommonControl.ConfirmationBox confirmationBox_addLine;
+        private CommonControl.ConfirmationBox confirmationBox_modifyLineName;
+        private CommonControl.ConfirmationBox confirmationBox_copyLine;
+
+
         string inputLineName = String.Empty;
         string[] lineNOVec = new string[999];   //暂存所有可能的LineNO
 
@@ -70,9 +74,9 @@ namespace CloudManage.SystemConfig
             Global.initDtProductionLineExists();
         }
 
+        //记录选中的行
         private void gridControl_productionLineAdditionDeletion_Click(object sender, EventArgs e)
         {
-            //记录选中的行
             if (((DataTable)this.gridControl_productionLineAdditionDeletion.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRowDtProductionLineExists = this.tileView1.GetSelectedRows();
@@ -88,12 +92,12 @@ namespace CloudManage.SystemConfig
                 this.confirmationBox_delLine = new CommonControl.ConfirmationBox();
                 this.confirmationBox_delLine.Appearance.BackColor = System.Drawing.Color.White;
                 this.confirmationBox_delLine.Appearance.Options.UseBackColor = true;
-                this.confirmationBox_delLine.Location = new System.Drawing.Point(627, 169);
+                this.confirmationBox_delLine.Location = new System.Drawing.Point(624,200);
                 this.confirmationBox_delLine.Name = "confirmationBox1";
                 this.confirmationBox_delLine.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox_delLine.TabIndex = 29;
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
-                this.confirmationBox_delLine.titleConfirmationBox = "确认删除  " + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "?";
+                this.confirmationBox_delLine.titleConfirmationBox = "确认删除  " + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "  ?";
                 this.confirmationBox_delLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_delLine_ConfirmationBoxOKClicked);
                 this.confirmationBox_delLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_delLine_ConfirmationBoxCancelClicked);
                 this.Controls.Add(this.confirmationBox_delLine);
@@ -119,44 +123,47 @@ namespace CloudManage.SystemConfig
 
         private void confirmationBox_delLine_ConfirmationBoxOKDoubleCheckClicked(object sender, EventArgs e)
         {
-            DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
-
-            MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
-            lineNO.Value = drSelected["LineNO"].ToString();
-            MySqlParameter ifAffectedDelLine = new MySqlParameter("ifAffectedRowDelLine_", MySqlDbType.Int32, 1);
-            MySqlParameter[] paras = { lineNO, ifAffectedDelLine };
-            string cmdDeleteLine = "p_deleteLine";
-            Global.mysqlHelper1._executeProcMySQL(cmdDeleteLine, paras, 1, 1);
-
-
-            this.confirmationBox_delLine.Visible = false;
-
-            if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
+            if (Global.dtProductionLineSystemConfig.Rows.Count != 0)
             {
-                MessageBox.Show("删除成功");
-                Global.ifLineAdditionOrDeletion = true;
-                refreshDtProductionLineSystemConfig();
+                DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
 
-                //只需重读当前页面用到的表，其他表，重启时会更新
-                //重读device_config
-                Global._init_dtDeviceConfig();
-                //重读productionLine
-                Global._init_dtProductionLine();
-                //重读device_info
+                MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
+                lineNO.Value = drSelected["LineNO"].ToString();
+                MySqlParameter ifAffectedDelLine = new MySqlParameter("ifAffectedRowDelLine_", MySqlDbType.Int32, 1);
+                MySqlParameter[] paras = { lineNO, ifAffectedDelLine };
+                string cmdDeleteLine = "p_deleteLine";
+                Global.mysqlHelper1._executeProcMySQL(cmdDeleteLine, paras, 1, 1);
 
-                //重读device_info_paranameandsuffix
 
-                //重读device_info_threshold
+                this.confirmationBox_delLine.Visible = false;
 
-                //重读faults_config
+                if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
+                {
+                    MessageBox.Show("删除成功");
+                    Global.ifLineAdditionOrDeletion = true;
+                    refreshDtProductionLineSystemConfig();
 
-                //重读faults_current
+                    //只需重读当前页面用到的表，其他表，重启时会更新
+                    //重读device_config
+                    Global._init_dtDeviceConfig();
+                    //重读productionLine
+                    Global._init_dtProductionLine();
+                    //重读device_info
 
-                //重读faults_history
-            }
-            else
-            {
-                MessageBox.Show("删除失败");
+                    //重读device_info_paranameandsuffix
+
+                    //重读device_info_threshold
+
+                    //重读faults_config
+
+                    //重读faults_current
+
+                    //重读faults_history
+                }
+                else
+                {
+                    MessageBox.Show("删除失败");
+                }
             }
         }
 
@@ -165,17 +172,16 @@ namespace CloudManage.SystemConfig
             this.confirmationBox_delLine.Visible = false;
         }
 
-        /*********************************************增加产线*******************************************************/
+        /*********************************************添加产线*******************************************************/
         private void simpleButton_productionLineAddition_Click(object sender, EventArgs e)
         {
             this.confirmationBox_inputLineName = new CommonControl.ConfirmationBox();
             this.confirmationBox_inputLineName.Appearance.BackColor = System.Drawing.Color.White;
             this.confirmationBox_inputLineName.Appearance.Options.UseBackColor = true;
-            this.confirmationBox_inputLineName.Location = new System.Drawing.Point(627, 169);
+            this.confirmationBox_inputLineName.Location = new System.Drawing.Point(624,200);
             this.confirmationBox_inputLineName.Name = "confirmationBox1";
             this.confirmationBox_inputLineName.Size = new System.Drawing.Size(350, 200);
             this.confirmationBox_inputLineName.TabIndex = 29;
-            DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
             this.confirmationBox_inputLineName.titleConfirmationBox = "请输入产线名称";
             this.confirmationBox_inputLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxOKClicked);
             this.confirmationBox_inputLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_inputLineName_ConfirmationBoxCancelClicked);
@@ -190,7 +196,7 @@ namespace CloudManage.SystemConfig
         {
             if (this.dtucTextBoxEx1.InputText!="")
                 inputLineName = this.dtucTextBoxEx1.InputText;
-            this.dtucTextBoxEx1.ResetText();
+            this.dtucTextBoxEx1.InputText="";
             if (inputLineName != "")
             {
                 this.dtucTextBoxEx1.Visible = false;
@@ -199,11 +205,11 @@ namespace CloudManage.SystemConfig
                 this.confirmationBox_addLine = new CommonControl.ConfirmationBox();
                 this.confirmationBox_addLine.Appearance.BackColor = System.Drawing.Color.White;
                 this.confirmationBox_addLine.Appearance.Options.UseBackColor = true;
-                this.confirmationBox_addLine.Location = new System.Drawing.Point(627, 169);
+                this.confirmationBox_addLine.Location = new System.Drawing.Point(624,200);
                 this.confirmationBox_addLine.Name = "confirmationBox1";
                 this.confirmationBox_addLine.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox_addLine.TabIndex = 29;
-                this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线   " + inputLineName + "?";
+                this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线   " + inputLineName + " ?";
                 this.confirmationBox_addLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_addLine_ConfirmationBoxOKClicked);
                 this.confirmationBox_addLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_addLine_ConfirmationBoxCancelClicked);
                 this.Controls.Add(this.confirmationBox_addLine);
@@ -240,13 +246,11 @@ namespace CloudManage.SystemConfig
             MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
             lineNO.Value = lNO;
             MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
-            lineName.Value = this.dtucTextBoxEx1.InputText;
+            lineName.Value = inputLineName;
             MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
             MySqlParameter[] paras = { lineNO, lineName, ifAffected };
             string cmdAddLine = "p_addLine";
             Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 2, 1);
-
-            
 
             this.confirmationBox_addLine.Visible = false;
 
@@ -270,6 +274,183 @@ namespace CloudManage.SystemConfig
         private void confirmationBox_addLine_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
             this.confirmationBox_addLine.Visible = false;
+        }
+
+        /*********************************************修改产线名*******************************************************/
+        private void simpleButton_lineNameModify_Click(object sender, EventArgs e)
+        {
+            if (Global.dtProductionLineSystemConfig.Rows.Count != 0 &&this.selectRowDtProductionLineExists.Length != 0)
+            {
+                this.dtucTextBoxEx1.Visible = true;
+                //弹出确认框
+                this.confirmationBox_modifyLineName = new CommonControl.ConfirmationBox();
+                this.confirmationBox_modifyLineName.Appearance.BackColor = System.Drawing.Color.White;
+                this.confirmationBox_modifyLineName.Appearance.Options.UseBackColor = true;
+                this.confirmationBox_modifyLineName.Location = new System.Drawing.Point(624, 200);
+                this.confirmationBox_modifyLineName.Name = "confirmationBox1";
+                this.confirmationBox_modifyLineName.Size = new System.Drawing.Size(350, 200);
+                this.confirmationBox_modifyLineName.TabIndex = 29;
+                DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
+                this.confirmationBox_modifyLineName.titleConfirmationBox = "确认修改  " + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "  ?";
+                this.confirmationBox_modifyLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_modifyLineName_ConfirmationBoxOKClicked);
+                this.confirmationBox_modifyLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_modifyLineName_ConfirmationBoxCancelClicked);
+                this.Controls.Add(this.confirmationBox_modifyLineName);
+                this.confirmationBox_modifyLineName.Visible = true;
+                this.confirmationBox_modifyLineName.BringToFront();
+            }
+        }
+
+        private void confirmationBox_modifyLineName_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            if (this.dtucTextBoxEx1.InputText != "")
+            {
+                inputLineName = this.dtucTextBoxEx1.InputText;
+                this.dtucTextBoxEx1.InputText = "";
+                this.dtucTextBoxEx1.Visible = false;
+                this.confirmationBox_modifyLineName.titleConfirmationBox = "确认将产线名修改为   " + inputLineName + "  ?";
+                this.confirmationBox_modifyLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_modifyLineNameCheck_ConfirmationBoxOKClicked);
+                this.confirmationBox_modifyLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_modifyLineNameCheck_ConfirmationBoxCancelClicked);
+                this.confirmationBox_modifyLineName.BringToFront();
+            }
+        }
+
+        private void confirmationBox_modifyLineName_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.dtucTextBoxEx1.Visible = false;
+            this.confirmationBox_modifyLineName.Visible = false;
+        }
+
+        private void confirmationBox_modifyLineNameCheck_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            if(Global.dtProductionLineSystemConfig.Rows.Count != 0)
+            {
+                this.dtucTextBoxEx1.Visible = false;
+
+                DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
+
+                MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
+                lineNO.Value = drSelected["LineNO"].ToString();
+                MySqlParameter lineName = new MySqlParameter("lName", MySqlDbType.VarChar, 20);
+                lineName.Value = inputLineName;
+
+                MySqlParameter ifAffectedModifyLineName = new MySqlParameter("ifAffectedRowModifyLine_", MySqlDbType.Int32, 1);
+                MySqlParameter[] paras = { lineNO, lineName, ifAffectedModifyLineName };
+                string cmdModifyLineName = "p_modifyLineName";
+                Global.mysqlHelper1._executeProcMySQL(cmdModifyLineName, paras, 2, 1);
+
+                confirmationBox_modifyLineName.Visible = false;
+
+                if (Convert.ToInt32(ifAffectedModifyLineName.Value) == 1)
+                {
+                    MessageBox.Show("修改成功");
+                    Global.ifLineAdditionOrDeletion = true;
+                    refreshDtProductionLineSystemConfig();
+                    //重读productionLine
+                    Global._init_dtProductionLine();
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
+            }
+        }
+
+        private void confirmationBox_modifyLineNameCheck_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.dtucTextBoxEx1.Visible = false;
+            this.confirmationBox_modifyLineName.Visible = false;
+        }
+
+        /*********************************************复制产线*******************************************************/
+        private void simpleButton_productionLineCopy_Click(object sender, EventArgs e)
+        {
+            if (Global.dtProductionLineSystemConfig.Rows.Count != 0)
+            {
+                DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
+
+                this.confirmationBox_copyLine = new CommonControl.ConfirmationBox();
+                this.confirmationBox_copyLine.Appearance.BackColor = System.Drawing.Color.White;
+                this.confirmationBox_copyLine.Appearance.Options.UseBackColor = true;
+                this.confirmationBox_copyLine.Location = new System.Drawing.Point(624, 200);
+                this.confirmationBox_copyLine.Name = "confirmationBox1";
+                this.confirmationBox_copyLine.Size = new System.Drawing.Size(350, 200);
+                this.confirmationBox_copyLine.TabIndex = 29;
+                this.confirmationBox_copyLine.titleConfirmationBox = "确认拷贝产线   " + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "  ?";
+                this.confirmationBox_copyLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_copyLine_ConfirmationBoxOKClicked);
+                this.confirmationBox_copyLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_copyLine_ConfirmationBoxCancelClicked);
+                this.Controls.Add(this.confirmationBox_copyLine);
+                this.confirmationBox_copyLine.Visible = true;
+                this.confirmationBox_copyLine.BringToFront();
+
+                this.dtucTextBoxEx1.Visible = true;
+            }
+            
+        }
+
+        private void confirmationBox_copyLine_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.confirmationBox_copyLine.Visible = false;
+            this.dtucTextBoxEx1.Visible = false;
+        }
+
+        private void confirmationBox_copyLine_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            this.confirmationBox_copyLine.titleConfirmationBox = "请输入产线名";
+            this.confirmationBox_copyLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_copyLineCheck_ConfirmationBoxOKClicked);
+            this.confirmationBox_copyLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_copyLineCheck_ConfirmationBoxCancelClicked);
+            this.confirmationBox_copyLine.BringToFront();
+           
+        }
+
+        private void confirmationBox_copyLineCheck_ConfirmationBoxOKClicked(object sender, EventArgs e)
+        {
+            if (this.dtucTextBoxEx1.InputText != "")
+                inputLineName = this.dtucTextBoxEx1.InputText;
+            this.dtucTextBoxEx1.InputText = "";
+            if (inputLineName != "")
+            {
+                inputLineName = this.dtucTextBoxEx1.InputText;
+                this.dtucTextBoxEx1.InputText = "";
+                this.dtucTextBoxEx1.Visible = false;
+                this.confirmationBox_copyLine.Visible = false;
+                
+                DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
+                //productionline
+                MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
+                lineNO.Value = drSelected["LineNO"].ToString();
+                MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
+                lineName.Value = inputLineName;
+                MySqlParameter ifAffectedCopyLine = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
+                MySqlParameter[] paras = { lineNO, lineName, ifAffectedCopyLine };
+                string cmdAddLine = "p_addLine";
+                Global.mysqlHelper1._executeProcMySQL(cmdAddLine, paras, 2, 1);
+                bool flag_productionlineCopyLine = Convert.ToInt32(ifAffectedCopyLine.Value) == 1 ? true : false;
+                //device_config
+
+                bool flag_device_configCopyLine =
+                //device_info
+                bool flag_device_infoCopyLine = 
+
+                //device_info_machine
+                bool flag_device_info_machineCopyLine = 
+                //device_info_paranameandsuffix
+                bool flag_device_info_paranameandsuffixCopyLine = 
+                //device_info_threshold
+                bool flag_device_info_thresholdCopyLine = 
+
+                if(flag_productionlineCopyLine == true && flag_device_configCopyLine == true && flag_device_infoCopyLine == true && flag_device_info_machineCopyLine == true && flag_device_info_paranameandsuffixCopyLine == true && flag_device_info_thresholdCopyLine == true)
+                {
+
+                }
+            }
+
+
+        }
+
+        private void confirmationBox_copyLineCheck_ConfirmationBoxCancelClicked(object sender, EventArgs e)
+        {
+            this.confirmationBox_copyLine.Visible = false;
+            this.dtucTextBoxEx1.Visible = false;
         }
 
 

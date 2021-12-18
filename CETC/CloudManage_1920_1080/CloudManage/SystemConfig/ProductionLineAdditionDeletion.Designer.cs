@@ -100,6 +100,8 @@ namespace CloudManage.SystemConfig
             this.sideTileBarControl_productionLineAdditionDeletion = new CloudManage.CommonControl.SideTileBarControl();
             this.labelControl_dir = new DevExpress.XtraEditors.LabelControl();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton_productionLineCopy = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_lineNameModify = new DevExpress.XtraEditors.SimpleButton();
             this.dtucTextBoxEx1 = new DTControl.Controls.DTUCTextBoxEx();
             this.simpleButton_productionLineDeletion = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_productionLineAddition = new DevExpress.XtraEditors.SimpleButton();
@@ -270,6 +272,8 @@ namespace CloudManage.SystemConfig
             // 
             // panelControl_rightSide
             // 
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineCopy);
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_lineNameModify);
             this.panelControl_rightSide.Controls.Add(this.dtucTextBoxEx1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineDeletion);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineAddition);
@@ -277,6 +281,36 @@ namespace CloudManage.SystemConfig
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 33;
+            // 
+            // simpleButton_productionLineCopy
+            // 
+            this.simpleButton_productionLineCopy.AllowFocus = false;
+            this.simpleButton_productionLineCopy.Appearance.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton_productionLineCopy.Appearance.Options.UseFont = true;
+            this.simpleButton_productionLineCopy.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 35F);
+            this.simpleButton_productionLineCopy.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_productionLineCopy.Location = new System.Drawing.Point(6, 366);
+            this.simpleButton_productionLineCopy.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.simpleButton_productionLineCopy.Name = "simpleButton_productionLineCopy";
+            this.simpleButton_productionLineCopy.Size = new System.Drawing.Size(550, 114);
+            this.simpleButton_productionLineCopy.TabIndex = 21;
+            this.simpleButton_productionLineCopy.Text = "复制产线";
+            this.simpleButton_productionLineCopy.Click += new System.EventHandler(this.simpleButton_productionLineCopy_Click);
+            // 
+            // simpleButton_lineNameModify
+            // 
+            this.simpleButton_lineNameModify.AllowFocus = false;
+            this.simpleButton_lineNameModify.Appearance.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.simpleButton_lineNameModify.Appearance.Options.UseFont = true;
+            this.simpleButton_lineNameModify.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 35F);
+            this.simpleButton_lineNameModify.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_lineNameModify.Location = new System.Drawing.Point(6, 246);
+            this.simpleButton_lineNameModify.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.simpleButton_lineNameModify.Name = "simpleButton_lineNameModify";
+            this.simpleButton_lineNameModify.Size = new System.Drawing.Size(550, 114);
+            this.simpleButton_lineNameModify.TabIndex = 20;
+            this.simpleButton_lineNameModify.Text = "修改产线";
+            this.simpleButton_lineNameModify.Click += new System.EventHandler(this.simpleButton_lineNameModify_Click);
             // 
             // dtucTextBoxEx1
             // 
@@ -297,7 +331,7 @@ namespace CloudManage.SystemConfig
             this.dtucTextBoxEx1.IsShowRect = true;
             this.dtucTextBoxEx1.IsShowSearchBtn = false;
             this.dtucTextBoxEx1.KeyBoardType = DTControl.Controls.KeyBoardType.UCKeyBorderHand;
-            this.dtucTextBoxEx1.Location = new System.Drawing.Point(6, 282);
+            this.dtucTextBoxEx1.Location = new System.Drawing.Point(6, 486);
             this.dtucTextBoxEx1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtucTextBoxEx1.MaxValue = new decimal(new int[] {
             1000000,
@@ -751,5 +785,7 @@ namespace CloudManage.SystemConfig
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_productionLineAdditionDeletion;
         private DTControl.Controls.DTUCTextBoxEx dtucTextBoxEx1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_lineNameModify;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_productionLineCopy;
     }
 }
