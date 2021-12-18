@@ -1326,7 +1326,7 @@
             tileItemElement24.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
             tileItemElement24.ImageOptions.ImageToTextIndent = 8;
             tileItemElement24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage10")));
-            tileItemElement24.Text = "产线增删";
+            tileItemElement24.Text = "产线管理";
             tileItemElement24.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tileBarItem_systemConfig_productionAdditionDeletion.Elements.Add(tileItemElement24);
             this.tileBarItem_systemConfig_productionAdditionDeletion.Id = 0;
@@ -1446,7 +1446,6 @@
             // 
             // navigationPage_statusMonitoring
             // 
-            this.navigationPage_statusMonitoring.Caption = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Name = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Size = new System.Drawing.Size(1920, 880);
             // 
@@ -1484,6 +1483,7 @@
             // 
             // navigationPage_systemConfig
             // 
+            this.navigationPage_systemConfig.Caption = "navigationPage_systemConfig";
             this.navigationPage_systemConfig.Name = "navigationPage_systemConfig";
             this.navigationPage_systemConfig.Size = new System.Drawing.Size(1920, 880);
             // 

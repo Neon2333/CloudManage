@@ -263,7 +263,7 @@ namespace CloudManage.DeviceManagement
                     Global._init_dtDeviceConfig();
                     
                 }
-                else if (Convert.ToInt32(ifAffected.Value) == 0)
+                else
                 {
                     MessageBox.Show("删除失败");
                 }

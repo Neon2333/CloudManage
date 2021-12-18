@@ -123,15 +123,15 @@ namespace CloudManage.SystemConfig
 
             MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
             lineNO.Value = drSelected["LineNO"].ToString();
-            MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
-            MySqlParameter[] paras = { lineNO, ifAffected };
+            MySqlParameter ifAffectedDelLine = new MySqlParameter("ifAffectedRowDelLine_", MySqlDbType.Int32, 1);
+            MySqlParameter[] paras = { lineNO, ifAffectedDelLine };
             string cmdDeleteLine = "p_deleteLine";
             Global.mysqlHelper1._executeProcMySQL(cmdDeleteLine, paras, 1, 1);
 
 
             this.confirmationBox_delLine.Visible = false;
 
-            if (Convert.ToInt32(ifAffected.Value) == 1)
+            if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
             {
                 MessageBox.Show("删除成功");
                 Global.ifLineAdditionOrDeletion = true;
@@ -154,7 +154,7 @@ namespace CloudManage.SystemConfig
 
                 //重读faults_history
             }
-            else if (Convert.ToInt32(ifAffected.Value) == 0)
+            else
             {
                 MessageBox.Show("删除失败");
             }
@@ -261,7 +261,7 @@ namespace CloudManage.SystemConfig
                 //重读productionLine
                 Global._init_dtProductionLine();
             }
-            else if (Convert.ToInt32(ifAffected.Value) == 0)
+            else
             {
                 MessageBox.Show("添加失败");
             }
