@@ -166,7 +166,7 @@ namespace CloudManage
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
 
-        public static DataTable dtEachProductionLineSuffix = new DataTable();                     //存设备数据的单位
+        public static DataTable dtEachProductionLineSuffix = new DataTable();       //存设备数据的单位
         //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
         public static void _init_dtOverviewWorkState()
         {
@@ -671,6 +671,8 @@ namespace CloudManage
             }
         }
 
+        /*************************************************************************************************************/
+
         //通过设备DeviceNO获取DeviceName
         public static string _getTestingDeviceNameByTag(string DeviceNO)
         {
@@ -692,7 +694,6 @@ namespace CloudManage
         }
 
         /***************************************************************************************************************/
-
 
     }
 }

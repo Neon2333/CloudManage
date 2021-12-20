@@ -18,7 +18,7 @@ namespace CloudManage.DeviceManagement
 
         struct faultsIndexAndStatus
         {
-            public int rowHandle;   //row在dtFaultsConfig中位置
+            public string rowHandle;   //row在dtFaultsConfig、dtQueryFaultsConfigEnable、dtQueryFaultsConfigNotEnable中位置
             public string faultsNO;
             public string faultsLineName;
             public string faultsDeviceName;
@@ -292,7 +292,18 @@ namespace CloudManage.DeviceManagement
                 {
                     faultsIndexAndStatus fTemp = new faultsIndexAndStatus();
                     //直接赋值row的话是传引用，状态会随之发生改变，起不到记录的作用,所以各个参数分别赋值
-                    fTemp.rowHandle = selectRow[0];
+                    if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
+                    {
+                        fTemp.rowHandle = "0-" + selectRow[0].ToString();
+                    }
+                    else if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
+                    {
+                        fTemp.rowHandle = "1-" + selectRow[0].ToString();
+                    }
+                    else
+                    {
+                        fTemp.rowHandle = "2-" + selectRow[0].ToString();
+                    }
                     fTemp.faultsNO = drTemp["NO"].ToString();
                     fTemp.faultsLineName = drTemp["LineName"].ToString();
                     fTemp.faultsDeviceName = drTemp["DeviceName"].ToString();
@@ -426,7 +437,6 @@ namespace CloudManage.DeviceManagement
                     string deviceName = fo.Value.faultsDeviceName;
                     string faultName = fo.Value.faultsFaultName;
 
-                    //后续加个事务
                     string cmdTransform = "SELECT t1.LineNO, t1.DeviceNO, t1.FaultNO, t1.FaultEnable FROM faults_config AS t1 " +
                                           "INNER JOIN productionline AS t2 ON t1.LineNO=t2.LineNO " +
                                           "INNER JOIN device AS t3 ON t1.DeviceNO=t3.DeviceNO " +
@@ -463,7 +473,6 @@ namespace CloudManage.DeviceManagement
 
                 faultsOriginal.Clear();
                 faultsLatest.Clear();
-                //Global.mysqlHelper1.conn.Close();
             }
             
         }
@@ -475,14 +484,20 @@ namespace CloudManage.DeviceManagement
                 while (faultsStorage.Count != 0)
                 {
                     faultsIndexAndStatus fTemp = faultsStorage.Peek();
+                    int rowHandleDtFaultsConfig = 0;
                     //取出各行最初的状态
-                    if (faultsOriginal.ContainsKey(fTemp.rowHandle))
+                    if (fTemp.rowHandle.ElementAt(0) == '0')
                     {
-                        faultsOriginal[fTemp.rowHandle] = fTemp;
+                        rowHandleDtFaultsConfig = Convert.ToInt32(fTemp.rowHandle.Substring(2));
+                    }
+
+                    if (faultsOriginal.ContainsKey(rowHandleDtFaultsConfig))
+                    {
+                        faultsOriginal[rowHandleDtFaultsConfig] = fTemp;
                     }
                     else
                     {
-                        faultsOriginal.Add(fTemp.rowHandle, fTemp);
+                        faultsOriginal.Add(rowHandleDtFaultsConfig, fTemp);
                     }
                     faultsStorage.Pop();  //清空记录的被改变的行
                 }
