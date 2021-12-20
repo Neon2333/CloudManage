@@ -18,7 +18,7 @@ namespace CloudManage.DeviceManagement
 
         struct faultsIndexAndStatus
         {
-            public string rowHandle;   //row在dtFaultsConfig、dtQueryFaultsConfigEnable、dtQueryFaultsConfigNotEnable中位置
+            public int rowHandle;   //row在dtFaultsConfig中位置
             public string faultsNO;
             public string faultsLineName;
             public string faultsDeviceName;
@@ -33,9 +33,9 @@ namespace CloudManage.DeviceManagement
         string cmdQueryFaultsConfig = String.Empty;
 
         enum queryFaultsConfigType {allFaultsConfig = 0, enableFaultsConfig, notEnableFualtsConfig};
-        int queryFaultsConfigTypeCurrent = (int)queryFaultsConfigType.allFaultsConfig;  //当前显示标志
-        DataTable dtQueryFaultsConfigEnable = new DataTable();    //暂存查询出来的所有使能、禁止
-        DataTable dtQueryFaultsConfigNotEnable = new DataTable();
+        int queryFaultsConfigTypeCurrent = (int)queryFaultsConfigType.allFaultsConfig;  //当前显示页面标志
+        DataTable dtQueryFaultsConfigEnable = new DataTable();      //暂存查询出来的所有使能
+        DataTable dtQueryFaultsConfigNotEnable = new DataTable();   //暂存查询出来的所有禁止
 
         public DiagnosisManagement()
         {
@@ -83,13 +83,6 @@ namespace CloudManage.DeviceManagement
                 this.dtQueryFaultsConfigNotEnable.Columns.Add("FaultEnable", typeof(String));
             }
         }
-
-        //void _refreshLabelDir()
-        //{
-        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
-        //    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
-        //    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-        //}
 
         void refreshLabelDirLine()
         {
@@ -216,7 +209,7 @@ namespace CloudManage.DeviceManagement
             Global.reorderDt(ref Global.dtFaultsConfig);
 
             //以dtFaultsConfig更新dtQueryFaultsConfigEnable
-            this.dtQueryFaultsConfigEnable.Rows.Clear();  //清空
+            this.dtQueryFaultsConfigEnable.Rows.Clear();  
             DataRow[] drTempEnable = Global.dtFaultsConfig.Select("FaultEnable = '使能'");
             foreach (var dp in drTempEnable)
             {
@@ -294,15 +287,15 @@ namespace CloudManage.DeviceManagement
                     //直接赋值row的话是传引用，状态会随之发生改变，起不到记录的作用,所以各个参数分别赋值
                     if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
                     {
-                        fTemp.rowHandle = "0-" + selectRow[0].ToString();
+                        fTemp.rowHandle = selectRow[0];
                     }
                     else if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
                     {
-                        fTemp.rowHandle = "1-" + selectRow[0].ToString();
+                        fTemp.rowHandle = selectRow[0];
                     }
                     else
                     {
-                        fTemp.rowHandle = "2-" + selectRow[0].ToString();
+                        fTemp.rowHandle = selectRow[0];
                     }
                     fTemp.faultsNO = drTemp["NO"].ToString();
                     fTemp.faultsLineName = drTemp["LineName"].ToString();
@@ -368,7 +361,7 @@ namespace CloudManage.DeviceManagement
 
         }
 
-        //显示全部/使能/禁止
+        //显示全部/仅使能/禁止
         private void simpleButton_queryTypeFaultsConfig_Click(object sender, EventArgs e)
         {
             selectRow[0] = 0;   //每次更改显示时，都默认选中第一行
@@ -486,9 +479,9 @@ namespace CloudManage.DeviceManagement
                     faultsIndexAndStatus fTemp = faultsStorage.Peek();
                     int rowHandleDtFaultsConfig = 0;
                     //取出各行最初的状态
-                    if (fTemp.rowHandle.ElementAt(0) == '0')
+                    if (fTemp.rowHandle == 0)
                     {
-                        rowHandleDtFaultsConfig = Convert.ToInt32(fTemp.rowHandle.Substring(2));
+                        rowHandleDtFaultsConfig = fTemp.rowHandle;
                     }
 
                     if (faultsOriginal.ContainsKey(rowHandleDtFaultsConfig))
