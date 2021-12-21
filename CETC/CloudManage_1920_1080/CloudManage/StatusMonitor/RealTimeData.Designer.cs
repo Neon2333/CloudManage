@@ -484,7 +484,8 @@
             this.pictureEdit_deviceLocation.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit_deviceLocation.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit_deviceLocation.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit_deviceLocation.Size = new System.Drawing.Size(39, 35);
+            this.pictureEdit_deviceLocation.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit_deviceLocation.Size = new System.Drawing.Size(16, 16);
             this.pictureEdit_deviceLocation.TabIndex = 10;
             // 
             // timer_deviceLocation
