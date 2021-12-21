@@ -285,23 +285,35 @@ namespace CloudManage.DeviceManagement
                 {
                     faultsIndexAndStatus fTemp = new faultsIndexAndStatus();
                     //直接赋值row的话是传引用，状态会随之发生改变，起不到记录的作用,所以各个参数分别赋值
-                    if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
-                    {
-                        fTemp.rowHandle = selectRow[0];
-                    }
-                    else if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
-                    {
-                        fTemp.rowHandle = selectRow[0];
-                    }
-                    else
-                    {
-                        fTemp.rowHandle = selectRow[0];
-                    }
                     fTemp.faultsNO = drTemp["NO"].ToString();
                     fTemp.faultsLineName = drTemp["LineName"].ToString();
                     fTemp.faultsDeviceName = drTemp["DeviceName"].ToString();
                     fTemp.faultsFaultName = drTemp["FaultName"].ToString();
                     fTemp.faultsFaultEnable = drTemp["FaultEnable"].ToString();
+                    if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.allFaultsConfig)
+                    {
+                        int[] rowhandleTemp = this.tileView1.GetSelectedRows();
+                        if (rowhandleTemp.Length == 1)
+                        {
+                            fTemp.rowHandle = rowhandleTemp[0];
+                        }
+                    }
+                    else if(queryFaultsConfigTypeCurrent == (int)queryFaultsConfigType.enableFaultsConfig)
+                    {
+                        DataRow[] drs = Global.dtFaultsConfig.Select("LineName='" + fTemp.faultsLineName + "' and DeviceName='" + fTemp.faultsDeviceName + "' and FaultName='" + fTemp.faultsFaultName + "' and FaultEnable='" + fTemp.faultsFaultEnable + "'");
+                        if (drs.Length == 1)
+                        {
+                            fTemp.rowHandle = Global.dtFaultsConfig.Rows.IndexOf(drs[0]);
+                        }
+                    }
+                    else
+                    {
+                        DataRow[] drs = Global.dtDeviceConfig.Select("LineName='" + fTemp.faultsDeviceName + "' and DeviceName='" + fTemp.faultsDeviceName + "' and FaultName='" + fTemp.faultsFaultName + "' and FaultEnable='" + fTemp.faultsFaultEnable + "'");
+                        if (drs.Length == 1)
+                        {
+                            fTemp.rowHandle = Global.dtFaultsConfig.Rows.IndexOf(drs[0]);
+                        }
+                    }
                     faultsStorage.Push(fTemp);   //暂存当前被改变的行。因为可能一次改变多行，然后再点保存/取消
 
                     if (drTemp["FaultEnable"].ToString() == "使能")
@@ -472,17 +484,18 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_cancelStatusChange_Click(object sender, EventArgs e)
         {
-            while (faultsStorage.Count != 0)
-            {
+            //while (faultsStorage.Count != 0)
+            //{
                 while (faultsStorage.Count != 0)
                 {
                     faultsIndexAndStatus fTemp = faultsStorage.Peek();
                     int rowHandleDtFaultsConfig = 0;
                     //取出各行最初的状态
-                    if (fTemp.rowHandle == 0)
-                    {
-                        rowHandleDtFaultsConfig = fTemp.rowHandle;
-                    }
+                    //if (fTemp.rowHandle == 0)
+                    //{
+                    //    rowHandleDtFaultsConfig = fTemp.rowHandle;
+                    //}
+                    rowHandleDtFaultsConfig = fTemp.rowHandle;
 
                     if (faultsOriginal.ContainsKey(rowHandleDtFaultsConfig))
                     {
@@ -543,7 +556,7 @@ namespace CloudManage.DeviceManagement
                 faultsLatest.Clear();
 
                 refreshColorButtonStatusChange();
-            }
+            //}
         }
 
 
