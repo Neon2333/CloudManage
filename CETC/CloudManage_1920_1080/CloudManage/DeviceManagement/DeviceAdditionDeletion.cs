@@ -298,7 +298,22 @@ namespace CloudManage.DeviceManagement
                     cmdAddDeviceDtDeviceInfo = cmdAddDeviceDtDeviceInfo + ", Para" + (i + 1).ToString();
                 }
                 cmdAddDeviceDtDeviceInfo += ") VALUES (";
-                cmdAddDeviceDtDeviceInfo += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" + drDevice[0]["DeviceNO"].ToString() + "', " + "'1', '" + drDevice[0]["ValidParaCount"].ToString() + "'";
+                string deviceStatusDefault = "'1'";
+                for(int i = 0; i < 64; i++)
+                {
+                    string p = "Para" + (i + 1).ToString() + "Default";
+                    string pMin = "Para" + (i + 1).ToString() + "MinDefault";
+                    string pMax = "Para" + (i + 1).ToString() + "MaxDefault";
+                    if (drDevice[0][p].ToString() != "\\")
+                    {
+                        if (Convert.ToDouble(drDevice[0][p]) < Convert.ToDouble(drDevice[0][pMin]) || Convert.ToDouble(drDevice[0][p]) > Convert.ToDouble(drDevice[0][pMax]))
+                        {
+                            deviceStatusDefault = "'0'";
+                        }
+                    }
+                }
+
+                cmdAddDeviceDtDeviceInfo += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" + drDevice[0]["DeviceNO"].ToString() + "', " + deviceStatusDefault + ", '" + drDevice[0]["ValidParaCount"].ToString() + "'";
                 for (int i = 0; i < 64; i++)
                 {
                     string p = "Para" + (i + 1).ToString() + "Default";
