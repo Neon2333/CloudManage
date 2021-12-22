@@ -355,6 +355,7 @@ namespace CloudManage.SystemConfig
             this.dtucTextBoxEx1.Size = new System.Drawing.Size(550, 55);
             this.dtucTextBoxEx1.TabIndex = 19;
             this.dtucTextBoxEx1.Visible = false;
+            this.dtucTextBoxEx1.TextChanged += new System.EventHandler(this.dtucTextBoxEx1_TextChanged);
             // 
             // simpleButton_productionLineDeletion
             // 

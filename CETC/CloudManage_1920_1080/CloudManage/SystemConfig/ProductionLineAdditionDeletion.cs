@@ -37,7 +37,7 @@ namespace CloudManage.SystemConfig
             Global.initDtProductionLineExists();
             initSideTileBarProductionLineAdditionDeletion();
             this.gridControl_productionLineAdditionDeletion.DataSource = Global.dtProductionLineSystemConfig;
-            dtucTextBoxEx1.HandInputExePath = "D:\\WorkSpace\\DevExpressDemo\\CETC\\HandInput\\handinput.exe";
+            dtucTextBoxEx1.HandInputExePath = "HandInput\\handinput.exe";
 
             if (((DataTable)this.gridControl_productionLineAdditionDeletion.DataSource).Rows.Count > 0)
             {
@@ -507,5 +507,9 @@ namespace CloudManage.SystemConfig
             inputLineName = "";
         }
 
+        private void dtucTextBoxEx1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
