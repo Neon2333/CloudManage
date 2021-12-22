@@ -317,7 +317,6 @@ namespace CloudManage.SystemConfig
         {
             if (Global.dtProductionLineSystemConfig.Rows.Count != 0 && this.selectRowDtProductionLineExists.Length != 0)
             {
-                this.dtucTextBoxEx1.Visible = true;
                 //弹出确认框
                 this.confirmationBox_modifyLineName = new CommonControl.ConfirmationBox();
                 this.confirmationBox_modifyLineName.Appearance.BackColor = System.Drawing.Color.White;
@@ -338,6 +337,7 @@ namespace CloudManage.SystemConfig
 
         private void confirmationBox_modifyLineName_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
+            this.dtucTextBoxEx1.Visible = true;
             if (this.dtucTextBoxEx1.InputText != "")
             {
                 inputLineName = this.dtucTextBoxEx1.InputText;
