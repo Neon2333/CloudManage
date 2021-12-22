@@ -20,6 +20,7 @@ namespace CloudManage.SystemConfig
         private CommonControl.ConfirmationBox confirmationBox_addLine;
         private CommonControl.ConfirmationBox confirmationBox_modifyLineName;
         private CommonControl.ConfirmationBox confirmationBox_copyLine;
+        private CommonControl.ConfirmationBox confirmationBox_success;
 
 
         string inputLineName = String.Empty;
@@ -37,12 +38,33 @@ namespace CloudManage.SystemConfig
             Global.initDtProductionLineExists();
             initSideTileBarProductionLineAdditionDeletion();
             this.gridControl_productionLineAdditionDeletion.DataSource = Global.dtProductionLineSystemConfig;
-            dtucTextBoxEx1.HandInputExePath = "HandInput\\handinput.exe";
+            //dtucTextBoxEx1.HandInputExePath = "HandInput\\handinput.exe";
+            dtucTextBoxEx1.HandInputExePath = @"D:\WorkSpace\DevExpressDemo\CETC\CloudManage_1920_1080\CloudManage\HandInput\handinput.exe";
+
 
             if (((DataTable)this.gridControl_productionLineAdditionDeletion.DataSource).Rows.Count > 0)
             {
                 this.tileView1.FocusedRowHandle = selectRowDtProductionLineExists[0]; //默认选中第一行
             }
+
+            this.confirmationBox_success = new CommonControl.ConfirmationBox();
+            this.confirmationBox_success.Appearance.BackColor = System.Drawing.Color.White;
+            this.confirmationBox_success.Appearance.Options.UseBackColor = true;
+            this.confirmationBox_success.Location = new System.Drawing.Point(624, 200);
+            this.confirmationBox_success.Name = "confirmationBox1";
+            this.confirmationBox_success.Size = new System.Drawing.Size(350, 200);
+            this.confirmationBox_success.TabIndex = 29;
+            this.confirmationBox_success.titleConfirmationBox = "成功";
+            this.confirmationBox_success.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_SuccessClicked);
+            this.confirmationBox_success.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_SuccessClicked);
+            this.Controls.Add(this.confirmationBox_success);
+            this.confirmationBox_success.Visible = false;
+            this.confirmationBox_success.BringToFront();
+        }
+
+        private void confirmationBox_SuccessClicked(object sender, EventArgs e)
+        {
+            confirmationBox_success.Visible = false;
         }
 
         private void initLineNOVec()
@@ -160,7 +182,9 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
                 {
-                    MessageBox.Show("删除成功");
+                    confirmationBox_success.titleConfirmationBox = "  删除成功！";
+                    confirmationBox_success.Visible = true;
+
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
 
@@ -183,7 +207,8 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    MessageBox.Show("删除失败");
+                    confirmationBox_success.titleConfirmationBox = "  删除失败！";
+                    confirmationBox_success.Visible = true;
                 }
             }
         }
@@ -252,6 +277,7 @@ namespace CloudManage.SystemConfig
             lineNO.Value = createLineNO();
             MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
             lineName.Value = inputLineName;
+            inputLineName = "";
             MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
             MySqlParameter[] paras = { lineNO, lineName, ifAffected };
             string cmdAddLine = "p_addLine";
@@ -261,7 +287,10 @@ namespace CloudManage.SystemConfig
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
             {
-                MessageBox.Show("添加成功");
+                confirmationBox_success.titleConfirmationBox = "  添加成功！";
+                confirmationBox_success.Visible = true;
+
+                //MessageBox.Show("添加成功");
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
 
@@ -272,7 +301,8 @@ namespace CloudManage.SystemConfig
             }
             else
             {
-                MessageBox.Show("添加失败");
+                confirmationBox_success.titleConfirmationBox = "  添加失败！";
+                confirmationBox_success.Visible = true;
             }
         }
 
@@ -280,6 +310,7 @@ namespace CloudManage.SystemConfig
         {
             this.confirmationBox_addLine.Visible = false;
         }
+       
 
         /*********************************************修改产线名*******************************************************/
         private void simpleButton_lineNameModify_Click(object sender, EventArgs e)
@@ -337,7 +368,7 @@ namespace CloudManage.SystemConfig
                 lineNO.Value = drSelected["LineNO"].ToString();
                 MySqlParameter lineName = new MySqlParameter("lName", MySqlDbType.VarChar, 20);
                 lineName.Value = inputLineName;
-
+                inputLineName = "";
                 MySqlParameter ifAffectedModifyLineName = new MySqlParameter("ifAffectedRowModifyLine_", MySqlDbType.Int32, 1);
                 MySqlParameter[] paras = { lineNO, lineName, ifAffectedModifyLineName };
                 string cmdModifyLineName = "p_modifyLineName";
@@ -347,7 +378,10 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedModifyLineName.Value) == 1)
                 {
-                    MessageBox.Show("修改成功");
+                    confirmationBox_success.titleConfirmationBox = "  修改成功！";
+                    confirmationBox_success.Visible = true;
+
+                    //MessageBox.Show("修改成功");
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
                     //重读productionLine
@@ -355,7 +389,8 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    MessageBox.Show("修改失败");
+                    confirmationBox_success.titleConfirmationBox = "  修改失败！";
+                    confirmationBox_success.Visible = true;
                 }
             }
         }
@@ -364,6 +399,11 @@ namespace CloudManage.SystemConfig
         {
             this.dtucTextBoxEx1.Visible = false;
             this.confirmationBox_modifyLineName.Visible = false;
+        }
+
+        private void confirmationBox_modifyLineName_SuccessClicked(object sender, EventArgs e)
+        {
+            confirmationBox_modifyLineName.Visible = false;
         }
 
         /*********************************************复制产线*******************************************************/
@@ -489,13 +529,21 @@ namespace CloudManage.SystemConfig
 
                 if (flagProductionLineCopy && flagDevice_flag && flagDevice_info_paranameandsuffixCopy && flagDevice_info_threshold && flagFaults_config)
                 {
-                    MessageBox.Show("产线复制成功");
+                    confirmationBox_copyLine.titleConfirmationBox = "产线复制成功！";
+                    this.confirmationBox_copyLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_copyLine_SuccessClicked);
+                    this.confirmationBox_copyLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_copyLine_SuccessClicked);
+                    confirmationBox_copyLine.Visible = true;
+
+                    confirmationBox_success.titleConfirmationBox = "产线复制成功！";
+                    confirmationBox_success.Visible = true;
+
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
                 }
                 else
                 {
-                    MessageBox.Show("产线复制失败，请清理已添加记录的表");
+                    confirmationBox_success.titleConfirmationBox = "产线复制失败，请清理已添加记录的表";
+                    confirmationBox_success.Visible = true;
                 }
             }
         }
@@ -507,9 +555,12 @@ namespace CloudManage.SystemConfig
             inputLineName = "";
         }
 
-        private void dtucTextBoxEx1_TextChanged(object sender, EventArgs e)
+        private void confirmationBox_copyLine_SuccessClicked(object sender, EventArgs e)
         {
-
+            this.confirmationBox_copyLine.Visible = false;
         }
+
+
+
     }
 }
