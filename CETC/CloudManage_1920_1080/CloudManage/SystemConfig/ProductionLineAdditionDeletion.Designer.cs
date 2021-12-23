@@ -102,7 +102,6 @@ namespace CloudManage.SystemConfig
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton_productionLineCopy = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_lineNameModify = new DevExpress.XtraEditors.SimpleButton();
-            this.dtucTextBoxEx1 = new DTControl.Controls.DTUCTextBoxEx();
             this.simpleButton_productionLineDeletion = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_productionLineAddition = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl_productionLineAdditionDeletion = new DevExpress.XtraGrid.GridControl();
@@ -274,7 +273,6 @@ namespace CloudManage.SystemConfig
             // 
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineCopy);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_lineNameModify);
-            this.panelControl_rightSide.Controls.Add(this.dtucTextBoxEx1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineDeletion);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_productionLineAddition);
             this.panelControl_rightSide.Location = new System.Drawing.Point(1358, 0);
@@ -311,50 +309,6 @@ namespace CloudManage.SystemConfig
             this.simpleButton_lineNameModify.TabIndex = 20;
             this.simpleButton_lineNameModify.Text = "修改产线";
             this.simpleButton_lineNameModify.Click += new System.EventHandler(this.simpleButton_lineNameModify_Click);
-            // 
-            // dtucTextBoxEx1
-            // 
-            this.dtucTextBoxEx1.BackColor = System.Drawing.Color.Transparent;
-            this.dtucTextBoxEx1.ConerRadius = 5;
-            this.dtucTextBoxEx1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dtucTextBoxEx1.DecLength = 2;
-            this.dtucTextBoxEx1.FillColor = System.Drawing.Color.Empty;
-            this.dtucTextBoxEx1.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(59)))));
-            this.dtucTextBoxEx1.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dtucTextBoxEx1.HandInputExePath = "D:\\programs\\vs2019\\Common7\\IDE\\HandInput\\handinput.exe";
-            this.dtucTextBoxEx1.InputText = "";
-            this.dtucTextBoxEx1.InputType = DTControl.TextInputType.NotControl;
-            this.dtucTextBoxEx1.IsFocusColor = true;
-            this.dtucTextBoxEx1.IsRadius = true;
-            this.dtucTextBoxEx1.IsShowClearBtn = true;
-            this.dtucTextBoxEx1.IsShowKeyboard = true;
-            this.dtucTextBoxEx1.IsShowRect = true;
-            this.dtucTextBoxEx1.IsShowSearchBtn = false;
-            this.dtucTextBoxEx1.KeyBoardType = DTControl.Controls.KeyBoardType.UCKeyBorderHand;
-            this.dtucTextBoxEx1.Location = new System.Drawing.Point(6, 486);
-            this.dtucTextBoxEx1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtucTextBoxEx1.MaxValue = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.dtucTextBoxEx1.MinValue = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            -2147483648});
-            this.dtucTextBoxEx1.Name = "dtucTextBoxEx1";
-            this.dtucTextBoxEx1.Padding = new System.Windows.Forms.Padding(5);
-            this.dtucTextBoxEx1.PasswordChar = '\0';
-            this.dtucTextBoxEx1.PromptColor = System.Drawing.Color.Gray;
-            this.dtucTextBoxEx1.PromptFont = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dtucTextBoxEx1.PromptText = "";
-            this.dtucTextBoxEx1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dtucTextBoxEx1.RectWidth = 1;
-            this.dtucTextBoxEx1.RegexPattern = "";
-            this.dtucTextBoxEx1.Size = new System.Drawing.Size(550, 55);
-            this.dtucTextBoxEx1.TabIndex = 19;
-            this.dtucTextBoxEx1.Visible = false;
             // 
             // simpleButton_productionLineDeletion
             // 
@@ -784,7 +738,6 @@ namespace CloudManage.SystemConfig
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_LDCount;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel_productionLineAdditionDeletion;
-        private DTControl.Controls.DTUCTextBoxEx dtucTextBoxEx1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_lineNameModify;
         private DevExpress.XtraEditors.SimpleButton simpleButton_productionLineCopy;
     }

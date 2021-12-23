@@ -96,51 +96,55 @@ namespace CloudManage.StatusMonitor
             if (folderDlg.ShowDialog() == DialogResult.OK)
             {
                 path = folderDlg.SelectedPath;
-            }
+                path += "\\faultsHistory";
 
-            path += "\\faultsHistory";
-
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            string excelFileName = path + "\\faultsHistory" + excelFileNameIndex++.ToString() + ".xlsx";
-            FileStream filestream = new FileStream(excelFileName, FileMode.OpenOrCreate);
-
-            XSSFWorkbook wk = new XSSFWorkbook();   
-            ISheet isheet = wk.CreateSheet("Sheet1");  
-
-            IRow row = null;
-            ICell cell = null;
-            //加表头
-            row = isheet.CreateRow(0);
-            cell = row.CreateCell(0);
-            cell.SetCellValue("序号");
-            cell = row.CreateCell(1);
-            cell.SetCellValue("产线名称");
-            cell = row.CreateCell(2);
-            cell.SetCellValue("设备名称");
-            cell = row.CreateCell(3);
-            cell.SetCellValue("故障名称");
-            cell = row.CreateCell(4);
-            cell.SetCellValue("故障时间");
-
-            for (int i = 1; i < dtGrid.Rows.Count + 1; i++)
-            {
-                row = isheet.CreateRow(i); 
-                for (int j = 0; j < 5; j++)
+                if (!Directory.Exists(path))
                 {
-                    cell = row.CreateCell(j);      
-                    cell.SetCellValue(dtGrid.Rows[i - 1][j].ToString());     
+                    Directory.CreateDirectory(path);
                 }
-                
-            }
 
-            wk.Write(filestream);   //通过流filestream将表wk写入文件
-            filestream.Close(); //关闭文件流filestream
-            wk.Close();	//关闭Excel表对象wk
-            MessageBox.Show("Excel导出");
+                string excelFileName = path + "\\faultsHistory" + excelFileNameIndex++.ToString() + ".xlsx";
+                FileStream filestream = new FileStream(excelFileName, FileMode.OpenOrCreate);
+
+                XSSFWorkbook wk = new XSSFWorkbook();
+                ISheet isheet = wk.CreateSheet("Sheet1");
+
+                IRow row = null;
+                ICell cell = null;
+                //加表头
+                row = isheet.CreateRow(0);
+                cell = row.CreateCell(0);
+                cell.SetCellValue("序号");
+                cell = row.CreateCell(1);
+                cell.SetCellValue("产线名称");
+                cell = row.CreateCell(2);
+                cell.SetCellValue("设备名称");
+                cell = row.CreateCell(3);
+                cell.SetCellValue("故障名称");
+                cell = row.CreateCell(4);
+                cell.SetCellValue("故障时间");
+
+                for (int i = 1; i < dtGrid.Rows.Count + 1; i++)
+                {
+                    row = isheet.CreateRow(i);
+                    for (int j = 0; j < 5; j++)
+                    {
+                        cell = row.CreateCell(j);
+                        cell.SetCellValue(dtGrid.Rows[i - 1][j].ToString());
+                    }
+
+                }
+
+                wk.Write(filestream);   //通过流filestream将表wk写入文件
+                filestream.Close(); //关闭文件流filestream
+                wk.Close(); //关闭Excel表对象wk
+                MessageBox.Show("Excel导出");
+            }
+            else if(folderDlg.ShowDialog() == DialogResult.Cancel)
+            {
+                folderDlg.Dispose();
+            }
+            
         }
 
         private void initCmdQueryFaultsHistory()

@@ -17,6 +17,7 @@ namespace CloudManage.DeviceManagement
         private int[] selectRowDtDeviceCanDeleteEachLine = { 0 };   //当表变化时当前选中行会自动变成第一行，selectRow[0]记录的选中行重置当前选中行
         private int[] selectRowDtDeviceCanAddEachLine = { 0 };
         private CommonControl.ConfirmationBox confirmationBox1;
+        private CommonControl.ConfirmationBox confirmationBox_success;  //成功/失败提示
 
 
         public DeviceAdditionDeletion()
@@ -38,6 +39,27 @@ namespace CloudManage.DeviceManagement
             }
 
             Global.initDtDeviceCanAddEachLine();   //初始化可添加设备表
+        }
+
+        private void initConfirmationBox_success()
+        {
+            this.confirmationBox_success = new CommonControl.ConfirmationBox();
+            this.confirmationBox_success.Appearance.BackColor = System.Drawing.Color.White;
+            this.confirmationBox_success.Appearance.Options.UseBackColor = true;
+            this.confirmationBox_success.Location = new System.Drawing.Point(624, 100);
+            this.confirmationBox_success.Name = "confirmationBox1";
+            this.confirmationBox_success.Size = new System.Drawing.Size(350, 200);
+            this.confirmationBox_success.TabIndex = 29;
+            this.confirmationBox_success.titleConfirmationBox = "成功";
+            this.Controls.Add(this.confirmationBox_success);
+            this.confirmationBox_success.Visible = true;
+            this.confirmationBox_success.BringToFront();
+            this.confirmationBox_success.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_SuccessClicked);
+            this.confirmationBox_success.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_SuccessClicked);
+        }
+        private void confirmationBox_SuccessClicked(object sender, EventArgs e)
+        {
+            confirmationBox_success.Dispose();
         }
 
         private void initSideTileBarDeviceAdditionDeletion()
@@ -220,7 +242,7 @@ namespace CloudManage.DeviceManagement
                 this.confirmationBox1 = new CommonControl.ConfirmationBox();
                 this.confirmationBox1.Appearance.BackColor = System.Drawing.Color.White;
                 this.confirmationBox1.Appearance.Options.UseBackColor = true;
-                this.confirmationBox1.Location = new System.Drawing.Point(624,200);
+                this.confirmationBox1.Location = new System.Drawing.Point(624,100);
                 this.confirmationBox1.Name = "confirmationBox1";
                 this.confirmationBox1.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox1.TabIndex = 29;
@@ -254,7 +276,9 @@ namespace CloudManage.DeviceManagement
 
                 if (Convert.ToInt32(ifAffected.Value) == 1)
                 {
-                    MessageBox.Show("删除成功");
+                    initConfirmationBox_success();
+                    confirmationBox_success.titleConfirmationBox = "  删除设备成功！";
+
                     Global.ifDeviceAdditionOrDeletion = true;
                     refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                     refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
@@ -265,7 +289,8 @@ namespace CloudManage.DeviceManagement
                 }
                 else
                 {
-                    MessageBox.Show("删除失败");
+                    initConfirmationBox_success();
+                    confirmationBox_success.titleConfirmationBox = "  删除设备失败！";
                 }
             }
         }
@@ -467,14 +492,17 @@ namespace CloudManage.DeviceManagement
 
                 if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
                 {
-                    MessageBox.Show("添加成功");
+                    initConfirmationBox_success();
+                    confirmationBox_success.titleConfirmationBox = "  添加设备成功！";
+
                     Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
                     refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                     refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
                 }
                 else
                 {
-                    MessageBox.Show("添加失败");
+                    initConfirmationBox_success();
+                    confirmationBox_success.titleConfirmationBox = "  添加设备失败！";
                 }
             }
         }
