@@ -41,8 +41,8 @@ namespace CloudManage.CommonControl
             TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
 
-            TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
-            TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
+            TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;    //000
+            TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;     //000
 
         }
 
@@ -215,10 +215,8 @@ namespace CloudManage.CommonControl
                     //num = (string)this.DT.Rows[i][colNum];    //无法将double转成string
                     this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
                 }
-                if (this.showOverview == true)
-                {
-                    this._setNum("000", totalNumTemp.ToString());
-                }
+                this._setNum("000", totalNumTemp.ToString());
+                this.TagItemWhichSubItemBeenSelected = "000";   
 
                 //添加所有检测设备按钮
                 for (int i = 0; i < this.DTSUB.Rows.Count; i++)
@@ -231,6 +229,9 @@ namespace CloudManage.CommonControl
                         nameTemp = (string)this.DTSUB.Rows[i][this.ColTextDTSUB];
                     bool flag = this._addSideTileBarItemSub(new TileBarItem(), tagTemp, "tileBarItem_sub" + (i + 1).ToString(), nameTemp, Encoding.Default.GetBytes(nameTemp).Length / 2);
                 }
+                //添加“占位”subItem
+                bool flag1 = this._addSideTileBarItemSub(new TileBarItem(), "-1", "tileBarItem_sub-1", "占位", Encoding.Default.GetBytes("占位").Length / 2);
+
                 this._showSubItemHideRedundantItem();
             }
             else
@@ -299,8 +300,9 @@ namespace CloudManage.CommonControl
                     tagTemp = (string)temp.Tag;
                     if (tag.CompareTo(tagTemp) == 0)
                     {
-                        TagSelectedItemSub = tagTemp;
                         this.tileBar_sideTileBar_sub.SelectedItem = temp;
+                        if (tagTemp != "-1")                //若选中的是“占位”，TagSelectedItemSub不更新
+                            TagSelectedItemSub = tagTemp;
                         flag = true;
                     }
 
@@ -313,7 +315,6 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
-
 
         //通过index选中item
         public bool _selectedItem(int indexItem)
@@ -338,7 +339,8 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
-        //通过index选中sub的item
+
+        //通过index选中subItem
         public bool _selectedItemSub(int indexItem)
         {
             bool flag = false;
@@ -349,7 +351,8 @@ namespace CloudManage.CommonControl
                     if (indexItem == i)
                     {
                         this.tileBar_sideTileBar_sub.SelectedItem = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
-                        this.TagSelectedItemSub = (string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag;
+                        if(((string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag) != "-1")
+                            this.TagSelectedItemSub = (string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag;
                         flag = true;
                     }
                 }
@@ -455,13 +458,22 @@ namespace CloudManage.CommonControl
                 this.tileBarGroup_sideTileBar.Items.Add(tileBarItem);
                 countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;    //更新显示的tileBarItem计数
 
-                //不显示“总览”时，初始化默认选中“产线1”
-                if (this.showOverview == false && this.countSideTileBarItem == 2)
+                //显示“总览”时，选中“总览”
+                //不显示“总览”时，TagSelectedItem初始化默认选中“产线1”
+                //子菜单：不论是否显示“所有设备”初始都默认选中“所有设备”
+                if (this.showOverview == true)
+                {
+                    TagSelectedItem = "000";
+                    //this.TagItemWhichSubItemBeenSelected = "000";
+                }
+                else if (this.showOverview == false && this.countSideTileBarItem == 2)
                 {
                     this.tileBar_sideTileBar.SelectedItem = tileBarItem;
-                    this.TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
+                    //this.TagItemWhichSubItemBeenSelected = (string)this.tileBar_sideTileBar.SelectedItem.Tag;   
+                    //this.TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;
+                    //this.TagItemWhichSubItemBeenSelected = (string)tileBarItem.Tag;
+                    this.TagSelectedItem = (string)tileBarItem.Tag;
                 }
-
                 return true;
             }
             catch (Exception ex)
@@ -549,15 +561,6 @@ namespace CloudManage.CommonControl
 
                 countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;    //更新tileBarItemSub计数
                 TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新检测设备总数
-
-                //显示“所有设备”时，初始化默认选中“所有设备”
-                //不显示“所有设备”时，选中“所有设备”但是不显示
-                //if (this.showAllDevices == false && this.countSideTileBarItemSub == 2)
-                //{
-                //    this.tileBar_sideTileBar_sub.SelectedItem = tileBarItemSub;
-                //    this.TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag;
-                //}
-                this._selectedItemSub(0);  
 
                 return true;
             }
@@ -701,7 +704,7 @@ namespace CloudManage.CommonControl
             TileBarItem temp = null;
             if (this.UseDtInitSideTileBarWithSub == true)
             {
-                if (this.showAllDevices == true && (this.TotalNumDevice != this.countSideTileBarItemSub - 1))    //countSideTileBarItemSub比TotalNumDevice多一个“所有设备”
+                if (this.showAllDevices == true && (this.TotalNumDevice != this.countSideTileBarItemSub - 2))    //countSideTileBarItemSub比TotalNumDevice多一个“所有设备”和“占位”
                 {
                     MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
                 }
@@ -715,8 +718,6 @@ namespace CloudManage.CommonControl
                             temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
                             temp.Visible = true;
                         }
-
-                        this._selectedItemSub(0);   //showAllDevice==true时重新选中“所有设备”,为false时不显示选中
                     }
                     else
                     {
@@ -743,7 +744,6 @@ namespace CloudManage.CommonControl
                                 temp.Visible = false;
                             }
                         }
-                        this._selectedItemSub(0);
                     }
                 }
                 else
@@ -773,7 +773,6 @@ namespace CloudManage.CommonControl
                                 temp.Visible = false;
                             }
                         }
-                        this._selectedItemSub(0);
                     }
                 }
 
@@ -831,6 +830,17 @@ namespace CloudManage.CommonControl
                 }
             }
 
+            //选中产线时，若当前选中不是TagItemWhichSubItemBeenSelected则选中“占位”的subItem；否则，恢复选中TagSelectedItemSub
+            if (this.TagSelectedItem == this.TagItemWhichSubItemBeenSelected)
+            {
+                this._selectedItemSub(this.TagSelectedItemSub);
+            }
+            else
+            {
+                this._selectedItemSub("-1");
+            }
+
+            //传出事件
             if (sideTileBarItemWithSubClickedItem != null)
             {
                 sideTileBarItemWithSubClickedItem(sender, new EventArgs());
@@ -843,10 +853,12 @@ namespace CloudManage.CommonControl
 
         private void tileBar_sideTileBar_sub_ItemClick(object sender, TileItemEventArgs e)
         {
-            TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag; //更新当前选中子菜单按钮
+            TagSelectedItemSub = (string)this.tileBar_sideTileBar_sub.SelectedItem.Tag; //更新当前选中子菜单按钮(可选中的一定不是“占位”)
+            TagItemWhichSubItemBeenSelected = TagSelectedItem;                          //更新TagItemWhichSubItemBeenSelected
             //MessageBox.Show("sub按钮总数= " + countSideTileBarItemSub.ToString());
             //MessageBox.Show("该按钮的tag= " + TagSelectedItemSub);
 
+            //传出事件
             if (sideTileBarItemWithSubClickedSubItem != null)
             {
                 sideTileBarItemWithSubClickedSubItem(sender, new EventArgs());

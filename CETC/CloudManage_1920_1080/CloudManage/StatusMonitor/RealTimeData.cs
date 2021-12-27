@@ -121,34 +121,41 @@ namespace CloudManage
             
         }
 
-        //刷新目录：产线
-        void refreshLabelDirLine()
+        ////刷新目录：产线
+        //void refreshLabelDirLine()
+        //{
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
+        //    if (str1 == "总览")
+        //        str1 = "";
+        //    this.labelControl_dir.Text = "   " + str1;
+        //}
+
+        ////刷新目录：设备
+        //public void refreshLabelDirDevice()
+        //{
+        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItem + "'");
+        //    if (dr.Length == 1)
+        //    {
+        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+        //        {
+        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+        //            this.labelControl_dir.Text += "——" + str2;
+        //        }
+        //    }
+        //}
+
+        void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
-            if (str1 == "总览")
-                str1 = "";
-            this.labelControl_dir.Text = "   " + str1;
-        }
-
-        //刷新目录：设备
-        public void refreshLabelDirDevice()
-        {
-            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_realTimeData.tagSelectedItem + "'");
-            if (dr.Length == 1)
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
+            if(str1 == "总览" && str2 == "所有设备")
             {
-                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
-                {
-                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-                    this.labelControl_dir.Text += "——" + str2;
-                }
+                this.labelControl_dir.Text = "";
             }
-        }
-
-        //刷新目录：图片类型
-        public void refreshLabelDirImgType()
-        {
-            if(this.labelControl_dir.Text!="   ")
-                this.labelControl_dir.Text += labelDirImgType;
+            else
+            {
+                this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+            }
         }
 
         //刷新选中设备的阈值
@@ -220,7 +227,6 @@ namespace CloudManage
         //没有所有设备，所有点击产线不默认选中子菜单
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1(object sender, EventArgs e)
         {
-            refreshLabelDirLine();
         }
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
@@ -229,8 +235,8 @@ namespace CloudManage
             deviceNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub;
             if (lineNO_deviceNONotChanged != "000")
             {
-                refreshLabelDirDevice();
-                refreshLabelDirImgType();
+                //refreshLabelDirDevice();
+                _refreshLabelDir();
                 this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
                 refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
                 setPicDeviceLocation(); //根据选中的设备设定位置
@@ -247,9 +253,7 @@ namespace CloudManage
             {
                 this.labelDirImgType = "——缺陷";
             }
-            refreshLabelDirLine();
-            refreshLabelDirDevice();
-            refreshLabelDirImgType();
+            _refreshLabelDir();
         }
 
         //给右侧数据上色，绑定gridcontrol的表发生改变时自动对每条记录执行一次

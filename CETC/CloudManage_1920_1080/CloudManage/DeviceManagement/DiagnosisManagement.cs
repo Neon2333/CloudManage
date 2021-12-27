@@ -84,30 +84,37 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        void refreshLabelDirLine()
+        void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
-            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
+            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
         }
 
-        //刷新目录：设备
-        public void refreshLabelDirDevice()
-        {
-            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem + "'");
-            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
-            if (dr.Length == 1)
-            {
-                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
-                {
-                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
-                    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-                }
-                else
-                {
-                    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-                }
-            }
-        }
+        //void refreshLabelDirLine()
+        //{
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
+        //    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        //}
+
+        ////刷新目录：设备
+        //public void refreshLabelDirDevice()
+        //{
+        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem + "'");
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItem);
+        //    if (dr.Length == 1)
+        //    {
+        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+        //        {
+        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_diagnosisManagement.tagSelectedItemSub);
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //        }
+        //        else
+        //        {
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        //        }
+        //    }
+        //}
 
         //点击侧边栏查询的命令
         private void initCmdQueryFaultsConfig()
@@ -264,15 +271,14 @@ namespace CloudManage.DeviceManagement
         //子菜单显示“所有设备”，每次点击产线时默认选中“所有设备”，且刷新grid显示
         private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            refreshLabelDirLine();
-            refreshGridSourceSideTileBarPressed();
         }
 
         //点击具体设备时按照设备刷新grid
         private void sideTileBarControlWithSub_diagnosisManagement_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            refreshLabelDirLine();
-            refreshLabelDirDevice();
+            //refreshLabelDirLine();
+            //refreshLabelDirDevice();
+            _refreshLabelDir();
             refreshGridSourceSideTileBarPressed();
         }
 

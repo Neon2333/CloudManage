@@ -65,37 +65,37 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControlWithSub_monitorThreshold._initSideTileBarWithSub();
         }
 
-        //void _refreshLabelDir()
+        void _refreshLabelDir()
+        {
+            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
+            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        }
+
+        //void refreshLabelDirLine()
         //{
         //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-        //     string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
-        //    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
         //}
 
-        void refreshLabelDirLine()
-        {
-            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-        }
-
-        //刷新目录：设备
-        public void refreshLabelDirDevice()
-        {
-            DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "'");
-            string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
-            if (dr.Length == 1)
-            {
-                if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
-                {
-                    string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
-                    this.labelControl_dir.Text = "   " + str1 + "——" + str2;
-                }
-                else
-                {
-                    this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
-                }
-            }
-        }
+        ////刷新目录：设备
+        //public void refreshLabelDirDevice()
+        //{
+        //    DataRow[] dr = Global.dtSideTileBar.Select("LineNO='" + this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem + "'");
+        //    string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItem);
+        //    if (dr.Length == 1)
+        //    {
+        //        if (Convert.ToInt32(dr[0]["DeviceTotalNum"]) != 0)
+        //        {
+        //            string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_monitorThreshold.tagSelectedItemSub);
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + str2;
+        //        }
+        //        else
+        //        {
+        //            this.labelControl_dir.Text = "   " + str1 + "——" + "所有设备";
+        //        }
+        //    }
+        //}
 
         //刷新当前选中行（当grid绑定的dt发生改变时必须要刷新，否则自动选中第一行）
         private void refreshSelectRow()
@@ -188,17 +188,17 @@ namespace CloudManage.DeviceManagement
             refreshSelectRow();
         }
 
-        //点击产线时默认选中“所有设备”，按照“所有设备”刷新grid
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            refreshLabelDirLine();
-            refreshGridSourceSideTileBarPressed(sender, e);
+            //refreshLabelDirLine();
+            //refreshGridSourceSideTileBarPressed(sender, e);
         }
 
         private void sideTileBarControlWithSub_monitorThreshold_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            refreshLabelDirLine();
-            refreshLabelDirDevice();
+            //refreshLabelDirLine();
+            //refreshLabelDirDevice();
+            _refreshLabelDir();
             refreshGridSourceSideTileBarPressed(sender, e);
         }
 

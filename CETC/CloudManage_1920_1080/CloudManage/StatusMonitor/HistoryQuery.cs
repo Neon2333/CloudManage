@@ -249,8 +249,6 @@ namespace CloudManage.StatusMonitor
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
-            _refreshLabelDir();
-            refreshGridSourceSideTileBarPressed();
         }
 
         private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)

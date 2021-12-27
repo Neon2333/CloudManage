@@ -278,7 +278,7 @@ namespace CloudManage.DeviceManagement
             this.labelControl_dir.Name = "labelControl_dir";
             this.labelControl_dir.Size = new System.Drawing.Size(1106, 50);
             this.labelControl_dir.TabIndex = 18;
-            this.labelControl_dir.Text = "   导航栏";
+            this.labelControl_dir.Text = "   总览——所有设备";
             // 
             // labelControl_deviceCanDeleteNO
             // 
