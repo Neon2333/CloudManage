@@ -111,7 +111,7 @@ namespace CloudManage.CommonControl
             // 
             // timer_disappear
             // 
-            this.timer_disappear.Interval = 5000;
+            this.timer_disappear.Interval = 2000;
             this.timer_disappear.Tick += new System.EventHandler(this.timer_disappear_Tick);
             // 
             // InformationBox

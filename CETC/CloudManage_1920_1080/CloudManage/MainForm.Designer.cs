@@ -117,6 +117,7 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement25 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement26 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement27 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             this.tileViewColumn_num = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_PLName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_TDName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -1446,6 +1447,7 @@
             // 
             // navigationPage_statusMonitoring
             // 
+            this.navigationPage_statusMonitoring.Caption = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Name = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Size = new System.Drawing.Size(1920, 880);
             // 
@@ -2125,6 +2127,10 @@
             this.tileBar1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar1.Size = new System.Drawing.Size(240, 150);
             this.tileBar1.TabIndex = 0;
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
             // 
             // MainForm
             // 
