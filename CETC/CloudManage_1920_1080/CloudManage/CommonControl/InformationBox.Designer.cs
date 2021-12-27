@@ -32,10 +32,10 @@ namespace CloudManage.CommonControl
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformationBox));
             this.panelControl_infoBox = new DevExpress.XtraEditors.PanelControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl_infoTitle = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton_infoOK = new DevExpress.XtraEditors.SimpleButton();
             this.timer_disappear = new System.Windows.Forms.Timer(this.components);
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_infoBox)).BeginInit();
             this.panelControl_infoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -53,8 +53,19 @@ namespace CloudManage.CommonControl
             this.panelControl_infoBox.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl_infoBox.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl_infoBox.Name = "panelControl_infoBox";
-            this.panelControl_infoBox.Size = new System.Drawing.Size(350, 200);
+            this.panelControl_infoBox.Size = new System.Drawing.Size(350, 150);
             this.panelControl_infoBox.TabIndex = 1;
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(50, 50);
+            this.pictureEdit1.TabIndex = 34;
             // 
             // labelControl_infoTitle
             // 
@@ -74,7 +85,7 @@ namespace CloudManage.CommonControl
             this.labelControl_infoTitle.Name = "labelControl_infoTitle";
             this.labelControl_infoTitle.Size = new System.Drawing.Size(350, 50);
             this.labelControl_infoTitle.TabIndex = 33;
-            this.labelControl_infoTitle.Text = "      提示信息提示信息提示信息";
+            this.labelControl_infoTitle.Text = "   删除成功！";
             // 
             // simpleButton_infoOK
             // 
@@ -88,7 +99,7 @@ namespace CloudManage.CommonControl
             this.simpleButton_infoOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton_infoOK.ImageOptions.ImageToTextIndent = 10;
             this.simpleButton_infoOK.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton_infoOK.Location = new System.Drawing.Point(102, 102);
+            this.simpleButton_infoOK.Location = new System.Drawing.Point(102, 90);
             this.simpleButton_infoOK.LookAndFeel.SkinName = "DevExpress Dark Style";
             this.simpleButton_infoOK.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton_infoOK.Name = "simpleButton_infoOK";
@@ -100,20 +111,8 @@ namespace CloudManage.CommonControl
             // 
             // timer_disappear
             // 
-            this.timer_disappear.Enabled = true;
             this.timer_disappear.Interval = 5000;
             this.timer_disappear.Tick += new System.EventHandler(this.timer_disappear_Tick);
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(50, 50);
-            this.pictureEdit1.TabIndex = 34;
             // 
             // InformationBox
             // 
@@ -121,7 +120,7 @@ namespace CloudManage.CommonControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl_infoBox);
             this.Name = "InformationBox";
-            this.Size = new System.Drawing.Size(350, 200);
+            this.Size = new System.Drawing.Size(350, 150);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_infoBox)).EndInit();
             this.panelControl_infoBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();

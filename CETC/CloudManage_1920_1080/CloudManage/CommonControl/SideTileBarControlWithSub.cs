@@ -18,7 +18,7 @@ namespace CloudManage.CommonControl
     {
         private bool UseDtInitSideTileBarWithSub = true;     //是否通过表初始化侧边栏
         private DataTable DT = new DataTable();     //初始化侧边栏用表
-        private DataTable DTSUB = new DataTable();     //初始化侧边栏用表
+        private DataTable DTSUB = new DataTable();     //初始化侧边栏子菜单用表
         //表DT的字段
         private string ColTagDT = String.Empty;
         private string ColTextDT = String.Empty;
@@ -27,8 +27,9 @@ namespace CloudManage.CommonControl
         private string ColTagDTSUB = String.Empty;
         private string ColTextDTSUB = String.Empty;
 
-        private string TagSelectedItem = String.Empty;
-        private string TagSelectedItemSub = String.Empty;   //总览tag="0"，添加按钮时从tag="1"开始
+        private string TagSelectedItem = String.Empty;      //当前选中的产线的id
+        private string TagItemWhichSubItemBeenSelected = String.Empty;  //当前被单选选中设备的产线的id，记录上一次被单选设备的产线，与当前选中产线进行对比
+        private string TagSelectedItemSub = String.Empty;   //总览tag="000"，添加按钮时从tag="001"开始
         public int countSideTileBarItem = 0;    //sideTileBar中显示的items计数。包括“总览”按钮
         public int countSideTileBarItemSub = 0; //sideTileBarSub中items计数
         public int TotalNumDevice = 0;     //检测设备总数
@@ -107,7 +108,17 @@ namespace CloudManage.CommonControl
                 return this.TagSelectedItem;
             }
         }
-        //获取Sub中被选中item的tag
+
+        //获取被选中subItem的item的id
+        public string tagItemWhichSubItemBeenSelected
+        {
+            get
+            {
+                return this.TagItemWhichSubItemBeenSelected;
+            }
+        }
+
+        //获取被选中的subItemd的tag
         public string tagSelectedItemSub
         {
             get
@@ -190,7 +201,7 @@ namespace CloudManage.CommonControl
 
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    if(this.ColTagDT!=null)
+                    if(this.ColTagDT != null)
                         tag = (string)this.DT.Rows[i][this.ColTagDT];
                     name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
                     if(this.ColTextDT != null)

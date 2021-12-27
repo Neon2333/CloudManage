@@ -16,18 +16,18 @@ namespace CloudManage.CommonControl
         public InformationBox()
         {
             InitializeComponent();
-            this.timer_disappear.Enabled = true;
+            this.timer_disappear.Enabled = false;
         }
 
         public string infoTitle
         {
             set
             {
-                this.labelControl_infoTitle.Text = "      " + value;
+                this.labelControl_infoTitle.Text = "   " + value;
             }
             get
             {
-                return this.labelControl_infoTitle.Text.Substring(6);
+                return this.labelControl_infoTitle.Text.Substring(3);
             }
         }
 
@@ -40,6 +40,18 @@ namespace CloudManage.CommonControl
             get
             {
                 return this.timer_disappear.Interval;
+            }
+        }
+
+        public bool disappearEnable
+        {
+            set
+            {
+                this.timer_disappear.Enabled = value;
+            }
+            get
+            {
+                return this.timer_disappear.Enabled;
             }
         }
 
