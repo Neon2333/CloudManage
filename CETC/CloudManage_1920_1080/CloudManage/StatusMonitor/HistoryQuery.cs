@@ -18,6 +18,7 @@ using System.Diagnostics;
 using System.Collections;
 using DevExpress.XtraEditors.Popup;
 using DevExpress.XtraBars.Docking2010;
+using DevExpress.XtraSplashScreen;
 
 namespace CloudManage.StatusMonitor
 {
@@ -30,6 +31,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initHistoryQuery();
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
 
         void initHistoryQuery()

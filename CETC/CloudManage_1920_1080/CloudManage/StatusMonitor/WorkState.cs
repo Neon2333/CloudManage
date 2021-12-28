@@ -16,6 +16,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.HSSF.UserModel;
 using System.Diagnostics;
 using System.IO;
+using DevExpress.XtraSplashScreen;
 
 namespace CloudManage.StatusMonitor
 {
@@ -30,6 +31,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initWorkState();
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
         void initWorkState()

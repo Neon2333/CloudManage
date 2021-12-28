@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,9 @@ namespace CloudManage.DeviceManagement
             InitializeComponent();
 
             initDeviceAdditionDeletion();
+
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+
         }
 
         void initDeviceAdditionDeletion()

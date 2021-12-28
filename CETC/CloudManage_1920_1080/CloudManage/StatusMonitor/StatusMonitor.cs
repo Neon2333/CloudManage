@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraSplashScreen;
+
 namespace CloudManage.StatusMonitor
 {
     public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
@@ -22,7 +24,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initStatusMonitorPage();
-           
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
             //this.FaultNumStatusMonitor = this.historyQueryControl1.faultNumHistoryQuery;
         }
 

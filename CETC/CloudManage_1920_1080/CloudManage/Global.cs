@@ -5,6 +5,7 @@ using NPOI.XSSF.UserModel;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.XtraSplashScreen;
 
 namespace CloudManage
 {
@@ -23,11 +24,12 @@ namespace CloudManage
             Global._init_dtProductionLine();    //初始化产线名称表
             Global._init_dtFaults();         //初始化故障名称表
             Global._init_dtDeviceConfig();      //初始化检测设备使能表
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
             Global._init_dtDeviceInfoThresholdAndLocation();   //初始化设备参数上下限、坐标表
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
-
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
         /*
          * MySQL表格：

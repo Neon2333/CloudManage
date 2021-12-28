@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -50,6 +51,9 @@ namespace CloudManage.DeviceManagement
             {
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
+
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+
         }
 
         private void _initSideTileBarWithSub()

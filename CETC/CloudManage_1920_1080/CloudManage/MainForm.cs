@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,9 +40,10 @@ namespace CloudManage
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
-
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetLabelStatus, "启动成功！");
         }
-        
+
         private void loadModules()
         {
             this.statusMonitorControl1 = new StatusMonitor.StatusMonitor();

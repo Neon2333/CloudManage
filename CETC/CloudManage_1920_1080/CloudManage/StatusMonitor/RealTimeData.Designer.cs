@@ -496,7 +496,7 @@
             // 
             // timer_refreshDtGridDataSource
             // 
-            this.timer_refreshDtGridDataSource.Enabled = true;
+             this.timer_refreshDtGridDataSource.Enabled = true;
             this.timer_refreshDtGridDataSource.Interval = 1000;
             this.timer_refreshDtGridDataSource.Tick += new System.EventHandler(this.timer_devicePara_Tick);
             // 

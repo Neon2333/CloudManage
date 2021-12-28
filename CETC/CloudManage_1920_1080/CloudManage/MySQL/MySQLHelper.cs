@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.XtraSplashScreen;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -26,6 +27,7 @@ namespace CloudManage.MySQL
             this.Password = pw;
             connStr = "data source=" + DataSource + ";database=" + DbName + ";user id=" + UserName + ";password=" + Password + ";";
 
+            //SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal+=5);
         }
 
         //mysql连接

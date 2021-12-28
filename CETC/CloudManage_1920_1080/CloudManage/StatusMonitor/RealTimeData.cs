@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Navigation;
 using System.Threading;
+using DevExpress.XtraSplashScreen;
 
 namespace CloudManage
 {
@@ -36,6 +37,8 @@ namespace CloudManage
         {
             InitializeComponent();
             initRealTime();
+            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal+=5);
+
         }
 
         void initRealTime()
