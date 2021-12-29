@@ -76,13 +76,13 @@ namespace CloudManage.DeviceManagement
         private void simpleButton_addDeviceOK_Click(object sender, EventArgs e)
         {
             AddDeviceBoxOKClicked(sender, new EventArgs());
-
         }
 
         public delegate void SimpleButtonCancelClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxCancelClicked;
         private void simpleButton_addDeviceCancel_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             AddDeviceBoxCancelClicked(sender, new EventArgs());
         }
 

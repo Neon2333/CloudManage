@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -198,13 +199,26 @@ namespace CloudManage.DeviceManagement
                     }
                 }
             }
-            //填充NO
-            Global.reorderDt(ref Global.dtDeviceCanAddEachLine);
+            Global.reorderDt(ref Global.dtDeviceCanAddEachLine);    //填充NO
             //this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
             //当表中数据发生改变时，会自动选中第一行，需要用selectRow重置选中行
             if (this.deviceAdditionDeletion_addDeviceBox1 != null)
             {
                 this.deviceAdditionDeletion_addDeviceBox1.currentFocusRowHandler = selectRowDtDeviceCanAddEachLine[0];
+            }
+        }
+
+        private void lockUnlockButton(string lockOrUnlock)
+        {
+            if (lockOrUnlock == "lockbtn")
+            {
+                this.simpleButton_deviceAddition.Enabled = false;
+                this.simpleButton_deviceDeletion.Enabled = false;
+            }
+            else if (lockOrUnlock == "unlockbtn")
+            {
+                this.simpleButton_deviceAddition.Enabled = true;
+                this.simpleButton_deviceDeletion.Enabled = true;
             }
         }
 
@@ -215,34 +229,11 @@ namespace CloudManage.DeviceManagement
             refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);      //刷新可添加列表
         }
 
-        
-
-        private void simpleButton_deviceAddition_Click(object sender, EventArgs e)
-        {
-            this.splashScreenManager_deviceAdditionDeletion.ShowWaitForm();
-            //创建设备添加框
-            if (this.deviceAdditionDeletion_addDeviceBox1 != null)
-            {
-                this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //创建前一定要销毁上一次new的deviceAdditionDeletion_addDeviceBox1，否则重复点“增加设备时”就会出现很多窗口
-            }
-            this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
-            this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(524,100);
-            this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
-            this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
-            this.deviceAdditionDeletion_addDeviceBox1.TabIndex = 29;
-            this.deviceAdditionDeletion_addDeviceBox1.titleAddDeviceBox = "添加设备";
-            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked);
-            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked);
-            this.Controls.Add(this.deviceAdditionDeletion_addDeviceBox1);
-            this.deviceAdditionDeletion_addDeviceBox1.BringToFront();
-            this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
-            refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
-            this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
-            this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
-        }
-
+        //*************************************************************删除设备****************************************************************************
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
         {
+            lockUnlockButton("lockbtn");
+
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
             {
                 //弹出确认框
@@ -263,7 +254,6 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        //*************************************************************删除设备****************************************************************************
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
@@ -279,7 +269,7 @@ namespace CloudManage.DeviceManagement
                 string cmdDeleteDevice = "p_deleteDevice";
                 Global.mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);
 
-                this.confirmationBox1.Visible = false;
+                //this.confirmationBox1.Visible = false;
 
                 if (Convert.ToInt32(ifAffected.Value) == 1)
                 {
@@ -297,15 +287,49 @@ namespace CloudManage.DeviceManagement
                 {
                     initInfoBox_successOrFail("删除设备失败！", 2000);
                 }
+
+                lockUnlockButton("unlockbtn");
             }
         }
 
         private void confirmationBox1_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
-            this.confirmationBox1.Visible = false;
+            lockUnlockButton("unlockbtn");
+            //this.confirmationBox1.Visible = false;
         }
 
         /******************************************************增加设备**************************************************************/
+        private void simpleButton_deviceAddition_Click(object sender, EventArgs e)
+        {
+            //if (this.splashScreenManager_deviceAdditionDeletion.IsSplashFormVisible == true)
+            //    this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
+
+            lockUnlockButton("lockbtn");
+            //创建设备添加框
+            if (this.deviceAdditionDeletion_addDeviceBox1 != null)
+            {
+                this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //创建前一定要销毁上一次new的deviceAdditionDeletion_addDeviceBox1，否则重复点“增加设备时”就会出现很多窗口
+            }
+
+            this.splashScreenManager_deviceAdditionDeletion.ShowWaitForm();
+            refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+
+            this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
+            this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(524, 100);
+            this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
+            this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
+            this.deviceAdditionDeletion_addDeviceBox1.TabIndex = 29;
+            this.deviceAdditionDeletion_addDeviceBox1.titleAddDeviceBox = "添加设备";
+            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked);
+            this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked);
+            this.Controls.Add(this.deviceAdditionDeletion_addDeviceBox1);
+            Thread.Sleep(3000);
+            this.deviceAdditionDeletion_addDeviceBox1.BringToFront();
+            this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
+            this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
+            this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
+        }
+
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanAddEachLine.Rows.Count != 0)
@@ -496,7 +520,6 @@ namespace CloudManage.DeviceManagement
                 //this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
                 this.deviceAdditionDeletion_addDeviceBox1.Dispose();
 
-
                 if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
                 {
                     initInfoBox_successOrFail("添加设备成功！", 2000);
@@ -509,16 +532,19 @@ namespace CloudManage.DeviceManagement
                 {
                     initInfoBox_successOrFail("添加设备失败！", 2000);
                 }
+
+                lockUnlockButton("unlockbtn");
             }
         }
 
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked(object sender, EventArgs e)
         {
+            lockUnlockButton("unlockbtn");
             //this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
-            this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //只是visible=false是在堆上new出来的窗口的资源没有释放，所以会随着点击“增加设备”按钮次数的增多而越来越慢，要dispose
+            //只是visible=false是在堆上new出来的窗口的资源没有释放，所以会随着点击“增加设备”按钮次数的增多而越来越慢，要dispose
+            //this.deviceAdditionDeletion_addDeviceBox1.Dispose();    
 
         }
-
         //添加设备后，MySQL中表已变化，但datatable暂时未变。
         //经过调试，发现用到表device_config、device_info、device_threshold、device_para、faults_config的地方，好像都从MySQL中重新查询了datatable？
         //目前发现未更新的地方只有侧边栏的num，即各产线的设备数未更新

@@ -35,12 +35,14 @@ namespace CloudManage.CommonControl
         private void simpleButton_confirmationOK_Click(object sender, EventArgs e)
         {
             ConfirmationBoxOKClicked(sender, new EventArgs());
+            this.Dispose();
         }
 
         public delegate void SimpleButtonCancelClickHanlder(object sender, EventArgs e);
         public event SimpleButtonCancelClickHanlder ConfirmationBoxCancelClicked;
         private void simpleButton_confirmationCancel_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             ConfirmationBoxCancelClicked(sender, new EventArgs());
         }
 
