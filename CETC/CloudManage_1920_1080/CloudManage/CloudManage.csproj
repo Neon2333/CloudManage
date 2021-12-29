@@ -239,6 +239,12 @@
     <Compile Include="DeviceManagement\MonitorThreshold.Designer.cs">
       <DependentUpon>MonitorThreshold.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeviceManagement\WaitForm_deviceAdditionDeletion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\WaitForm_deviceAdditionDeletion.Designer.cs">
+      <DependentUpon>WaitForm_deviceAdditionDeletion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -254,11 +260,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen1.cs">
+    <Compile Include="SplashScreen_startup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashScreen1.Designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <Compile Include="SplashScreen_startup.Designer.cs">
+      <DependentUpon>SplashScreen_startup.cs</DependentUpon>
     </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -362,6 +368,9 @@
     <EmbeddedResource Include="DeviceManagement\MonitorThreshold.resx">
       <DependentUpon>MonitorThreshold.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\WaitForm_deviceAdditionDeletion.resx">
+      <DependentUpon>WaitForm_deviceAdditionDeletion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,8 +380,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <EmbeddedResource Include="SplashScreen_startup.resx">
+      <DependentUpon>SplashScreen_startup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>

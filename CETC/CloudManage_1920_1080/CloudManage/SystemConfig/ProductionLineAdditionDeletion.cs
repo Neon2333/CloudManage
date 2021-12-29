@@ -33,7 +33,7 @@ namespace CloudManage.SystemConfig
             InitializeComponent();
             initDeviceAdditionDeletion();
 
-            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
         }
 

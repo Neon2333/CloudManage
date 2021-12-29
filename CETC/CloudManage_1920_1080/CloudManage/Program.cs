@@ -23,8 +23,8 @@ namespace CloudManage
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SplashScreenManager.ShowForm(typeof(SplashScreen1));    //ShowForm方法显示LoadIng窗口
-            Thread.Sleep(3000);
+            SplashScreenManager.ShowForm(typeof(SplashScreen_startup));    //ShowForm方法显示LoadIng窗口
+            //Thread.Sleep(3000);
 
             Application.Run(new MainForm());
 

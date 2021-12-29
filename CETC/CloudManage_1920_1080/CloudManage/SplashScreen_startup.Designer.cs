@@ -1,7 +1,7 @@
 ﻿
 namespace CloudManage
 {
-    partial class SplashScreen1
+    partial class SplashScreen_startup
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CloudManage
         /// </summary>
 		private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen_startup));
             this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
@@ -109,7 +109,7 @@ namespace CloudManage
             this.progressBarControl1.Size = new System.Drawing.Size(1860, 40);
             this.progressBarControl1.TabIndex = 10;
             // 
-            // SplashScreen1
+            // SplashScreen_startUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +119,7 @@ namespace CloudManage
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelCopyright);
-            this.Name = "SplashScreen1";
+            this.Name = "SplashScreen_startUp";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "SplashScreen1";
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();

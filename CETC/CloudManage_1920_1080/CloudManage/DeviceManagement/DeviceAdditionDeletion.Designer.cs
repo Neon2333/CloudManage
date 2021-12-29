@@ -102,6 +102,7 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_PName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_LLimit = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_ULimit = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.splashScreenManager_deviceAdditionDeletion = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::CloudManage.DeviceManagement.WaitForm_deviceAdditionDeletion), true, true, typeof(System.Windows.Forms.UserControl));
             this.sideTileBarControl_deviceAdditionDeletion = new CloudManage.CommonControl.SideTileBarControl();
             this.windowsUIButtonPanel_deviceAdditionDeletion = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
@@ -185,6 +186,10 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_ULimit.Name = "tileViewColumn_ULimit";
             this.tileViewColumn_ULimit.Visible = true;
             this.tileViewColumn_ULimit.VisibleIndex = 5;
+            // 
+            // splashScreenManager_deviceAdditionDeletion
+            // 
+            this.splashScreenManager_deviceAdditionDeletion.ClosingDelay = 500;
             // 
             // sideTileBarControl_deviceAdditionDeletion
             // 
@@ -823,5 +828,6 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_ULimit;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DeviceAdditionDeletion_addDeviceBox deviceAdditionDeletion_addDeviceBox1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_deviceAdditionDeletion;
     }
 }

@@ -26,7 +26,7 @@ namespace CloudManage.DeviceManagement
 
             initDeviceAdditionDeletion();
 
-            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
 
         }
 
@@ -219,7 +219,12 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_deviceAddition_Click(object sender, EventArgs e)
         {
+            this.splashScreenManager_deviceAdditionDeletion.ShowWaitForm();
             //创建设备添加框
+            if (this.deviceAdditionDeletion_addDeviceBox1 != null)
+            {
+                this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //创建前一定要销毁上一次new的deviceAdditionDeletion_addDeviceBox1，否则重复点“增加设备时”就会出现很多窗口
+            }
             this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
             this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(524,100);
             this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
@@ -233,7 +238,7 @@ namespace CloudManage.DeviceManagement
             this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
             refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
             this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
-
+            this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
         }
 
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
@@ -488,7 +493,9 @@ namespace CloudManage.DeviceManagement
                     Global.mysqlHelper1._updateMySQL("ALTER TABLE faults_config AUTO_INCREMENT=1;");  //重置主键NO
                 }
 
-                this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
+                //this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
+                this.deviceAdditionDeletion_addDeviceBox1.Dispose();
+
 
                 if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
                 {
@@ -507,7 +514,9 @@ namespace CloudManage.DeviceManagement
 
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked(object sender, EventArgs e)
         {
-            this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
+            //this.deviceAdditionDeletion_addDeviceBox1.Visible = false;
+            this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //只是visible=false是在堆上new出来的窗口的资源没有释放，所以会随着点击“增加设备”按钮次数的增多而越来越慢，要dispose
+
         }
 
         //添加设备后，MySQL中表已变化，但datatable暂时未变。

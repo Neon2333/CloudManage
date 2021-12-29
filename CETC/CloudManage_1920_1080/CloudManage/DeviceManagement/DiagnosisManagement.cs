@@ -52,7 +52,7 @@ namespace CloudManage.DeviceManagement
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
 
-            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
 
         }
 

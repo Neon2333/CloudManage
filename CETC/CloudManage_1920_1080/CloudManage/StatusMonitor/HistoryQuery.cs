@@ -31,7 +31,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initHistoryQuery();
-            SplashScreenManager.Default.SendCommand(SplashScreen1.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
 
         void initHistoryQuery()

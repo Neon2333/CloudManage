@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CloudManage
 {
-    public partial class SplashScreen1 : SplashScreen
+    public partial class SplashScreen_startup : SplashScreen
     {
-        public SplashScreen1()
+        public SplashScreen_startup()
         {
             InitializeComponent();
             //this.labelCopyright.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();

@@ -29,12 +29,12 @@ namespace CloudManage
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::CloudManage.SplashScreen1), true, true);
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager_startup = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::CloudManage.SplashScreen_startup), true, true);
             this.SuspendLayout();
             // 
-            // splashScreenManager1
+            // splashScreenManager_startup
             // 
-            splashScreenManager1.ClosingDelay = 500;
+            splashScreenManager_startup.ClosingDelay = 500;
             // 
             // StartForm
             // 
