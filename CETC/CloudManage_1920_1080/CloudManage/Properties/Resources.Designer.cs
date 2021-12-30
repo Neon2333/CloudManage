@@ -313,6 +313,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap startup_800_450 {
+            get {
+                object obj = ResourceManager.GetObject("startup_800_450", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap technology_32x32 {
             get {
                 object obj = ResourceManager.GetObject("technology_32x32", resourceCulture);

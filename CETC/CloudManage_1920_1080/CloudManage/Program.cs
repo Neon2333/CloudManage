@@ -24,7 +24,7 @@ namespace CloudManage
             Application.SetCompatibleTextRenderingDefault(false);
 
             SplashScreenManager.ShowForm(typeof(SplashScreen_startup));    //ShowForm方法显示LoadIng窗口
-            //Thread.Sleep(3000);
+            Thread.Sleep(3000);
 
             Application.Run(new MainForm());
 

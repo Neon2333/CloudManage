@@ -14,8 +14,7 @@ namespace CloudManage
         public SplashScreen_startup()
         {
             InitializeComponent();
-            //this.labelCopyright.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
-            this.labelCopyright.Text = "中国电子科技集团公司第四十一研究所\n" + "版权所有";
+            initProgressBar();
         }
 
         private void initProgressBar()
@@ -39,9 +38,8 @@ namespace CloudManage
                 progressBarControl1.Position = pos;
                 progressBarControl1.Update();
             }
-            if(command == SplashScreenCommand.SetLabelStatus)
+            if(command == SplashScreenCommand.SetLabel)
             {
-                labelStatus.Text = (string)arg;
             }
         }
 
@@ -50,7 +48,7 @@ namespace CloudManage
         public enum SplashScreenCommand
         {
             SetProgress, //设置progressBar的position
-            SetLabelStatus      //设置label.text
+            SetLabel      //设置label.text
         }
     }
 }

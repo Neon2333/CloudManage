@@ -41,7 +41,6 @@ namespace CloudManage
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetLabelStatus, "启动成功！");
         }
 
         private void loadModules()
