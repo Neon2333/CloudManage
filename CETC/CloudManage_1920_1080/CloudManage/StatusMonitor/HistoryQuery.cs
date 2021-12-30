@@ -25,8 +25,12 @@ namespace CloudManage.StatusMonitor
     public partial class HistoryQuery : DevExpress.XtraEditors.XtraUserControl
     {
         string cmdQueryFaultsHistory = String.Empty;
-
+        string startTime = String.Empty;
+        string endTime = String.Empty;
         int excelFileNameIndex = 1;
+
+        private int[] selectRowFaultCurrent = { 0 };   
+
         public HistoryQuery()
         {
             InitializeComponent();
@@ -37,11 +41,11 @@ namespace CloudManage.StatusMonitor
         void initHistoryQuery()
         {
             _initSideTileBarWithSub();  //初始化侧边栏
-            Global._init_dtHistoryQueryGridShow();    //初始化历史故障表，默认显示全部故障历史
+            //Global._init_dtHistoryQueryGridShow();    //初始化历史故障表，默认显示全部故障历史
             _initTimeEditStartAndEnd();
             //初始化显示一个月的历史
-            Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShow;
+            Global._init_dtHistoryQueryGridShow(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   
+            this.gridControl_faultHistory.DataSource = Global.dtHistoryQueryGridShow;
             _initWindowsUIButtonPanel();
         }
 
@@ -92,7 +96,7 @@ namespace CloudManage.StatusMonitor
 
         private void exportExcelDtHistoryQueryGridShow()
         {
-            DataTable dtGrid = (DataTable)this.gridControl_faultDataTime.DataSource;
+            DataTable dtGrid = (DataTable)this.gridControl_faultHistory.DataSource;
             string path = String.Empty;
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
             if (folderDlg.ShowDialog() == DialogResult.OK)
@@ -225,9 +229,12 @@ namespace CloudManage.StatusMonitor
             }
             else
             {
+                startTime = this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
+                endTime = this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
                 //查询改变grid绑定的表
-                Global.queryDtHistoryQueryGridShowClickedQueryButton(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
-                this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+                Global._init_dtHistoryQueryGridShow(startTime, endTime);   //点击查询显示时间段内的故障
+                keepSelectRowWhenDataSourceRefresh();
+                //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
             }
         }
 
@@ -259,28 +266,68 @@ namespace CloudManage.StatusMonitor
             refreshGridSourceSideTileBarPressed();
         }
 
+        private void keepSelectRowWhenDataSourceRefresh()
+        {
+            if (selectRowFaultCurrent.Length == 1)
+            {
+                if (selectRowFaultCurrent[0] < this.tileView_1.DataRowCount)
+                    this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView_1.FocusedRowHandle = 0;
+                    selectRowFaultCurrent[0] = 0;
+                }
+            }
+        }
+
+        private void gridControl_faultHistory_Click(object sender, EventArgs e)
+        {
+            if (((DataTable)this.gridControl_faultHistory.DataSource).Rows.Count > 0)
+                selectRowFaultCurrent = this.tileView_1.GetSelectedRows();  //手动记录被按下按钮
+            if (selectRowFaultCurrent.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
+            }
+        }
+
         private void simpleButton_query1Week_Click(object sender, EventArgs e)
         {
-            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+            startTime = DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd HH:mm:ss");
+            endTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);   //点击查询显示时间段内的故障
+            keepSelectRowWhenDataSourceRefresh();
+
+            //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
 
         private void simpleButton_query1Months_Click(object sender, EventArgs e)
         {
-            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+            startTime = DateTime.Now.AddMonths(-1).ToString("yyyy-MM-dd HH:mm:ss");
+            endTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);   //点击查询显示时间段内的故障
+            keepSelectRowWhenDataSourceRefresh();
+
+            //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
 
         private void simpleButton_query3Months_Click(object sender, EventArgs e)
         {
-            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-3).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+            startTime = DateTime.Now.AddMonths(-3).ToString("yyyy-MM-dd HH:mm:ss");
+            endTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);   //点击查询显示时间段内的故障
+            keepSelectRowWhenDataSourceRefresh();
+
+            //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
 
         private void simpleButton_query6Months_Click(object sender, EventArgs e)
         {
-            Global.queryDtHistoryQueryGridShowClickedQueryButton(DateTime.Now.AddMonths(-6).ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));   //点击查询显示时间段内的故障
-            this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
+            startTime = DateTime.Now.AddMonths(-6).ToString("yyyy-MM-dd HH:mm:ss");
+            endTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);   //点击查询显示时间段内的故障
+            keepSelectRowWhenDataSourceRefresh();
+
+            //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
 
         void windowsUIButtonPanel_historyQuery_buttonChecked(object sender, ButtonEventArgs e)
@@ -296,5 +343,13 @@ namespace CloudManage.StatusMonitor
             e.Button.Properties.Checked = false;
         }
 
+        private void timer_refreshDtHistoryQueryGridShow_Tick(object sender, EventArgs e)
+        {
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);    //初始化历史故障表，默认显示全部故障历史
+            keepSelectRowWhenDataSourceRefresh();
+
+        }
+
+        
     }
 }

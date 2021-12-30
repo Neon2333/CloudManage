@@ -115,6 +115,7 @@ namespace CloudManage
         {
             string cmdQueryDtTitleGridShowMainForm = "CALL queryDtTitleGridShowMainForm();";  //查询当前故障表中所有使能故障，并按照grid要求显示名称 
             _initDtMySQL(ref dtTitleGridShowMainForm, cmdQueryDtTitleGridShowMainForm);
+            Global.reorderDt(ref dtTitleGridShowMainForm);
 
             string cmdQueryDtHistoryValid = "CALL queryDtHistoryValid();";   //查询当前故障表中所有使能的故障故障,LineNO等
             _initDtMySQL(ref dtHistoryValid, cmdQueryDtHistoryValid);
@@ -129,34 +130,33 @@ namespace CloudManage
             string valLineNO = String.Empty;
             string valDeviceNO = String.Empty;
             string valFaultNO = String.Empty;
-            string valFaultTime = String.Empty;
+            //string valFaultTime = String.Empty;
+            DateTime valFaultTime = new DateTime();
 
             for (int i = 0; i < dtHistoryValid.Rows.Count; i++)
             {
                 valLineNO = Global.dtHistoryValid.Rows[i]["LineNO"].ToString();
                 valDeviceNO = Global.dtHistoryValid.Rows[i]["DeviceNO"].ToString();
                 valFaultNO = Global.dtHistoryValid.Rows[i]["FaultNO"].ToString();
-                valFaultTime = Global.dtHistoryValid.Rows[i]["FaultTime"].ToString();
-
-                //cmdJudgeIfExistInFaultHistory = "SELECT COUNT(t1.`NO`) FROM faults_history AS t1 WHERE " +
-                //             "t1.LineNO=" + "'" + valLineNO + "' " +
-                //             "AND t1.DeviceNO=" + "'" + valDeviceNO + "' " +
-                //             "AND t1.FaultNO=" + "'" + valFaultNO + "' " +
-                //             "AND t1.FaultTime=" + "'" + valFaultTime + "';";   //18ms
+                //valFaultTime = Global.dtHistoryValid.Rows[i]["FaultTime"].ToString();
+                valFaultTime = (DateTime)Global.dtHistoryValid.Rows[i]["FaultTime"];
 
                 cmdJudgeIfExistInFaultHistory = "CALL judgeIfExistInFaultHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime +"');";
                 DataTable dtJudgeIfExistInFaultHistory = new DataTable();
                 _initDtMySQL(ref dtJudgeIfExistInFaultHistory, cmdJudgeIfExistInFaultHistory);
-                if (Convert.ToInt32(dtJudgeIfExistInFaultHistory.Rows[0][0]) == 0)
+                if(dtJudgeIfExistInFaultHistory.Columns.Count!=0 && dtJudgeIfExistInFaultHistory.Rows.Count != 0)
                 {
-                    //cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
-                    //                       "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
+                    if (Convert.ToInt32(dtJudgeIfExistInFaultHistory.Rows[0][0]) == 0)
+                    {
+                        //cmdInsertFaultsHistory = "INSERT INTO faults_history (LineNO, DeviceNO, FaultNO, FaultTime) VALUES (" +
+                        //                       "'" + valLineNO + "', " + "'" + valDeviceNO + "', " + "'" + valFaultNO + "', " + "'" + valFaultTime + "');";
 
-                    cmdInsertFaultsHistory = "CALL insertFaultsHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime + "');";  
+                        cmdInsertFaultsHistory = "CALL insertFaultsHistory('" + valLineNO + "','" + valDeviceNO + "','" + valFaultNO + "','" + valFaultTime + "');";  
 
-                    bool flag1 = mysqlHelper1._connectMySQL();
-                    bool flag2 = mysqlHelper1._insertMySQL(cmdInsertFaultsHistory);
-                    mysqlHelper1.conn.Close();
+                        bool flag1 = mysqlHelper1._connectMySQL();
+                        bool flag2 = mysqlHelper1._insertMySQL(cmdInsertFaultsHistory);
+                        //mysqlHelper1.conn.Close();
+                    }
                 }
             }
         }
@@ -398,7 +398,7 @@ namespace CloudManage
 
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
 
-        public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
+        //public static DataTable dtHistoryQueryGridShowClickedQueryButton = new DataTable();   //查询出来的故障表
         public static string excelPath_historyQueryGridShowClickedQueryButton = @"D:\WorkSpace\EI41\DevExpressDemo\CETC\ExcelFile\dtGridShowClickedQueryButtonHistoryQuery";
 
         public static void _init_dtHistoryQueryGridShow()
@@ -414,9 +414,10 @@ namespace CloudManage
                                             "AND t1.FaultNO=t4.FaultNO " +
                                             "ORDER BY t1.`NO`;";
             _initDtMySQL(ref Global.dtHistoryQueryGridShow, cmdInitDtHistoryQueryGridShow);
+            Global.reorderDt(ref Global.dtHistoryQueryGridShow);
         }
 
-        public static void queryDtHistoryQueryGridShowClickedQueryButton(string timeStart, string timeEnd)
+        public static void _init_dtHistoryQueryGridShow(string timeStart, string timeEnd)
         {
             string cmdQueryDtHistoryQueryGridShowClickedQueryButton = "SELECT t1.`NO`,t2.LineName,t3.DeviceName,t4.FaultName,t1.FaultTime " +
                                             "FROM faults_history AS t1 " +
@@ -430,7 +431,10 @@ namespace CloudManage
                                             "WHERE t1.FaultTime BETWEEN " +
                                             "'" + timeStart + "'" + " AND " + "'" + timeEnd + "' " +
                                             "ORDER BY t1.`NO`;";
-            _initDtMySQL(ref dtHistoryQueryGridShowClickedQueryButton, cmdQueryDtHistoryQueryGridShowClickedQueryButton);
+            //_initDtMySQL(ref dtHistoryQueryGridShowClickedQueryButton, cmdQueryDtHistoryQueryGridShowClickedQueryButton);
+            _initDtMySQL(ref Global.dtHistoryQueryGridShow, cmdQueryDtHistoryQueryGridShowClickedQueryButton);
+            Global.reorderDt(ref Global.dtHistoryQueryGridShow);
+
         }
 
         /*************************************************************************************************************/

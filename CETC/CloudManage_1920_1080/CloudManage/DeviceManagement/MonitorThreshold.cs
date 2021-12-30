@@ -140,12 +140,30 @@ namespace CloudManage.DeviceManagement
             return limitWithoutSuffix;
         }
 
+        private void keepSelectRowWhenDataSourceRefresh()
+        {
+            if (selectRow.Length == 1)
+            {
+                if (selectRow[0] < this.tileView1.DataRowCount)
+                    this.tileView1.FocusedRowHandle = selectRow[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView1.FocusedRowHandle = 0;
+                    selectRow[0] = 0;
+                }
+            }
+        }
+
         private void gridControl_deviceInfoThreshold_Click(object sender, EventArgs e)
         {
             if (((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRow = this.tileView1.GetSelectedRows();   //记录选中的行
                 refreshSelectRow();
+            }
+            if (selectRow.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
             }
         }
 

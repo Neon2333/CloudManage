@@ -529,7 +529,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="a1sw9-j398w-001.ico" />
-    <None Include="Resources\startup_800_450.jpg" />
+    <None Include="Resources\startup_1920_1080.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

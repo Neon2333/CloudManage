@@ -201,13 +201,31 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        //点击选中某行时
-        private void gridControl_faultDataTime_Click(object sender, EventArgs e)    //不要用itemClick，有时候点击了但selectedrows未改变，出现bug
+        private void keepSelectRowWhenDataSourceRefresh()
         {
-            if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
+            if (selectRow.Length == 1)
+            {
+                if (selectRow[0] < this.tileView1.DataRowCount)
+                    this.tileView1.FocusedRowHandle = selectRow[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView1.FocusedRowHandle = 0;
+                    selectRow[0] = 0;
+                }
+            }
+        }
+
+        private void gridControl_faultsConfig_Click(object sender, EventArgs e)
+        {
+            if (((DataTable)this.gridControl_faultsConfig.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界.不要用itemClick，有时候点击了但selectedrows未改变，出现bug
             {
                 selectRow = this.tileView1.GetSelectedRows();   //记录选中的行
-                refreshColorButtonStatusChange(); 
+                refreshColorButtonStatusChange();
+            }
+
+            if (selectRow.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
             }
         }
 
@@ -569,11 +587,6 @@ namespace CloudManage.DeviceManagement
             //}
         }
 
-
-       
-
-
-
-
+        
     }
 }

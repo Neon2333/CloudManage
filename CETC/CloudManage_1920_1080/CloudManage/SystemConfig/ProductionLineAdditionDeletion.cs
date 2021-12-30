@@ -252,12 +252,30 @@ namespace CloudManage.SystemConfig
             Global.initDtProductionLineExists();
         }
 
+        private void keepSelectRowWhenDataSourceRefresh()
+        {
+            if (selectRowDtProductionLineExists.Length == 1)
+            {
+                if (selectRowDtProductionLineExists[0] < this.tileView1.DataRowCount)
+                    this.tileView1.FocusedRowHandle = selectRowDtProductionLineExists[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView1.FocusedRowHandle = 0;
+                    selectRowDtProductionLineExists[0] = 0;
+                }
+            }
+        }
+
         //记录选中的行
         private void gridControl_productionLineAdditionDeletion_Click(object sender, EventArgs e)
         {
             if (((DataTable)this.gridControl_productionLineAdditionDeletion.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRowDtProductionLineExists = this.tileView1.GetSelectedRows();
+            }
+            if (selectRowDtProductionLineExists.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
             }
         }
 

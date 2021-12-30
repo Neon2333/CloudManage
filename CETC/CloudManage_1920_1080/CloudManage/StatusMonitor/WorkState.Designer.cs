@@ -1255,6 +1255,7 @@
             // 
             // timer_refreshDtEachProductionLineWorkState
             // 
+            this.timer_refreshDtEachProductionLineWorkState.Enabled = true;
             this.timer_refreshDtEachProductionLineWorkState.Interval = 1000;
             this.timer_refreshDtEachProductionLineWorkState.Tick += new System.EventHandler(this.timer_devicePara_Tick);
             // 

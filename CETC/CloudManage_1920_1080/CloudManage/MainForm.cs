@@ -30,7 +30,7 @@ namespace CloudManage
 
         int iSelectedIndex = 0; //默认显示第一页
 
-        private int[] selectRowFaultCurrent = { -1 };   //手动记录被选中行，初始给手动设置被选中行的handle（index）赋值-1，目前正常，是否会出bug未知
+        private int[] selectRowFaultCurrent = { 0 };   //手动记录被选中行，初始给手动设置被选中行的handle（index）赋值-1，目前正常，是否会出bug未知
 
         public MainForm()
         {
@@ -653,14 +653,23 @@ namespace CloudManage
         {
             Global._refreshTitleGridShow();
             Global._writeFaultsHistory();
+
+            keepSelectRowWhenDataSourceRefresh();
             
+        }
+
+        //当表刷新时保持表中被选中的行的index不变，若选中行被删除则仍选中该Index的行，若表的总行数<index，则选中第一行
+        private void keepSelectRowWhenDataSourceRefresh()
+        {
             if (selectRowFaultCurrent.Length == 1)
             {
-                this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     //在DataSource发生改变后，手动修改被选中的row
-            }
-            else
-            {
-                MessageBox.Show("所选行数大于1");
+                if (selectRowFaultCurrent[0] < this.tileView_1.DataRowCount)
+                    this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView_1.FocusedRowHandle = 0;
+                    selectRowFaultCurrent[0] = 0;
+                }
             }
         }
 
@@ -668,14 +677,21 @@ namespace CloudManage
         {
             if (((DataTable)this.gridControl_faultsCurrent.DataSource).Rows.Count > 0)
                 selectRowFaultCurrent = this.tileView_1.GetSelectedRows();  //手动记录被按下按钮
-
+            if(selectRowFaultCurrent.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
+            }
         }
 
         private void simpleButton_ignoreOnce_Click(object sender, EventArgs e)
         {
             //从fault_current中删除所选记录
-            if (Global.dtTitleGridShowMainForm.Rows.Count > 0 && selectRowFaultCurrent.Length == 1)  //表空的话不进行后续
+            if (Global.dtTitleGridShowMainForm.Rows.Count > 0)  //表空的话不进行后续
             {
+                if(selectRowFaultCurrent.Length != 1)
+                {
+                    MessageBox.Show("当前选中不止一行");
+                }
                 //DataRow drSelected = this.tileView_1.GetFocusedDataRow(); //调用方法获取被选中的row还是有几率获取到DataSource改变时自动选择的第一行，因为可能选中行的手动修改可能还未执行
                 DataRow drSelected = this.tileView_1.GetDataRow(selectRowFaultCurrent[0]);  //通过手动记录获取被选中行。GetDataRow通过RowHandler获取行，Rowhandle和行index值相同
 
@@ -696,7 +712,8 @@ namespace CloudManage
                         string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
                         string valDeviceNO = dtTemp.Rows[0]["DeviceNO"].ToString();
                         string valFaultNO = dtTemp.Rows[0]["FaultNO"].ToString();
-                        string valFaultTime = drSelected["FaultTime"].ToString();
+                        //string valFaultTime = drSelected["FaultTime"].ToString();
+                        DateTime valFaultTime = (DateTime)drSelected["FaultTime"];
 
                         string cmdIgnoreOnce = "DELETE FROM faults_current WHERE " +
                                              "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
@@ -709,6 +726,7 @@ namespace CloudManage
                             Global._refreshTitleGridShow();
                             MessageBox.Show("更新表faults_current一次");
                         }
+                        keepSelectRowWhenDataSourceRefresh();
                     }
                 }
                 else
@@ -746,7 +764,8 @@ namespace CloudManage
                         string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
                         string valDeviceNO = dtTemp.Rows[0]["DeviceNO"].ToString();
                         string valFaultNO = dtTemp.Rows[0]["FaultNO"].ToString();
-                        string valFaultTime = drSelected["FaultTime"].ToString();
+                        //string valFaultTime = drSelected["FaultTime"].ToString();
+                        DateTime valFaultTime = (DateTime)drSelected["FaultTime"];
 
                         string cmdIgnoreOnce = "DELETE FROM faults_current WHERE " +
                                                 "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +

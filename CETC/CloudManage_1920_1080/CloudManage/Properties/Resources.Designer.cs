@@ -313,9 +313,9 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap startup_800_450 {
+        internal static System.Drawing.Bitmap startup_1920_1080 {
             get {
-                object obj = ResourceManager.GetObject("startup_800_450", resourceCulture);
+                object obj = ResourceManager.GetObject("startup_1920_1080", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

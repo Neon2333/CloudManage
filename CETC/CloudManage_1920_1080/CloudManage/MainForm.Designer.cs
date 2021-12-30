@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
@@ -117,7 +118,6 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement25 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement26 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement27 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             this.tileViewColumn_num = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_PLName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_TDName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -222,6 +222,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileView_1)).BeginInit();
             this.SuspendLayout();
             // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
             // tileViewColumn_num
             // 
             this.tileViewColumn_num.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -266,6 +270,7 @@
             // 
             this.tileViewColumn_FTime.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
             this.tileViewColumn_FTime.AppearanceCell.Options.UseFont = true;
+            this.tileViewColumn_FTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tileViewColumn_FTime.FieldName = "FaultTime";
             this.tileViewColumn_FTime.Name = "tileViewColumn_FTime";
             this.tileViewColumn_FTime.Visible = true;
@@ -1550,7 +1555,7 @@
             this.labelControl_title.Name = "labelControl_title";
             this.labelControl_title.Size = new System.Drawing.Size(1200, 84);
             this.labelControl_title.TabIndex = 0;
-            this.labelControl_title.Text = "检测设备数字化平台";
+            this.labelControl_title.Text = "视觉检测设备数字化平台";
             this.labelControl_title.Click += new System.EventHandler(this.labelControl_title_Click);
             // 
             // timer_datetime
@@ -2113,7 +2118,6 @@
             // 
             // timer_refreshDtTitleGridShowMainForm
             // 
-            this.timer_refreshDtTitleGridShowMainForm.Enabled = true;
             this.timer_refreshDtTitleGridShowMainForm.Interval = 3000;
             this.timer_refreshDtTitleGridShowMainForm.Tick += new System.EventHandler(this.timer_refreshDtTitleGridShowMainForm_Tick);
             // 
@@ -2127,10 +2131,6 @@
             this.tileBar1.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollButtons;
             this.tileBar1.Size = new System.Drawing.Size(240, 150);
             this.tileBar1.TabIndex = 0;
-            // 
-            // splashScreenManager1
-            // 
-            splashScreenManager1.ClosingDelay = 500;
             // 
             // MainForm
             // 

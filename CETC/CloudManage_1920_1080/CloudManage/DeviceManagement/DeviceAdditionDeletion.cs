@@ -76,6 +76,20 @@ namespace CloudManage.DeviceManagement
             this.labelControl_dir.Text = "   " + str1;
         }
 
+        private void keepSelectRowWhenDataSourceRefresh()
+        {
+            if (selectRowDtDeviceCanDeleteEachLine.Length == 1)
+            {
+                if (selectRowDtDeviceCanDeleteEachLine[0] < this.tileView1.DataRowCount)
+                    this.tileView1.FocusedRowHandle = selectRowDtDeviceCanDeleteEachLine[0];     //在DataSource发生改变后，手动修改被选中的row
+                else
+                {
+                    this.tileView1.FocusedRowHandle = 0;
+                    selectRowDtDeviceCanDeleteEachLine[0] = 0;
+                }
+            }
+        }
+
         //记录选中行
         private void gridControl_deviceAdditionDeletion_Click(object sender, EventArgs e)
         {
@@ -84,8 +98,19 @@ namespace CloudManage.DeviceManagement
             {
                 selectRowDtDeviceCanDeleteEachLine = this.tileView1.GetSelectedRows();
             }
-            if(this.deviceAdditionDeletion_addDeviceBox1!=null)
+
+            if (selectRowDtDeviceCanDeleteEachLine.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
+            }
+
+            if (this.deviceAdditionDeletion_addDeviceBox1!=null)
                 selectRowDtDeviceCanAddEachLine[0] = this.deviceAdditionDeletion_addDeviceBox1.currentFocusRowHandler;
+
+            if (selectRowDtDeviceCanAddEachLine.Length > 1)
+            {
+                MessageBox.Show("当前选中不止一行");
+            }
         }
 
         //填充dtDeviceCanDeleteEachLine
@@ -315,6 +340,7 @@ namespace CloudManage.DeviceManagement
             refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
 
             this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
+            this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
             this.deviceAdditionDeletion_addDeviceBox1.Location = new System.Drawing.Point(524, 100);
             this.deviceAdditionDeletion_addDeviceBox1.Name = "deviceAdditionDeletion_addDeviceBox1";
             this.deviceAdditionDeletion_addDeviceBox1.Size = new System.Drawing.Size(550, 548);
@@ -323,9 +349,7 @@ namespace CloudManage.DeviceManagement
             this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked);
             this.deviceAdditionDeletion_addDeviceBox1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked);
             this.Controls.Add(this.deviceAdditionDeletion_addDeviceBox1);
-            Thread.Sleep(3000);
             this.deviceAdditionDeletion_addDeviceBox1.BringToFront();
-            this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
             this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
             this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
         }

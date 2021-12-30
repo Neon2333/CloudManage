@@ -39,19 +39,24 @@ namespace CloudManage
             // 
             // progressBarControl1
             // 
-            this.progressBarControl1.EditValue = 100;
-            this.progressBarControl1.Location = new System.Drawing.Point(280, 559);
+            this.progressBarControl1.EditValue = 50;
+            this.progressBarControl1.Location = new System.Drawing.Point(280, 694);
             this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.progressBarControl1.Properties.EndColor = System.Drawing.Color.DarkOrange;
-            this.progressBarControl1.Properties.StartColor = System.Drawing.Color.DarkOrange;
-            this.progressBarControl1.Size = new System.Drawing.Size(1360, 40);
+            this.progressBarControl1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.progressBarControl1.Properties.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(51)))));
+            this.progressBarControl1.Properties.FlowAnimationEnabled = true;
+            this.progressBarControl1.Properties.LookAndFeel.SkinName = "Liquid Sky";
+            this.progressBarControl1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.progressBarControl1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.progressBarControl1.Properties.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
+            this.progressBarControl1.Properties.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(51)))));
+            this.progressBarControl1.Size = new System.Drawing.Size(645, 26);
             this.progressBarControl1.TabIndex = 10;
             // 
             // peImage
             // 
             this.peImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.peImage.EditValue = global::CloudManage.Properties.Resources.startup_800_450;
+            this.peImage.EditValue = global::CloudManage.Properties.Resources.startup_1920_1080;
             this.peImage.Location = new System.Drawing.Point(1, 1);
             this.peImage.Name = "peImage";
             this.peImage.Properties.AllowFocused = false;
@@ -70,7 +75,7 @@ namespace CloudManage
             this.labelControl_startupVer.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(83)))), ((int)(((byte)(158)))));
             this.labelControl_startupVer.Appearance.Options.UseFont = true;
             this.labelControl_startupVer.Appearance.Options.UseForeColor = true;
-            this.labelControl_startupVer.Location = new System.Drawing.Point(280, 465);
+            this.labelControl_startupVer.Location = new System.Drawing.Point(280, 569);
             this.labelControl_startupVer.Name = "labelControl_startupVer";
             this.labelControl_startupVer.Size = new System.Drawing.Size(246, 64);
             this.labelControl_startupVer.TabIndex = 12;
@@ -82,11 +87,11 @@ namespace CloudManage
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(83)))), ((int)(((byte)(158)))));
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(280, 378);
+            this.labelControl1.Location = new System.Drawing.Point(280, 477);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(504, 64);
+            this.labelControl1.Size = new System.Drawing.Size(616, 64);
             this.labelControl1.TabIndex = 13;
-            this.labelControl1.Text = "检测设备数字化平台";
+            this.labelControl1.Text = "视觉检测设备数字化平台";
             // 
             // SplashScreen_startup
             // 
