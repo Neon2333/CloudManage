@@ -56,7 +56,7 @@ namespace CloudManage.CommonControl
             // labelControl_confirmationBoxTitle
             // 
             this.labelControl_confirmationBoxTitle.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.labelControl_confirmationBoxTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_confirmationBoxTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl_confirmationBoxTitle.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl_confirmationBoxTitle.Appearance.Options.UseBackColor = true;
             this.labelControl_confirmationBoxTitle.Appearance.Options.UseFont = true;

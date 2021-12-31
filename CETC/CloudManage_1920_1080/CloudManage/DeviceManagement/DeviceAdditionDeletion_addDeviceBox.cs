@@ -49,7 +49,11 @@ namespace CloudManage.DeviceManagement
             {
                 if(((DataTable)this.gridControl_addDeviceBox.DataSource).Rows.Count > 0)
                 {
-                    return this.tileView_addDeviceBox.GetSelectedRows()[0];
+                    int[] indexOfSelectedRows = this.tileView_addDeviceBox.GetSelectedRows();
+                    if (indexOfSelectedRows.Length > 0)
+                        return indexOfSelectedRows[0];
+                    else
+                        return -1;
                 }
                 else
                 {

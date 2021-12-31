@@ -36,8 +36,8 @@ namespace CloudManage.DeviceManagement
             initSideTileBarDeviceAdditionDeletion();
             Global.initDtDeviceCanDeleteEachLine();     //初始化可删除设备表
             refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
-            this.gridControl_deviceAdditionDeletion.DataSource = Global.dtDeviceCanDeleteEachLine;
-            if (((DataTable)this.gridControl_deviceAdditionDeletion.DataSource).Rows.Count > 0)
+            this.gridControl_deviceDeletion.DataSource = Global.dtDeviceCanDeleteEachLine;
+            if (((DataTable)this.gridControl_deviceDeletion.DataSource).Rows.Count > 0)
             {
                 this.tileView1.FocusedRowHandle = selectRowDtDeviceCanDeleteEachLine[0]; //默认选中第一行
             }
@@ -91,23 +91,15 @@ namespace CloudManage.DeviceManagement
         }
 
         //记录选中行
-        private void gridControl_deviceAdditionDeletion_Click(object sender, EventArgs e)
+        private void gridControl_deviceDeletion_Click(object sender, EventArgs e)
         {
             //记录选中的行
-            if (((DataTable)this.gridControl_deviceAdditionDeletion.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
+            if (((DataTable)this.gridControl_deviceDeletion.DataSource).Rows.Count > 0)   //防止查询出来的结果为空表，出现越界
             {
                 selectRowDtDeviceCanDeleteEachLine = this.tileView1.GetSelectedRows();
             }
 
             if (selectRowDtDeviceCanDeleteEachLine.Length > 1)
-            {
-                MessageBox.Show("当前选中不止一行");
-            }
-
-            if (this.deviceAdditionDeletion_addDeviceBox1!=null)
-                selectRowDtDeviceCanAddEachLine[0] = this.deviceAdditionDeletion_addDeviceBox1.currentFocusRowHandler;
-
-            if (selectRowDtDeviceCanAddEachLine.Length > 1)
             {
                 MessageBox.Show("当前选中不止一行");
             }
@@ -175,9 +167,9 @@ namespace CloudManage.DeviceManagement
             }
             Global.reorderDt(ref Global.dtDeviceCanDeleteEachLine);
             //当表中数据发生改变时，会自动选中第一行，需要用selectRow重置选中行
-            if (this.gridControl_deviceAdditionDeletion.DataSource != null)
+            if (this.gridControl_deviceDeletion.DataSource != null)
             {
-                this.tileView1.FocusedRowHandle = selectRowDtDeviceCanDeleteEachLine[0];
+                keepSelectRowWhenDataSourceRefresh();
             }
         }
 
@@ -257,10 +249,10 @@ namespace CloudManage.DeviceManagement
         //*************************************************************删除设备****************************************************************************
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
         {
-            lockUnlockButton("lockbtn");
 
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
             {
+                lockUnlockButton("lockbtn");
                 //弹出确认框
                 this.confirmationBox1 = new CommonControl.ConfirmationBox();
                 this.confirmationBox1.Appearance.BackColor = System.Drawing.Color.White;
@@ -351,6 +343,7 @@ namespace CloudManage.DeviceManagement
             this.Controls.Add(this.deviceAdditionDeletion_addDeviceBox1);
             this.deviceAdditionDeletion_addDeviceBox1.BringToFront();
             this.deviceAdditionDeletion_addDeviceBox1.Visible = true;
+            Thread.Sleep(1000);
             this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
         }
 

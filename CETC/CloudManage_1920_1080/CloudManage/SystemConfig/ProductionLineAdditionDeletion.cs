@@ -350,9 +350,9 @@ namespace CloudManage.SystemConfig
         /*********************************************删除产线*******************************************************/
         private void simpleButton_productionLineDeletion_Click(object sender, EventArgs e)
         {
-            lockUnlockButton("lockbtn");
             if (Global.dtProductionLineSystemConfig.Rows.Count != 0)
             {
+                lockUnlockButton("lockbtn");
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
                 initConfirmationBox_delLine();
                 this.confirmationBox_delLine.titleConfirmationBox = "确认删除：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?";
@@ -435,9 +435,9 @@ namespace CloudManage.SystemConfig
         /*********************************************修改产线名*******************************************************/
         private void simpleButton_lineNameModify_Click(object sender, EventArgs e)
         {
-            lockUnlockButton("lockbtn");
             if (Global.dtProductionLineSystemConfig.Rows.Count != 0 && this.selectRowDtProductionLineExists.Length != 0)
             {
+                lockUnlockButton("lockbtn");    
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
                 initStandardKeyboard("确认修改产线：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
                 this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_modifyLineName_checkOK);
@@ -509,10 +509,10 @@ namespace CloudManage.SystemConfig
         /*********************************************复制产线*******************************************************/
         private void simpleButton_productionLineCopy_Click(object sender, EventArgs e)
         {
-            lockUnlockButton("lockbtn");
 
             if (Global.dtProductionLineSystemConfig.Rows.Count != 0)
             {
+                lockUnlockButton("lockbtn");
                 DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
                 initConfirmationBox_message("确认拷贝产线：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
                 this.confirmationBox_message.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_message_copyCheckOKClicked);

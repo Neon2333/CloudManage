@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace CloudManage
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         int currentPage = (int)StatusMonitorPages.workStatePage;    //全局记录当前页面
-        private CommonControl.ConfirmationBox confirmationBox_applicationRestart;
+        private CommonControl.ConfirmationBox confirmationBox_applicationRestartOrClose;
 
 
         DateTime now = new DateTime();  //当前时间
@@ -81,21 +82,64 @@ namespace CloudManage
             }
         }
 
-        private void createConfirmationBox(string title)
+        //typeConfirmationBox==restart为重启，typeConfirmationBox==close为退出软件
+        private void createConfirmationBox(string title, string typeConfirmationBox)
         {
-            this.confirmationBox_applicationRestart = new CommonControl.ConfirmationBox();
-            this.confirmationBox_applicationRestart.Appearance.BackColor = System.Drawing.Color.White;
-            this.confirmationBox_applicationRestart.Appearance.Options.UseBackColor = true;
-            this.confirmationBox_applicationRestart.Location = new System.Drawing.Point(627, 369);
-            this.confirmationBox_applicationRestart.Name = "confirmationBox_applicationRestart";
-            this.confirmationBox_applicationRestart.Size = new System.Drawing.Size(350, 200);
-            this.confirmationBox_applicationRestart.TabIndex = 29;
-            this.confirmationBox_applicationRestart.titleConfirmationBox = title;
-            this.confirmationBox_applicationRestart.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxOKClicked);
-            this.confirmationBox_applicationRestart.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_applicationRestart_ConfirmationBoxCancelClicked);
-            this.Controls.Add(this.confirmationBox_applicationRestart);
-            this.confirmationBox_applicationRestart.Visible = true;
-            this.confirmationBox_applicationRestart.BringToFront();
+            if (this.confirmationBox_applicationRestartOrClose != null)
+                this.confirmationBox_applicationRestartOrClose.Dispose();
+
+            this.confirmationBox_applicationRestartOrClose = new CommonControl.ConfirmationBox();
+            this.confirmationBox_applicationRestartOrClose.Appearance.BackColor = System.Drawing.Color.White;
+            this.confirmationBox_applicationRestartOrClose.Appearance.Options.UseBackColor = true;
+            this.confirmationBox_applicationRestartOrClose.Name = "confirmationBox_applicationRestart";
+            this.confirmationBox_applicationRestartOrClose.Size = new System.Drawing.Size(350, 200);
+            this.confirmationBox_applicationRestartOrClose.TabIndex = 29;
+            this.confirmationBox_applicationRestartOrClose.titleConfirmationBox = title;
+            if (typeConfirmationBox == "restart")
+            {
+                this.confirmationBox_applicationRestartOrClose.Location = new System.Drawing.Point(785, 360);
+                this.confirmationBox_applicationRestartOrClose.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_applicationRestartOrClose_restartOK);
+                this.confirmationBox_applicationRestartOrClose.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_applicationRestartOrClose_restartCancel);
+            }
+            else if(typeConfirmationBox == "close")
+            {
+                this.confirmationBox_applicationRestartOrClose.Location = new System.Drawing.Point(785, 360);
+                this.confirmationBox_applicationRestartOrClose.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_applicationRestart_closeOK);
+                this.confirmationBox_applicationRestartOrClose.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_applicationRestart_closeCancel);
+            }
+            this.Controls.Add(this.confirmationBox_applicationRestartOrClose);
+            this.confirmationBox_applicationRestartOrClose.Visible = true;
+            this.confirmationBox_applicationRestartOrClose.BringToFront();
+        }
+
+        private void confirmationBox_applicationRestart_closeOK(object sender, EventArgs e)
+        {
+            //Environment.Exit(0);
+            Process.GetCurrentProcess().Kill();
+        }
+
+        private void confirmationBox_applicationRestart_closeCancel(object sender, EventArgs e)
+        {
+            confirmationBox_applicationRestartOrClose.Dispose();
+        }
+
+        private void confirmationBox_applicationRestartOrClose_restartOK(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void confirmationBox_applicationRestartOrClose_restartCancel(object sender, EventArgs e)
+        {
+            ////返回增删设备页面不翻页
+            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            //iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            //currentPage = (int)StatusMonitorPages.workStatePage;
+            //currentPage = processCurrentPage();
+            //this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
+            //this.confirmationBox_applicationRestart.Visible = false;
+
+            this.confirmationBox_applicationRestartOrClose.Dispose();
         }
 
         /**
@@ -191,25 +235,6 @@ namespace CloudManage
             return curPage;
         }
 
-        private void confirmationBox_applicationRestart_ConfirmationBoxOKClicked(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
-        private void confirmationBox_applicationRestart_ConfirmationBoxCancelClicked(object sender, EventArgs e)
-        {
-            ////返回增删设备页面不翻页
-            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            //iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-            //currentPage = (int)StatusMonitorPages.workStatePage;
-            //currentPage = processCurrentPage();
-            //this.deviceManagement1.selectedFramePage = iSelectedIndex;
-
-            //this.confirmationBox_applicationRestart.Visible = false;
-
-            this.confirmationBox_applicationRestart.Visible = false;
-        }
-
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
             if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
@@ -224,11 +249,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if(currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -247,11 +272,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -270,11 +295,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -293,11 +318,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -316,11 +341,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -339,11 +364,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -362,11 +387,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -385,11 +410,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -408,11 +433,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -431,11 +456,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -454,11 +479,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -477,11 +502,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -500,11 +525,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -523,7 +548,7 @@ namespace CloudManage
             {
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -541,11 +566,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -564,11 +589,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -588,11 +613,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -611,11 +636,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？");
+                    createConfirmationBox("产线已增删，确认重启？", "restart");
                 }
             }
         }
@@ -634,7 +659,7 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？");
+                    createConfirmationBox("设备已增删，确认重启？", "restart");
                 }
             }
         }
@@ -800,7 +825,13 @@ namespace CloudManage
 
         }
 
-      
+        private void pictureEdit_CETC_DoubleClick(object sender, EventArgs e)
+        {
+            createConfirmationBox("关闭软件？", "close");
+        }
+
+
+
 
 
 

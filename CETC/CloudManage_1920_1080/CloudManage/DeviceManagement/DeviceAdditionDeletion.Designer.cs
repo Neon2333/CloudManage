@@ -29,10 +29,10 @@ namespace CloudManage.DeviceManagement
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeviceAdditionDeletion));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraGrid.Views.Tile.ItemTemplate itemTemplate1 = new DevExpress.XtraGrid.Views.Tile.ItemTemplate();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -115,12 +115,12 @@ namespace CloudManage.DeviceManagement
             this.labelControl_deviceParaCount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_deviceFaultsEnableCount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_deviceFaultsCount = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl_deviceAdditionDeletion = new DevExpress.XtraGrid.GridControl();
+            this.gridControl_deviceDeletion = new DevExpress.XtraGrid.GridControl();
             this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceAdditionDeletion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceDeletion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             this.SuspendLayout();
@@ -210,14 +210,14 @@ namespace CloudManage.DeviceManagement
             // 
             this.windowsUIButtonPanel_deviceAdditionDeletion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_deviceAdditionDeletion.ButtonInterval = 20;
-            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
-            windowsUIButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions3.SvgImage")));
+            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
+            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
+            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
             this.windowsUIButtonPanel_deviceAdditionDeletion.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_deviceAdditionDeletion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_deviceAdditionDeletion.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_deviceAdditionDeletion.Location = new System.Drawing.Point(0, 800);
@@ -400,20 +400,20 @@ namespace CloudManage.DeviceManagement
             this.labelControl_deviceFaultsCount.TabIndex = 24;
             this.labelControl_deviceFaultsCount.Text = "诊断数量";
             // 
-            // gridControl_deviceAdditionDeletion
+            // gridControl_deviceDeletion
             // 
-            this.gridControl_deviceAdditionDeletion.Location = new System.Drawing.Point(246, 100);
-            this.gridControl_deviceAdditionDeletion.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.gridControl_deviceAdditionDeletion.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl_deviceAdditionDeletion.MainView = this.tileView1;
-            this.gridControl_deviceAdditionDeletion.Name = "gridControl_deviceAdditionDeletion";
-            this.gridControl_deviceAdditionDeletion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gridControl_deviceDeletion.Location = new System.Drawing.Point(246, 100);
+            this.gridControl_deviceDeletion.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.gridControl_deviceDeletion.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridControl_deviceDeletion.MainView = this.tileView1;
+            this.gridControl_deviceDeletion.Name = "gridControl_deviceDeletion";
+            this.gridControl_deviceDeletion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1});
-            this.gridControl_deviceAdditionDeletion.Size = new System.Drawing.Size(1106, 700);
-            this.gridControl_deviceAdditionDeletion.TabIndex = 28;
-            this.gridControl_deviceAdditionDeletion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl_deviceDeletion.Size = new System.Drawing.Size(1106, 700);
+            this.gridControl_deviceDeletion.TabIndex = 28;
+            this.gridControl_deviceDeletion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView1});
-            this.gridControl_deviceAdditionDeletion.Click += new System.EventHandler(this.gridControl_deviceAdditionDeletion_Click);
+            this.gridControl_deviceDeletion.Click += new System.EventHandler(this.gridControl_deviceDeletion_Click);
             // 
             // tileView1
             // 
@@ -447,7 +447,7 @@ namespace CloudManage.DeviceManagement
             this.tileViewColumn_ULimit});
             this.tileView1.ContextButtonOptions.ItemCursor = System.Windows.Forms.Cursors.PanSouth;
             this.tileView1.ContextButtonOptions.PanelCursor = System.Windows.Forms.Cursors.Arrow;
-            this.tileView1.GridControl = this.gridControl_deviceAdditionDeletion;
+            this.tileView1.GridControl = this.gridControl_deviceDeletion;
             this.tileView1.Name = "tileView1";
             this.tileView1.OptionsEditForm.AllowHtmlCaptions = true;
             this.tileView1.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(6, 8, 12, 8);
@@ -782,7 +782,7 @@ namespace CloudManage.DeviceManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridControl_deviceAdditionDeletion);
+            this.Controls.Add(this.gridControl_deviceDeletion);
             this.Controls.Add(this.labelControl_deviceFaultsCount);
             this.Controls.Add(this.labelControl_deviceFaultsEnableCount);
             this.Controls.Add(this.labelControl_deviceParaCount);
@@ -797,7 +797,7 @@ namespace CloudManage.DeviceManagement
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
             this.panelControl_rightSide.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceAdditionDeletion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_deviceDeletion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
             this.ResumeLayout(false);
@@ -818,7 +818,7 @@ namespace CloudManage.DeviceManagement
         private DevExpress.XtraEditors.LabelControl labelControl_deviceParaCount;
         private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsEnableCount;
         private DevExpress.XtraEditors.LabelControl labelControl_deviceFaultsCount;
-        private DevExpress.XtraGrid.GridControl gridControl_deviceAdditionDeletion;
+        private DevExpress.XtraGrid.GridControl gridControl_deviceDeletion;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_NO;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_PLName;

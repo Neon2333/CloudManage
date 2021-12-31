@@ -226,18 +226,24 @@ namespace CloudManage.DeviceManagement
 
         private void simpleButton_modifyUpperLimit_Click(object sender, EventArgs e)
         {
-            this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyUpper;
-            string lowerLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
-            createNumberKeyboard("修改上限", Convert.ToDouble(lowerLimitCurrentRow), 999999D);
-            this.numberKeyboard1.Visible = true;
+            if (((DataTable)gridControl_monitorThreshold.DataSource).Rows.Count > 0)
+            {
+                this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyUpper;
+                string lowerLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["LowerLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
+                createNumberKeyboard("修改上限", Convert.ToDouble(lowerLimitCurrentRow), 999999D);
+                this.numberKeyboard1.Visible = true;
+            }
         }
 
         private void simpleButton_modifyLowerLimit_Click(object sender, EventArgs e)
         {
-            this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyLower;
-            string upperLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["UpperLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
-            createNumberKeyboard("修改下限", 0.0D, Convert.ToDouble(upperLimitCurrentRow));
-            this.numberKeyboard1.Visible = true;
+            if (((DataTable)gridControl_monitorThreshold.DataSource).Rows.Count > 0)
+            {
+                this.modifyUpperOrLowerCurrent = (int)ModifyUpperOrLower.modifyLower;
+                string upperLimitCurrentRow = removeSuffixLimits(Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["UpperLimit"].ToString(), Global.dtDeviceInfoThresholdGridShow.Rows[selectRow[0]]["ParaSuffix"].ToString());  //把dt["LowerLimit"]的单位去掉
+                createNumberKeyboard("修改下限", 0.0D, Convert.ToDouble(upperLimitCurrentRow));
+                this.numberKeyboard1.Visible = true;
+            }
         }
 
         private void numberKeyboard1_NumberKeyboardEnterClicked(object sender, EventArgs e)
