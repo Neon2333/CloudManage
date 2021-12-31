@@ -1,5 +1,5 @@
 ﻿
-namespace InsertFaultsCurrent
+namespace CloudManageConfigAndTest
 {
     partial class InsertFaultCurrent
     {
@@ -30,7 +30,7 @@ namespace InsertFaultsCurrent
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.simpleButton_insertFaultCurrent = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_startInsert = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox_faultNO = new System.Windows.Forms.ComboBox();
             this.timer_insertFaultsCurrent = new System.Windows.Forms.Timer(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -40,31 +40,26 @@ namespace InsertFaultsCurrent
             this.labelControl_lineNO = new DevExpress.XtraEditors.LabelControl();
             this.comboBox_lineNO = new System.Windows.Forms.ComboBox();
             this.labelControl_faultNO = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton_stopInsert = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // simpleButton_insertFaultCurrent
+            // simpleButton_startInsert
             // 
-            this.simpleButton_insertFaultCurrent.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.simpleButton_insertFaultCurrent.Appearance.Options.UseFont = true;
-            this.simpleButton_insertFaultCurrent.Location = new System.Drawing.Point(11, 136);
-            this.simpleButton_insertFaultCurrent.Name = "simpleButton_insertFaultCurrent";
-            this.simpleButton_insertFaultCurrent.Size = new System.Drawing.Size(239, 73);
-            this.simpleButton_insertFaultCurrent.TabIndex = 0;
-            this.simpleButton_insertFaultCurrent.Text = "开始插入实时故障";
+            this.simpleButton_startInsert.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.simpleButton_startInsert.Appearance.Options.UseFont = true;
+            this.simpleButton_startInsert.Location = new System.Drawing.Point(11, 136);
+            this.simpleButton_startInsert.Name = "simpleButton_startInsert";
+            this.simpleButton_startInsert.Size = new System.Drawing.Size(106, 69);
+            this.simpleButton_startInsert.TabIndex = 0;
+            this.simpleButton_startInsert.Text = "开始";
+            this.simpleButton_startInsert.Click += new System.EventHandler(this.simpleButton_insertFaultCurrent_Click);
             // 
             // comboBox_faultNO
             // 
+            this.comboBox_faultNO.Enabled = false;
             this.comboBox_faultNO.FormattingEnabled = true;
-            this.comboBox_faultNO.Items.AddRange(new object[] {
-            "相机故障",
-            "电源故障",
-            "输出信号故障",
-            "故障001-4",
-            "故障001-5",
-            "故障001-6",
-            "故障001-7"});
             this.comboBox_faultNO.Location = new System.Drawing.Point(116, 92);
             this.comboBox_faultNO.Name = "comboBox_faultNO";
             this.comboBox_faultNO.Size = new System.Drawing.Size(134, 22);
@@ -77,10 +72,12 @@ namespace InsertFaultsCurrent
             // 
             // panelControl1
             // 
+            this.panelControl1.AccessibleDescription = "";
+            this.panelControl1.Controls.Add(this.simpleButton_stopInsert);
             this.panelControl1.Controls.Add(this.label_totalInsert);
             this.panelControl1.Controls.Add(this.labelControl_deviceNO);
             this.panelControl1.Controls.Add(this.comboBox_deviceNO);
-            this.panelControl1.Controls.Add(this.simpleButton_insertFaultCurrent);
+            this.panelControl1.Controls.Add(this.simpleButton_startInsert);
             this.panelControl1.Controls.Add(this.labelControl_lineNO);
             this.panelControl1.Controls.Add(this.comboBox_lineNO);
             this.panelControl1.Controls.Add(this.labelControl_faultNO);
@@ -89,6 +86,7 @@ namespace InsertFaultsCurrent
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(263, 278);
             this.panelControl1.TabIndex = 6;
+            this.panelControl1.Tag = "";
             // 
             // label_totalInsert
             // 
@@ -121,19 +119,13 @@ namespace InsertFaultsCurrent
             // 
             // comboBox_deviceNO
             // 
+            this.comboBox_deviceNO.Enabled = false;
             this.comboBox_deviceNO.FormattingEnabled = true;
-            this.comboBox_deviceNO.Items.AddRange(new object[] {
-            "相机故障",
-            "电源故障",
-            "输出信号故障",
-            "故障001-4",
-            "故障001-5",
-            "故障001-6",
-            "故障001-7"});
             this.comboBox_deviceNO.Location = new System.Drawing.Point(116, 53);
             this.comboBox_deviceNO.Name = "comboBox_deviceNO";
             this.comboBox_deviceNO.Size = new System.Drawing.Size(134, 22);
             this.comboBox_deviceNO.TabIndex = 6;
+            this.comboBox_deviceNO.SelectedValueChanged += new System.EventHandler(this.comboBox_deviceNO_SelectedValueChanged);
             // 
             // labelControl_lineNO
             // 
@@ -152,18 +144,11 @@ namespace InsertFaultsCurrent
             // comboBox_lineNO
             // 
             this.comboBox_lineNO.FormattingEnabled = true;
-            this.comboBox_lineNO.Items.AddRange(new object[] {
-            "相机故障",
-            "电源故障",
-            "输出信号故障",
-            "故障001-4",
-            "故障001-5",
-            "故障001-6",
-            "故障001-7"});
             this.comboBox_lineNO.Location = new System.Drawing.Point(116, 16);
             this.comboBox_lineNO.Name = "comboBox_lineNO";
             this.comboBox_lineNO.Size = new System.Drawing.Size(134, 22);
             this.comboBox_lineNO.TabIndex = 4;
+            this.comboBox_lineNO.SelectedValueChanged += new System.EventHandler(this.comboBox_lineNO_SelectedValueChanged);
             // 
             // labelControl_faultNO
             // 
@@ -178,6 +163,17 @@ namespace InsertFaultsCurrent
             this.labelControl_faultNO.Size = new System.Drawing.Size(99, 23);
             this.labelControl_faultNO.TabIndex = 3;
             this.labelControl_faultNO.Text = "故障类型：";
+            // 
+            // simpleButton_stopInsert
+            // 
+            this.simpleButton_stopInsert.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.simpleButton_stopInsert.Appearance.Options.UseFont = true;
+            this.simpleButton_stopInsert.Location = new System.Drawing.Point(144, 136);
+            this.simpleButton_stopInsert.Name = "simpleButton_stopInsert";
+            this.simpleButton_stopInsert.Size = new System.Drawing.Size(106, 69);
+            this.simpleButton_stopInsert.TabIndex = 9;
+            this.simpleButton_stopInsert.Text = "停止";
+            this.simpleButton_stopInsert.Click += new System.EventHandler(this.simpleButton_stopInsert_Click);
             // 
             // InsertFaultCurrent
             // 
@@ -195,7 +191,7 @@ namespace InsertFaultsCurrent
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton simpleButton_insertFaultCurrent;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_startInsert;
         private System.Windows.Forms.ComboBox comboBox_faultNO;
         private System.Windows.Forms.Timer timer_insertFaultsCurrent;
         private DevExpress.XtraEditors.PanelControl panelControl1;
@@ -205,5 +201,6 @@ namespace InsertFaultsCurrent
         private DevExpress.XtraEditors.LabelControl labelControl_lineNO;
         private System.Windows.Forms.ComboBox comboBox_lineNO;
         private DevExpress.XtraEditors.LabelControl labelControl_faultNO;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_stopInsert;
     }
 }

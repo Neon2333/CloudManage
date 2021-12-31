@@ -10,23 +10,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InsertFaultsCurrent
+namespace CloudManageConfigAndTest
 {
     public partial class InsertFaultCurrent : DevExpress.XtraEditors.XtraForm
     {
         CloudManage.MySQL.MySQLHelper mysqlHelper1;
         int totalInsert = 0;
-        //string lineNO = String.Empty;
-        //string deviceNO = String.Empty;
-        //string faultNO = String.Empty;
-        string lineNO = "001";
-        string deviceNO = "001";
-        string faultNO = "1";
+        string lineNO = String.Empty;
+        string deviceNO = String.Empty;
+        string faultNO = String.Empty;
         DateTime nowTime = new DateTime();
 
         DataTable dtLine = new DataTable();
         DataTable dtDeviceConfig = new DataTable();
         DataTable dtDevice = new DataTable();
+        DataTable dtFaultsConfig = new DataTable();
+
 
         public InsertFaultCurrent()
         {
@@ -86,6 +85,7 @@ namespace InsertFaultsCurrent
 
         private void initTable()
         {
+            //初始化line列表
             string cmdInitDtLine = "SELECT LineNO, LineName FROM productionline;";
             mysqlHelper1._queryTableMySQL(cmdInitDtLine, ref dtLine);
             for (int i = 0; i < dtLine.Rows.Count; i++)
@@ -93,22 +93,22 @@ namespace InsertFaultsCurrent
                 this.comboBox_lineNO.Items.Add(dtLine.Rows[i]["LineNO"] + "-" + dtLine.Rows[i]["LineName"]);
             }
 
+            //
             string cmdInitDtDeviceEachLine = "SELECT * FROM device_config;";
             mysqlHelper1._queryTableMySQL(cmdInitDtDeviceEachLine, ref dtDeviceConfig);
 
+            //
             string cmdInitDtDevice = "SELECT DeviceNO, DeviceName FROM device;";
             mysqlHelper1._queryTableMySQL(cmdInitDtDevice, ref dtDevice);
 
+            //
+            string cmdInitDtFaultsConfig = "SELECT t1.LineNO, t1.DeviceNO, t1.FaultNO, t2.FaultName, t1.FaultEnable FROM faults_config AS t1 INNER JOIN faults AS t2 ON t1.DeviceNO=t2.DeviceNO AND t1.FaultNO=t2.FaultNO;";
+            mysqlHelper1._queryTableMySQL(cmdInitDtFaultsConfig, ref dtFaultsConfig);
 
         }
 
         private void timer_insertFaultsCurrent_Tick(object sender, EventArgs e)
         {
-            string lineNOTemp = this.comboBox_lineNO.SelectedItem.ToString();
-            lineNO = lineNOTemp.Substring(0, lineNOTemp.IndexOf('-'));
-
-            deviceNO =
-            faultNO = (this.comboBox_faultNO.SelectedIndex + 1).ToString();
             nowTime = DateTime.Now;
 
             if (lineNO != String.Empty && deviceNO != String.Empty && faultNO != String.Empty)
@@ -122,11 +122,11 @@ namespace InsertFaultsCurrent
             }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void simpleButton_insertFaultCurrent_Click(object sender, EventArgs e)
         {
+            timer_insertFaultsCurrent.Enabled = true;
             if (this.comboBox_faultNO.Text != "")
             {
-                timer_insertFaultsCurrent.Enabled = !timer_insertFaultsCurrent.Enabled;
                 if (timer_insertFaultsCurrent.Enabled)
                     this.label_totalInsert.BackColor = System.Drawing.Color.LimeGreen;
                 else
@@ -134,9 +134,21 @@ namespace InsertFaultsCurrent
             }
         }
 
-        private void comboBox_deviceNO_DropDown(object sender, EventArgs e)
+        private void simpleButton_stopInsert_Click(object sender, EventArgs e)
         {
-            DataRow[] dr = dtDeviceConfig.Select("LineNO='" + this.comboBox_lineNO.SelectedItem + "'");
+            timer_insertFaultsCurrent.Enabled = false;
+        }
+
+        private void comboBox_lineNO_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //获取选中LineNO
+            string lineNOTemp = this.comboBox_lineNO.SelectedItem.ToString();
+            lineNO = lineNOTemp.Substring(0, lineNOTemp.IndexOf('-'));
+
+            this.comboBox_deviceNO.Enabled = true;
+
+            //对应LineNO的device列表
+            DataRow[] dr = dtDeviceConfig.Select("LineNO='" + lineNO + "'");
             if (dr.Length == 1)
             {
                 string[] colNames = GetColumnsName(dr[0]);
@@ -146,10 +158,28 @@ namespace InsertFaultsCurrent
                 }
             }
 
+        }
 
+        private void comboBox_deviceNO_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //获取DeviceNO
+            string deviceNOTemp = this.comboBox_deviceNO.SelectedItem.ToString();
+            deviceNO = deviceNOTemp.Substring(deviceNOTemp.IndexOf('_') + 1, deviceNOTemp.Length);
+
+            this.comboBox_faultNO.Enabled = true;
+
+            //对应的DeviceNO的faults列表
+            DataRow[] dr = dtFaultsConfig.Select("LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "' AND FaultEnable='" + "1'");
+            if(dr.Length == 1)
+            {
+                for(int i = 0; i < dr.Length; i++)
+                {
+                    this.comboBox_faultNO.Items.Add(dr[i]["FaultNO"].ToString() + "-" + dr[i]["FaultName"]);
+                }
+            }
 
         }
 
-
+        
     }
 }
