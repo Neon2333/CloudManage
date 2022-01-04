@@ -26,6 +26,7 @@ namespace CloudManage.SystemConfig
 
 
         string inputLineName = String.Empty;
+        string toDeleteLineName = String.Empty;
         string[] lineNOVec = new string[999];   //暂存所有可能的LineNO
 
         public ProductionLineAdditionDeletion()
@@ -72,13 +73,12 @@ namespace CloudManage.SystemConfig
             this.standardKeyboard1 = new VisionSystemControlLibrary.StandardKeyboard();
             this.standardKeyboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
             this.standardKeyboard1.CapsLock = false;
-            this.standardKeyboard1.Chinese_Caption = " ";
-            this.standardKeyboard1.English_Caption = " ";
+            this.standardKeyboard1.Language = VisionSystemClassLibrary.Enum.InterfaceLanguage.Chinese;
+            this.standardKeyboard1.Chinese_Caption = title;
             this.standardKeyboard1.FirstInitialStringValue = false;
             this.standardKeyboard1.InvalidCharacter = null;
             this.standardKeyboard1.IsPassword = false;
-            this.standardKeyboard1.Language = VisionSystemClassLibrary.Enum.InterfaceLanguage.English;
-            this.standardKeyboard1.Location = new System.Drawing.Point(444, 300);
+            this.standardKeyboard1.Location = new System.Drawing.Point(444, 100);
             this.standardKeyboard1.MaxLength = ((byte)(30));
             this.standardKeyboard1.Name = "standardKeyboard1";
             this.standardKeyboard1.Password = "";
@@ -88,7 +88,6 @@ namespace CloudManage.SystemConfig
             this.standardKeyboard1.StringValue = "";
             this.standardKeyboard1.StringValueBuf = "";
             this.standardKeyboard1.TabIndex = 0;
-            this.standardKeyboard1.Chinese_Caption = title;
             this.Controls.Add(this.standardKeyboard1);
             this.standardKeyboard1.BringToFront();
             this.standardKeyboard1.Visible = true;
@@ -131,7 +130,7 @@ namespace CloudManage.SystemConfig
             this.Controls.Add(this.confirmationBox_addLine);
             this.confirmationBox_addLine.Visible = true;
             this.confirmationBox_addLine.BringToFront();
-            this.confirmationBox_addLine.titleConfirmationBox = "确认添加产线:  “" + inputLineName + "”?";
+            this.confirmationBox_addLine.titleConfirmationBox = "确认添加：“" + inputLineName + "”?";
         }
 
         private void initConfirmationBox_delLine()
@@ -283,7 +282,7 @@ namespace CloudManage.SystemConfig
         private void simpleButton_productionLineAddition_Click(object sender, EventArgs e)
         {
             lockUnlockButton("lockbtn");
-            initStandardKeyboard("请输入产线名称");
+            initStandardKeyboard("请输入待添加的产线名称");
             this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_addLine_checkOK);
         }
 
@@ -314,7 +313,6 @@ namespace CloudManage.SystemConfig
             lineNO.Value = createLineNO();
             MySqlParameter lineName = new MySqlParameter("lname", MySqlDbType.VarChar, 20);
             lineName.Value = inputLineName;
-            inputLineName = "";
             MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
             MySqlParameter[] paras = { lineNO, lineName, ifAffected };
             string cmdAddLine = "p_addLine";
@@ -323,7 +321,7 @@ namespace CloudManage.SystemConfig
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
             {
-                initInfoBox_successOrFail("添加成功！", 2000);
+                initInfoBox_successOrFail("“" + inputLineName + "”添加成功！", 2000);
 
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
@@ -335,8 +333,9 @@ namespace CloudManage.SystemConfig
             }
             else
             {
-                initInfoBox_successOrFail("添加失败！", 2000);
+                initInfoBox_successOrFail("“" + inputLineName + "”添加失败！", 2000);
             }
+            inputLineName = "";
             lockUnlockButton("unlockbtn");
 
         }
@@ -354,8 +353,9 @@ namespace CloudManage.SystemConfig
             {
                 lockUnlockButton("lockbtn");
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
+                toDeleteLineName = Global._getProductionLineNameByTag(drSelected["LineNO"].ToString());
                 initConfirmationBox_delLine();
-                this.confirmationBox_delLine.titleConfirmationBox = "确认删除：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?";
+                this.confirmationBox_delLine.titleConfirmationBox = "确认删除：“" + toDeleteLineName + "”?";
                 this.confirmationBox_delLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_delLine_ConfirmationBoxOKClicked);
                 this.confirmationBox_delLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_delLine_ConfirmationBoxCancelClicked);
             }
@@ -367,7 +367,7 @@ namespace CloudManage.SystemConfig
             {
                 //confirmationBox_delLine.Dispose();
                 initConfirmationBox_delLine();
-                this.confirmationBox_delLine.titleConfirmationBox = " 删除将无法恢复，确认删除？";
+                this.confirmationBox_delLine.titleConfirmationBox = "删除将无法恢复，确认删除？";
                 this.confirmationBox_delLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_delLine_ConfirmationBoxOKDoubleCheckClicked);
                 this.confirmationBox_delLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_delLine_ConfirmationBoxCancelDoubleCheckClicked);
             }
@@ -397,7 +397,7 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
                 {
-                    initInfoBox_successOrFail("删除成功！", 2000);
+                    initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！", 2000);
 
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
@@ -421,8 +421,9 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail("删除失败！", 2000);
+                    initInfoBox_successOrFail(toDeleteLineName + "删除失败！", 2000);
                 }
+                lockUnlockButton("unlockbtn");
             }
         }
 
@@ -439,7 +440,7 @@ namespace CloudManage.SystemConfig
             {
                 lockUnlockButton("lockbtn");    
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
-                initStandardKeyboard("确认修改产线：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
+                initStandardKeyboard("确认修改：“" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
                 this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_modifyLineName_checkOK);
             }
         }
@@ -458,7 +459,7 @@ namespace CloudManage.SystemConfig
                 if (inputLineName != "")
                 {
                     initConfirmationBox_modifyLineName();
-                    this.confirmationBox_modifyLineName.titleConfirmationBox = "确认将产线名修改为：  “" + inputLineName + "”?";
+                    this.confirmationBox_modifyLineName.titleConfirmationBox = "确认将产线名修改为：“" + inputLineName + "”?";
                     this.confirmationBox_modifyLineName.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_modifyLineNameCheck_ConfirmationBoxOKClicked);
                     this.confirmationBox_modifyLineName.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_modifyLineNameCheck_ConfirmationBoxCancelClicked);
                 }
@@ -485,7 +486,7 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedModifyLineName.Value) == 1)
                 {
-                    initInfoBox_successOrFail("修改成功！", 2000);
+                    initInfoBox_successOrFail("产线名称修改成功！", 2000);
 
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
@@ -494,7 +495,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail("修改失败！", 2000);
+                    initInfoBox_successOrFail("产线名称修改失败！", 2000);
                 }
                 lockUnlockButton("unlockbtn");
             }
@@ -514,7 +515,7 @@ namespace CloudManage.SystemConfig
             {
                 lockUnlockButton("lockbtn");
                 DataRow drSelected = this.tileView1.GetDataRow(selectRowDtProductionLineExists[0]);
-                initConfirmationBox_message("确认拷贝产线：  “" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
+                initConfirmationBox_message("确认复制“" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
                 this.confirmationBox_message.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_message_copyCheckOKClicked);
                 this.confirmationBox_message.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_message_copyCheckCancelClicked);
             }
@@ -523,7 +524,7 @@ namespace CloudManage.SystemConfig
         private void confirmationBox_message_copyCheckOKClicked(object sender, EventArgs e)
         {
             //this.confirmationBox_message.Dispose();
-            initStandardKeyboard("请输入产线名");
+            initStandardKeyboard("请输入新的产线名称");
             this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_copyLine_checkOK);
         }
 
@@ -547,7 +548,7 @@ namespace CloudManage.SystemConfig
                 if (inputLineName != "")
                 {
                     initConfiramtionBox_copyLine();
-                    this.confirmationBox_copyLine.titleConfirmationBox = "确认产线名为：  “" + inputLineName + "”?";
+                    this.confirmationBox_copyLine.titleConfirmationBox = "确认新的产线名称为：“" + inputLineName + "”?";
                     this.confirmationBox_copyLine.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox_copyLineCheckLineName_ConfirmationBoxOKClicked);
                     this.confirmationBox_copyLine.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox_copyLineCheckLineName_ConfirmationBoxCancelClicked);
                 }

@@ -527,7 +527,6 @@ namespace CloudManage
 
         //DeviceAdditionDeletion
         public static DataTable dtDeviceCanDeleteEachLine = new DataTable();
-
         public static void initDtDeviceCanDeleteEachLine()
         {
             if (Global.dtDeviceCanDeleteEachLine.Columns.Count == 0)
@@ -543,8 +542,8 @@ namespace CloudManage
             }
         }
 
-        public static DataTable dtDeviceCanAddEachLine = new DataTable();
 
+        public static DataTable dtDeviceCanAddEachLine = new DataTable();
         public static void initDtDeviceCanAddEachLine()
         {
             if (Global.dtDeviceCanAddEachLine.Columns.Count == 0)
@@ -555,8 +554,19 @@ namespace CloudManage
             }
         }
 
-        public static bool ifDeviceAdditionOrDeletion = false;  //设备是否发生了增删
+        public static DataTable dtMachineCanSelectEachDevice = new DataTable();
+        public static void initDtMachineCanSelectEachDevice()
+        {
+            if (Global.dtMachineCanSelectEachDevice.Columns.Count == 0)
+            {
+                dtMachineCanSelectEachDevice.Columns.Add("MachineNO");
+                dtMachineCanSelectEachDevice.Columns.Add("MachineName");
+                dtMachineCanSelectEachDevice.Columns.Add("LocationX");
+                dtMachineCanSelectEachDevice.Columns.Add("LocationY");
+            }
+        }
 
+        public static bool ifDeviceAdditionOrDeletion = false;  //设备是否发生了增删
         /*************************************************************************************************************/
 
         //productionLineAdditionDeletion

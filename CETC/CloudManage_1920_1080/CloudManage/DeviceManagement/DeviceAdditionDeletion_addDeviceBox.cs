@@ -18,7 +18,7 @@ namespace CloudManage.DeviceManagement
             InitializeComponent();
         }
 
-        public string titleAddDeviceBox
+        public string title
         {
             get
             {
@@ -27,6 +27,30 @@ namespace CloudManage.DeviceManagement
             set
             {
                 this.labelControl_addDeviceBoxTitle.Text = value;
+            }
+        }
+
+        public string gridLabelLeftText
+        {
+            get
+            {
+                return this.labelControl_left.Text;
+            }
+            set
+            {
+                this.labelControl_left.Text = value;
+            }
+        }
+
+        public string gridLabelRightText
+        {
+            get
+            {
+                return this.labelControl_right.Text;
+            }
+            set
+            {
+                this.labelControl_right.Text = value;
             }
         }
 
@@ -39,6 +63,46 @@ namespace CloudManage.DeviceManagement
             set
             {
                 this.gridControl_addDeviceBox.DataSource = value;
+            }
+        }
+
+        public string colLeftFiledName
+        {
+            set
+            {
+                this.tileViewColumn_left.FieldName = value;
+            }
+        }
+
+        public string colRightFiledName
+        {
+            set
+            {
+                this.tileViewColumn_right.FieldName = value;
+            }
+        }
+
+        public string colLeftCaption
+        {
+            get
+            {
+                return this.tileViewColumn_left.Caption;
+            }
+            set
+            {
+                this.tileViewColumn_left.Caption = value;
+            }
+        }
+
+        public string colRightCaption
+        {
+            get
+            {
+                return this.tileViewColumn_right.Caption;
+            }
+            set
+            {
+                this.tileViewColumn_right.Caption = value;
             }
         }
 

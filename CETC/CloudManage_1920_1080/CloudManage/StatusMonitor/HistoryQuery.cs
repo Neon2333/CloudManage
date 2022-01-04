@@ -329,6 +329,10 @@ namespace CloudManage.StatusMonitor
 
             //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
+        private void simpleButton_exportData_Click(object sender, EventArgs e)
+        {
+            exportExcelDtHistoryQueryGridShow();
+        }
 
         void windowsUIButtonPanel_historyQuery_buttonChecked(object sender, ButtonEventArgs e)
         {
@@ -347,9 +351,7 @@ namespace CloudManage.StatusMonitor
         {
             Global._init_dtHistoryQueryGridShow(startTime, endTime);    //初始化历史故障表，默认显示全部故障历史
             keepSelectRowWhenDataSourceRefresh();
-
         }
 
-        
     }
 }

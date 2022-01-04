@@ -114,7 +114,6 @@ namespace CloudManage
 
         private void confirmationBox_applicationRestart_closeOK(object sender, EventArgs e)
         {
-            //Environment.Exit(0);
             Process.GetCurrentProcess().Kill();
         }
 
@@ -130,15 +129,6 @@ namespace CloudManage
 
         private void confirmationBox_applicationRestartOrClose_restartCancel(object sender, EventArgs e)
         {
-            ////返回增删设备页面不翻页
-            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-            //iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-            //currentPage = (int)StatusMonitorPages.workStatePage;
-            //currentPage = processCurrentPage();
-            //this.deviceManagement1.selectedFramePage = iSelectedIndex;
-
-            //this.confirmationBox_applicationRestart.Visible = false;
-
             this.confirmationBox_applicationRestartOrClose.Dispose();
         }
 
@@ -249,11 +239,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if(currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -272,11 +262,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -295,11 +285,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -318,11 +308,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -341,11 +331,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -364,11 +354,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -387,11 +377,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -410,11 +400,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -433,11 +423,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -456,11 +446,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -479,11 +469,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -502,11 +492,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -525,11 +515,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -548,7 +538,7 @@ namespace CloudManage
             {
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -566,11 +556,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -589,11 +579,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -613,11 +603,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -636,11 +626,11 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
                 if (currentPage == 18)
                 {
-                    createConfirmationBox("产线已增删，确认重启？", "restart");
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
         }
@@ -659,7 +649,7 @@ namespace CloudManage
             {
                 if (currentPage == 13)
                 {
-                    createConfirmationBox("设备已增删，确认重启？", "restart");
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
             }
         }

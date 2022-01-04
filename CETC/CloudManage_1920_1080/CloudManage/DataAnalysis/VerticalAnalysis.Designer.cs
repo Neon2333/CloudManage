@@ -29,10 +29,6 @@ namespace CloudManage.DataAnalysis
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions7 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerticalAnalysis));
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions8 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions9 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sideTileBarControlWithSub_verticalAnalysis = new CloudManage.CommonControl.SideTileBarControlWithSub();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton_endTimeModify = new DevExpress.XtraEditors.SimpleButton();
@@ -106,7 +102,7 @@ namespace CloudManage.DataAnalysis
             this.timeEdit_endTime.Properties.Mask.EditMask = "G";
             this.timeEdit_endTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.timeEdit_endTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.timeEdit_endTime.Size = new System.Drawing.Size(344, 46);
+            this.timeEdit_endTime.Size = new System.Drawing.Size(344, 62);
             this.timeEdit_endTime.TabIndex = 20;
             // 
             // simpleButton_startTimeModify
@@ -187,7 +183,7 @@ namespace CloudManage.DataAnalysis
             this.timeEdit_startTime.Properties.Mask.EditMask = "G";
             this.timeEdit_startTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.timeEdit_startTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.timeEdit_startTime.Size = new System.Drawing.Size(344, 46);
+            this.timeEdit_startTime.Size = new System.Drawing.Size(344, 62);
             this.timeEdit_startTime.TabIndex = 13;
             // 
             // panelControl_chromeBrowser
@@ -201,14 +197,6 @@ namespace CloudManage.DataAnalysis
             // 
             this.windowsUIButtonPanel_verticalAnalysis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.windowsUIButtonPanel_verticalAnalysis.ButtonInterval = 20;
-            windowsUIButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions7.Image")));
-            windowsUIButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions8.SvgImage")));
-            windowsUIButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions9.SvgImage")));
-            this.windowsUIButtonPanel_verticalAnalysis.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("New", true, windowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Edit", true, windowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Filter", true, windowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel_verticalAnalysis.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel_verticalAnalysis.ForeColor = System.Drawing.Color.White;
             this.windowsUIButtonPanel_verticalAnalysis.Location = new System.Drawing.Point(0, 800);

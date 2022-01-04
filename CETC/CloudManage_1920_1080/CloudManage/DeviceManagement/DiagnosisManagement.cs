@@ -38,6 +38,9 @@ namespace CloudManage.DeviceManagement
         DataTable dtQueryFaultsConfigEnable = new DataTable();      //暂存查询出来的所有使能
         DataTable dtQueryFaultsConfigNotEnable = new DataTable();   //暂存查询出来的所有禁止
 
+        private CommonControl.InformationBox infoBox_saveOrCancel;
+
+
         public DiagnosisManagement()
         {
             InitializeComponent();
@@ -213,6 +216,21 @@ namespace CloudManage.DeviceManagement
                     selectRow[0] = 0;
                 }
             }
+        }
+
+        private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
+        {
+            this.infoBox_saveOrCancel = new CommonControl.InformationBox();
+            this.infoBox_saveOrCancel.disappearEnable = false;
+            this.infoBox_saveOrCancel.infoTitle = infoMsg;
+            this.infoBox_saveOrCancel.Location = new System.Drawing.Point(652, 250);
+            this.infoBox_saveOrCancel.Name = "informationBox1";
+            this.infoBox_saveOrCancel.Size = new System.Drawing.Size(350, 150);
+            this.infoBox_saveOrCancel.TabIndex = 36;
+            this.infoBox_saveOrCancel.timeDisappear = disappearIntervalMS;
+            this.Controls.Add(this.infoBox_saveOrCancel);
+            this.infoBox_saveOrCancel.BringToFront();
+            this.infoBox_saveOrCancel.disappearEnable = true;
         }
 
         private void gridControl_faultsConfig_Click(object sender, EventArgs e)
@@ -496,12 +514,12 @@ namespace CloudManage.DeviceManagement
                 }
                 if (flagSaveSuccess == true)
                 {
-                    MessageBox.Show("保存成功");
+                    initInfoBox_successOrFail("状态更改保存成功！",1000);
                     this.tileView1.FocusedRowHandle = selectRow[0];
                 }
                 else
                 {
-                    MessageBox.Show("保存失败");
+                    initInfoBox_successOrFail("状态更改保存失败！", 1000);
                 }
 
                 faultsOriginal.Clear();
@@ -584,9 +602,11 @@ namespace CloudManage.DeviceManagement
                 faultsLatest.Clear();
 
                 refreshColorButtonStatusChange();
+                initInfoBox_successOrFail("所有更改已取消！", 1000);
+
             //}
         }
 
-        
+
     }
 }

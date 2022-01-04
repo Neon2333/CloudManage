@@ -22,6 +22,7 @@ namespace CloudManage.DeviceManagement
         string cmdQueryDeviceInfoThresholdTemp = String.Empty;
         enum ModifyUpperOrLower { modifyUpper = 0, modifyLower = 1 };
         int modifyUpperOrLowerCurrent;  //当前修改的是上限还是下限
+        private CommonControl.InformationBox infoBox_saveOrCancel;
 
         struct thresholdIndexAndVal
         {
@@ -152,6 +153,21 @@ namespace CloudManage.DeviceManagement
                     selectRow[0] = 0;
                 }
             }
+        }
+
+        private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
+        {
+            this.infoBox_saveOrCancel = new CommonControl.InformationBox();
+            this.infoBox_saveOrCancel.disappearEnable = false;
+            this.infoBox_saveOrCancel.infoTitle = infoMsg;
+            this.infoBox_saveOrCancel.Location = new System.Drawing.Point(652, 250);
+            this.infoBox_saveOrCancel.Name = "informationBox1";
+            this.infoBox_saveOrCancel.Size = new System.Drawing.Size(350, 150);
+            this.infoBox_saveOrCancel.TabIndex = 36;
+            this.infoBox_saveOrCancel.timeDisappear = disappearIntervalMS;
+            this.Controls.Add(this.infoBox_saveOrCancel);
+            this.infoBox_saveOrCancel.BringToFront();
+            this.infoBox_saveOrCancel.disappearEnable = true;
         }
 
         private void gridControl_deviceInfoThreshold_Click(object sender, EventArgs e)
@@ -360,8 +376,8 @@ namespace CloudManage.DeviceManagement
                     if (flag1 == false)
                     {
                         flagSaveSuccess = false;
+                        initInfoBox_successOrFail("阈值修改保存失败！", 1000);
                     }
-
                 }
                 if (flagSaveSuccess == true)
                 {
@@ -370,11 +386,11 @@ namespace CloudManage.DeviceManagement
                     if(((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
                         selectRow = this.tileView1.GetSelectedRows();
                     refreshSelectRow();
+                    initInfoBox_successOrFail("阈值修改保存成功！",1000);
 
                     paraLimitsChangedExists(sender, new EventArgs());   //将阈值被修改的事件传到RealTimeData
                 }
                 thresholdOriginal.Clear();
-                //Global.mysqlHelper1.conn.Close();
             }
         }
 
@@ -400,6 +416,7 @@ namespace CloudManage.DeviceManagement
             if(((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
                 selectRow = this.tileView1.GetSelectedRows();
             refreshSelectRow();
+            initInfoBox_successOrFail("所有修改已取消！", 1000);
         }
 
         private void tileView1_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)

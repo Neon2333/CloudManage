@@ -78,8 +78,8 @@ namespace CloudManage.DeviceManagement
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement19 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement20 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement21 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            this.tileViewColumn_NO = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn_TDName = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_left = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn_right = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panelControl_addDeviceBox = new DevExpress.XtraEditors.PanelControl();
             this.labelControl_addDeviceBoxTitle = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton_addDeviceCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -87,8 +87,8 @@ namespace CloudManage.DeviceManagement
             this.gridControl_addDeviceBox = new DevExpress.XtraGrid.GridControl();
             this.tileView_addDeviceBox = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
-            this.labelControl_testingDeviceName = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_addDeviceNO = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_right = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_left = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_addDeviceBox)).BeginInit();
             this.panelControl_addDeviceBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_addDeviceBox)).BeginInit();
@@ -96,27 +96,25 @@ namespace CloudManage.DeviceManagement
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tileViewColumn_NO
+            // tileViewColumn_left
             // 
-            this.tileViewColumn_NO.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tileViewColumn_NO.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_NO.Caption = "NO";
-            this.tileViewColumn_NO.FieldName = "NO";
-            this.tileViewColumn_NO.Name = "tileViewColumn_NO";
-            this.tileViewColumn_NO.Visible = true;
-            this.tileViewColumn_NO.VisibleIndex = 0;
-            this.tileViewColumn_NO.Width = 110;
+            this.tileViewColumn_left.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tileViewColumn_left.AppearanceCell.Options.UseFont = true;
+            this.tileViewColumn_left.Caption = "colLeftCaption";
+            this.tileViewColumn_left.Name = "tileViewColumn_left";
+            this.tileViewColumn_left.Visible = true;
+            this.tileViewColumn_left.VisibleIndex = 0;
+            this.tileViewColumn_left.Width = 110;
             // 
-            // tileViewColumn_TDName
+            // tileViewColumn_right
             // 
-            this.tileViewColumn_TDName.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
-            this.tileViewColumn_TDName.AppearanceCell.Options.UseFont = true;
-            this.tileViewColumn_TDName.Caption = "Device Name";
-            this.tileViewColumn_TDName.FieldName = "DeviceName";
-            this.tileViewColumn_TDName.Name = "tileViewColumn_TDName";
-            this.tileViewColumn_TDName.Visible = true;
-            this.tileViewColumn_TDName.VisibleIndex = 1;
-            this.tileViewColumn_TDName.Width = 250;
+            this.tileViewColumn_right.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F);
+            this.tileViewColumn_right.AppearanceCell.Options.UseFont = true;
+            this.tileViewColumn_right.Caption = "colRightCaption";
+            this.tileViewColumn_right.Name = "tileViewColumn_right";
+            this.tileViewColumn_right.Visible = true;
+            this.tileViewColumn_right.VisibleIndex = 1;
+            this.tileViewColumn_right.Width = 250;
             // 
             // panelControl_addDeviceBox
             // 
@@ -126,8 +124,8 @@ namespace CloudManage.DeviceManagement
             this.panelControl_addDeviceBox.Controls.Add(this.simpleButton_addDeviceCancel);
             this.panelControl_addDeviceBox.Controls.Add(this.simpleButton_addDeviceOK);
             this.panelControl_addDeviceBox.Controls.Add(this.gridControl_addDeviceBox);
-            this.panelControl_addDeviceBox.Controls.Add(this.labelControl_testingDeviceName);
-            this.panelControl_addDeviceBox.Controls.Add(this.labelControl_addDeviceNO);
+            this.panelControl_addDeviceBox.Controls.Add(this.labelControl_right);
+            this.panelControl_addDeviceBox.Controls.Add(this.labelControl_left);
             this.panelControl_addDeviceBox.Location = new System.Drawing.Point(0, 0);
             this.panelControl_addDeviceBox.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl_addDeviceBox.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -153,7 +151,7 @@ namespace CloudManage.DeviceManagement
             this.labelControl_addDeviceBoxTitle.Name = "labelControl_addDeviceBoxTitle";
             this.labelControl_addDeviceBoxTitle.Size = new System.Drawing.Size(550, 50);
             this.labelControl_addDeviceBoxTitle.TabIndex = 32;
-            this.labelControl_addDeviceBoxTitle.Text = "添加设备";
+            this.labelControl_addDeviceBoxTitle.Text = "title";
             // 
             // simpleButton_addDeviceCancel
             // 
@@ -235,8 +233,8 @@ namespace CloudManage.DeviceManagement
             this.tileView_addDeviceBox.Appearance.ViewCaption.Options.UseFont = true;
             this.tileView_addDeviceBox.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.tileView_addDeviceBox.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.tileViewColumn_NO,
-            this.tileViewColumn_TDName});
+            this.tileViewColumn_left,
+            this.tileViewColumn_right});
             this.tileView_addDeviceBox.ContextButtonOptions.ItemCursor = System.Windows.Forms.Cursors.PanSouth;
             this.tileView_addDeviceBox.ContextButtonOptions.PanelCursor = System.Windows.Forms.Cursors.Arrow;
             this.tileView_addDeviceBox.GridControl = this.gridControl_addDeviceBox;
@@ -308,7 +306,7 @@ namespace CloudManage.DeviceManagement
             tileViewItemElement4.Text = "tileElement_splitLine4";
             tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement4.Width = 1;
-            tileViewItemElement5.Column = this.tileViewColumn_NO;
+            tileViewItemElement5.Column = this.tileViewColumn_left;
             tileViewItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement5.Text = "tileViewColumn_NO";
@@ -320,7 +318,7 @@ namespace CloudManage.DeviceManagement
             tileViewItemElement6.Text = "tileViewColumn_PLName";
             tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement6.Width = 180;
-            tileViewItemElement7.Column = this.tileViewColumn_TDName;
+            tileViewItemElement7.Column = this.tileViewColumn_right;
             tileViewItemElement7.ColumnIndex = 4;
             tileViewItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
@@ -404,7 +402,7 @@ namespace CloudManage.DeviceManagement
             tileViewItemElement13.Text = "tileElement_splitLine4";
             tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement13.Width = 1;
-            tileViewItemElement14.Column = this.tileViewColumn_NO;
+            tileViewItemElement14.Column = this.tileViewColumn_left;
             tileViewItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement14.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement14.Text = "tileViewColumn_NO";
@@ -414,7 +412,7 @@ namespace CloudManage.DeviceManagement
             tileViewItemElement15.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement15.Text = "tileViewColumn_PLName";
             tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement16.Column = this.tileViewColumn_TDName;
+            tileViewItemElement16.Column = this.tileViewColumn_right;
             tileViewItemElement16.ColumnIndex = 4;
             tileViewItemElement16.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement16.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
@@ -461,12 +459,12 @@ namespace CloudManage.DeviceManagement
             tileViewItemElement19.Text = "tileElement_splitLine1";
             tileViewItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement19.Width = 1;
-            tileViewItemElement20.Column = this.tileViewColumn_NO;
+            tileViewItemElement20.Column = this.tileViewColumn_left;
             tileViewItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement20.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement20.Text = "tileViewColumn_NO";
             tileViewItemElement20.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement21.Column = this.tileViewColumn_TDName;
+            tileViewItemElement21.Column = this.tileViewColumn_right;
             tileViewItemElement21.ColumnIndex = 2;
             tileViewItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement21.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
@@ -485,44 +483,44 @@ namespace CloudManage.DeviceManagement
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
             // 
-            // labelControl_testingDeviceName
+            // labelControl_right
             // 
-            this.labelControl_testingDeviceName.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_testingDeviceName.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_testingDeviceName.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_testingDeviceName.Appearance.Options.UseBackColor = true;
-            this.labelControl_testingDeviceName.Appearance.Options.UseFont = true;
-            this.labelControl_testingDeviceName.Appearance.Options.UseForeColor = true;
-            this.labelControl_testingDeviceName.Appearance.Options.UseTextOptions = true;
-            this.labelControl_testingDeviceName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_testingDeviceName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_testingDeviceName.Location = new System.Drawing.Point(115, 50);
-            this.labelControl_testingDeviceName.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_testingDeviceName.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_testingDeviceName.Name = "labelControl_testingDeviceName";
-            this.labelControl_testingDeviceName.Size = new System.Drawing.Size(235, 50);
-            this.labelControl_testingDeviceName.TabIndex = 24;
-            this.labelControl_testingDeviceName.Text = "检测设备名称";
+            this.labelControl_right.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl_right.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_right.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl_right.Appearance.Options.UseBackColor = true;
+            this.labelControl_right.Appearance.Options.UseFont = true;
+            this.labelControl_right.Appearance.Options.UseForeColor = true;
+            this.labelControl_right.Appearance.Options.UseTextOptions = true;
+            this.labelControl_right.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_right.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl_right.Location = new System.Drawing.Point(115, 50);
+            this.labelControl_right.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.labelControl_right.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.labelControl_right.Name = "labelControl_right";
+            this.labelControl_right.Size = new System.Drawing.Size(235, 50);
+            this.labelControl_right.TabIndex = 24;
+            this.labelControl_right.Text = "labelRight";
             // 
-            // labelControl_addDeviceNO
+            // labelControl_left
             // 
-            this.labelControl_addDeviceNO.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelControl_addDeviceNO.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl_addDeviceNO.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl_addDeviceNO.Appearance.Options.UseBackColor = true;
-            this.labelControl_addDeviceNO.Appearance.Options.UseFont = true;
-            this.labelControl_addDeviceNO.Appearance.Options.UseForeColor = true;
-            this.labelControl_addDeviceNO.Appearance.Options.UseTextOptions = true;
-            this.labelControl_addDeviceNO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl_addDeviceNO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl_addDeviceNO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_addDeviceNO.Location = new System.Drawing.Point(0, 50);
-            this.labelControl_addDeviceNO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.labelControl_addDeviceNO.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.labelControl_addDeviceNO.Name = "labelControl_addDeviceNO";
-            this.labelControl_addDeviceNO.Size = new System.Drawing.Size(114, 50);
-            this.labelControl_addDeviceNO.TabIndex = 23;
-            this.labelControl_addDeviceNO.Text = "序号";
+            this.labelControl_left.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl_left.Appearance.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_left.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl_left.Appearance.Options.UseBackColor = true;
+            this.labelControl_left.Appearance.Options.UseFont = true;
+            this.labelControl_left.Appearance.Options.UseForeColor = true;
+            this.labelControl_left.Appearance.Options.UseTextOptions = true;
+            this.labelControl_left.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl_left.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControl_left.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl_left.Location = new System.Drawing.Point(0, 50);
+            this.labelControl_left.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.labelControl_left.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.labelControl_left.Name = "labelControl_left";
+            this.labelControl_left.Size = new System.Drawing.Size(114, 50);
+            this.labelControl_left.TabIndex = 23;
+            this.labelControl_left.Text = "labelLeft";
             // 
             // DeviceAdditionDeletion_addDeviceBox
             // 
@@ -545,12 +543,12 @@ namespace CloudManage.DeviceManagement
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl_addDeviceBox;
-        private DevExpress.XtraEditors.LabelControl labelControl_testingDeviceName;
-        private DevExpress.XtraEditors.LabelControl labelControl_addDeviceNO;
+        private DevExpress.XtraEditors.LabelControl labelControl_right;
+        private DevExpress.XtraEditors.LabelControl labelControl_left;
         private DevExpress.XtraGrid.GridControl gridControl_addDeviceBox;
         private DevExpress.XtraGrid.Views.Tile.TileView tileView_addDeviceBox;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_NO;
-        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_TDName;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_left;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn_right;
         private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_addDeviceOK;
         private DevExpress.XtraEditors.SimpleButton simpleButton_addDeviceCancel;
