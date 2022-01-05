@@ -1226,6 +1226,7 @@
             this.tileView_each.TileTemplate.Add(tileViewItemElement68);
             this.tileView_each.TileTemplate.Add(tileViewItemElement69);
             this.tileView_each.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView_each_ItemCustomize);
+            this.tileView_each.DoubleClick += new System.EventHandler(this.tileView_each_DoubleClick);
             // 
             // imageSlider_each
             // 

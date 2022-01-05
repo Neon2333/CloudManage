@@ -321,7 +321,7 @@ namespace CloudManage.SystemConfig
 
             if (Convert.ToInt32(ifAffected.Value) == 1)
             {
-                initInfoBox_successOrFail("“" + inputLineName + "”添加成功！", 2000);
+                initInfoBox_successOrFail("“" + inputLineName + "”添加成功！", 1000);
 
                 Global.ifLineAdditionOrDeletion = true;
                 refreshDtProductionLineSystemConfig();
@@ -333,7 +333,7 @@ namespace CloudManage.SystemConfig
             }
             else
             {
-                initInfoBox_successOrFail("“" + inputLineName + "”添加失败！", 2000);
+                initInfoBox_successOrFail("“" + inputLineName + "”添加失败！", 1000);
             }
             inputLineName = "";
             lockUnlockButton("unlockbtn");
@@ -397,7 +397,7 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
                 {
-                    initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！", 2000);
+                    initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！",1000);
 
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
@@ -421,7 +421,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail(toDeleteLineName + "删除失败！", 2000);
+                    initInfoBox_successOrFail(toDeleteLineName + "删除失败！", 1000);
                 }
                 lockUnlockButton("unlockbtn");
             }
@@ -486,7 +486,7 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedModifyLineName.Value) == 1)
                 {
-                    initInfoBox_successOrFail("产线名称修改成功！", 2000);
+                    initInfoBox_successOrFail("产线名称修改成功！", 1000);
 
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
@@ -495,7 +495,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail("产线名称修改失败！", 2000);
+                    initInfoBox_successOrFail("产线名称修改失败！", 1000);
                 }
                 lockUnlockButton("unlockbtn");
             }
@@ -598,13 +598,13 @@ namespace CloudManage.SystemConfig
 
                 if (flagProductionLineCopy && flagDevice_flag && flagDevice_info_paranameandsuffixCopy && flagDevice_info_threshold && flagFaults_config)
                 {
-                    initInfoBox_successOrFail("产线复制成功！", 2000);
+                    initInfoBox_successOrFail("产线复制成功！", 1000);
                     Global.ifLineAdditionOrDeletion = true;
                     refreshDtProductionLineSystemConfig();
                 }
                 else
                 {
-                    initInfoBox_successOrFail("产线复制失败！", 2000);
+                    initInfoBox_successOrFail("产线复制失败！", 1000);
                 }
                 lockUnlockButton("unlockbtn");
             }

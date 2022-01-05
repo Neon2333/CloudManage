@@ -464,6 +464,11 @@ namespace CloudManage.DeviceManagement
 
         private void addDevice_insertDevice_threshold(DataRow dr)
         {
+            DataRow drSelectedMachine = this.deviceAdditionDeletion_selectMachine1.currentSelectedRow;
+
+
+
+
             //device_threshold
             string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
             for (int i = 0; i < 64; i++)
@@ -471,10 +476,15 @@ namespace CloudManage.DeviceManagement
                 cmdAddDeviceDtDevice_info_threshold = cmdAddDeviceDtDevice_info_threshold + ", Para" + (i + 1).ToString() + "Min" + ", Para" + (i + 1).ToString() + "Max";
             }
             cmdAddDeviceDtDevice_info_threshold += ") VALUES (";
+            //cmdAddDeviceDtDevice_info_threshold += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
+            //                                       dr["DeviceNO"].ToString() + "', '" + dr["MachineNO"].ToString() + "', '" +
+            //                                       dr["LocationX"].ToString() + "', '" + dr["LocationY"].ToString() + "', '" +
+            //                                       dr["ValidParaCount"].ToString() + "', ";
             cmdAddDeviceDtDevice_info_threshold += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
-                                                   dr["DeviceNO"].ToString() + "', '" + dr["MachineNO"].ToString() + "', '" +
-                                                   dr["LocationX"].ToString() + "', '" + dr["LocationY"].ToString() + "', '" +
+                                                   dr["DeviceNO"].ToString() + "', '" + drSelectedMachine["MachineNO"].ToString() + "', '" +
+                                                   drSelectedMachine["LocationX"].ToString() + "', '" + drSelectedMachine["LocationY"].ToString() + "', '" +
                                                    dr["ValidParaCount"].ToString() + "', ";
+
             if (dr["Para1MinDefault"].ToString() == "\\")
             {
                 cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MinDefault"] + "\\', ";

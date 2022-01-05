@@ -107,6 +107,14 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        //Each页面内双击设备对应tile，跳转到实时页面并显示对应的设备的参数
+        public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
+        public event SimpleButtonOKClickHanlder ConfirmationBoxOKClicked;
+        private void tileView_each_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
         //按下侧边栏显示相应产线的数据
         private void sideTileBarControl1_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
@@ -173,6 +181,6 @@ namespace CloudManage.StatusMonitor
             Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
         }
 
-
+        
     }
 }
