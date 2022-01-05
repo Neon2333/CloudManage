@@ -71,13 +71,13 @@ namespace CloudManage
                 }
                 else
                 {
-                    this.labelControl_title.Text = "检测设备数字化平台";
+                    this.labelControl_title.Text = "视觉检测设备数字化平台";
                     this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 }
             }
             else
             {
-                this.labelControl_title.Text = "检测设备数字化平台";
+                this.labelControl_title.Text = "视觉检测设备数字化平台";
                 this.labelControl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             }
         }
@@ -656,7 +656,8 @@ namespace CloudManage
 
         private void labelControl_title_Click(object sender, EventArgs e)
         {
-            this.panelControl_faultsCurrent.Visible = true;
+            if(Global.dtTitleGridShowMainForm.Rows.Count > 0)
+                this.panelControl_faultsCurrent.Visible = true;
         }
 
         private void simpleButtonfaultHistoryQuery_Click(object sender, EventArgs e)

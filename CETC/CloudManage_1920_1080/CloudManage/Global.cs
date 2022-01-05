@@ -559,6 +559,7 @@ namespace CloudManage
         {
             if (Global.dtMachineCanSelectEachDevice.Columns.Count == 0)
             {
+                dtMachineCanSelectEachDevice.Columns.Add("NO");
                 dtMachineCanSelectEachDevice.Columns.Add("MachineNO");
                 dtMachineCanSelectEachDevice.Columns.Add("MachineName");
                 dtMachineCanSelectEachDevice.Columns.Add("LocationX");

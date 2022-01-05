@@ -25,6 +25,14 @@ namespace CloudManage.DeviceManagement
 
         string toDeleteDevice = String.Empty;
         string deviceNOSel = String.Empty;
+        bool flag_device_info_threshold = false;
+        bool flag_device_config = false;
+        bool flag_device_info = false;
+        bool flag_device_paraNameAndSuffix = false;
+        bool flag_faults_config = false;
+
+        DataRow drSelectedAddDeviceBox = null;
+        DataRow[] drSelectedDevice = null;
         public DeviceAdditionDeletion()
         {
             InitializeComponent();
@@ -234,6 +242,7 @@ namespace CloudManage.DeviceManagement
         {
             string cmdRefreshDtMachineCanSelectEachDevice = "CALL initDtMachineCanSelectEachDevice('" + deviceNO + "');";
             Global.mysqlHelper1._queryTableMySQL(cmdRefreshDtMachineCanSelectEachDevice, ref Global.dtMachineCanSelectEachDevice);
+            Global.reorderDt(ref Global.dtMachineCanSelectEachDevice);
         }
 
         private void lockUnlockButton(string lockOrUnlock)
@@ -371,39 +380,13 @@ namespace CloudManage.DeviceManagement
             if (Global.dtDeviceCanAddEachLine.Rows.Count != 0)
             {
                 //DataRow drSelected = Global.dtDeviceCanAddEachLine.Rows[selectRowDtDeviceCanAddEachLine[0]];
-                DataRow drSelected = this.deviceAdditionDeletion_addDeviceBox1.currentSelectedRow;
-                DataRow[] drDevice = Global.dtTestingDeviceName.Select("DeviceNO=" + drSelected["DeviceNO"]);
+                drSelectedAddDeviceBox = this.deviceAdditionDeletion_addDeviceBox1.currentSelectedRow;
+                drSelectedDevice = Global.dtTestingDeviceName.Select("DeviceNO=" + drSelectedAddDeviceBox["DeviceNO"]);
 
-                //device_config
-                bool flag_device_config = addDevice_updateDevice_config(drSelected);
+                //选择机器
+                addDevice_insertDevice_threshold_selectMachine(drSelectedDevice[0]);
 
-                //device_info
-                bool flag_device_info = addDevice_insertDevice_info(drDevice[0]);
-
-                //device_threshold
-                bool flag_device_info_threshold = addDevice_insertDevice_threshold(drDevice[0]);
-
-                //device_paraNameAndSuffix
-                bool flag_device_paraNameAndSuffix = addDevice_insertDevice_paraNameAndSuffix(drDevice[0]);
-
-                //faults_config
-                bool flag_faults_config = addDevice_insertFaults_config(drDevice[0]);
-
-                if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
-                {
-                    initInfoBox_successOrFail("“" + drSelected["DeviceName"].ToString() + "”设备添加成功！", 1000);
-
-                    Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
-                    refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
-                    refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
-                }
-                else
-                {
-                    initInfoBox_successOrFail("“" + drSelected["DeviceName"].ToString() + "”设备添加失败！", 1000);
-                }
-
-                this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //选择OK需要手动释放
-                lockUnlockButton("unlockbtn");
+                //this.deviceAdditionDeletion_addDeviceBox1.Dispose();
             }
         }
 
@@ -414,6 +397,128 @@ namespace CloudManage.DeviceManagement
             //只是visible=false是在堆上new出来的窗口的资源没有释放，所以会随着点击“增加设备”按钮次数的增多而越来越慢，要dispose
             //this.deviceAdditionDeletion_addDeviceBox1.Dispose();    
 
+        }
+
+        private void addDevice_insertDevice_threshold_selectMachine(DataRow dr)
+        {
+            deviceNOSel = dr["DeviceNO"].ToString();
+
+            refreshDtMachineCanSelectEachDevice(deviceNOSel);
+
+            this.deviceAdditionDeletion_selectMachine1 = new DeviceAdditionDeletion_addDeviceBox();
+            this.deviceAdditionDeletion_selectMachine1.dataSource = Global.dtMachineCanSelectEachDevice;
+            this.deviceAdditionDeletion_selectMachine1.title = "添加机器";
+            this.deviceAdditionDeletion_selectMachine1.gridLabelLeftText = "序号";
+            this.deviceAdditionDeletion_selectMachine1.gridLabelRightText = "机器名称";
+            this.deviceAdditionDeletion_selectMachine1.colLeftFiledName = "NO";
+            this.deviceAdditionDeletion_selectMachine1.colRightFiledName = "MachineName";
+            this.deviceAdditionDeletion_selectMachine1.colLeftCaption = "NO";
+            this.deviceAdditionDeletion_selectMachine1.colRightCaption = "Machine Name";
+            this.deviceAdditionDeletion_selectMachine1.Location = new System.Drawing.Point(524, 100);
+            this.deviceAdditionDeletion_selectMachine1.Name = "deviceAdditionDeletion_selectMachine1";
+            this.deviceAdditionDeletion_selectMachine1.Size = new System.Drawing.Size(550, 548);
+            this.deviceAdditionDeletion_selectMachine1.TabIndex = 29;
+            this.deviceAdditionDeletion_selectMachine1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_selectMachine1_OKClicked);
+            this.deviceAdditionDeletion_selectMachine1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_selectMachine1_CancelClicked);
+            this.Controls.Add(this.deviceAdditionDeletion_selectMachine1);
+            this.deviceAdditionDeletion_selectMachine1.BringToFront();
+            this.deviceAdditionDeletion_selectMachine1.Visible = true;
+        }
+
+        private void deviceAdditionDeletion_selectMachine1_OKClicked(object sender, EventArgs e)
+        {
+            //device_threshold
+            addDevice_insertDevice_threshold(drSelectedDevice[0]);
+            //device_config
+            flag_device_config = addDevice_updateDevice_config(drSelectedAddDeviceBox);
+
+            //device_info
+            flag_device_info = addDevice_insertDevice_info(drSelectedDevice[0]);
+
+            //device_paraNameAndSuffix
+            flag_device_paraNameAndSuffix = addDevice_insertDevice_paraNameAndSuffix(drSelectedDevice[0]);
+
+            //faults_config
+            flag_faults_config = addDevice_insertFaults_config(drSelectedDevice[0]);
+            if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
+            {
+                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加成功！", 1000);
+
+                Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
+                refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
+                refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+            }
+            else
+            {
+                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加失败！", 1000);
+            }
+
+            //this.deviceAdditionDeletion_selectMachine1.Dispose();    //选择OK需要手动释放
+            lockUnlockButton("unlockbtn");
+        }
+
+        private void deviceAdditionDeletion_selectMachine1_CancelClicked(object sender, EventArgs e)
+        {
+            lockUnlockButton("unlockbtn");
+        }
+
+        private void addDevice_insertDevice_threshold(DataRow dr)
+        {
+            //device_threshold
+            string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
+            for (int i = 0; i < 64; i++)
+            {
+                cmdAddDeviceDtDevice_info_threshold = cmdAddDeviceDtDevice_info_threshold + ", Para" + (i + 1).ToString() + "Min" + ", Para" + (i + 1).ToString() + "Max";
+            }
+            cmdAddDeviceDtDevice_info_threshold += ") VALUES (";
+            cmdAddDeviceDtDevice_info_threshold += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
+                                                   dr["DeviceNO"].ToString() + "', '" + dr["MachineNO"].ToString() + "', '" +
+                                                   dr["LocationX"].ToString() + "', '" + dr["LocationY"].ToString() + "', '" +
+                                                   dr["ValidParaCount"].ToString() + "', ";
+            if (dr["Para1MinDefault"].ToString() == "\\")
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MinDefault"] + "\\', ";
+            }
+            else
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MinDefault"] + "', ";
+            }
+            if (dr["Para1MinDefault"].ToString() == "\\")
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MaxDefault"] + "\\'";
+            }
+            else
+            {
+                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MaxDefault"] + "'";
+            }
+
+            for (int i = 1; i < 64; i++)
+            {
+                string p1 = "Para" + (i + 1).ToString() + "MinDefault";
+                string p2 = "Para" + (i + 1).ToString() + "MaxDefault";
+                if (dr[p1].ToString() == "\\")
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p1] + "\\'";
+                }
+                else
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p1] + "'";
+                }
+                if (dr[p2].ToString() == "\\")
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p2] + "\\'";
+                }
+                else
+                {
+                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p2] + "'";
+                }
+            }
+            cmdAddDeviceDtDevice_info_threshold += ");";
+            flag_device_info_threshold = Global.mysqlHelper1._insertMySQL(cmdAddDeviceDtDevice_info_threshold);
+            if (flag_device_info_threshold == true)
+            {
+                Global.mysqlHelper1._updateMySQL("ALTER TABLE device_info_threshold AUTO_INCREMENT=1;");  //重置主键NO
+            }
         }
 
         private bool addDevice_updateDevice_config(DataRow dr)
@@ -471,102 +576,6 @@ namespace CloudManage.DeviceManagement
             }
             return flag;
         }
-
-        private bool addDevice_insertDevice_threshold(DataRow dr)
-        {
-            lockUnlockButton("lockbtn");
-
-            deviceNOSel = dr["DeviceNO"].ToString();
-            //device_threshold
-            this.deviceAdditionDeletion_selectMachine1 = new DeviceAdditionDeletion_addDeviceBox();
-            this.deviceAdditionDeletion_selectMachine1.dataSource = Global.dtMachineCanSelectEachDevice;
-            this.deviceAdditionDeletion_selectMachine1.title = "添加设备";
-            this.deviceAdditionDeletion_selectMachine1.gridLabelLeftText = "序号";
-            this.deviceAdditionDeletion_selectMachine1.gridLabelRightText = "机器名称";
-            this.deviceAdditionDeletion_selectMachine1.colLeftFiledName = "NO";
-            this.deviceAdditionDeletion_selectMachine1.colRightFiledName = "DeviceName";
-            this.deviceAdditionDeletion_selectMachine1.colLeftCaption = "NO";
-            this.deviceAdditionDeletion_selectMachine1.colRightCaption = "Device Name";
-            this.deviceAdditionDeletion_selectMachine1.Location = new System.Drawing.Point(524, 100);
-            this.deviceAdditionDeletion_selectMachine1.Name = "deviceAdditionDeletion_selectMachine1";
-            this.deviceAdditionDeletion_selectMachine1.Size = new System.Drawing.Size(550, 548);
-            this.deviceAdditionDeletion_selectMachine1.TabIndex = 29;
-            this.deviceAdditionDeletion_selectMachine1.AddDeviceBoxOKClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_selectMachine1_OKClicked);
-            this.deviceAdditionDeletion_selectMachine1.AddDeviceBoxCancelClicked += new DeviceAdditionDeletion_addDeviceBox.SimpleButtonOKClickHanlder(this.deviceAdditionDeletion_selectMachine1_CancelClicked);
-            this.Controls.Add(this.deviceAdditionDeletion_selectMachine1);
-            this.deviceAdditionDeletion_selectMachine1.BringToFront();
-            this.deviceAdditionDeletion_selectMachine1.Visible = true;
-
-            string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
-            for (int i = 0; i < 64; i++)
-            {
-                cmdAddDeviceDtDevice_info_threshold = cmdAddDeviceDtDevice_info_threshold + ", Para" + (i + 1).ToString() + "Min" + ", Para" + (i + 1).ToString() + "Max";
-            }
-            cmdAddDeviceDtDevice_info_threshold += ") VALUES (";
-            //cmdAddDeviceDtDevice_info_threshold += "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', '" +
-            //                                       dr["DeviceNO"].ToString() + "', '" + dr["MachineNO"].ToString() + "', '" +
-            //                                       dr["LocationX"].ToString() + "', '" + dr["LocationY"].ToString() + "', '" +
-            //                                       dr["ValidParaCount"].ToString() + "', ";
-            if (dr["Para1MinDefault"].ToString() == "\\")
-            {
-                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MinDefault"] + "\\', ";
-            }
-            else
-            {
-                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MinDefault"] + "', ";
-            }
-            if (dr["Para1MinDefault"].ToString() == "\\")
-            {
-                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MaxDefault"] + "\\'";
-            }
-            else
-            {
-                cmdAddDeviceDtDevice_info_threshold += "'" + dr["Para1MaxDefault"] + "'";
-            }
-
-            for (int i = 1; i < 64; i++)
-            {
-                string p1 = "Para" + (i + 1).ToString() + "MinDefault";
-                string p2 = "Para" + (i + 1).ToString() + "MaxDefault";
-                if (dr[p1].ToString() == "\\")
-                {
-                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p1] + "\\'";
-                }
-                else
-                {
-                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p1] + "'";
-                }
-                if (dr[p2].ToString() == "\\")
-                {
-                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p2] + "\\'";
-                }
-                else
-                {
-                    cmdAddDeviceDtDevice_info_threshold += ", '" + dr[p2] + "'";
-                }
-            }
-            cmdAddDeviceDtDevice_info_threshold += ");";
-            bool flag = Global.mysqlHelper1._insertMySQL(cmdAddDeviceDtDevice_info_threshold);
-            if (flag == true)
-            {
-                Global.mysqlHelper1._updateMySQL("ALTER TABLE device_info_threshold AUTO_INCREMENT=1;");  //重置主键NO
-            }
-            return flag;
-        }
-
-        private void deviceAdditionDeletion_selectMachine1_OKClicked(object sender, EventArgs e)
-        {
-            refreshDtMachineCanSelectEachDevice(deviceNOSel);
-            lockUnlockButton("unlockbtn");
-
-        }
-
-        private void deviceAdditionDeletion_selectMachine1_CancelClicked(object sender, EventArgs e)
-        {
-
-            lockUnlockButton("unlockbtn");
-        }
-
 
         private bool addDevice_insertDevice_paraNameAndSuffix(DataRow dr)
         {
