@@ -108,11 +108,11 @@ namespace CloudManage.StatusMonitor
         }
 
         //Each页面内双击设备对应tile，跳转到实时页面并显示对应的设备的参数
-        public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
-        public event SimpleButtonOKClickHanlder ConfirmationBoxOKClicked;
+        public delegate void TileViewEachDoubleClick(object sender, EventArgs e);
+        public static event TileViewEachDoubleClick DoubleClickTileViewEach;
         private void tileView_each_DoubleClick(object sender, EventArgs e)
         {
-
+            DoubleClickTileViewEach(sender, new EventArgs());
         }
 
         //按下侧边栏显示相应产线的数据

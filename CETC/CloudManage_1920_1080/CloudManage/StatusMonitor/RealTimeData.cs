@@ -50,6 +50,7 @@ namespace CloudManage
             lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;
             deviceNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub;
             DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
+            StatusMonitor.WorkState.DoubleClickTileViewEach += new StatusMonitor.WorkState.TileViewEachDoubleClick(workStateDoubleClickTileViewEach);
         }
 
         private void initDataSource()
@@ -289,6 +290,11 @@ namespace CloudManage
         {
             refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
             refreshGrid();      //dtGridDataSource未变所以需要强制刷新
+        }
+
+        private void workStateDoubleClickTileViewEach(object sender, EventArgs e)
+        {
+            sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(sender, e);
         }
 
         private void timer_devicePara_Tick(object sender, EventArgs e)

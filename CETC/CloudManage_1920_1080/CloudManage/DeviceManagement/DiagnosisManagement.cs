@@ -56,7 +56,6 @@ namespace CloudManage.DeviceManagement
             }
 
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
-
         }
 
         private void _initSideTileBarWithSub()
