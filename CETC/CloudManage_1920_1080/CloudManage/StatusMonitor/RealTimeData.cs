@@ -22,7 +22,7 @@ namespace CloudManage
         private DataTable dtParaVal = new DataTable();              //从device_info中查出的一行的原始数据，参数值
         private DataTable dtParaNameAndSuffix = new DataTable();    //参数名、参数单位
         private DataTable dtGridDataSource = new DataTable();       //改变数据显示形式，将一行变为若干行，最终绑定到grid上的dt
-        private DataRow drParaThreshold;                            //某台设备的参数阈值
+        private DataRow drParaThreshold = null;                            //某台设备的参数阈值
         string lineNO_deviceNONotChanged = String.Empty;            //防止timer_devicePara_Tick中刷新dtGridDataSource时，lineNO改变了但是DeviceNO还未变，导致dtGridDataSource为空
         string deviceNO_deviceNONotChanged = String.Empty;
 
@@ -217,9 +217,12 @@ namespace CloudManage
         //设定圆点位置
         void setPicDeviceLocation()
         {
-            int posX = Convert.ToInt32(this.drParaThreshold["LocationX"]);
-            int posY = Convert.ToInt32(this.drParaThreshold["LocationY"]);
-            this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
+            if (this.drParaThreshold.Table.Rows.Count > 0)
+            {
+                int posX = Convert.ToInt32(this.drParaThreshold["LocationX"]);
+                int posY = Convert.ToInt32(this.drParaThreshold["LocationY"]);
+                this.pictureEdit_deviceLocation.Location = new System.Drawing.Point(posX, posY);
+            }
         }
 
         void initImgSlider()
