@@ -12,7 +12,25 @@ namespace CloudManage
     class Global
     {
         public static MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-        
+
+        /*通过EventArgs自定义事件传值*/
+        //参数实体类
+        //public class LineNOAndDeviceNO
+        //{
+        //    public string LineNO { get; set; }
+        //    public string DeviceNO { get; set; }
+        //}
+
+        ////事件参数类MyTEventArgs
+        //public class MyTEventArgs<T> : EventArgs
+        //{
+        //    public T param;
+        //    public MyTEventArgs(T t)
+        //    {
+        //        param = t;
+        //    }
+        //}
+
         public static void initDataTable()
         {
             if (!mysqlHelper1._connectMySQL())
@@ -439,7 +457,7 @@ namespace CloudManage
 
         /*************************************************************************************************************/
 
-        //RealTimeDataControl
+        //RealTimeData
         public static DataTable dtDeviceInfoThresholdAndLocation = new DataTable();
 
         public static void _init_dtDeviceInfoThresholdAndLocation()

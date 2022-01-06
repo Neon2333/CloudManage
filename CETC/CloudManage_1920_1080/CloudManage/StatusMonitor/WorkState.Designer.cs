@@ -543,7 +543,6 @@
             // 
             // navigationPage_each
             // 
-            this.navigationPage_each.Caption = "navigationPage_each";
             this.navigationPage_each.Controls.Add(this.gridControl_each);
             this.navigationPage_each.Controls.Add(this.imageSlider_each);
             this.navigationPage_each.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -1226,6 +1225,7 @@
             this.tileView_each.TileTemplate.Add(tileViewItemElement68);
             this.tileView_each.TileTemplate.Add(tileViewItemElement69);
             this.tileView_each.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView_each_ItemCustomize);
+            this.tileView_each.Click += new System.EventHandler(this.tileView_each_Click);
             this.tileView_each.DoubleClick += new System.EventHandler(this.tileView_each_DoubleClick);
             // 
             // imageSlider_each

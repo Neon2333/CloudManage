@@ -1,6 +1,6 @@
-﻿namespace CloudManage
+﻿namespace CloudManage.StatusMonitor
 {
-    partial class RealTimeDataControl
+    partial class RealTimeData
     {
         /// <summary> 
         /// Required designer variable.
@@ -76,7 +76,7 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement19 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement20 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement21 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RealTimeDataControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RealTimeData));
             this.tileViewColumn_parameter = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn_value = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_realTime = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
@@ -146,7 +146,7 @@
             this.sideTileBarControlWithSub_realTimeData.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub_realTimeData.TabIndex = 4;
             this.sideTileBarControlWithSub_realTimeData.useDtInitSideTileBarWithSub = true;
-            this.sideTileBarControlWithSub_realTimeData.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1);
+            this.sideTileBarControlWithSub_realTimeData.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem);
             this.sideTileBarControlWithSub_realTimeData.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem);
             // 
             // pictureEdit_device
@@ -489,7 +489,7 @@
             this.timer_refreshDtGridDataSource.Interval = 1000;
             this.timer_refreshDtGridDataSource.Tick += new System.EventHandler(this.timer_devicePara_Tick);
             // 
-            // RealTimeDataControl
+            // RealTimeData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -500,7 +500,7 @@
             this.Controls.Add(this.pictureEdit_device);
             this.Controls.Add(this.sideTileBarControlWithSub_realTimeData);
             this.Controls.Add(this.windowsUIButtonPanel_realTime);
-            this.Name = "RealTimeDataControl";
+            this.Name = "RealTimeData";
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_device.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();

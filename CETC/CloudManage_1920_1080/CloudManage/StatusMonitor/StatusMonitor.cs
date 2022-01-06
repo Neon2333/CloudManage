@@ -72,5 +72,10 @@ namespace CloudManage.StatusMonitor
             this.navigationFrame_statusMonitor.SelectedPage = statusMonitorPages[pageIndex];
         }
 
+        public void doubleClickTileViewEach_informStatusMonitorChangePage()
+        {
+            setSelectedFramePage(1);    //RealTimeData
+        }
+
     }
 }

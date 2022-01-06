@@ -32,7 +32,7 @@
             this.navigationPage_workState = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.workStateControl1 = new CloudManage.StatusMonitor.WorkState();
             this.navigationPage_realTimeData = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.realTimeDataControl1 = new CloudManage.RealTimeDataControl();
+            this.realTimeData1 = new CloudManage.StatusMonitor.RealTimeData();
             this.navigationPage_historyQuery = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.historyQueryControl1 = new CloudManage.StatusMonitor.HistoryQuery();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_statusMonitor)).BeginInit();
@@ -75,16 +75,16 @@
             // navigationPage_realTimeData
             // 
             this.navigationPage_realTimeData.Caption = "navigationPage_realTimeData";
-            this.navigationPage_realTimeData.Controls.Add(this.realTimeDataControl1);
+            this.navigationPage_realTimeData.Controls.Add(this.realTimeData1);
             this.navigationPage_realTimeData.Name = "navigationPage_realTimeData";
             this.navigationPage_realTimeData.Size = new System.Drawing.Size(1920, 880);
             // 
-            // realTimeDataControl1
+            // realTimeData1
             // 
-            this.realTimeDataControl1.Location = new System.Drawing.Point(0, 0);
-            this.realTimeDataControl1.Name = "realTimeDataControl1";
-            this.realTimeDataControl1.Size = new System.Drawing.Size(1920, 880);
-            this.realTimeDataControl1.TabIndex = 0;
+            this.realTimeData1.Location = new System.Drawing.Point(0, 0);
+            this.realTimeData1.Name = "realTimeData";
+            this.realTimeData1.Size = new System.Drawing.Size(1920, 880);
+            this.realTimeData1.TabIndex = 0;
             // 
             // navigationPage_historyQuery
             // 
@@ -119,7 +119,7 @@
         #endregion
 
         private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_statusMonitor;
-        private RealTimeDataControl realTimeDataControl1;
+        private RealTimeData realTimeData1;
         private HistoryQuery historyQueryControl1;
         private WorkState workStateControl1;
     }

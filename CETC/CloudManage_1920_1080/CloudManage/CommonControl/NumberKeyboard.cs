@@ -114,16 +114,8 @@ namespace CloudManage.CommonControl
         private bool judgeOutOfRange()
         {
             bool flag = false;
-            try
+            if (this.resultNum < this.MinVal || this.resultNum > this.MaxVal)
             {
-                if (this.resultNum < this.MinVal || this.resultNum > this.MaxVal)
-                {
-                    flag = true;
-                }
-            }
-            catch(Exception ex)
-            {
-                ex.ToString();
                 flag = true;
             }
             return flag;

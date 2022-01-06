@@ -27,6 +27,9 @@ namespace CloudManage.StatusMonitor
         Color colorAbnormal = Color.FromArgb(208, 49, 68);
         Color colorDisable = Color.FromArgb(120, 120, 120);
 
+        private int[] selectRowGridControlEach = { 0 };   //手动记录Each中被选中tile
+
+
         public WorkState()
         {
             InitializeComponent();
@@ -48,6 +51,15 @@ namespace CloudManage.StatusMonitor
             this.sideTileBarControl_workState.colTextDT = "LineName";
             this.sideTileBarControl_workState.colNumDT = "DeviceTotalNum";
             this.sideTileBarControl_workState._initSideTileBar();
+        }
+
+        //使tileview中被选中的Tile不被表数据发生更改影响
+        private void refreshSelectRowControlEach()
+        {
+            if (selectRowGridControlEach.Length == 1)
+            {
+                this.tileView_each.FocusedRowHandle = selectRowGridControlEach[0];
+            }
         }
 
         //总览数据源绑定表
@@ -107,14 +119,74 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        //Each页面内双击设备对应tile，跳转到实时页面并显示对应的设备的参数
-        public delegate void TileViewEachDoubleClick(object sender, EventArgs e);
-        public static event TileViewEachDoubleClick DoubleClickTileViewEach;
-        private void tileView_each_DoubleClick(object sender, EventArgs e)
+
+        /**************************************************************双击TileEach跳转RealTime并显示对应设备的实时参数*******************************************************/
+        //封装要传递的参数，可传递多个参数
+        public class LineNOAndDeviceNO
         {
-            DoubleClickTileViewEach(sender, new EventArgs());
+            public string LineNO { get; set; }
+            public string DeviceNO { get; set; }
         }
 
+        //事件参数类MyTEventArgs，泛型，
+        public class MyTEventArgs<T> : EventArgs
+        {
+            public T param;
+            public MyTEventArgs(T t)
+            {
+                param = t;
+            }
+        }
+
+        //封装事件、事件触发函数
+        public class DoubleClickTileViewEach
+        {
+            public string lineNO { get; set; }
+            public string deviceNO { get; set; }
+
+            public DoubleClickTileViewEach(string ln, string dn)
+            {
+                this.lineNO = ln;
+                this.deviceNO = dn;
+            }
+
+            public event Action<object, MyTEventArgs<LineNOAndDeviceNO>> MyDoubleClickTileViewEach;
+
+            //public void setMyDoubleClickTileViewEachHandler(System.Action<object, Global.MyTEventArgs<Global.LineNOAndDeviceNO>> action)  //将函数作为实参传入
+            //{
+            //    this.MyDoubleClickTileViewEach += action;
+            //}
+            public void AckEvent()
+            {
+                //激发事件
+                MyDoubleClickTileViewEach.Invoke(this, new MyTEventArgs<LineNOAndDeviceNO>(new LineNOAndDeviceNO() { LineNO = this.lineNO, DeviceNO = this.deviceNO }));
+            }
+        }
+
+        public static DoubleClickTileViewEach doubleClickTileViewEach;  //传参
+        public delegate void DoubleClickTileViewEach_(object sender, EventArgs e);
+        public static event DoubleClickTileViewEach_ doubleClickTileViewEach_;  //传双击事件
+        //Each页面内双击设备对应tile，跳转到实时页面并显示对应的设备的参数
+        public void tileView_each_DoubleClick(object sender, EventArgs e)
+        {
+            selectRowGridControlEach = this.tileView_each.GetSelectedRows();    //双击时更新当前选中Tile
+            DataRow drGridEach = this.tileView_each.GetDataRow(this.tileView_each.FocusedRowHandle);    //获取被选中EachTile对应设备的在表dtEachProductionLineWorkState中的数据
+
+            doubleClickTileViewEach = new DoubleClickTileViewEach(this.sideTileBarControl_workState.tagSelectedItem, drGridEach["DeviceNO"].ToString());    //创建事件对象
+            doubleClickTileViewEach_(sender, new EventArgs());
+            //doubleClickTileViewEach.MyDoubleClickTileViewEach += workStateDoubleClickTileViewEach;
+
+            doubleClickTileViewEach.AckEvent();
+        }
+
+        private void tileView_each_Click(object sender, EventArgs e)
+        {
+            selectRowGridControlEach = this.tileView_each.GetSelectedRows();     //单击时更新当前选中Tile
+        }
+
+        /******************************************************************************************************************************************************************/
+        
+        
         //按下侧边栏显示相应产线的数据
         private void sideTileBarControl1_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
@@ -179,6 +251,7 @@ namespace CloudManage.StatusMonitor
             //使用触发器？但是从表中读生成dtEachProductionLineWorkState的过程挺复杂，写成存储过程，通过触发器调用可能也比较耗费资源、而且把问题复杂化了
             Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
             Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
+            refreshSelectRowControlEach();  //更新了表dtEachProductionLineWorkState，重新选中selectedTile
         }
 
         

@@ -41,6 +41,9 @@ namespace CloudManage
             this.navigationFrame_mainMenu.Location = new System.Drawing.Point(0, 200);
             this.panelControl_faultsCurrent.Visible = false;
             this.gridControl_faultsCurrent.DataSource = Global.dtTitleGridShowMainForm;
+
+            StatusMonitor.WorkState.doubleClickTileViewEach_ += doubleClickTileViewEach_informMainFormChangePage;
+
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
@@ -55,6 +58,7 @@ namespace CloudManage
             this.navigationPage_deviceManagement.Controls.Add(this.deviceManagement1);
             this.navigationPage_systemConfig.Controls.Add(this.systemConfig1);
         }
+
 
         private void timer_datetime_Tick(object sender, EventArgs e)
         {
@@ -588,7 +592,6 @@ namespace CloudManage
             }
         }
 
-
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
             if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
@@ -821,7 +824,31 @@ namespace CloudManage
             createConfirmationBox("关闭软件？", "close");
         }
 
+        //响应WorkState双击事件翻页到RealTimeData
+        private void doubleClickTileViewEach_informMainFormChangePage(object sender, EventArgs e)
+        {
+            this.tileBar_statusMonitoring.SelectedItem = this.tileBarItem_statusMonitoring_realTimeData;    //手动将子菜单按钮的【实时数据】选中
 
+            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            {
+                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+                iSelectedIndex = (int)StatusMonitorPages.realtimePage;
+                this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
+                currentPage = (int)StatusMonitorPages.historyQueryPage;
+                currentPage = processCurrentPage();
+            }
+            else
+            {
+                if (currentPage == 13)
+                {
+                    createConfirmationBox("设备发生变化，确认重启？", "restart");
+                }
+                if (currentPage == 18)
+                {
+                    createConfirmationBox("产线发生变化，确认重启？", "restart");
+                }
+            }
+        }
 
 
 

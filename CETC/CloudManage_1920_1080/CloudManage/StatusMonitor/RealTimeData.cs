@@ -12,9 +12,9 @@ using DevExpress.XtraBars.Navigation;
 using System.Threading;
 using DevExpress.XtraSplashScreen;
 
-namespace CloudManage
+namespace CloudManage.StatusMonitor
 {
-    public partial class RealTimeDataControl : DevExpress.XtraEditors.XtraUserControl
+    public partial class RealTimeData : DevExpress.XtraEditors.XtraUserControl
     {
         string labelDirImgType = "——实时";    //imageSlider当前图片类型：实时、缺陷
         Color colorNormal = Color.Gray;
@@ -33,7 +33,7 @@ namespace CloudManage
         }
         paraThreshold[] paraThresholdList = new paraThreshold[64];
 
-        public RealTimeDataControl()
+        public RealTimeData()
         {
             InitializeComponent();
             initRealTime();
@@ -50,7 +50,10 @@ namespace CloudManage
             lineNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItem;
             deviceNO_deviceNONotChanged = this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub;
             DeviceManagement.MonitorThreshold.paraLimitsChangedExists += new CloudManage.DeviceManagement.MonitorThreshold.ParaLimitsChangedHanlder(monitorThreshold_paraLimitsChanged);
-            StatusMonitor.WorkState.DoubleClickTileViewEach += new StatusMonitor.WorkState.TileViewEachDoubleClick(workStateDoubleClickTileViewEach);
+
+            WorkState.doubleClickTileViewEach_ += doubleClickTileViewEach_informRealTimeData;
+            //doubleClickTileViewEach = new RealTimeData.DoubleClickTileViewEach("001", "001");
+            //doubleClickTileViewEach.MyDoubleClickTileViewEach += workStateDoubleClickTileViewEach;
         }
 
         private void initDataSource()
@@ -148,11 +151,25 @@ namespace CloudManage
         //    }
         //}
 
-        void _refreshLabelDir()
+        public void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
             string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
             if(str1 == "总览" && str2 == "所有设备")
+            {
+                this.labelControl_dir.Text = "";
+            }
+            else
+            {
+                this.labelControl_dir.Text = "   " + str1 + "——" + str2 + labelDirImgType;
+            }
+        }
+
+        public void _refreshLabelDir(string lineNO, string deviceNO)
+        {
+            string str1 = Global._getProductionLineNameByTag(lineNO);
+            string str2 = Global._getTestingDeviceNameByTag(deviceNO);
+            if (str1 == "总览" && str2 == "所有设备")
             {
                 this.labelControl_dir.Text = "";
             }
@@ -232,7 +249,7 @@ namespace CloudManage
         }
 
         //没有所有设备，所有点击产线不默认选中子菜单
-        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem_1(object sender, EventArgs e)
+        private void sideTileBarControlWithSub1_sideTileBarItemWithSubClickedItem(object sender, EventArgs e)
         {
         }
 
@@ -295,9 +312,93 @@ namespace CloudManage
             refreshGrid();      //dtGridDataSource未变所以需要强制刷新
         }
 
-        private void workStateDoubleClickTileViewEach(object sender, EventArgs e)
+        //class WorkStateDoubleClickTileViewEachHandle
+        //{
+        //    public void workStateDoubleClickTileViewEach(object sender, WorkState.MyTEventArgs<WorkState.LineNOAndDeviceNO> arg)
+        //    {
+        //        var dataLineNOAndDeviceNO = arg.param;
+        //        string lineNOWorkState = dataLineNOAndDeviceNO.LineNO;
+        //        string deviceNOWorkState = dataLineNOAndDeviceNO.DeviceNO;
+
+        //        RealTimeData.lineNO_deviceNONotChanged = lineNOWorkState;
+        //        deviceNO_deviceNONotChanged = deviceNOWorkState;
+        //        if (lineNO_deviceNONotChanged != "000")
+        //        {
+        //            //refreshLabelDirDevice();
+        //            _refreshLabelDir();
+        //            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
+        //            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
+        //            setPicDeviceLocation(); //根据选中的设备设定位置
+        //        }
+        //    }
+
+        //}
+
+        //public class LineNOAndDeviceNO
+        //{
+        //    public string LineNO { get; set; }
+        //    public string DeviceNO { get; set; }
+        //}
+
+        ////事件参数类MyTEventArgs，泛型，
+        //public class MyTEventArgs<T> : EventArgs
+        //{
+        //    public T param;
+        //    public MyTEventArgs(T t)
+        //    {
+        //        param = t;
+        //    }
+        //}
+
+        ////封装事件、事件触发函数
+        //public class DoubleClickTileViewEach
+        //{
+        //    public string lineNO { get; set; }
+        //    public string deviceNO { get; set; }
+
+        //    public DoubleClickTileViewEach(string ln, string dn)
+        //    {
+        //        this.lineNO = ln;
+        //        this.deviceNO = dn;
+        //    }
+
+        //    public event Action<object, MyTEventArgs<LineNOAndDeviceNO>> MyDoubleClickTileViewEach;
+
+        //    //public void setMyDoubleClickTileViewEachHandler(System.Action<object, Global.MyTEventArgs<Global.LineNOAndDeviceNO>> action)  //将函数作为实参传入
+        //    //{
+        //    //    this.MyDoubleClickTileViewEach += action;
+        //    //}
+        //    public void AckEvent()
+        //    {
+        //        //激发事件
+        //        MyDoubleClickTileViewEach.Invoke(this, new MyTEventArgs<LineNOAndDeviceNO>(new LineNOAndDeviceNO() { LineNO = this.lineNO, DeviceNO = this.deviceNO }));
+        //    }
+        //}
+
+        public void doubleClickTileViewEach_informRealTimeData(object sender, EventArgs e)
         {
-            sideTileBarControlWithSub1_sideTileBarItemWithSubClickedSubItem(sender, e);
+            WorkState.doubleClickTileViewEach.MyDoubleClickTileViewEach += workStateDoubleClickTileViewEach;    //每次双击TileEach后doubleClickTileViewEach都重新new，需要重新绑定Handler函数
+        }
+
+        //WorkState双击TileEach事件的Handler函数
+        public void workStateDoubleClickTileViewEach(object sender, WorkState.MyTEventArgs<WorkState.LineNOAndDeviceNO> arg) //WorkState.MyDoubleClickTileViewEach是静态方法？workStateDoubleClickTileViewEach不加static报错
+        {
+            var dataLineNOAndDeviceNO = arg.param;
+            string lineNOWorkState = dataLineNOAndDeviceNO.LineNO;
+            string deviceNOWorkState = dataLineNOAndDeviceNO.DeviceNO;
+
+            this.sideTileBarControlWithSub_realTimeData._selectedItem(dataLineNOAndDeviceNO.LineNO);
+            this.sideTileBarControlWithSub_realTimeData._selectedItemSub(dataLineNOAndDeviceNO.DeviceNO);
+
+            lineNO_deviceNONotChanged = lineNOWorkState;
+            deviceNO_deviceNONotChanged = deviceNOWorkState;
+            if (lineNO_deviceNONotChanged != "000")
+            {
+                _refreshLabelDir(dataLineNOAndDeviceNO.LineNO, dataLineNOAndDeviceNO.DeviceNO);
+                this.getDataSource(dataLineNOAndDeviceNO.LineNO, dataLineNOAndDeviceNO.DeviceNO);    //改變rightGrid綁定的dtGridDataSource
+                refreshParaLimits(dataLineNOAndDeviceNO.LineNO, dataLineNOAndDeviceNO.DeviceNO);     //刷新對應設備的閾值
+                setPicDeviceLocation(); //根据选中的设备设定位置
+            }
         }
 
         private void timer_devicePara_Tick(object sender, EventArgs e)

@@ -279,6 +279,16 @@ namespace CloudManage.CommonControl
                     }
 
                 }
+
+                //更新TagSelectedItem
+                if (this.TagSelectedItem == this.TagItemWhichSubItemBeenSelected)
+                {
+                    this._selectedItemSub(this.TagSelectedItemSub);
+                }
+                else
+                {
+                    this._selectedItemSub("-1");
+                }
                 return flag;
             }
             catch (Exception ex)
@@ -301,8 +311,11 @@ namespace CloudManage.CommonControl
                     if (tag.CompareTo(tagTemp) == 0)
                     {
                         this.tileBar_sideTileBar_sub.SelectedItem = temp;
-                        if (tagTemp != "-1")                //若选中的是“占位”，TagSelectedItemSub不更新
+                        if (tagTemp != "-1")    //若选中的是“占位”，TagSelectedItemSub不更新
+                        {          
                             TagSelectedItemSub = tagTemp;
+                            TagItemWhichSubItemBeenSelected = TagSelectedItem;                          //更新TagItemWhichSubItemBeenSelected
+                        }                
                         flag = true;
                     }
 
@@ -331,6 +344,15 @@ namespace CloudManage.CommonControl
                         flag = true;
                     }
                 }
+
+                if (this.TagSelectedItem == this.TagItemWhichSubItemBeenSelected)
+                {
+                    this._selectedItemSub(this.TagSelectedItemSub);
+                }
+                else
+                {
+                    this._selectedItemSub("-1");
+                }
                 return flag;
             }
             catch (Exception ex)
@@ -351,7 +373,8 @@ namespace CloudManage.CommonControl
                     if (indexItem == i)
                     {
                         this.tileBar_sideTileBar_sub.SelectedItem = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
-                        if(((string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag) != "-1")
+                        TagItemWhichSubItemBeenSelected = TagSelectedItem;                          //更新TagItemWhichSubItemBeenSelected
+                        if (((string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag) != "-1")
                             this.TagSelectedItemSub = (string)((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Tag;
                         flag = true;
                     }
