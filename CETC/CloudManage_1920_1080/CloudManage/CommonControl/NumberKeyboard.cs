@@ -124,38 +124,30 @@ namespace CloudManage.CommonControl
         private bool pushIntoResultEachNum()
         {
             bool flag = true;
-            try
+            if (this.resultEachNum.Count <= this.resultNumDigitsMax)    //最多输入15位
             {
-                if (this.resultEachNum.Count <= this.resultNumDigitsMax)    //最多输入15位
+                if (chNowInput >= '0' && chNowInput <= '9')
                 {
-                    if (chNowInput >= '0' && chNowInput <= '9')
+                    resultEachNum.Add(chNowInput);
+                    flag = true;
+                }
+                else if (chNowInput == '.')
+                {
+                    if (resultEachNum.Count == 1)   //resultEachNum为空时,输入dot
                     {
-                        resultEachNum.Add(chNowInput);
-                        flag = true;
+                        resultEachNum.Add('0');
+                        resultEachNum.Add('.');
+                        this.dotExistsInResultEachNum = true;
                     }
-                    else if (chNowInput == '.')
+                    else if (resultEachNum.Count > 1)
                     {
-                        if (resultEachNum.Count == 1)   //resultEachNum为空时,输入dot
+                        if (this.dotExistsInResultEachNum == false)
                         {
-                            resultEachNum.Add('0');
                             resultEachNum.Add('.');
                             this.dotExistsInResultEachNum = true;
                         }
-                        else if (resultEachNum.Count > 1)
-                        {
-                            if (this.dotExistsInResultEachNum == false)
-                            {
-                                resultEachNum.Add('.');
-                                this.dotExistsInResultEachNum = true;
-                            }
-                        }
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                ex.ToString();
-                flag = false;
             }
             return flag;            
         }
@@ -163,29 +155,21 @@ namespace CloudManage.CommonControl
         private bool refreshDisplay()
         {
             bool flag = true;
-            try
+            this.labelControl_display.Text = "0";
+            if (this.resultEachNum.Count == 1)
             {
-                this.labelControl_display.Text = "0";
-                if (this.resultEachNum.Count == 1)
-                {
-                    
-                    return flag;    //只有符号位没有数字时不显示
-                }
 
-                this.labelControl_display.Text = "";
-                foreach (var v in this.resultEachNum)
-                {
-                    if (v == '+')
-                    {
-                        continue;
-                    }
-                    this.labelControl_display.Text += v;
-                }
+                return flag;    //只有符号位没有数字时不显示
             }
-            catch (Exception ex)
+
+            this.labelControl_display.Text = "";
+            foreach (var v in this.resultEachNum)
             {
-                ex.ToString();
-                flag = false;
+                if (v == '+')
+                {
+                    continue;
+                }
+                this.labelControl_display.Text += v;
             }
             return flag;
         }
@@ -193,57 +177,49 @@ namespace CloudManage.CommonControl
         private bool calcResultNum()
         {
             bool flag = true;
-            try
+            this.resultNum = 0.0D;
+            int len = this.resultEachNum.Count;
+            if (this.dotExistsInResultEachNum == false)
             {
-                this.resultNum = 0.0D;
-                int len = this.resultEachNum.Count;
-                if (this.dotExistsInResultEachNum == false)
+                for (int i = 1; i < len; i++)
                 {
-                    for(int i = 1; i < len; i++)
-                    {
-                        int val = this.resultEachNum.ElementAt(i) - '0';
-                        this.resultNum += val * Math.Pow(10, len - 1 - i);
-                    }
-
-                    //加上符号位
-                    if (resultEachNum.ElementAt(0) == '-' && this.resultNum > 0)
-                    {
-                        this.resultNum = 0 - this.resultNum;    //加上符号位
-                    }
-                    else if (resultEachNum.ElementAt(0) == '+' && this.resultNum < 0)
-                    {
-                        this.resultNum = 0 - this.resultNum;
-                    }
+                    int val = this.resultEachNum.ElementAt(i) - '0';
+                    this.resultNum += val * Math.Pow(10, len - 1 - i);
                 }
-                else
-                {
-                    int dotPos = this.resultEachNum.IndexOf('.');
-                    for(int i = 1; i < dotPos; i++)
-                    {
-                        int val = this.resultEachNum.ElementAt(i) - '0';
-                        this.resultNum += val * Math.Pow(10, dotPos - 1 - i);
-                    }
-                    for (int i = dotPos + 1; i < len; i++)
-                    {
-                        int val = this.resultEachNum.ElementAt(i) - '0';
-                        this.resultNum += val * Math.Pow(10, dotPos - i);
-                    }
 
-                    //加上符号位
-                    if (resultEachNum.ElementAt(0) == '-' && this.resultNum > 0)
-                    {
-                        this.resultNum = 0 - this.resultNum;    //加上符号位
-                    }
-                    else if (resultEachNum.ElementAt(0) == '+' && this.resultNum < 0)
-                    {
-                        this.resultNum = 0 - this.resultNum;
-                    }
+                //加上符号位
+                if (resultEachNum.ElementAt(0) == '-' && this.resultNum > 0)
+                {
+                    this.resultNum = 0 - this.resultNum;    //加上符号位
+                }
+                else if (resultEachNum.ElementAt(0) == '+' && this.resultNum < 0)
+                {
+                    this.resultNum = 0 - this.resultNum;
                 }
             }
-            catch(Exception ex)
+            else
             {
-                ex.ToString();
-                flag = false;
+                int dotPos = this.resultEachNum.IndexOf('.');
+                for (int i = 1; i < dotPos; i++)
+                {
+                    int val = this.resultEachNum.ElementAt(i) - '0';
+                    this.resultNum += val * Math.Pow(10, dotPos - 1 - i);
+                }
+                for (int i = dotPos + 1; i < len; i++)
+                {
+                    int val = this.resultEachNum.ElementAt(i) - '0';
+                    this.resultNum += val * Math.Pow(10, dotPos - i);
+                }
+
+                //加上符号位
+                if (resultEachNum.ElementAt(0) == '-' && this.resultNum > 0)
+                {
+                    this.resultNum = 0 - this.resultNum;    //加上符号位
+                }
+                else if (resultEachNum.ElementAt(0) == '+' && this.resultNum < 0)
+                {
+                    this.resultNum = 0 - this.resultNum;
+                }
             }
             return flag;
         }
