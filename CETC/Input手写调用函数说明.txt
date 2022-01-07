@@ -1,0 +1,6 @@
+ ucTextBoxEx1.HandInputExePath = "Vision41st\\HandInput\\handinput.exe";	//路径，将Vision41st文件夹放到Debug或Release文件夹下
+
+this.standardKeyboard1.Language = VisionSystemClassLibrary.Enum.InterfaceLanguage.Chinese;	//必须设置语言为中文才能设置中文标题
+this.standardKeyboard1.Chinese_Caption = title;	//中文标题
+
+this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_addLine_checkOK);	//.Close_Click事件是按下ESC或ENTER时触发

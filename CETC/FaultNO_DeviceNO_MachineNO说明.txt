@@ -1,0 +1,9 @@
+FaultNO：
+0xx——下位机传上来的故障；
+1xx——超限故障
+MachineNO：
+0xx——卷接机
+1xx——包装机
+DeviceNO：
+0xx——卷接机上设备
+1xx——包装机上设备
