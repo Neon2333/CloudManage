@@ -54,13 +54,12 @@ namespace CloudManage.SystemConfig
         private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
         {
             this.infoBox_successOrFail = new CommonControl.InformationBox();
-            this.infoBox_successOrFail.disappearEnable = false;
+            this.infoBox_successOrFail.timeDisappear = disappearIntervalMS;
             this.infoBox_successOrFail.infoTitle = infoMsg;
             this.infoBox_successOrFail.Location = new System.Drawing.Point(652, 250);
             this.infoBox_successOrFail.Name = "informationBox1";
             this.infoBox_successOrFail.Size = new System.Drawing.Size(350, 150);
             this.infoBox_successOrFail.TabIndex = 36;
-            this.infoBox_successOrFail.timeDisappear = disappearIntervalMS;
             this.Controls.Add(this.infoBox_successOrFail);
             this.infoBox_successOrFail.BringToFront();
             this.infoBox_successOrFail.disappearEnable = true;
@@ -333,7 +332,7 @@ namespace CloudManage.SystemConfig
             }
             else
             {
-                initInfoBox_successOrFail("“" + inputLineName + "”添加失败！", 1000);
+                initInfoBox_successOrFail("“" + inputLineName + "”添加失败！", 2000);
             }
             inputLineName = "";
             lockUnlockButton("unlockbtn");
@@ -421,7 +420,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail(toDeleteLineName + "删除失败！", 1000);
+                    initInfoBox_successOrFail(toDeleteLineName + "删除失败！", 2000);
                 }
                 lockUnlockButton("unlockbtn");
             }
@@ -495,7 +494,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail("产线名称修改失败！", 1000);
+                    initInfoBox_successOrFail("产线名称修改失败！", 2000);
                 }
                 lockUnlockButton("unlockbtn");
             }
@@ -604,7 +603,7 @@ namespace CloudManage.SystemConfig
                 }
                 else
                 {
-                    initInfoBox_successOrFail("产线复制失败！", 1000);
+                    initInfoBox_successOrFail("产线复制失败！", 2000);
                 }
                 lockUnlockButton("unlockbtn");
             }

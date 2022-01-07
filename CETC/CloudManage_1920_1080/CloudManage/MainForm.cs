@@ -245,11 +245,15 @@ namespace CloudManage
                 {
                     createConfirmationBox("设备发生变化，确认重启？", "restart");
                 }
-                if(currentPage == 18)
+                if (currentPage == 18)
                 {
                     createConfirmationBox("产线发生变化，确认重启？", "restart");
                 }
             }
+
+            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+            //iSelectedIndex = (int)StatusMonitorPages.workStatePage;
+            //this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)

@@ -323,7 +323,7 @@ namespace CloudManage.DeviceManagement
                 }
                 else
                 {
-                    initInfoBox_successOrFail("“" + toDeleteDevice + "”删除失败！", 1000);
+                    initInfoBox_successOrFail("“" + toDeleteDevice + "”删除失败！", 2000);
                 }
 
                 lockUnlockButton("unlockbtn");
@@ -450,7 +450,7 @@ namespace CloudManage.DeviceManagement
             }
             else
             {
-                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加失败！", 1000);
+                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加失败！", 2000);
             }
 
             //this.deviceAdditionDeletion_selectMachine1.Dispose();    //选择OK需要手动释放

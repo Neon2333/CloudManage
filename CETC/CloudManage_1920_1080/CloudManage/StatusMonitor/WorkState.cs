@@ -171,12 +171,14 @@ namespace CloudManage.StatusMonitor
         {
             selectRowGridControlEach = this.tileView_each.GetSelectedRows();    //双击时更新当前选中Tile
             DataRow drGridEach = this.tileView_each.GetDataRow(this.tileView_each.FocusedRowHandle);    //获取被选中EachTile对应设备的在表dtEachProductionLineWorkState中的数据
+            if (drGridEach["DeviceName"].ToString()!="未定义")
+            {
+                doubleClickTileViewEach = new DoubleClickTileViewEach(this.sideTileBarControl_workState.tagSelectedItem, drGridEach["DeviceNO"].ToString());    //创建事件对象
+                doubleClickTileViewEach_(sender, new EventArgs());
+                //doubleClickTileViewEach.MyDoubleClickTileViewEach += workStateDoubleClickTileViewEach;
 
-            doubleClickTileViewEach = new DoubleClickTileViewEach(this.sideTileBarControl_workState.tagSelectedItem, drGridEach["DeviceNO"].ToString());    //创建事件对象
-            doubleClickTileViewEach_(sender, new EventArgs());
-            //doubleClickTileViewEach.MyDoubleClickTileViewEach += workStateDoubleClickTileViewEach;
-
-            doubleClickTileViewEach.AckEvent();
+                doubleClickTileViewEach.AckEvent();
+            }
         }
 
         private void tileView_each_Click(object sender, EventArgs e)
@@ -248,7 +250,6 @@ namespace CloudManage.StatusMonitor
         //刷新实时数据
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
-            //使用触发器？但是从表中读生成dtEachProductionLineWorkState的过程挺复杂，写成存储过程，通过触发器调用可能也比较耗费资源、而且把问题复杂化了
             Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
             Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
             refreshSelectRowControlEach();  //更新了表dtEachProductionLineWorkState，重新选中selectedTile

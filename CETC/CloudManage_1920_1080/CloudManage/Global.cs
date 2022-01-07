@@ -6,30 +6,13 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
+using System.Collections.Generic;
 
 namespace CloudManage
 {
     class Global
     {
         public static MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
-
-        /*通过EventArgs自定义事件传值*/
-        //参数实体类
-        //public class LineNOAndDeviceNO
-        //{
-        //    public string LineNO { get; set; }
-        //    public string DeviceNO { get; set; }
-        //}
-
-        ////事件参数类MyTEventArgs
-        //public class MyTEventArgs<T> : EventArgs
-        //{
-        //    public T param;
-        //    public MyTEventArgs(T t)
-        //    {
-        //        param = t;
-        //    }
-        //}
 
         public static void initDataTable()
         {
@@ -682,6 +665,29 @@ namespace CloudManage
                 dt.Rows[i]["NO"] = (i + 1).ToString();
             }
         }
+        /*************************************************************************************************************/
+        //生成表中按未使用的按数字顺序的第一个NO
+        //private string createNO(ref DataTable dt, string col)
+        //{
+        //    string lNO = String.Empty;
+        //    List<string> ll = new List<string>();
+        //    for (int i = 0; i < dt.Rows.Count; i++)
+        //    {
+        //        ll.Add(dt.Rows[i]["LineNO"].ToString());
+        //    }
+
+        //    for (int i = 0; i < 999; i++)
+        //    {
+        //        if (ll.Contains(lineNOVec[i]) == false)
+        //        {
+        //            lNO = lineNOVec[i];
+        //            break;
+        //        }
+        //    }
+        //    return lNO;
+        //}
+
+
 
         /***************************************************************************************************************/
 
@@ -729,6 +735,37 @@ namespace CloudManage
         }
 
         /***************************************************************************************************************/
+        public static Int32 SetBitValueInt32(Int32 value, ushort index, bool bitValue)
+        {
+            if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引超出范围
+            var val = 1 << index;
+            return bitValue ? (value | val) : (value & ~val);   //1和0/1位或都是1,0和0/1位与都是0
+        }
+
+        public static Int64 SetBitValueInt64(Int64 value, ushort index, bool bitValue)
+        {
+            if (index > 60) throw new ArgumentOutOfRangeException("index"); //索引超出范围
+            var val = 1 << index;
+            return bitValue ? (value | val) : (value & ~val);   //1和0/1位或都是1,0和0/1位与都是0
+        }
+
+        //位为1返回true
+        public static bool GetBitValueInt32(Int32 value, ushort index)
+        {
+            if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引出错
+            var val = 1 << index;
+            return (value & val) == val;
+        }
+
+        public static bool GetBitValueInt64(Int64 value, ushort index)
+        {
+            if (index > 60) throw new ArgumentOutOfRangeException("index"); //索引出错
+            var val = 1 << index;
+            return (value & val) == val;
+        }
+        /***************************************************************************************************************/
+
+
 
     }
 }

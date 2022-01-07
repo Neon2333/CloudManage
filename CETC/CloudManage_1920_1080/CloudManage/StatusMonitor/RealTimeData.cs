@@ -25,6 +25,8 @@ namespace CloudManage.StatusMonitor
         private DataRow drParaThreshold = null;                            //某台设备的参数阈值
         string lineNO_deviceNONotChanged = String.Empty;            //防止timer_devicePara_Tick中刷新dtGridDataSource时，lineNO改变了但是DeviceNO还未变，导致dtGridDataSource为空
         string deviceNO_deviceNONotChanged = String.Empty;
+        List<Int64> flagOverrunLimitsFaults = new List<Int64>();    //超限故障标志
+        private DataTable dtDeviceInfo = new DataTable();           //所有设备实时参数表
 
         struct paraThreshold
         {
@@ -198,7 +200,6 @@ namespace CloudManage.StatusMonitor
                     this.paraThresholdList[i].lowerLimit = this.drParaThreshold[7 + 2 * i].ToString();
                     this.paraThresholdList[i].upperLimit = this.drParaThreshold[8 + 2 * i].ToString();
                 }
-
             }
         }
 
@@ -295,7 +296,7 @@ namespace CloudManage.StatusMonitor
             }
             else
             {
-                e.Item.AppearanceItem.Normal.BackColor = colorNormal;
+                e.Item.AppearanceItem.Normal.BackColor =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  colorNormal;
                 e.Item.AppearanceItem.Focused.BackColor = colorNormal;
             }
         }
@@ -311,69 +312,6 @@ namespace CloudManage.StatusMonitor
             refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
             refreshGrid();      //dtGridDataSource未变所以需要强制刷新
         }
-
-        //class WorkStateDoubleClickTileViewEachHandle
-        //{
-        //    public void workStateDoubleClickTileViewEach(object sender, WorkState.MyTEventArgs<WorkState.LineNOAndDeviceNO> arg)
-        //    {
-        //        var dataLineNOAndDeviceNO = arg.param;
-        //        string lineNOWorkState = dataLineNOAndDeviceNO.LineNO;
-        //        string deviceNOWorkState = dataLineNOAndDeviceNO.DeviceNO;
-
-        //        RealTimeData.lineNO_deviceNONotChanged = lineNOWorkState;
-        //        deviceNO_deviceNONotChanged = deviceNOWorkState;
-        //        if (lineNO_deviceNONotChanged != "000")
-        //        {
-        //            //refreshLabelDirDevice();
-        //            _refreshLabelDir();
-        //            this.getDataSource(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);    //改變rightGrid綁定的dtGridDataSource
-        //            refreshParaLimits(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem, this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);     //刷新對應設備的閾值
-        //            setPicDeviceLocation(); //根据选中的设备设定位置
-        //        }
-        //    }
-
-        //}
-
-        //public class LineNOAndDeviceNO
-        //{
-        //    public string LineNO { get; set; }
-        //    public string DeviceNO { get; set; }
-        //}
-
-        ////事件参数类MyTEventArgs，泛型，
-        //public class MyTEventArgs<T> : EventArgs
-        //{
-        //    public T param;
-        //    public MyTEventArgs(T t)
-        //    {
-        //        param = t;
-        //    }
-        //}
-
-        ////封装事件、事件触发函数
-        //public class DoubleClickTileViewEach
-        //{
-        //    public string lineNO { get; set; }
-        //    public string deviceNO { get; set; }
-
-        //    public DoubleClickTileViewEach(string ln, string dn)
-        //    {
-        //        this.lineNO = ln;
-        //        this.deviceNO = dn;
-        //    }
-
-        //    public event Action<object, MyTEventArgs<LineNOAndDeviceNO>> MyDoubleClickTileViewEach;
-
-        //    //public void setMyDoubleClickTileViewEachHandler(System.Action<object, Global.MyTEventArgs<Global.LineNOAndDeviceNO>> action)  //将函数作为实参传入
-        //    //{
-        //    //    this.MyDoubleClickTileViewEach += action;
-        //    //}
-        //    public void AckEvent()
-        //    {
-        //        //激发事件
-        //        MyDoubleClickTileViewEach.Invoke(this, new MyTEventArgs<LineNOAndDeviceNO>(new LineNOAndDeviceNO() { LineNO = this.lineNO, DeviceNO = this.deviceNO }));
-        //    }
-        //}
 
         public void doubleClickTileViewEach_informRealTimeData(object sender, EventArgs e)
         {
@@ -401,10 +339,99 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+
+
+        private void writeAndDeleteOverrunLimitsFaultsIntoDtFaultsCurrent()
+        {
+            //刷新实时datatable、阈值datatable
+            Global._init_dtDeviceInfoThresholdAndLocation();
+            string cmdQueryDtDeviceInfo = "SELECT * FROM device_info;";
+            Global.mysqlHelper1._queryTableMySQL(cmdQueryDtDeviceInfo, ref this.dtDeviceInfo);
+
+            int countRows_countTotalDevice = this.dtDeviceInfo.Rows.Count;
+            if (countRows_countTotalDevice != Global.dtDeviceInfoThresholdAndLocation.Rows.Count)
+                MessageBox.Show("实时信息表中设备数和阈值表设备数不一致！");
+            
+            if(flagOverrunLimitsFaults.Count < countRows_countTotalDevice)
+            {
+                for(int i = flagOverrunLimitsFaults.Count; i < countRows_countTotalDevice; i++)
+                {
+                    flagOverrunLimitsFaults.Add(new Int64());
+                }
+            }
+            else if(flagOverrunLimitsFaults.Count > countRows_countTotalDevice)
+            {
+                for(int i = flagOverrunLimitsFaults.Count; i > countRows_countTotalDevice; i--)
+                {
+                    flagOverrunLimitsFaults.RemoveAt(i - 1);
+                }
+            }
+
+            int countValidParaEachDevice = 0;
+            string colPara = String.Empty;
+            string colParaMin = String.Empty;
+            string colParaMax = String.Empty;
+            string lineNOOverrunLimitsFaults = String.Empty;
+            string deviceNOOverrunLimitsFaults = String.Empty;
+            string overrunLimitsFaultsNO = String.Empty;
+            string cmdWriteOverrunLimitsFaults = String.Empty;
+            string cmdDeleteOverrunLimitsFaults = String.Empty;
+            //DateTime overrunLimitsFaultsOccurTime;
+            //遍历设备
+            for(int i = 0; i < countRows_countTotalDevice; i++)
+            {
+                countValidParaEachDevice = Convert.ToInt32(this.dtDeviceInfo.Rows[i]["ValidParaCount"]);
+                DataRow drDeviceInfo = this.dtDeviceInfo.Rows[i];
+                DataRow drThreshold = Global.dtDeviceInfoThresholdAndLocation.Rows[i];
+                for(ushort j = 1; j <= countValidParaEachDevice; j++)
+                {
+                    colPara = "";
+                    colParaMin = "";
+                    colParaMax = "";
+                    colPara = "Para" + j.ToString();
+                    colParaMin = "Para" + j.ToString() + "Min";
+                    colParaMax = "Para" + j.ToString() + "Max";
+
+                    if(Convert.ToDouble(drDeviceInfo[colPara]) < Convert.ToDouble(drThreshold[colParaMin]) || Convert.ToDouble(drDeviceInfo[colPara]) > Convert.ToDouble(drThreshold[colParaMax]))
+                    {
+                        if (Global.GetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1)) == false)
+                        {
+                            //write
+                            //overrunLimitsFaultsOccurTime = DateTime.Now;
+                            cmdWriteOverrunLimitsFaults = "INSERT INTO faults_current (LineNO, DeviceNO, FaultNO, FaultTime) VALUES ('" + drDeviceInfo["LineNO"].ToString() + "', '" +
+                                                           drDeviceInfo["DeviceNO"].ToString() + "', '" + (j < 10 ? "10" + j.ToString() : "1" + j.ToString()) + "', CURRENT_TIMESTAMP());";
+                            bool flag1 = Global.mysqlHelper1._insertMySQL(cmdWriteOverrunLimitsFaults);
+
+                            flagOverrunLimitsFaults[i] = Global.SetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1), true);
+                        }
+                    }
+                    else
+                    {
+                        if(Global.GetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1)) == true)
+                        {
+                            //delete
+                            cmdDeleteOverrunLimitsFaults = "DELETE FROM faults_current WHERE LineNO='" + drDeviceInfo["LineNO"].ToString() +
+                                                           "' AND DeviceNO='" + drDeviceInfo["DeviceNO"].ToString() + "' AND FaultNO='" + (j < 10 ? "10" + j.ToString() : "1" + j.ToString()) + "';";
+                            bool flag2 = Global.mysqlHelper1._deleteMySQL(cmdDeleteOverrunLimitsFaults);
+
+                            flagOverrunLimitsFaults[i] = Global.SetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1), false);
+
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
             //选中产线、未选中设备时不刷新表。选中产线且选中设备时才刷新表
-            this.getDataSource(lineNO_deviceNONotChanged, deviceNO_deviceNONotChanged);    
+            this.getDataSource(lineNO_deviceNONotChanged, deviceNO_deviceNONotChanged);
+
+            //向表faults_current写、删超限故障
+            writeAndDeleteOverrunLimitsFaultsIntoDtFaultsCurrent();
         }
 
     }
