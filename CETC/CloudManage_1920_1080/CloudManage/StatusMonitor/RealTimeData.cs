@@ -443,9 +443,6 @@ namespace CloudManage.StatusMonitor
                 }
             }
 
-            ////刷新本地历史表
-            //Global._init_dtHistoryQueryGridShow();
-
         }
 
         private void timer_devicePara_Tick(object sender, EventArgs e)

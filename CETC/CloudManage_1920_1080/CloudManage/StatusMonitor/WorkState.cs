@@ -267,6 +267,7 @@ namespace CloudManage.StatusMonitor
             Global.dtOverviewWorkState.Rows.Clear();    //清空产线表
             Global._init_dtOverviewWorkState();         //刷新产线状态
             refreshSelectRowControlOverview();          //令tileview_overview中选中的tile不因绑定dt的变化而变化
+
             Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
             Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //刷新每台设备的状态
             refreshSelectRowControlEach();  //令tileview_each中选中的tile不因绑定dt的变化而变化

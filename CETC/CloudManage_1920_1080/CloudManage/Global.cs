@@ -163,8 +163,10 @@ namespace CloudManage
         }
 
         /**********************************************************************************************************************************************/
-        
+
         //WorkStateControl
+        public static bool[,] flagLineStatus = new bool[1000, 1000];                //下位机长传设备实时故障代表的设备状态标志
+
         public static DataTable dtOverviewWorkState = new DataTable();              //总览数据表
 
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
