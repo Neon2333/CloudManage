@@ -290,6 +290,12 @@
     <Compile Include="StatusMonitor\StatusMonitor.Designer.cs">
       <DependentUpon>StatusMonitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatusMonitor\WaitForm_historyQueryRefreshGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusMonitor\WaitForm_historyQueryRefreshGrid.Designer.cs">
+      <DependentUpon>WaitForm_historyQueryRefreshGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatusMonitor\WorkState.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -394,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StatusMonitor\StatusMonitor.resx">
       <DependentUpon>StatusMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusMonitor\WaitForm_historyQueryRefreshGrid.resx">
+      <DependentUpon>WaitForm_historyQueryRefreshGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatusMonitor\WorkState.resx">
       <DependentUpon>WorkState.cs</DependentUpon>

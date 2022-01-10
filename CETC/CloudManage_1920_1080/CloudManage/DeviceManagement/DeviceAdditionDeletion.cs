@@ -466,9 +466,6 @@ namespace CloudManage.DeviceManagement
         {
             DataRow drSelectedMachine = this.deviceAdditionDeletion_selectMachine1.currentSelectedRow;
 
-
-
-
             //device_threshold
             string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
             for (int i = 0; i < 64; i++)

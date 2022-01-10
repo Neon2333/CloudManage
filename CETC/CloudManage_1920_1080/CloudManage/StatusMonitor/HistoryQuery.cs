@@ -168,6 +168,8 @@ namespace CloudManage.StatusMonitor
                                             "AND t1.DeviceNO=t3.DeviceNO " +
                                             "AND t1.DeviceNO=t4.DeviceNO " +
                                             "AND t1.FaultNO=t4.FaultNO " +
+                                            "WHERE t1.FaultTime BETWEEN " +
+                                            "'" + startTime.ToString() + "'" + " AND " + "'" + endTime.ToString() + "' " +
                                             "ORDER BY t1.`NO`;";
                 }
                 else
@@ -182,7 +184,9 @@ namespace CloudManage.StatusMonitor
                                             "AND t1.DeviceNO=t4.DeviceNO " +
                                             "AND t1.FaultNO=t4.FaultNO " +
                                             //"AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
-                                            "AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " + 
+                                            "AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " +
+                                            "WHERE t1.FaultTime BETWEEN " +
+                                            "'" + startTime.ToString() + "'" + " AND " + "'" + endTime.ToString() + "' " +
                                             "ORDER BY t1.`NO`;";
                 }
             }
@@ -201,6 +205,8 @@ namespace CloudManage.StatusMonitor
                                             "AND t1.FaultNO=t4.FaultNO " +
                                             "AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
                                             //"AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " +
+                                            "WHERE t1.FaultTime BETWEEN " +
+                                            "'" + startTime.ToString() + "'" + " AND " + "'" + endTime.ToString() + "' " +
                                             "ORDER BY t1.`NO`;";
                 }
                 else
@@ -216,6 +222,8 @@ namespace CloudManage.StatusMonitor
                                             "AND t1.FaultNO=t4.FaultNO " +
                                             "AND t1.LineNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItem + "' " +
                                             "AND t1.DeviceNO='" + this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub + "' " +
+                                            "WHERE t1.FaultTime BETWEEN " +
+                                            "'" + startTime.ToString() + "'" + " AND " + "'" + endTime.ToString() + "' " +
                                             "ORDER BY t1.`NO`;";
                 }
             }

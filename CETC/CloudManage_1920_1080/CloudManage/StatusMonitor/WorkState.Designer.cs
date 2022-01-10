@@ -539,10 +539,12 @@
             this.tileView_overview.TileTemplate.Add(tileViewItemElement8);
             this.tileView_overview.TileTemplate.Add(tileViewItemElement9);
             this.tileView_overview.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView_overview_ItemCustomize);
+            this.tileView_overview.Click += new System.EventHandler(this.tileView_overview_Click);
             this.tileView_overview.DoubleClick += new System.EventHandler(this.tileView_overview_DoubleClick);
             // 
             // navigationPage_each
             // 
+            this.navigationPage_each.Caption = "navigationPage_each";
             this.navigationPage_each.Controls.Add(this.gridControl_each);
             this.navigationPage_each.Controls.Add(this.imageSlider_each);
             this.navigationPage_each.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;

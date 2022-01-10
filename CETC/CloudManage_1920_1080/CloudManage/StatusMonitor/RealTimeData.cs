@@ -62,29 +62,29 @@ namespace CloudManage.StatusMonitor
         {
             if (Global.dtDeviceConfig.Rows.Count != 0)
             {
-                string DeviceNOTemp = String.Empty;
-                string firstLineNO = String.Empty;
-                firstLineNO = Global.dtDeviceConfig.Rows[0]["LineNO"].ToString();
-                string[] cols = Global.GetColumnsByDataTable(Global.dtDeviceConfig);
+                //string DeviceNOTemp = String.Empty;
+                //string firstLineNO = String.Empty;
+                //firstLineNO = Global.dtDeviceConfig.Rows[0]["LineNO"].ToString();
+                //string[] cols = Global.GetColumnsByDataTable(Global.dtDeviceConfig);
 
-                for (int i = 2; i < Global.dtDeviceConfig.Columns.Count; i++)
-                {
-                    if (Global.dtDeviceConfig.Rows[0][i].ToString() == "1")
-                    {
-                        DeviceNOTemp = cols[i];
-                        break;
-                    }
-                }
-                string firstDeviceNO = String.Empty;
-                for (int i = 0; i < DeviceNOTemp.Length; i++)
-                {
-                    if (DeviceNOTemp.ElementAt(i) >= '0' && DeviceNOTemp.ElementAt(i) <= '9')
-                    {
-                        firstDeviceNO += DeviceNOTemp.ElementAt(i);
-                    }
-                }
-                getDataSource(firstLineNO, firstDeviceNO);
-                refreshParaLimits(firstLineNO, firstDeviceNO);
+                //for (int i = 2; i < Global.dtDeviceConfig.Columns.Count; i++)
+                //{
+                //    if (Global.dtDeviceConfig.Rows[0][i].ToString() == "1")
+                //    {
+                //        DeviceNOTemp = cols[i];
+                //        break;
+                //    }
+                //}
+                //string firstDeviceNO = String.Empty;
+                //for (int i = 0; i < DeviceNOTemp.Length; i++)
+                //{
+                //    if (DeviceNOTemp.ElementAt(i) >= '0' && DeviceNOTemp.ElementAt(i) <= '9')
+                //    {
+                //        firstDeviceNO += DeviceNOTemp.ElementAt(i);
+                //    }
+                //}
+                //getDataSource(firstLineNO, firstDeviceNO);
+                //refreshParaLimits(firstLineNO, firstDeviceNO);
                 this.gridControl_rightSide.DataSource = this.dtGridDataSource;
             }
         }
@@ -157,7 +157,17 @@ namespace CloudManage.StatusMonitor
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItem);
             string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_realTimeData.tagSelectedItemSub);
-            if(str1 == "总览" && str2 == "所有设备")
+            
+            if (str2 == "所有设备")
+            {
+                this.imageSlider_camera.Visible = false;
+            }
+            else
+            {
+                this.imageSlider_camera.Visible = true;
+            }
+
+            if(str1 == "总览" || str2 == "所有设备")
             {
                 this.labelControl_dir.Text = "";
             }
@@ -171,6 +181,16 @@ namespace CloudManage.StatusMonitor
         {
             string str1 = Global._getProductionLineNameByTag(lineNO);
             string str2 = Global._getTestingDeviceNameByTag(deviceNO);
+
+            if (str2 == "所有设备")
+            {
+                this.imageSlider_camera.Visible = false;
+            }
+            else
+            {
+                this.imageSlider_camera.Visible = true;
+            }
+
             if (str1 == "总览" && str2 == "所有设备")
             {
                 this.labelControl_dir.Text = "";
@@ -394,6 +414,7 @@ namespace CloudManage.StatusMonitor
 
                     if(Convert.ToDouble(drDeviceInfo[colPara]) < Convert.ToDouble(drThreshold[colParaMin]) || Convert.ToDouble(drDeviceInfo[colPara]) > Convert.ToDouble(drThreshold[colParaMax]))
                     {
+                        //超限
                         if (Global.GetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1)) == false)
                         {
                             //write
@@ -407,6 +428,7 @@ namespace CloudManage.StatusMonitor
                     }
                     else
                     {
+                        //正常
                         if(Global.GetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1)) == true)
                         {
                             //delete
@@ -415,13 +437,14 @@ namespace CloudManage.StatusMonitor
                             bool flag2 = Global.mysqlHelper1._deleteMySQL(cmdDeleteOverrunLimitsFaults);
 
                             flagOverrunLimitsFaults[i] = Global.SetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1), false);
-
                         }
                     }
 
                 }
             }
 
+            ////刷新本地历史表
+            //Global._init_dtHistoryQueryGridShow();
 
         }
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true, typeof(System.Windows.Forms.UserControl));
             DevExpress.XtraGrid.Views.Tile.ItemTemplate itemTemplate1 = new DevExpress.XtraGrid.Views.Tile.ItemTemplate();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -95,6 +96,8 @@
             this.tileViewColumn_FTime = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.windowsUIButtonPanel_historyQuery = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton_exportData = new DevExpress.XtraEditors.SimpleButton();
+            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.simpleButton_query1Months = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_query1Week = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_query6Months = new DevExpress.XtraEditors.SimpleButton();
@@ -117,16 +120,14 @@
             this.tileView_1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.timer_refreshDtHistoryQueryGridShow = new System.Windows.Forms.Timer(this.components);
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.simpleButton_exportData = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // tileViewColumn_num
@@ -180,6 +181,10 @@
             this.tileViewColumn_FTime.VisibleIndex = 4;
             this.tileViewColumn_FTime.Width = 340;
             // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
             // windowsUIButtonPanel_historyQuery
             // 
             this.windowsUIButtonPanel_historyQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -212,6 +217,31 @@
             this.panelControl_rightSide.Name = "panelControl_rightSide";
             this.panelControl_rightSide.Size = new System.Drawing.Size(562, 800);
             this.panelControl_rightSide.TabIndex = 6;
+            // 
+            // simpleButton_exportData
+            // 
+            this.simpleButton_exportData.AllowFocus = false;
+            this.simpleButton_exportData.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_exportData.Appearance.Options.UseFont = true;
+            this.simpleButton_exportData.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_exportData.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_exportData.Location = new System.Drawing.Point(6, 486);
+            this.simpleButton_exportData.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.simpleButton_exportData.Name = "simpleButton_exportData";
+            this.simpleButton_exportData.Size = new System.Drawing.Size(550, 46);
+            this.simpleButton_exportData.TabIndex = 27;
+            this.simpleButton_exportData.Text = "导出数据";
+            this.simpleButton_exportData.Click += new System.EventHandler(this.simpleButton_exportData_Click);
+            // 
+            // separatorControl1
+            // 
+            this.separatorControl1.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
+            this.separatorControl1.Location = new System.Drawing.Point(1, 460);
+            this.separatorControl1.LookAndFeel.SkinName = "Office 2019 Colorful";
+            this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.separatorControl1.Name = "separatorControl1";
+            this.separatorControl1.Size = new System.Drawing.Size(560, 20);
+            this.separatorControl1.TabIndex = 26;
             // 
             // simpleButton_query1Months
             // 
@@ -864,33 +894,8 @@
             // timer_refreshDtHistoryQueryGridShow
             // 
             this.timer_refreshDtHistoryQueryGridShow.Enabled = true;
-            this.timer_refreshDtHistoryQueryGridShow.Interval = 30000;
+            this.timer_refreshDtHistoryQueryGridShow.Interval = 3000;
             this.timer_refreshDtHistoryQueryGridShow.Tick += new System.EventHandler(this.timer_refreshDtHistoryQueryGridShow_Tick);
-            // 
-            // separatorControl1
-            // 
-            this.separatorControl1.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl1.Location = new System.Drawing.Point(1, 460);
-            this.separatorControl1.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(560, 20);
-            this.separatorControl1.TabIndex = 26;
-            // 
-            // simpleButton_exportData
-            // 
-            this.simpleButton_exportData.AllowFocus = false;
-            this.simpleButton_exportData.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton_exportData.Appearance.Options.UseFont = true;
-            this.simpleButton_exportData.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
-            this.simpleButton_exportData.AppearancePressed.Options.UseFont = true;
-            this.simpleButton_exportData.Location = new System.Drawing.Point(6, 486);
-            this.simpleButton_exportData.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-            this.simpleButton_exportData.Name = "simpleButton_exportData";
-            this.simpleButton_exportData.Size = new System.Drawing.Size(550, 46);
-            this.simpleButton_exportData.TabIndex = 27;
-            this.simpleButton_exportData.Text = "导出数据";
-            this.simpleButton_exportData.Click += new System.EventHandler(this.simpleButton_exportData_Click);
             // 
             // HistoryQuery
             // 
@@ -910,12 +915,12 @@
             this.Size = new System.Drawing.Size(1920, 880);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).EndInit();
             this.panelControl_rightSide.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_endTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit_startTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_faultHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.ResumeLayout(false);
 
         }

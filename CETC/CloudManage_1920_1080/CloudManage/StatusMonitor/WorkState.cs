@@ -28,7 +28,7 @@ namespace CloudManage.StatusMonitor
         Color colorDisable = Color.FromArgb(120, 120, 120);
 
         private int[] selectRowGridControlEach = { 0 };   //手动记录Each中被选中tile
-
+        private int[] selectRowGridControlOverview = { 0 }; //手动记录总览中被选中的tile
 
         public WorkState()
         {
@@ -59,6 +59,14 @@ namespace CloudManage.StatusMonitor
             if (selectRowGridControlEach.Length == 1)
             {
                 this.tileView_each.FocusedRowHandle = selectRowGridControlEach[0];
+            }
+        }
+
+        private void refreshSelectRowControlOverview()
+        {
+            if (selectRowGridControlOverview.Length == 1)
+            {
+                this.tileView_overview.FocusedRowHandle = selectRowGridControlOverview[0];
             }
         }
 
@@ -108,6 +116,7 @@ namespace CloudManage.StatusMonitor
         //总览页面内双击tile，侧边栏对应按钮被选中，跳转到对应产线页面
         private void tileView_overview_DoubleClick(object sender, EventArgs e)
         {
+            selectRowGridControlOverview = this.tileView_overview.GetSelectedRows();    //双击时更新当前选中Tile
             int[] index = { 0 };
             if (((DataTable)this.gridControl_overview.DataSource).Rows.Count > 0)
             {
@@ -119,6 +128,11 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        //总览页面单击tile
+        private void tileView_overview_Click(object sender, EventArgs e)
+        {
+            selectRowGridControlOverview = this.tileView_overview.GetSelectedRows();    //双击时更新当前选中Tile
+        }
 
         /**************************************************************双击TileEach跳转RealTime并显示对应设备的实时参数*******************************************************/
         //封装要传递的参数，可传递多个参数
@@ -202,7 +216,7 @@ namespace CloudManage.StatusMonitor
                 object o = this.tileView_each.FocusedValue;
 
                 Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
-                Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
+                Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询，刷新每台设备的状态
                 this.navigationFrame_workState.SelectedPage = this.navigationPage_each; //若当前选中的不是总览按钮则显示Page_each
             }
         }
@@ -250,9 +264,12 @@ namespace CloudManage.StatusMonitor
         //刷新实时数据
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
+            Global.dtOverviewWorkState.Rows.Clear();    //清空产线表
+            Global._init_dtOverviewWorkState();         //刷新产线状态
+            refreshSelectRowControlOverview();          //令tileview_overview中选中的tile不因绑定dt的变化而变化
             Global.dtEachProductionLineWorkState.Rows.Clear();  //清空表数据
-            Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //重新查询
-            refreshSelectRowControlEach();  //更新了表dtEachProductionLineWorkState，重新选中selectedTile
+            Global._init_dtEachProductionLineWorkState(this.sideTileBarControl_workState.tagSelectedItem);  //刷新每台设备的状态
+            refreshSelectRowControlEach();  //令tileview_each中选中的tile不因绑定dt的变化而变化
         }
 
         
