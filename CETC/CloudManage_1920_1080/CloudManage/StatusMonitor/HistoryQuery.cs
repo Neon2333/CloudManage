@@ -44,7 +44,8 @@ namespace CloudManage.StatusMonitor
             //Global._init_dtHistoryQueryGridShow();    //初始化历史故障表，默认显示全部故障历史
             _initTimeEditStartAndEnd();
             //初始化显示一个月的历史
-            Global._init_dtHistoryQueryGridShow(this.timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss"), this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss"));   
+            Global._init_dtHistoryQueryGridShow(startTime, endTime);
+
             this.gridControl_faultHistory.DataSource = Global.dtHistoryQueryGridShow;
             _initWindowsUIButtonPanel();
         }
@@ -80,6 +81,9 @@ namespace CloudManage.StatusMonitor
             DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
             this.timeEdit_startTime.Time = oneMonthAgo;
             this.timeEdit_endTime.Time = nowdt;
+            startTime = timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
+            endTime = this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
+
         }
 
         private bool _timeInterValIllegal()

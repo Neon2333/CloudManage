@@ -177,11 +177,19 @@ namespace CloudManage
         {
             if (dtOverviewWorkState.Rows.Count == 0)
             {
+                //string cmdInitDTOverviewWorkState = "SELECT LineName, " +
+                //                                    "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
+                //                                    "WHEN COUNT(FaultTime)=0 THEN '正常' " +
+                //                                    "END) AS LineStatus " +
+                //                                    "FROM productionline AS t1 LEFT JOIN faults_history AS t2 " +
+                //                                    "ON t1.LineNO=t2.LineNO " +
+                //                                    "GROUP BY LineName " +
+                //                                    "ORDER BY t1.`NO`;";
                 string cmdInitDTOverviewWorkState = "SELECT LineName, " +
                                                     "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
                                                     "WHEN COUNT(FaultTime)=0 THEN '正常' " +
                                                     "END) AS LineStatus " +
-                                                    "FROM productionline AS t1 LEFT JOIN faults_history AS t2 " +
+                                                    "FROM productionline AS t1 LEFT JOIN faults_current AS t2 " +
                                                     "ON t1.LineNO=t2.LineNO " +
                                                     "GROUP BY LineName " +
                                                     "ORDER BY t1.`NO`;";    //20ms

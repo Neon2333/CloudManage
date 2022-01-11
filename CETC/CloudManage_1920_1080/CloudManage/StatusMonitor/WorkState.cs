@@ -261,6 +261,8 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+
+
         //刷新实时数据
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {

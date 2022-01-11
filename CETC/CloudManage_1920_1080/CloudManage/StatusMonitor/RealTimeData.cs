@@ -28,6 +28,7 @@ namespace CloudManage.StatusMonitor
         List<Int64> flagOverrunLimitsFaults = new List<Int64>();    //超限故障标志
         private DataTable dtDeviceInfo = new DataTable();           //所有设备实时参数表
 
+
         struct paraThreshold
         {
             public string lowerLimit;
@@ -396,7 +397,6 @@ namespace CloudManage.StatusMonitor
             string overrunLimitsFaultsNO = String.Empty;
             string cmdWriteOverrunLimitsFaults = String.Empty;
             string cmdDeleteOverrunLimitsFaults = String.Empty;
-            //DateTime overrunLimitsFaultsOccurTime;
             //遍历设备
             for(int i = 0; i < countRows_countTotalDevice; i++)
             {
@@ -418,7 +418,6 @@ namespace CloudManage.StatusMonitor
                         if (Global.GetBitValueInt64(flagOverrunLimitsFaults[i], (ushort)(j - 1)) == false)
                         {
                             //write
-                            //overrunLimitsFaultsOccurTime = DateTime.Now;
                             cmdWriteOverrunLimitsFaults = "INSERT INTO faults_current (LineNO, DeviceNO, FaultNO, FaultTime) VALUES ('" + drDeviceInfo["LineNO"].ToString() + "', '" +
                                                            drDeviceInfo["DeviceNO"].ToString() + "', '" + (j < 10 ? "10" + j.ToString() : "1" + j.ToString()) + "', CURRENT_TIMESTAMP());";
                             bool flag1 = Global.mysqlHelper1._insertMySQL(cmdWriteOverrunLimitsFaults);
@@ -440,9 +439,40 @@ namespace CloudManage.StatusMonitor
                         }
                     }
 
+
                 }
             }
+        }
 
+        private void refreshDeviceStatus()
+        {
+            string lineNO = String.Empty;
+            string deviceNO = String.Empty;
+            string cmdDeviceHasFault = String.Empty;
+            DataTable dtDeviceHasFault = new DataTable();
+
+            for(int i = 0; i < dtDeviceInfo.Rows.Count; i++)
+            {
+                lineNO = dtDeviceInfo.Rows[i]["LineNO"].ToString();
+                deviceNO = dtDeviceInfo.Rows[i]["DeviceNO"].ToString();
+
+                cmdDeviceHasFault = "SELECT COUNT(*) AS faultsCount FROM faults_current WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+                Global.mysqlHelper1._queryTableMySQL(cmdDeviceHasFault, ref dtDeviceHasFault);
+                if(dtDeviceHasFault.Rows.Count == 1)
+                {
+                    if (Convert.ToInt32(dtDeviceHasFault.Rows[0]["faultsCount"]) == 0 && dtDeviceInfo.Rows[i]["DeviceStatus"].ToString() == "0")
+                    {
+                        string cmdUpdateDeviceInfo = "UPDATE device_info SET DeviceStatus='1' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+                        Global.mysqlHelper1._updateMySQL(cmdUpdateDeviceInfo);
+                    }
+                    else if(Convert.ToInt32(dtDeviceHasFault.Rows[0]["faultsCount"]) > 0 && dtDeviceInfo.Rows[i]["DeviceStatus"].ToString() == "1")
+                    {
+                        string cmdUpdateDeviceInfo = "UPDATE device_info SET DeviceStatus='0' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+                        Global.mysqlHelper1._updateMySQL(cmdUpdateDeviceInfo);
+                    }
+                }
+                
+            }
         }
 
         private void timer_devicePara_Tick(object sender, EventArgs e)
@@ -452,6 +482,11 @@ namespace CloudManage.StatusMonitor
 
             //向表faults_current写、删超限故障
             writeAndDeleteOverrunLimitsFaultsIntoDtFaultsCurrent();
+
+            //根据faults_current写device_info中的Device_Status
+            refreshDeviceStatus();
+
+
         }
 
     }
