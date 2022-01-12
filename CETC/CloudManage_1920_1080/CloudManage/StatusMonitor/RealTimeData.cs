@@ -444,6 +444,8 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        
+
         private void refreshDeviceStatus()
         {
             string lineNO = String.Empty;

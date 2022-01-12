@@ -43,7 +43,7 @@ namespace CloudManage
          * device_info——WorkState中各个产线对应检测设备的参数：产线ID、检测设备ID、检测设备状态（是否故障）、有效参数个数、Para1(检测数)、Para2(缺陷数)、Para3(CPU温度)、Para4(CPU利用率)、Para5(内存利用率)
          * 
          * datatable，由查询得到：
-         * dtSideTileBar（）——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量（由）
+         * dtSideTileBar（）——初始化侧边栏产线按钮的表：产线ID、产线名称、产线对应检测设备数量
          * dtOverviewWorkState——WorkState中总览显示用表：产线名称、产线状态（是否故障）
          * dtEachProductionLineWorkState——WorkState中每条产线数据显示表
          * dtTitleGridShowMainForm——标题栏显示所有故障的最新若干条记录（由device_info得到）
