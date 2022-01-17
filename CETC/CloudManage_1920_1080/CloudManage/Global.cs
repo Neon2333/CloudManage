@@ -32,6 +32,7 @@ namespace CloudManage
             Global._init_dtSideTileBarWorkState();  //WorkState侧边栏初始化表
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
+
         /*
          * MySQL表格：
          * device_config(dtDeviceConfig)——各产线的检测设备使能表：产线ID、检测设备使能标志
@@ -50,10 +51,7 @@ namespace CloudManage
          * dtHistoryQueryGridShow（faults_history）——HistoryQuery初始显示的所有故障：NO、产线名称、检测设备名称、故障名称、故障发生时间
          * dtHistoryQueryGridShowClickedQueryButton——HistoryQuery查询出来的故障
          * dtRightSideRealTimeData——RealTimeData中右侧显示表：参数名称、参数值
-         * 
-         * 
          * */
-
 
         public static DataTable dtDeviceConfig = new DataTable();         //产线Tag、检测设备使能标志
 

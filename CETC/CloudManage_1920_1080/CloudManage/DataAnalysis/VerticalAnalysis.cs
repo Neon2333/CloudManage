@@ -21,8 +21,15 @@ namespace CloudManage.DataAnalysis
         {
             InitializeComponent();
             //initVerticalAnalysis();
+            MainForm.deviceOrLineAdditionDeletionReinitVerticalAnalysis += reInitVerticalAnalysis;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
+        }
+
+        public void reInitVerticalAnalysis(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新VerticalAnalysis页面");
+            initVerticalAnalysis();
         }
 
         private void initVerticalAnalysis()

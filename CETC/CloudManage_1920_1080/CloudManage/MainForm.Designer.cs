@@ -571,7 +571,7 @@
             this.tileBarItem_dataAnalysis_horizontalAnalysis.Id = 0;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_dataAnalysis_horizontalAnalysis.Name = "tileBarItem_dataAnalysis_horizontalAnalysis";
-            this.tileBarItem_dataAnalysis_horizontalAnalysis.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick);
+            this.tileBarItem_dataAnalysis_horizontalAnalysis.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_dataAnalysis_LateralAnalysis_ItemClick);
             // 
             // tileBarItem_dataAnalysis_verticalAnalysis
             // 

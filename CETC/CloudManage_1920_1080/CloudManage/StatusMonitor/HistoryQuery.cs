@@ -35,8 +35,16 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initHistoryQuery();
+            MainForm.deviceOrLineAdditionDeletionReinitHistoryQuery += reInitHistoryQuery;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
+
+        public void reInitHistoryQuery(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新HistoryQuery页面");
+            initHistoryQuery();
+        }
+
 
         void initHistoryQuery()
         {

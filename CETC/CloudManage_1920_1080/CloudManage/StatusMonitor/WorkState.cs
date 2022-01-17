@@ -34,6 +34,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initWorkState();
+            MainForm.deviceOrLineAdditionDeletionReinitWorkState += reInitWorkState;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
@@ -42,6 +43,12 @@ namespace CloudManage.StatusMonitor
             initSideTileBarWorkState();     //初始化侧边栏
             initDataOverviewWorkState();    //初始化总览数据表
             initDataEachWorkState();        //初始化检测设备数据表
+        }
+
+        public void reInitWorkState(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新WorkState页面");
+            initWorkState();
         }
 
         public void initSideTileBarWorkState()
@@ -261,7 +268,36 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        //private void refreshDeviceStatus()
+        //{
+        //    string lineNO = String.Empty;
+        //    string deviceNO = String.Empty;
+        //    string cmdDeviceHasFault = String.Empty;
+        //    DataTable dtDeviceHasFault = new DataTable();
 
+        //    for (int i = 0; i < dtDeviceInfo.Rows.Count; i++)
+        //    {
+        //        lineNO = dtDeviceInfo.Rows[i]["LineNO"].ToString();
+        //        deviceNO = dtDeviceInfo.Rows[i]["DeviceNO"].ToString();
+
+        //        cmdDeviceHasFault = "SELECT COUNT(*) AS faultsCount FROM faults_current WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+        //        Global.mysqlHelper1._queryTableMySQL(cmdDeviceHasFault, ref dtDeviceHasFault);
+        //        if (dtDeviceHasFault.Rows.Count == 1)
+        //        {
+        //            if (Convert.ToInt32(dtDeviceHasFault.Rows[0]["faultsCount"]) == 0 && dtDeviceInfo.Rows[i]["DeviceStatus"].ToString() == "0")
+        //            {
+        //                string cmdUpdateDeviceInfo = "UPDATE device_info SET DeviceStatus='1' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+        //                Global.mysqlHelper1._updateMySQL(cmdUpdateDeviceInfo);
+        //            }
+        //            else if (Convert.ToInt32(dtDeviceHasFault.Rows[0]["faultsCount"]) > 0 && dtDeviceInfo.Rows[i]["DeviceStatus"].ToString() == "1")
+        //            {
+        //                string cmdUpdateDeviceInfo = "UPDATE device_info SET DeviceStatus='0' WHERE LineNO='" + lineNO + "' AND DeviceNO='" + deviceNO + "';";
+        //                Global.mysqlHelper1._updateMySQL(cmdUpdateDeviceInfo);
+        //            }
+        //        }
+
+        //    }
+        //}
 
         //刷新实时数据
         private void timer_devicePara_Tick(object sender, EventArgs e)

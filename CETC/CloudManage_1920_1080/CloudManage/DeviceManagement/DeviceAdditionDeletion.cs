@@ -39,8 +39,15 @@ namespace CloudManage.DeviceManagement
 
             initDeviceAdditionDeletion();
 
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            MainForm.deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion += reInitDeviceAdditionDeletion;
 
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+        }
+
+        public void reInitDeviceAdditionDeletion(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新DeviceAdditionDeletion页面");
+            initDeviceAdditionDeletion();
         }
 
         void initDeviceAdditionDeletion()

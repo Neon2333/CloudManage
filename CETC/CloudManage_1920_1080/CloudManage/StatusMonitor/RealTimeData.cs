@@ -29,6 +29,7 @@ namespace CloudManage.StatusMonitor
         private DataTable dtDeviceInfo = new DataTable();           //所有设备实时参数表
 
 
+
         struct paraThreshold
         {
             public string lowerLimit;
@@ -40,8 +41,14 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initRealTime();
+            MainForm.deviceOrLineAdditionDeletionReinitRealTime += reInitRealTime;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal+=5);
+        }
 
+        public void reInitRealTime(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新RealTime页面");
+            initRealTime();
         }
 
         void initRealTime()
@@ -322,10 +329,10 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        private void timer_deviceLocation_Tick(object sender, EventArgs e)
-        {
-            this.pictureEdit_deviceLocation.Visible = !this.pictureEdit_deviceLocation.Visible;
-        }
+        //private void timer_deviceLocation_Tick(object sender, EventArgs e)
+        //{
+        //    this.pictureEdit_deviceLocation.Visible = !this.pictureEdit_deviceLocation.Visible;
+        //}
 
 
         private void monitorThreshold_paraLimitsChanged(object sender, EventArgs e)
@@ -444,8 +451,6 @@ namespace CloudManage.StatusMonitor
             }
         }
 
-        
-
         private void refreshDeviceStatus()
         {
             string lineNO = String.Empty;
@@ -479,6 +484,8 @@ namespace CloudManage.StatusMonitor
 
         private void timer_devicePara_Tick(object sender, EventArgs e)
         {
+            this.pictureEdit_deviceLocation.Visible = !this.pictureEdit_deviceLocation.Visible;
+
             //选中产线、未选中设备时不刷新表。选中产线且选中设备时才刷新表
             this.getDataSource(lineNO_deviceNONotChanged, deviceNO_deviceNONotChanged);
 
@@ -487,9 +494,8 @@ namespace CloudManage.StatusMonitor
 
             //根据faults_current写device_info中的Device_Status
             refreshDeviceStatus();
-
-
         }
+
 
     }
 }

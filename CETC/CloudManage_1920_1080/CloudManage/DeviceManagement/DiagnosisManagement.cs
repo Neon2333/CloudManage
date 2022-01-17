@@ -45,6 +45,20 @@ namespace CloudManage.DeviceManagement
         {
             InitializeComponent();
 
+            initDiagnosisManagement();
+
+            MainForm.deviceOrLineAdditionDeletionReinitdiagnosisManagement += reInitDiagnosisManagement;
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+        }
+
+        private void reInitDiagnosisManagement(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新DiagnosisManagement页面");
+            initDiagnosisManagement();
+        }
+
+        private void initDiagnosisManagement()
+        {
             _initSideTileBarWithSub();        //初始化侧边栏
             Global._init_dtFaultsConfig();    //初始化故障配置表
             initDtqueryFaultsConfigEnableAndNotEnable();    //初始化使能/禁止表
@@ -54,8 +68,6 @@ namespace CloudManage.DeviceManagement
             {
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
-
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
         }
 
         private void _initSideTileBarWithSub()

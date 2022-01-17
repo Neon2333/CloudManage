@@ -42,7 +42,20 @@ namespace CloudManage.DeviceManagement
         public MonitorThreshold()
         {
             InitializeComponent();
+            initMonitorThreshold();
+            MainForm.deviceOrLineAdditionDeletionReinitMonitorThreshold += reInitRealTime;
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
 
+        }
+
+        public void reInitRealTime(object sender, EventArgs e)
+        {
+            MessageBox.Show("重新刷新MonitorThreshold页面");
+            initMonitorThreshold();
+        }
+
+        private void initMonitorThreshold()
+        {
             _initSideTileBarWithSub();
             Global._init_dtDeviceInfoThresholdGridShow();
             Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow);
@@ -53,9 +66,6 @@ namespace CloudManage.DeviceManagement
                 this.tileView1.FocusedRowHandle = selectRow[0]; //默认选中第一行
             }
             refreshSelectRow();
-
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
-
         }
 
         private void _initSideTileBarWithSub()

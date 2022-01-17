@@ -19,6 +19,23 @@ namespace CloudManage
         int currentPage = (int)StatusMonitorPages.workStatePage;    //全局记录当前页面
         private CommonControl.ConfirmationBox confirmationBox_applicationRestartOrClose;
 
+        public delegate void DeviceOrLineAdditionDeletionReinit(object sender, EventArgs e);
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitWorkState;  //设备或产线增删时传递事件
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitRealTime;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitHistoryQuery;
+
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitLateralAnalysis;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitVerticalAnalysis;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitParameterOptimization;
+
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitMonitorThreshold;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitdiagnosisManagement;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve1;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve2;
+
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitproductionAdditionDeletion;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitSystemConfigReserve1;
 
         DateTime now = new DateTime();  //当前时间
         //int[][] itemIndex = new int[6][];
@@ -231,434 +248,290 @@ namespace CloudManage
 
         private void tileBarItem_statusMonitoring_workState_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-                iSelectedIndex = (int)StatusMonitorPages.workStatePage;
-                this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
-                currentPage = (int)StatusMonitorPages.workStatePage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
+                deviceOrLineAdditionDeletionReinitWorkState(sender, new EventArgs());
             }
 
-            //this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-            //iSelectedIndex = (int)StatusMonitorPages.workStatePage;
-            //this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+            iSelectedIndex = (int)StatusMonitorPages.workStatePage;
+            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            currentPage = (int)StatusMonitorPages.workStatePage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-                iSelectedIndex = (int)StatusMonitorPages.realtimePage;
-                this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
-                currentPage = (int)StatusMonitorPages.realtimePage;
-                currentPage = processCurrentPage();
+                deviceOrLineAdditionDeletionReinitRealTime(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+            iSelectedIndex = (int)StatusMonitorPages.realtimePage;
+            this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
+            currentPage = (int)StatusMonitorPages.realtimePage;
+            currentPage = processCurrentPage();
+
+
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-                iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
-                this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
-                currentPage = (int)StatusMonitorPages.historyQueryPage;
-                currentPage = processCurrentPage();
+                deviceOrLineAdditionDeletionReinitHistoryQuery(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
+            iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
+            this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
+            currentPage = (int)StatusMonitorPages.historyQueryPage;
+            currentPage = processCurrentPage();
         }
 
-        private void tileBarItem_dataAnalysis_HorizontalAnalysis_ItemClick(object sender, TileItemEventArgs e)
+        private void tileBarItem_dataAnalysis_LateralAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-                iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
-                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
-                currentPage = (int)DataAnalysisPages.lateralAnalysisPage;
-                currentPage = processCurrentPage();
+                deviceOrLineAdditionDeletionReinitLateralAnalysis(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+            iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+            currentPage = (int)DataAnalysisPages.lateralAnalysisPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-                iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
-                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
-                currentPage = (int)DataAnalysisPages.verticalAnalysisPage;
-                currentPage = processCurrentPage();
+                deviceOrLineAdditionDeletionReinitVerticalAnalysis(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+            iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+            currentPage = (int)DataAnalysisPages.verticalAnalysisPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_dataAnalysis_paraOptimization_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
-                iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
-                this.dataAnalysis1.selectedFramePage = iSelectedIndex;
-                currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
-                currentPage = processCurrentPage();
+                deviceOrLineAdditionDeletionReinitParameterOptimization(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
+            iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
+            this.dataAnalysis1.selectedFramePage = iSelectedIndex;
+            currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_twinDetection_paraSyn_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-                iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
+                //deviceOrLineAdditionDeletionReinitParaSyn(sender, new EventArgs());
+            }
 
-                currentPage = (int)TwinDetectionPages.paraSynPage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+            iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
+
+            currentPage = (int)TwinDetectionPages.paraSynPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-                iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
+                //deviceOrLineAdditionDeletionReinitIntelligentReasoning(sender, new EventArgs());
+            }
 
-                currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+            iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
+
+            currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
-                iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
+                //deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
+            }
 
-                currentPage = (int)TwinDetectionPages.paraUpdatePage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+            iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
+
+            currentPage = (int)TwinDetectionPages.paraUpdatePage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_dataPreparation_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-                iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
+                //deviceOrLineAdditionDeletionReinitDataPreparation(sender, new EventArgs());
+            }
 
-                currentPage = (int)DeepLearningPages.datapreParationPage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+            iSelectedIndex = (int)DeepLearningPages.datapreParationPage;
+
+            currentPage = (int)DeepLearningPages.datapreParationPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_modelTraining_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-                iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
+                //deviceOrLineAdditionDeletionReinitModelTraining(sender, new EventArgs());
+            }
 
-                currentPage = (int)DeepLearningPages.modelTrainingPage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+            iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
+
+            currentPage = (int)DeepLearningPages.modelTrainingPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_modelTesting_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-                iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
+                //deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
+            }
 
-                currentPage = (int)DeepLearningPages.modelTestingPage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+            iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
+
+            currentPage = (int)DeepLearningPages.modelTestingPage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
-                iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
+                //deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
+            }
 
-                currentPage = (int)DeepLearningPages.modelUpdatePage;
-                currentPage = processCurrentPage();
-            }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
+            iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
+
+            currentPage = (int)DeepLearningPages.modelUpdatePage;
+            currentPage = processCurrentPage();
         }
 
         private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-                currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            currentPage = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
         private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-                currentPage = (int)StatusMonitorPages.workStatePage;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitMonitorThreshold(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            currentPage = (int)StatusMonitorPages.workStatePage;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
         private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-                currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitdiagnosisManagement(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            currentPage = (int)DeviceManagementPages.diagnosisManagementPage;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-                currentPage = (int)DeviceManagementPages.reservePage1;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)DeviceManagementPages.reservePage1;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitDeviceManagementReserve1(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            currentPage = (int)DeviceManagementPages.reservePage1;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)DeviceManagementPages.reservePage1;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
         private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
-                currentPage = (int)DeviceManagementPages.reservePage2;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)DeviceManagementPages.reservePage2;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitDeviceManagementReserve2(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-                if (currentPage == 18)
-                {
-                    createConfirmationBox("产线发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            currentPage = (int)DeviceManagementPages.reservePage2;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)DeviceManagementPages.reservePage2;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
+
+
+            //if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            //{
+            //    this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
+            //    currentPage = (int)DeviceManagementPages.reservePage2;
+            //    currentPage = processCurrentPage();
+            //    iSelectedIndex = (int)DeviceManagementPages.reservePage2;
+            //    this.deviceManagement1.selectedFramePage = iSelectedIndex;
+            //}
+            //else
+            //{
+            //    if (currentPage == 13)
+            //    {
+            //        createConfirmationBox("设备发生变化，确认重启？", "restart");
+            //    }
+            //    if (currentPage == 18)
+            //    {
+            //        createConfirmationBox("产线发生变化，确认重启？", "restart");
+            //    }
+            //}
         }
 
         private void tileBarItem_systemConfig_productionAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                this.navigationFrame_mainMenu.SelectedPage = navigationPage_systemConfig;
-                currentPage = (int)SystemConfigPages.productionLineAdditionDeletion;
-                currentPage = processCurrentPage();
-                iSelectedIndex = (int)SystemConfigPages.productionLineAdditionDeletion;
-                this.deviceManagement1.selectedFramePage = iSelectedIndex;
+                deviceOrLineAdditionDeletionReinitproductionAdditionDeletion(sender, new EventArgs());
             }
-            else
-            {
-                if (currentPage == 13)
-                {
-                    createConfirmationBox("设备发生变化，确认重启？", "restart");
-                }
-            }
+
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_systemConfig;
+            currentPage = (int)SystemConfigPages.productionLineAdditionDeletion;
+            currentPage = processCurrentPage();
+            iSelectedIndex = (int)SystemConfigPages.productionLineAdditionDeletion;
+            this.deviceManagement1.selectedFramePage = iSelectedIndex;
         }
 
         private void labelControl_title_Click(object sender, EventArgs e)
