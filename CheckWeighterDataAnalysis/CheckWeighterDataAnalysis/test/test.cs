@@ -9,18 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CheckWeighterDataAnalysis.StatusMonitor
+namespace CheckWeighterDataAnalysis.test
 {
-    public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
+    public partial class test : DevExpress.XtraEditors.XtraForm
     {
-        public StatusMonitor()
+        public test()
         {
             InitializeComponent();
-        }
-
-        private void _initStatusMonitor()
-        {
-
         }
     }
 }

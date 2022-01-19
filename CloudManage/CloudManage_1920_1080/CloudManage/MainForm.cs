@@ -19,7 +19,7 @@ namespace CloudManage
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        string trainDialogFolderPath = @"D:\WorkSpace\DevExpressDemo\CloudManage\CloudManage_1920_1080\CloudManage\bin\Debug\deeplearning";
+        string trainDialogFolderPath = @"D:\WorkSpace\deeplearning";
         [DllImport("shell32.dll")]
         public static extern int ShellExecute(IntPtr hwnd, StringBuilder lpszOp, StringBuilder lpszFile, StringBuilder lpszParams, StringBuilder lpszDir, int FsShowCmd);
 
