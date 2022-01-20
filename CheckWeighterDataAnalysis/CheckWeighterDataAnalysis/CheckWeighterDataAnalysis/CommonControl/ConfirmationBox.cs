@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CloudManage.CommonControl
+namespace CheckWeighterDataAnalysis.CommonControl
 {
     public partial class ConfirmationBox : DevExpress.XtraEditors.XtraUserControl
     {

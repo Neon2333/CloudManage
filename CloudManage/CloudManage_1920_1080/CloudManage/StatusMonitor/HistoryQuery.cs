@@ -36,7 +36,7 @@ namespace CloudManage.StatusMonitor
             InitializeComponent();
             initHistoryQuery();
             MainForm.deviceOrLineAdditionDeletionReinitHistoryQuery += reInitHistoryQuery;
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
         public void reInitHistoryQuery(object sender, EventArgs e)
@@ -91,7 +91,6 @@ namespace CloudManage.StatusMonitor
             this.timeEdit_endTime.Time = nowdt;
             startTime = timeEdit_startTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
             endTime = this.timeEdit_endTime.Time.ToString("yyyy-MM-dd HH:mm:ss");
-
         }
 
         private bool _timeInterValIllegal()

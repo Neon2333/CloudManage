@@ -19,7 +19,7 @@ namespace CloudManage
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        string trainDialogFolderPath = @"D:\WorkSpace\deeplearning";
+        string dirCurrent = System.IO.Directory.GetCurrentDirectory();
         [DllImport("shell32.dll")]
         public static extern int ShellExecute(IntPtr hwnd, StringBuilder lpszOp, StringBuilder lpszFile, StringBuilder lpszParams, StringBuilder lpszDir, int FsShowCmd);
 
@@ -39,8 +39,6 @@ namespace CloudManage
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTraining;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTesting;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelUpdate;
-
-
 
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitMonitorThreshold;
@@ -98,10 +96,10 @@ namespace CloudManage
             //Process processTrainDialog = new Process();
             //processTrainDialog.StartInfo.FileName = trainDialogFilePath;
             //processTrainDialog.Start();
+            string trainDialogFolderPath = dirCurrent + "\\deeplearning";
             ShellExecute(IntPtr.Zero, new StringBuilder("Open"), new StringBuilder("train_dialog.exe"), new StringBuilder(""), new StringBuilder(trainDialogFolderPath), 1);
             AutoItX.WinActivate("deeplearning_train");
             AutoItX.WinSetState("deeplearning_train", "", AutoItX.SW_HIDE);
-
         }
 
         private void loadModules()
@@ -117,7 +115,6 @@ namespace CloudManage
             this.navigationPage_deviceManagement.Controls.Add(this.deviceManagement1);
             this.navigationPage_systemConfig.Controls.Add(this.systemConfig1);
         }
-
 
         private void timer_datetime_Tick(object sender, EventArgs e)
         {
@@ -182,7 +179,7 @@ namespace CloudManage
 
         private void confirmationBox_applicationRestart_closeCancel(object sender, EventArgs e)
         {
-            confirmationBox_applicationRestartOrClose.Dispose();
+            //confirmationBox_applicationRestartOrClose.Dispose();
         }
 
         private void confirmationBox_applicationRestartOrClose_restartOK(object sender, EventArgs e)
@@ -198,7 +195,6 @@ namespace CloudManage
         /**
         **********************************************点击磁贴，显示二级子菜单按钮***********************************************************
         */
-
         private void tileBarItem_statusMonitoring_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.ShowDropDown(this.tileBarItem_statusMonitor);
@@ -252,7 +248,6 @@ namespace CloudManage
         private void tileBar_deepLearning_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-
         }
 
         private void tileBar_deviceManagement_ItemClick(object sender, TileItemEventArgs e)

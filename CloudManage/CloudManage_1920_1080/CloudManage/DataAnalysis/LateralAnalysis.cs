@@ -21,7 +21,7 @@ namespace CloudManage.DataAnalysis
         public LateralAnalysis()
         {
             InitializeComponent();
-            //initLateralAnalysis();
+            initLateralAnalysis();
             MainForm.deviceOrLineAdditionDeletionReinitLateralAnalysis += reInitLateralAnalysis;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
@@ -50,7 +50,18 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
             this.sideTileBarControl_lateralAnalysis.colNumDT = null;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
+
+            _initTimeEditStartAndEnd();
         }
+
+        void _initTimeEditStartAndEnd()
+        {
+            DateTime nowdt = DateTime.Now;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
+            this.timeEdit_startTime.Time = oneMonthAgo;
+            this.timeEdit_endTime.Time = nowdt;
+        }
+
 
         private void sideTileBarControl_lateralAnalysis_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {

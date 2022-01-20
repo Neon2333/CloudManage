@@ -18,6 +18,7 @@ namespace CloudManage.DataAnalysis
     {
         private LateralAnalysis lateralAnalysis1;
         private VerticalAnalysis verticalAnalysis1;
+        private ParameterOptimization parameterOptimization1;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_LateralAnalysis;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_VerticalAnalysis;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_paraOptimization;
@@ -47,6 +48,13 @@ namespace CloudManage.DataAnalysis
             this.verticalAnalysis1.Name = "verticalAnalysis1";
             this.verticalAnalysis1.Size = new System.Drawing.Size(1920, 880);
             this.verticalAnalysis1.TabIndex = 0;
+
+            this.parameterOptimization1 = new CloudManage.DataAnalysis.ParameterOptimization();
+            this.navigationPage_paraOptimization.Controls.Add(this.parameterOptimization1);
+            this.parameterOptimization1.Location = new System.Drawing.Point(0, 0);
+            this.parameterOptimization1.Name = "verticalAnalysis1";
+            this.parameterOptimization1.Size = new System.Drawing.Size(1920, 880);
+            this.parameterOptimization1.TabIndex = 0;
         }
 
         public Boolean frameVisible

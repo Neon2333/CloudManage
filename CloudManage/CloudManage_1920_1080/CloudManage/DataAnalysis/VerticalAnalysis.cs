@@ -20,7 +20,7 @@ namespace CloudManage.DataAnalysis
         public VerticalAnalysis()
         {
             InitializeComponent();
-            //initVerticalAnalysis();
+            initVerticalAnalysis();
             MainForm.deviceOrLineAdditionDeletionReinitVerticalAnalysis += reInitVerticalAnalysis;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
@@ -49,6 +49,16 @@ namespace CloudManage.DataAnalysis
             this.sideTileBarControlWithSub_verticalAnalysis.colTagDTSUB = "DeviceNO";
             this.sideTileBarControlWithSub_verticalAnalysis.colTextDTSUB = "DeviceName";
             this.sideTileBarControlWithSub_verticalAnalysis._initSideTileBarWithSub();
+
+            _initTimeEditStartAndEnd();
+        }
+
+        void _initTimeEditStartAndEnd()
+        {
+            DateTime nowdt = DateTime.Now;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
+            this.timeEdit_startTime.Time = oneMonthAgo;
+            this.timeEdit_endTime.Time = nowdt;
         }
 
         private void simpleButton_query_Click(object sender, EventArgs e)
