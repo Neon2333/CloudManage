@@ -90,7 +90,7 @@ namespace CheckWeighterDataAnalysis
             // pictureEdit_CETC
             // 
             this.pictureEdit_CETC.EditValue = ((object)(resources.GetObject("pictureEdit_CETC.EditValue")));
-            this.pictureEdit_CETC.Location = new System.Drawing.Point(20, 10);
+            this.pictureEdit_CETC.Location = new System.Drawing.Point(12, 0);
             this.pictureEdit_CETC.Name = "pictureEdit_CETC";
             this.pictureEdit_CETC.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit_CETC.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
@@ -98,7 +98,7 @@ namespace CheckWeighterDataAnalysis
             this.pictureEdit_CETC.Properties.Appearance.Options.UseForeColor = true;
             this.pictureEdit_CETC.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit_CETC.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEdit_CETC.Size = new System.Drawing.Size(128, 40);
+            this.pictureEdit_CETC.Size = new System.Drawing.Size(153, 60);
             this.pictureEdit_CETC.TabIndex = 23;
             this.pictureEdit_CETC.DoubleClick += new System.EventHandler(this.pictureEdit_CETC_DoubleClick);
             // 

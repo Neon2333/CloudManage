@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraCharts;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +32,74 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         public StatusMonitor()
         {
             InitializeComponent();
+            bindData();
         }
 
-      
+
+        private void bindData()
+        {
+            // Create a line series, bind it to data and add to the chart.
+            Series series = new Series("", ViewType.Spline);
+            series.DataSource = CreateChartData(100);
+            this.chartControl_line.Series.Add(series);
+
+            series.ArgumentScaleType = ScaleType.Numerical;
+            series.ArgumentDataMember = "Argument";
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { "Value" });
+            
+            // 显示小圆点
+            LineSeriesView view = (LineSeriesView)series.View;
+            //view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+
+            //显示每个小圆点的数值
+            series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAllAroundPoint;
+            series.Label.TextPattern = "{V:#.00}";
+
+            // Create a chart title.
+            ChartTitle chartTitle = new ChartTitle();
+            chartTitle.Text = "当前重量变化曲线";
+            chartControl_line.Titles.Add(chartTitle);
+
+            // Customize axes.
+            XYDiagram diagram = chartControl_line.Diagram as XYDiagram;
+            diagram.AxisX.WholeRange.SetMinMaxValues(0, 100);
+            diagram.AxisX.WholeRange.SideMarginsValue = 1;          //X轴的原点从-1处开始
+            diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
+            diagram.AxisY.WholeRange.SetMinMaxValues(0, 20);
+
+            //X轴为时间的设置
+            //diagram.AxisX.Label.TextPattern = "{A:MMM, d (HH:mm)}";
+            //diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Hour;
+            //diagram.AxisX.DateTimeScaleOptions.GridSpacing = 1;
+
+            //((XYDiagram)chartControl_line.Diagram).AxisY.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            //chartControl_line.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+        }
+
+        private DataTable CreateChartData(int rowCount)
+        {
+            // Create an empty table.
+            DataTable table = new DataTable("Table1");
+
+            // Add two columns to the table.
+            table.Columns.Add("Argument", typeof(Int32));
+            table.Columns.Add("Value", typeof(Int32));
+
+            // Add data rows to the table.
+            Random rnd = new Random();
+            DataRow row = null;
+            for (int i = 0; i < rowCount; i++)
+            {
+                row = table.NewRow();
+                row["Argument"] = i;
+                row["Value"] = rnd.Next(15);
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+
     }
 }
