@@ -73,7 +73,7 @@ namespace CheckWeighterDataAnalysis
             // 
             // labelControl_datetime
             // 
-            this.labelControl_datetime.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl_datetime.Appearance.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl_datetime.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl_datetime.Appearance.Options.UseFont = true;
             this.labelControl_datetime.Appearance.Options.UseForeColor = true;
@@ -81,9 +81,9 @@ namespace CheckWeighterDataAnalysis
             this.labelControl_datetime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl_datetime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControl_datetime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_datetime.Location = new System.Drawing.Point(818, 0);
+            this.labelControl_datetime.Location = new System.Drawing.Point(760, 0);
             this.labelControl_datetime.Name = "labelControl_datetime";
-            this.labelControl_datetime.Size = new System.Drawing.Size(192, 60);
+            this.labelControl_datetime.Size = new System.Drawing.Size(250, 60);
             this.labelControl_datetime.TabIndex = 25;
             this.labelControl_datetime.Text = "yyyy-MM-dd  HH:mm:ss";
             // 

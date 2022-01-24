@@ -185,5 +185,11 @@ namespace DevExpressDemo1
             DataAndAnalytics_gridControl gridContorl1 = new DataAndAnalytics_gridControl();
             gridContorl1.Show();
         }
+
+        private void chartControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataAndAnalytics_ChartContrl chartContrl1 = new DataAndAnalytics_ChartContrl();
+            chartContrl1.Show();
+        }
     }
 }

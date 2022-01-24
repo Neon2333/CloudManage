@@ -33,6 +33,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             InitializeComponent();
             bindData();
+            labelControl1.Parent = this.chartControl_line;
         }
 
 
@@ -40,7 +41,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             // Create a line series, bind it to data and add to the chart.
             Series series = new Series("", ViewType.Spline);
-            series.DataSource = CreateChartData(100);
+            series.DataSource = CreateChartData(500);
             this.chartControl_line.Series.Add(series);
 
             series.ArgumentScaleType = ScaleType.Numerical;
@@ -50,11 +51,11 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             
             // 显示小圆点
             LineSeriesView view = (LineSeriesView)series.View;
-            //view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
 
             //显示每个小圆点的数值
-            series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series.Label.ResolveOverlappingMode = ResolveOverlappingMode.JustifyAllAroundPoint;
+            //series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series.Label.ResolveOverlappingMode = ResolveOverlappingMode.HideOverlapped;
             series.Label.TextPattern = "{V:#.00}";
 
             // Create a chart title.
@@ -69,6 +70,9 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
             diagram.AxisY.WholeRange.SetMinMaxValues(0, 20);
 
+            diagram.EnableAxisXScrolling = true;
+            diagram.EnableAxisYScrolling = true;
+            diagram.EnableAxisXZooming = true;
             //X轴为时间的设置
             //diagram.AxisX.Label.TextPattern = "{A:MMM, d (HH:mm)}";
             //diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Hour;

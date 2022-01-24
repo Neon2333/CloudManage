@@ -97,6 +97,7 @@ namespace DevExpressDemo1
             this.navPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls = new System.Windows.Forms.MenuStrip();
             this.pageNavigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chartControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -539,7 +540,8 @@ namespace DevExpressDemo1
             // dateAnalysisToolStripMenuItem
             // 
             this.dateAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gridControlToolStripMenuItem});
+            this.gridControlToolStripMenuItem,
+            this.chartControlToolStripMenuItem});
             this.dateAnalysisToolStripMenuItem.Name = "dateAnalysisToolStripMenuItem";
             this.dateAnalysisToolStripMenuItem.Size = new System.Drawing.Size(105, 21);
             this.dateAnalysisToolStripMenuItem.Text = "Date & Analytics";
@@ -547,7 +549,7 @@ namespace DevExpressDemo1
             // gridControlToolStripMenuItem
             // 
             this.gridControlToolStripMenuItem.Name = "gridControlToolStripMenuItem";
-            this.gridControlToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gridControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridControlToolStripMenuItem.Text = "GridControl";
             this.gridControlToolStripMenuItem.Click += new System.EventHandler(this.gridControlToolStripMenuItem_Click);
             // 
@@ -615,13 +617,20 @@ namespace DevExpressDemo1
             this.pageNavigationToolStripMenuItem.Text = "PageNavigation";
             this.pageNavigationToolStripMenuItem.Click += new System.EventHandler(this.pageNavigationToolStripMenuItem_Click);
             // 
-            // Form_Main
+            // chartControlToolStripMenuItem
+            // 
+            this.chartControlToolStripMenuItem.Name = "chartControlToolStripMenuItem";
+            this.chartControlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chartControlToolStripMenuItem.Text = "ChartControl";
+            this.chartControlToolStripMenuItem.Click += new System.EventHandler(this.chartControlToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 744);
             this.Controls.Add(this.menuControls);
-            this.Name = "Form_Main";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.menuControls.ResumeLayout(false);
@@ -701,5 +710,6 @@ namespace DevExpressDemo1
         private System.Windows.Forms.ToolStripMenuItem tileBarGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pageNavigationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem navPaneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chartControlToolStripMenuItem;
     }
 }
