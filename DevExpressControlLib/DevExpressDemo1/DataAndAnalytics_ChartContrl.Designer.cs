@@ -78,10 +78,13 @@
             xyDiagram2.RuntimePaneResize = true;
             this.chartControl2.Diagram = xyDiagram2;
             this.chartControl2.Legend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.chartControl2.Legend.Border.Color = System.Drawing.Color.Black;
+            this.chartControl2.Legend.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(129)))), ((int)(((byte)(189)))));
             this.chartControl2.Legend.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartControl2.Legend.Name = "Default Legend";
             this.chartControl2.Legend.TextColor = System.Drawing.Color.Black;
+            this.chartControl2.Legend.Title.Text = "这是Legend";
+            this.chartControl2.Legend.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(100)))), ((int)(((byte)(162)))));
+            this.chartControl2.Legend.Title.Visible = true;
             this.chartControl2.Location = new System.Drawing.Point(529, 12);
             this.chartControl2.Name = "chartControl2";
             pointSeriesLabel1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(150)))), ((int)(((byte)(70)))));

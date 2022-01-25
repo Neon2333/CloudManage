@@ -19,6 +19,7 @@ using System.Collections;
 using DevExpress.XtraEditors.Popup;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.XtraSplashScreen;
+using Microsoft.Win32;
 
 namespace CloudManage.StatusMonitor
 {
@@ -105,15 +106,57 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        private string defaultFolder = String.Empty;
         private void exportExcelDtHistoryQueryGridShow()
         {
             DataTable dtGrid = (DataTable)this.gridControl_faultHistory.DataSource;
             string path = String.Empty;
+
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            if (folderDlg.ShowDialog() == DialogResult.OK)
+            //注册表法记录上次打开路径（软件重开后仍然有效）
+            try
             {
-                path = folderDlg.SelectedPath;
-                path += "\\faultsHistory";
+
+                RegistryKey testKey = Registry.CurrentUser.OpenSubKey("TestKey");
+                if (testKey == null)
+                {
+                    testKey = Registry.CurrentUser.CreateSubKey("TestKey");
+                    testKey.SetValue("OpenFolderDir", "");
+                    testKey.Close();
+                    Registry.CurrentUser.Close();
+                }
+                else
+                {
+                    defaultFolder = testKey.GetValue("OpenFolderDir").ToString();
+                    testKey.Close();
+                    Registry.CurrentUser.Close();
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            //folderDlg.SelectedPath = defaultFolder;     //由上次打开的路径处打开
+            if (defaultFolder != "")
+            {
+                //设置此次默认目录为上一次选中目录                  
+                folderDlg.SelectedPath = defaultFolder;
+            }
+
+            DialogResult drs = folderDlg.ShowDialog();
+            if (drs == DialogResult.OK)
+            {
+                if (defaultFolder != folderDlg.SelectedPath)
+                {
+                    defaultFolder = folderDlg.SelectedPath;
+                    RegistryKey testKey = Registry.CurrentUser.OpenSubKey("TestKey", true);  //true表示可写，false表示只读
+                    testKey.SetValue("OpenFolderDir", defaultFolder);
+                    testKey.Close();
+                    Registry.CurrentUser.Close();
+                }
+
+                //defaultFolder = folderDlg.SelectedPath;      //更新默认路径为上次打开的路径
+                path = defaultFolder + "\\faultsHistory";
 
                 if (!Directory.Exists(path))
                 {
@@ -157,7 +200,7 @@ namespace CloudManage.StatusMonitor
                 wk.Close(); //关闭Excel表对象wk
                 MessageBox.Show("Excel导出");
             }
-            else if(folderDlg.ShowDialog() == DialogResult.Cancel)
+            else if(drs == DialogResult.Cancel)
             {
                 folderDlg.Dispose();
             }
@@ -359,7 +402,7 @@ namespace CloudManage.StatusMonitor
             switch (tag)
             {
                 case "exportXLSX":
-                    exportExcelDtHistoryQueryGridShow();
+                    //exportExcelDtHistoryQueryGridShow();
                     break;
 
             }
