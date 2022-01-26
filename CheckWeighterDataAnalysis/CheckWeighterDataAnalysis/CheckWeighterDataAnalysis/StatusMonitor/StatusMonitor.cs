@@ -33,53 +33,54 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             InitializeComponent();
             bindData();
-            labelControl1.Parent = this.chartControl_line;
+            labelControl_OK.Parent = this.chartControl_line;
+            labelControl_curWeightVal.Parent = this.chartControl_line;
         }
 
 
         private void bindData()
         {
-            // Create a line series, bind it to data and add to the chart.
-            Series series = new Series("", ViewType.Spline);
-            series.DataSource = CreateChartData(500);
-            this.chartControl_line.Series.Add(series);
+            //// Create a line series, bind it to data and add to the chart.
+            //Series series = new Series("", ViewType.Line);
+            //series.DataSource = CreateChartData(500);
+            //this.chartControl_line.Series.Add(series);
 
-            series.ArgumentScaleType = ScaleType.Numerical;
-            series.ArgumentDataMember = "Argument";
-            series.ValueScaleType = ScaleType.Numerical;
-            series.ValueDataMembers.AddRange(new string[] { "Value" });
+            //series.ArgumentScaleType = ScaleType.Numerical;
+            //series.ArgumentDataMember = "Argument";
+            //series.ValueScaleType = ScaleType.Numerical;
+            //series.ValueDataMembers.AddRange(new string[] { "Value" });
             
-            // 显示小圆点
-            LineSeriesView view = (LineSeriesView)series.View;
-            view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            //// 显示小圆点
+            //LineSeriesView view = (LineSeriesView)series.View;
+            ////view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
 
-            //显示每个小圆点的数值
-            //series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series.Label.ResolveOverlappingMode = ResolveOverlappingMode.HideOverlapped;
-            series.Label.TextPattern = "{V:#.00}";
+            ////显示每个小圆点的数值
+            ////series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            //series.Label.ResolveOverlappingMode = ResolveOverlappingMode.HideOverlapped;
+            //series.Label.TextPattern = "{V:#.00}";
 
-            // Create a chart title.
-            ChartTitle chartTitle = new ChartTitle();
-            chartTitle.Text = "当前重量变化曲线";
-            chartControl_line.Titles.Add(chartTitle);
+            //// Create a chart title.
+            //ChartTitle chartTitle = new ChartTitle();
+            //chartTitle.Text = "当前重量变化曲线";
+            //chartControl_line.Titles.Add(chartTitle);
 
-            // Customize axes.
-            XYDiagram diagram = chartControl_line.Diagram as XYDiagram;
-            diagram.AxisX.WholeRange.SetMinMaxValues(0, 100);
-            diagram.AxisX.WholeRange.SideMarginsValue = 1;          //X轴的原点从-1处开始
-            diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
-            diagram.AxisY.WholeRange.SetMinMaxValues(0, 20);
+            //// Customize axes.
+            //XYDiagram diagram = chartControl_line.Diagram as XYDiagram;
+            //diagram.AxisX.WholeRange.SetMinMaxValues(0, 100);
+            //diagram.AxisX.WholeRange.SideMarginsValue = 1;          //X轴的原点从-1处开始
+            //diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
+            //diagram.AxisY.WholeRange.SetMinMaxValues(0, 20);
 
-            diagram.EnableAxisXScrolling = true;
-            diagram.EnableAxisYScrolling = true;
-            diagram.EnableAxisXZooming = true;
-            //X轴为时间的设置
-            //diagram.AxisX.Label.TextPattern = "{A:MMM, d (HH:mm)}";
-            //diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Hour;
-            //diagram.AxisX.DateTimeScaleOptions.GridSpacing = 1;
+            //diagram.EnableAxisXScrolling = true;
+            //diagram.EnableAxisYScrolling = true;
+            //diagram.EnableAxisXZooming = true;
+            ////X轴为时间的设置
+            ////diagram.AxisX.Label.TextPattern = "{A:MMM, d (HH:mm)}";
+            ////diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Hour;
+            ////diagram.AxisX.DateTimeScaleOptions.GridSpacing = 1;
 
-            //((XYDiagram)chartControl_line.Diagram).AxisY.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            //chartControl_line.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            ////((XYDiagram)chartControl_line.Diagram).AxisY.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            ////chartControl_line.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
         }
 
         private DataTable CreateChartData(int rowCount)
