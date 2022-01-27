@@ -14,96 +14,185 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
 {
     public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
     {
-        //状态参数
-        private struct Status
-        {
-            string brand;               //品牌
-            double curWeight;           //当前重量
-            string OK;                  //结果
-            double lastOverWeight;      //上次超重
-            double lastUnderWeight;     //上次欠重
-            double countDetection;      //检测数量
-            double countOverWeight;     //超重数量
-            double countUnderWeight;    //欠重数量
-            double maxWeight;           //最大值
-            double minWeight;           //最小值
-        };
+        private DataTable dtPie = new DataTable("tablePie");    //饼图数据源
+        private DataTable dtLine = new DataTable("tableLine");  //折线图数据源
+        private double lastOverWeght = 0.0D;
+        private double lastUnderWeight = 0.0D;
 
         public StatusMonitor()
         {
             InitializeComponent();
-            bindData();
-            labelControl_OK.Parent = this.chartControl_line;
+            initStatusMonitor();
+        }
+
+        private void initStatusMonitor()
+        {
+            Global.curStatus.brand = "LG";
+            Global.curStatus.countDetection = 0;
+            Global.curStatus.countOverWeight = 0;
+            Global.curStatus.countUnderWeight = 0;
+            Global.curStatus.lastOverWeight = 0.0D;
+            Global.curStatus.lastUnderWeight = 0.0D;
+            Global.curStatus.maxWeightInHistory = 0.0D;
+            Global.curStatus.minWeightInHistory = 20.0D;
+
+            //updateLabels();
+            //updateChartLineData();
+            //updateChartPieData();
+
+            initDataSource();
+            bindLineData();
+            bindPieData();
+            labelControl_status.Parent = this.chartControl_line;
             labelControl_curWeightVal.Parent = this.chartControl_line;
         }
 
-
-        private void bindData()
+        private void initDataSource()
         {
-            //// Create a line series, bind it to data and add to the chart.
-            //Series series = new Series("", ViewType.Line);
-            //series.DataSource = CreateChartData(500);
-            //this.chartControl_line.Series.Add(series);
-
-            //series.ArgumentScaleType = ScaleType.Numerical;
-            //series.ArgumentDataMember = "Argument";
-            //series.ValueScaleType = ScaleType.Numerical;
-            //series.ValueDataMembers.AddRange(new string[] { "Value" });
-            
-            //// 显示小圆点
-            //LineSeriesView view = (LineSeriesView)series.View;
-            ////view.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-
-            ////显示每个小圆点的数值
-            ////series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            //series.Label.ResolveOverlappingMode = ResolveOverlappingMode.HideOverlapped;
-            //series.Label.TextPattern = "{V:#.00}";
-
-            //// Create a chart title.
-            //ChartTitle chartTitle = new ChartTitle();
-            //chartTitle.Text = "当前重量变化曲线";
-            //chartControl_line.Titles.Add(chartTitle);
-
-            //// Customize axes.
-            //XYDiagram diagram = chartControl_line.Diagram as XYDiagram;
-            //diagram.AxisX.WholeRange.SetMinMaxValues(0, 100);
-            //diagram.AxisX.WholeRange.SideMarginsValue = 1;          //X轴的原点从-1处开始
-            //diagram.AxisY.WholeRange.AlwaysShowZeroLevel = false;
-            //diagram.AxisY.WholeRange.SetMinMaxValues(0, 20);
-
-            //diagram.EnableAxisXScrolling = true;
-            //diagram.EnableAxisYScrolling = true;
-            //diagram.EnableAxisXZooming = true;
-            ////X轴为时间的设置
-            ////diagram.AxisX.Label.TextPattern = "{A:MMM, d (HH:mm)}";
-            ////diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Hour;
-            ////diagram.AxisX.DateTimeScaleOptions.GridSpacing = 1;
-
-            ////((XYDiagram)chartControl_line.Diagram).AxisY.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            ////chartControl_line.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-        }
-
-        private DataTable CreateChartData(int rowCount)
-        {
-            // Create an empty table.
-            DataTable table = new DataTable("Table1");
-
-            // Add two columns to the table.
-            table.Columns.Add("Argument", typeof(Int32));
-            table.Columns.Add("Value", typeof(Int32));
-
-            // Add data rows to the table.
-            Random rnd = new Random();
-            DataRow row = null;
-            for (int i = 0; i < rowCount; i++)
+            //添加一次称重数据
+            if (dtLine.Columns.Count == 0)
             {
-                row = table.NewRow();
-                row["Argument"] = i;
-                row["Value"] = rnd.Next(15);
-                table.Rows.Add(row);
+                dtLine.Columns.Add("countDetection", typeof(Int32));
+                dtLine.Columns.Add("currentWeight", typeof(double));
             }
-            return table;
+
+            if (dtPie.Columns.Count == 0)
+            {
+                dtPie.Columns.Add("index", typeof(Int32));
+                dtPie.Columns.Add("countCur", typeof(Int32));
+            }
         }
+
+        private void bindLineData()
+        {
+            this.chartControl_line.Series[0].DataSource = dtLine;      //绑定Datatable
+            this.chartControl_line.Series[0].ArgumentScaleType = ScaleType.Numerical;   //设定Argument的类型
+            this.chartControl_line.Series[0].ArgumentDataMember = "countDetection";       //设定Argument的字段名
+            this.chartControl_line.Series[0].ValueScaleType = ScaleType.Numerical;  //设定Value的类型
+            this.chartControl_line.Series[0].ValueDataMembers.AddRange(new string[] { "currentWeight" });
+        }
+
+        private void bindPieData()
+        {
+            this.chartControl_pie.Series[0].DataSource = dtPie;
+            this.chartControl_pie.Series[0].ArgumentScaleType = ScaleType.Numerical;
+            this.chartControl_pie.Series[0].ArgumentDataMember = "index";
+            this.chartControl_pie.Series[0].ValueScaleType = ScaleType.Numerical;
+            this.chartControl_pie.Series[0].ValueDataMembers.AddRange(new string[] { "countCur" });
+        }
+
+        //刷新左侧标签显示
+        private void updateLabels()
+        {
+            labelControl_brandVal.Text = Global.curStatus.brand;
+            labelControl_curWeightVal.Text = Global.curStatus.curWeight.ToString() + "KG";
+            labelControl_lastOverWeightVal.Text = Global.curStatus.lastOverWeight.ToString() + "KG";
+            labelControl_underWeightVal.Text = Global.curStatus.lastUnderWeight.ToString() + "KG";
+            labelControl_detectionCountVal.Text = Global.curStatus.countDetection.ToString();
+            labelControl_overWeightCountVal.Text = Global.curStatus.countOverWeight.ToString();
+            labelControl_underWeightCountVal.Text = Global.curStatus.countUnderWeight.ToString();
+            labelControl_maxWeightInHistory.Text = Global.curStatus.maxWeightInHistory.ToString() + "KG";
+            labelControl_minWeightInHistory.Text = Global.curStatus.minWeightInHistory.ToString() + "KG";
+        }
+
+        //初始化、刷新折线图数据源
+        private void updateChartLineData()
+        {
+            DataRow drCurWeight = dtLine.NewRow();
+            drCurWeight["countDetection"] = Global.curStatus.countDetection;
+            drCurWeight["currentWeight"] = Global.curStatus.curWeight;
+            dtLine.Rows.Add(drCurWeight);
+
+            //刷新最大值、最小值
+            if (Global.curStatus.curWeight > Global.curStatus.maxWeightInHistory)
+            {
+                Global.curStatus.maxWeightInHistory = Global.curStatus.curWeight;
+            }
+            else if (Global.curStatus.curWeight < Global.curStatus.minWeightInHistory)
+            {
+                Global.curStatus.minWeightInHistory = Global.curStatus.curWeight;
+            }
+
+            //超重、欠重
+            if(Global.curStatus.flagOverWeightOrUnderWeight == "H-")
+            {
+                Global.curStatus.countOverWeight++;
+                labelControl_status.Text = "NG";
+                this.labelControl_status.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+                Global.curStatus.lastOverWeight = lastOverWeght;
+                lastOverWeght = Global.curStatus.curWeight;
+            }
+            else if(Global.curStatus.flagOverWeightOrUnderWeight == "L-")
+            {
+                Global.curStatus.countUnderWeight++;
+                labelControl_status.Text = "NG";
+                this.labelControl_status.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+                Global.curStatus.lastUnderWeight = lastUnderWeight;
+                lastUnderWeight = Global.curStatus.curWeight;
+            }
+            else if(Global.curStatus.flagOverWeightOrUnderWeight == "p-")
+            {
+                labelControl_status.Text = "OK";
+                this.labelControl_status.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(152)))), ((int)(((byte)(83)))));
+            }
+        }
+
+        //Pie图绑定数值，自动显示占比
+        private void updateChartPieData()
+        {
+            if (dtPie.Rows.Count == 0)
+            {
+                DataRow drCountNormal = dtPie.NewRow();
+                drCountNormal["index"] = 0;
+                drCountNormal["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
+                dtPie.Rows.Add(drCountNormal);
+
+                DataRow drCountOverWeight = dtPie.NewRow();
+                drCountOverWeight["index"] = 1;
+                drCountOverWeight["countCur"] = Global.curStatus.countOverWeight;
+                dtPie.Rows.Add(drCountOverWeight);
+
+                DataRow drCountUnderWeight = dtPie.NewRow();
+                drCountUnderWeight["index"] = 2;
+                drCountUnderWeight["countCur"] = Global.curStatus.countUnderWeight;
+                dtPie.Rows.Add(drCountUnderWeight);
+            }
+            else
+            {
+                dtPie.Rows[0]["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
+                dtPie.Rows[1]["countCur"] = Global.curStatus.countOverWeight;
+                dtPie.Rows[2]["countCur"] = Global.curStatus.countUnderWeight;
+            }
+
+        }
+
+        private void labelControl_curWeightVal_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("export excel");
+            this.chartControl_line.ExportToXlsx(@"C:\Users\eivision\Desktop\a.xlsx");
+        }
+
+        //刷新数据源
+        private void timer_detectOnce_Tick(object sender, EventArgs e)
+        {
+            Global.curStatus.countDetection++;
+            Random rnd = new Random();
+            int cw = rnd.Next(5, 20);
+
+            Global.curStatus.curWeight = cw;
+            if (Global.curStatus.curWeight > 18)
+                Global.curStatus.flagOverWeightOrUnderWeight = "H-";
+            else if (Global.curStatus.curWeight < 6)
+                Global.curStatus.flagOverWeightOrUnderWeight = "L-";
+            else
+                Global.curStatus.flagOverWeightOrUnderWeight = "p-";
+            Global.curStatus.brand = "LG";
+
+            updateLabels();
+            updateChartLineData();
+            updateChartPieData();
+        }
+
 
 
     }
