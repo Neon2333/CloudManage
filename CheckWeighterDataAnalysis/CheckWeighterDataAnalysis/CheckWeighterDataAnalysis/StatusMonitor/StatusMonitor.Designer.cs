@@ -43,6 +43,10 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl_KG4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG1 = new DevExpress.XtraEditors.LabelControl();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.labelControl_minWeightInHistory = new DevExpress.XtraEditors.LabelControl();
             this.labelControl_maxWeightInHistory = new DevExpress.XtraEditors.LabelControl();
@@ -70,10 +74,6 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_status = new DevExpress.XtraEditors.LabelControl();
             this.chartControl_line = new DevExpress.XtraCharts.ChartControl();
             this.timer_detectOnce = new System.Windows.Forms.Timer(this.components);
-            this.labelControl_KG1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_KG2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_KG3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl_KG4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -124,6 +124,46 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(266, 604);
             this.panelControl4.TabIndex = 0;
+            // 
+            // labelControl_KG4
+            // 
+            this.labelControl_KG4.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG4.Appearance.Options.UseFont = true;
+            this.labelControl_KG4.Location = new System.Drawing.Point(231, 337);
+            this.labelControl_KG4.Name = "labelControl_KG4";
+            this.labelControl_KG4.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG4.TabIndex = 24;
+            this.labelControl_KG4.Text = "KG";
+            // 
+            // labelControl_KG3
+            // 
+            this.labelControl_KG3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG3.Appearance.Options.UseFont = true;
+            this.labelControl_KG3.Location = new System.Drawing.Point(231, 294);
+            this.labelControl_KG3.Name = "labelControl_KG3";
+            this.labelControl_KG3.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG3.TabIndex = 23;
+            this.labelControl_KG3.Text = "KG";
+            // 
+            // labelControl_KG2
+            // 
+            this.labelControl_KG2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG2.Appearance.Options.UseFont = true;
+            this.labelControl_KG2.Location = new System.Drawing.Point(231, 101);
+            this.labelControl_KG2.Name = "labelControl_KG2";
+            this.labelControl_KG2.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG2.TabIndex = 22;
+            this.labelControl_KG2.Text = "KG";
+            // 
+            // labelControl_KG1
+            // 
+            this.labelControl_KG1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG1.Appearance.Options.UseFont = true;
+            this.labelControl_KG1.Location = new System.Drawing.Point(231, 58);
+            this.labelControl_KG1.Name = "labelControl_KG1";
+            this.labelControl_KG1.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG1.TabIndex = 21;
+            this.labelControl_KG1.Text = "KG";
             // 
             // separatorControl1
             // 
@@ -378,7 +418,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             xyDiagram1.AxisX.WholeRange.Auto = false;
             xyDiagram1.AxisX.WholeRange.AutoSideMargins = false;
             xyDiagram1.AxisX.WholeRange.EndSideMargin = 1D;
-            xyDiagram1.AxisX.WholeRange.MaxValueSerializable = "20";
+            xyDiagram1.AxisX.WholeRange.MaxValueSerializable = "20000";
             xyDiagram1.AxisX.WholeRange.MinValueSerializable = "0";
             xyDiagram1.AxisX.WholeRange.StartSideMargin = 1D;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
@@ -388,14 +428,14 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.chartControl_point.Location = new System.Drawing.Point(4, 6);
             this.chartControl_point.Name = "chartControl_point";
             series1.Name = "重量分布";
-            pointSeriesView1.PointMarkerOptions.Size = 3;
+            pointSeriesView1.PointMarkerOptions.Size = 2;
             series1.View = pointSeriesView1;
             this.chartControl_point.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
             this.chartControl_point.Size = new System.Drawing.Size(385, 289);
             this.chartControl_point.TabIndex = 0;
             chartTitle1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle1.Text = "重量分布散点图";
+            chartTitle1.Text = "重量区间分布图";
             this.chartControl_point.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
             // 
@@ -511,7 +551,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.chartControl_line.Size = new System.Drawing.Size(730, 289);
             this.chartControl_line.TabIndex = 2;
             chartTitle3.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle3.Text = "当前重量变化曲线";
+            chartTitle3.Text = "重量变化曲线图";
             this.chartControl_line.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle3});
             // 
@@ -519,46 +559,6 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             // 
             this.timer_detectOnce.Enabled = true;
             this.timer_detectOnce.Tick += new System.EventHandler(this.timer_detectOnce_Tick);
-            // 
-            // labelControl_KG1
-            // 
-            this.labelControl_KG1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl_KG1.Appearance.Options.UseFont = true;
-            this.labelControl_KG1.Location = new System.Drawing.Point(231, 58);
-            this.labelControl_KG1.Name = "labelControl_KG1";
-            this.labelControl_KG1.Size = new System.Drawing.Size(29, 28);
-            this.labelControl_KG1.TabIndex = 21;
-            this.labelControl_KG1.Text = "KG";
-            // 
-            // labelControl_KG2
-            // 
-            this.labelControl_KG2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl_KG2.Appearance.Options.UseFont = true;
-            this.labelControl_KG2.Location = new System.Drawing.Point(231, 101);
-            this.labelControl_KG2.Name = "labelControl_KG2";
-            this.labelControl_KG2.Size = new System.Drawing.Size(29, 28);
-            this.labelControl_KG2.TabIndex = 22;
-            this.labelControl_KG2.Text = "KG";
-            // 
-            // labelControl_KG3
-            // 
-            this.labelControl_KG3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl_KG3.Appearance.Options.UseFont = true;
-            this.labelControl_KG3.Location = new System.Drawing.Point(231, 294);
-            this.labelControl_KG3.Name = "labelControl_KG3";
-            this.labelControl_KG3.Size = new System.Drawing.Size(29, 28);
-            this.labelControl_KG3.TabIndex = 23;
-            this.labelControl_KG3.Text = "KG";
-            // 
-            // labelControl_KG4
-            // 
-            this.labelControl_KG4.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl_KG4.Appearance.Options.UseFont = true;
-            this.labelControl_KG4.Location = new System.Drawing.Point(231, 337);
-            this.labelControl_KG4.Name = "labelControl_KG4";
-            this.labelControl_KG4.Size = new System.Drawing.Size(29, 28);
-            this.labelControl_KG4.TabIndex = 24;
-            this.labelControl_KG4.Text = "KG";
             // 
             // StatusMonitor
             // 

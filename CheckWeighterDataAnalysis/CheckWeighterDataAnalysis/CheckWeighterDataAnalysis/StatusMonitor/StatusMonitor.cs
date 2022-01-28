@@ -16,11 +16,22 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
     {
         private DataTable dtPie = new DataTable("tablePie");    //饼图数据源
         private DataTable dtLine = new DataTable("tableLine");  //折线图数据源
-        private DataTable dtPoint = new DataTable("tablePoint");    //聚类图数据源
+        private DataTable dtPoint = new DataTable("tablePoint");//散点图数据源
         private double lastOverWeght = 0.0D;
         private double lastUnderWeight = 0.0D;
+
         Dictionary<int, int> weightAndIndexGramDtPoint = new Dictionary<int, int>();
         private int indexDtPoint = 0;
+        //散点图横轴坐标边缘
+        private Int32[] minXRangePoint = { 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000 };
+        private Int32[] maxXRangePoint = { 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000 };
+        private Int32 minXPoint = 0;    //横轴范围左侧
+        private Int32 maxXPoint = 0;   //横轴范围右侧
+
+        //散点图横轴分辨率档位
+        private Int32[] intervalAxisXPoint = { 10, 20, 50, 100};     //散点图横轴分辨率
+        private Int32 gearIntervalAxisXPoint = 0;                    //散点图横轴档位
+
 
         public StatusMonitor()
         {
@@ -38,6 +49,9 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             Global.curStatus.lastUnderWeight = 0.0D;
             Global.curStatus.maxWeightInHistory = 0.0D;
             Global.curStatus.minWeightInHistory = 20.0D;
+
+            setAxisXMinMaxPoint(8, 12);  //设定散点图横轴区间范围
+            setGearIntervalAxisXPoint(0);   //设定散点图横轴分辨率
 
             initDatatable();
             bindLineData();
@@ -193,10 +207,9 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         //刷新Point图数据源
         private void updateChartPointData()
         {
-            //方案一：重复的重量
             int indexDtPointTemp = 0;
-            //int weightGram = Convert.ToInt32(Global.curStatus.curWeight * 1000);
-            int weightGram = Convert.ToInt32(Global.curStatus.curWeight);
+            int weightGram = weightIntervalProcess(Global.curStatus.curWeight, 4, 8);
+            //int weightGram = Convert.ToInt32(Global.curStatus.curWeight);
             if (weightAndIndexGramDtPoint.ContainsKey(weightGram) == false)
             {
                 DataRow dr = dtPoint.NewRow();
@@ -211,6 +224,57 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
                 indexDtPointTemp = weightAndIndexGramDtPoint[weightGram];
                 dtPoint.Rows[indexDtPointTemp]["countInSection"] = Convert.ToInt32(dtPoint.Rows[indexDtPointTemp]["countInSection"]) + 1;
             }
+        }
+
+        //设置散点图横轴坐标范围
+        private void setAxisXMinMaxPoint(int minKilogram, int maxKilogram)
+        {
+            if (minKilogram < maxKilogram)
+            {
+                minXPoint = minKilogram;
+                maxXPoint = maxKilogram;
+                XYDiagram diagram = (XYDiagram)this.chartControl_point.Diagram;
+                diagram.AxisX.WholeRange.SetMinMaxValues(minXRangePoint[minXPoint], maxXRangePoint[maxXPoint]);
+            }
+            else
+            {
+                MessageBox.Show("请输入合适的重量显示范围");
+            }
+
+        }
+
+        //设置散点图横轴分辨率档位
+        private void setGearIntervalAxisXPoint(int gear)
+        {
+            if (gear <= 3 && gear >= 0)
+            {
+                gearIntervalAxisXPoint = gear;
+            }
+            else
+            {
+                MessageBox.Show("请输入正确的档位");
+                throw new Exception();
+            }
+        }
+
+        //将重量（KG)按照区间划归
+        private int weightIntervalProcess(double weightKilogram, int minKilogram, int maxKilogram)
+        {
+            //小于minXPoint的设为minXPoint，大于maxXPoint的设为maxXPoint
+            int weight = 0;
+            int countInterval = Convert.ToInt32((weightKilogram * 1000 - minXPoint)) % intervalAxisXPoint[gearIntervalAxisXPoint];
+            int remainder = Convert.ToInt32((weightKilogram * 1000 - minXPoint)) - countInterval * intervalAxisXPoint[gearIntervalAxisXPoint];
+            int intervalDeviceTwo = intervalAxisXPoint[gearIntervalAxisXPoint] / 2;
+            if (remainder < intervalDeviceTwo)
+            {
+                weight = minXPoint + countInterval * intervalAxisXPoint[gearIntervalAxisXPoint] + 0;
+            }
+            else
+            {
+                weight = minXPoint + (1 + countInterval) * intervalAxisXPoint[gearIntervalAxisXPoint];
+            }
+
+            return weight;
         }
 
         private void labelControl_curWeightVal_Click(object sender, EventArgs e)
