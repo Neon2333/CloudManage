@@ -33,14 +33,15 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesView pointSeriesView1 = new DevExpress.XtraCharts.PointSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel1 = new DevExpress.XtraCharts.PieSeriesLabel();
             DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.labelControl_minWeightInHistory = new DevExpress.XtraEditors.LabelControl();
@@ -69,6 +70,10 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_status = new DevExpress.XtraEditors.LabelControl();
             this.chartControl_line = new DevExpress.XtraCharts.ChartControl();
             this.timer_detectOnce = new System.Windows.Forms.Timer(this.components);
+            this.labelControl_KG1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl_KG4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -94,6 +99,10 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.labelControl_KG4);
+            this.panelControl4.Controls.Add(this.labelControl_KG3);
+            this.panelControl4.Controls.Add(this.labelControl_KG2);
+            this.panelControl4.Controls.Add(this.labelControl_KG1);
             this.panelControl4.Controls.Add(this.separatorControl1);
             this.panelControl4.Controls.Add(this.labelControl_minWeightInHistory);
             this.panelControl4.Controls.Add(this.labelControl_maxWeightInHistory);
@@ -130,11 +139,11 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_minWeightInHistory.Appearance.Options.UseTextOptions = true;
             this.labelControl_minWeightInHistory.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl_minWeightInHistory.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_minWeightInHistory.Location = new System.Drawing.Point(124, 337);
+            this.labelControl_minWeightInHistory.Location = new System.Drawing.Point(119, 337);
             this.labelControl_minWeightInHistory.Name = "labelControl_minWeightInHistory";
-            this.labelControl_minWeightInHistory.Size = new System.Drawing.Size(119, 28);
+            this.labelControl_minWeightInHistory.Size = new System.Drawing.Size(99, 28);
             this.labelControl_minWeightInHistory.TabIndex = 19;
-            this.labelControl_minWeightInHistory.Text = "0";
+            this.labelControl_minWeightInHistory.Text = "10.000";
             // 
             // labelControl_maxWeightInHistory
             // 
@@ -143,11 +152,11 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_maxWeightInHistory.Appearance.Options.UseTextOptions = true;
             this.labelControl_maxWeightInHistory.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl_maxWeightInHistory.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_maxWeightInHistory.Location = new System.Drawing.Point(124, 294);
+            this.labelControl_maxWeightInHistory.Location = new System.Drawing.Point(119, 294);
             this.labelControl_maxWeightInHistory.Name = "labelControl_maxWeightInHistory";
-            this.labelControl_maxWeightInHistory.Size = new System.Drawing.Size(119, 28);
+            this.labelControl_maxWeightInHistory.Size = new System.Drawing.Size(99, 28);
             this.labelControl_maxWeightInHistory.TabIndex = 18;
-            this.labelControl_maxWeightInHistory.Text = "0";
+            this.labelControl_maxWeightInHistory.Text = "10.000";
             // 
             // labelControl_underWeightCountVal
             // 
@@ -194,27 +203,27 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             // 
             this.labelControl_underWeightVal.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl_underWeightVal.Appearance.Options.UseFont = true;
-            this.labelControl_underWeightVal.Location = new System.Drawing.Point(178, 101);
+            this.labelControl_underWeightVal.Location = new System.Drawing.Point(153, 101);
             this.labelControl_underWeightVal.Name = "labelControl_underWeightVal";
-            this.labelControl_underWeightVal.Size = new System.Drawing.Size(41, 28);
+            this.labelControl_underWeightVal.Size = new System.Drawing.Size(65, 28);
             this.labelControl_underWeightVal.TabIndex = 14;
-            this.labelControl_underWeightVal.Text = "0KG";
+            this.labelControl_underWeightVal.Text = "10.000";
             // 
             // labelControl_lastOverWeightVal
             // 
             this.labelControl_lastOverWeightVal.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl_lastOverWeightVal.Appearance.Options.UseFont = true;
-            this.labelControl_lastOverWeightVal.Location = new System.Drawing.Point(178, 58);
+            this.labelControl_lastOverWeightVal.Location = new System.Drawing.Point(153, 58);
             this.labelControl_lastOverWeightVal.Name = "labelControl_lastOverWeightVal";
-            this.labelControl_lastOverWeightVal.Size = new System.Drawing.Size(41, 28);
+            this.labelControl_lastOverWeightVal.Size = new System.Drawing.Size(65, 28);
             this.labelControl_lastOverWeightVal.TabIndex = 13;
-            this.labelControl_lastOverWeightVal.Text = "0KG";
+            this.labelControl_lastOverWeightVal.Text = "10.000";
             // 
             // labelControl_brandVal
             // 
             this.labelControl_brandVal.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl_brandVal.Appearance.Options.UseFont = true;
-            this.labelControl_brandVal.Location = new System.Drawing.Point(178, 15);
+            this.labelControl_brandVal.Location = new System.Drawing.Point(185, 15);
             this.labelControl_brandVal.Name = "labelControl_brandVal";
             this.labelControl_brandVal.Size = new System.Drawing.Size(75, 28);
             this.labelControl_brandVal.TabIndex = 10;
@@ -337,11 +346,11 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_curWeightVal.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl_curWeightVal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl_curWeightVal.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl_curWeightVal.Location = new System.Drawing.Point(543, 5);
+            this.labelControl_curWeightVal.Location = new System.Drawing.Point(491, 5);
             this.labelControl_curWeightVal.Name = "labelControl_curWeightVal";
-            this.labelControl_curWeightVal.Size = new System.Drawing.Size(100, 40);
+            this.labelControl_curWeightVal.Size = new System.Drawing.Size(152, 40);
             this.labelControl_curWeightVal.TabIndex = 11;
-            this.labelControl_curWeightVal.Text = "200KG";
+            this.labelControl_curWeightVal.Text = "10.001KG";
             this.labelControl_curWeightVal.Click += new System.EventHandler(this.labelControl_curWeightVal_Click);
             // 
             // labelControl_curWeight
@@ -366,17 +375,29 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             // chartControl_point
             // 
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisX.WholeRange.Auto = false;
+            xyDiagram1.AxisX.WholeRange.AutoSideMargins = false;
+            xyDiagram1.AxisX.WholeRange.EndSideMargin = 1D;
+            xyDiagram1.AxisX.WholeRange.MaxValueSerializable = "20";
+            xyDiagram1.AxisX.WholeRange.MinValueSerializable = "0";
+            xyDiagram1.AxisX.WholeRange.StartSideMargin = 1D;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControl_point.Diagram = xyDiagram1;
+            this.chartControl_point.Legend.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chartControl_point.Legend.Name = "Default Legend";
             this.chartControl_point.Location = new System.Drawing.Point(4, 6);
             this.chartControl_point.Name = "chartControl_point";
-            series1.Name = "Series 1";
+            series1.Name = "重量分布";
+            pointSeriesView1.PointMarkerOptions.Size = 3;
             series1.View = pointSeriesView1;
             this.chartControl_point.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
             this.chartControl_point.Size = new System.Drawing.Size(385, 289);
             this.chartControl_point.TabIndex = 0;
+            chartTitle1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle1.Text = "重量分布散点图";
+            this.chartControl_point.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
             // 
             // panelControl2
             // 
@@ -392,7 +413,8 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.chartControl_pie.Legend.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chartControl_pie.Legend.MarkerSize = new System.Drawing.Size(20, 15);
             this.chartControl_pie.Legend.Name = "Default Legend";
-            this.chartControl_pie.Legend.Title.Text = "正常 超重 欠重 ";
+            this.chartControl_pie.Legend.Title.Text = "";
+            this.chartControl_pie.Legend.Title.TextColor = System.Drawing.Color.Black;
             this.chartControl_pie.Legend.Title.Visible = true;
             this.chartControl_pie.Legend.Title.WordWrap = true;
             this.chartControl_pie.Location = new System.Drawing.Point(5, 6);
@@ -412,10 +434,10 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         series2};
             this.chartControl_pie.Size = new System.Drawing.Size(329, 289);
             this.chartControl_pie.TabIndex = 0;
-            chartTitle1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle1.Text = "检测结果分布图";
+            chartTitle2.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle2.Text = "检测结果分布图";
             this.chartControl_pie.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle2});
             // 
             // panelControl1
             // 
@@ -446,6 +468,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.labelControl_status.Size = new System.Drawing.Size(80, 40);
             this.labelControl_status.TabIndex = 11;
             this.labelControl_status.Text = "OK";
+            this.labelControl_status.Click += new System.EventHandler(this.labelControl_status_Click);
             // 
             // chartControl_line
             // 
@@ -480,23 +503,62 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             series3.Name = "当前重量";
             lineSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             lineSeriesView1.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
-            lineSeriesView1.LineMarkerOptions.Size = 4;
+            lineSeriesView1.LineMarkerOptions.Size = 3;
             lineSeriesView1.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
             series3.View = lineSeriesView1;
             this.chartControl_line.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3};
             this.chartControl_line.Size = new System.Drawing.Size(730, 289);
             this.chartControl_line.TabIndex = 2;
-            chartTitle2.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle2.Text = "当前重量变化曲线";
+            chartTitle3.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle3.Text = "当前重量变化曲线";
             this.chartControl_line.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle3});
             // 
             // timer_detectOnce
             // 
             this.timer_detectOnce.Enabled = true;
-            this.timer_detectOnce.Interval = 1000;
             this.timer_detectOnce.Tick += new System.EventHandler(this.timer_detectOnce_Tick);
+            // 
+            // labelControl_KG1
+            // 
+            this.labelControl_KG1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG1.Appearance.Options.UseFont = true;
+            this.labelControl_KG1.Location = new System.Drawing.Point(231, 58);
+            this.labelControl_KG1.Name = "labelControl_KG1";
+            this.labelControl_KG1.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG1.TabIndex = 21;
+            this.labelControl_KG1.Text = "KG";
+            // 
+            // labelControl_KG2
+            // 
+            this.labelControl_KG2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG2.Appearance.Options.UseFont = true;
+            this.labelControl_KG2.Location = new System.Drawing.Point(231, 101);
+            this.labelControl_KG2.Name = "labelControl_KG2";
+            this.labelControl_KG2.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG2.TabIndex = 22;
+            this.labelControl_KG2.Text = "KG";
+            // 
+            // labelControl_KG3
+            // 
+            this.labelControl_KG3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG3.Appearance.Options.UseFont = true;
+            this.labelControl_KG3.Location = new System.Drawing.Point(231, 294);
+            this.labelControl_KG3.Name = "labelControl_KG3";
+            this.labelControl_KG3.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG3.TabIndex = 23;
+            this.labelControl_KG3.Text = "KG";
+            // 
+            // labelControl_KG4
+            // 
+            this.labelControl_KG4.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl_KG4.Appearance.Options.UseFont = true;
+            this.labelControl_KG4.Location = new System.Drawing.Point(231, 337);
+            this.labelControl_KG4.Name = "labelControl_KG4";
+            this.labelControl_KG4.Size = new System.Drawing.Size(29, 28);
+            this.labelControl_KG4.TabIndex = 24;
+            this.labelControl_KG4.Text = "KG";
             // 
             // StatusMonitor
             // 
@@ -564,5 +626,9 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.LabelControl labelControl_status;
         private System.Windows.Forms.Timer timer_detectOnce;
+        private DevExpress.XtraEditors.LabelControl labelControl_KG2;
+        private DevExpress.XtraEditors.LabelControl labelControl_KG1;
+        private DevExpress.XtraEditors.LabelControl labelControl_KG4;
+        private DevExpress.XtraEditors.LabelControl labelControl_KG3;
     }
 }
