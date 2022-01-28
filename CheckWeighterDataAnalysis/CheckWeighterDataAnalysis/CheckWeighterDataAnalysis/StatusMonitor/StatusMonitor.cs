@@ -21,7 +21,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         private double lastUnderWeight = 0.0D;
 
         Dictionary<int, int> weightAndIndexGramDtPoint = new Dictionary<int, int>();
-        private int indexDtPoint = 0;
+        private int indexDtPoint = 0;   //dtPoint中存的点的个数（行数，重量不同才会增加一行）
         //散点图横轴坐标边缘
         private Int32[] minXRangePoint = { 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000 };
         private Int32[] maxXRangePoint = { 0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000 };
@@ -208,7 +208,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         private void updateChartPointData()
         {
             int indexDtPointTemp = 0;
-            int weightGram = weightIntervalProcess(Global.curStatus.curWeight, 4, 8);
+            int weightGram = weightIntervalProcess(Global.curStatus.curWeight);
             //int weightGram = Convert.ToInt32(Global.curStatus.curWeight);
             if (weightAndIndexGramDtPoint.ContainsKey(weightGram) == false)
             {
@@ -231,10 +231,10 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             if (minKilogram < maxKilogram)
             {
-                minXPoint = minKilogram;
-                maxXPoint = maxKilogram;
+                minXPoint = minXRangePoint[minKilogram];
+                maxXPoint = maxXRangePoint[maxKilogram];
                 XYDiagram diagram = (XYDiagram)this.chartControl_point.Diagram;
-                diagram.AxisX.WholeRange.SetMinMaxValues(minXRangePoint[minXPoint], maxXRangePoint[maxXPoint]);
+                diagram.AxisX.WholeRange.SetMinMaxValues(minXPoint, maxXPoint);
             }
             else
             {
@@ -258,20 +258,33 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         }
 
         //将重量（KG)按照区间划归
-        private int weightIntervalProcess(double weightKilogram, int minKilogram, int maxKilogram)
+        private int weightIntervalProcess(double weightKilogram)
         {
             //小于minXPoint的设为minXPoint，大于maxXPoint的设为maxXPoint
+            int weightgram = Convert.ToInt32(weightKilogram * 1000);
             int weight = 0;
-            int countInterval = Convert.ToInt32((weightKilogram * 1000 - minXPoint)) % intervalAxisXPoint[gearIntervalAxisXPoint];
-            int remainder = Convert.ToInt32((weightKilogram * 1000 - minXPoint)) - countInterval * intervalAxisXPoint[gearIntervalAxisXPoint];
-            int intervalDeviceTwo = intervalAxisXPoint[gearIntervalAxisXPoint] / 2;
-            if (remainder < intervalDeviceTwo)
+            if (weightgram <= minXPoint)
             {
-                weight = minXPoint + countInterval * intervalAxisXPoint[gearIntervalAxisXPoint] + 0;
+                weight = minXPoint;
+            }
+            else if(weightgram >= maxXPoint)
+            {
+                weight = maxXPoint;
             }
             else
             {
-                weight = minXPoint + (1 + countInterval) * intervalAxisXPoint[gearIntervalAxisXPoint];
+                //除法效率低，待优化（左右移）
+                int countInterval = (weightgram - minXPoint) / intervalAxisXPoint[gearIntervalAxisXPoint];
+                 int remainder = (weightgram - minXPoint) - countInterval * intervalAxisXPoint[gearIntervalAxisXPoint];
+                int intervalDeviceTwo = intervalAxisXPoint[gearIntervalAxisXPoint] / 2;
+                if (remainder < intervalDeviceTwo)
+                {
+                    weight = minXPoint + countInterval * intervalAxisXPoint[gearIntervalAxisXPoint];
+                }
+                else
+                {
+                    weight = minXPoint + (1 + countInterval) * intervalAxisXPoint[gearIntervalAxisXPoint];
+                }
             }
 
             return weight;
@@ -283,12 +296,33 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.chartControl_line.ExportToXlsx(@"C:\Users\eivision\Desktop\a.xlsx");
         }
 
+        private int createRandomProbability(int probability, int a, int b, int c)
+        {
+            //以概率probablity生成[a,b]区间数，1-probablity概率生成[b,c]区间数
+            Random myRandom = new Random();
+            int i = myRandom.Next(1, 100);
+            if (i <= probability)
+            {
+                int j = myRandom.Next(a, b);
+                return j;
+            }
+            else
+            {
+                int j = myRandom.Next(b + 1, c);
+                return j;
+            }
+        }
+
         //刷新数据源
         private void timer_detectOnce_Tick(object sender, EventArgs e)
         {
+            //模拟数据生成
             Global.curStatus.countDetection++;
             Random rnd = new Random();
-            double cw = rnd.Next(0, 20) + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
+            //double cw = rnd.Next(8, 12) + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
+            double cw = createRandomProbability(90, 8, 12, 13)  + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
+
+
 
             Global.curStatus.curWeight = cw;
             if (Global.curStatus.curWeight > 19)
