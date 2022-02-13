@@ -18,13 +18,14 @@ namespace CheckWeighterDataAnalysis
         DateTime now = new DateTime();
 
         StatusMonitor.StatusMonitor statusMonitor1;
+        private DataAnalysis.DataAnalysis dataAnalysis1;
 
         private CommonControl.ConfirmationBox confirmationBox_applicationClose;
 
         enum modulePage { statusMonitor = 0, dataAnalysis, exportExcel, sysConfig};
         private NavigationPage[] modulePages = new NavigationPage[4];
 
-
+        enum DataAnalysisPage { timeDomainAnalysis = 0, frequencyDomainAnalysis};
 
         public MainForm()
         {
@@ -54,7 +55,13 @@ namespace CheckWeighterDataAnalysis
             this.statusMonitor1.Size = new System.Drawing.Size(1024, 617);
             this.statusMonitor1.TabIndex = 0;
             this.navigationPage_statusMonitor.Controls.Add(statusMonitor1);
-            //
+            //dataAnalysis
+            dataAnalysis1 = new DataAnalysis.DataAnalysis();
+            this.dataAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.dataAnalysis1.Name = "statusMonitor2";
+            this.dataAnalysis1.Size = new System.Drawing.Size(1024, 617);
+            this.dataAnalysis1.TabIndex = 1;
+            this.navigationPage_dataAnalysis.Controls.Add(dataAnalysis1);
         }
 
         private void _initPages()
@@ -98,10 +105,7 @@ namespace CheckWeighterDataAnalysis
             this.navigationFrame_mainForm.SelectedPage = modulePages[(int)modulePage.statusMonitor];
         }
 
-        private void tileBarItem_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
-        {
-            this.navigationFrame_mainForm.SelectedPage = modulePages[(int)modulePage.dataAnalysis];
-        }
+       
 
         private void tileBarItem_exportExcel_ItemClick(object sender, TileItemEventArgs e)
         {
@@ -118,6 +122,37 @@ namespace CheckWeighterDataAnalysis
             _createConfirmBox("确认关闭软件？", "close");
         }
 
+        /**
+       **********************************************点击磁贴，显示二级子菜单按钮***********************************************************
+       */
+        private void tileBarItem_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.tileBar_mainMenu.ShowDropDown(this.tileBarItem_dataAnalysis);
+        }
+
+        /**
+       **********************************************点击二级子菜单按钮后，子菜单按钮隐藏***********************************************************
+       */
+        private void tileBar_dataAnalysis_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.tileBar_mainMenu.HideDropDownWindow(false);
+        }
+
+        /**
+        *******************************************************二级子菜单显示***************************************************************
+        */
+        private void tileBarItem_dataAnalysis_timeDomainAnalysis_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.navigationFrame_mainForm.SelectedPage = modulePages[(int)modulePage.dataAnalysis];
+            this.dataAnalysis1.selectedFramePage = (int)DataAnalysisPage.timeDomainAnalysis;
+        }
+
+        private void tileBarItem_dataAnalysis_frequencyDomainAnalysis_ItemClick(object sender, TileItemEventArgs e)
+        {
+            this.navigationFrame_mainForm.SelectedPage = modulePages[(int)modulePage.dataAnalysis];
+            this.dataAnalysis1.selectedFramePage = (int)DataAnalysisPage.frequencyDomainAnalysis;
+
+        }
 
 
     }

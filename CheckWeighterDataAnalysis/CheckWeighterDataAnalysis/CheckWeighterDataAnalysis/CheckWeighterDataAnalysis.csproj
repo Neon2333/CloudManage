@@ -66,6 +66,24 @@
     <Compile Include="CommonControl\ConfirmationBox.designer.cs">
       <DependentUpon>ConfirmationBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAnalysis\DataAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\DataAnalysis.Designer.cs">
+      <DependentUpon>DataAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\FrequencyDomainAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\FrequencyDomainAnalysis.Designer.cs">
+      <DependentUpon>FrequencyDomainAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAnalysis\TimeDomainAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAnalysis\TimeDomainAnalysis.Designer.cs">
+      <DependentUpon>TimeDomainAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -89,6 +107,15 @@
     </Compile>
     <EmbeddedResource Include="CommonControl\ConfirmationBox.resx">
       <DependentUpon>ConfirmationBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\DataAnalysis.resx">
+      <DependentUpon>DataAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\FrequencyDomainAnalysis.resx">
+      <DependentUpon>FrequencyDomainAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAnalysis\TimeDomainAnalysis.resx">
+      <DependentUpon>TimeDomainAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -121,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExcelExport\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
