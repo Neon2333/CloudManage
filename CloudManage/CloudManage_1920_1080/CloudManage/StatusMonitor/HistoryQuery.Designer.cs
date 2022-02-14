@@ -130,6 +130,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
             // tileViewColumn_num
             // 
             this.tileViewColumn_num.AppearanceCell.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -180,10 +184,6 @@
             this.tileViewColumn_FTime.Visible = true;
             this.tileViewColumn_FTime.VisibleIndex = 4;
             this.tileViewColumn_FTime.Width = 340;
-            // 
-            // splashScreenManager1
-            // 
-            splashScreenManager1.ClosingDelay = 500;
             // 
             // windowsUIButtonPanel_historyQuery
             // 

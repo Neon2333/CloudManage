@@ -22,7 +22,13 @@ namespace CheckWeighterDataAnalysis
            public double minWeightInHistory;           //最小值
         };
 
-        public static Status curStatus = new Status();
+        public static Status curStatus = new Status();      //当前状态
+
+        //将当前状态写入MySQL
+        public static void insertCurStatusMySQL()
+        {
+
+        }
 
         
 

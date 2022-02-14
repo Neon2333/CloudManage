@@ -17,8 +17,11 @@ namespace CheckWeighterDataAnalysis
     {
         DateTime now = new DateTime();
 
-        StatusMonitor.StatusMonitor statusMonitor1;
+        private StatusMonitor.StatusMonitor statusMonitor1;
         private DataAnalysis.DataAnalysis dataAnalysis1;
+        private ExcelExport.ExcelExport excelExport1;
+        private SystemConfig.SystemConfig systemConfig1;
+
 
         private CommonControl.ConfirmationBox confirmationBox_applicationClose;
 
@@ -62,6 +65,21 @@ namespace CheckWeighterDataAnalysis
             this.dataAnalysis1.Size = new System.Drawing.Size(1024, 617);
             this.dataAnalysis1.TabIndex = 1;
             this.navigationPage_dataAnalysis.Controls.Add(dataAnalysis1);
+            //excelExport
+            excelExport1 = new ExcelExport.ExcelExport();
+            this.excelExport1.Location = new System.Drawing.Point(0, 0);
+            this.excelExport1.Name = "statusMonitor2";
+            this.excelExport1.Size = new System.Drawing.Size(1024, 617);
+            this.excelExport1.TabIndex = 2;
+            this.navigationPage_exportExcel.Controls.Add(excelExport1);
+            //systemConfig
+            systemConfig1 = new SystemConfig.SystemConfig();
+            this.systemConfig1.Location = new System.Drawing.Point(0, 0);
+            this.systemConfig1.Name = "statusMonitor2";
+            this.systemConfig1.Size = new System.Drawing.Size(1024, 617);
+            this.systemConfig1.TabIndex = 3;
+            this.navigationPage_sysConfig.Controls.Add(systemConfig1);
+
         }
 
         private void _initPages()

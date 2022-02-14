@@ -32,12 +32,8 @@ namespace CheckWeighterDataAnalysis.DataAnalysis
             this.navigationFrame_dataAnalysis = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_timeDomainAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_frequencyDomainAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.timeDomainAnalysis1 = new CheckWeighterDataAnalysis.DataAnalysis.TimeDomainAnalysis();
-            this.frequencyDomainAnalysis1 = new CheckWeighterDataAnalysis.DataAnalysis.FrequencyDomainAnalysis();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_dataAnalysis)).BeginInit();
             this.navigationFrame_dataAnalysis.SuspendLayout();
-            this.navigationPage_timeDomainAnalysis.SuspendLayout();
-            this.navigationPage_frequencyDomainAnalysis.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationFrame_dataAnalysis
@@ -49,40 +45,22 @@ namespace CheckWeighterDataAnalysis.DataAnalysis
             this.navigationFrame_dataAnalysis.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage_timeDomainAnalysis,
             this.navigationPage_frequencyDomainAnalysis});
-            this.navigationFrame_dataAnalysis.SelectedPage = this.navigationPage_frequencyDomainAnalysis;
+            this.navigationFrame_dataAnalysis.SelectedPage = this.navigationPage_timeDomainAnalysis;
             this.navigationFrame_dataAnalysis.Size = new System.Drawing.Size(1024, 617);
             this.navigationFrame_dataAnalysis.TabIndex = 0;
             this.navigationFrame_dataAnalysis.Text = "navigationFrame1";
-            this.navigationFrame_dataAnalysis.TransitionAnimationProperties.FrameCount = 3000;
-            this.navigationFrame_dataAnalysis.TransitionAnimationProperties.FrameInterval = 1000;
+            this.navigationFrame_dataAnalysis.TransitionAnimationProperties.FrameInterval = 3000;
             // 
             // navigationPage_timeDomainAnalysis
             // 
-            this.navigationPage_timeDomainAnalysis.Caption = "navigationPage_timeDomainAnalysis";
-            this.navigationPage_timeDomainAnalysis.Controls.Add(this.timeDomainAnalysis1);
             this.navigationPage_timeDomainAnalysis.Name = "navigationPage_timeDomainAnalysis";
             this.navigationPage_timeDomainAnalysis.Size = new System.Drawing.Size(1024, 617);
             // 
             // navigationPage_frequencyDomainAnalysis
             // 
             this.navigationPage_frequencyDomainAnalysis.Caption = "navigationPage_frequencyDomainAnalysis";
-            this.navigationPage_frequencyDomainAnalysis.Controls.Add(this.frequencyDomainAnalysis1);
             this.navigationPage_frequencyDomainAnalysis.Name = "navigationPage_frequencyDomainAnalysis";
             this.navigationPage_frequencyDomainAnalysis.Size = new System.Drawing.Size(1024, 617);
-            // 
-            // timeDomainAnalysis1
-            // 
-            this.timeDomainAnalysis1.Location = new System.Drawing.Point(0, 0);
-            this.timeDomainAnalysis1.Name = "timeDomainAnalysis1";
-            this.timeDomainAnalysis1.Size = new System.Drawing.Size(1024, 617);
-            this.timeDomainAnalysis1.TabIndex = 0;
-            // 
-            // frequencyDomainAnalysis1
-            // 
-            this.frequencyDomainAnalysis1.Location = new System.Drawing.Point(0, 0);
-            this.frequencyDomainAnalysis1.Name = "frequencyDomainAnalysis1";
-            this.frequencyDomainAnalysis1.Size = new System.Drawing.Size(1024, 617);
-            this.frequencyDomainAnalysis1.TabIndex = 0;
             // 
             // DataAnalysis
             // 
@@ -93,18 +71,15 @@ namespace CheckWeighterDataAnalysis.DataAnalysis
             this.Size = new System.Drawing.Size(1024, 617);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_dataAnalysis)).EndInit();
             this.navigationFrame_dataAnalysis.ResumeLayout(false);
-            this.navigationPage_timeDomainAnalysis.ResumeLayout(false);
-            this.navigationPage_frequencyDomainAnalysis.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_dataAnalysis;
         //private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_timeDomainAnalysis;
         //private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_frequencyDomainAnalysis;
-        private TimeDomainAnalysis timeDomainAnalysis1;
-        private FrequencyDomainAnalysis frequencyDomainAnalysis1;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame_dataAnalysis;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_timeDomainAnalysis;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage_frequencyDomainAnalysis;
     }
 }

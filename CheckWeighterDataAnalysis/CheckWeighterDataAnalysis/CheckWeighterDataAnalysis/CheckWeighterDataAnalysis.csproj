@@ -84,6 +84,12 @@
     <Compile Include="DataAnalysis\TimeDomainAnalysis.Designer.cs">
       <DependentUpon>TimeDomainAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExcelExport\ExcelExport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExcelExport\ExcelExport.Designer.cs">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +97,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MySQL\MySQLHelper.cs" />
+    <Compile Include="MySQL\MySqlParameter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusMonitor\StatusMonitor.cs">
@@ -98,6 +106,12 @@
     </Compile>
     <Compile Include="StatusMonitor\StatusMonitor.Designer.cs">
       <DependentUpon>StatusMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfig\SystemConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemConfig\SystemConfig.Designer.cs">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="test\test.cs">
       <SubType>Form</SubType>
@@ -117,6 +131,9 @@
     <EmbeddedResource Include="DataAnalysis\TimeDomainAnalysis.resx">
       <DependentUpon>TimeDomainAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExcelExport\ExcelExport.resx">
+      <DependentUpon>ExcelExport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="StatusMonitor\StatusMonitor.resx">
       <DependentUpon>StatusMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig\SystemConfig.resx">
+      <DependentUpon>SystemConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test\test.resx">
       <DependentUpon>test.cs</DependentUpon>
@@ -149,8 +169,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExcelExport\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

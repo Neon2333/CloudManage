@@ -14,8 +14,8 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
 {
     public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
     {
+        public static DataTable dtLine = new DataTable("tableLine");  //折线图数据源
         private DataTable dtPie = new DataTable("tablePie");    //饼图数据源
-        private DataTable dtLine = new DataTable("tableLine");  //折线图数据源
         private DataTable dtPoint = new DataTable("tablePoint");//散点图数据源
         private double lastOverWeght = 0.0D;
         private double lastUnderWeight = 0.0D;
@@ -36,7 +36,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         public StatusMonitor()
         {
             InitializeComponent();
-            initStatusMonitor();
+            initStatusMonitor();    
         }
 
         private void initStatusMonitor()
@@ -337,6 +337,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             updateChartPieData();
             updateChartPointData();
             updateLabels();
+
         }
 
         private void labelControl_status_Click(object sender, EventArgs e)

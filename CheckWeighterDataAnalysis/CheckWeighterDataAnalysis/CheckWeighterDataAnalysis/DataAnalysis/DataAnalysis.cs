@@ -14,16 +14,39 @@ namespace CheckWeighterDataAnalysis.DataAnalysis
 {
     public partial class DataAnalysis : DevExpress.XtraEditors.XtraUserControl
     {
-        private NavigationPage navigationPage_timeDomainAnalysis;
-        private NavigationPage navigationPage_frequencyDomainAnalysis;
         private NavigationPage[] dataAnalysisPages = new NavigationPage[2];
-
+        private TimeDomainAnalysis timeDomainAnalysis1;
+        private FrequencyDomainAnalysis frequencyDomainAnalysis1;
 
 
         public DataAnalysis()
         {
             InitializeComponent();
+            initDataAnalysis();
+        }
+
+        private void initDataAnalysis()
+        {
+            loadPages();
             initDataAnalysisPages();
+        }
+
+        private void loadPages()
+        {
+            //timeDomainAnalysis
+            this.timeDomainAnalysis1 = new TimeDomainAnalysis();
+            this.navigationPage_timeDomainAnalysis.Controls.Add(this.timeDomainAnalysis1);
+            this.timeDomainAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.timeDomainAnalysis1.Name = "timeDomainAnalysis1";
+            this.timeDomainAnalysis1.Size = new System.Drawing.Size(1024, 617);
+            this.timeDomainAnalysis1.TabIndex = 0;
+            //frequencyDoaminAnalysis
+            this.frequencyDomainAnalysis1 = new FrequencyDomainAnalysis();
+            this.navigationPage_frequencyDomainAnalysis.Controls.Add(this.frequencyDomainAnalysis1);
+            this.frequencyDomainAnalysis1.Location = new System.Drawing.Point(0, 0);
+            this.frequencyDomainAnalysis1.Name = "timeDomainAnalysis1";
+            this.frequencyDomainAnalysis1.Size = new System.Drawing.Size(1024, 617);
+            this.frequencyDomainAnalysis1.TabIndex = 1;
         }
 
         private void initDataAnalysisPages()

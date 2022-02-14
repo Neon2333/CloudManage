@@ -33,10 +33,10 @@ namespace CheckWeighterDataAnalysis
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             this.sidePanel_title = new DevExpress.XtraEditors.SidePanel();
             this.labelControl_datetime = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit_CETC = new DevExpress.XtraEditors.PictureEdit();
@@ -46,6 +46,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarGroup_mainMenu = new DevExpress.XtraBars.Navigation.TileBarGroup();
             this.tileBarItem_statusMonitor = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarDropDownContainer_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
+            this.tileBar_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBar();
+            this.tileBarGroup_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBarGroup();
+            this.tileBarItem_dataAnalysis_timeDomainAnalysis = new DevExpress.XtraBars.Navigation.TileBarItem();
+            this.tileBarItem_dataAnalysis_frequencyDomainAnalysis = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem_exportExcel = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.tileBarItem_sysConfig = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame_mainForm = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -53,17 +58,12 @@ namespace CheckWeighterDataAnalysis
             this.navigationPage_dataAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_exportExcel = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_sysConfig = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.tileBarDropDownContainer_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBarDropDownContainer();
-            this.tileBar_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBar();
-            this.tileBarGroup_dataAnalysis = new DevExpress.XtraBars.Navigation.TileBarGroup();
-            this.tileBarItem_dataAnalysis_timeDomainAnalysis = new DevExpress.XtraBars.Navigation.TileBarItem();
-            this.tileBarItem_dataAnalysis_frequencyDomainAnalysis = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.sidePanel_title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_CETC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainForm)).BeginInit();
-            this.navigationFrame_mainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_dataAnalysis)).BeginInit();
             this.tileBarDropDownContainer_dataAnalysis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainForm)).BeginInit();
+            this.navigationFrame_mainForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel_title
@@ -199,82 +199,6 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_dataAnalysis.Name = "tileBarItem_dataAnalysis";
             this.tileBarItem_dataAnalysis.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_dataAnalysis_ItemClick);
             // 
-            // tileBarItem_exportExcel
-            // 
-            this.tileBarItem_exportExcel.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(112)))), ((int)(((byte)(56)))));
-            this.tileBarItem_exportExcel.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
-            this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem_exportExcel.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            tileItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement5.Text = "报表生成";
-            this.tileBarItem_exportExcel.Elements.Add(tileItemElement5);
-            this.tileBarItem_exportExcel.Id = 2;
-            this.tileBarItem_exportExcel.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem_exportExcel.Name = "tileBarItem_exportExcel";
-            this.tileBarItem_exportExcel.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_exportExcel_ItemClick);
-            // 
-            // tileBarItem_sysConfig
-            // 
-            this.tileBarItem_sysConfig.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(196)))));
-            this.tileBarItem_sysConfig.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
-            this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileBarItem_sysConfig.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement6.Text = "系统设置";
-            this.tileBarItem_sysConfig.Elements.Add(tileItemElement6);
-            this.tileBarItem_sysConfig.Id = 3;
-            this.tileBarItem_sysConfig.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
-            this.tileBarItem_sysConfig.Name = "tileBarItem_sysConfig";
-            this.tileBarItem_sysConfig.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_sysConfig_ItemClick);
-            // 
-            // navigationFrame_mainForm
-            // 
-            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_statusMonitor);
-            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_dataAnalysis);
-            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_exportExcel);
-            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_sysConfig);
-            this.navigationFrame_mainForm.Location = new System.Drawing.Point(59, 295);
-            this.navigationFrame_mainForm.Name = "navigationFrame_mainForm";
-            this.navigationFrame_mainForm.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage_statusMonitor,
-            this.navigationPage_dataAnalysis,
-            this.navigationPage_exportExcel,
-            this.navigationPage_sysConfig});
-            this.navigationFrame_mainForm.SelectedPage = this.navigationPage_statusMonitor;
-            this.navigationFrame_mainForm.Size = new System.Drawing.Size(1024, 617);
-            this.navigationFrame_mainForm.TabIndex = 19;
-            this.navigationFrame_mainForm.Text = "navigationFrame1";
-            this.navigationFrame_mainForm.TransitionAnimationProperties.FrameCount = 3000;
-            this.navigationFrame_mainForm.TransitionAnimationProperties.FrameInterval = 1000;
-            // 
-            // navigationPage_statusMonitor
-            // 
-            this.navigationPage_statusMonitor.Name = "navigationPage_statusMonitor";
-            this.navigationPage_statusMonitor.Size = new System.Drawing.Size(1024, 617);
-            // 
-            // navigationPage_dataAnalysis
-            // 
-            this.navigationPage_dataAnalysis.Name = "navigationPage_dataAnalysis";
-            this.navigationPage_dataAnalysis.Size = new System.Drawing.Size(1024, 617);
-            // 
-            // navigationPage_exportExcel
-            // 
-            this.navigationPage_exportExcel.Caption = "navigationPage_exportExcel";
-            this.navigationPage_exportExcel.Name = "navigationPage_exportExcel";
-            this.navigationPage_exportExcel.Size = new System.Drawing.Size(1024, 617);
-            // 
-            // navigationPage_sysConfig
-            // 
-            this.navigationPage_sysConfig.Caption = "navigationPage_sysConfig";
-            this.navigationPage_sysConfig.Name = "navigationPage_sysConfig";
-            this.navigationPage_sysConfig.Size = new System.Drawing.Size(1024, 617);
-            // 
             // tileBarDropDownContainer_dataAnalysis
             // 
             this.tileBarDropDownContainer_dataAnalysis.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -381,6 +305,82 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.Name = "tileBarItem_dataAnalysis_frequencyDomainAnalysis";
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_dataAnalysis_frequencyDomainAnalysis_ItemClick);
             // 
+            // tileBarItem_exportExcel
+            // 
+            this.tileBarItem_exportExcel.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(112)))), ((int)(((byte)(56)))));
+            this.tileBarItem_exportExcel.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
+            this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_exportExcel.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            tileItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement5.Text = "报表生成";
+            this.tileBarItem_exportExcel.Elements.Add(tileItemElement5);
+            this.tileBarItem_exportExcel.Id = 2;
+            this.tileBarItem_exportExcel.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_exportExcel.Name = "tileBarItem_exportExcel";
+            this.tileBarItem_exportExcel.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_exportExcel_ItemClick);
+            // 
+            // tileBarItem_sysConfig
+            // 
+            this.tileBarItem_sysConfig.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(115)))), ((int)(((byte)(196)))));
+            this.tileBarItem_sysConfig.AppearanceItem.Normal.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
+            this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileBarItem_sysConfig.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement6.Text = "系统设置";
+            this.tileBarItem_sysConfig.Elements.Add(tileItemElement6);
+            this.tileBarItem_sysConfig.Id = 3;
+            this.tileBarItem_sysConfig.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
+            this.tileBarItem_sysConfig.Name = "tileBarItem_sysConfig";
+            this.tileBarItem_sysConfig.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileBarItem_sysConfig_ItemClick);
+            // 
+            // navigationFrame_mainForm
+            // 
+            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_statusMonitor);
+            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_dataAnalysis);
+            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_exportExcel);
+            this.navigationFrame_mainForm.Controls.Add(this.navigationPage_sysConfig);
+            this.navigationFrame_mainForm.Location = new System.Drawing.Point(0, 151);
+            this.navigationFrame_mainForm.Name = "navigationFrame_mainForm";
+            this.navigationFrame_mainForm.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage_statusMonitor,
+            this.navigationPage_dataAnalysis,
+            this.navigationPage_exportExcel,
+            this.navigationPage_sysConfig});
+            this.navigationFrame_mainForm.SelectedPage = this.navigationPage_statusMonitor;
+            this.navigationFrame_mainForm.Size = new System.Drawing.Size(1024, 617);
+            this.navigationFrame_mainForm.TabIndex = 19;
+            this.navigationFrame_mainForm.Text = "navigationFrame1";
+            this.navigationFrame_mainForm.TransitionAnimationProperties.FrameCount = 3000;
+            this.navigationFrame_mainForm.TransitionAnimationProperties.FrameInterval = 1000;
+            // 
+            // navigationPage_statusMonitor
+            // 
+            this.navigationPage_statusMonitor.Name = "navigationPage_statusMonitor";
+            this.navigationPage_statusMonitor.Size = new System.Drawing.Size(1024, 617);
+            // 
+            // navigationPage_dataAnalysis
+            // 
+            this.navigationPage_dataAnalysis.Caption = "navigationPage_dataAnalysis";
+            this.navigationPage_dataAnalysis.Name = "navigationPage_dataAnalysis";
+            this.navigationPage_dataAnalysis.Size = new System.Drawing.Size(1024, 617);
+            // 
+            // navigationPage_exportExcel
+            // 
+            this.navigationPage_exportExcel.Name = "navigationPage_exportExcel";
+            this.navigationPage_exportExcel.Size = new System.Drawing.Size(1024, 617);
+            // 
+            // navigationPage_sysConfig
+            // 
+            this.navigationPage_sysConfig.Caption = "navigationPage_sysConfig";
+            this.navigationPage_sysConfig.Name = "navigationPage_sysConfig";
+            this.navigationPage_sysConfig.Size = new System.Drawing.Size(1024, 617);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -396,10 +396,10 @@ namespace CheckWeighterDataAnalysis
             this.Text = "MainForm";
             this.sidePanel_title.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit_CETC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainForm)).EndInit();
-            this.navigationFrame_mainForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tileBarDropDownContainer_dataAnalysis)).EndInit();
             this.tileBarDropDownContainer_dataAnalysis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainForm)).EndInit();
+            this.navigationFrame_mainForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
