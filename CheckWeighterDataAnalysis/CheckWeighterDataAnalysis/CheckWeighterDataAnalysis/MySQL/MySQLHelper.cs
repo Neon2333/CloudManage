@@ -8,7 +8,7 @@ using DevExpress.XtraSplashScreen;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace CloudManage.MySQL
+namespace CheckWeighterDataAnalysis.MySQL
 {
     class MySQLHelper
     {

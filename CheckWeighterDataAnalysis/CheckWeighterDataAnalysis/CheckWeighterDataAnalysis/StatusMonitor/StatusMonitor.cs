@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -290,6 +291,14 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             return weight;
         }
 
+        private void insertCurStatusIntoMySQL()
+        {
+            Thread threadInsertMySQL = new Thread(new ThreadStart(Global.insertCurStatusMySQL));
+            threadInsertMySQL.IsBackground = true;
+            threadInsertMySQL.Name = "threadInsertMySQL" + Global.curStatus.countDetection.ToString();
+            threadInsertMySQL.Start();
+        }
+
         private void labelControl_curWeightVal_Click(object sender, EventArgs e)
         {
             MessageBox.Show("export excel");
@@ -322,8 +331,6 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             //double cw = rnd.Next(8, 12) + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
             double cw = createRandomProbability(90, 8, 12, 13)  + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
 
-
-
             Global.curStatus.curWeight = cw;
             if (Global.curStatus.curWeight > 19)
                 Global.curStatus.flagOverWeightOrUnderWeight = "H-";
@@ -337,6 +344,8 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             updateChartPieData();
             updateChartPointData();
             updateLabels();
+
+            insertCurStatusIntoMySQL();
 
         }
 

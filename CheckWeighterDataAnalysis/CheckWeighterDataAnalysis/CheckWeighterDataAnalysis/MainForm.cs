@@ -44,8 +44,9 @@ namespace CheckWeighterDataAnalysis
 
         private void _initMainForm()
         {
-            _loadModules();
-            _initPages();
+            Global.initMySQL();
+            _loadModules(); 
+            _initPages();   
 
         }
 
