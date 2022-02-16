@@ -31,12 +31,12 @@ namespace CheckWeighterDataAnalysis
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement17 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement18 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement13 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement19 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement20 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement21 = new DevExpress.XtraEditors.TileItemElement();
             this.sidePanel_title = new DevExpress.XtraEditors.SidePanel();
             this.labelControl_datetime = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit_CETC = new DevExpress.XtraEditors.PictureEdit();
@@ -170,11 +170,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_statusMonitor.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_statusMonitor.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_statusMonitor.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement1.Text = "状态监测";
-            this.tileBarItem_statusMonitor.Elements.Add(tileItemElement1);
+            tileItemElement17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileItemElement17.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement17.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement17.Text = "状态监测";
+            this.tileBarItem_statusMonitor.Elements.Add(tileItemElement17);
             this.tileBarItem_statusMonitor.Id = 0;
             this.tileBarItem_statusMonitor.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_statusMonitor.Name = "tileBarItem_statusMonitor";
@@ -189,11 +189,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_dataAnalysis.DropDownControl = this.tileBarDropDownContainer_dataAnalysis;
             this.tileBarItem_dataAnalysis.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
             this.tileBarItem_dataAnalysis.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement4.Text = "数据分析";
-            this.tileBarItem_dataAnalysis.Elements.Add(tileItemElement4);
+            tileItemElement18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            tileItemElement18.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement18.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement18.Text = "数据分析";
+            this.tileBarItem_dataAnalysis.Elements.Add(tileItemElement18);
             this.tileBarItem_dataAnalysis.Id = 1;
             this.tileBarItem_dataAnalysis.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_dataAnalysis.Name = "tileBarItem_dataAnalysis";
@@ -260,11 +260,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.AppearanceItem.Selected.Options.UseFont = true;
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.AppearanceItem.Selected.Options.UseForeColor = true;
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            tileItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement2.Text = "时域分析";
-            this.tileBarItem_dataAnalysis_timeDomainAnalysis.Elements.Add(tileItemElement2);
+            tileItemElement13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            tileItemElement13.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement13.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement13.Text = "时域分析";
+            this.tileBarItem_dataAnalysis_timeDomainAnalysis.Elements.Add(tileItemElement13);
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.Id = 0;
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_dataAnalysis_timeDomainAnalysis.Name = "tileBarItem_dataAnalysis_timeDomainAnalysis";
@@ -293,13 +293,13 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.AppearanceItem.Selected.Options.UseFont = true;
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.AppearanceItem.Selected.Options.UseForeColor = true;
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            tileItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement3.ImageOptions.ImageToTextIndent = 8;
-            tileItemElement3.Text = "频域分析";
-            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.Elements.Add(tileItemElement3);
+            tileItemElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            tileItemElement19.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement19.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement19.ImageOptions.ImageToTextIndent = 8;
+            tileItemElement19.Text = "频域分析";
+            tileItemElement19.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.Elements.Add(tileItemElement19);
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.Id = 2;
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_dataAnalysis_frequencyDomainAnalysis.Name = "tileBarItem_dataAnalysis_frequencyDomainAnalysis";
@@ -312,11 +312,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_exportExcel.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_exportExcel.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            tileItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement5.Text = "报表生成";
-            this.tileBarItem_exportExcel.Elements.Add(tileItemElement5);
+            tileItemElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            tileItemElement20.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement20.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement20.Text = "报表生成";
+            this.tileBarItem_exportExcel.Elements.Add(tileItemElement20);
             this.tileBarItem_exportExcel.Id = 2;
             this.tileBarItem_exportExcel.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_exportExcel.Name = "tileBarItem_exportExcel";
@@ -329,11 +329,11 @@ namespace CheckWeighterDataAnalysis
             this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_sysConfig.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_sysConfig.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
-            tileItemElement6.Text = "系统设置";
-            this.tileBarItem_sysConfig.Elements.Add(tileItemElement6);
+            tileItemElement21.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            tileItemElement21.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileItemElement21.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
+            tileItemElement21.Text = "系统设置";
+            this.tileBarItem_sysConfig.Elements.Add(tileItemElement21);
             this.tileBarItem_sysConfig.Id = 3;
             this.tileBarItem_sysConfig.ItemSize = DevExpress.XtraBars.Navigation.TileBarItemSize.Wide;
             this.tileBarItem_sysConfig.Name = "tileBarItem_sysConfig";
@@ -372,6 +372,7 @@ namespace CheckWeighterDataAnalysis
             // 
             // navigationPage_exportExcel
             // 
+            this.navigationPage_exportExcel.Caption = "navigationPage_exportExcel";
             this.navigationPage_exportExcel.Name = "navigationPage_exportExcel";
             this.navigationPage_exportExcel.Size = new System.Drawing.Size(1024, 617);
             // 
