@@ -15,9 +15,9 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
 {
     public partial class StatusMonitor : DevExpress.XtraEditors.XtraUserControl
     {
-        public static DataTable dtLine = new DataTable("tableLine");  //折线图数据源
-        private DataTable dtPie = new DataTable("tablePie");    //饼图数据源
-        private DataTable dtPoint = new DataTable("tablePoint");//散点图数据源
+        public static DataTable dtLine = new DataTable("tableLine");  //折线图数据源，只显示200个点
+        private DataTable dtPie = new DataTable("tablePie");    //饼图数据源，只要不更换brand就一直累计
+        private DataTable dtPoint = new DataTable("tablePoint");//散点图数据源，只要不更换brand就一直累计
         private double lastOverWeght = 0.0D;
         private double lastUnderWeight = 0.0D;
 
@@ -73,7 +73,7 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
 
             if (dtPie.Columns.Count == 0)
             {
-                dtPie.Columns.Add("index", typeof(Int32));
+                dtPie.Columns.Add("status", typeof(String));
                 dtPie.Columns.Add("countCur", typeof(Int32));
             }
 
@@ -90,22 +90,23 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             this.chartControl_line.Series[0].ArgumentScaleType = ScaleType.Numerical;   //设定Argument的类型
             this.chartControl_line.Series[0].ArgumentDataMember = "countDetection";       //设定Argument的字段名
             this.chartControl_line.Series[0].ValueScaleType = ScaleType.Numerical;  //设定Value的类型
-            this.chartControl_line.Series[0].ValueDataMembers.AddRange(new string[] { "currentWeight" });
+            this.chartControl_line.Series[0].ValueDataMembers.AddRange(new string[] { "currentWeight" });   
         }
 
         private void bindPieData()
         {
             this.chartControl_pie.Series[0].DataSource = dtPie;
-            this.chartControl_pie.Series[0].ArgumentScaleType = ScaleType.Numerical;
-            this.chartControl_pie.Series[0].ArgumentDataMember = "index";
-            this.chartControl_pie.Series[0].ValueScaleType = ScaleType.Numerical;
+            this.chartControl_pie.Series[0].ArgumentDataMember = "status";
+            this.chartControl_pie.Series[0].ArgumentScaleType = ScaleType.Auto;
             this.chartControl_pie.Series[0].ValueDataMembers.AddRange(new string[] { "countCur" });
+            this.chartControl_pie.Series[0].ValueScaleType = ScaleType.Numerical;
+            this.chartControl_pie.Series[0].LegendTextPattern = "{A}：{VP:p2}";  //图例格式"Argument:Value"。V:n2为Value:numeric小数点后2位，VP:p2为Value:percent小数点后2位
         }
 
         private void bindPointData()
         {
             this.chartControl_point.Series[0].DataSource = dtPoint;
-            this.chartControl_point.Series[0].ArgumentScaleType = ScaleType.Numerical;
+            this.chartControl_point.Series[0].ArgumentScaleType = ScaleType.Auto;
             this.chartControl_point.Series[0].ArgumentDataMember = "weightSection";
             this.chartControl_point.Series[0].ValueScaleType = ScaleType.Numerical;
             this.chartControl_point.Series[0].ValueDataMembers.AddRange(new string[] { "countInSection" });
@@ -116,11 +117,11 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             labelControl_brandVal.Text = Global.curStatus.brand;
             labelControl_curWeightVal.Text = Global.curStatus.curWeight.ToString() + "KG";
-            labelControl_lastOverWeightVal.Text = Global.curStatus.lastOverWeight.ToString();
-            labelControl_underWeightVal.Text = Global.curStatus.lastUnderWeight.ToString();
-            labelControl_detectionCountVal.Text = Global.curStatus.countDetection.ToString();
-            labelControl_overWeightCountVal.Text = Global.curStatus.countOverWeight.ToString();
+            labelControl_lastOverWeightVal.Text = Global.curStatus.lastOverWeight > 0 ? Global.curStatus.lastOverWeight.ToString():"";
+            labelControl_lastUnderWeightVal.Text = Global.curStatus.lastUnderWeight > 0 ? Global.curStatus.lastUnderWeight.ToString():"";
             labelControl_underWeightCountVal.Text = Global.curStatus.countUnderWeight.ToString();
+            labelControl_overWeightCountVal.Text = Global.curStatus.countOverWeight.ToString();
+            labelControl_detectionCountVal.Text = Global.curStatus.countDetection.ToString();
             labelControl_maxWeightInHistory.Text = Global.curStatus.maxWeightInHistory.ToString();
             labelControl_minWeightInHistory.Text = Global.curStatus.minWeightInHistory.ToString();
         }
@@ -128,10 +129,28 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         //刷新折线图数据源
         private void updateChartLineData()
         {
-            DataRow drCurWeight = dtLine.NewRow();
-            drCurWeight["countDetection"] = Global.curStatus.countDetection;
-            drCurWeight["currentWeight"] = Global.curStatus.curWeight;
-            dtLine.Rows.Add(drCurWeight);
+            //点总数未到200时直接添加，超过200时添加一个点：删掉原有第1行，在最后添加一行
+            if(Global.curStatus.countDetection <= 200)
+            {
+                DataRow drCurWeight = dtLine.NewRow();
+                drCurWeight["countDetection"] = Global.curStatus.countDetection;
+                drCurWeight["currentWeight"] = Global.curStatus.curWeight;
+                dtLine.Rows.Add(drCurWeight);
+            }
+            else
+            {
+                dtLine.Rows.RemoveAt(0);
+                DataRow drCurWeight = dtLine.NewRow();
+                drCurWeight["countDetection"] = Global.curStatus.countDetection;
+                drCurWeight["currentWeight"] = Global.curStatus.curWeight;
+                dtLine.Rows.Add(drCurWeight);
+
+                for(int i = 0; i < 200; i++)
+                {
+                    dtLine.Rows[i]["countDetection"] = (i + 1).ToString();
+                }
+            }
+            
 
             //刷新最大值、最小值
             if (Global.curStatus.curWeight > Global.curStatus.maxWeightInHistory)
@@ -181,26 +200,28 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
         {
             if (dtPie.Rows.Count == 0)
             {
-                DataRow drCountNormal = dtPie.NewRow();
-                drCountNormal["index"] = 0;
-                drCountNormal["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
-                dtPie.Rows.Add(drCountNormal);
+                DataRow drCountUnderWeight = dtPie.NewRow();
+                drCountUnderWeight["status"] = "欠重";
+                drCountUnderWeight["countCur"] = Global.curStatus.countUnderWeight;
+                dtPie.Rows.Add(drCountUnderWeight);
 
                 DataRow drCountOverWeight = dtPie.NewRow();
-                drCountOverWeight["index"] = 1;
+                drCountOverWeight["status"] = "超重";
                 drCountOverWeight["countCur"] = Global.curStatus.countOverWeight;
                 dtPie.Rows.Add(drCountOverWeight);
 
-                DataRow drCountUnderWeight = dtPie.NewRow();
-                drCountUnderWeight["index"] = 2;
-                drCountUnderWeight["countCur"] = Global.curStatus.countUnderWeight;
-                dtPie.Rows.Add(drCountUnderWeight);
+                DataRow drCountNormal = dtPie.NewRow();
+                drCountNormal["status"] = "正常";
+                drCountNormal["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
+                dtPie.Rows.Add(drCountNormal);
+
+
             }
             else
             {
-                dtPie.Rows[0]["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
+                dtPie.Rows[0]["countCur"] = Global.curStatus.countUnderWeight;
                 dtPie.Rows[1]["countCur"] = Global.curStatus.countOverWeight;
-                dtPie.Rows[2]["countCur"] = Global.curStatus.countUnderWeight;
+                dtPie.Rows[2]["countCur"] = Global.curStatus.countDetection - Global.curStatus.countOverWeight - Global.curStatus.countUnderWeight;
             }
 
         }
@@ -332,18 +353,18 @@ namespace CheckWeighterDataAnalysis.StatusMonitor
             double cw = createRandomProbability(90, 8, 12, 13)  + rnd.Next(0, 9) * 0.1 + rnd.Next(0, 9) * 0.01 + rnd.Next(0, 9) * 0.001;
 
             Global.curStatus.curWeight = cw;
-            if (Global.curStatus.curWeight > 19)
+            if (Global.curStatus.curWeight > 12)
                 Global.curStatus.flagOverWeightOrUnderWeight = "H-";
-            else if (Global.curStatus.curWeight < 15)
+            else if (Global.curStatus.curWeight < 11)
                 Global.curStatus.flagOverWeightOrUnderWeight = "L-";
             else
                 Global.curStatus.flagOverWeightOrUnderWeight = "p-";
             Global.curStatus.brand = "LG";
 
+            updateLabels();
             updateChartLineData();
             updateChartPieData();
             updateChartPointData();
-            updateLabels();
 
             insertCurStatusIntoMySQL();
 
