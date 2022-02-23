@@ -23,14 +23,14 @@ namespace CloudManage.DataAnalysis
             InitializeComponent();
 
             initParameterOptimization();
-            MainForm.deviceOrLineAdditionDeletionReinitVerticalAnalysis += reInitParameterOptimization;
+            MainForm.deviceOrLineAdditionDeletionReinitParameterOptimization += reInitParameterOptimization;
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
         public void reInitParameterOptimization(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新VerticalAnalysis页面");
-            initParameterOptimization();
+            //MessageBox.Show("重新刷新VerticalAnalysis页面");
+            this.sideTileBarControlWithSub_ParameterOptimization._initSideTileBarWithSub();
         }
 
         private void initParameterOptimization()

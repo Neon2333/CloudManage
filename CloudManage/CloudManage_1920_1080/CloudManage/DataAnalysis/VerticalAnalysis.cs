@@ -28,8 +28,8 @@ namespace CloudManage.DataAnalysis
 
         public void reInitVerticalAnalysis(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新VerticalAnalysis页面");
-            initVerticalAnalysis();
+            //MessageBox.Show("重新刷新VerticalAnalysis页面");
+            this.sideTileBarControlWithSub_verticalAnalysis._initSideTileBarWithSub();
         }
 
         private void initVerticalAnalysis()

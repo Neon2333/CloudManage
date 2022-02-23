@@ -16,6 +16,15 @@ namespace CloudManage.DeepLearning
         public DataPreparation()
         {
             InitializeComponent();
+
+            MainForm.deviceOrLineAdditionDeletionReinitDataPreparation += reInitDataPreparation;
+        }
+
+
+
+        public void reInitDataPreparation(object sender, EventArgs e)
+        {
+           
         }
     }
 }

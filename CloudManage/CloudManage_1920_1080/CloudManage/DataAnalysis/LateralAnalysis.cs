@@ -29,8 +29,8 @@ namespace CloudManage.DataAnalysis
 
         public void reInitLateralAnalysis(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新VerticalAnalysis页面");
-            initLateralAnalysis();
+            //MessageBox.Show("重新刷新VerticalAnalysis页面");
+            this.sideTileBarControl_lateralAnalysis._initSideTileBar();
         }
 
         void initLateralAnalysis()

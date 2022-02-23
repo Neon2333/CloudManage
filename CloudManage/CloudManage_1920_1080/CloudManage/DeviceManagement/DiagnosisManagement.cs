@@ -53,7 +53,7 @@ namespace CloudManage.DeviceManagement
 
         private void reInitDiagnosisManagement(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新DiagnosisManagement页面");
+            //MessageBox.Show("重新刷新DiagnosisManagement页面");
             initDiagnosisManagement();
         }
 

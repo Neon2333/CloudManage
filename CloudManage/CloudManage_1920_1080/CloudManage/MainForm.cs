@@ -37,8 +37,8 @@ namespace CloudManage
 
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDataPreparation;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTraining;
-        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTesting;
-        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelUpdate;
+        //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTesting;
+        //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelUpdate;
 
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitMonitorThreshold;
@@ -480,7 +480,7 @@ namespace CloudManage
 
             if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
+                //deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
             }
 
             iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
@@ -497,7 +497,7 @@ namespace CloudManage
 
             if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             {
-                deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
+                //deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
             }
 
             iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;

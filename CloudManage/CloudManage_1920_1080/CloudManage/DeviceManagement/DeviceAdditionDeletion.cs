@@ -46,7 +46,7 @@ namespace CloudManage.DeviceManagement
 
         public void reInitDeviceAdditionDeletion(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新DeviceAdditionDeletion页面");
+            //MessageBox.Show("重新刷新DeviceAdditionDeletion页面");
             initDeviceAdditionDeletion();
         }
 

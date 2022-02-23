@@ -47,7 +47,7 @@ namespace CloudManage.StatusMonitor
 
         public void reInitRealTime(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新RealTime页面");
+            //MessageBox.Show("重新刷新RealTime页面");
             initRealTime();
         }
 

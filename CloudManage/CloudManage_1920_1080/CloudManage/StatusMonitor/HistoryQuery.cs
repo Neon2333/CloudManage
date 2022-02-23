@@ -42,7 +42,7 @@ namespace CloudManage.StatusMonitor
 
         public void reInitHistoryQuery(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新HistoryQuery页面");
+            //MessageBox.Show("重新刷新HistoryQuery页面");
             initHistoryQuery();
         }
 

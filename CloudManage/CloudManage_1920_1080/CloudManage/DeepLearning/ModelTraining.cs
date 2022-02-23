@@ -20,9 +20,16 @@ namespace CloudManage.DeepLearning
             InitializeComponent();
             MainForm.modelTrainingDialogShow += createShowDialogThread;
             MainForm.modelTrainingDialogHide += hideDialog;
+            MainForm.deviceOrLineAdditionDeletionReinitModelTraining += reInitDataPreparation;
         }
 
-        
+
+        public void reInitDataPreparation(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void createShowDialogThread(object sender, EventArgs e)
         {
             Thread threadShowDialog = new Thread(showDialog);

@@ -50,7 +50,7 @@ namespace CloudManage.DeviceManagement
 
         public void reInitRealTime(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新MonitorThreshold页面");
+            //MessageBox.Show("重新刷新MonitorThreshold页面");
             initMonitorThreshold();
         }
 
