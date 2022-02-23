@@ -209,7 +209,7 @@ namespace CloudManage.CommonControl
                     if (this.ColNumDT != null)
                     {
                         num = this.DT.Rows[i][this.ColNumDT].ToString();
-                        totalNumTemp += Convert.ToInt32(num);
+                        totalNumTemp ++;
                     }
                     //num = Convert.ToString(this.DT.Rows[i][colNum]);  //可以。Convert.toString/toString/(string)区别？
                     //num = (string)this.DT.Rows[i][colNum];    //无法将double转成string
@@ -421,7 +421,9 @@ namespace CloudManage.CommonControl
                         string itemName = temp.Name;
                         if (tagTileBarItem.CompareTo(tag) == 0 || nameTileBarItem.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            return false;
+                            //若添加的item已存在，则不再添加而是修改其num值
+                            this._setNum(tag, num);
+                            return true;
                         }
                     }
                 }
@@ -521,7 +523,9 @@ namespace CloudManage.CommonControl
                         string itemName = temp.Name;
                         if (tagTileBarItemSub.CompareTo(tag) == 0 || nameTileBarItemSub.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            return false;
+                            //若添加的item已存在，则不再添加而是修改其num值
+                            this._setTextSub(tag, textSub);
+                            return true;
                         }
                     }
                 }

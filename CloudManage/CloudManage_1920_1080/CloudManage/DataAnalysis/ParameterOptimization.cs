@@ -57,7 +57,7 @@ namespace CloudManage.DataAnalysis
         void _initTimeEditStartAndEnd()
         {
             DateTime nowdt = DateTime.Now;
-            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
+            DateTime oneMonthAgo = DateTime.Now.AddYears(-1);  //当前日期的一个月前日期
             this.timeEdit_startTime.Time = oneMonthAgo;
             this.timeEdit_endTime.Time = nowdt;
         }
@@ -71,7 +71,7 @@ namespace CloudManage.DataAnalysis
             else
             {
                 chromeBrowser.ExecuteScriptAsync("ShowShiftAllBtn()");
-                string strScrip = "get_analysis_toolparam_shift_data('get_analysis_toolparam_shift_data?packer_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItem.ToString() + "&device_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItemSub.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToLocalTime() + "&end_time=" + timeEdit_endTime.Time.ToLocalTime() + "')";
+                string strScrip = "get_analysis_toolparam_shift_data('get_analysis_toolparam_shift_data?packer_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItem.ToString() + "&device_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItemSub.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToString("yyyy/MM/dd HH:mm:ss") + "&end_time=" + timeEdit_endTime.Time.ToString("yyyy/MM/dd HH:mm:ss") + "')";
                 chromeBrowser.ExecuteScriptAsync(strScrip);
 
             }
@@ -79,8 +79,8 @@ namespace CloudManage.DataAnalysis
 
         private void sideTileBarControlWithSub_verticalAnalysis_sideTileBarItemWithSubClickedSubItem(object sender, EventArgs e)
         {
-            //string url = "http://192.168.8.100:8080/analysis_toolparam/?packer_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItem.ToString() + "&device_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItemSub.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToLocalTime() + "&end_time=" + timeEdit_endTime.Time.ToLocalTime();
-            //chromeBrowser.Load(url);
+            string url = "http://127.0.0.1:8080/analysis_toolparam/?packer_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItem.ToString() + "&device_id=" + this.sideTileBarControlWithSub_ParameterOptimization.tagSelectedItemSub.ToString() + "&shift=all&start_time=" + timeEdit_startTime.Time.ToString("yyyy/MM/dd HH:mm:ss") + "&end_time=" + timeEdit_endTime.Time.ToString("yyyy/MM/dd HH:mm:ss");
+            chromeBrowser.Load(url);
         }
 
     }

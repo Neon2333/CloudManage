@@ -45,9 +45,16 @@ namespace CloudManage.SystemConfig
             initDeviceAdditionDeletion();
         }
 
+        //private void refreshProductionLineSystemConfig()
+        //{
+        //    Global._init_dtSideTileBarWorkState();
+        //    Global.initDtProductionLineExists();
+        //    initSideTileBarProductionLineAdditionDeletion();
+        //}
 
         void initDeviceAdditionDeletion()
         {
+            Global._init_dtSideTileBarWorkState();
             initLineNOVec();
             Global.initDtProductionLineExists();
             initSideTileBarProductionLineAdditionDeletion();
@@ -57,6 +64,13 @@ namespace CloudManage.SystemConfig
             {
                 this.tileView1.FocusedRowHandle = selectRowDtProductionLineExists[0]; //默认选中第一行
             }
+        }
+
+        private void initSideTileBarProductionLineAdditionDeletion()
+        {
+            this.sideTileBarControl_productionLineAdditionDeletion.overViewText = "产线";
+            string totalProductionCount = Global.dtSideTileBar.Rows.Count.ToString();
+            this.sideTileBarControl_productionLineAdditionDeletion._setNum("000", totalProductionCount);
         }
 
         private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
@@ -153,7 +167,7 @@ namespace CloudManage.SystemConfig
             this.Controls.Add(this.confirmationBox_delLine);
             this.confirmationBox_delLine.Visible = true;
             this.confirmationBox_delLine.BringToFront();
-           
+
         }
 
         private void initConfirmationBox_modifyLineName()
@@ -168,7 +182,7 @@ namespace CloudManage.SystemConfig
             this.Controls.Add(this.confirmationBox_modifyLineName);
             this.confirmationBox_modifyLineName.Visible = true;
             this.confirmationBox_modifyLineName.BringToFront();
-           
+
         }
 
         private void initConfiramtionBox_copyLine()
@@ -183,10 +197,10 @@ namespace CloudManage.SystemConfig
             this.Controls.Add(this.confirmationBox_copyLine);
             this.confirmationBox_copyLine.Visible = true;
             this.confirmationBox_copyLine.BringToFront();
-            
+
         }
 
-       
+
 
         private void initLineNOVec()
         {
@@ -245,18 +259,6 @@ namespace CloudManage.SystemConfig
             return lNO;
         }
 
-        private void initSideTileBarProductionLineAdditionDeletion()
-        {
-            this.sideTileBarControl_productionLineAdditionDeletion.overViewText = "产线";
-            string totalProductionCount = Global.dtSideTileBar.Rows.Count.ToString();
-            this.sideTileBarControl_productionLineAdditionDeletion._setNum("000", totalProductionCount);
-        }
-
-        private void refreshDtProductionLineSystemConfig()
-        {
-            Global._init_dtSideTileBarWorkState();
-            Global.initDtProductionLineExists();
-        }
 
         private void keepSelectRowWhenDataSourceRefresh()
         {
@@ -331,7 +333,8 @@ namespace CloudManage.SystemConfig
                 initInfoBox_successOrFail("“" + inputLineName + "”添加成功！", 1000);
 
                 Global.ifLineAdditionOrDeletion = true;
-                refreshDtProductionLineSystemConfig();
+                //refreshProductionLineSystemConfig();
+                initDeviceAdditionDeletion();
 
                 //重读device_config
                 Global._init_dtDeviceConfig();
@@ -404,10 +407,11 @@ namespace CloudManage.SystemConfig
 
                 if (Convert.ToInt32(ifAffectedDelLine.Value) == 1)
                 {
-                    initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！",1000);
+                    initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！", 1000);
 
                     Global.ifLineAdditionOrDeletion = true;
-                    refreshDtProductionLineSystemConfig();
+                    //refreshProductionLineSystemConfig();
+                    initDeviceAdditionDeletion();
 
                     //只需重读当前页面用到的表，其他表，重启时会更新
                     //重读device_config
@@ -445,7 +449,7 @@ namespace CloudManage.SystemConfig
         {
             if (Global.dtProductionLineSystemConfig.Rows.Count != 0 && this.selectRowDtProductionLineExists.Length != 0)
             {
-                lockUnlockButton("lockbtn");    
+                lockUnlockButton("lockbtn");
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
                 initStandardKeyboard("确认修改：“" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
                 this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_modifyLineName_checkOK);
@@ -496,7 +500,8 @@ namespace CloudManage.SystemConfig
                     initInfoBox_successOrFail("产线名称修改成功！", 1000);
 
                     Global.ifLineAdditionOrDeletion = true;
-                    refreshDtProductionLineSystemConfig();
+                    //refreshProductionLineSystemConfig();
+                    initDeviceAdditionDeletion();
                     //重读productionLine
                     Global._init_dtProductionLine();
                 }
@@ -607,7 +612,9 @@ namespace CloudManage.SystemConfig
                 {
                     initInfoBox_successOrFail("产线复制成功！", 1000);
                     Global.ifLineAdditionOrDeletion = true;
-                    refreshDtProductionLineSystemConfig();
+                    //refreshProductionLineSystemConfig();
+                    initDeviceAdditionDeletion();
+
                 }
                 else
                 {
@@ -641,7 +648,7 @@ namespace CloudManage.SystemConfig
             string cmdNoSrcLineNOInDtWithLineNO = "SELECT COUNT(*) FROM " + tableName + " WHERE LineNO='" + srcLineNO + "';";
             DataTable dtRowCount = new DataTable();
             Global.mysqlHelper1._queryTableMySQL(cmdNoSrcLineNOInDtWithLineNO, ref dtRowCount);
-            if(dtRowCount.Rows.Count==1 && Convert.ToInt32(dtRowCount.Rows[0][0]) != 0)
+            if (dtRowCount.Rows.Count == 1 && Convert.ToInt32(dtRowCount.Rows[0][0]) != 0)
             {
                 return Global.mysqlHelper1._insertMySQL(cmdDtWithLineNOCopy) == true ? true : false;
             }

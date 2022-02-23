@@ -147,7 +147,7 @@ namespace CloudManage.CommonControl
                         text = (string)this.DT.Rows[i][this.colTextDT];
                     if (this.colNumDT != null) { 
                         num = this.DT.Rows[i][this.colNumDT].ToString();
-                        totalNumTemp += Convert.ToInt32(num);
+                        totalNumTemp ++;
                     }
                     this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
                 }
@@ -245,7 +245,9 @@ namespace CloudManage.CommonControl
                         string itemName = temp.Name;
                         if (tagTileBarItem.CompareTo(tag) == 0 || nameTileBarItem.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            return false;
+                            //若添加的item已存在，则不再添加而是修改其num值
+                            this._setNum(tag, num);
+                            return true;
                         }
                     }
                 }

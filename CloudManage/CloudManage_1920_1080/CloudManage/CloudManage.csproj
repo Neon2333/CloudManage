@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CloudManage</RootNamespace>
     <AssemblyName>CloudManage</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -29,6 +29,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,12 +44,12 @@
     <ApplicationIcon>a1sw9-j398w-001.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoItX3.Assembly">
+    <Reference Include="AutoItX3.Assembly, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a646454c8d475470, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\AutoItX3.Assembly.dll</HintPath>
     </Reference>
-    <Reference Include="CefSharp, Version=92.0.251.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+    <Reference Include="CefSharp">
       <HintPath>..\packages\CefSharp.Common.92.0.251\lib\net452\CefSharp.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="CefSharp.Core, Version=92.0.251.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
       <HintPath>..\packages\CefSharp.Common.92.0.251\lib\net452\CefSharp.Core.dll</HintPath>
@@ -83,14 +84,21 @@
     <Reference Include="DTControl">
       <HintPath>..\..\dll\DTControl.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.Bitmap">
+    <Reference Include="Emgu.CV.Bitmap, Version=4.5.4.4788, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\Emgu.CV.Bitmap.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.Platform.NetStandard">
+    <Reference Include="Emgu.CV.Platform.NetFramework, Version=4.5.4.4788, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\Emgu.CV.Platform.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetStandard, Version=4.5.4.4788, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\Emgu.CV.Platform.NetStandard.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\NPOI\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="H_S_Skin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\H_S_Skin.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\dll\log4net.dll</HintPath>
@@ -135,14 +143,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VisionSystemClassLibrary">
+    <Reference Include="VisionSystemClassLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\VisionSystemClassLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="VisionSystemCommunicationLibrary">
+    <Reference Include="VisionSystemCommunicationLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\dll\VisionSystemCommunicationLibrary.dll</HintPath>
     </Reference>
     <Reference Include="VisionSystemControlLibrary">
       <HintPath>..\..\dll\VisionSystemControlLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="VisionSystemUserInterface_ControlLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\VisionSystemUserInterface_ControlLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +229,7 @@
     <Compile Include="DeepLearning\ModelTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DeepLearning\ModelTest.Designer.cs">
+    <Compile Include="DeepLearning\ModelTest.designer.cs">
       <DependentUpon>ModelTest.cs</DependentUpon>
     </Compile>
     <Compile Include="DeepLearning\ModelTraining.cs">
@@ -334,6 +348,12 @@
     </Compile>
     <Compile Include="StatusMonitor\WorkState.Designer.cs">
       <DependentUpon>WorkState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfig\FormStandardKeyboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemConfig\FormStandardKeyboard.Designer.cs">
+      <DependentUpon>FormStandardKeyboard.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemConfig\ProductionLineAdditionDeletion.cs">
       <SubType>UserControl</SubType>
@@ -454,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StatusMonitor\WorkState.resx">
       <DependentUpon>WorkState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfig\FormStandardKeyboard.resx">
+      <DependentUpon>FormStandardKeyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemConfig\ProductionLineAdditionDeletion.resx">
       <DependentUpon>ProductionLineAdditionDeletion.cs</DependentUpon>
@@ -585,6 +608,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="a1sw9-j398w-001.ico" />
+    <None Include="Resources\模型.png" />
+    <None Include="Resources\分类.png" />
+    <None Include="Resources\picture.png" />
+    <None Include="Resources\model.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\Gallery.png" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\encrypt.png" />
     <None Include="Resources\startup_1920_1080.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -50,6 +50,7 @@ namespace CloudManage.DeviceManagement
             initDeviceAdditionDeletion();
         }
 
+
         void initDeviceAdditionDeletion()
         {
             initSideTileBarDeviceAdditionDeletion();
@@ -63,6 +64,15 @@ namespace CloudManage.DeviceManagement
 
             Global.initDtDeviceCanAddEachLine();   //初始化可添加设备表
             Global.initDtMachineCanSelectEachDevice();  //初始化可添加机器表
+        }
+        private void initSideTileBarDeviceAdditionDeletion()
+        {
+            Global._init_dtSideTileBarWorkState();
+            this.sideTileBarControl_deviceAdditionDeletion.dtInitSideTileBar = Global.dtSideTileBar;
+            this.sideTileBarControl_deviceAdditionDeletion.colTagDT = "LineNO";
+            this.sideTileBarControl_deviceAdditionDeletion.colTextDT = "LineName";
+            this.sideTileBarControl_deviceAdditionDeletion.colNumDT = "DeviceTotalNum";
+            this.sideTileBarControl_deviceAdditionDeletion._initSideTileBar();
         }
 
         private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
@@ -80,14 +90,6 @@ namespace CloudManage.DeviceManagement
             this.infoBox_successOrFail.disappearEnable = true;
         }
 
-        private void initSideTileBarDeviceAdditionDeletion()
-        {
-            this.sideTileBarControl_deviceAdditionDeletion.dtInitSideTileBar = Global.dtSideTileBar;
-            this.sideTileBarControl_deviceAdditionDeletion.colTagDT = "LineNO";
-            this.sideTileBarControl_deviceAdditionDeletion.colTextDT = "LineName";
-            this.sideTileBarControl_deviceAdditionDeletion.colNumDT = "DeviceTotalNum";
-            this.sideTileBarControl_deviceAdditionDeletion._initSideTileBar();
-        }
 
         //刷新导航目录
         void _refreshLabelDir()
@@ -284,7 +286,7 @@ namespace CloudManage.DeviceManagement
                 this.confirmationBox1 = new CommonControl.ConfirmationBox();
                 this.confirmationBox1.Appearance.BackColor = System.Drawing.Color.White;
                 this.confirmationBox1.Appearance.Options.UseBackColor = true;
-                this.confirmationBox1.Location = new System.Drawing.Point(624,100);
+                this.confirmationBox1.Location = new System.Drawing.Point(624, 100);
                 this.confirmationBox1.Name = "confirmationBox1";
                 this.confirmationBox1.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox1.TabIndex = 29;
@@ -321,12 +323,13 @@ namespace CloudManage.DeviceManagement
                     initInfoBox_successOrFail("“" + toDeleteDevice + "”删除成功！", 1000);
 
                     Global.ifDeviceAdditionOrDeletion = true;
+                    initDeviceAdditionDeletion();    //刷新本页面
                     refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                     refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
 
                     //device_config
                     Global._init_dtDeviceConfig();
-                    
+
                 }
                 else
                 {
@@ -452,6 +455,7 @@ namespace CloudManage.DeviceManagement
                 initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加成功！", 1000);
 
                 Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
+                initDeviceAdditionDeletion();
                 refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                 refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
             }
@@ -673,7 +677,7 @@ namespace CloudManage.DeviceManagement
             return flag;
         }
 
-        
+
         //添加设备后，MySQL中表已变化，但datatable暂时未变。
         //经过调试，发现用到表device_config、device_info、device_threshold、device_para、faults_config的地方，好像都从MySQL中重新查询了datatable？
         //目前发现未更新的地方只有侧边栏的num，即各产线的设备数未更新

@@ -133,9 +133,29 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap encrypt {
+            get {
+                object obj = ResourceManager.GetObject("encrypt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap exponential_32x32 {
             get {
                 object obj = ResourceManager.GetObject("exponential_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder {
+            get {
+                object obj = ResourceManager.GetObject("Folder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +183,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Gallery {
+            get {
+                object obj = ResourceManager.GetObject("Gallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap gaugestylelinearhorizontal_32x32 {
             get {
                 object obj = ResourceManager.GetObject("gaugestylelinearhorizontal_32x32", resourceCulture);
@@ -183,6 +213,16 @@ namespace CloudManage.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap image {
+            get {
+                object obj = ResourceManager.GetObject("image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap lookup_reference_32x32 {
             get {
                 object obj = ResourceManager.GetObject("lookup&reference_32x32", resourceCulture);
@@ -196,6 +236,16 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap marqueezoom_32x32 {
             get {
                 object obj = ResourceManager.GetObject("marqueezoom_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap model {
+            get {
+                object obj = ResourceManager.GetObject("model", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +286,16 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap packagingMachineGroup_120x58 {
             get {
                 object obj = ResourceManager.GetObject("packagingMachineGroup_120x58", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap picture {
+            get {
+                object obj = ResourceManager.GetObject("picture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,6 +446,26 @@ namespace CloudManage.Properties {
         internal static System.Drawing.Bitmap zoom100percent_32x32 {
             get {
                 object obj = ResourceManager.GetObject("zoom100percent_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 分类 {
+            get {
+                object obj = ResourceManager.GetObject("分类", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 模型 {
+            get {
+                object obj = ResourceManager.GetObject("模型", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
