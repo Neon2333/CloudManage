@@ -129,6 +129,10 @@ namespace CloudManage.CommonControl
         //参数传入null时
         public void _initSideTileBar()
         {
+            //遍历DT，对于DT中的某个产线，Items中没有，则将DT对应的产线添加到第一级侧边栏
+            //遍历DT，若DT中的某个产线，Items中已存在，则修改该产线的num（设备数）
+            //遍历Items，对于已添加到第一级侧边栏的产线，若在DT中没有，则需要删除
+
             if (this.UseDtInitSideTileBar == true)
             {
                 //添加产线按钮tileBarItem
@@ -151,6 +155,9 @@ namespace CloudManage.CommonControl
                     }
                     this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
                 }
+
+                _removeSideTileBarItemNotInDT();    //删除侧边栏中已被删除的产线
+
                 if (this.showOverview == true)
                 {
                     this._setNum("000", totalNumTemp.ToString());
@@ -159,70 +166,6 @@ namespace CloudManage.CommonControl
             else
             {
                 MessageBox.Show("useDtInitSideTileBar为false");
-            }
-        }
-
-        //通过tag选中item
-        public bool _selectedItem(string tag)
-        {
-            bool flag = false;
-            string tagTemp = String.Empty;
-            try
-            {
-                for (int i = 0; i < countSideTileBarItem; i++)
-                {
-                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
-                    tagTemp = (string)temp.Tag;
-                    if (tag.CompareTo(tagTemp) == 0)
-                    {
-                        TagSelectedItem = tagTemp;
-                        this.tileBar_sideTileBarControl.SelectedItem = temp;
-                        flag = true;
-                    }
-
-                }
-                return flag;
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                return false;
-            }
-        }
-
-        //通过index选中item
-        public bool _selectedItem(int indexItem)
-        {
-            bool flag = false;
-            try
-            {
-                for (int i = 0; i < countSideTileBarItem; i++)
-                {
-                    if(indexItem == i)
-                    {
-                        this.tileBar_sideTileBarControl.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
-                        flag = true;
-                    }
-                }
-                return flag;
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                return false;
-            }
-        }
-
-        private bool _isAllNum(string tag)
-        {
-            Regex regexNotAllNums = new Regex("[^0-9]+");
-            if (regexNotAllNums.IsMatch(tag))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 
@@ -239,7 +182,12 @@ namespace CloudManage.CommonControl
                 {
                     for (int i = 0; i < countSideTileBarItem; i++)
                     {
+                        //遍历DT，对于DT中的某个产线，Items中没有，则将DT对应的产线添加到第一级侧边栏
+                        //遍历DT，若DT中的某个产线，Items中已存在，则修改该产线的num（设备数）
+                        //遍历Items，对于已添加到第一级侧边栏的产线，若在DT中没有，则需要删除
                         TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+
+
                         //tag、itemName、text相同无法添加
                         string tag = temp.Tag.ToString();
                         string itemName = temp.Name;
@@ -307,15 +255,112 @@ namespace CloudManage.CommonControl
                 }
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.ToString();
                 return false;
             }
         }
 
-        //可在任意位置以tag删除按钮
-        public bool _deleteButton(string tagTileBarItem)
+        //清除this.DT中不存在但Items中存在的产线（被删除的产线对应的item要清除）
+        public void _removeSideTileBarItemNotInDT()
+        {
+            if (countSideTileBarItem > 0)
+            {
+                for (int i = 1; i < countSideTileBarItem; i++)
+                {
+                    bool flag = false;
+
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    string itemName = temp.Name;
+
+                    for (int j = 0; j < this.DT.Rows.Count; j++)
+                    {
+                        if(tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
+                        {
+                            flag = true;
+                        }
+                    }
+                    
+                    if(flag == false)
+                    {
+                        this._removeItemByTag(tag);
+                    }
+
+
+                }
+            }
+        }
+
+        //通过tag选中item
+        public bool _selectedItem(string tag)
+        {
+            bool flag = false;
+            string tagTemp = String.Empty;
+            try
+            {
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                    tagTemp = (string)temp.Tag;
+                    if (tag.CompareTo(tagTemp) == 0)
+                    {
+                        TagSelectedItem = tagTemp;
+                        this.tileBar_sideTileBarControl.SelectedItem = temp;
+                        flag = true;
+                    }
+
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
+        //通过index选中item
+        public bool _selectedItem(int indexItem)
+        {
+            bool flag = false;
+            try
+            {
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    if(indexItem == i)
+                    {
+                        this.tileBar_sideTileBarControl.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                        flag = true;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
+        private bool _isAllNum(string tag)
+        {
+            Regex regexNotAllNums = new Regex("[^0-9]+");
+            if (regexNotAllNums.IsMatch(tag))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+       
+
+        //以tag删除按钮
+        public bool _removeItemByTag(string tagTileBarItem)
         {
             bool flag = false;
             try
@@ -345,6 +390,15 @@ namespace CloudManage.CommonControl
             {
                 ex.ToString();
                 return false;
+            }
+        }
+
+        //清空按钮
+        public void _removeAllItem()
+        {
+            for(int i = 0; i < countSideTileBarItem; i++)
+            {
+                this.tileBarGroup_sideTileBarControl.Items.RemoveAt(i);
             }
         }
 
@@ -395,6 +449,7 @@ namespace CloudManage.CommonControl
             }
 
         }
+
 
         public delegate void TileItemSelectedChangedHanlder(object sender, EventArgs e);
         public event TileItemSelectedChangedHanlder sideTileBarItemSelectedChanged; //自定义事件，将SideTileBarControl的itemSelectedChanged事件传出

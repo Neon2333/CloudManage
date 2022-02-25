@@ -188,6 +188,8 @@ namespace CloudManage.CommonControl
         }
 
         //初始化侧边栏
+        //第一级侧边栏采用添加、删除item的方式
+        //第二级侧边栏中添加item的数量是固定的，由表device决定。不同的只是最后根据device_config决定各个item的Visible的不同
         public void _initSideTileBarWithSub()
         {
             if (UseDtInitSideTileBarWithSub)
@@ -213,12 +215,15 @@ namespace CloudManage.CommonControl
                     }
                     //num = Convert.ToString(this.DT.Rows[i][colNum]);  //可以。Convert.toString/toString/(string)区别？
                     //num = (string)this.DT.Rows[i][colNum];    //无法将double转成string
-                    this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //添加item
+                    this._addSideTileBarItem(new TileBarItem(), tag, name, text, num);   //向第一级侧边栏添加item
                 }
+
+                _removeSideTileBarItemNotInDT();    //删除侧边栏中已被删除的产线
+
                 this._setNum("000", totalNumTemp.ToString());
                 this.TagItemWhichSubItemBeenSelected = "000";   
 
-                //添加所有检测设备按钮
+                //一次性添加表device中的所有检测设备按钮
                 for (int i = 0; i < this.DTSUB.Rows.Count; i++)
                 {
                     string tagTemp = String.Empty;
@@ -232,6 +237,7 @@ namespace CloudManage.CommonControl
                 //添加“占位”subItem
                 bool flag1 = this._addSideTileBarItemSub(new TileBarItem(), "-1", "tileBarItem_sub-1", "占位", Encoding.Default.GetBytes("占位").Length / 2);
 
+                //根据DTSUB中各个设备的使能，决定第二级侧边栏中item的Visible
                 this._showSubItemHideRedundantItem();
             }
             else
@@ -401,7 +407,8 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //在sideTileBar尾部依次添加按钮
+        //向第一级侧边栏添加按钮、删除按钮、修改按钮num值
+        //
         public bool _addSideTileBarItem(TileBarItem tileBarItem, string tagTileBarItem, string nameTileBarItem, string text, string num)
         {
             TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  //更新当前的设备数
@@ -508,6 +515,37 @@ namespace CloudManage.CommonControl
             }
         }
 
+        //清除this.DT中不存在但Items中存在的产线（被删除的产线对应的item要清除）
+        public void _removeSideTileBarItemNotInDT()
+        {
+            if (countSideTileBarItem > 0)
+            {
+                for (int i = 1; i < countSideTileBarItem; i++)
+                {
+                    bool flag = false;
+
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    string itemName = temp.Name;
+
+                    for (int j = 0; j < this.DT.Rows.Count; j++)
+                    {
+                        if (tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
+                        {
+                            flag = true;
+                        }
+                    }
+
+                    if (flag == false)
+                    {
+                        this._removeItemByTag(tag);
+                    }
+
+
+                }
+            }
+        }
+
         //在sideTileBarSub的尾部依次添加按钮
         public bool _addSideTileBarItemSub(TileBarItem tileBarItemSub, string tagTileBarItemSub, string nameTileBarItemSub, string textSub, int numOfChineseCharacters)
         {
@@ -599,7 +637,7 @@ namespace CloudManage.CommonControl
         }
 
         //以tag删除按钮
-        public bool _deleteButton(string tagTileBarItem)
+        public bool _removeItemByTag(string tagTileBarItem)
         {
             bool flag = false;
             try
@@ -617,7 +655,6 @@ namespace CloudManage.CommonControl
                         if (tagTileBarItem.CompareTo(tag) == 0)
                         {
                             this.tileBarGroup_sideTileBar.Items.RemoveAt(i);
-                            countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count; //更新显示的tileBarItem的计数
                             flag = true;
                             break;
                         }
@@ -632,6 +669,8 @@ namespace CloudManage.CommonControl
                 return false;
             }
         }
+
+
         //以tag删除sub的按钮。
         //删除sub的按钮后，要读取新的表格赋值给Dt，新表格将删除的sub按钮对应的标志列去掉
         public bool _deleteButtonSub(string tagTileBarItemSub)
@@ -787,19 +826,23 @@ namespace CloudManage.CommonControl
                                 break;
                             }
                         }
-                        for (int i = 0; i < this.TotalNumDevice; i++)
+                        if(dr != null)
                         {
-                            temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
-                            int flag = Convert.ToInt32(dr[i + 2]);  //deviceConfig表中检测设备标志位从dr[2]开始
-                            if (flag == 1)
+                            for (int i = 0; i < this.TotalNumDevice; i++)
                             {
-                                temp.Visible = true;
-                            }
-                            else
-                            {
-                                temp.Visible = false;
+                                temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i + 1);
+                                int flag = Convert.ToInt32(dr[i + 2]);  //deviceConfig表中检测设备标志位从dr[2]开始
+                                if (flag == 1)
+                                {
+                                    temp.Visible = true;
+                                }
+                                else
+                                {
+                                    temp.Visible = false;
+                                }
                             }
                         }
+                        
                     }
                 }
 
