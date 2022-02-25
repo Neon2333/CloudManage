@@ -13,6 +13,8 @@ namespace CloudManage.DeepLearning
 {
     public partial class ModelUpdate : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 12;
+
         public ModelUpdate()
         {
             InitializeComponent();

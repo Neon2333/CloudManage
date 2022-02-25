@@ -25,6 +25,8 @@ namespace CloudManage.StatusMonitor
 {
     public partial class HistoryQuery : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 2;
+
         string cmdQueryFaultsHistory = String.Empty;
         string startTime = String.Empty;
         string endTime = String.Empty;
@@ -42,8 +44,10 @@ namespace CloudManage.StatusMonitor
 
         public void reInitHistoryQuery(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新HistoryQuery页面");
+            MessageBox.Show("重新刷新HistoryQuery页面");
             initHistoryQuery();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
+
         }
 
 
@@ -411,7 +415,10 @@ namespace CloudManage.StatusMonitor
 
         private void timer_refreshDtHistoryQueryGridShow_Tick(object sender, EventArgs e)
         {
-            Global._init_dtHistoryQueryGridShow(startTime, endTime);    //初始化历史故障表，默认显示全部故障历史
+            //历史故障一直在增加，每3s刷新一次显示
+            //Global._init_dtHistoryQueryGridShow(startTime, endTime);    //初始化历史故障表，默认显示全部故障历史
+
+            refreshGridSourceSideTileBarPressed();
             keepSelectRowWhenDataSourceRefresh();
         }
 

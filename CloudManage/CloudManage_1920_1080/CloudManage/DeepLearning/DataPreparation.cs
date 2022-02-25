@@ -13,6 +13,8 @@ namespace CloudManage.DeepLearning
 {
     public partial class DataPreparation : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 9;
+
         public DataPreparation()
         {
             InitializeComponent();

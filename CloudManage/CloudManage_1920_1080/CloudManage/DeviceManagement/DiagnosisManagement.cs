@@ -15,6 +15,8 @@ namespace CloudManage.DeviceManagement
 {
     public partial class DiagnosisManagement : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 15;
+
         private int[] selectRow = { 0 };
 
         struct faultsIndexAndStatus
@@ -53,8 +55,9 @@ namespace CloudManage.DeviceManagement
 
         private void reInitDiagnosisManagement(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新DiagnosisManagement页面");
+            MessageBox.Show("重新刷新DiagnosisManagement页面");
             initDiagnosisManagement();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
         private void initDiagnosisManagement()

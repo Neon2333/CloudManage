@@ -13,6 +13,8 @@ namespace CloudManage.DeviceManagement
 {
     public partial class Reserve2 : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 17;
+
         public Reserve2()
         {
             InitializeComponent();

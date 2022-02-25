@@ -15,6 +15,10 @@ namespace CloudManage.SystemConfig
 {
     public partial class ProductionLineAdditionDeletion : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 18;
+
+        CommonControl.FormStandardKeyboard formStandardKeyboard;
+
         private int[] selectRowDtProductionLineExists = { 0 };
         private CommonControl.ConfirmationBox confirmationBox_message;
         private VisionSystemControlLibrary.StandardKeyboard standardKeyboard1;
@@ -43,6 +47,7 @@ namespace CloudManage.SystemConfig
         {
             MessageBox.Show("重新刷新ProductionLineAdditionDeletion页面");
             initDeviceAdditionDeletion();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
         //private void refreshProductionLineSystemConfig()
@@ -89,38 +94,41 @@ namespace CloudManage.SystemConfig
 
         private void initStandardKeyboard(string title)
         {
-            if (this.standardKeyboard1 != null)
-                this.standardKeyboard1.Dispose();
-            this.standardKeyboard1 = new VisionSystemControlLibrary.StandardKeyboard();
-            this.standardKeyboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
-            this.standardKeyboard1.CapsLock = false;
-            this.standardKeyboard1.Language = VisionSystemClassLibrary.Enum.InterfaceLanguage.Chinese;
-            this.standardKeyboard1.Chinese_Caption = title;
-            this.standardKeyboard1.FirstInitialStringValue = false;
-            this.standardKeyboard1.InvalidCharacter = null;
-            this.standardKeyboard1.IsPassword = false;
-            this.standardKeyboard1.Location = new System.Drawing.Point(444, 100);
-            this.standardKeyboard1.MaxLength = ((byte)(30));
-            this.standardKeyboard1.Name = "standardKeyboard1";
-            this.standardKeyboard1.Password = "";
-            this.standardKeyboard1.PasswordStyle = 0;
-            this.standardKeyboard1.Shift = false;
-            this.standardKeyboard1.Size = new System.Drawing.Size(710, 406);
-            this.standardKeyboard1.StringValue = "";
-            this.standardKeyboard1.StringValueBuf = "";
-            this.standardKeyboard1.TabIndex = 0;
-            this.Controls.Add(this.standardKeyboard1);
-            this.standardKeyboard1.BringToFront();
-            this.standardKeyboard1.Visible = true;
-            this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard_ESC);
+            //if (this.standardKeyboard1 != null)
+            //    this.standardKeyboard1.Dispose();
+            //this.standardKeyboard1 = new VisionSystemControlLibrary.StandardKeyboard();
+            //this.standardKeyboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
+            //this.standardKeyboard1.CapsLock = false;
+            //this.standardKeyboard1.Language = VisionSystemClassLibrary.Enum.InterfaceLanguage.Chinese;
+            //this.standardKeyboard1.Chinese_Caption = title;
+            //this.standardKeyboard1.FirstInitialStringValue = false;
+            //this.standardKeyboard1.InvalidCharacter = null;
+            //this.standardKeyboard1.IsPassword = false;
+            //this.standardKeyboard1.Location = new System.Drawing.Point(444, 100);
+            //this.standardKeyboard1.MaxLength = ((byte)(30));
+            //this.standardKeyboard1.Name = "standardKeyboard1";
+            //this.standardKeyboard1.Password = "";
+            //this.standardKeyboard1.PasswordStyle = 0;
+            //this.standardKeyboard1.Shift = false;
+            //this.standardKeyboard1.Size = new System.Drawing.Size(710, 406);
+            //this.standardKeyboard1.StringValue = "";
+            //this.standardKeyboard1.StringValueBuf = "";
+            //this.standardKeyboard1.TabIndex = 0;
+            //this.Controls.Add(this.standardKeyboard1);
+            //this.standardKeyboard1.BringToFront();
+            //this.standardKeyboard1.Visible = true;
+            //this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard_ESC);
+            formStandardKeyboard = new CommonControl.FormStandardKeyboard(title, 444, 100 + 200);
+            formStandardKeyboard.standardKeyboard_CloseClick += new CommonControl.FormStandardKeyboard.StandardKeyboardCloseClickHanlder(standardKeyboard_ESC);
+            formStandardKeyboard.Show();
         }
 
         private void standardKeyboard_ESC(object sender, EventArgs e)
         {
-            if (this.standardKeyboard1.EnterNewValue == false)
+            if (this.formStandardKeyboard.EnterNewValue == false)
             {
                 lockUnlockButton("unlockbtn");
-                this.standardKeyboard1.Dispose();
+                this.formStandardKeyboard.Close();
             }
         }
 
@@ -292,18 +300,20 @@ namespace CloudManage.SystemConfig
         {
             lockUnlockButton("lockbtn");
             initStandardKeyboard("请输入待添加的产线名称");
-            this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_addLine_checkOK);
+            //this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_addLine_checkOK);
+
+            this.formStandardKeyboard.standardKeyboard_CloseClick += new CommonControl.FormStandardKeyboard.StandardKeyboardCloseClickHanlder(standardKeyboard1_addLine_checkOK);
         }
 
         private void standardKeyboard1_addLine_checkOK(object sender, EventArgs e)
         {
-            if (this.standardKeyboard1.EnterNewValue == true)
+            if (this.formStandardKeyboard.EnterNewValue == true)
             {
-                if (this.standardKeyboard1.StringValue != "")
+                if (this.formStandardKeyboard.StringValue != "")
                 {
-                    inputLineName = this.standardKeyboard1.StringValue;
-                    this.standardKeyboard1.StringValue = "";
-                    this.standardKeyboard1.Dispose();
+                    inputLineName = this.formStandardKeyboard.StringValue;
+                    this.formStandardKeyboard.StringValue = "";
+                    this.formStandardKeyboard.Close();
                 }
                 if (inputLineName != "")
                 {
@@ -332,7 +342,9 @@ namespace CloudManage.SystemConfig
             {
                 initInfoBox_successOrFail("“" + inputLineName + "”添加成功！", 1000);
 
-                Global.ifLineAdditionOrDeletion = true;
+                //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
                 //refreshProductionLineSystemConfig();
                 initDeviceAdditionDeletion();
 
@@ -409,7 +421,10 @@ namespace CloudManage.SystemConfig
                 {
                     initInfoBox_successOrFail("“" + toDeleteLineName + "”" + "删除成功！", 1000);
 
-                    Global.ifLineAdditionOrDeletion = true;
+                    //Global.ifLineAdditionOrDeletion = true;
+                    //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
                     //refreshProductionLineSystemConfig();
                     initDeviceAdditionDeletion();
 
@@ -452,20 +467,23 @@ namespace CloudManage.SystemConfig
                 lockUnlockButton("lockbtn");
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtProductionLineExists[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
                 initStandardKeyboard("确认修改：“" + Global._getProductionLineNameByTag(drSelected["LineNO"].ToString()) + "”?");
-                this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_modifyLineName_checkOK);
+                //this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_modifyLineName_checkOK);
+
+                this.formStandardKeyboard.standardKeyboard_CloseClick += new CommonControl.FormStandardKeyboard.StandardKeyboardCloseClickHanlder(standardKeyboard1_modifyLineName_checkOK);
+
             }
         }
 
         private void standardKeyboard1_modifyLineName_checkOK(object sender, EventArgs e)
         {
-            if (this.standardKeyboard1.EnterNewValue == true)
+            if (this.formStandardKeyboard.EnterNewValue == true)
             {
-                if (this.standardKeyboard1.StringValue != "")
+                if (this.formStandardKeyboard.StringValue != "")
                 {
-                    inputLineName = this.standardKeyboard1.StringValue;
-                    this.standardKeyboard1.StringValue = "";
+                    inputLineName = this.formStandardKeyboard.StringValue;
+                    this.formStandardKeyboard.StringValue = "";
                     //this.standardKeyboard1.Visible = false;
-                    this.standardKeyboard1.Dispose();
+                    this.formStandardKeyboard.Close();
                 }
                 if (inputLineName != "")
                 {
@@ -499,7 +517,9 @@ namespace CloudManage.SystemConfig
                 {
                     initInfoBox_successOrFail("产线名称修改成功！", 1000);
 
-                    Global.ifLineAdditionOrDeletion = true;
+                    //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
                     //refreshProductionLineSystemConfig();
                     initDeviceAdditionDeletion();
                     //重读productionLine
@@ -537,7 +557,10 @@ namespace CloudManage.SystemConfig
         {
             //this.confirmationBox_message.Dispose();
             initStandardKeyboard("请输入新的产线名称");
-            this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_copyLine_checkOK);
+            //this.standardKeyboard1.Close_Click += new System.EventHandler(standardKeyboard1_copyLine_checkOK);
+
+            this.formStandardKeyboard.standardKeyboard_CloseClick += new CommonControl.FormStandardKeyboard.StandardKeyboardCloseClickHanlder(standardKeyboard1_copyLine_checkOK);
+
         }
 
         private void confirmationBox_message_copyCheckCancelClicked(object sender, EventArgs e)
@@ -549,13 +572,13 @@ namespace CloudManage.SystemConfig
         //读取被选中产线的LineNO在相关表中的记录。替换LineName、LineNO将记录重新插入
         private void standardKeyboard1_copyLine_checkOK(object sender, EventArgs e)
         {
-            if (this.standardKeyboard1.EnterNewValue == true)
+            if (this.formStandardKeyboard.EnterNewValue == true)
             {
-                if (this.standardKeyboard1.StringValue != "")
+                if (this.formStandardKeyboard.StringValue != "")
                 {
-                    inputLineName = this.standardKeyboard1.StringValue;
-                    this.standardKeyboard1.StringValue = "";
-                    this.standardKeyboard1.Dispose();
+                    inputLineName = this.formStandardKeyboard.StringValue;
+                    this.formStandardKeyboard.StringValue = "";
+                    this.formStandardKeyboard.Close();
                 }
                 if (inputLineName != "")
                 {
@@ -611,7 +634,9 @@ namespace CloudManage.SystemConfig
                 if (flagProductionLineCopy && flagDevice_flag && flagDevice_info_paranameandsuffixCopy && flagDevice_info_threshold && flagFaults_config)
                 {
                     initInfoBox_successOrFail("产线复制成功！", 1000);
-                    Global.ifLineAdditionOrDeletion = true;
+                    //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
                     //refreshProductionLineSystemConfig();
                     initDeviceAdditionDeletion();
 

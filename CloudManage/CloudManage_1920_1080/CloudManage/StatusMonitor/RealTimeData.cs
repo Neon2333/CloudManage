@@ -16,6 +16,9 @@ namespace CloudManage.StatusMonitor
 {
     public partial class RealTimeData : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 1;
+
+
         string labelDirImgType = "——实时";    //imageSlider当前图片类型：实时、缺陷
         Color colorNormal = Color.Gray;
         Color colorAlert = Color.FromArgb(208, 49, 68);
@@ -47,8 +50,10 @@ namespace CloudManage.StatusMonitor
 
         public void reInitRealTime(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新RealTime页面");
+            MessageBox.Show("重新刷新RealTime页面");
             initRealTime();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
+
         }
 
         void initRealTime()

@@ -16,6 +16,8 @@ namespace CloudManage.DeviceManagement
 {
     public partial class DeviceAdditionDeletion : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 13;
+
         private int[] selectRowDtDeviceCanDeleteEachLine = { 0 };   //当表变化时当前选中行会自动变成第一行，selectRow[0]记录的选中行重置当前选中行
         private int[] selectRowDtDeviceCanAddEachLine = { 0 };
         private CommonControl.ConfirmationBox confirmationBox1;
@@ -46,8 +48,9 @@ namespace CloudManage.DeviceManagement
 
         public void reInitDeviceAdditionDeletion(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新DeviceAdditionDeletion页面");
+            MessageBox.Show("重新刷新DeviceAdditionDeletion页面");
             initDeviceAdditionDeletion();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
 
@@ -322,8 +325,12 @@ namespace CloudManage.DeviceManagement
                 {
                     initInfoBox_successOrFail("“" + toDeleteDevice + "”删除成功！", 1000);
 
-                    Global.ifDeviceAdditionOrDeletion = true;
+                    //Global.ifDeviceAdditionOrDeletion = true;
+                    //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
                     initDeviceAdditionDeletion();    //刷新本页面
+                    Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
                     refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                     refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
 
@@ -454,8 +461,14 @@ namespace CloudManage.DeviceManagement
             {
                 initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加成功！", 1000);
 
-                Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
+                //Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
+                //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
+                Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+
+
                 initDeviceAdditionDeletion();
+                Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
+
                 refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
                 refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
             }

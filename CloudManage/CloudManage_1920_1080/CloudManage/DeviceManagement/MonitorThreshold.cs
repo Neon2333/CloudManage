@@ -14,6 +14,8 @@ namespace CloudManage.DeviceManagement
 {
     public partial class MonitorThreshold : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 14;
+
         private CommonControl.NumberKeyboard numberKeyboard1;
 
         private int[] selectRow = { 0 };    //选中行的RowHandle
@@ -50,8 +52,9 @@ namespace CloudManage.DeviceManagement
 
         public void reInitRealTime(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新MonitorThreshold页面");
+            MessageBox.Show("重新刷新MonitorThreshold页面");
             initMonitorThreshold();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
         private void initMonitorThreshold()

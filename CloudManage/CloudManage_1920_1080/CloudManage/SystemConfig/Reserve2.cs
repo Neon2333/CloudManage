@@ -11,15 +11,14 @@ using System.Windows.Forms;
 
 namespace CloudManage.SystemConfig
 {
-    public partial class FormStandardKeyboard : DevExpress.XtraEditors.XtraForm
+    public partial class Reserve2 : DevExpress.XtraEditors.XtraUserControl
     {
-        public FormStandardKeyboard()
+        public static ushort currentPageIndex = 20;
+
+
+        public Reserve2()
         {
             InitializeComponent();
         }
-
-
-
-
     }
 }

@@ -576,7 +576,10 @@ namespace CloudManage
             }
         }
 
-        public static bool ifDeviceAdditionOrDeletion = false;  //设备是否发生了增删
+        //public static bool ifDeviceAdditionOrDeletion = false;  //设备是否发生了增删
+        public static Int32 ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 0;       //产线、设备发生增删时的标志位（bit=0表示未增删或页面已刷新，bit=1表示发生了增删且未刷新）
+        
+        
         /*************************************************************************************************************/
 
         //productionLineAdditionDeletion
@@ -588,7 +591,7 @@ namespace CloudManage
             Global.reorderDt(ref Global.dtProductionLineSystemConfig);
         }
 
-        public static bool ifLineAdditionOrDeletion = false;    //产线是否发生了增删
+        //public static bool ifLineAdditionOrDeletion = false;    //产线是否发生了增删
 
         /*************************************************************************************************************/
 
@@ -770,6 +773,38 @@ namespace CloudManage
             if (index > 60) throw new ArgumentOutOfRangeException("index"); //索引出错
             var val = 1 << index;
             return (value & val) == val;
+        }
+
+        public static void SetInt32AllBit1(ref Int32 value)
+        {
+            for(ushort i = 0; i < 32; i++)
+            {
+                value = SetBitValueInt32(value, i, true);
+            }
+        }
+
+        public static void SetInt32AllBit0(ref Int32 value)
+        {
+            for (ushort i = 0; i < 32; i++)
+            {
+                value = SetBitValueInt32(value, i, false);
+            }
+        }
+
+        public static void SetInt64AllBit1(ref Int64 value)
+        {
+            for (ushort i = 0; i < 64; i++)
+            {
+                value = SetBitValueInt64(value, i, true);
+            }
+        }
+
+        public static void SetInt64AllBit0(ref Int64 value)
+        {
+            for (ushort i = 0; i < 64; i++)
+            {
+                value = SetBitValueInt64(value, i, false);
+            }
         }
         /***************************************************************************************************************/
 

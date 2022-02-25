@@ -16,6 +16,7 @@ namespace CloudManage.DataAnalysis
 {
     public partial class LateralAnalysis : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 3;
 
         private CefSharp.WinForms.ChromiumWebBrowser chromeBrowser;
         public LateralAnalysis()
@@ -29,8 +30,10 @@ namespace CloudManage.DataAnalysis
 
         public void reInitLateralAnalysis(object sender, EventArgs e)
         {
-            //MessageBox.Show("重新刷新VerticalAnalysis页面");
+            MessageBox.Show("重新刷新VerticalAnalysis页面");
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
+            Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
+
         }
 
         void initLateralAnalysis()

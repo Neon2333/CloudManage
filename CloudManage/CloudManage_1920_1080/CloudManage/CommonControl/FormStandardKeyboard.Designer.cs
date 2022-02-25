@@ -1,5 +1,5 @@
 ﻿
-namespace CloudManage.SystemConfig
+namespace CloudManage.CommonControl
 {
     partial class FormStandardKeyboard
     {
@@ -35,8 +35,10 @@ namespace CloudManage.SystemConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 354);
+            this.ClientSize = new System.Drawing.Size(710, 406);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormStandardKeyboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FormStandardKeyboard";
             this.ResumeLayout(false);
 

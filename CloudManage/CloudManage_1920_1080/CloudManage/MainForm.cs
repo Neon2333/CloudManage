@@ -27,27 +27,37 @@ namespace CloudManage
         private CommonControl.ConfirmationBox confirmationBox_applicationRestartOrClose;
 
         public delegate void DeviceOrLineAdditionDeletionReinit(object sender, EventArgs e);
+        //状态监测
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitWorkState;  //设备或产线增删时传递事件
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitRealTime;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitHistoryQuery;
 
+        //数据分析
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitLateralAnalysis;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitVerticalAnalysis;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitParameterOptimization;
 
+        //检测孪生（3个）
+
+
+        //深度学习
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDataPreparation;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTraining;
         //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelTesting;
         //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitModelUpdate;
 
-        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion;
+        //设备管理
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion;   
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitMonitorThreshold;
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitdiagnosisManagement;
-        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve1;
-        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve2;
+        //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve1;
+        //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDeviceManagementReserve2;
 
+        //系统设置
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitproductionAdditionDeletion;
         //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitSystemConfigReserve1;
+        //public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitSystemConfigReserve2;
+
 
         public delegate void ModelTrainingDialogShowOrClose(object sender, EventArgs e);
         public static event ModelTrainingDialogShowOrClose modelTrainingDialogShow;
@@ -286,27 +296,25 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitWorkState(sender, new EventArgs());
-            }
-
             iSelectedIndex = (int)StatusMonitorPages.workStatePage;
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
             currentPage = (int)StatusMonitorPages.workStatePage;
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitWorkState(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, StatusMonitor.WorkState.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitWorkState(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_statusMonitoring_realTimeData_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
-
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitRealTime(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)StatusMonitorPages.realtimePage;
             this.statusMonitorControl1.setSelectedFramePage(iSelectedIndex);
@@ -315,16 +323,19 @@ namespace CloudManage
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
 
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitRealTime(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, StatusMonitor.RealTimeData.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitRealTime(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_statusMonitoring_historyQuery_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
-
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitHistoryQuery(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)StatusMonitorPages.historyQueryPage;
             this.statusMonitorControl1.selectedFramePage = iSelectedIndex;
@@ -332,17 +343,19 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
 
-
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitHistoryQuery(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, StatusMonitor.HistoryQuery.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitHistoryQuery(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_dataAnalysis_LateralAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
-
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitLateralAnalysis(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DataAnalysisPages.lateralAnalysisPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
@@ -350,17 +363,19 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
 
-
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitLateralAnalysis(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DataAnalysis.LateralAnalysis.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitLateralAnalysis(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_dataAnalysis_VerticalAnalysis_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
-
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitVerticalAnalysis(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DataAnalysisPages.verticalAnalysisPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
@@ -368,6 +383,14 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitVerticalAnalysis(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DataAnalysis.VerticalAnalysis.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitVerticalAnalysis(sender, new EventArgs());
+            }
 
         }
 
@@ -375,61 +398,57 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitParameterOptimization(sender, new EventArgs());
-            }
-
             iSelectedIndex = (int)DataAnalysisPages.parameterOptimizationPage;
             this.dataAnalysis1.selectedFramePage = iSelectedIndex;
             currentPage = (int)DataAnalysisPages.parameterOptimizationPage;
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_dataAnalysis;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitParameterOptimization(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DataAnalysis.ParameterOptimization.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitParameterOptimization(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_twinDetection_paraSyn_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                //deviceOrLineAdditionDeletionReinitParaSyn(sender, new EventArgs());
-            }
-
             iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
-
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             currentPage = (int)TwinDetectionPages.paraSynPage;
             currentPage = processCurrentPage();
 
+            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, TwinDetection.ParameterSynchronize.currentPageIndex))
+            //{
+            //    //deviceOrLineAdditionDeletionReinitParaSyn(sender, new EventArgs());
+            //}
         }
 
         private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                //deviceOrLineAdditionDeletionReinitIntelligentReasoning(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
-
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
             currentPage = processCurrentPage();
 
+            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
+            //{
+            //    //deviceOrLineAdditionDeletionReinitIntelligentReasoning(sender, new EventArgs());
+            //}
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                //deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
 
@@ -437,6 +456,10 @@ namespace CloudManage
             currentPage = (int)TwinDetectionPages.paraUpdatePage;
             currentPage = processCurrentPage();
 
+            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
+            //{
+            //    //deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
+            //}
 
         }
 
@@ -444,10 +467,6 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitDataPreparation(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeepLearningPages.dataPreparationPage;
             this.deepLearning1.selectedFramePage = iSelectedIndex;
@@ -455,15 +474,16 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
             
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeepLearning.DataPreparation.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitDataPreparation(sender, new EventArgs());
+            }
 
         }
 
         private void tileBarItem_deepLearning_modelTraining_ItemClick(object sender, TileItemEventArgs e)
         {
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitModelTraining(sender, new EventArgs());
-            }
+            modelTrainingDialogShow(sender, new EventArgs());
 
             iSelectedIndex = (int)DeepLearningPages.modelTrainingPage;
             this.deepLearning1.selectedFramePage = iSelectedIndex;
@@ -471,17 +491,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
 
-            modelTrainingDialogShow(sender, new EventArgs());
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitModelTraining(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeepLearning.ModelTraining.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitModelTraining(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deepLearning_modelTesting_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                //deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeepLearningPages.modelTestingPage;
             this.deepLearning1.selectedFramePage = iSelectedIndex;
@@ -489,16 +512,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    //deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeepLearning.ModelTest.currentPageIndex))
+            {
+                //deviceOrLineAdditionDeletionReinitModelTesting(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deepLearning_modelUpdate_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                //deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeepLearningPages.modelUpdatePage;
             this.deepLearning1.selectedFramePage = iSelectedIndex;
@@ -506,16 +533,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deepLearning;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    //deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeepLearning.ModelUpdate.currentPageIndex))
+            {
+                //deviceOrLineAdditionDeletionReinitModelUpdate(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deviceManagement_deviceAdditionDeletion_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeviceManagementPages.deviceAdditionDeletionPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -523,15 +554,19 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeviceManagement.DeviceAdditionDeletion.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion(sender, new EventArgs());
+            }
         }
         private void tileBarItem_deviceManagement_monitorThreshold_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitMonitorThreshold(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeviceManagementPages.monitorThresholdPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -539,16 +574,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitMonitorThreshold(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeviceManagement.MonitorThreshold.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitMonitorThreshold(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deviceManagement_diagnosisManagement_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitdiagnosisManagement(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeviceManagementPages.diagnosisManagementPage;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -556,16 +595,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitdiagnosisManagement(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeviceManagement.DiagnosisManagement.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitdiagnosisManagement(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deviceManagement_reserve1_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitDeviceManagementReserve1(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeviceManagementPages.reservePage1;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -573,16 +616,20 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitDeviceManagementReserve1(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeviceManagement.Reserve1.currentPageIndex))
+            {
+                //deviceOrLineAdditionDeletionReinitDeviceManagementReserve1(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deviceManagement_reserve2_ItemClick(object sender, TileItemEventArgs e)
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitDeviceManagementReserve2(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)DeviceManagementPages.reservePage2;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -590,7 +637,14 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_deviceManagement;
 
-
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitDeviceManagementReserve2(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, DeviceManagement.Reserve2.currentPageIndex))
+            {
+                //deviceOrLineAdditionDeletionReinitDeviceManagementReserve2(sender, new EventArgs());
+            }
 
             //if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
             //{
@@ -617,10 +671,6 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-            if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
-            {
-                deviceOrLineAdditionDeletionReinitproductionAdditionDeletion(sender, new EventArgs());
-            }
 
             iSelectedIndex = (int)SystemConfigPages.productionLineAdditionDeletion;
             this.deviceManagement1.selectedFramePage = iSelectedIndex;
@@ -628,6 +678,14 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_systemConfig;
 
+            //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
+            //{
+            //    deviceOrLineAdditionDeletionReinitproductionAdditionDeletion(sender, new EventArgs());
+            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, SystemConfig.ProductionLineAdditionDeletion.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitproductionAdditionDeletion(sender, new EventArgs());
+            }
         }
 
         private void labelControl_title_Click(object sender, EventArgs e)
@@ -808,7 +866,7 @@ namespace CloudManage
             currentPage = (int)StatusMonitorPages.historyQueryPage;
             currentPage = processCurrentPage();
 
-            if (Global.ifDeviceAdditionOrDeletion == false && Global.ifLineAdditionOrDeletion == false)
+            if (Global.GetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, 1))
             {
                 deviceOrLineAdditionDeletionReinitRealTime(sender, new EventArgs());
             }

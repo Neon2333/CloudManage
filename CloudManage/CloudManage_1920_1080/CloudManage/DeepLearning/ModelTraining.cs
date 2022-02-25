@@ -15,6 +15,8 @@ namespace CloudManage.DeepLearning
 {
     public partial class ModelTraining : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 10;
+
         public ModelTraining()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace CloudManage.DeepLearning
         public void reInitDataPreparation(object sender, EventArgs e)
         {
 
+            Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
 

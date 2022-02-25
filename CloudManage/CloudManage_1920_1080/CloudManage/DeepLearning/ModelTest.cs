@@ -26,6 +26,8 @@ namespace CloudManage.DeepLearning
 {
     public partial class ModelTest : DevExpress.XtraEditors.XtraUserControl
     {
+        public static ushort currentPageIndex = 11;
+
         List<string> typeList = new List<string>();
 
         Int32[] ImageSize = { 0, 0 };
