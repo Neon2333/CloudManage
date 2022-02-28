@@ -280,12 +280,14 @@ namespace CloudManage.CommonControl
                         if(tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
                         {
                             flag = true;
+                            break;
                         }
                     }
                     
                     if(flag == false)
                     {
                         this._removeItemByTag(tag);
+
                     }
 
 
@@ -378,6 +380,7 @@ namespace CloudManage.CommonControl
                         if (tagTileBarItem.CompareTo(tag) == 0)
                         {
                             this.tileBarGroup_sideTileBarControl.Items.RemoveAt(i);
+                            this.countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;
                             flag = true;
                             break;
                         }

@@ -228,7 +228,8 @@ namespace CloudManage.DeviceManagement
             if (this.numberKeyboard1 != null)
                 this.numberKeyboard1.Visible = false;    //隐藏小键盘，等待重新选择“更改上下限”重新创建
             initCmdQueryDeviceInfoThresholdTemp();  //初始化查询命令
-            simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
+            //simpleButton_cancelThresholdModify_Click(sender, e);    //上次未保存的操作全部取消
+            cancelThresholdModify();    //上次未保存的操作全部取消
 
             //更新dtFaultsConfig
             bool flag = Global.mysqlHelper1._queryTableMySQL(cmdQueryDeviceInfoThresholdTemp, ref Global.dtDeviceInfoThresholdGridShowTemp);
@@ -407,7 +408,7 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        private void simpleButton_cancelThresholdModify_Click(object sender, EventArgs e)
+        private void cancelThresholdModify()
         {
             this.thresholdLatest.Clear();   //首先把最新修改表清空，防止后面用thresholdOriginal还原dtDeviceInfoThresholdGridShow触发itemCustomize时，thresholdLatest未修改
 
@@ -419,16 +420,21 @@ namespace CloudManage.DeviceManagement
                 if (dr.Length == 1)
                 {
                     dr[0]["LowerLimit"] = to.Value.LowerLimit;
-                    dr[0]["UpperLimit"] = to.Value.UpperLimit; 
+                    dr[0]["UpperLimit"] = to.Value.UpperLimit;
                 }
             }
 
             this.thresholdOriginal.Clear();
-            //Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);
-            Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //重排grid绑定的dt会触发itemCustomize事件
-            if(((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
+            //Global.transformDtDeviceInfoThresholdGridTemp(ref Global.dtDeviceInfoThresholdGridShowTemp, ref Global.dtDeviceInfoThresholdGridShow);            Global.reorderDt(ref Global.dtDeviceInfoThresholdGridShow); //重排grid绑定的dt会触发itemCustomize事件
+
+            if (((DataTable)this.gridControl_monitorThreshold.DataSource).Rows.Count > 0)
                 selectRow = this.tileView1.GetSelectedRows();
             refreshSelectRow();
+        }
+
+        private void simpleButton_cancelThresholdModify_Click(object sender, EventArgs e)
+        {
+            cancelThresholdModify();
             initInfoBox_successOrFail("所有修改已取消！", 1000);
         }
 

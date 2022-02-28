@@ -533,6 +533,7 @@ namespace CloudManage.CommonControl
                         if (tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
                         {
                             flag = true;
+                            break;
                         }
                     }
 
