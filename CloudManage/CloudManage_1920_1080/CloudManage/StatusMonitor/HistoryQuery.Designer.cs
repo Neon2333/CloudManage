@@ -98,7 +98,7 @@
             this.panelControl_rightSide = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton_exportData = new DevExpress.XtraEditors.SimpleButton();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.simpleButton_query1Months = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton_query1Month = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_query1Week = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_query6Months = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton_query3Months = new DevExpress.XtraEditors.SimpleButton();
@@ -202,7 +202,7 @@
             // 
             this.panelControl_rightSide.Controls.Add(this.simpleButton_exportData);
             this.panelControl_rightSide.Controls.Add(this.separatorControl1);
-            this.panelControl_rightSide.Controls.Add(this.simpleButton_query1Months);
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_query1Month);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_query1Week);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_query6Months);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_query3Months);
@@ -243,19 +243,19 @@
             this.separatorControl1.Size = new System.Drawing.Size(560, 20);
             this.separatorControl1.TabIndex = 26;
             // 
-            // simpleButton_query1Months
+            // simpleButton_query1Month
             // 
-            this.simpleButton_query1Months.AllowFocus = false;
-            this.simpleButton_query1Months.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton_query1Months.Appearance.Options.UseFont = true;
-            this.simpleButton_query1Months.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
-            this.simpleButton_query1Months.AppearancePressed.Options.UseFont = true;
-            this.simpleButton_query1Months.Location = new System.Drawing.Point(284, 356);
-            this.simpleButton_query1Months.Name = "simpleButton_query1Months";
-            this.simpleButton_query1Months.Size = new System.Drawing.Size(272, 46);
-            this.simpleButton_query1Months.TabIndex = 25;
-            this.simpleButton_query1Months.Text = "查询近1月";
-            this.simpleButton_query1Months.Click += new System.EventHandler(this.simpleButton_query1Months_Click);
+            this.simpleButton_query1Month.AllowFocus = false;
+            this.simpleButton_query1Month.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_query1Month.Appearance.Options.UseFont = true;
+            this.simpleButton_query1Month.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_query1Month.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_query1Month.Location = new System.Drawing.Point(284, 356);
+            this.simpleButton_query1Month.Name = "simpleButton_query1Month";
+            this.simpleButton_query1Month.Size = new System.Drawing.Size(272, 46);
+            this.simpleButton_query1Month.TabIndex = 25;
+            this.simpleButton_query1Month.Text = "查询近1月";
+            this.simpleButton_query1Month.Click += new System.EventHandler(this.simpleButton_query1Months_Click);
             // 
             // simpleButton_query1Week
             // 
@@ -952,7 +952,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton_endTimeModify;
         private DevExpress.XtraEditors.SimpleButton simpleButton_query6Months;
         private DevExpress.XtraEditors.SimpleButton simpleButton_query3Months;
-        private DevExpress.XtraEditors.SimpleButton simpleButton_query1Months;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_query1Month;
         private DevExpress.XtraEditors.SimpleButton simpleButton_query1Week;
         private System.Windows.Forms.Timer timer_refreshDtHistoryQueryGridShow;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;

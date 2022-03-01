@@ -13,6 +13,8 @@ namespace CloudManage
     class Global
     {
         public static MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "ei41");
+        //public static MySQL.MySQLHelper mysqlHelper1 = new MySQL.MySQLHelper("localhost", "cloud_manage", "root", "root");
+
 
         public static void initDataTable()
         {

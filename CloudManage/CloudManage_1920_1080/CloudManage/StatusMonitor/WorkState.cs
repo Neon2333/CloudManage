@@ -49,7 +49,7 @@ namespace CloudManage.StatusMonitor
 
         public void reInitWorkState(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新WorkState页面");
+            //MessageBox.Show("重新刷新WorkState页面");
             initWorkState();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }

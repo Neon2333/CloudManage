@@ -50,7 +50,7 @@ namespace CloudManage.StatusMonitor
 
         public void reInitRealTime(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新RealTime页面");
+            //MessageBox.Show("重新刷新RealTime页面");
             initRealTime();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
 

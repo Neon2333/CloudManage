@@ -31,7 +31,7 @@ namespace CloudManage.DataAnalysis
 
         public void reInitParameterOptimization(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新VerticalAnalysis页面");
+            //MessageBox.Show("重新刷新VerticalAnalysis页面");
             this.sideTileBarControlWithSub_ParameterOptimization._initSideTileBarWithSub();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }

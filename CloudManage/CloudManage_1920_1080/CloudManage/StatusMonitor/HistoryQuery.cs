@@ -44,14 +44,14 @@ namespace CloudManage.StatusMonitor
 
         public void reInitHistoryQuery(object sender, EventArgs e)
         {
-            MessageBox.Show("重新刷新HistoryQuery页面");
+            //MessageBox.Show("重新刷新HistoryQuery页面");
             initHistoryQuery();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
 
         }
 
 
-        void initHistoryQuery()
+        private void initHistoryQuery()
         {
             _initSideTileBarWithSub();  //初始化侧边栏
             //Global._init_dtHistoryQueryGridShow();    //初始化历史故障表，默认显示全部故障历史
@@ -63,7 +63,7 @@ namespace CloudManage.StatusMonitor
             _initWindowsUIButtonPanel();
         }
 
-        void _refreshLabelDir()
+        private void _refreshLabelDir()
         {
             string str1 = Global._getProductionLineNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItem);
             string str2 = Global._getTestingDeviceNameByTag(this.sideTileBarControlWithSub_historyQuery.tagSelectedItemSub);
@@ -71,7 +71,7 @@ namespace CloudManage.StatusMonitor
         }
 
         //初始化子菜单
-        void _initSideTileBarWithSub()
+        private void _initSideTileBarWithSub()
         {
             this.sideTileBarControlWithSub_historyQuery.dtInitSideTileBarWithSub = Global.dtSideTileBar;
             this.sideTileBarControlWithSub_historyQuery.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
@@ -88,7 +88,7 @@ namespace CloudManage.StatusMonitor
             windowsUIButtonPanel_historyQuery.ButtonChecked += windowsUIButtonPanel_historyQuery_buttonChecked;
         }
 
-        void _initTimeEditStartAndEnd()
+        private void _initTimeEditStartAndEnd()
         {
             DateTime nowdt = DateTime.Now;
             DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);  //当前日期的一个月前日期
