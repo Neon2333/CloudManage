@@ -752,7 +752,7 @@ namespace CloudManage
         {
             if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引超出范围
             var val = 1 << index;
-            return bitValue ? (value | val) : (value & ~val);   //1和0/1位或都是1,0和0/1位与都是0
+            return bitValue ? (value | val) : (value & ~val);   //置1：与1或，置0：与0与
         }
 
         public static Int64 SetBitValueInt64(Int64 value, ushort index, bool bitValue)
@@ -767,7 +767,7 @@ namespace CloudManage
         {
             if (index > 31) throw new ArgumentOutOfRangeException("index"); //索引出错
             var val = 1 << index;
-            return (value & val) == val;
+            return (value & val) == val;        //某bit和1与，若改变则为0，若不变则为1
         }
 
         public static bool GetBitValueInt64(Int64 value, ushort index)
