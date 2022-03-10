@@ -224,11 +224,11 @@ namespace CloudManage.SystemConfig
             this.labelControl_productionLineNO.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl_productionLineNO.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControl_productionLineNO.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl_productionLineNO.Location = new System.Drawing.Point(247, 50);
+            this.labelControl_productionLineNO.Location = new System.Drawing.Point(246, 50);
             this.labelControl_productionLineNO.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.labelControl_productionLineNO.LookAndFeel.UseDefaultLookAndFeel = false;
             this.labelControl_productionLineNO.Name = "labelControl_productionLineNO";
-            this.labelControl_productionLineNO.Size = new System.Drawing.Size(160, 50);
+            this.labelControl_productionLineNO.Size = new System.Drawing.Size(161, 50);
             this.labelControl_productionLineNO.TabIndex = 25;
             this.labelControl_productionLineNO.Text = "序号";
             // 
