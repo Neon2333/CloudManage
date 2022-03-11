@@ -23,6 +23,13 @@ namespace CloudManage
         [DllImport("shell32.dll")]
         public static extern int ShellExecute(IntPtr hwnd, StringBuilder lpszOp, StringBuilder lpszFile, StringBuilder lpszParams, StringBuilder lpszDir, int FsShowCmd);
 
+        private StatusMonitor.StatusMonitor statusMonitorControl1;
+        private DataAnalysis.DataAnalysis dataAnalysis1;
+        private TwinDetection.TwinDetection twinDetection1;
+        private DeviceManagement.DeviceManagement deviceManagement1;
+        private SystemConfig.SystemConfig systemConfig1;
+        private DeepLearning.DeepLearning deepLearning1;
+
         int currentPage = (int)StatusMonitorPages.workStatePage;    //全局记录当前页面
         private CommonControl.ConfirmationBox confirmationBox_applicationRestartOrClose;
 
@@ -116,11 +123,13 @@ namespace CloudManage
         {
             this.statusMonitorControl1 = new StatusMonitor.StatusMonitor();
             this.dataAnalysis1 = new DataAnalysis.DataAnalysis();
+            this.twinDetection1 = new TwinDetection.TwinDetection();
             this.deepLearning1 = new DeepLearning.DeepLearning();
             this.deviceManagement1 = new DeviceManagement.DeviceManagement();
             this.systemConfig1 = new SystemConfig.SystemConfig();
             this.navigationPage_statusMonitoring.Controls.Add(this.statusMonitorControl1);
             this.navigationPage_dataAnalysis.Controls.Add(this.dataAnalysis1);
+            this.navigationPage_twinDetection.Controls.Add(this.twinDetection1);
             this.navigationPage_deepLearning.Controls.Add(this.deepLearning1);
             this.navigationPage_deviceManagement.Controls.Add(this.deviceManagement1);
             this.navigationPage_systemConfig.Controls.Add(this.systemConfig1);
@@ -252,7 +261,6 @@ namespace CloudManage
         private void tileBar_twinDetection_ItemClick(object sender, TileItemEventArgs e)
         {
             this.tileBar_mainMenu.HideDropDownWindow(false);
-            MessageBox.Show("传参：" + iSelectedIndex);
 
         }
         private void tileBar_deepLearning_ItemClick(object sender, TileItemEventArgs e)
@@ -321,7 +329,6 @@ namespace CloudManage
             currentPage = (int)StatusMonitorPages.realtimePage;
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_statusMonitoring;
-
 
             //if (Global.ifDeviceAdditionOrDeletion == true || Global.ifLineAdditionOrDeletion == true)
             //{
@@ -419,9 +426,11 @@ namespace CloudManage
             modelTrainingDialogHide(sender, new EventArgs());
 
             iSelectedIndex = (int)TwinDetectionPages.paraSynPage;
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+            this.twinDetection1.selectedFramePage = iSelectedIndex;
+
             currentPage = (int)TwinDetectionPages.paraSynPage;
             currentPage = processCurrentPage();
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
             //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, TwinDetection.ParameterSynchronize.currentPageIndex))
             //{
@@ -433,11 +442,12 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-
             iSelectedIndex = (int)TwinDetectionPages.intelligentReasoningPage;
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
+            this.twinDetection1.selectedFramePage = iSelectedIndex;
+
             currentPage = (int)TwinDetectionPages.intelligentReasoningPage;
             currentPage = processCurrentPage();
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
             //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
             //{
@@ -449,18 +459,17 @@ namespace CloudManage
         {
             modelTrainingDialogHide(sender, new EventArgs());
 
-
             iSelectedIndex = (int)TwinDetectionPages.paraUpdatePage;
+            this.twinDetection1.selectedFramePage = iSelectedIndex;
 
-            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
             currentPage = (int)TwinDetectionPages.paraUpdatePage;
             currentPage = processCurrentPage();
+            this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
             //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
             //{
             //    //deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
             //}
-
         }
 
         private void tileBarItem_deepLearning_dataPreparation_ItemClick(object sender, TileItemEventArgs e)
@@ -478,7 +487,6 @@ namespace CloudManage
             {
                 deviceOrLineAdditionDeletionReinitDataPreparation(sender, new EventArgs());
             }
-
         }
 
         private void tileBarItem_deepLearning_modelTraining_ItemClick(object sender, TileItemEventArgs e)

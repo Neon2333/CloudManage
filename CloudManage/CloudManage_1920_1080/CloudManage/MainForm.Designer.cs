@@ -172,7 +172,6 @@
             this.tileBarItem3 = new DevExpress.XtraBars.Navigation.TileBarItem();
             this.navigationFrame_mainMenu = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage_twinDetection = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.navigationPage_statusMonitoring = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_dataAnalysis = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.navigationPage_deepLearning = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -212,7 +211,6 @@
             this.tileBarDropDownContainer_systemConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainMenu)).BeginInit();
             this.navigationFrame_mainMenu.SuspendLayout();
-            this.navigationPage_twinDetection.SuspendLayout();
             this.navigationPage_statusMonitoring.SuspendLayout();
             this.navigationPage_deepLearning.SuspendLayout();
             this.sidePanel_title.SuspendLayout();
@@ -1434,27 +1432,11 @@
             // 
             // navigationPage_twinDetection
             // 
-            this.navigationPage_twinDetection.Caption = "navigationPage_twinDetection";
-            this.navigationPage_twinDetection.Controls.Add(this.labelControl3);
             this.navigationPage_twinDetection.Name = "navigationPage_twinDetection";
             this.navigationPage_twinDetection.Size = new System.Drawing.Size(1920, 880);
             // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseTextOptions = true;
-            this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl3.Location = new System.Drawing.Point(500, 60);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(920, 50);
-            this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "检测孪生";
-            // 
             // navigationPage_statusMonitoring
             // 
-            this.navigationPage_statusMonitoring.Caption = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Controls.Add(this.tileBarDropDownContainer_statusMonitoring);
             this.navigationPage_statusMonitoring.Name = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Size = new System.Drawing.Size(1920, 880);
@@ -2170,7 +2152,6 @@
             this.tileBarDropDownContainer_systemConfig.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame_mainMenu)).EndInit();
             this.navigationFrame_mainMenu.ResumeLayout(false);
-            this.navigationPage_twinDetection.ResumeLayout(false);
             this.navigationPage_statusMonitoring.ResumeLayout(false);
             this.navigationPage_deepLearning.ResumeLayout(false);
             this.navigationPage_deepLearning.PerformLayout();
@@ -2219,7 +2200,6 @@
         private DevExpress.XtraEditors.SidePanel sidePanel_title;
         private DevExpress.XtraEditors.LabelControl labelControl_title;
         private DevExpress.XtraEditors.PictureEdit pictureEdit_CETC;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl_datetime;
         private System.Windows.Forms.Timer timer_datetime;
@@ -2257,11 +2237,7 @@
         private System.Windows.Forms.Timer timer_refreshDtTitleGridShowMainForm;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_diagnosisManagement;
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_monitorThreshold;
-        private StatusMonitor.StatusMonitor statusMonitorControl1;
-        private DataAnalysis.DataAnalysis dataAnalysis1;
-        private DeviceManagement.DeviceManagement deviceManagement1;
-        private SystemConfig.SystemConfig systemConfig1;
-        private DeepLearning.DeepLearning deepLearning1;
+
         private DevExpress.XtraBars.Navigation.TileBarItem tileBarItem_deviceManagement_reserve2;
         private DevExpress.XtraBars.Navigation.TileBar tileBar1;
         private DevExpress.XtraBars.Navigation.TileBarDropDownContainer tileBarDropDownContainer_systemConfig;

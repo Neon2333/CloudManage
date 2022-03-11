@@ -385,6 +385,30 @@
     <Compile Include="test\test1.Designer.cs">
       <DependentUpon>test1.cs</DependentUpon>
     </Compile>
+    <Compile Include="TwinDetection\IntelligentReasoning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TwinDetection\IntelligentReasoning.Designer.cs">
+      <DependentUpon>IntelligentReasoning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TwinDetection\ParaSynchronize.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TwinDetection\ParaSynchronize.Designer.cs">
+      <DependentUpon>ParaSynchronize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TwinDetection\ParaUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TwinDetection\ParaUpdate.Designer.cs">
+      <DependentUpon>ParaUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TwinDetection\TwinDetection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TwinDetection\TwinDetection.Designer.cs">
+      <DependentUpon>TwinDetection.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CommonControl\ConfirmationBox.resx">
       <DependentUpon>ConfirmationBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +520,18 @@
     <EmbeddedResource Include="test\test1.resx">
       <DependentUpon>test1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TwinDetection\IntelligentReasoning.resx">
+      <DependentUpon>IntelligentReasoning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TwinDetection\ParaSynchronize.resx">
+      <DependentUpon>ParaSynchronize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TwinDetection\ParaUpdate.resx">
+      <DependentUpon>ParaUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TwinDetection\TwinDetection.resx">
+      <DependentUpon>TwinDetection.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -513,9 +549,7 @@
   <ItemGroup>
     <None Include="Resources\CETC.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TwinDetection\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\aboveaverage_32x32.png" />
   </ItemGroup>
