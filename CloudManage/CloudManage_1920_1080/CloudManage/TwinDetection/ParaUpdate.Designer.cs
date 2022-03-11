@@ -48,8 +48,6 @@ namespace CloudManage.TwinDetection
             this.sideTileBarControlWithSub_paraUpdate.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub_paraUpdate.TabIndex = 0;
             this.sideTileBarControlWithSub_paraUpdate.useDtInitSideTileBarWithSub = true;
-            this.sideTileBarControlWithSub_paraUpdate.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub_paraUpdate_sideTileBarItemWithSubClickedItem);
-            this.sideTileBarControlWithSub_paraUpdate.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub_paraUpdate_sideTileBarItemWithSubClickedSubItem);
             // 
             // windowsUIButtonPanel_paraUpdate
             // 

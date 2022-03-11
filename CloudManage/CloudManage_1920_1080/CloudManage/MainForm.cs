@@ -45,7 +45,9 @@ namespace CloudManage
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitParameterOptimization;
 
         //检测孪生（3个）
-
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitParaSynchronize;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitIntelligentReasoning;
+        public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitParaUpdate;
 
         //深度学习
         public static event DeviceOrLineAdditionDeletionReinit deviceOrLineAdditionDeletionReinitDataPreparation;
@@ -432,10 +434,10 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
-            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, TwinDetection.ParameterSynchronize.currentPageIndex))
-            //{
-            //    //deviceOrLineAdditionDeletionReinitParaSyn(sender, new EventArgs());
-            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, TwinDetection.ParaSynchronize.currentPageIndex))
+            {
+                deviceOrLineAdditionDeletionReinitParaSynchronize(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_twinDetection_intelligentReasoning_ItemClick(object sender, TileItemEventArgs e)
@@ -449,10 +451,10 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
-            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
-            //{
-            //    //deviceOrLineAdditionDeletionReinitIntelligentReasoning(sender, new EventArgs());
-            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
+            {
+                deviceOrLineAdditionDeletionReinitIntelligentReasoning(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_twinDetection_paraUpdate_ItemClick(object sender, TileItemEventArgs e)
@@ -466,10 +468,10 @@ namespace CloudManage
             currentPage = processCurrentPage();
             this.navigationFrame_mainMenu.SelectedPage = navigationPage_twinDetection;
 
-            //if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
-            //{
-            //    //deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
-            //}
+            if (Global.GetBitValueInt64(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, (ushort)currentPage))
+            {
+                deviceOrLineAdditionDeletionReinitParaUpdate(sender, new EventArgs());
+            }
         }
 
         private void tileBarItem_deepLearning_dataPreparation_ItemClick(object sender, TileItemEventArgs e)

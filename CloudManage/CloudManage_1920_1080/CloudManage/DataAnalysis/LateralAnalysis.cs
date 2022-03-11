@@ -36,7 +36,7 @@ namespace CloudManage.DataAnalysis
 
         }
 
-        void initLateralAnalysis()
+        private void initLateralAnalysis()
         {
             CefSettings settings = new CefSettings();
             Cef.Initialize(settings);
@@ -48,16 +48,17 @@ namespace CloudManage.DataAnalysis
 
             panelControl_chromeBrowser.Controls.Add(chromeBrowser);
 
-            this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtTestingDeviceName;
+            Global._init_dtDeviceExist();
+            this.sideTileBarControl_lateralAnalysis.dtInitSideTileBar = Global.dtDeviceExist;
             this.sideTileBarControl_lateralAnalysis.colTagDT = "DeviceNO";
             this.sideTileBarControl_lateralAnalysis.colTextDT = "DeviceName";
             this.sideTileBarControl_lateralAnalysis.colNumDT = null;
             this.sideTileBarControl_lateralAnalysis._initSideTileBar();
 
-            _initTimeEditStartAndEnd();
+            initTimeEditStartAndEnd();
         }
 
-        void _initTimeEditStartAndEnd()
+        private void initTimeEditStartAndEnd()
         {
             DateTime nowdt = DateTime.Now;
             DateTime oneMonthAgo = DateTime.Now.AddYears(-1);  //当前日期的一个月前日期

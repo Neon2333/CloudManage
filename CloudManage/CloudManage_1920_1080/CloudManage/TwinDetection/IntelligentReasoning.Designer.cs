@@ -48,8 +48,6 @@ namespace CloudManage.TwinDetection
             this.sideTileBarControlWithSub_intelligentReasoning.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub_intelligentReasoning.TabIndex = 0;
             this.sideTileBarControlWithSub_intelligentReasoning.useDtInitSideTileBarWithSub = true;
-            this.sideTileBarControlWithSub_intelligentReasoning.sideTileBarItemWithSubClickedItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedItemHanlder(this.sideTileBarControlWithSub_intelligentReasoning_sideTileBarItemWithSubClickedItem);
-            this.sideTileBarControlWithSub_intelligentReasoning.sideTileBarItemWithSubClickedSubItem += new CloudManage.CommonControl.SideTileBarControlWithSub.TileItemWithSubClickedSubItemHanlder(this.sideTileBarControlWithSub_intelligentReasoning_sideTileBarItemWithSubClickedSubItem);
             // 
             // windowsUIButtonPanel_intelligentReasoning
             // 

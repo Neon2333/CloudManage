@@ -403,8 +403,21 @@ namespace CloudManage
             }
         }
 
+        /*************************************************************************************************************/
+
+        //RealTimeData
+        public static DataTable dtDeviceInfoThresholdAndLocation = new DataTable();
+
+        public static void _init_dtDeviceInfoThresholdAndLocation()
+        {
+            string cmdInitDtDeviceInfoThresholdAndLocation = "SELECT * FROM device_info_threshold;";
+            mysqlHelper1._connectMySQL();
+            mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoThresholdAndLocation, ref Global.dtDeviceInfoThresholdAndLocation);
+            mysqlHelper1.conn.Close();
+        }
+
         /**********************************************************************************************************************************************/
-       
+
         //HistoryQueryControl
 
         public static DataTable dtHistoryQueryGridShow = new DataTable();        //grid初始化显示，所有故障与发生时间
@@ -449,16 +462,13 @@ namespace CloudManage
         }
 
         /*************************************************************************************************************/
+        //LateralAnalysis
+        public static DataTable dtDeviceExist = new DataTable("dtDeviceExist");
 
-        //RealTimeData
-        public static DataTable dtDeviceInfoThresholdAndLocation = new DataTable();
-
-        public static void _init_dtDeviceInfoThresholdAndLocation()
+        public static void _init_dtDeviceExist()
         {
-            string cmdInitDtDeviceInfoThresholdAndLocation = "SELECT * FROM device_info_threshold;"; 
-            mysqlHelper1._connectMySQL();
-            mysqlHelper1._queryTableMySQL(cmdInitDtDeviceInfoThresholdAndLocation, ref Global.dtDeviceInfoThresholdAndLocation);
-            mysqlHelper1.conn.Close();
+            string cmdQueryDtDeviceExist = "CALL initDtDeviceExist();";
+            _initDtMySQL(ref Global.dtDeviceExist, cmdQueryDtDeviceExist);
         }
 
         /*************************************************************************************************************/
