@@ -43,8 +43,8 @@ namespace CloudManage.TwinDetection
             this.sideTileBarControlWithSub_paraUpdate.colTextDTSUB = "";
             this.sideTileBarControlWithSub_paraUpdate.Location = new System.Drawing.Point(0, 0);
             this.sideTileBarControlWithSub_paraUpdate.Name = "sideTileBarControlWithSub_paraUpdate";
-            this.sideTileBarControlWithSub_paraUpdate.showAllDevices = true;
-            this.sideTileBarControlWithSub_paraUpdate.showOverview = true;
+            this.sideTileBarControlWithSub_paraUpdate.showAllDevices = false;
+            this.sideTileBarControlWithSub_paraUpdate.showOverview = false;
             this.sideTileBarControlWithSub_paraUpdate.Size = new System.Drawing.Size(510, 800);
             this.sideTileBarControlWithSub_paraUpdate.TabIndex = 0;
             this.sideTileBarControlWithSub_paraUpdate.useDtInitSideTileBarWithSub = true;

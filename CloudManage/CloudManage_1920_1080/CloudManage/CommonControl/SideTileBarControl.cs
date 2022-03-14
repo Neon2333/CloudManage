@@ -30,7 +30,7 @@ namespace CloudManage.CommonControl
             countSideTileBarItem = this.tileBarGroup_sideTileBarControl.Items.Count;
             if (this.showOverview == true)
             {
-                TagSelectedItem = "000"; 
+                TagSelectedItem = "000";
             }
             else
             {
@@ -54,7 +54,7 @@ namespace CloudManage.CommonControl
         {
             set
             {
-                this.DT = value;   
+                this.DT = value;
             }
         }
 
@@ -144,14 +144,15 @@ namespace CloudManage.CommonControl
                 int totalNumTemp = 0;
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    if(this.colTagDT!=null)
+                    if (this.colTagDT != null)
                         tag = (string)this.DT.Rows[i][this.colTagDT];
                     itemName = "tileBarItem" + (i + 1).ToString();   //tileBarItem0是总览,tileBarItem1是1号车
-                    if(this.colTextDT !=null)
+                    if (this.colTextDT != null)
                         text = (string)this.DT.Rows[i][this.colTextDT];
-                    if (this.colNumDT != null) { 
+                    if (this.colNumDT != null)
+                    {
                         num = this.DT.Rows[i][this.colNumDT].ToString();
-                        totalNumTemp ++;
+                        totalNumTemp++;
                     }
                     this._addSideTileBarItem(new TileBarItem(), tag, itemName, text, num);   //添加item
                 }
@@ -160,7 +161,7 @@ namespace CloudManage.CommonControl
 
                 if (this.showOverview == true)
                 {
-                    this._setNum("000", totalNumTemp.ToString());
+                    this._setUpperRight("000", totalNumTemp.ToString());
                 }
             }
             else
@@ -193,8 +194,9 @@ namespace CloudManage.CommonControl
                         string itemName = temp.Name;
                         if (tagTileBarItem.CompareTo(tag) == 0 || nameTileBarItem.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            //若添加的item已存在，则不再添加而是修改其num值
-                            this._setNum(tag, num);
+                            //若添加的item已存在，则不再添加而是修改其num值和text值
+                            this._setUpperRight(tag, num);
+                            this._setBottomLeft(tag, text);
                             return true;
                         }
                     }
@@ -277,14 +279,14 @@ namespace CloudManage.CommonControl
 
                     for (int j = 0; j < this.DT.Rows.Count; j++)
                     {
-                        if(tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
+                        if (tag.CompareTo((string)this.DT.Rows[j][this.colTagDT]) == 0)
                         {
                             flag = true;
                             break;
                         }
                     }
-                    
-                    if(flag == false)
+
+                    if (flag == false)
                     {
                         this._removeItemByTag(tag);
 
@@ -331,7 +333,7 @@ namespace CloudManage.CommonControl
             {
                 for (int i = 0; i < countSideTileBarItem; i++)
                 {
-                    if(indexItem == i)
+                    if (indexItem == i)
                     {
                         this.tileBar_sideTileBarControl.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
                         flag = true;
@@ -359,7 +361,7 @@ namespace CloudManage.CommonControl
             }
         }
 
-       
+
 
         //以tag删除按钮
         public bool _removeItemByTag(string tagTileBarItem)
@@ -387,7 +389,7 @@ namespace CloudManage.CommonControl
                     }
                 }
                 return flag;
-                
+
             }
             catch (Exception ex)
             {
@@ -399,14 +401,14 @@ namespace CloudManage.CommonControl
         //清空按钮
         public void _removeAllItem()
         {
-            for(int i = 0; i < countSideTileBarItem; i++)
+            for (int i = 0; i < countSideTileBarItem; i++)
             {
                 this.tileBarGroup_sideTileBarControl.Items.RemoveAt(i);
             }
         }
 
         //设置某个Item的Num值
-        public bool _setNum(string tagTileBarItem, string num)
+        public bool _setUpperRight(string tagTileBarItem, string num)
         {
             bool flag = false;
             try
@@ -434,13 +436,41 @@ namespace CloudManage.CommonControl
             }
         }
 
+        public bool _setBottomLeft(string tagTileBarItem, string text)
+        {
+            bool flag = false;
+            try
+            {
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(text))
+                {
+                    return false;
+                }
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    if (tagTileBarItem.CompareTo(tag) == 0)
+                    {
+                        ((TileBarItem)this.tileBarGroup_sideTileBarControl.Items.ElementAt(i)).Elements[1].Text = text;    //tileBarItem.Elements[0]-tileItemElementNum,tileBarItem.Elements[1]-tileItemElementText,tileBarItem.Elements[2]-tileItemElementIcon
+                        flag = true;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
         //通过Tag获得Text
         public string _getItemTextUseTag(string tagTileBarItem)
         {
             DataRow[] dr = null;
             if (_isAllNum(tagTileBarItem) == true && this.DT.Rows.Count != 0)
             {
-                dr = this.DT.Select(this.ColTagDT + "='"+ tagTileBarItem + "'");
+                dr = this.DT.Select(this.ColTagDT + "='" + tagTileBarItem + "'");
             }
             if (dr.Length != 1)
             {

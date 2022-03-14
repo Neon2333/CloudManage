@@ -38,7 +38,7 @@ namespace CloudManage.CommonControl
             InitializeComponent();
 
             countSideTileBarItem = this.tileBarGroup_sideTileBar.Items.Count;
-            TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;  
+            TotalNumDevice = Global.dtTestingDeviceName.Rows.Count;
             countSideTileBarItemSub = this.tileBarGroup_sub.Items.Count;
 
             TagSelectedItem = (string)this.tileBar_sideTileBar.SelectedItem.Tag;    //000
@@ -203,15 +203,15 @@ namespace CloudManage.CommonControl
 
                 for (int i = 0; i < this.DT.Rows.Count; i++)
                 {
-                    if(this.ColTagDT != null)
+                    if (this.ColTagDT != null)
                         tag = (string)this.DT.Rows[i][this.ColTagDT];
                     name = "tileBarItem" + (i + 1).ToString();   //总览是tileBarItem0
-                    if(this.ColTextDT != null)
+                    if (this.ColTextDT != null)
                         text = (string)this.DT.Rows[i][this.ColTextDT];
                     if (this.ColNumDT != null)
                     {
                         num = this.DT.Rows[i][this.ColNumDT].ToString();
-                        totalNumTemp ++;
+                        totalNumTemp++;
                     }
                     //num = Convert.ToString(this.DT.Rows[i][colNum]);  //可以。Convert.toString/toString/(string)区别？
                     //num = (string)this.DT.Rows[i][colNum];    //无法将double转成string
@@ -220,8 +220,8 @@ namespace CloudManage.CommonControl
 
                 _removeSideTileBarItemNotInDT();    //删除侧边栏中已被删除的产线
 
-                this._setNum("000", totalNumTemp.ToString());
-                this.TagItemWhichSubItemBeenSelected = "000";   
+                this._setUpperRight("000", totalNumTemp.ToString());
+                this.TagItemWhichSubItemBeenSelected = "000";
 
                 //一次性添加表device中的所有检测设备按钮
                 for (int i = 0; i < this.DTSUB.Rows.Count; i++)
@@ -318,10 +318,10 @@ namespace CloudManage.CommonControl
                     {
                         this.tileBar_sideTileBar_sub.SelectedItem = temp;
                         if (tagTemp != "-1")    //若选中的是“占位”，TagSelectedItemSub不更新
-                        {          
+                        {
                             TagSelectedItemSub = tagTemp;
                             TagItemWhichSubItemBeenSelected = TagSelectedItem;                          //更新TagItemWhichSubItemBeenSelected
-                        }                
+                        }
                         flag = true;
                     }
 
@@ -346,7 +346,7 @@ namespace CloudManage.CommonControl
                     if (indexItem == i)
                     {
                         this.tileBar_sideTileBar.SelectedItem = (TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i);
-                        this.TagSelectedItem = (string)((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Tag; 
+                        this.TagSelectedItem = (string)((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Tag;
                         flag = true;
                     }
                 }
@@ -428,9 +428,13 @@ namespace CloudManage.CommonControl
                         string itemName = temp.Name;
                         if (tagTileBarItem.CompareTo(tag) == 0 || nameTileBarItem.CompareTo(itemName) == 0) //tag或name重复
                         {
-                            //若添加的item已存在，则不再添加而是修改其num值
-                            this._setNum(tag, num);
+                            //若添加的item已存在，则不再添加而是修改其num值和text值
+                            this._setUpperRight(tagTileBarItem, num);
+                            this._setBottomLeft(tagTileBarItem, text);
                             return true;
+
+                            //若添加的item已存在，则将该item删除，重新添加（上方修改num值可行，但除了修改num值还需修改text值）
+
                         }
                     }
                 }
@@ -563,7 +567,7 @@ namespace CloudManage.CommonControl
                         if (tagTileBarItemSub.CompareTo(tag) == 0 || nameTileBarItemSub.CompareTo(itemName) == 0) //tag或name重复
                         {
                             //若添加的item已存在，则不再添加而是修改其num值
-                            this._setTextSub(tag, textSub);
+                            this._setUpperRightSub(tagTileBarItemSub, textSub);
                             return true;
                         }
                     }
@@ -705,13 +709,13 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //设置sideTileBar的某个Item的Num值
-        public bool _setNum(string tagTileBarItem, string num)
+        //设置sideTileBar的某个Item的右上角text值
+        public bool _setUpperRight(string tagTileBarItem, string text)
         {
             bool flag = false;
             try
             {
-                if (!_isAllNum(tagTileBarItem) || !_isAllNum(num))
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(text))
                 {
                     return false;
                 }
@@ -721,7 +725,7 @@ namespace CloudManage.CommonControl
                     string tag = temp.Tag.ToString();
                     if (tagTileBarItem.CompareTo(tag) == 0)
                     {
-                        ((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Text = num;
+                        ((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Text = text;
                         flag = true;
                     }
                 }
@@ -734,8 +738,36 @@ namespace CloudManage.CommonControl
             }
         }
 
-        //设置sub的某个Item的textSub值
-        public bool _setTextSub(string tagTileBarItemSub, string textSub)
+        public bool _setBottomLeft(string tagTileBarItem, string text)
+        {
+            bool flag = false;
+            try
+            {
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(text))
+                {
+                    return false;
+                }
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    if (tagTileBarItem.CompareTo(tag) == 0)
+                    {
+                        ((TileBarItem)this.tileBarGroup_sideTileBar.Items.ElementAt(i)).Elements[1].Text = text;    //tileBarItem.Elements[0]-tileItemElementNum,tileBarItem.Elements[1]-tileItemElementText,tileBarItem.Elements[2]-tileItemElementIcon
+                        flag = true;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
+        //设置sub的某个Item的右上角textSub值
+        public bool _setUpperRightSub(string tagTileBarItemSub, string textSub)
         {
             bool flag = false;
             try
@@ -747,6 +779,34 @@ namespace CloudManage.CommonControl
                     if (tagTileBarItemSub.CompareTo(tag) == 0)
                     {
                         ((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Text = textSub;
+                        flag = true;
+                    }
+                }
+                return flag;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return false;
+            }
+        }
+
+        public bool _setBottomLeftSub(string tagTileBarItem, string text)
+        {
+            bool flag = false;
+            try
+            {
+                if (!_isAllNum(tagTileBarItem) || !_isAllNum(text))
+                {
+                    return false;
+                }
+                for (int i = 0; i < countSideTileBarItem; i++)
+                {
+                    TileBarItem temp = (TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i);
+                    string tag = temp.Tag.ToString();
+                    if (tagTileBarItem.CompareTo(tag) == 0)
+                    {
+                        ((TileBarItem)this.tileBarGroup_sub.Items.ElementAt(i)).Elements[1].Text = text;    //tileBarItem.Elements[0]-tileItemElementNum,tileBarItem.Elements[1]-tileItemElementText,tileBarItem.Elements[2]-tileItemElementIcon
                         flag = true;
                     }
                 }
@@ -776,9 +836,9 @@ namespace CloudManage.CommonControl
                     MessageBox.Show("_addSideTileBarItemSub未添加表中所有设备");
                 }
 
-                if (this.showOverview == true)   
+                if (this.showOverview == true)
                 {
-                    if(this.TagSelectedItem == "000")   //选中总览
+                    if (this.TagSelectedItem == "000")   //选中总览
                     {
                         for (int i = 0; i < this.TotalNumDevice; i++)
                         {
@@ -815,7 +875,7 @@ namespace CloudManage.CommonControl
                 }
                 else
                 {
-                   if(this.TagSelectedItem != "000")
+                    if (this.TagSelectedItem != "000")
                     {
                         //从dtDeviceConfig中读取检测设备标志，实现检测设备按钮的显示
                         DataRow dr = null;
@@ -827,7 +887,7 @@ namespace CloudManage.CommonControl
                                 break;
                             }
                         }
-                        if(dr != null)
+                        if (dr != null)
                         {
                             for (int i = 0; i < this.TotalNumDevice; i++)
                             {
@@ -843,7 +903,7 @@ namespace CloudManage.CommonControl
                                 }
                             }
                         }
-                        
+
                     }
                 }
 

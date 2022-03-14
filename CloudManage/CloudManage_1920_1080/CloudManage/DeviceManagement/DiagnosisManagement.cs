@@ -50,7 +50,7 @@ namespace CloudManage.DeviceManagement
             initDiagnosisManagement();
 
             MainForm.deviceOrLineAdditionDeletionReinitdiagnosisManagement += reInitDiagnosisManagement;
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
         private void reInitDiagnosisManagement(object sender, EventArgs e)

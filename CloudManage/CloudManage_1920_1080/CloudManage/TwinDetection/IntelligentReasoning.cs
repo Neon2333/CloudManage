@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraSplashScreen;
+
 
 namespace CloudManage.TwinDetection
 {
@@ -18,17 +20,27 @@ namespace CloudManage.TwinDetection
         public IntelligentReasoning()
         {
             InitializeComponent();
+            initIntelligentReasoning();
             MainForm.deviceOrLineAdditionDeletionReinitIntelligentReasoning += reInitIntelligentReasoning;
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
+
         }
 
         private void initIntelligentReasoning()
         {
-
+            this.sideTileBarControlWithSub_intelligentReasoning.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub_intelligentReasoning.colTagDT = "LineNO";
+            this.sideTileBarControlWithSub_intelligentReasoning.colTextDT = "LineName";
+            this.sideTileBarControlWithSub_intelligentReasoning.colNumDT = "DeviceTotalNum";
+            this.sideTileBarControlWithSub_intelligentReasoning.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
+            this.sideTileBarControlWithSub_intelligentReasoning.colTagDTSUB = "DeviceNO";
+            this.sideTileBarControlWithSub_intelligentReasoning.colTextDTSUB = "DeviceName";
+            this.sideTileBarControlWithSub_intelligentReasoning._initSideTileBarWithSub();
         }
 
         private void reInitIntelligentReasoning(object sender, EventArgs e)
         {
-            MessageBox.Show("页面重刷");
+            initIntelligentReasoning();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
 
         }

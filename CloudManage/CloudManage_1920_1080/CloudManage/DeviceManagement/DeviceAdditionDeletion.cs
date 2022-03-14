@@ -43,7 +43,7 @@ namespace CloudManage.DeviceManagement
 
             MainForm.deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion += reInitDeviceAdditionDeletion;
 
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
 
         public void reInitDeviceAdditionDeletion(object sender, EventArgs e)

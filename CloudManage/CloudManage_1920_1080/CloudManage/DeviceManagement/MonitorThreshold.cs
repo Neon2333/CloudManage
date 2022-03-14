@@ -46,7 +46,7 @@ namespace CloudManage.DeviceManagement
             InitializeComponent();
             initMonitorThreshold();
             MainForm.deviceOrLineAdditionDeletionReinitMonitorThreshold += reInitRealTime;
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 10);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
         }
 

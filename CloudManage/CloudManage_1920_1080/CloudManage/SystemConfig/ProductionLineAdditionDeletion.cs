@@ -75,7 +75,7 @@ namespace CloudManage.SystemConfig
         {
             this.sideTileBarControl_productionLineAdditionDeletion.overViewText = "产线";
             string totalProductionCount = Global.dtSideTileBar.Rows.Count.ToString();
-            this.sideTileBarControl_productionLineAdditionDeletion._setNum("000", totalProductionCount);
+            this.sideTileBarControl_productionLineAdditionDeletion._setUpperRight("000", totalProductionCount);
         }
 
         private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraSplashScreen;
+
 
 namespace CloudManage.TwinDetection
 {
@@ -20,17 +22,26 @@ namespace CloudManage.TwinDetection
             InitializeComponent();
             initParaSynchronize();
             MainForm.deviceOrLineAdditionDeletionReinitParaSynchronize += reInitParaSynchronize;
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
 
         }
 
         private void initParaSynchronize()
         {
+            this.sideTileBarControlWithSub_paraSyn.dtInitSideTileBarWithSub = Global.dtSideTileBar;
+            this.sideTileBarControlWithSub_paraSyn.colTagDT = "LineNO";
+            this.sideTileBarControlWithSub_paraSyn.colTextDT = "LineName";
+            this.sideTileBarControlWithSub_paraSyn.colNumDT = "DeviceTotalNum";
+            this.sideTileBarControlWithSub_paraSyn.dtSubInitSideTileBarWithSub = Global.dtTestingDeviceName;
+            this.sideTileBarControlWithSub_paraSyn.colTagDTSUB = "DeviceNO";
+            this.sideTileBarControlWithSub_paraSyn.colTextDTSUB = "DeviceName";
+            this.sideTileBarControlWithSub_paraSyn._initSideTileBarWithSub();
 
         }
 
         private void reInitParaSynchronize(object sender, EventArgs e)
         {
-            MessageBox.Show("页面重刷");
+            initParaSynchronize();
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
 
         }
