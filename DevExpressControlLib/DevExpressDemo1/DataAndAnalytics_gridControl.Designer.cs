@@ -35,12 +35,12 @@
             DevExpress.DataAccess.Excel.ExcelSourceOptions excelSourceOptions1 = new DevExpress.DataAccess.Excel.ExcelSourceOptions(excelWorksheetSettings1);
             this.excelDataSource1 = new DevExpress.DataAccess.Excel.ExcelDataSource();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.tileView1 = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.colimgIndex = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.colname = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.colname1 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.winExplorerView1 = new DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView();
+            this.colimgIndex = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).BeginInit();
             this.SuspendLayout();
             // 
             // excelDataSource1
@@ -68,22 +68,22 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.excelDataSource1;
-            this.gridControl1.Location = new System.Drawing.Point(271, 178);
-            this.gridControl1.MainView = this.tileView1;
+            this.gridControl1.Location = new System.Drawing.Point(12, 12);
+            this.gridControl1.MainView = this.winExplorerView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(400, 200);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileView1});
+            this.winExplorerView1});
             // 
-            // tileView1
+            // winExplorerView1
             // 
-            this.tileView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.winExplorerView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colimgIndex,
             this.colname,
             this.colname1});
-            this.tileView1.GridControl = this.gridControl1;
-            this.tileView1.Name = "tileView1";
+            this.winExplorerView1.GridControl = this.gridControl1;
+            this.winExplorerView1.Name = "winExplorerView1";
             // 
             // colimgIndex
             // 
@@ -115,7 +115,7 @@
             this.Name = "DataAndAnalytics_gridControl";
             this.Text = "DataAndAnalytics_gridControl";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.winExplorerView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -123,9 +123,9 @@
         #endregion
         private DevExpress.DataAccess.Excel.ExcelDataSource excelDataSource1;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Tile.TileView tileView1;
-        private DevExpress.XtraGrid.Columns.TileViewColumn colimgIndex;
-        private DevExpress.XtraGrid.Columns.TileViewColumn colname;
-        private DevExpress.XtraGrid.Columns.TileViewColumn colname1;
+        private DevExpress.XtraGrid.Views.WinExplorer.WinExplorerView winExplorerView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colimgIndex;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
+        private DevExpress.XtraGrid.Columns.GridColumn colname1;
     }
 }
