@@ -1252,8 +1252,10 @@
             this.tileBarItem_systemConfig.AppearanceItem.Normal.Options.UseBackColor = true;
             this.tileBarItem_systemConfig.AppearanceItem.Normal.Options.UseFont = true;
             this.tileBarItem_systemConfig.DropDownControl = this.tileBarDropDownContainer_systemConfig;
+            this.tileBarItem_systemConfig.DropDownOptions.AutoHeight = DevExpress.Utils.DefaultBoolean.False;
             this.tileBarItem_systemConfig.DropDownOptions.BackColorMode = DevExpress.XtraBars.Navigation.BackColorMode.UseTileBackColor;
             this.tileBarItem_systemConfig.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
+            this.tileBarItem_systemConfig.DropDownOptions.Height = 100;
             tileItemElement27.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             tileItemElement27.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Left;
             tileItemElement27.ImageOptions.ImageToTextIndent = 10;
@@ -1432,11 +1434,13 @@
             // 
             // navigationPage_twinDetection
             // 
+            this.navigationPage_twinDetection.Caption = "navigationPage_twinDetection";
             this.navigationPage_twinDetection.Name = "navigationPage_twinDetection";
             this.navigationPage_twinDetection.Size = new System.Drawing.Size(1920, 880);
             // 
             // navigationPage_statusMonitoring
             // 
+            this.navigationPage_statusMonitoring.Caption = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Controls.Add(this.tileBarDropDownContainer_statusMonitoring);
             this.navigationPage_statusMonitoring.Name = "navigationPage_statusMonitoring";
             this.navigationPage_statusMonitoring.Size = new System.Drawing.Size(1920, 880);
@@ -2123,9 +2127,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.panelControl_faultsCurrent);
+            this.Controls.Add(this.tileBar_mainMenu);
             this.Controls.Add(this.tileBarDropDownContainer_systemConfig);
             this.Controls.Add(this.navigationFrame_mainMenu);
-            this.Controls.Add(this.tileBar_mainMenu);
             this.Controls.Add(this.sidePanel_title);
             this.Controls.Add(this.tileBarDropDownContainer_twinDetection);
             this.Controls.Add(this.tileBarDropDownContainer_deviceManagement);

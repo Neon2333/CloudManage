@@ -59,6 +59,7 @@ namespace CloudManage.SystemConfig
 
         void initDeviceAdditionDeletion()
         {
+            Global._init_dtProductionLine();
             Global._init_dtSideTileBarWorkState();
             initLineNOVec();
             Global.initDtProductionLineExists();
@@ -249,6 +250,7 @@ namespace CloudManage.SystemConfig
         //生成一个在表中未用的LineNO
         private string createLineNO()
         {
+            Global._init_dtProductionLine();
             string lNO = String.Empty;
             List<string> ll = new List<string>();
             for (int i = 0; i < Global.dtProductionLine.Rows.Count; i++)

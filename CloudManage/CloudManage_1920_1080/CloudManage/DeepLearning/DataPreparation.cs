@@ -70,16 +70,16 @@ namespace CloudManage.DeepLearning
 
         private void readPicsOKToList()
         {
-            DirectoryInfo dirPics = new DirectoryInfo(picOKPath);
-            FileInfo[] fileInfos = dirPics.GetFiles();
+            //DirectoryInfo dirPics = new DirectoryInfo(picOKPath);
+            //FileInfo[] fileInfos = dirPics.GetFiles();
 
-            foreach (var item in fileInfos)
-            {
-                string itemName = item.Name;
-                string itemPath = item.FullName;
+            //foreach (var item in fileInfos)
+            //{
+            //    string itemName = item.Name;
+            //    string itemPath = item.FullName;
 
-                picsOK.Add(new Pics(itemName, itemPath, Image.FromFile(itemPath)));
-            }
+            //    picsOK.Add(new Pics(itemName, itemPath, Image.FromFile(itemPath)));
+            //}
         }
 
         public void bindPicsNGToGrid()
@@ -95,15 +95,15 @@ namespace CloudManage.DeepLearning
 
         private void readPicsNGToList()
         {
-            DirectoryInfo dirPics = new DirectoryInfo(picNGPath);
-            FileInfo[] fileInfos = dirPics.GetFiles();
-            foreach (var item in fileInfos)
-            {
-                string itemName = item.Name;
-                string itemPath = item.FullName;
+            //DirectoryInfo dirPics = new DirectoryInfo(picNGPath);
+            //FileInfo[] fileInfos = dirPics.GetFiles();
+            //foreach (var item in fileInfos)
+            //{
+            //    string itemName = item.Name;
+            //    string itemPath = item.FullName;
 
-                picsNG.Add(new Pics(itemName, itemPath, Image.FromFile(itemPath)));
-            }
+            //    picsNG.Add(new Pics(itemName, itemPath, Image.FromFile(itemPath)));
+            //}
         }
 
         private void delPicsInDir(string picPath)
