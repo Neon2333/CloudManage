@@ -60,6 +60,12 @@ namespace CloudManage.StatusMonitor
             Global._init_dtHistoryQueryGridShow(startTime, endTime);
 
             this.gridControl_faultHistory.DataSource = Global.dtHistoryQueryGridShow;
+
+            if (((DataTable)this.gridControl_faultHistory.DataSource).Rows.Count > 0)
+            {
+                this.tileView_1.FocusedRowHandle = selectRowFaultCurrent[0]; //默认选中第一行
+            }
+
             _initWindowsUIButtonPanel();
         }
 
@@ -395,6 +401,52 @@ namespace CloudManage.StatusMonitor
 
             //this.gridControl_faultDataTime.DataSource = Global.dtHistoryQueryGridShowClickedQueryButton;
         }
+
+        private void simpleButton_delSelHistory_Click(object sender, EventArgs e)
+        {
+            if (Global.dtHistoryQueryGridShow.Rows.Count == 0)
+            {
+                return;
+            }
+
+            DataRow drSel = tileView_1.GetDataRow(selectRowFaultCurrent[0]);
+            if (drSel == null)
+            {
+                return;
+            }
+
+            string valLineName = drSel["LineName"].ToString();
+            string valDeviceName = drSel["DeviceName"].ToString();
+            string valFaultName = drSel["FaultName"].ToString();
+
+            //dtTitleGridShowMainForm中存储的是名称，而faults_current中是ID
+            string cmdTransform = "SELECT t1.LineNO,t2.DeviceNO,t3.FaultNO " +
+                                  "FROM productionline AS t1, device AS t2, faults AS t3 " +
+                                  "WHERE t1.LineName=" + "'" + valLineName + "'" + " AND t2.DeviceName=" + "'" + valDeviceName + "'" + " AND t3.FaultName=" + "'" + valFaultName + "';";
+            DataTable dtTemp = new DataTable();
+            bool flag1 = Global.mysqlHelper1._queryTableMySQL(cmdTransform, ref dtTemp);
+            if (flag1 == true)
+            {
+                string valLineNO = dtTemp.Rows[0]["LineNO"].ToString();
+                string valDeviceNO = dtTemp.Rows[0]["DeviceNO"].ToString();
+                string valFaultNO = dtTemp.Rows[0]["FaultNO"].ToString();
+                DateTime valFaultTime = (DateTime)drSel["FaultTime"];
+
+                string cmdDelSelFaultHistory = "DELETE FROM faults_history WHERE " +
+                                     "LineNO=" + "'" + valLineNO + "'" + " AND DeviceNO=" + "'" + valDeviceNO + "'" + " AND FaultNO=" +
+                                     "'" + valFaultNO + "'" + " AND FaultTime=" + "'" + valFaultTime + "';";
+
+                bool flag2 = Global.mysqlHelper1._deleteMySQL(cmdDelSelFaultHistory);
+                //Global.mysqlHelper1.conn.Close();
+                if (flag2 == true)
+                {
+                    Global._init_dtHistoryQueryGridShow(startTime, endTime);
+                    MessageBox.Show("更新表faults_history一次");
+                }
+                keepSelectRowWhenDataSourceRefresh();
+            }
+        }
+
         private void simpleButton_exportData_Click(object sender, EventArgs e)
         {
             exportExcelDtHistoryQueryGridShow();
@@ -422,5 +474,6 @@ namespace CloudManage.StatusMonitor
             keepSelectRowWhenDataSourceRefresh();
         }
 
+       
     }
 }

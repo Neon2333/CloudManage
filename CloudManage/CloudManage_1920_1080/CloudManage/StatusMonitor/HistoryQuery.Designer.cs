@@ -120,6 +120,7 @@
             this.tileView_1 = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.timer_refreshDtHistoryQueryGridShow = new System.Windows.Forms.Timer(this.components);
+            this.simpleButton_delSelFaultHistory = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl_rightSide)).BeginInit();
             this.panelControl_rightSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -200,6 +201,7 @@
             // 
             // panelControl_rightSide
             // 
+            this.panelControl_rightSide.Controls.Add(this.simpleButton_delSelFaultHistory);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_exportData);
             this.panelControl_rightSide.Controls.Add(this.separatorControl1);
             this.panelControl_rightSide.Controls.Add(this.simpleButton_query1Month);
@@ -225,7 +227,7 @@
             this.simpleButton_exportData.Appearance.Options.UseFont = true;
             this.simpleButton_exportData.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
             this.simpleButton_exportData.AppearancePressed.Options.UseFont = true;
-            this.simpleButton_exportData.Location = new System.Drawing.Point(6, 486);
+            this.simpleButton_exportData.Location = new System.Drawing.Point(6, 551);
             this.simpleButton_exportData.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
             this.simpleButton_exportData.Name = "simpleButton_exportData";
             this.simpleButton_exportData.Size = new System.Drawing.Size(550, 46);
@@ -236,7 +238,7 @@
             // separatorControl1
             // 
             this.separatorControl1.LineAlignment = DevExpress.XtraEditors.Alignment.Center;
-            this.separatorControl1.Location = new System.Drawing.Point(1, 460);
+            this.separatorControl1.Location = new System.Drawing.Point(1, 520);
             this.separatorControl1.LookAndFeel.SkinName = "Office 2019 Colorful";
             this.separatorControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.separatorControl1.Name = "separatorControl1";
@@ -897,6 +899,21 @@
             this.timer_refreshDtHistoryQueryGridShow.Interval = 3000;
             this.timer_refreshDtHistoryQueryGridShow.Tick += new System.EventHandler(this.timer_refreshDtHistoryQueryGridShow_Tick);
             // 
+            // simpleButton_delSelFaultHistory
+            // 
+            this.simpleButton_delSelFaultHistory.AllowFocus = false;
+            this.simpleButton_delSelFaultHistory.Appearance.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton_delSelFaultHistory.Appearance.Options.UseFont = true;
+            this.simpleButton_delSelFaultHistory.AppearancePressed.Font = new System.Drawing.Font("微软雅黑", 20.75F);
+            this.simpleButton_delSelFaultHistory.AppearancePressed.Options.UseFont = true;
+            this.simpleButton_delSelFaultHistory.Location = new System.Drawing.Point(5, 460);
+            this.simpleButton_delSelFaultHistory.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+            this.simpleButton_delSelFaultHistory.Name = "simpleButton_delSelFaultHistory";
+            this.simpleButton_delSelFaultHistory.Size = new System.Drawing.Size(550, 46);
+            this.simpleButton_delSelFaultHistory.TabIndex = 28;
+            this.simpleButton_delSelFaultHistory.Text = "删除选中";
+            this.simpleButton_delSelFaultHistory.Click += new System.EventHandler(this.simpleButton_delSelHistory_Click);
+            // 
             // HistoryQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -957,5 +974,6 @@
         private System.Windows.Forms.Timer timer_refreshDtHistoryQueryGridShow;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton_exportData;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_delSelFaultHistory;
     }
 }
