@@ -43,6 +43,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 初始化deviceManagementPages，存储5个页面
+        /// </summary>
         private void initDeviceManagementPage()
         {
             deviceManagementPages[0] = navigationPage_deviceAdditionDeletion;
@@ -72,6 +75,10 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 设定当前显示页面
+        /// </summary>
+        /// <param name="pageIndex"></param>
         public void setSelectedFramePage(int pageIndex)
         {
             this.navigationFrame_deviceManagement.SelectedPage = deviceManagementPages[pageIndex];

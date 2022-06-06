@@ -19,29 +19,29 @@ namespace CloudManage.DeviceManagement
         public static ushort currentPageIndex = 13;
 
         private int[] selectRowDtDeviceCanDeleteEachLine = { 0 };   //当表变化时当前选中行会自动变成第一行，selectRow[0]记录的选中行重置当前选中行
-        private int[] selectRowDtDeviceCanAddEachLine = { 0 };
-        private CommonControl.ConfirmationBox confirmationBox1;
-        private CommonControl.InformationBox infoBox_successOrFail;
-        private DeviceAdditionDeletion_addDeviceBox deviceAdditionDeletion_addDeviceBox1;
-        private DeviceAdditionDeletion_addDeviceBox deviceAdditionDeletion_selectMachine1;
+        private int[] selectRowDtDeviceCanAddEachLine = { 0 };      //手动记录可添加产线grid的行
+        private CommonControl.ConfirmationBox confirmationBox1;     //确认框对象
+        private CommonControl.InformationBox infoBox_successOrFail; //信息框
+        private DeviceAdditionDeletion_addDeviceBox deviceAdditionDeletion_addDeviceBox1;   //添加设备弹出框
+        private DeviceAdditionDeletion_addDeviceBox deviceAdditionDeletion_selectMachine1;  //选择Machine弹出框
 
-        string toDeleteDevice = String.Empty;
-        string deviceNOSel = String.Empty;
-        bool flag_device_info_threshold = false;
-        bool flag_device_config = false;
-        bool flag_device_info = false;
-        bool flag_device_paraNameAndSuffix = false;
-        bool flag_faults_config = false;
+        string toDeleteDevice = String.Empty;   //要删除的设备
+        string deviceNOSel = String.Empty;      //选中的设备的NO
+        bool flag_device_info_threshold = false;    //表device_info_threshold修改成功标志
+        bool flag_device_config = false;            //表device_config修改成功标志
+        bool flag_device_info = false;              //表device_info修改成功标志
+        bool flag_device_paraNameAndSuffix = false; //表device_paraNameAndSuffix修改成功标志
+        bool flag_faults_config = false;            //表faults_config修改成功标志
 
-        DataRow drSelectedAddDeviceBox = null;
-        DataRow[] drSelectedDevice = null;
+        DataRow drSelectedAddDeviceBox = null;      //添加设备弹出框选中行
+        DataRow[] drSelectedDevice = null;          //选中设备框
         public DeviceAdditionDeletion()
         {
             InitializeComponent();
 
-            initDeviceAdditionDeletion();
+            initDeviceAdditionDeletion();   //初始化页面
 
-            MainForm.deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion += reInitDeviceAdditionDeletion;
+            MainForm.deviceOrLineAdditionDeletionReinitDeviceAdditionDeletion += reInitDeviceAdditionDeletion;      //绑定重刷新页面事件
 
             SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
         }
@@ -53,13 +53,15 @@ namespace CloudManage.DeviceManagement
             Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
         }
 
-
+        /// <summary>
+        /// 初始化页面
+        /// </summary>
         void initDeviceAdditionDeletion()
         {
-            initSideTileBarDeviceAdditionDeletion();
+            initSideTileBarDeviceAdditionDeletion();    //初始化侧边栏
             Global.initDtDeviceCanDeleteEachLine();     //初始化可删除设备表
-            refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
-            this.gridControl_deviceDeletion.DataSource = Global.dtDeviceCanDeleteEachLine;
+            refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //根据侧边栏选中的产线查询可删除的设备到Global.dtDeviceCanDeleteEachLine
+            this.gridControl_deviceDeletion.DataSource = Global.dtDeviceCanDeleteEachLine;  //设备增删弹出框grid绑定数据源
             if (((DataTable)this.gridControl_deviceDeletion.DataSource).Rows.Count > 0)
             {
                 this.tileView1.FocusedRowHandle = selectRowDtDeviceCanDeleteEachLine[0]; //默认选中第一行
@@ -68,6 +70,10 @@ namespace CloudManage.DeviceManagement
             Global.initDtDeviceCanAddEachLine();   //初始化可添加设备表
             Global.initDtMachineCanSelectEachDevice();  //初始化可添加机器表
         }
+
+        /// <summary>
+        /// 初始化侧边栏
+        /// </summary>
         private void initSideTileBarDeviceAdditionDeletion()
         {
             Global._init_dtSideTileBarWorkState();
@@ -78,6 +84,11 @@ namespace CloudManage.DeviceManagement
             this.sideTileBarControl_deviceAdditionDeletion._initSideTileBar();
         }
 
+        /// <summary>
+        /// 显示信息弹出框
+        /// </summary>
+        /// <param name="infoMsg">弹出框显示的信息</param>
+        /// <param name="disappearIntervalMS">显示时间（ms）</param>
         private void initInfoBox_successOrFail(string infoMsg, int disappearIntervalMS)
         {
             this.infoBox_successOrFail = new CommonControl.InformationBox();
@@ -130,7 +141,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        //填充dtDeviceCanDeleteEachLine
+        /// <summary>
+        /// 刷新可删除设备弹出框
+        /// 根据lineNO查询该产线可删除的设备到Global.dtDeviceCanDeleteEachLine
+        /// </summary>
+        /// <param name="LineNO">产线NO</param>
         void refreshDtDeviceCanDeleteEachLine(string LineNO)
         {
             /**
@@ -148,23 +163,24 @@ namespace CloudManage.DeviceManagement
             //Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceEnableCount, ref dtDeviceCountEachLine);
 
             Global._init_dtSideTileBarWorkState();
-            DataRow[] drDtSideTileBar = Global.dtSideTileBar.Select("LineNO='" + LineNO + "'");
+            DataRow[] drDtSideTileBar = Global.dtSideTileBar.Select("LineNO='" + LineNO + "'"); //从dtSideTileBar中查询指定lineNO的记录
 
             if (drDtSideTileBar.Length == 1)
             {
-                deviceCountEachLine = Convert.ToInt32(drDtSideTileBar[0]["DeviceTotalNum"]);
+                deviceCountEachLine = Convert.ToInt32(drDtSideTileBar[0]["DeviceTotalNum"]);    //获取lineNO指定的产线的设备总数
             }
 
+            //向Global.dtDeviceCanDeleteEachLine填充NO、产线NO、产线名
             for (int i = 0; i < deviceCountEachLine; i++)
             {
                 DataRow dr = Global.dtDeviceCanDeleteEachLine.NewRow();
                 dr["NO"] = i;
                 dr["LineNO"] = LineNO;
-                dr["LineName"] = Global._getProductionLineNameByTag(LineNO);
+                dr["LineName"] = Global._getProductionLineNameByTag(LineNO);    //获取lineNO指定产线的产线名
                 Global.dtDeviceCanDeleteEachLine.Rows.Add(dr);
             }
 
-            //填充DeviceNO、DeviceName、ValidParaCount
+            //向Global.dtDeviceCanDeleteEachLine中填充DeviceNO、DeviceName、ValidParaCount
             DataTable dtDeviceNOAndValidParaCount = new DataTable();
             string cmdGetDeviceNOAndValidParaCount = "SELECT DeviceNO, ValidParaCount FROM device_info WHERE LineNO='" + LineNO + "';";
             Global.mysqlHelper1._queryTableMySQL(cmdGetDeviceNOAndValidParaCount, ref dtDeviceNOAndValidParaCount);
@@ -176,7 +192,7 @@ namespace CloudManage.DeviceManagement
                 Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceName"] = Global._getTestingDeviceNameByTag(dtDeviceNOAndValidParaCount.Rows[i]["DeviceNO"].ToString());
             }
 
-            //填充DeviceFaultsCount、DeviceFaultsEnableCount
+            //向Global.dtDeviceCanDeleteEachLine中填充DeviceFaultsCount、DeviceFaultsEnableCount
             DataTable dtDeviceFaultsCountAndFaultsEnableCount = new DataTable();
             string cmdGetDtDeviceFaultsCountAndFaultsEnableCount = "SELECT * FROM v_deviceFaultsCount_and_faultsEnableCount WHERE LineNO='" + LineNO + "';";
             Global.mysqlHelper1._queryTableMySQL(cmdGetDtDeviceFaultsCountAndFaultsEnableCount, ref dtDeviceFaultsCountAndFaultsEnableCount);
@@ -190,7 +206,7 @@ namespace CloudManage.DeviceManagement
                     Global.dtDeviceCanDeleteEachLine.Rows[i]["DeviceFaultsEnableCount"] = drs[0]["DeviceFaultsEnableCount"];
                 }
             }
-            Global.reorderDt(ref Global.dtDeviceCanDeleteEachLine);
+            Global.reorderDt(ref Global.dtDeviceCanDeleteEachLine); //给Global.dtDeviceCanDeleteEachLine的NO重排从1开始
             //当表中数据发生改变时，会自动选中第一行，需要用selectRow重置选中行
             if (this.gridControl_deviceDeletion.DataSource != null)
             {
@@ -198,6 +214,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 刷新可添加设备弹出框
+        /// 根据指定产线lineNO查询该产线可增加的设备到Global.gffdtDeviceCanAddEachLine
+        /// </summary>
+        /// <param name="LineNO">指定产线</param>
         private void refreshDtDeviceCanAddEachLine(string LineNO)
         {
             //DataTable dtTemp = Global.dtDeviceCanAddEachLine;
@@ -250,6 +271,10 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 刷新deviceNO指定设备可选择的machine列表弹出框
+        /// </summary>
+        /// <param name="deviceNO"></param>
         public static void refreshDtMachineCanSelectEachDevice(string deviceNO)
         {
             string cmdRefreshDtMachineCanSelectEachDevice = "CALL initDtMachineCanSelectEachDevice('" + deviceNO + "');";
@@ -257,6 +282,10 @@ namespace CloudManage.DeviceManagement
             Global.reorderDt(ref Global.dtMachineCanSelectEachDevice);
         }
 
+        /// <summary>
+        /// 锁定按钮
+        /// </summary>
+        /// <param name="lockOrUnlock"></param>
         private void lockUnlockButton(string lockOrUnlock)
         {
             if (lockOrUnlock == "lockbtn")
@@ -271,6 +300,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 侧边栏选中改变时事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sideTileBarControl_deviceAdditionDeletion_sideTileBarItemSelectedChanged(object sender, EventArgs e)
         {
             _refreshLabelDir();
@@ -279,6 +313,12 @@ namespace CloudManage.DeviceManagement
         }
 
         //*************************************************************删除设备****************************************************************************
+        
+        /// <summary>
+        /// 删除按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButton_deviceDeletion_Click(object sender, EventArgs e)
         {
 
@@ -294,7 +334,7 @@ namespace CloudManage.DeviceManagement
                 this.confirmationBox1.Size = new System.Drawing.Size(350, 200);
                 this.confirmationBox1.TabIndex = 29;
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtDeviceCanDeleteEachLine[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
-                toDeleteDevice = Global._getTestingDeviceNameByTag(drSelected["DeviceNO"].ToString());
+                toDeleteDevice = Global._getTestingDeviceNameByTag(drSelected["DeviceNO"].ToString());  //待删除设备的名称
                 this.confirmationBox1.titleConfirmationBox = "确认删除“" + toDeleteDevice + "”?";
                 this.confirmationBox1.ConfirmationBoxOKClicked += new CommonControl.ConfirmationBox.SimpleButtonOKClickHanlder(this.confirmationBox1_ConfirmationBoxOKClicked);
                 this.confirmationBox1.ConfirmationBoxCancelClicked += new CommonControl.ConfirmationBox.SimpleButtonCancelClickHanlder(this.confirmationBox1_ConfirmationBoxCancelClicked);
@@ -304,6 +344,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 设备删除OK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmationBox1_ConfirmationBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanDeleteEachLine.Rows.Count != 0)
@@ -311,13 +356,13 @@ namespace CloudManage.DeviceManagement
                 DataRow drSelected = tileView1.GetDataRow(selectRowDtDeviceCanDeleteEachLine[0]);    //获取的是grid绑定的表所有列，而不仅仅是显示出来的列
 
                 MySqlParameter lineNO = new MySqlParameter("ln", MySqlDbType.VarChar, 20);
-                lineNO.Value = this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem;
+                lineNO.Value = this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem;  //选中的产线的NO
                 MySqlParameter deviceNO = new MySqlParameter("dn", MySqlDbType.VarChar, 20);
-                deviceNO.Value = drSelected["DeviceNO"];
+                deviceNO.Value = drSelected["DeviceNO"];    //选中的要删除的设备的NO
                 MySqlParameter ifAffected = new MySqlParameter("ifRowAffected", MySqlDbType.Int32, 1);
                 MySqlParameter[] paras = { lineNO, deviceNO, ifAffected };
                 string cmdDeleteDevice = "p_deleteDevice";
-                Global.mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);
+                Global.mysqlHelper1._executeProcMySQL(cmdDeleteDevice, paras, 2, 1);    //删除设备
 
                 //this.confirmationBox1.Visible = false;
 
@@ -327,12 +372,12 @@ namespace CloudManage.DeviceManagement
 
                     //Global.ifDeviceAdditionOrDeletion = true;
                     //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
-                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+                    Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);    //删除成功，将页面重刷标志位各bit置1
 
                     initDeviceAdditionDeletion();    //刷新本页面
                     Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
-                    refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
-                    refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+                    refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新可删除设备grid的数据源
+                    refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);      //刷新可添加设备grid的数据源
 
                     //device_config
                     Global._init_dtDeviceConfig();
@@ -347,6 +392,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 设备删除取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmationBox1_ConfirmationBoxCancelClicked(object sender, EventArgs e)
         {
             lockUnlockButton("unlockbtn");
@@ -367,9 +417,10 @@ namespace CloudManage.DeviceManagement
                 this.deviceAdditionDeletion_addDeviceBox1.Dispose();    //创建前一定要销毁上一次new的deviceAdditionDeletion_addDeviceBox1，否则重复点“增加设备时”就会出现很多窗口
             }
 
-            this.splashScreenManager_deviceAdditionDeletion.ShowWaitForm();
-            refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+            this.splashScreenManager_deviceAdditionDeletion.ShowWaitForm();     //显示等待图标
+            refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);      //根据选中产线刷新可添加设备grid数据源
 
+            //弹出框参数设置
             this.deviceAdditionDeletion_addDeviceBox1 = new DeviceAdditionDeletion_addDeviceBox();
             this.deviceAdditionDeletion_addDeviceBox1.dataSource = Global.dtDeviceCanAddEachLine;
             this.deviceAdditionDeletion_addDeviceBox1.gridLabelLeftText = "序号";
@@ -392,13 +443,18 @@ namespace CloudManage.DeviceManagement
             this.splashScreenManager_deviceAdditionDeletion.CloseWaitForm();
         }
 
+        /// <summary>
+        /// 设备添加OK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxOKClicked(object sender, EventArgs e)
         {
             if (Global.dtDeviceCanAddEachLine.Rows.Count != 0)
             {
                 //DataRow drSelected = Global.dtDeviceCanAddEachLine.Rows[selectRowDtDeviceCanAddEachLine[0]];
                 drSelectedAddDeviceBox = this.deviceAdditionDeletion_addDeviceBox1.currentSelectedRow;
-                drSelectedDevice = Global.dtTestingDeviceName.Select("DeviceNO=" + drSelectedAddDeviceBox["DeviceNO"]);
+                drSelectedDevice = Global.dtTestingDeviceName.Select("DeviceNO=" + drSelectedAddDeviceBox["DeviceNO"]); //选中的设备的NO
 
                 //选择机器
                 addDevice_insertDevice_threshold_selectMachine(drSelectedDevice[0]);
@@ -407,6 +463,11 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 设备添加取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deviceAdditionDeletion_addDeviceBox1_AddDeviceBoxCancelClicked(object sender, EventArgs e)
         {
             lockUnlockButton("unlockbtn");
@@ -416,11 +477,15 @@ namespace CloudManage.DeviceManagement
 
         }
 
+        /// <summary>
+        /// 根据选定的设备，弹出选择machine框
+        /// </summary>
+        /// <param name="dr"></param>
         private void addDevice_insertDevice_threshold_selectMachine(DataRow dr)
         {
             deviceNOSel = dr["DeviceNO"].ToString();
 
-            refreshDtMachineCanSelectEachDevice(deviceNOSel);
+            refreshDtMachineCanSelectEachDevice(deviceNOSel);   //根据指定设备NO刷新该设备可选择的machine
 
             this.deviceAdditionDeletion_selectMachine1 = new DeviceAdditionDeletion_addDeviceBox();
             this.deviceAdditionDeletion_selectMachine1.dataSource = Global.dtMachineCanSelectEachDevice;
@@ -442,35 +507,40 @@ namespace CloudManage.DeviceManagement
             this.deviceAdditionDeletion_selectMachine1.Visible = true;
         }
 
+        /// <summary>
+        /// 增加设备选择machine，OK，根据添加的设备更新数据库各表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deviceAdditionDeletion_selectMachine1_OKClicked(object sender, EventArgs e)
         {
-            //device_threshold
+            //向表device_threshold中插入记录
             addDevice_insertDevice_threshold(drSelectedDevice[0]);
-            //device_config
-            flag_device_config = addDevice_updateDevice_config(drSelectedAddDeviceBox);
+            //向表device_config中插入记录
+            flag_device_config = addDevice_updateDevice_config(drSelectedAddDeviceBox); 
 
-            //device_info
+            //向表device_info插入记录
             flag_device_info = addDevice_insertDevice_info(drSelectedDevice[0]);
 
-            //device_paraNameAndSuffix
+            //向表device_paraNameAndSuffix中插入记录
             flag_device_paraNameAndSuffix = addDevice_insertDevice_paraNameAndSuffix(drSelectedDevice[0]);
 
-            //faults_config
+            //向表faults_config中插入记录
             flag_faults_config = addDevice_insertFaults_config(drSelectedDevice[0]);
             if (flag_device_config == true && flag_device_info == true && flag_device_info_threshold == true && flag_device_paraNameAndSuffix == true && flag_faults_config == true)
             {
-                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加成功！", 1000);
+                initInfoBox_successOrFail("“" + drSelectedAddDeviceBox["DeviceName"].ToString() + "”设备添加成功！", 1000);    //若数据库中所有表都更新成功显示信息弹出框
 
                 //Global.ifDeviceAdditionOrDeletion = true;   //设备发生了增删
                 //Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = 1;
-                Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);
+                Global.SetInt32AllBit1(ref Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion);    //设备添加成功，将页面重刷标志置1
 
 
-                initDeviceAdditionDeletion();
+                initDeviceAdditionDeletion();     //设备添加成功，重刷本页面
                 Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion = Global.SetBitValueInt32(Global.ifLineAdditionOrDeletionDeviceAdditionOrDeletion, currentPageIndex, false);  //刷新页面后将该页面的标志位重置
 
-                refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新grid显示
-                refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);
+                refreshDtDeviceCanDeleteEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);   //刷新可删除设备grid显示
+                refreshDtDeviceCanAddEachLine(this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem);      //刷新可添加设备grid显示
             }
             else
             {
@@ -481,16 +551,25 @@ namespace CloudManage.DeviceManagement
             lockUnlockButton("unlockbtn");
         }
 
+        /// <summary>
+        /// 增加设备选择machine取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deviceAdditionDeletion_selectMachine1_CancelClicked(object sender, EventArgs e)
         {
             lockUnlockButton("unlockbtn");
         }
 
+        /// <summary>
+        /// 以侧边栏选中的lineNO、dr中DeviceNO、MachineNO、LocationXL、LocationYui、ValidParaCount、ParaMinDefault、ParaMaxDefault作为取值
+        /// 向device_threshold中插入记录（产线NO，设备NO，机器NO，设备坐标X，设备坐标Y，有效参数个数，64个参数的最小值、最大值）
+        /// </summary>
+        /// <param name="dr"></param>
         private void addDevice_insertDevice_threshold(DataRow dr)
         {
-            DataRow drSelectedMachine = this.deviceAdditionDeletion_selectMachine1.currentSelectedRow;
+            DataRow drSelectedMachine = this.deviceAdditionDeletion_selectMachine1.currentSelectedRow;  //选中的machine
 
-            //device_threshold
             string cmdAddDeviceDtDevice_info_threshold = "INSERT INTO device_info_threshold (LineNO, DeviceNO, MachineNO, LocationX, LocationY, ValidParaCount";
             for (int i = 0; i < 64; i++)
             {
@@ -552,6 +631,12 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 添加设备在表device_config中添加记录
+        /// 根据dr中DeviceNO和侧边栏选中的产线lineNO，将表device_config中的DeviceStatus改为默认值1
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         private bool addDevice_updateDevice_config(DataRow dr)
         {
             //device_config
@@ -562,6 +647,12 @@ namespace CloudManage.DeviceManagement
             return flag;
         }
 
+        /// <summary>
+        /// 以侧边栏选中产线lineNO,dr["DeviceNO"]，deviceStatusDefault，dr["ValidParaCount"]，dr["ParaDefault"]为取值
+        /// 插入表device_info的字段LineNO, DeviceNO, DeviceStatus, ValidParaCount，Para1~Para64
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         private bool addDevice_insertDevice_info(DataRow dr)
         {
             //device_info
@@ -571,7 +662,7 @@ namespace CloudManage.DeviceManagement
                 cmdAddDeviceDtDeviceInfo = cmdAddDeviceDtDeviceInfo + ", Para" + (i + 1).ToString();
             }
             cmdAddDeviceDtDeviceInfo += ") VALUES (";
-            string deviceStatusDefault = "'1'";
+            string deviceStatusDefault = "'1'"; //添加的设备的的状态初始值默认为1
             for (int i = 0; i < 64; i++)
             {
                 string p = "Para" + (i + 1).ToString() + "Default";
@@ -579,7 +670,7 @@ namespace CloudManage.DeviceManagement
                 string pMax = "Para" + (i + 1).ToString() + "MaxDefault";
                 if (dr[p].ToString() != "\\")
                 {
-                    if (Convert.ToDouble(dr[p]) < Convert.ToDouble(dr[pMin]) || Convert.ToDouble(dr[p]) > Convert.ToDouble(dr[pMax]))
+                    if (Convert.ToDouble(dr[p]) < Convert.ToDouble(dr[pMin]) || Convert.ToDouble(dr[p]) > Convert.ToDouble(dr[pMax]))   //添加的设备的参数若存在超限则状态DeviceStatus初始值设为0
                     {
                         deviceStatusDefault = "'0'";
                     }
@@ -608,6 +699,12 @@ namespace CloudManage.DeviceManagement
             return flag;
         }
 
+        /// <summary>
+        /// 以侧边栏选中产线lineNO，dr["DeviceNO"]， dr["ValidParaCount"]，dr["Para1NameDefault"],dr["Para1SuffixDefault"]...dr["Para64NameDefault"],dr["Para64SuffixDefault"]作为取值
+        /// 插入表device_info_paranameandsuffix的字段LineNO, DeviceNO, ValidParaCount，ParaName，ParaSuffix
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         private bool addDevice_insertDevice_paraNameAndSuffix(DataRow dr)
         {
             //device_paraNameAndSuffix
@@ -667,12 +764,17 @@ namespace CloudManage.DeviceManagement
             return flag;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         private bool addDevice_insertFaults_config(DataRow dr)
         {
             //faults_config
             string cmdFaultsDevice = "SELECT * FROM faults WHERE DeviceNO=" + dr["DeviceNO"].ToString() + ";";
             DataTable dtFaultsDevice = new DataTable();
-            Global.mysqlHelper1._queryTableMySQL(cmdFaultsDevice, ref dtFaultsDevice);
+            Global.mysqlHelper1._queryTableMySQL(cmdFaultsDevice, ref dtFaultsDevice);  //查询DeviceNO==dr["DeviceNO"]设备的所有故障
 
             bool flag = true;
             for (int i = 0; i < dtFaultsDevice.Rows.Count; i++)
@@ -681,7 +783,7 @@ namespace CloudManage.DeviceManagement
                 string cmdAddDtFaults_config = "INSERT INTO faults_config (LineNO, DeviceNO, FaultNO, FaultEnable) VALUES (" +
                                                "'" + this.sideTileBarControl_deviceAdditionDeletion.tagSelectedItem + "', " + "'" + dr["DeviceNO"].ToString() + "', " +
                                                "'" + fn + "', " + "'1');";
-                flag = flag && Global.mysqlHelper1._insertMySQL(cmdAddDtFaults_config); ;
+                flag = flag && Global.mysqlHelper1._insertMySQL(cmdAddDtFaults_config);     //向fualts_config中插入DeviceNO==dr["DeviceNO"]设备的所有故障，并将故障使能置1
             }
             if (flag == true)
             {

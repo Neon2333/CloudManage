@@ -40,12 +40,18 @@ namespace CloudManage.SystemConfig
             }
         }
 
+        /// <summary>
+        /// 初始化页面数组
+        /// </summary>
         private void initSystemConfigPage()
         {
             systemConfigPages[0] = navigationPage_productionLineAdditionDeletion;
             systemConfigPages[1] = navigationPage_reserve1;
         }
 
+        /// <summary>
+        /// 设定、获取当前显示页面index
+        /// </summary>
         public int selectedFramePage
         {
             get
@@ -65,6 +71,10 @@ namespace CloudManage.SystemConfig
             }
         }
 
+        /// <summary>
+        /// 根据index设定当前显示页面
+        /// </summary>
+        /// <param name="pageIndex"></param>
         public void setSelectedFramePage(int pageIndex)
         {
             this.navigationFrame_systemConfig.SelectedPage = systemConfigPages[pageIndex];

@@ -18,6 +18,9 @@ namespace CloudManage.DeviceManagement
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string title
         {
             get
@@ -30,6 +33,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 字段1
+        /// </summary>
         public string gridLabelLeftText
         {
             get
@@ -42,6 +48,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 字段2
+        /// </summary>
         public string gridLabelRightText
         {
             get
@@ -54,6 +63,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 数据源
+        /// </summary>
         public DataTable dataSource
         {
             get
@@ -66,6 +78,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 数据源字段1名称
+        /// </summary>
         public string colLeftFiledName
         {
             set
@@ -74,6 +89,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
+        /// <summary>
+        /// 数据源字段2名称
+        /// </summary>
         public string colRightFiledName
         {
             set
@@ -106,7 +124,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        //当前选中行的index
+        /// <summary>
+        /// 当前选中行的index
+        /// </summary>
         public int currentFocusRowHandler
         {
             get
@@ -130,7 +150,9 @@ namespace CloudManage.DeviceManagement
             }
         }
 
-        //当前选中行
+        /// <summary>
+        /// 获取当前选中行
+        /// </summary>
         public DataRow currentSelectedRow
         {
             get
@@ -141,6 +163,11 @@ namespace CloudManage.DeviceManagement
 
         public delegate void SimpleButtonOKClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxOKClicked;
+        /// <summary>
+        /// 确定按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButton_addDeviceOK_Click(object sender, EventArgs e)
         {
             AddDeviceBoxOKClicked(sender, new EventArgs());
@@ -149,6 +176,11 @@ namespace CloudManage.DeviceManagement
 
         public delegate void SimpleButtonCancelClickHanlder(object sender, EventArgs e);
         public event SimpleButtonOKClickHanlder AddDeviceBoxCancelClicked;
+        /// <summary>
+        /// 取消按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButton_addDeviceCancel_Click(object sender, EventArgs e)
         {
             AddDeviceBoxCancelClicked(sender, new EventArgs());
