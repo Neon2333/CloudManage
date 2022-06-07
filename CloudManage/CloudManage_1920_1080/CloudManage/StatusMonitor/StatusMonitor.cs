@@ -24,7 +24,7 @@ namespace CloudManage.StatusMonitor
         {
             InitializeComponent();
             initStatusMonitorPage();
-            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5);
+            SplashScreenManager.Default.SendCommand(SplashScreen_startup.SplashScreenCommand.SetProgress, Program.progressPercentVal += 5); //进度条+5
             //this.FaultNumStatusMonitor = this.historyQueryControl1.faultNumHistoryQuery;
         }
 
@@ -40,6 +40,9 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        ///<summary>
+        ///初始化数组statusMonitorPages，存3个navigationPage
+        ///</summary>
         private void initStatusMonitorPage()
         {
             statusMonitorPages[0] = navigationPage_workState;
@@ -47,6 +50,9 @@ namespace CloudManage.StatusMonitor
             statusMonitorPages[2] = navigationPage_historyQuery;
         }
 
+        /// <summary>
+        /// 设置/获取statusMonitor中NavigationFrame当前显示页
+        /// </summary>
         public int selectedFramePage
         {
             get
@@ -67,6 +73,10 @@ namespace CloudManage.StatusMonitor
             }
         }
 
+        ///<summary>
+        ///设置statusMonitor中NavigationFrame当前显示页
+        ///</summary>
+        ///<param name="pageIndex">要显示页的索引0~2</param>
         public void setSelectedFramePage(int pageIndex)
         {
             this.navigationFrame_statusMonitor.SelectedPage = statusMonitorPages[pageIndex];

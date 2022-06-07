@@ -172,19 +172,15 @@ namespace CloudManage
         public static DataTable dtEachProductionLineWorkState = new DataTable();    //每台产线的检测设备的数据
 
         public static DataTable dtEachProductionLineSuffix = new DataTable();       //存设备数据的单位
-        //初始化WorkState总览表——产线Tag，产线Text（产线名称，查产线名称），产线中检测设备数num（检测设备使能）
+
+        /// <summary>
+        /// 初始化WorkState总览页
+        /// </summary>
         public static void _init_dtOverviewWorkState()
         {
             if (dtOverviewWorkState.Rows.Count == 0)
             {
-                //string cmdInitDTOverviewWorkState = "SELECT LineName, " +
-                //                                    "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
-                //                                    "WHEN COUNT(FaultTime)=0 THEN '正常' " +
-                //                                    "END) AS LineStatus " +
-                //                                    "FROM productionline AS t1 LEFT JOIN faults_history AS t2 " +
-                //                                    "ON t1.LineNO=t2.LineNO " +
-                //                                    "GROUP BY LineName " +
-                //                                    "ORDER BY t1.`NO`;";
+                //查询LineName、LineStatus，显示各条产线在faults_current中是否有故障，若有则LineStatus为"异常"，没有则为"正常"
                 string cmdInitDTOverviewWorkState = "SELECT LineName, " +
                                                     "(CASE WHEN COUNT(FaultTime)>0 THEN '异常' " +
                                                     "WHEN COUNT(FaultTime)=0 THEN '正常' " +
@@ -193,6 +189,8 @@ namespace CloudManage
                                                     "ON t1.LineNO=t2.LineNO " +
                                                     "GROUP BY LineName " +
                                                     "ORDER BY t1.`NO`;";    //20ms
+
+                //若表dtOverviewWorkState没有加表头则加上表头
                 if (dtOverviewWorkState.Columns.Count == 0)
                 {
                     //Global.dtOverviewWorkState.Columns.Add("LineName", typeof(String));     //先定义表头也可填充，表头不会填充两次
@@ -200,8 +198,9 @@ namespace CloudManage
                     Global.dtOverviewWorkState.Columns.Add("DeviceImgTop", typeof(Image));
                     Global.dtOverviewWorkState.Columns.Add("DeviceImgBottom", typeof(Image));
                 }
-                _initDtMySQL(ref dtOverviewWorkState, cmdInitDTOverviewWorkState);
+                _initDtMySQL(ref dtOverviewWorkState, cmdInitDTOverviewWorkState);  //查询结果存于dtOverviewWorkState
 
+                //根据产线数量计算"未定义"tile的数量。使tile总数为24/48/72/96
                 int totalDeviceNum = dtOverviewWorkState.Rows.Count;
                 int undefineTileNum = 0;
                 if (totalDeviceNum <= 24)
@@ -230,6 +229,7 @@ namespace CloudManage
                     dtOverviewWorkState.Rows.Add(dr);
                 }
 
+                //给tile加图片
                 DataRow drTemp = null;
                 for (int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
                 {
@@ -240,10 +240,15 @@ namespace CloudManage
             }
         }
 
+        /// <summary>
+        /// 初始化显示每条产线的页面
+        /// </summary>
+        /// <param name="selectedItemTag"></param>
         public static void _init_dtEachProductionLineWorkState(string selectedItemTag)
         {
             if (dtEachProductionLineWorkState.Rows.Count == 0)
             {
+                //从device_info查询LineNO=tag的产线的：所有设备NO、有效参数个数、设备名、设备状态（正常/异常）、参数1名称、参数1值、参数2名称、参数2值...参数5名称、参数5值
                 string cmdInitDtEachProductionLineWorkState = "SELECT DISTINCT t1.DeviceNO,t1.ValidParaCount, t2.DeviceName, " +
                                                               "(CASE WHEN t1.DeviceStatus=1 THEN '正常' " +
                                                               "WHEN t1.DeviceStatus=0 THEN '异常' " +
@@ -257,28 +262,31 @@ namespace CloudManage
                                                               "INNER JOIN device_info_paranameandsuffix AS t3 ON t1.DeviceNO=t3.DeviceNO " +
                                                               "WHERE t1.LineNO='" + selectedItemTag +
                                                               "' ORDER BY t1.`NO`;";    //19ms
+                
                 if (dtEachProductionLineWorkState.Columns.Count == 0)
                 {
                     Global.dtEachProductionLineWorkState.Columns.Add("DeviceImg", typeof(Image));
                 }
-                _initDtMySQL(ref Global.dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);  //不含单位
+                _initDtMySQL(ref Global.dtEachProductionLineWorkState, cmdInitDtEachProductionLineWorkState);  //查询结果存于dtEachProductionLineWorkState
 
+                //在表device_info_paranameandsuffix中查询选中LineNO=侧边栏选中item的tag的产线的所有设备的：有效参数名、有效参数单位
                 string cmdInitDtEachProductionLineSuffix = "SELECT * FROM device_info_paranameandsuffix " +
                                                            "WHERE device_info_paranameandsuffix.LineNO='" + selectedItemTag + "';";
                 _initDtMySQL(ref Global.dtEachProductionLineSuffix, cmdInitDtEachProductionLineSuffix);    //参数单位表
 
+                //遍历选中产线的每个设备
                 for(int i = 0; i < Global.dtEachProductionLineWorkState.Rows.Count; i++)
                 {
-                    int paraCount = Convert.ToInt32(Global.dtEachProductionLineWorkState.Rows[i]["ValidParaCount"]);
+                    int paraCount = Convert.ToInt32(Global.dtEachProductionLineWorkState.Rows[i]["ValidParaCount"]);//某个设备的有效参数个数
                     for(int j = 0; j < paraCount; j++)
                     {
-                        string paraCol = "Para" + (j + 1).ToString();
-                        string paraSuffixCol = "Para" + (j + 1).ToString() + "Suffix";
-                        Global.dtEachProductionLineWorkState.Rows[i][paraCol] += dtEachProductionLineSuffix.Rows[i][paraSuffixCol].ToString();
+                        string paraCol = "Para" + (j + 1).ToString();   //Para1/Para2/...
+                        string paraSuffixCol = "Para" + (j + 1).ToString() + "Suffix";  //Para1Suffix/Para2Suffix/...
+                        Global.dtEachProductionLineWorkState.Rows[i][paraCol] += dtEachProductionLineSuffix.Rows[i][paraSuffixCol].ToString();  //给表dtEachProductionLineWorkState中的参数值加上单位
                     }
-
                 }
 
+                //将设备显示页面的tile个数设置为10/20/.../100，计算"无效"tile的数量
                 int totalDeviceNum = dtEachProductionLineWorkState.Rows.Count;
                 int undefineTileNum = 0;
                 if (totalDeviceNum <= 10)
@@ -338,6 +346,7 @@ namespace CloudManage
                     dtEachProductionLineWorkState.Rows.Add(dr);
                 }
 
+                //给tile加图片
                 for (int i = 0; i < (totalDeviceNum + undefineTileNum); i++)
                 {
                     switch (dtEachProductionLineWorkState.Rows[i]["DeviceNO"].ToString())    //更换检测设备图片
@@ -491,13 +500,20 @@ namespace CloudManage
         //MonitorThreshold
         public static DataTable dtDeviceInfoThresholdGridShowTemp = new DataTable();
         public static DataTable dtDeviceInfoThresholdGridShow = new DataTable();
+        /// <summary>
+        /// 查询所有产线所有设备的产线号、产线名、设备号、设备名、有效参数个数、所有有效参数的名称、单位、下限、上限到表dtDeviceInfoThresholdGridShowTemp
+        /// </summary>
         public static void _init_dtDeviceInfoThresholdGridShowTemp()
         {
             string cmdInitDtDeviceInfoThresholdGridShowTemp = "CALL initDtDeviceInfoThresholdGridShowTemp(0, '000', '000');";
             _initDtMySQL(ref dtDeviceInfoThresholdGridShowTemp, cmdInitDtDeviceInfoThresholdGridShowTemp);
         }
-        
-        //将设备有若干参数共用一行，转化为每个参数作为一行的表格形式
+
+        /// <summary>
+        /// 将设备有若干参数共用一行的表dtTemp，转化为每个参数作为一行的表dt
+        /// </summary>
+        /// <param name="dtTemp"></param>
+        /// <param name="dt"></param>
         public static void transformDtDeviceInfoThresholdGridTemp(ref DataTable dtTemp, ref DataTable dt)
         {
             int no = 1;
@@ -525,8 +541,9 @@ namespace CloudManage
 
         public static void _init_dtDeviceInfoThresholdGridShow()
         {
-            _init_dtDeviceInfoThresholdGridShowTemp();
+            _init_dtDeviceInfoThresholdGridShowTemp();  //查询MySQL内容到dtDeviceInfoThresholdGridShowTemp
 
+            //初始化dtDeviceInfoThresholdGridShow
             if (dtDeviceInfoThresholdGridShow.Columns.Count == 0)
             {
                 dtDeviceInfoThresholdGridShow.Columns.Add("NO");
@@ -541,7 +558,7 @@ namespace CloudManage
                 dtDeviceInfoThresholdGridShow.Columns.Add("UpperLimit");
                 dtDeviceInfoThresholdGridShow.Columns.Add("LowerLimit");
             }
-            transformDtDeviceInfoThresholdGridTemp(ref dtDeviceInfoThresholdGridShowTemp, ref dtDeviceInfoThresholdGridShow);
+            transformDtDeviceInfoThresholdGridTemp(ref dtDeviceInfoThresholdGridShowTemp, ref dtDeviceInfoThresholdGridShow);   //将表dtDeviceInfoThresholdGridShowTemp转化为表dtDeviceInfoThresholdGridShow
         }
 
         /*************************************************************************************************************/
